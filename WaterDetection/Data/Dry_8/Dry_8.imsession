@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ImagimobStudio version="0.9">
+  <Timeline id="c324db5e-e3d6-473a-9fe1-b300f2e8a73b">
+    <Tracks>
+      <Track name="CAPSENSE Proto Data" type="datacsv" isLabelTrack="False">
+        <PayloadFile>CAPSENSE-Proto-Data.data</PayloadFile>
+        <Shape>
+          <Axis name="Channel" size="2">
+            <Label index="0">Ganged_LF_Sns0_DiffCount</Label>
+            <Label index="1">Ganged_HF_Sns0_DiffCount</Label>
+          </Axis>
+        </Shape>
+      </Track>
+      <Track name="Live Labeling" type="labelcsv">
+        <PayloadFile>Live-Labeling.label</PayloadFile>
+        <Shape>
+          <Axis name="Labels" size="1">
+            <Label index="0">Dry</Label>
+          </Axis>
+        </Shape>
+      </Track>
+    </Tracks>
+  </Timeline>
+</ImagimobStudio>

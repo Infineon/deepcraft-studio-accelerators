@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Imaginet>
+	<Unit name="Imaginet.Units.Math.Int16ToFloat32">
+		<DisplayName>Int16 To Float32</DisplayName>
+		<DisplayPath>/Math</DisplayPath>
+
+		<Description>
+			Convert int to float
+		</Description>
+
+		<Parameters>
+			<InputSocket name="input" pipe="data"/>
+			<OutputSocket name="output" type="System.Float32" shape="input.shape" pipe="data"/>
+			<Hidden name="count" value="input.shape.flat" />
+		</Parameters>
+
+		<Implementations>
+			<Implementation language="C" fragment="int16_to_float32.h:int16_to_float32" call="int16_to_float32(input, count, output)"/>
+		</Implementations>
+
+	</Unit>
+
+</Imaginet>

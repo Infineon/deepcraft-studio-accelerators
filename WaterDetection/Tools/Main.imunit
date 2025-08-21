@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Imaginet version="2.0.0.0">
+  <Compound unit="d419d86b-7b57-41d3-9a74-ab428f13a213">
+    <Nodes>
+      <UnitNode id="node_9" x="1227.5591036668175" y="518.6733544590313" enabled="true" name="conv1d-medium-accuracy-0 model Data" unit="ImagimobStudio.Modules.DataTrack" />
+      <UnitNode id="node_6" x="772.5319288117057" y="353.6039450460984" enabled="true" unit="Imaginet.Units.Math.Int16ToFloat32" />
+      <UnitNode id="node_5" x="1218.3431086109706" y="645.143010522277" enabled="true" name="conv1d-medium-accuracy-0 model Labels" unit="ImagimobStudio.Modules.LabelTrack" />
+      <DotNetNode id="node_10" x="805.6000000000004" y="1105.2000000000005" enabled="true" name="conv1d-small-accuracy-2 preprocessor">
+        <Interop assembly="Imaginet.Units.KerasModel" class="Imaginet.Units.KerasModel.KerasModel" method="LoadPreprocessor" />
+        <Input param="File" type="FileReference">
+          <StringArgument>C:/Users/RoserM/Documents/Code/ML/CAPSENSE/Water_detection/DEEPCRAFT_PROJECT/WaterDetection_AIKit/Model/conv1d-small-accuracy-2/conv1d-small-accuracy-2.h5</StringArgument>
+        </Input>
+        <Input param="input" type="Tensor" />
+        <Output param="output" type="Tensor" />
+      </DotNetNode>
+      <DotNetNode id="node_3" x="771.6753561024664" y="520.9188390256165" enabled="true" name="conv1d-medium-accuracy-0 preprocessor">
+        <Interop assembly="Imaginet.Units.KerasModel" class="Imaginet.Units.KerasModel.KerasModel" method="LoadPreprocessor" />
+        <Input param="File" type="FileReference">
+          <StringArgument>C:/Users/RoserM/Documents/Code/ML/CAPSENSE/Water_detection/DEEPCRAFT_PROJECT/Water_Detection/Model/11062025/conv1d-medium-accuracy-0/conv1d-medium-accuracy-0.h5</StringArgument>
+        </Input>
+        <Input param="input" type="Tensor" />
+        <Output param="output" type="Tensor" />
+      </DotNetNode>
+      <DeviceNode id="node_0" x="-48.60713748814021" y="702.525499737253" enabled="true" name="CAPSENSE Proto" board="290de5cb-460b-41bf-31cb-8c060d1feff5" boardName="PSOC 6 AI (CY8KIT-06S2-AI)" device="0">
+        <BooleanArgument param="float_convert">false</BooleanArgument>
+      </DeviceNode>
+      <DotNetNode id="node_4" x="768.8532715795933" y="661.8227641502862" enabled="true" name="conv1d-medium-accuracy-0 model">
+        <Interop assembly="Imaginet.Units.KerasModel" class="Imaginet.Units.KerasModel.KerasModel" method="LoadNetwork" />
+        <Input param="File" type="FileReference">
+          <StringArgument>C:/Users/RoserM/Documents/Code/ML/CAPSENSE/Water_detection/DEEPCRAFT_PROJECT/Water_Detection/Model/11062025/conv1d-medium-accuracy-0/conv1d-medium-accuracy-0.h5</StringArgument>
+        </Input>
+        <Input param="input" type="Tensor" />
+        <Output param="output" type="Tensor" />
+      </DotNetNode>
+      <UnitNode id="node_18" x="1391.2" y="1238.8000000000002" enabled="true" name="conv1d-small-accuracy-2 model Labels" unit="ImagimobStudio.Modules.LabelTrack" />
+      <DotNetNode id="node_11" x="804.8000000000002" y="1247.2000000000005" enabled="true" name="conv1d-small-accuracy-2 model">
+        <Interop assembly="Imaginet.Units.KerasModel" class="Imaginet.Units.KerasModel.KerasModel" method="LoadNetwork" />
+        <Input param="File" type="FileReference">
+          <StringArgument>C:/Users/RoserM/Documents/Code/ML/CAPSENSE/Water_detection/DEEPCRAFT_PROJECT/WaterDetection_AIKit/Model/conv1d-small-accuracy-2/conv1d-small-accuracy-2.h5</StringArgument>
+        </Input>
+        <Input param="input" type="Tensor" />
+        <Output param="output" type="Tensor" />
+      </DotNetNode>
+      <UnitNode id="node_17" x="923.1999999999998" y="947.8" enabled="true" unit="Imaginet.Units.Math.Int16ToFloat32" />
+      <LabelListNode id="node_8" width="120" height="120" x="1223" y="151" enabled="true" name="Predefined Labels">
+        <Label>Touch</Label>
+        <Label>Wet</Label>
+        <Label>Dry</Label>
+      </LabelListNode>
+      <UnitNode id="node_19" x="1392.9999999999998" y="999" enabled="true" name="CAPSENSE Proto Data" unit="ImagimobStudio.Modules.DataTrack" />
+      <UnitNode id="node_20" x="1407" y="1110" enabled="true" name="conv1d-small-accuracy-2 model Data" unit="ImagimobStudio.Modules.DataTrack" />
+      <UnitNode id="node_2" x="1216.9338710072227" y="398.7487184811675" enabled="true" name="CAPSENSE Proto Data" unit="ImagimobStudio.Modules.DataTrack" />
+    </Nodes>
+    <Connections>
+      <Connection>
+        <Source node="node_3" param="output" />
+        <Target node="node_4" param="input" />
+      </Connection>
+      <Connection>
+        <Source node="node_4" param="output" />
+        <Target node="node_5" param="data" />
+      </Connection>
+      <Connection>
+        <Source node="node_6" param="output" />
+        <Target node="node_2" param="data" />
+      </Connection>
+      <Connection>
+        <Source node="node_4" param="output" />
+        <Target node="node_9" param="data" />
+      </Connection>
+      <Connection>
+        <Source node="node_10" param="output" />
+        <Target node="node_11" param="input" />
+      </Connection>
+      <Connection>
+        <Source node="node_11" param="output" />
+        <Target node="node_18" param="data" />
+      </Connection>
+      <Connection>
+        <Source node="node_17" param="output" />
+        <Target node="node_10" param="input" />
+      </Connection>
+      <Connection>
+        <Source node="node_0" param="CAPSENSE_DIFFCOUNT" />
+        <Target node="node_17" param="input" />
+      </Connection>
+      <Connection>
+        <Source node="node_17" param="output" />
+        <Target node="node_19" param="data" />
+      </Connection>
+      <Connection>
+        <Source node="node_11" param="output" />
+        <Target node="node_20" param="data" />
+      </Connection>
+    </Connections>
+  </Compound>
+</Imaginet>
