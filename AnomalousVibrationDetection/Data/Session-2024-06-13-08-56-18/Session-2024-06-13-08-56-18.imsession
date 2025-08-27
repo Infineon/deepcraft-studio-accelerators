@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ImagimobStudio version="0.9">
+  <Timeline id="58bcd1bd-3a7c-4727-87ab-3d64b9731970">
+    <Tracks>
+      <Track name="AI_Kit_IMU_Data_Output" type="datacsv" isLabelTrack="False">
+        <PayloadFile>AI_Kit_IMU_Data_Output.data</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="Live Labeling" type="labelcsv">
+        <PayloadFile>Live-Labeling.label</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="conv1d-medium-speed-30" type="datacsv" timecoded="TimestampBeginDuration" isLabelTrack="False">
+        <PayloadFile>..\..\Models\conv1d-medium-speed-3\Predictions\sessions\Session-2024-06-13-08-56-18\conv1d-medium-speed-30.data</PayloadFile>
+        <Offset unit="seconds">4.8000000000E-001</Offset>
+        <Shape />
+      </Track>
+      <Track name="preprocessed_label" type="datacsv" isLabelTrack="False">
+        <PayloadFile>..\..\Models\conv1d-medium-speed-3\Predictions\sessions\Session-2024-06-13-08-56-18\preprocessed_label.data</PayloadFile>
+        <Offset unit="seconds">4.8000000000E-001</Offset>
+        <Shape />
+      </Track>
+    </Tracks>
+  </Timeline>
+</ImagimobStudio>
