@@ -107,7 +107,7 @@ the relevant data useful for model improvement can change.
 For instance, water/touch detection is affected by sensor's mounting which can be horizontal or even vertical. Also the size of the cpacitive surface can be different as well as the mounting location 
 which can be indoor or outdoor with different water/humidity conditions. Collecting data from these scenarios and including them in model's training will make the model more robust and work reliably in different conditions.
 
-Make also sure that you add more negative data like finger swipes, hand hovering, etc. Also if the model is expected to detect only water, record capacitive data using other liquids that can be 
+Make also sure that you add more negative data like finger swipes, hand hoovering, etc. Also if the model is expected to detect only water, record capacitive data using other liquids that can be 
 present in the environment where the device will work and use those recordings to improve your model.
 
 Collecting data from different CAPSENSE&trade; sensors is required to get a robust model that is able to detect water/touch despite the differences in the hardware and its tuning/calibration.
