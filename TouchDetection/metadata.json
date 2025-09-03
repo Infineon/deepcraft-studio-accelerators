@@ -2,11 +2,11 @@
   "title": "Touch Detection",
   "description": "Capsense based touch detection",
   "algorithm": "Classification",
-  "sensors": ["Capacitive Sensing"],
+  "sensors": ["Capacitive & Inductive Sensing"],
   "domain": ["Touch", "Sensing"],
   "application": ["Smart Home", "Appliances", "Smart Manufactoring", "Industrial IoT"],
   "use_case": ["Touch Detection", "Anomaly Detection"],
-  "kit": ["PSoC-6 Pioneer Kit", "PSoC-6 AI Kit", "PSoC-Edge AI Kit"],
-  "device": ["PSoC-6", "PSoC-Edge"],
+  "kit": ["PSoC-4100S Max Pioneer Kit", "PSoC-6 Pioneer Kit", "PSoC-6 AI Kit", "PSoC-Edge AI Kit"],
+  "device": ["PSoC-4", "PSoC-6", "PSoC-Edge"],
   "workflow": ["ML Development"]
 }
