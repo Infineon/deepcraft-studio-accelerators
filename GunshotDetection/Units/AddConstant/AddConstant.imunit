@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Imaginet>
+  <Function unit="Core.Math.AddI">
+    <DisplayName>Add Constant</DisplayName>
+    <DisplayPath>/Math</DisplayPath>
+
+    <Description>
+      Computes (x+A) given a constant A.
+    </Description>
+
+    <Parameters>
+      <InputSocket name="input" description="Input" />
+      <Hidden name="count" value="input.shape.flat" description="Number of elements" />
+      <DoubleOption name="A" description="The constant A" />
+      <OutputSocket name="output" type="input.type" shape="input.shape" text="Output" description="Output buffer. It will have the same shape as the input."/>
+
+    </Parameters>
+
+    <Implementations>
+
+      <Implementation language="C" fragment="addi.h:addi_f32" call="addi_f32(input, count, A, output)">
+        <TensorType tensor="input" type="Float32" />
+        <TensorType tensor="output" type="Float32" />
+      </Implementation>
+
+	    <Implementation language="Python" fragment="addi.py:addi" call="addi(input, A, output)">
+		    <TensorType tensor="input" type="Float32" />
+		    <TensorType tensor="output" />
+	    </Implementation>
+
+		</Implementations>
+
+  </Function>
+
+</Imaginet>

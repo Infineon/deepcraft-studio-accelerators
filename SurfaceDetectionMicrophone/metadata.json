@@ -1,0 +1,12 @@
+{
+  "title": "Vacuum Cleaner Surface Detection (MIC)",
+  "description": "Project showcasing microphone-based surface detection for vacuum cleaners (Floor/Carpet/Air).",
+  "algorithm": "Classification",
+  "sensors": ["Microphone"],
+  "domain": ["Audio"],
+  "application": ["Smart Home", "Appliances"],
+  "use_case": ["Surface Detection", "Carpet Detection", "Floor Detection"],
+  "kit": ["PSoC-6 Pioneer Kit", "PSoC-6 AI Kit", "PSoC-Edge AI Kit"],
+  "device": ["PSoC-6", "PSoC-Edge"],
+  "workflow": ["ML Development"]
+}

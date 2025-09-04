@@ -1,0 +1,12 @@
+{
+  "title": "Project Title MAX 40 characters",
+  "description": "Project description MAX 100 characters",
+  "algorithm": "Choose between Classification or Regression",
+  "sensors": ["Specify sensor(s) used in your project: Microphone, IMU, Camera, etc."],
+  "domain": ["Specify domain(s) of your project: Audio, Voice, Vision, etc."],
+  "application": ["Specify application(s) of your project: Smart Home, Smart TV, Appliances, Wearables, Games, etc."],
+  "use_case": ["Specify use case(s) of your project: Object Detection, Voice Control, Speech Recognition, etc."],
+  "kit": ["Specify Infineon kit(s) your project is compatible with: PSoC-6 Pioneer Kit, PSoC-6 AI Kit, PSoC-Edge AI Kit, etc."],
+  "device": ["Specify device(s) your project is compatible with: PSoC-4, PSoC-6, PSoC-Edge, AURIX, etc."],
+  "workflow": ["Choose between ML Development and/or ML Deployment"]
+}

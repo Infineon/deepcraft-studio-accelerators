@@ -1,0 +1,1445 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ImagimobStudio version="1.1.0">
+  <Job id="a63b9d08-8f6c-4f8e-ac79-8b9a6d9c76a8" />
+  <Preprocessor inshape="[3]" intype="Float32" infreq="50.27272727272727" outshape="[50,3]" outtype="Float32">
+    <Unit id="Core.Queues.SlidingWindow">
+      <Argument param="input" type="String">data </Argument>
+      <Argument param="time_input" type="String">time</Argument>
+      <Argument param="window_shape" type="Shape">[50,3]</Argument>
+      <Argument param="stride" type="Int32">30</Argument>
+      <Argument param="buffer_multiplier" type="Double">2</Argument>
+      <Argument param="output" type="String">data</Argument>
+      <Argument param="time_output" type="String">time</Argument>
+    </Unit>
+  </Preprocessor>
+  <ModelFactory>
+    <Epochs>250</Epochs>
+    <BatchSize>128</BatchSize>
+    <SplitCount>16</SplitCount>
+    <Patience>20</Patience>
+    <AppendModels>False</AppendModels>
+    <LossFunction>CategoricalCrossentropy</LossFunction>
+    <FactoryOptions>None</FactoryOptions>
+    <HardwareType>Default</HardwareType>
+    <TrainingEnvironment>
+    </TrainingEnvironment>
+    <ModelFamily>Conv1D</ModelFamily>
+    <ModelFlavor>SmallKern</ModelFlavor>
+    <ClassifierType>GlobalAveragePool</ClassifierType>
+    <Optimization>Balanced</Optimization>
+    <Pooling>True</Pooling>
+    <Downscale>False</Downscale>
+    <LearnRate>Mid</LearnRate>
+    <RegularizationFactor>Low</RegularizationFactor>
+    <LastNetworkInputShape>[50,3]</LastNetworkInputShape>
+    <LastClassCount>6</LastClassCount>
+    <Optimizer>
+      <LearningRate>0.05</LearningRate>
+      <WeightDecay>0.005</WeightDecay>
+    </Optimizer>
+    <BuildSteps>
+      <Training />
+      <ConfusionMatrix />
+    </BuildSteps>
+  </ModelFactory>
+  <Models>
+    <Model name="conv1d-medium-balanced-0" id="3f5410f7-8743-482a-93f0-1a777118d739">
+      <LossFunction>CategoricalCrossentropy</LossFunction>
+      <Epochs>250</Epochs>
+      <BatchSize>128</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.004</LearningRate>
+        <WeightDecay>0.0001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[50,3]" intype="Float32" infreq="0" outshape="[6]" outtype="Float32">
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">12</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">24</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">24</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.GlobalAveragePool1D" />
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">6</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">softmax</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <Training />
+        <ConfusionMatrix />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="standing" weight="1" />
+        <SymbolWeight symbol="running" weight="1" />
+        <SymbolWeight symbol="walking" weight="1" />
+        <SymbolWeight symbol="sitting" weight="1" />
+        <SymbolWeight symbol="jumping" weight="1" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[3]" intype="Float32" infreq="0" outshape="[50,3]" outtype="Float32">
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data </Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[50,3]</Argument>
+          <Argument param="stride" type="Int32">30</Argument>
+          <Argument param="buffer_multiplier" type="Double">2</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="0" outshape="[10]" outtype="Float32" />
+    </Model>
+    <Model name="conv1d-medium-balanced-1" id="1d7ff874-655a-4e57-862c-ce25e13717db">
+      <LossFunction>CategoricalCrossentropy</LossFunction>
+      <Epochs>250</Epochs>
+      <BatchSize>128</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.004</LearningRate>
+        <WeightDecay>0.0001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[50,3]" intype="Float32" infreq="0" outshape="[6]" outtype="Float32">
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.GlobalAveragePool1D" />
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">6</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">softmax</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <Training />
+        <ConfusionMatrix />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="standing" weight="1" />
+        <SymbolWeight symbol="running" weight="1" />
+        <SymbolWeight symbol="walking" weight="1" />
+        <SymbolWeight symbol="sitting" weight="1" />
+        <SymbolWeight symbol="jumping" weight="1" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[3]" intype="Float32" infreq="0" outshape="[50,3]" outtype="Float32">
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data </Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[50,3]</Argument>
+          <Argument param="stride" type="Int32">30</Argument>
+          <Argument param="buffer_multiplier" type="Double">2</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="0" outshape="[10]" outtype="Float32" />
+    </Model>
+    <Model name="conv1d-medium-balanced-2" id="522ff2e4-3810-4701-a6f6-82dc908f51c7">
+      <LossFunction>CategoricalCrossentropy</LossFunction>
+      <Epochs>250</Epochs>
+      <BatchSize>128</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.004</LearningRate>
+        <WeightDecay>0.0001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[50,3]" intype="Float32" infreq="0" outshape="[6]" outtype="Float32">
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.GlobalAveragePool1D" />
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">6</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">softmax</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <Training />
+        <ConfusionMatrix />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="standing" weight="1" />
+        <SymbolWeight symbol="running" weight="1" />
+        <SymbolWeight symbol="walking" weight="1" />
+        <SymbolWeight symbol="sitting" weight="1" />
+        <SymbolWeight symbol="jumping" weight="1" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[3]" intype="Float32" infreq="0" outshape="[50,3]" outtype="Float32">
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data </Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[50,3]</Argument>
+          <Argument param="stride" type="Int32">30</Argument>
+          <Argument param="buffer_multiplier" type="Double">2</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="0" outshape="[10]" outtype="Float32" />
+    </Model>
+    <Model name="conv1d-medium-balanced-3" id="b531958b-eaf9-430e-9d5a-5ee74e325c50">
+      <LossFunction>CategoricalCrossentropy</LossFunction>
+      <Epochs>250</Epochs>
+      <BatchSize>128</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.004</LearningRate>
+        <WeightDecay>0.0001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[50,3]" intype="Float32" infreq="0" outshape="[6]" outtype="Float32">
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">64</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">64</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.GlobalAveragePool1D" />
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">6</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">softmax</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <Training />
+        <ConfusionMatrix />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="standing" weight="1" />
+        <SymbolWeight symbol="running" weight="1" />
+        <SymbolWeight symbol="walking" weight="1" />
+        <SymbolWeight symbol="sitting" weight="1" />
+        <SymbolWeight symbol="jumping" weight="1" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[3]" intype="Float32" infreq="0" outshape="[50,3]" outtype="Float32">
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data </Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[50,3]</Argument>
+          <Argument param="stride" type="Int32">30</Argument>
+          <Argument param="buffer_multiplier" type="Double">2</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="0" outshape="[10]" outtype="Float32" />
+    </Model>
+  </Models>
+  <Database balance="LabelCount" redistributionScope="Everything">
+    <SymbolMap>
+      <Symbol name="standing" id="1" weight="1" />
+      <Symbol name="running" id="2" weight="1" />
+      <Symbol name="walking" id="3" weight="1" />
+      <Symbol name="sitting" id="4" weight="1" />
+      <Symbol name="jumping" id="5" weight="1" />
+    </SymbolMap>
+    <DataSet id="unassigned" targetSize="0" labels="Unassigned" />
+    <DataSet id="train" targetSize="0.6" labels="Complete">
+      <Session name="2023-07-11_01-03-46" sessionId="f39f2320-f71b-4727-9300-0a178a5857b6" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="50" modified="5249986484583992100" start="0.023426509999999984" length="71.07350999">/Data/2023-07-11_01-03-46/accel.data</DataFile>
+        <SessionFile>/Data/2023-07-11_01-03-46/2023-07-11_01-03-46.imsession</SessionFile>
+        <LabelFile modified="5249986484584012131">/Data/2023-07-11_01-03-46/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="71.072">sitting</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="2023-07-11_01-05-19" sessionId="eeb95128-7558-4b07-b2c6-f2fc0f1a7cd3" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="50" modified="5249986484585241630" start="0.012252350000000009" length="60.82871025">/Data/2023-07-11_01-05-19/accel.data</DataFile>
+        <SessionFile>/Data/2023-07-11_01-05-19/2023-07-11_01-05-19.imsession</SessionFile>
+        <LabelFile modified="5249986484585261634">/Data/2023-07-11_01-05-19/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="60.7">sitting</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="2023-07-11_01-44-09" sessionId="53fea6ea-6632-4038-9bbe-9533b070c8c9" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="50" modified="5249986484586487689" start="0.02092484" length="61.65830966">/Data/2023-07-11_01-44-09/accel.data</DataFile>
+        <SessionFile>/Data/2023-07-11_01-44-09/2023-07-11_01-44-09.imsession</SessionFile>
+        <LabelFile modified="5249986484586497654">/Data/2023-07-11_01-44-09/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="61.65">sitting</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="2023-07-11_01-47-38" sessionId="f100b773-cc57-4dcb-84eb-9572e587eae0" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="50" modified="5249986484589286459" start="0.021040975000000017" length="62.379366125000004">/Data/2023-07-11_01-47-38/accel.data</DataFile>
+        <SessionFile>/Data/2023-07-11_01-47-38/2023-07-11_01-47-38.imsession</SessionFile>
+        <LabelFile modified="5249986484589316304">/Data/2023-07-11_01-47-38/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="62.37">sitting</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="2023-07-11_02-08-15" sessionId="9fcdedec-51da-4b7f-b7b7-1be593c3c02e" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="50" modified="5249986484593398264" start="0.023860539999999986" length="79.59324996">/Data/2023-07-11_02-08-15/accel.data</DataFile>
+        <SessionFile>/Data/2023-07-11_02-08-15/2023-07-11_02-08-15.imsession</SessionFile>
+        <LabelFile modified="5249986484593499072">/Data/2023-07-11_02-08-15/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="77.6074584">standing</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="2023-07-11_02-27-35" sessionId="ab115e6c-aa3a-4d98-8684-018756408ccf" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="50" modified="5249986484597249537" start="0.015025104999999983" length="66.34643919499999">/Data/2023-07-11_02-27-35/accel.data</DataFile>
+        <SessionFile>/Data/2023-07-11_02-27-35/2023-07-11_02-27-35.imsession</SessionFile>
+        <LabelFile modified="5249986484597279598">/Data/2023-07-11_02-27-35/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="64.0913203">standing</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="2023-07-12_12-23-39" sessionId="3317da3d-e4b5-4528-9009-8967d9faeef8" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="50" modified="5249986484598218410" start="0.021025395000000002" length="66.427951105">/Data/2023-07-12_12-23-39/accel.data</DataFile>
+        <SessionFile>/Data/2023-07-12_12-23-39/2023-07-12_12-23-39.imsession</SessionFile>
+        <LabelFile modified="5249986484598242230">/Data/2023-07-12_12-23-39/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="64.0342514">jumping</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="2023-07-12_12-38-10" sessionId="e15f186a-8856-4116-8617-f93c1633b3cf" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="50" modified="5249986484606629438" start="0.02094037500000001" length="66.399944425">/Data/2023-07-12_12-38-10/accel.data</DataFile>
+        <SessionFile>/Data/2023-07-12_12-38-10/2023-07-12_12-38-10.imsession</SessionFile>
+        <LabelFile modified="5249986484606744869">/Data/2023-07-12_12-38-10/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="63.5870106">jumping</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="2023-08-04_14-13-56" sessionId="c4c8e13a-144c-4c7e-9b81-7894b2c2674f" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="48" modified="5249986484609868506" start="0" length="60.854">/Data/2023-08-04_14-13-56/accel.data</DataFile>
+        <SessionFile>/Data/2023-08-04_14-13-56/2023-08-04_14-13-56.imsession</SessionFile>
+        <LabelFile modified="5249986484609959920">/Data/2023-08-04_14-13-56/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="45.1237285">standing</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="2023-08-04_14-17-56" sessionId="ad0a24f0-89c4-4e3e-8e21-b834540c9965" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="48" modified="5249986484612319541" start="0" length="64.474">/Data/2023-08-04_14-17-56/accel.data</DataFile>
+        <SessionFile>/Data/2023-08-04_14-17-56/2023-08-04_14-17-56.imsession</SessionFile>
+        <LabelFile modified="5249986484612341506">/Data/2023-08-04_14-17-56/label.label</LabelFile>
+        <Labels>
+          <Label count="3" length="42.8278691">jumping</Label>
+          <Label count="3" length="18.2858247">standing</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="2023-08-04_14-23-30" sessionId="f5765e10-1680-44c9-a8d9-9539afd8c5ae" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="48" modified="5249986484615342987" start="0" length="70.807">/Data/2023-08-04_14-23-30/accel.data</DataFile>
+        <SessionFile>/Data/2023-08-04_14-23-30/2023-08-04_14-23-30.imsession</SessionFile>
+        <LabelFile modified="5249986484615373244">/Data/2023-08-04_14-23-30/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="70.806">running</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="2023-08-04_14-25-12" sessionId="582e86f9-a8b3-419b-a74c-3a674144e2fe" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="48" modified="5249986484617055745" start="0" length="64.891">/Data/2023-08-04_14-25-12/accel.data</DataFile>
+        <SessionFile>/Data/2023-08-04_14-25-12/2023-08-04_14-25-12.imsession</SessionFile>
+        <LabelFile modified="5249986484617087494">/Data/2023-08-04_14-25-12/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="63.0546048">sitting</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="2023-08-04_14-26-42" sessionId="1b1a7f01-61f0-4ca2-953c-001cbf9d431b" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="48" modified="5249986484618501646" start="0" length="87.207">/Data/2023-08-04_14-26-42/accel.data</DataFile>
+        <SessionFile>/Data/2023-08-04_14-26-42/2023-08-04_14-26-42.imsession</SessionFile>
+        <LabelFile modified="5249986484618511673">/Data/2023-08-04_14-26-42/label.label</LabelFile>
+        <Labels>
+          <Label count="5" length="65.7750296">standing</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="2023-08-04_14-29-03" sessionId="dd07350d-d6e9-4b7a-a417-eaaf2600b069" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="48" modified="5249986484620382148" start="0" length="43.302">/Data/2023-08-04_14-29-03/accel.data</DataFile>
+        <SessionFile>/Data/2023-08-04_14-29-03/2023-08-04_14-29-03.imsession</SessionFile>
+        <LabelFile modified="5249986484620417558">/Data/2023-08-04_14-29-03/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="35.078066">jumping</Label>
+          <Label count="1" length="6.8572228">standing</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="2023-08-04_14-30-15" sessionId="856e7a7f-ed6e-43e2-b27d-ba32bc320089" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="48" modified="5249986484621228162" start="0" length="65.213">/Data/2023-08-04_14-30-15/accel.data</DataFile>
+        <SessionFile>/Data/2023-08-04_14-30-15/2023-08-04_14-30-15.imsession</SessionFile>
+        <LabelFile modified="5249986484621263113">/Data/2023-08-04_14-30-15/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="65.211">walking</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="2023-08-04_14-31-43" sessionId="294474ab-21db-4aa0-87f0-3e7aa7f5503b" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="48" modified="5249986484622527864" start="0" length="64.481">/Data/2023-08-04_14-31-43/accel.data</DataFile>
+        <SessionFile>/Data/2023-08-04_14-31-43/2023-08-04_14-31-43.imsession</SessionFile>
+        <LabelFile modified="5249986484622559844">/Data/2023-08-04_14-31-43/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="64.479">running</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="2023-08-04_14-34-26" sessionId="9d4341b8-448e-4a87-900d-56bbfc4e6ca9" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="48" modified="5249986484623774211" start="0" length="60.865">/Data/2023-08-04_14-34-26/accel.data</DataFile>
+        <SessionFile>/Data/2023-08-04_14-34-26/2023-08-04_14-34-26.imsession</SessionFile>
+        <LabelFile modified="5249986484623794364">/Data/2023-08-04_14-34-26/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="60.821">jumping</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="2023-08-04_14-36-22" sessionId="4449caad-5e27-4c97-ad7e-fdccc95a6b59" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="48" modified="5249986484625329838" start="0" length="60.962">/Data/2023-08-04_14-36-22/accel.data</DataFile>
+        <SessionFile>/Data/2023-08-04_14-36-22/2023-08-04_14-36-22.imsession</SessionFile>
+        <LabelFile modified="5249986484625380676">/Data/2023-08-04_14-36-22/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="60.961">walking</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="2023-08-07_15-07-26" sessionId="ec92a6f3-c1f7-476a-8706-c443fe83afc4" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="50" modified="5249986484630103071" start="0.007" length="41.064">/Data/2023-08-07_15-07-26/accel.data</DataFile>
+        <SessionFile>/Data/2023-08-07_15-07-26/2023-08-07_15-07-26.imsession</SessionFile>
+        <LabelFile modified="5249986484630138203">/Data/2023-08-07_15-07-26/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="41.06">running</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="2023-08-07_15-10-56" sessionId="bb549341-5877-4a7a-a7e0-907ad0e7f358" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="50" modified="5249986484631181462" start="0.001" length="61.666000000000004">/Data/2023-08-07_15-10-56/accel.data</DataFile>
+        <SessionFile>/Data/2023-08-07_15-10-56/2023-08-07_15-10-56.imsession</SessionFile>
+        <LabelFile modified="5249986484631201222">/Data/2023-08-07_15-10-56/label.label</LabelFile>
+        <Labels>
+          <Label count="2" length="59.3349384">jumping</Label>
+          <Label count="1" length="1.183868">standing</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="2023-08-07_15-12-36" sessionId="96b3f082-a144-4cf5-82e5-d8c50d62a2e4" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="50" modified="5249986484632544179" start="0.004" length="62.351">/Data/2023-08-07_15-12-36/accel.data</DataFile>
+        <SessionFile>/Data/2023-08-07_15-12-36/2023-08-07_15-12-36.imsession</SessionFile>
+        <LabelFile modified="5249986484632574211">/Data/2023-08-07_15-12-36/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="62.349">sitting</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="2023-08-07_15-16-22" sessionId="9b9f80e1-a38b-45ab-8387-f1466d502302" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="50" modified="5249986484633978424" start="0" length="63.008">/Data/2023-08-07_15-16-22/accel.data</DataFile>
+        <SessionFile>/Data/2023-08-07_15-16-22/2023-08-07_15-16-22.imsession</SessionFile>
+        <LabelFile modified="5249986484633998410">/Data/2023-08-07_15-16-22/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="63.007">walking</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="2023-08-07_15-18-45" sessionId="0197b00b-b515-415c-8536-8b090275557b" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="50" modified="5249986484635176630" start="0.013" length="62.04">/Data/2023-08-07_15-18-45/accel.data</DataFile>
+        <SessionFile>/Data/2023-08-07_15-18-45/2023-08-07_15-18-45.imsession</SessionFile>
+        <LabelFile modified="5249986484635206520">/Data/2023-08-07_15-18-45/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="62.038">walking</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="2023-08-07_15-21-50" sessionId="d5c7d9d6-ffba-4375-bf2d-b072ec7dd59c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="50" modified="5249986484636726898" start="0.016" length="60.999">/Data/2023-08-07_15-21-50/accel.data</DataFile>
+        <SessionFile>/Data/2023-08-07_15-21-50/2023-08-07_15-21-50.imsession</SessionFile>
+        <LabelFile modified="5249986484636742479">/Data/2023-08-07_15-21-50/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="60.998">jumping</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="2023-08-07_15-40-18" sessionId="9c2c650f-0433-4f53-afa0-dbe637a13a5f" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="50" modified="5249986484639137649" start="0.017" length="61.733999999999995">/Data/2023-08-07_15-40-18/accel.data</DataFile>
+        <SessionFile>/Data/2023-08-07_15-40-18/2023-08-07_15-40-18.imsession</SessionFile>
+        <LabelFile modified="5249986484639157698">/Data/2023-08-07_15-40-18/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="61.733">jumping</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="2023-08-23_17-26-54" sessionId="2f021a50-ab67-4dac-a4b2-6814d1c08a31" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="50" modified="5249986484640788861" start="0.002" length="62.782">/Data/2023-08-23_17-26-54/accel.data</DataFile>
+        <SessionFile>/Data/2023-08-23_17-26-54/2023-08-23_17-26-54.imsession</SessionFile>
+        <LabelFile modified="5249986484640808805">/Data/2023-08-23_17-26-54/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="62.781">jumping</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="2023-08-23_17-28-42" sessionId="7262c787-9786-4333-9c6f-8ccb7f9ed1d2" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="50" modified="5249986484640874367" start="0.009" length="62.816">/Data/2023-08-23_17-28-42/accel.data</DataFile>
+        <SessionFile>/Data/2023-08-23_17-28-42/2023-08-23_17-28-42.imsession</SessionFile>
+        <LabelFile modified="5249986484640894407">/Data/2023-08-23_17-28-42/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="62.815">running</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="2023-08-23_17-30-55" sessionId="520193d2-6fd8-43ac-9435-c8de36232c1b" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="50" modified="5249986484641019648" start="0.016" length="62.413000000000004">/Data/2023-08-23_17-30-55/accel.data</DataFile>
+        <SessionFile>/Data/2023-08-23_17-30-55/2023-08-23_17-30-55.imsession</SessionFile>
+        <LabelFile modified="5249986484641034890">/Data/2023-08-23_17-30-55/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="62.412">running</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="2023-08-23_17-32-24" sessionId="8810dc43-605c-49e2-90de-947b42710200" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="50" modified="5249986484641084978" start="0.012" length="61.992">/Data/2023-08-23_17-32-24/accel.data</DataFile>
+        <SessionFile>/Data/2023-08-23_17-32-24/2023-08-23_17-32-24.imsession</SessionFile>
+        <LabelFile modified="5249986484641094977">/Data/2023-08-23_17-32-24/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="61.991">jumping</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="962640cf9404f600_09_17_2019_16_42_32" sessionId="48af5372-d3e2-4687-8fb5-467f500404e8" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484641150321" start="0" length="63.454">/Data/962640cf9404f600_09_17_2019_16_42_32/accel.data</DataFile>
+        <SessionFile>/Data/962640cf9404f600_09_17_2019_16_42_32/962640cf9404f600_09_17_2019_16_42_32.imsession</SessionFile>
+        <LabelFile modified="5249986484641170394">/Data/962640cf9404f600_09_17_2019_16_42_32/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="2.3807113">standing</Label>
+          <Label count="1" length="61.0338718">running</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="962640cf9404f600_09_17_2019_16_44_30" sessionId="2f4bb93f-0c65-4dd4-9647-69e6b6e09093" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484644575672" start="0" length="63.47">/Data/962640cf9404f600_09_17_2019_16_44_30/accel.data</DataFile>
+        <SessionFile>/Data/962640cf9404f600_09_17_2019_16_44_30/962640cf9404f600_09_17_2019_16_44_30.imsession</SessionFile>
+        <LabelFile modified="5249986484644673169">/Data/962640cf9404f600_09_17_2019_16_44_30/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="2.5649525">standing</Label>
+          <Label count="1" length="60.8550583">running</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="962640cf9404f600_09_17_2019_16_53_31" sessionId="2d35c165-0e03-4deb-9ff5-360befd76a16" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484648744326" start="0" length="63.06">/Data/962640cf9404f600_09_17_2019_16_53_31/accel.data</DataFile>
+        <SessionFile>/Data/962640cf9404f600_09_17_2019_16_53_31/962640cf9404f600_09_17_2019_16_53_31.imsession</SessionFile>
+        <LabelFile modified="5249986484648764344">/Data/962640cf9404f600_09_17_2019_16_53_31/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="63.06">standing</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="962640cf9404f600_09_17_2019_16_54_34" sessionId="d99fcb98-17eb-46c4-b3d9-dde993cbe5f9" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484652461387" start="0" length="63.57">/Data/962640cf9404f600_09_17_2019_16_54_34/accel.data</DataFile>
+        <SessionFile>/Data/962640cf9404f600_09_17_2019_16_54_34/962640cf9404f600_09_17_2019_16_54_34.imsession</SessionFile>
+        <LabelFile modified="5249986484652481428">/Data/962640cf9404f600_09_17_2019_16_54_34/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="63.57">standing</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="962640cf9404f600_09_17_2019_16_55_47" sessionId="8ae372b0-ed52-4331-a5bd-c332ee2e18ea" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484656292350" start="0" length="63.91">/Data/962640cf9404f600_09_17_2019_16_55_47/accel.data</DataFile>
+        <SessionFile>/Data/962640cf9404f600_09_17_2019_16_55_47/962640cf9404f600_09_17_2019_16_55_47.imsession</SessionFile>
+        <LabelFile modified="5249986484656387593">/Data/962640cf9404f600_09_17_2019_16_55_47/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="63.91">standing</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="962640cf9404f600_09_17_2019_16_57_04" sessionId="0210c338-ba70-42d1-aaa9-ceeec1519b8a" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484660258367" start="0" length="64.53">/Data/962640cf9404f600_09_17_2019_16_57_04/accel.data</DataFile>
+        <SessionFile>/Data/962640cf9404f600_09_17_2019_16_57_04/962640cf9404f600_09_17_2019_16_57_04.imsession</SessionFile>
+        <LabelFile modified="5249986484660268354">/Data/962640cf9404f600_09_17_2019_16_57_04/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="64.53">standing</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="962640cf9404f600_09_17_2019_16_58_19" sessionId="9579a2ee-d846-491a-bc6a-44c22f5dc63c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484664229988" start="0" length="63.03">/Data/962640cf9404f600_09_17_2019_16_58_19/accel.data</DataFile>
+        <SessionFile>/Data/962640cf9404f600_09_17_2019_16_58_19/962640cf9404f600_09_17_2019_16_58_19.imsession</SessionFile>
+        <LabelFile modified="5249986484664250158">/Data/962640cf9404f600_09_17_2019_16_58_19/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="63.03">standing</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="b8c556a90831cbe4_09_17_2019_14_45_52" sessionId="b2aa76e7-6b80-4cd3-8a78-c16e4c8bdec3" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484667965422" start="0" length="65.67">/Data/b8c556a90831cbe4_09_17_2019_14_45_52/accel.data</DataFile>
+        <SessionFile>/Data/b8c556a90831cbe4_09_17_2019_14_45_52/b8c556a90831cbe4_09_17_2019_14_45_52.imsession</SessionFile>
+        <LabelFile modified="5249986484668025406">/Data/b8c556a90831cbe4_09_17_2019_14_45_52/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="65.67">walking</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="b8c556a90831cbe4_09_17_2019_14_47_18" sessionId="26860e6c-058c-4ed8-9eec-e0f4b8ed50d9" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484671813050" start="0" length="62.74">/Data/b8c556a90831cbe4_09_17_2019_14_47_18/accel.data</DataFile>
+        <SessionFile>/Data/b8c556a90831cbe4_09_17_2019_14_47_18/b8c556a90831cbe4_09_17_2019_14_47_18.imsession</SessionFile>
+        <LabelFile modified="5249986484671858395">/Data/b8c556a90831cbe4_09_17_2019_14_47_18/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="62.74">walking</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="b8c556a90831cbe4_09_17_2019_14_50_32" sessionId="d690ce35-630a-4a11-afa1-57d2da75ff49" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484679188128" start="0" length="63.96">/Data/b8c556a90831cbe4_09_17_2019_14_50_32/accel.data</DataFile>
+        <SessionFile>/Data/b8c556a90831cbe4_09_17_2019_14_50_32/b8c556a90831cbe4_09_17_2019_14_50_32.imsession</SessionFile>
+        <LabelFile modified="5249986484679271486">/Data/b8c556a90831cbe4_09_17_2019_14_50_32/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="63.96">walking</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="b8c556a90831cbe4_09_17_2019_14_52_10" sessionId="95a02ed0-6cae-44bc-8604-e10df66b7b7b" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484682611287" start="0" length="63.46">/Data/b8c556a90831cbe4_09_17_2019_14_52_10/accel.data</DataFile>
+        <SessionFile>/Data/b8c556a90831cbe4_09_17_2019_14_52_10/b8c556a90831cbe4_09_17_2019_14_52_10.imsession</SessionFile>
+        <LabelFile modified="5249986484682636559">/Data/b8c556a90831cbe4_09_17_2019_14_52_10/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="63.46">walking</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="b8c556a90831cbe4_09_17_2019_15_01_29" sessionId="f2ffca3d-5df1-4c6d-93fc-0742f4807ba3" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484690009919" start="0" length="64.544">/Data/b8c556a90831cbe4_09_17_2019_15_01_29/accel.data</DataFile>
+        <SessionFile>/Data/b8c556a90831cbe4_09_17_2019_15_01_29/b8c556a90831cbe4_09_17_2019_15_01_29.imsession</SessionFile>
+        <LabelFile modified="5249986484690147462">/Data/b8c556a90831cbe4_09_17_2019_15_01_29/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="64.544">sitting</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="b8c556a90831cbe4_09_17_2019_15_02_42" sessionId="11c2606e-5f4d-4e9c-9d1b-769f05f0e88a" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484693904968" start="0" length="64.05">/Data/b8c556a90831cbe4_09_17_2019_15_02_42/accel.data</DataFile>
+        <SessionFile>/Data/b8c556a90831cbe4_09_17_2019_15_02_42/b8c556a90831cbe4_09_17_2019_15_02_42.imsession</SessionFile>
+        <LabelFile modified="5249986484693969505">/Data/b8c556a90831cbe4_09_17_2019_15_02_42/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="64.05">sitting</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="b8c556a90831cbe4_09_17_2019_15_03_53" sessionId="7b63d780-b3f4-4a27-b719-9834d76bfe37" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484697469044" start="0" length="65.09">/Data/b8c556a90831cbe4_09_17_2019_15_03_53/accel.data</DataFile>
+        <SessionFile>/Data/b8c556a90831cbe4_09_17_2019_15_03_53/b8c556a90831cbe4_09_17_2019_15_03_53.imsession</SessionFile>
+        <LabelFile modified="5249986484697577565">/Data/b8c556a90831cbe4_09_17_2019_15_03_53/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="65.09">sitting</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="b8c556a90831cbe4_09_17_2019_15_10_17" sessionId="9158a23e-1a96-44e6-8cee-1e2642adca3a" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484709177924" start="0" length="65.472">/Data/b8c556a90831cbe4_09_17_2019_15_10_17/accel.data</DataFile>
+        <SessionFile>/Data/b8c556a90831cbe4_09_17_2019_15_10_17/b8c556a90831cbe4_09_17_2019_15_10_17.imsession</SessionFile>
+        <LabelFile modified="5249986484709233738">/Data/b8c556a90831cbe4_09_17_2019_15_10_17/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="65.472">standing</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="b8c556a90831cbe4_09_17_2019_15_11_28" sessionId="bd626364-6b84-45e0-8188-d90c37b5f604" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484712650814" start="0" length="65.44">/Data/b8c556a90831cbe4_09_17_2019_15_11_28/accel.data</DataFile>
+        <SessionFile>/Data/b8c556a90831cbe4_09_17_2019_15_11_28/b8c556a90831cbe4_09_17_2019_15_11_28.imsession</SessionFile>
+        <LabelFile modified="5249986484712690806">/Data/b8c556a90831cbe4_09_17_2019_15_11_28/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="65.44">standing</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="b8c556a90831cbe4_09_17_2019_15_12_37" sessionId="47d8c442-033c-49d8-916c-f5eb2b2bc518" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484716460984" start="0" length="65.24">/Data/b8c556a90831cbe4_09_17_2019_15_12_37/accel.data</DataFile>
+        <SessionFile>/Data/b8c556a90831cbe4_09_17_2019_15_12_37/b8c556a90831cbe4_09_17_2019_15_12_37.imsession</SessionFile>
+        <LabelFile modified="5249986484716640959">/Data/b8c556a90831cbe4_09_17_2019_15_12_37/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="65.24">standing</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="b8c556a90831cbe4_09_17_2019_15_18_27" sessionId="a0ad5d00-f939-41c7-9263-6514e71266ff" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484728549810" start="0" length="63.67">/Data/b8c556a90831cbe4_09_17_2019_15_18_27/accel.data</DataFile>
+        <SessionFile>/Data/b8c556a90831cbe4_09_17_2019_15_18_27/b8c556a90831cbe4_09_17_2019_15_18_27.imsession</SessionFile>
+        <LabelFile modified="5249986484728599815">/Data/b8c556a90831cbe4_09_17_2019_15_18_27/label.label</LabelFile>
+        <Labels>
+          <Label count="2" length="54.998004">jumping</Label>
+          <Label count="2" length="8.6658202">standing</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="b8c556a90831cbe4_09_17_2019_15_21_09" sessionId="69ae105b-8113-4209-b992-652f69976016" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484731846594" start="0" length="63.66">/Data/b8c556a90831cbe4_09_17_2019_15_21_09/accel.data</DataFile>
+        <SessionFile>/Data/b8c556a90831cbe4_09_17_2019_15_21_09/b8c556a90831cbe4_09_17_2019_15_21_09.imsession</SessionFile>
+        <LabelFile modified="5249986484731886623">/Data/b8c556a90831cbe4_09_17_2019_15_21_09/label.label</LabelFile>
+        <Labels>
+          <Label count="24" length="32.0112716">standing</Label>
+          <Label count="23" length="31.5809537">jumping</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="b8c556a90831cbe4_09_17_2019_15_26_49" sessionId="47c38a6c-e9cf-45b3-988a-f660f80297bc" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484739009585" start="0" length="63.98">/Data/b8c556a90831cbe4_09_17_2019_15_26_49/accel.data</DataFile>
+        <SessionFile>/Data/b8c556a90831cbe4_09_17_2019_15_26_49/b8c556a90831cbe4_09_17_2019_15_26_49.imsession</SessionFile>
+        <LabelFile modified="5249986484739130481">/Data/b8c556a90831cbe4_09_17_2019_15_26_49/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="63.98">standing</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="b8c556a90831cbe4_09_17_2019_15_41_54" sessionId="be0b7506-fe48-46ce-b121-9c30ea997a56" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484739171840" start="0" length="64.48">/Data/b8c556a90831cbe4_09_17_2019_15_41_54/accel.data</DataFile>
+        <SessionFile>/Data/b8c556a90831cbe4_09_17_2019_15_41_54/b8c556a90831cbe4_09_17_2019_15_41_54.imsession</SessionFile>
+        <LabelFile modified="5249986484739200620">/Data/b8c556a90831cbe4_09_17_2019_15_41_54/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="64.48">walking</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="b8c556a90831cbe4_09_17_2019_15_46_59" sessionId="fbf15a9a-6375-4f35-afe2-1fc781e6d473" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484739369017" start="0" length="63.76">/Data/b8c556a90831cbe4_09_17_2019_15_46_59/accel.data</DataFile>
+        <SessionFile>/Data/b8c556a90831cbe4_09_17_2019_15_46_59/b8c556a90831cbe4_09_17_2019_15_46_59.imsession</SessionFile>
+        <LabelFile modified="5249986484739388913">/Data/b8c556a90831cbe4_09_17_2019_15_46_59/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="63.76">walking</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="b8c556a90831cbe4_09_17_2019_15_53_45" sessionId="902f8d07-3683-49af-ba80-bef142a113d7" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484742354916" start="0" length="65.141">/Data/b8c556a90831cbe4_09_17_2019_15_53_45/accel.data</DataFile>
+        <SessionFile>/Data/b8c556a90831cbe4_09_17_2019_15_53_45/b8c556a90831cbe4_09_17_2019_15_53_45.imsession</SessionFile>
+        <LabelFile modified="5249986484742394871">/Data/b8c556a90831cbe4_09_17_2019_15_53_45/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="65.141">sitting</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="b8c556a90831cbe4_09_17_2019_15_54_58" sessionId="54cf51b8-7790-42b0-a817-c10a2efad779" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484742424890" start="0" length="63.84">/Data/b8c556a90831cbe4_09_17_2019_15_54_58/accel.data</DataFile>
+        <SessionFile>/Data/b8c556a90831cbe4_09_17_2019_15_54_58/b8c556a90831cbe4_09_17_2019_15_54_58.imsession</SessionFile>
+        <LabelFile modified="5249986484742456395">/Data/b8c556a90831cbe4_09_17_2019_15_54_58/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="63.84">sitting</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="b8c556a90831cbe4_09_17_2019_15_57_49" sessionId="01fd93b1-463a-407a-945b-e827b263b1bb" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484742578500" start="0" length="64.04">/Data/b8c556a90831cbe4_09_17_2019_15_57_49/accel.data</DataFile>
+        <SessionFile>/Data/b8c556a90831cbe4_09_17_2019_15_57_49/b8c556a90831cbe4_09_17_2019_15_57_49.imsession</SessionFile>
+        <LabelFile modified="5249986484742618509">/Data/b8c556a90831cbe4_09_17_2019_15_57_49/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="64.04">sitting</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="b8c556a90831cbe4_09_17_2019_15_59_09" sessionId="e81f5ebc-22cc-442f-af00-d5dd02d5f4a2" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484742650174" start="0" length="64.835">/Data/b8c556a90831cbe4_09_17_2019_15_59_09/accel.data</DataFile>
+        <SessionFile>/Data/b8c556a90831cbe4_09_17_2019_15_59_09/b8c556a90831cbe4_09_17_2019_15_59_09.imsession</SessionFile>
+        <LabelFile modified="5249986484742690167">/Data/b8c556a90831cbe4_09_17_2019_15_59_09/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="64.8349999">sitting</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="b8c556a90831cbe4_09_17_2019_16_08_29" sessionId="9b5d8963-0d82-44f9-b5a2-5e88d69e6abf" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484746246070" start="0" length="64.98">/Data/b8c556a90831cbe4_09_17_2019_16_08_29/accel.data</DataFile>
+        <SessionFile>/Data/b8c556a90831cbe4_09_17_2019_16_08_29/b8c556a90831cbe4_09_17_2019_16_08_29.imsession</SessionFile>
+        <LabelFile modified="5249986484746371610">/Data/b8c556a90831cbe4_09_17_2019_16_08_29/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="64.98">sitting</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="b8c556a90831cbe4_09_17_2019_16_10_41" sessionId="9499a24d-6275-46bf-9ff7-3866363e937a" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484752994333" start="0" length="64.27">/Data/b8c556a90831cbe4_09_17_2019_16_10_41/accel.data</DataFile>
+        <SessionFile>/Data/b8c556a90831cbe4_09_17_2019_16_10_41/b8c556a90831cbe4_09_17_2019_16_10_41.imsession</SessionFile>
+        <LabelFile modified="5249986484753024437">/Data/b8c556a90831cbe4_09_17_2019_16_10_41/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="64.27">sitting</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="b8c556a90831cbe4_09_17_2019_16_17_41" sessionId="e7d86b1a-0285-4c85-ae65-99e85d760c28" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484760585634" start="0" length="63.195">/Data/b8c556a90831cbe4_09_17_2019_16_17_41/accel.data</DataFile>
+        <SessionFile>/Data/b8c556a90831cbe4_09_17_2019_16_17_41/b8c556a90831cbe4_09_17_2019_16_17_41.imsession</SessionFile>
+        <LabelFile modified="5249986484760615656">/Data/b8c556a90831cbe4_09_17_2019_16_17_41/label.label</LabelFile>
+        <Labels>
+          <Label count="12" length="34.2836793">jumping</Label>
+          <Label count="12" length="28.8615674">standing</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="b8c556a90831cbe4_09_17_2019_16_19_04" sessionId="61895e1b-3497-45f0-8bb5-4444c36242c4" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484760666425" start="0" length="61.84">/Data/b8c556a90831cbe4_09_17_2019_16_19_04/accel.data</DataFile>
+        <SessionFile>/Data/b8c556a90831cbe4_09_17_2019_16_19_04/b8c556a90831cbe4_09_17_2019_16_19_04.imsession</SessionFile>
+        <LabelFile modified="5249986484760706379">/Data/b8c556a90831cbe4_09_17_2019_16_19_04/label.label</LabelFile>
+        <Labels>
+          <Label count="12" length="29.684222">standing</Label>
+          <Label count="11" length="32.1196439">jumping</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="b8c556a90831cbe4_09_17_2019_16_20_20" sessionId="624c6271-e7aa-4be9-a825-90dcabd3ee0c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484760741878" start="0" length="65.725">/Data/b8c556a90831cbe4_09_17_2019_16_20_20/accel.data</DataFile>
+        <SessionFile>/Data/b8c556a90831cbe4_09_17_2019_16_20_20/b8c556a90831cbe4_09_17_2019_16_20_20.imsession</SessionFile>
+        <LabelFile modified="5249986484760771961">/Data/b8c556a90831cbe4_09_17_2019_16_20_20/label.label</LabelFile>
+        <Labels>
+          <Label count="13" length="32.8343628">standing</Label>
+          <Label count="12" length="32.8424955">jumping</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="b8c556a90831cbe4_09_17_2019_16_23_17" sessionId="2e945939-71a8-482c-8143-2a807464985a" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484760811894" start="0" length="69.44">/Data/b8c556a90831cbe4_09_17_2019_16_23_17/accel.data</DataFile>
+        <SessionFile>/Data/b8c556a90831cbe4_09_17_2019_16_23_17/b8c556a90831cbe4_09_17_2019_16_23_17.imsession</SessionFile>
+        <LabelFile modified="5249986484760847183">/Data/b8c556a90831cbe4_09_17_2019_16_23_17/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="69.44">walking</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="b8c556a90831cbe4_09_17_2019_16_26_48" sessionId="fc867f77-02f2-4036-a472-a0a7070d2854" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484770215873" start="0" length="64">/Data/b8c556a90831cbe4_09_17_2019_16_26_48/accel.data</DataFile>
+        <SessionFile>/Data/b8c556a90831cbe4_09_17_2019_16_26_48/b8c556a90831cbe4_09_17_2019_16_26_48.imsession</SessionFile>
+        <LabelFile modified="5249986484770261010">/Data/b8c556a90831cbe4_09_17_2019_16_26_48/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="64">walking</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="b8c556a90831cbe4_09_17_2019_16_27_56" sessionId="4e44012f-3df1-4c66-9dd5-8d0952823648" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484773686108" start="0" length="63.59">/Data/b8c556a90831cbe4_09_17_2019_16_27_56/accel.data</DataFile>
+        <SessionFile>/Data/b8c556a90831cbe4_09_17_2019_16_27_56/b8c556a90831cbe4_09_17_2019_16_27_56.imsession</SessionFile>
+        <LabelFile modified="5249986484773716098">/Data/b8c556a90831cbe4_09_17_2019_16_27_56/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="63.59">walking</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="b8c556a90831cbe4_09_17_2019_16_32_51" sessionId="333c49e7-9074-4954-88e9-fc9184474edc" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484776916446" start="0" length="63.15">/Data/b8c556a90831cbe4_09_17_2019_16_32_51/accel.data</DataFile>
+        <SessionFile>/Data/b8c556a90831cbe4_09_17_2019_16_32_51/b8c556a90831cbe4_09_17_2019_16_32_51.imsession</SessionFile>
+        <LabelFile modified="5249986484776950332">/Data/b8c556a90831cbe4_09_17_2019_16_32_51/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="5.444907">standing</Label>
+          <Label count="1" length="57.7050852">running</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="b8c556a90831cbe4_09_17_2019_16_37_30" sessionId="46ea0319-b37e-42c8-b6bf-a616f838d0b0" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484781148163" start="0" length="64.46">/Data/b8c556a90831cbe4_09_17_2019_16_37_30/accel.data</DataFile>
+        <SessionFile>/Data/b8c556a90831cbe4_09_17_2019_16_37_30/b8c556a90831cbe4_09_17_2019_16_37_30.imsession</SessionFile>
+        <LabelFile modified="5249986484781266445">/Data/b8c556a90831cbe4_09_17_2019_16_37_30/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="2.2877842">standing</Label>
+          <Label count="2" length="60.7145141">running</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+    </DataSet>
+    <DataSet id="validation" targetSize="0.2" labels="Complete">
+      <Session name="2023-07-11_01-46-13" sessionId="8f9cf5bb-5c58-46fb-bb0a-02ddc99cb616" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="50" modified="5249986484587850043" start="0.02102130499999999" length="62.080950295">/Data/2023-07-11_01-46-13/accel.data</DataFile>
+        <SessionFile>/Data/2023-07-11_01-46-13/2023-07-11_01-46-13.imsession</SessionFile>
+        <LabelFile modified="5249986484587870214">/Data/2023-07-11_01-46-13/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="62.075">sitting</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="2023-08-04_14-16-13" sessionId="5bb52366-38d4-4f75-b99a-6a19508f15ad" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="48" modified="5249986484611168410" start="0" length="61.737">/Data/2023-08-04_14-16-13/accel.data</DataFile>
+        <SessionFile>/Data/2023-08-04_14-16-13/2023-08-04_14-16-13.imsession</SessionFile>
+        <LabelFile modified="5249986484611198392">/Data/2023-08-04_14-16-13/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="59.4512168">sitting</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="2023-08-04_14-19-28" sessionId="928cffd9-8169-45ed-ab29-524bfd537650" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="48" modified="5249986484613729979" start="0" length="74.032">/Data/2023-08-04_14-19-28/accel.data</DataFile>
+        <SessionFile>/Data/2023-08-04_14-19-28/2023-08-04_14-19-28.imsession</SessionFile>
+        <LabelFile modified="5249986484613752572">/Data/2023-08-04_14-19-28/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="74.03">walking</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="2023-08-04_14-38-51" sessionId="f14d4d03-a6c6-441d-8386-b9048a93ce44" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="48" modified="5249986484627499307" start="0" length="60.87">/Data/2023-08-04_14-38-51/accel.data</DataFile>
+        <SessionFile>/Data/2023-08-04_14-38-51/2023-08-04_14-38-51.imsession</SessionFile>
+        <LabelFile modified="5249986484627534526">/Data/2023-08-04_14-38-51/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="60.6703232">running</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="2023-08-23_17-29-50" sessionId="c0c80703-f984-4b5c-b826-f73b24a9b3f6" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="50" modified="5249986484640949603" start="0.007" length="62.574000000000005">/Data/2023-08-23_17-29-50/accel.data</DataFile>
+        <SessionFile>/Data/2023-08-23_17-29-50/2023-08-23_17-29-50.imsession</SessionFile>
+        <LabelFile modified="5249986484640969672">/Data/2023-08-23_17-29-50/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="62.573">running</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="962640cf9404f600_09_17_2019_16_46_45" sessionId="c613dfc2-1c46-49d2-9858-37a7208d9fce" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484644728247" start="0" length="63.05">/Data/962640cf9404f600_09_17_2019_16_46_45/accel.data</DataFile>
+        <SessionFile>/Data/962640cf9404f600_09_17_2019_16_46_45/962640cf9404f600_09_17_2019_16_46_45.imsession</SessionFile>
+        <LabelFile modified="5249986484644748400">/Data/962640cf9404f600_09_17_2019_16_46_45/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="1.6796662">standing</Label>
+          <Label count="1" length="61.3284385">running</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="962640cf9404f600_09_17_2019_16_49_29" sessionId="d85d50c4-83e3-4de8-b1cb-dcae19292c5a" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484648500204" start="0" length="62.756">/Data/962640cf9404f600_09_17_2019_16_49_29/accel.data</DataFile>
+        <SessionFile>/Data/962640cf9404f600_09_17_2019_16_49_29/962640cf9404f600_09_17_2019_16_49_29.imsession</SessionFile>
+        <LabelFile modified="5249986484648597898">/Data/962640cf9404f600_09_17_2019_16_49_29/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="1.0101463">standing</Label>
+          <Label count="1" length="61.7457169">running</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="b8c556a90831cbe4_09_17_2019_14_49_13" sessionId="d1ca347c-9154-4209-9e86-0ac25e197371" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484675573653" start="0" length="63.72">/Data/b8c556a90831cbe4_09_17_2019_14_49_13/accel.data</DataFile>
+        <SessionFile>/Data/b8c556a90831cbe4_09_17_2019_14_49_13/b8c556a90831cbe4_09_17_2019_14_49_13.imsession</SessionFile>
+        <LabelFile modified="5249986484675613567">/Data/b8c556a90831cbe4_09_17_2019_14_49_13/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="63.72">walking</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="b8c556a90831cbe4_09_17_2019_15_05_05" sessionId="d8c91390-d3ab-4a9d-b5e7-f111de39140d" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484701301305" start="0" length="64.93">/Data/b8c556a90831cbe4_09_17_2019_15_05_05/accel.data</DataFile>
+        <SessionFile>/Data/b8c556a90831cbe4_09_17_2019_15_05_05/b8c556a90831cbe4_09_17_2019_15_05_05.imsession</SessionFile>
+        <LabelFile modified="5249986484701346703">/Data/b8c556a90831cbe4_09_17_2019_15_05_05/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="64.93">sitting</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="b8c556a90831cbe4_09_17_2019_15_06_15" sessionId="e1d21fc4-38d3-4098-b022-8fd57e538f06" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484705292835" start="0" length="65.279">/Data/b8c556a90831cbe4_09_17_2019_15_06_15/accel.data</DataFile>
+        <SessionFile>/Data/b8c556a90831cbe4_09_17_2019_15_06_15/b8c556a90831cbe4_09_17_2019_15_06_15.imsession</SessionFile>
+        <LabelFile modified="5249986484705327996">/Data/b8c556a90831cbe4_09_17_2019_15_06_15/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="65.279">sitting</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="b8c556a90831cbe4_09_17_2019_15_15_05" sessionId="027d2bbc-4461-4c16-ac51-8613f6b28f43" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484724472154" start="0" length="64.57">/Data/b8c556a90831cbe4_09_17_2019_15_15_05/accel.data</DataFile>
+        <SessionFile>/Data/b8c556a90831cbe4_09_17_2019_15_15_05/b8c556a90831cbe4_09_17_2019_15_15_05.imsession</SessionFile>
+        <LabelFile modified="5249986484724507780">/Data/b8c556a90831cbe4_09_17_2019_15_15_05/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="64.5699999">standing</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="b8c556a90831cbe4_09_17_2019_15_45_34" sessionId="afa0d1a5-0ea5-4e40-8fd9-87429f532bc5" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484739296060" start="0" length="64.45">/Data/b8c556a90831cbe4_09_17_2019_15_45_34/accel.data</DataFile>
+        <SessionFile>/Data/b8c556a90831cbe4_09_17_2019_15_45_34/b8c556a90831cbe4_09_17_2019_15_45_34.imsession</SessionFile>
+        <LabelFile modified="5249986484739325921">/Data/b8c556a90831cbe4_09_17_2019_15_45_34/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="64.45">walking</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="b8c556a90831cbe4_09_17_2019_16_11_48" sessionId="04a97b19-e21d-4033-83c3-940bc72eb06b" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484756367161" start="0" length="64.04">/Data/b8c556a90831cbe4_09_17_2019_16_11_48/accel.data</DataFile>
+        <SessionFile>/Data/b8c556a90831cbe4_09_17_2019_16_11_48/b8c556a90831cbe4_09_17_2019_16_11_48.imsession</SessionFile>
+        <LabelFile modified="5249986484756397320">/Data/b8c556a90831cbe4_09_17_2019_16_11_48/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="64.04">sitting</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="b8c556a90831cbe4_09_17_2019_16_15_08" sessionId="9181af4f-b3af-42de-a98a-dff24a5d6302" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484760427659" start="0" length="64.065">/Data/b8c556a90831cbe4_09_17_2019_16_15_08/accel.data</DataFile>
+        <SessionFile>/Data/b8c556a90831cbe4_09_17_2019_16_15_08/b8c556a90831cbe4_09_17_2019_16_15_08.imsession</SessionFile>
+        <LabelFile modified="5249986484760458932">/Data/b8c556a90831cbe4_09_17_2019_16_15_08/label.label</LabelFile>
+        <Labels>
+          <Label count="14" length="32.4836164">standing</Label>
+          <Label count="13" length="31.2504597">jumping</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="b8c556a90831cbe4_09_17_2019_16_16_24" sessionId="2cc6493c-1b0c-4116-a9a8-1a7af93af904" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484760498981" start="0" length="62.04">/Data/b8c556a90831cbe4_09_17_2019_16_16_24/accel.data</DataFile>
+        <SessionFile>/Data/b8c556a90831cbe4_09_17_2019_16_16_24/b8c556a90831cbe4_09_17_2019_16_16_24.imsession</SessionFile>
+        <LabelFile modified="5249986484760535673">/Data/b8c556a90831cbe4_09_17_2019_16_16_24/label.label</LabelFile>
+        <Labels>
+          <Label count="13" length="27.9714912">standing</Label>
+          <Label count="12" length="33.9568742">jumping</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="b8c556a90831cbe4_09_17_2019_16_25_42" sessionId="d3269711-5736-47f1-a916-61069cb8c6d9" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484766893702" start="0" length="63.22">/Data/b8c556a90831cbe4_09_17_2019_16_25_42/accel.data</DataFile>
+        <SessionFile>/Data/b8c556a90831cbe4_09_17_2019_16_25_42/b8c556a90831cbe4_09_17_2019_16_25_42.imsession</SessionFile>
+        <LabelFile modified="5249986484766946672">/Data/b8c556a90831cbe4_09_17_2019_16_25_42/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="63.22">walking</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+    </DataSet>
+    <DataSet id="test" targetSize="0.2" labels="Complete">
+      <Session name="2023-07-11_02-06-41" sessionId="b7f20250-7e9b-457d-8023-45fcd6cd3441" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="50" modified="5249986484591120102" start="0.020998110000000014" length="86.49940359">/Data/2023-07-11_02-06-41/accel.data</DataFile>
+        <SessionFile>/Data/2023-07-11_02-06-41/2023-07-11_02-06-41.imsession</SessionFile>
+        <LabelFile modified="5249986484591142694">/Data/2023-07-11_02-06-41/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="84.4908861">standing</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="2023-07-11_02-09-40" sessionId="a0dd898b-faaa-4636-92e7-6fdc18e5146e" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="50" modified="5249986484594886934" start="0.01800562" length="80.38242938">/Data/2023-07-11_02-09-40/accel.data</DataFile>
+        <SessionFile>/Data/2023-07-11_02-09-40/2023-07-11_02-09-40.imsession</SessionFile>
+        <LabelFile modified="5249986484594916856">/Data/2023-07-11_02-09-40/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="75.6713022">standing</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="2023-07-11_02-26-17" sessionId="b0b9e416-df53-4363-85ce-8a6266d764bc" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="50" modified="5249986484596112082" start="0.021018099999999984" length="66.3999635">/Data/2023-07-11_02-26-17/accel.data</DataFile>
+        <SessionFile>/Data/2023-07-11_02-26-17/2023-07-11_02-26-17.imsession</SessionFile>
+        <LabelFile modified="5249986484596137399">/Data/2023-07-11_02-26-17/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="64.9990261">standing</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="2023-07-12_12-25-46" sessionId="53a67abb-7e1b-4e52-ba27-c80a927a03b4" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="50" modified="5249986484601183782" start="0.021014000000000033" length="108.8196113">/Data/2023-07-12_12-25-46/accel.data</DataFile>
+        <SessionFile>/Data/2023-07-12_12-25-46/2023-07-12_12-25-46.imsession</SessionFile>
+        <LabelFile modified="5249986484601284355">/Data/2023-07-12_12-25-46/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="105.4282616">walking</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="2023-08-04_14-37-40" sessionId="c0c9290b-041e-42c1-b968-57b16e949495" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="48" modified="5249986484626401448" start="0" length="50.614">/Data/2023-08-04_14-37-40/accel.data</DataFile>
+        <SessionFile>/Data/2023-08-04_14-37-40/2023-08-04_14-37-40.imsession</SessionFile>
+        <LabelFile modified="5249986484626448114">/Data/2023-08-04_14-37-40/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="50.234568">standing</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="2023-08-04_14-40-23" sessionId="aeb1d210-61d6-4cc3-80b3-ffe97a7c58e4" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="48" modified="5249986484628717239" start="0" length="60.469">/Data/2023-08-04_14-40-23/accel.data</DataFile>
+        <SessionFile>/Data/2023-08-04_14-40-23/2023-08-04_14-40-23.imsession</SessionFile>
+        <LabelFile modified="5249986484628751669">/Data/2023-08-04_14-40-23/label.label</LabelFile>
+        <Labels>
+          <Label count="2" length="58.5066028">sitting</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="2023-08-07_15-36-33" sessionId="a61fcb17-2b19-4857-a8de-20cb32468fce" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="50" modified="5249986484637807386" start="0.009" length="61.374">/Data/2023-08-07_15-36-33/accel.data</DataFile>
+        <SessionFile>/Data/2023-08-07_15-36-33/2023-08-07_15-36-33.imsession</SessionFile>
+        <LabelFile modified="5249986484637832482">/Data/2023-08-07_15-36-33/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="61.373">running</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="2023-08-23_17-25-29" sessionId="150b1e36-4e31-4d8b-ba3b-791c6e8f191d" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="50" modified="5249986484640629891" start="0.011" length="63.650999999999996">/Data/2023-08-23_17-25-29/accel.data</DataFile>
+        <SessionFile>/Data/2023-08-23_17-25-29/2023-08-23_17-25-29.imsession</SessionFile>
+        <LabelFile modified="5249986484640703410">/Data/2023-08-23_17-25-29/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="63.65">jumping</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="962640cf9404f600_09_17_2019_16_51_15" sessionId="ceb01804-6dcd-4149-ac27-80a88aa0a3ca" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484648658872" start="0" length="62.683">/Data/962640cf9404f600_09_17_2019_16_51_15/accel.data</DataFile>
+        <SessionFile>/Data/962640cf9404f600_09_17_2019_16_51_15/962640cf9404f600_09_17_2019_16_51_15.imsession</SessionFile>
+        <LabelFile modified="5249986484648678852">/Data/962640cf9404f600_09_17_2019_16_51_15/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="2.0684864">standing</Label>
+          <Label count="1" length="60.6143582">running</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="b8c556a90831cbe4_09_17_2019_14_53_26" sessionId="3c9b5919-d4f6-4a46-aafe-dbf9bf08c519" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484686569075" start="0" length="63.83">/Data/b8c556a90831cbe4_09_17_2019_14_53_26/accel.data</DataFile>
+        <SessionFile>/Data/b8c556a90831cbe4_09_17_2019_14_53_26/b8c556a90831cbe4_09_17_2019_14_53_26.imsession</SessionFile>
+        <LabelFile modified="5249986484686687875">/Data/b8c556a90831cbe4_09_17_2019_14_53_26/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="63.83">walking</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="b8c556a90831cbe4_09_17_2019_15_13_51" sessionId="bfc5f29a-eba6-4493-9fcf-67141d443645" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484720476115" start="0" length="64.576">/Data/b8c556a90831cbe4_09_17_2019_15_13_51/accel.data</DataFile>
+        <SessionFile>/Data/b8c556a90831cbe4_09_17_2019_15_13_51/b8c556a90831cbe4_09_17_2019_15_13_51.imsession</SessionFile>
+        <LabelFile modified="5249986484720519543">/Data/b8c556a90831cbe4_09_17_2019_15_13_51/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="64.5759999">standing</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="b8c556a90831cbe4_09_17_2019_15_24_13" sessionId="fa0664f4-70f7-4aca-8248-9f72c7f11235" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484735077483" start="0" length="64.434">/Data/b8c556a90831cbe4_09_17_2019_15_24_13/accel.data</DataFile>
+        <SessionFile>/Data/b8c556a90831cbe4_09_17_2019_15_24_13/b8c556a90831cbe4_09_17_2019_15_24_13.imsession</SessionFile>
+        <LabelFile modified="5249986484735127455">/Data/b8c556a90831cbe4_09_17_2019_15_24_13/label.label</LabelFile>
+        <Labels>
+          <Label count="23" length="24.5443623">jumping</Label>
+          <Label count="23" length="39.7537898">standing</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="b8c556a90831cbe4_09_17_2019_15_43_16" sessionId="b5b8484d-8a7d-4a29-a9d1-3961c278b823" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484739235926" start="0" length="64.77">/Data/b8c556a90831cbe4_09_17_2019_15_43_16/accel.data</DataFile>
+        <SessionFile>/Data/b8c556a90831cbe4_09_17_2019_15_43_16/b8c556a90831cbe4_09_17_2019_15_43_16.imsession</SessionFile>
+        <LabelFile modified="5249986484739265896">/Data/b8c556a90831cbe4_09_17_2019_15_43_16/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="64.77">walking</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="b8c556a90831cbe4_09_17_2019_15_56_30" sessionId="5ddfa650-2768-4373-a330-a8ba11041712" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484742486396" start="0" length="64.99">/Data/b8c556a90831cbe4_09_17_2019_15_56_30/accel.data</DataFile>
+        <SessionFile>/Data/b8c556a90831cbe4_09_17_2019_15_56_30/b8c556a90831cbe4_09_17_2019_15_56_30.imsession</SessionFile>
+        <LabelFile modified="5249986484742526883">/Data/b8c556a90831cbe4_09_17_2019_15_56_30/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="64.99">sitting</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="b8c556a90831cbe4_09_17_2019_16_07_23" sessionId="08ccfaca-7428-4919-953c-55cfdc2ec98a" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484742725290" start="0" length="63.5">/Data/b8c556a90831cbe4_09_17_2019_16_07_23/accel.data</DataFile>
+        <SessionFile>/Data/b8c556a90831cbe4_09_17_2019_16_07_23/b8c556a90831cbe4_09_17_2019_16_07_23.imsession</SessionFile>
+        <LabelFile modified="5249986484742755422">/Data/b8c556a90831cbe4_09_17_2019_16_07_23/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="63.5">sitting</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="b8c556a90831cbe4_09_17_2019_16_09_35" sessionId="474c86ba-c0f6-4829-a61b-1613ac5de99c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484749748478" start="0" length="63.96">/Data/b8c556a90831cbe4_09_17_2019_16_09_35/accel.data</DataFile>
+        <SessionFile>/Data/b8c556a90831cbe4_09_17_2019_16_09_35/b8c556a90831cbe4_09_17_2019_16_09_35.imsession</SessionFile>
+        <LabelFile modified="5249986484749798472">/Data/b8c556a90831cbe4_09_17_2019_16_09_35/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="63.96">sitting</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="b8c556a90831cbe4_09_17_2019_16_24_32" sessionId="ab8b5868-a930-4f80-843e-c398151e872a" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484763598059" start="0" length="67.46">/Data/b8c556a90831cbe4_09_17_2019_16_24_32/accel.data</DataFile>
+        <SessionFile>/Data/b8c556a90831cbe4_09_17_2019_16_24_32/b8c556a90831cbe4_09_17_2019_16_24_32.imsession</SessionFile>
+        <LabelFile modified="5249986484763628113">/Data/b8c556a90831cbe4_09_17_2019_16_24_32/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="67.4599999">walking</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="b8c556a90831cbe4_09_17_2019_16_39_22" sessionId="dddf6f5c-7ff9-4392-8ca3-f3381b819f68" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="accel" tags="None">
+        <DataFile shape="[3]" samplerate="51" modified="5249986484781306572" start="0" length="63.93">/Data/b8c556a90831cbe4_09_17_2019_16_39_22/accel.data</DataFile>
+        <SessionFile>/Data/b8c556a90831cbe4_09_17_2019_16_39_22/b8c556a90831cbe4_09_17_2019_16_39_22.imsession</SessionFile>
+        <LabelFile modified="5249986484781361037">/Data/b8c556a90831cbe4_09_17_2019_16_39_22/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="2.996897">standing</Label>
+          <Label count="1" length="60.9263482">running</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+    </DataSet>
+  </Database>
+</ImagimobStudio>

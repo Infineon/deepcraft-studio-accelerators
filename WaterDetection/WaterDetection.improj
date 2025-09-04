@@ -1,0 +1,1031 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ImagimobStudio version="1.1.0">
+  <Job id="249636b0-8748-11f0-9ae8-ffb8a81f5125"/>
+  <ProjectType>Classification</ProjectType>
+  <Preprocessor inshape="[2]" intype="Float32" infreq="68" outshape="[34,2]" outtype="Float32">
+    <Unit id="Core.Queues.SlidingWindow">
+      <Argument param="input" type="String">data</Argument>
+      <Argument param="time_input" type="String">time</Argument>
+      <Argument param="window_shape" type="Shape">[34,2]</Argument>
+      <Argument param="stride" type="Int32">34</Argument>
+      <Argument param="buffer_multiplier" type="Double">1</Argument>
+      <Argument param="output" type="String">data</Argument>
+      <Argument param="time_output" type="String">time</Argument>
+    </Unit>
+  </Preprocessor>
+  <ModelFactory>
+    <Epochs>50</Epochs>
+    <BatchSize>32</BatchSize>
+    <SplitCount>16</SplitCount>
+    <Patience>20</Patience>
+    <AppendModels>False</AppendModels>
+    <LossFunction>CategoricalCrossentropy</LossFunction>
+    <HardwareType>Infineon</HardwareType>
+    <TrainingEnvironment>
+    </TrainingEnvironment>
+    <ModelFamily>Conv1D</ModelFamily>
+    <ModelFlavor>SmallKern</ModelFlavor>
+    <ClassifierType>Dense</ClassifierType>
+    <Optimization>Accuracy</Optimization>
+    <Pooling>True</Pooling>
+    <Downscale>False</Downscale>
+    <LearnRate>Low</LearnRate>
+    <RegularizationFactor>Low</RegularizationFactor>
+    <LastNetworkInputShape>[34,2]</LastNetworkInputShape>
+    <LastClassCount>4</LastClassCount>
+    <Optimizer>
+      <LearningRate>0.001</LearningRate>
+      <WeightDecay>0.0001</WeightDecay>
+    </Optimizer>
+    <BuildSteps>
+      <Training/>
+      <ConfusionMatrix/>
+    </BuildSteps>
+  </ModelFactory>
+  <Models>
+    <Model name="conv1d-medium-accuracy-0" id="6ceb99ac-a7af-4e0f-bea9-6bbdb4917d6b">
+      <LossFunction>CategoricalCrossentropy</LossFunction>
+      <Epochs>50</Epochs>
+      <BatchSize>32</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.0001</LearningRate>
+        <WeightDecay>0.0001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[34,2]" intype="Float32" infreq="0" outshape="[4]" outtype="Float32">
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">12</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">24</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">24</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Flatten"/>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">40</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dropout">
+          <Argument param="rate" type="Double">0.1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">4</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">softmax</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <Training/>
+        <ConfusionMatrix/>
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="Dry" weight="1"/>
+        <SymbolWeight symbol="Wet" weight="1"/>
+        <SymbolWeight symbol="Touch" weight="1"/>
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[2]" intype="Float32" infreq="0" outshape="[34,2]" outtype="Float32">
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[34,2]</Argument>
+          <Argument param="stride" type="Int32">34</Argument>
+          <Argument param="buffer_multiplier" type="Double">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="0" outshape="[10]" outtype="Float32"/>
+    </Model>
+    <Model name="conv1d-medium-accuracy-1" id="1f63ffb2-c9b3-4291-8819-be3e00773f0f">
+      <LossFunction>CategoricalCrossentropy</LossFunction>
+      <Epochs>50</Epochs>
+      <BatchSize>32</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.0001</LearningRate>
+        <WeightDecay>0.0001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[34,2]" intype="Float32" infreq="0" outshape="[4]" outtype="Float32">
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Flatten"/>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">40</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dropout">
+          <Argument param="rate" type="Double">0.1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">4</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">softmax</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <Training/>
+        <ConfusionMatrix/>
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="Dry" weight="1"/>
+        <SymbolWeight symbol="Wet" weight="1"/>
+        <SymbolWeight symbol="Touch" weight="1"/>
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[2]" intype="Float32" infreq="0" outshape="[34,2]" outtype="Float32">
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[34,2]</Argument>
+          <Argument param="stride" type="Int32">34</Argument>
+          <Argument param="buffer_multiplier" type="Double">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="0" outshape="[10]" outtype="Float32"/>
+    </Model>
+    <Model name="conv1d-medium-accuracy-2" id="00fdb42c-71ee-41a6-aa62-724674ce5b8d">
+      <LossFunction>CategoricalCrossentropy</LossFunction>
+      <Epochs>50</Epochs>
+      <BatchSize>32</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.0001</LearningRate>
+        <WeightDecay>0.0001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[34,2]" intype="Float32" infreq="0" outshape="[4]" outtype="Float32">
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Flatten"/>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">40</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dropout">
+          <Argument param="rate" type="Double">0.1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">4</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">softmax</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <Training/>
+        <ConfusionMatrix/>
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="Dry" weight="1"/>
+        <SymbolWeight symbol="Wet" weight="1"/>
+        <SymbolWeight symbol="Touch" weight="1"/>
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[2]" intype="Float32" infreq="0" outshape="[34,2]" outtype="Float32">
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[34,2]</Argument>
+          <Argument param="stride" type="Int32">34</Argument>
+          <Argument param="buffer_multiplier" type="Double">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="0" outshape="[10]" outtype="Float32"/>
+    </Model>
+    <Model name="conv1d-medium-accuracy-3" id="1259f5b1-cf54-4757-a1dc-2c2a0b299449">
+      <LossFunction>CategoricalCrossentropy</LossFunction>
+      <Epochs>50</Epochs>
+      <BatchSize>32</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.0001</LearningRate>
+        <WeightDecay>0.0001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[34,2]" intype="Float32" infreq="0" outshape="[4]" outtype="Float32">
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">64</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">64</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Flatten"/>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">40</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dropout">
+          <Argument param="rate" type="Double">0.1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">4</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">softmax</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <Training/>
+        <ConfusionMatrix/>
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="Dry" weight="1"/>
+        <SymbolWeight symbol="Wet" weight="1"/>
+        <SymbolWeight symbol="Touch" weight="1"/>
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[2]" intype="Float32" infreq="0" outshape="[34,2]" outtype="Float32">
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[34,2]</Argument>
+          <Argument param="stride" type="Int32">34</Argument>
+          <Argument param="buffer_multiplier" type="Double">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="0" outshape="[10]" outtype="Float32"/>
+    </Model>
+  </Models>
+  <Database balance="AnnotatedLength" redistributionScope="Everything">
+    <SymbolMap>
+      <Symbol name="Dry" id="1" weight="1"/>
+      <Symbol name="Wet" id="2" weight="1"/>
+      <Symbol name="Touch" id="3" weight="1"/>
+    </SymbolMap>
+    <DataSet id="unassigned" targetSize="0" labels="Unassigned"/>
+    <DataSet id="train" targetSize="0.6" labels="Complete">
+      <Session name="Dry_0" sessionId="b174c16b-6a55-4937-8a21-5c6f70a9271a" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="CAPSENSE Proto Data" tags="None">
+        <DataFile shape="[2]" samplerate="68" modified="5250599751627387904" start="0.0073529" length="120.92647058823529">/Data/Dry_0/CAPSENSE-Proto-Data.data</DataFile>
+        <SessionFile>/Data/Dry_0/Dry_0.imsession</SessionFile>
+        <LabelFile modified="5250599751627387904">/Data/Dry_0/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="1" length="120.8771067">Dry</Label>
+        </Labels>
+        <CustomColumnValues/>
+      </Session>
+      <Session name="Dry_1" sessionId="b4b3a515-920d-4c03-af84-390c3e072b9d" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="CAPSENSE Proto Data" tags="None">
+        <DataFile shape="[2]" samplerate="68" modified="5250599751627387904" start="0.0073529" length="121.27941176470588">/Data/Dry_1/CAPSENSE-Proto-Data.data</DataFile>
+        <SessionFile>/Data/Dry_1/Dry_1.imsession</SessionFile>
+        <LabelFile modified="5250599751627387904">/Data/Dry_1/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="1" length="121.0870691">Dry</Label>
+        </Labels>
+        <CustomColumnValues/>
+      </Session>
+      <Session name="Dry_2" sessionId="beb368bc-7f93-4c79-b9db-cb293bdec044" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="CAPSENSE Proto Data" tags="None">
+        <DataFile shape="[2]" samplerate="68" modified="5250599751627387904" start="0.0073529" length="120.88235294117646">/Data/Dry_2/CAPSENSE-Proto-Data.data</DataFile>
+        <SessionFile>/Data/Dry_2/Dry_2.imsession</SessionFile>
+        <LabelFile modified="5250599751627387904">/Data/Dry_2/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="1" length="120.8511528">Dry</Label>
+        </Labels>
+        <CustomColumnValues/>
+      </Session>
+      <Session name="Dry_3" sessionId="1fde5ac4-8dfb-449d-9db0-b02ea324d326" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="CAPSENSE Proto Data" tags="None">
+        <DataFile shape="[2]" samplerate="68" modified="5250599751627387904" start="0.0073529" length="120.67647058823529">/Data/Dry_3/CAPSENSE-Proto-Data.data</DataFile>
+        <SessionFile>/Data/Dry_3/Dry_3.imsession</SessionFile>
+        <LabelFile modified="5250599751627387904">/Data/Dry_3/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="2" length="117.6233555">Dry</Label>
+        </Labels>
+        <CustomColumnValues/>
+      </Session>
+      <Session name="Dry_4" sessionId="77bf7978-1775-45cf-8b95-5420e11d018b" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="CAPSENSE Proto Data" tags="None">
+        <DataFile shape="[2]" samplerate="68" modified="5250599751627387904" start="0.0073529" length="121.26470588235294">/Data/Dry_4/CAPSENSE-Proto-Data.data</DataFile>
+        <SessionFile>/Data/Dry_4/Dry_4.imsession</SessionFile>
+        <LabelFile modified="5250599751627387904">/Data/Dry_4/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="1" length="121.2552569">Dry</Label>
+        </Labels>
+        <CustomColumnValues/>
+      </Session>
+      <Session name="Dry_5" sessionId="d298017b-ebf8-4518-aaa2-d24bd5b1f8fc" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="CAPSENSE Proto Data" tags="None">
+        <DataFile shape="[2]" samplerate="68" modified="5250599751627387904" start="0.0073529" length="120.8970588235294">/Data/Dry_5/CAPSENSE-Proto-Data.data</DataFile>
+        <SessionFile>/Data/Dry_5/Dry_5.imsession</SessionFile>
+        <LabelFile modified="5250599751627387904">/Data/Dry_5/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="1" length="120.8893547">Dry</Label>
+        </Labels>
+        <CustomColumnValues/>
+      </Session>
+      <Session name="Noise_Dry_0" sessionId="3b020bf0-aa82-4171-9bf4-cf0706f8af8b" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="CAPSENSE Proto Data" tags="None">
+        <DataFile shape="[2]" samplerate="68" modified="5250599751627387904" start="0.0073529" length="86.3970588235294">/Data/Noise_Dry_0/CAPSENSE-Proto-Data.data</DataFile>
+        <SessionFile>/Data/Noise_Dry_0/Noise_Dry_0.imsession</SessionFile>
+        <LabelFile modified="5250599751627387904">/Data/Noise_Dry_0/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="18" length="25.625988">Dry</Label>
+        </Labels>
+        <CustomColumnValues/>
+      </Session>
+      <Session name="Noise_Wet_0" sessionId="bd6a6d52-d13c-42f4-b546-9eabda5126fd" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="CAPSENSE Proto Data" tags="None">
+        <DataFile shape="[2]" samplerate="68" modified="5250599751627387904" start="0.0073529" length="70.69117647058823">/Data/Noise_Wet_0/CAPSENSE-Proto-Data.data</DataFile>
+        <SessionFile>/Data/Noise_Wet_0/Noise_Wet_0.imsession</SessionFile>
+        <LabelFile modified="5250599751627387904">/Data/Noise_Wet_0/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="4" length="9.6920804">Wet</Label>
+        </Labels>
+        <CustomColumnValues/>
+      </Session>
+      <Session name="Touch_0" sessionId="9532c269-6823-4645-9ec8-3637b70d729c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="CAPSENSE Proto Data" tags="None">
+        <DataFile shape="[2]" samplerate="68" modified="5250599751627387904" start="0.0073529" length="122.52941176470588">/Data/Touch_0/CAPSENSE-Proto-Data.data</DataFile>
+        <SessionFile>/Data/Touch_0/Touch_0.imsession</SessionFile>
+        <LabelFile modified="5250599751627387904">/Data/Touch_0/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="57" length="43.5113948">Dry</Label>
+          <Label count="56" length="32.0307495">Touch</Label>
+        </Labels>
+        <CustomColumnValues/>
+      </Session>
+      <Session name="Touch_1" sessionId="19facf67-d34f-4239-93ed-a4c16b211074" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="CAPSENSE Proto Data" tags="None">
+        <DataFile shape="[2]" samplerate="68" modified="5250599751627387904" start="0.0073529" length="123.58823529411765">/Data/Touch_1/CAPSENSE-Proto-Data.data</DataFile>
+        <SessionFile>/Data/Touch_1/Touch_1.imsession</SessionFile>
+        <LabelFile modified="5250599751627387904">/Data/Touch_1/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="65" length="66.1600294">Dry</Label>
+          <Label count="64" length="21.0845508">Touch</Label>
+        </Labels>
+        <CustomColumnValues/>
+      </Session>
+      <Session name="Touch_2" sessionId="8cf0588e-7820-4772-a6e9-b53d063d05b9" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="CAPSENSE Proto Data" tags="None">
+        <DataFile shape="[2]" samplerate="68" modified="5250599751627387904" start="0.0073529" length="145.86764705882354">/Data/Touch_2/CAPSENSE-Proto-Data.data</DataFile>
+        <SessionFile>/Data/Touch_2/Touch_2.imsession</SessionFile>
+        <LabelFile modified="5250599751627387904">/Data/Touch_2/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="74" length="46.0889024">Dry</Label>
+          <Label count="86" length="44.2631964">Touch</Label>
+        </Labels>
+        <CustomColumnValues/>
+      </Session>
+      <Session name="Touch_3" sessionId="3242aabd-906b-4461-a045-1a0b3d9f30ad" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="CAPSENSE Proto Data" tags="None">
+        <DataFile shape="[2]" samplerate="68" modified="5250599751627387904" start="0.0073529" length="122.76470588235294">/Data/Touch_3/CAPSENSE-Proto-Data.data</DataFile>
+        <SessionFile>/Data/Touch_3/Touch_3.imsession</SessionFile>
+        <LabelFile modified="5250599751627387904">/Data/Touch_3/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="82" length="46.1828347">Dry</Label>
+          <Label count="85" length="31.4573556">Touch</Label>
+        </Labels>
+        <CustomColumnValues/>
+      </Session>
+      <Session name="Touch_4" sessionId="6e6692de-f888-4f6e-823f-0bf91c186cea" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="CAPSENSE Proto Data" tags="None">
+        <DataFile shape="[2]" samplerate="68" modified="5250599751627387904" start="0.0073529" length="126.04411764705883">/Data/Touch_4/CAPSENSE-Proto-Data.data</DataFile>
+        <SessionFile>/Data/Touch_4/Touch_4.imsession</SessionFile>
+        <LabelFile modified="5250599751627387904">/Data/Touch_4/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="62" length="46.162874">Dry</Label>
+          <Label count="63" length="38.8163255">Touch</Label>
+        </Labels>
+        <CustomColumnValues/>
+      </Session>
+      <Session name="Touch_5" sessionId="78246933-7295-411b-b46a-e49f4b46d25c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="CAPSENSE Proto Data" tags="None">
+        <DataFile shape="[2]" samplerate="68" modified="5250599751627387904" start="0.0073529" length="123">/Data/Touch_5/CAPSENSE-Proto-Data.data</DataFile>
+        <SessionFile>/Data/Touch_5/Touch_5.imsession</SessionFile>
+        <LabelFile modified="5250599751627387904">/Data/Touch_5/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="65" length="44.8339547">Dry</Label>
+          <Label count="63" length="32.8228046">Touch</Label>
+        </Labels>
+        <CustomColumnValues/>
+      </Session>
+      <Session name="Wet_0" sessionId="22f4b31c-1042-4456-b386-c2140d87baa4" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="CAPSENSE Proto Data" tags="None">
+        <DataFile shape="[2]" samplerate="68" modified="5250599751627387904" start="0.0073529" length="121.33823529411765">/Data/Wet_0/CAPSENSE-Proto-Data.data</DataFile>
+        <SessionFile>/Data/Wet_0/Wet_0.imsession</SessionFile>
+        <LabelFile modified="5250599751627387904">/Data/Wet_0/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="1" length="121.2793626">Wet</Label>
+        </Labels>
+        <CustomColumnValues/>
+      </Session>
+      <Session name="Wet_1" sessionId="e85588df-827e-402f-8224-7bfd29202d84" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="CAPSENSE Proto Data" tags="None">
+        <DataFile shape="[2]" samplerate="68" modified="5250599751627387904" start="0.0073529" length="121.20588235294117">/Data/Wet_1/CAPSENSE-Proto-Data.data</DataFile>
+        <SessionFile>/Data/Wet_1/Wet_1.imsession</SessionFile>
+        <LabelFile modified="5250599751627387904">/Data/Wet_1/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="1" length="121.169674">Wet</Label>
+        </Labels>
+        <CustomColumnValues/>
+      </Session>
+      <Session name="Wet_2" sessionId="1809cf3f-390d-4cc9-b065-60d65651d42a" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="CAPSENSE Proto Data" tags="None">
+        <DataFile shape="[2]" samplerate="68" modified="5250599751627387904" start="0.0073529" length="120.97058823529412">/Data/Wet_2/CAPSENSE-Proto-Data.data</DataFile>
+        <SessionFile>/Data/Wet_2/Wet_2.imsession</SessionFile>
+        <LabelFile modified="5250599751627387904">/Data/Wet_2/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="2" length="114.9136259">Wet</Label>
+        </Labels>
+        <CustomColumnValues/>
+      </Session>
+      <Session name="Wet_3" sessionId="449482f4-9efc-4c5f-ade7-054fdec8859e" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="CAPSENSE Proto Data" tags="None">
+        <DataFile shape="[2]" samplerate="68" modified="5250599751627387904" start="0.0073529" length="121.72058823529412">/Data/Wet_3/CAPSENSE-Proto-Data.data</DataFile>
+        <SessionFile>/Data/Wet_3/Wet_3.imsession</SessionFile>
+        <LabelFile modified="5250599751627387904">/Data/Wet_3/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="1" length="121.5294581">Wet</Label>
+        </Labels>
+        <CustomColumnValues/>
+      </Session>
+      <Session name="Wet_4" sessionId="65b2a4b1-5105-4f97-b7e3-3587b7230fad" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="CAPSENSE Proto Data" tags="None">
+        <DataFile shape="[2]" samplerate="68" modified="5250599751627387904" start="0.0073529" length="121.1470588235294">/Data/Wet_4/CAPSENSE-Proto-Data.data</DataFile>
+        <SessionFile>/Data/Wet_4/Wet_4.imsession</SessionFile>
+        <LabelFile modified="5250599751627387904">/Data/Wet_4/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="1" length="121.1108445">Wet</Label>
+        </Labels>
+        <CustomColumnValues/>
+      </Session>
+      <Session name="Wet_5" sessionId="5e354d5a-2165-4dd3-ac1c-a99fb7a51716" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="CAPSENSE Proto Data" tags="None">
+        <DataFile shape="[2]" samplerate="68" modified="5250599751627387904" start="0.0073529" length="121.32352941176471">/Data/Wet_5/CAPSENSE-Proto-Data.data</DataFile>
+        <SessionFile>/Data/Wet_5/Wet_5.imsession</SessionFile>
+        <LabelFile modified="5250599751627387904">/Data/Wet_5/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="1" length="121.2937198">Wet</Label>
+        </Labels>
+        <CustomColumnValues/>
+      </Session>
+      <Session name="Wet_Touch_0" sessionId="364839e1-98fa-4f85-8e89-39f999c13281" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="CAPSENSE Proto Data" tags="None">
+        <DataFile shape="[2]" samplerate="68" modified="5250599751627387904" start="0.0073529" length="129.94117647058823">/Data/Wet_Touch_0/CAPSENSE-Proto-Data.data</DataFile>
+        <SessionFile>/Data/Wet_Touch_0/Wet_Touch_0.imsession</SessionFile>
+        <LabelFile modified="5250599751627387904">/Data/Wet_Touch_0/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="1" length="4.368644">Dry</Label>
+          <Label count="26" length="75.7099513">Wet</Label>
+          <Label count="23" length="14.3660093">Touch</Label>
+        </Labels>
+        <CustomColumnValues/>
+      </Session>
+      <Session name="Wet_Touch_1" sessionId="7d0eebfc-c336-46d7-a2be-211d311b15bb" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="CAPSENSE Proto Data" tags="None">
+        <DataFile shape="[2]" samplerate="68" modified="5250599751627387904" start="0.0073529" length="121.82352941176471">/Data/Wet_Touch_1/CAPSENSE-Proto-Data.data</DataFile>
+        <SessionFile>/Data/Wet_Touch_1/Wet_Touch_1.imsession</SessionFile>
+        <LabelFile modified="5250599751627387904">/Data/Wet_Touch_1/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="63" length="72.2161799">Wet</Label>
+          <Label count="62" length="18.1853732">Touch</Label>
+        </Labels>
+        <CustomColumnValues/>
+      </Session>
+      <Session name="Wet_Touch_2" sessionId="69abadec-c54b-45d6-8c7d-d292a5336ec7" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="CAPSENSE Proto Data" tags="None">
+        <DataFile shape="[2]" samplerate="68" modified="5250599751627387904" start="0.0073529" length="122.16176470588235">/Data/Wet_Touch_2/CAPSENSE-Proto-Data.data</DataFile>
+        <SessionFile>/Data/Wet_Touch_2/Wet_Touch_2.imsession</SessionFile>
+        <LabelFile modified="5250599751627387904">/Data/Wet_Touch_2/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="78" length="67.0465708">Wet</Label>
+          <Label count="75" length="25.3286844">Touch</Label>
+        </Labels>
+        <CustomColumnValues/>
+      </Session>
+    </DataSet>
+    <DataSet id="validation" targetSize="0.2" labels="Complete">
+      <Session name="Dry_6" sessionId="e84efa38-2bba-478f-b646-46e9066a2efe" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="CAPSENSE Proto Data" tags="None">
+        <DataFile shape="[2]" samplerate="68" modified="5250599751627387904" start="0.0073529" length="120.92647058823529">/Data/Dry_6/CAPSENSE-Proto-Data.data</DataFile>
+        <SessionFile>/Data/Dry_6/Dry_6.imsession</SessionFile>
+        <LabelFile modified="5250599751627387904">/Data/Dry_6/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="1" length="120.7344156">Dry</Label>
+        </Labels>
+        <CustomColumnValues/>
+      </Session>
+      <Session name="Dry_7" sessionId="d93055eb-d0ff-4963-918f-50d0e67837ab" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="CAPSENSE Proto Data" tags="None">
+        <DataFile shape="[2]" samplerate="68" modified="5250599751627387904" start="0.0073529" length="121.42647058823529">/Data/Dry_7/CAPSENSE-Proto-Data.data</DataFile>
+        <SessionFile>/Data/Dry_7/Dry_7.imsession</SessionFile>
+        <LabelFile modified="5250599751627387904">/Data/Dry_7/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="1" length="121.4178718">Dry</Label>
+        </Labels>
+        <CustomColumnValues/>
+      </Session>
+      <Session name="Noise_Dry_1" sessionId="f0884250-424f-4882-94cb-1bd50d50d8a4" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="CAPSENSE Proto Data" tags="None">
+        <DataFile shape="[2]" samplerate="68" modified="5250599751627387904" start="0.0073529" length="63.661764705882355">/Data/Noise_Dry_1/CAPSENSE-Proto-Data.data</DataFile>
+        <SessionFile>/Data/Noise_Dry_1/Noise_Dry_1.imsession</SessionFile>
+        <LabelFile modified="5250599751627387904">/Data/Noise_Dry_1/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="10" length="17.8614371">Dry</Label>
+        </Labels>
+        <CustomColumnValues/>
+      </Session>
+      <Session name="Noise_Wet_1" sessionId="e0568d08-8599-41b3-a217-90ec41f0aef1" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="CAPSENSE Proto Data" tags="None">
+        <DataFile shape="[2]" samplerate="68" modified="5250599751627387904" start="0.0073529" length="73.23529411764706">/Data/Noise_Wet_1/CAPSENSE-Proto-Data.data</DataFile>
+        <SessionFile>/Data/Noise_Wet_1/Noise_Wet_1.imsession</SessionFile>
+        <LabelFile modified="5250599751627387904">/Data/Noise_Wet_1/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="6" length="20.3077204">Wet</Label>
+        </Labels>
+        <CustomColumnValues/>
+      </Session>
+      <Session name="Touch_6" sessionId="5a63621e-0a71-45aa-a265-a83d20b08dc2" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="CAPSENSE Proto Data" tags="None">
+        <DataFile shape="[2]" samplerate="68" modified="5250599751627387904" start="0.0073529" length="122.73529411764706">/Data/Touch_6/CAPSENSE-Proto-Data.data</DataFile>
+        <SessionFile>/Data/Touch_6/Touch_6.imsession</SessionFile>
+        <LabelFile modified="5250599751627387904">/Data/Touch_6/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="75" length="42.4271953">Dry</Label>
+          <Label count="79" length="32.3854979">Touch</Label>
+        </Labels>
+        <CustomColumnValues/>
+      </Session>
+      <Session name="Touch_7" sessionId="1556cc67-14bf-40fe-a950-6ec5d8c788cb" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="CAPSENSE Proto Data" tags="None">
+        <DataFile shape="[2]" samplerate="68" modified="5250599751627387904" start="0.0073529" length="123.10294117647058">/Data/Touch_7/CAPSENSE-Proto-Data.data</DataFile>
+        <SessionFile>/Data/Touch_7/Touch_7.imsession</SessionFile>
+        <LabelFile modified="5250599751627387904">/Data/Touch_7/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="88" length="46.842844">Dry</Label>
+          <Label count="92" length="27.1198679">Touch</Label>
+        </Labels>
+        <CustomColumnValues/>
+      </Session>
+      <Session name="Wet_6" sessionId="a464b722-fc27-4fc4-b408-6bbba693c79e" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="CAPSENSE Proto Data" tags="None">
+        <DataFile shape="[2]" samplerate="68" modified="5250599751627387904" start="0.0073529" length="121.32352941176471">/Data/Wet_6/CAPSENSE-Proto-Data.data</DataFile>
+        <SessionFile>/Data/Wet_6/Wet_6.imsession</SessionFile>
+        <LabelFile modified="5250599751627387904">/Data/Wet_6/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="1" length="121.1407547">Wet</Label>
+        </Labels>
+        <CustomColumnValues/>
+      </Session>
+      <Session name="Wet_7" sessionId="9711b7ff-57b4-4d58-a91b-a75a727739a3" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="CAPSENSE Proto Data" tags="None">
+        <DataFile shape="[2]" samplerate="68" modified="5250599751627387904" start="0.0073529" length="121.48529411764706">/Data/Wet_7/CAPSENSE-Proto-Data.data</DataFile>
+        <SessionFile>/Data/Wet_7/Wet_7.imsession</SessionFile>
+        <LabelFile modified="5250599751627387904">/Data/Wet_7/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="1" length="121.451661">Wet</Label>
+        </Labels>
+        <CustomColumnValues/>
+      </Session>
+      <Session name="Wet_Touch_3" sessionId="9058b307-fc16-4a94-beb9-7990999a84a3" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="CAPSENSE Proto Data" tags="None">
+        <DataFile shape="[2]" samplerate="68" modified="5250599751627387904" start="0.0073529" length="120.04411764705883">/Data/Wet_Touch_3/CAPSENSE-Proto-Data.data</DataFile>
+        <SessionFile>/Data/Wet_Touch_3/Wet_Touch_3.imsession</SessionFile>
+        <LabelFile modified="5250599751627387904">/Data/Wet_Touch_3/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="50" length="74.8370597">Wet</Label>
+          <Label count="47" length="22.3473335">Touch</Label>
+        </Labels>
+        <CustomColumnValues/>
+      </Session>
+    </DataSet>
+    <DataSet id="test" targetSize="0.2" labels="Complete">
+      <Session name="Dry_8" sessionId="c324db5e-e3d6-473a-9fe1-b300f2e8a73b" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="CAPSENSE Proto Data" tags="None">
+        <DataFile shape="[2]" samplerate="68" modified="5250599751627387904" start="0.0073529" length="121.66176470588235">/Data/Dry_8/CAPSENSE-Proto-Data.data</DataFile>
+        <SessionFile>/Data/Dry_8/Dry_8.imsession</SessionFile>
+        <LabelFile modified="5250599751627387904">/Data/Dry_8/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="1" length="121.6543546">Dry</Label>
+        </Labels>
+        <CustomColumnValues/>
+      </Session>
+      <Session name="Dry_9" sessionId="79382c2d-f6bf-4333-a8b8-a4db4da4b9d2" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="CAPSENSE Proto Data" tags="None">
+        <DataFile shape="[2]" samplerate="68" modified="5250599751627387904" start="0.0073529" length="121.07352941176471">/Data/Dry_9/CAPSENSE-Proto-Data.data</DataFile>
+        <SessionFile>/Data/Dry_9/Dry_9.imsession</SessionFile>
+        <LabelFile modified="5250599751627387904">/Data/Dry_9/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="1" length="121.0660343">Dry</Label>
+        </Labels>
+        <CustomColumnValues/>
+      </Session>
+      <Session name="Noise_Dry_3" sessionId="884efe9e-b7d4-4abc-9773-1f6661fb9b0f" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="CAPSENSE Proto Data" tags="None">
+        <DataFile shape="[2]" samplerate="68" modified="5250599751627387904" start="0.0073529" length="66.95588235294117">/Data/Noise_Dry_3/CAPSENSE-Proto-Data.data</DataFile>
+        <SessionFile>/Data/Noise_Dry_3/Noise_Dry_3.imsession</SessionFile>
+        <LabelFile modified="5250599751627387904">/Data/Noise_Dry_3/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="11" length="21.4008939">Dry</Label>
+        </Labels>
+        <CustomColumnValues/>
+      </Session>
+      <Session name="Noise_Wet_2" sessionId="b0ecae6d-2d9f-4877-828a-396ec5a57831" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="CAPSENSE Proto Data" tags="None">
+        <DataFile shape="[2]" samplerate="68" modified="5250599751627387904" start="0.0073529" length="41.19117647058823">/Data/Noise_Wet_2/CAPSENSE-Proto-Data.data</DataFile>
+        <SessionFile>/Data/Noise_Wet_2/Noise_Wet_2.imsession</SessionFile>
+        <LabelFile modified="5250599751627387904">/Data/Noise_Wet_2/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="4" length="5.8995972">Wet</Label>
+        </Labels>
+        <CustomColumnValues/>
+      </Session>
+      <Session name="Touch_8" sessionId="b1c7d1dd-1b71-45a6-97e4-1c57a57bd012" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="CAPSENSE Proto Data" tags="None">
+        <DataFile shape="[2]" samplerate="68" modified="5250599751627387904" start="0.0073529" length="124.33823529411765">/Data/Touch_8/CAPSENSE-Proto-Data.data</DataFile>
+        <SessionFile>/Data/Touch_8/Touch_8.imsession</SessionFile>
+        <LabelFile modified="5250599751627387904">/Data/Touch_8/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="86" length="48.6600461">Wet</Label>
+          <Label count="82" length="34.9142198">Touch</Label>
+        </Labels>
+        <CustomColumnValues/>
+      </Session>
+      <Session name="Wet_8" sessionId="3b1c34bf-807e-4efc-9579-d061c2f44fa0" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="CAPSENSE Proto Data" tags="None">
+        <DataFile shape="[2]" samplerate="68" modified="5250599751627387904" start="0.0073529" length="121.17647058823529">/Data/Wet_8/CAPSENSE-Proto-Data.data</DataFile>
+        <SessionFile>/Data/Wet_8/Wet_8.imsession</SessionFile>
+        <LabelFile modified="5250599751627387904">/Data/Wet_8/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="1" length="121.0001234">Wet</Label>
+        </Labels>
+        <CustomColumnValues/>
+      </Session>
+      <Session name="Wet_9" sessionId="e3f9ad1c-e321-40af-ba25-87ccde390697" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="CAPSENSE Proto Data" tags="None">
+        <DataFile shape="[2]" samplerate="68" modified="5250599751627387904" start="0.0073529" length="120.98529411764706">/Data/Wet_9/CAPSENSE-Proto-Data.data</DataFile>
+        <SessionFile>/Data/Wet_9/Wet_9.imsession</SessionFile>
+        <LabelFile modified="5250599751627387904">/Data/Wet_9/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="1" length="120.8087972">Wet</Label>
+        </Labels>
+        <CustomColumnValues/>
+      </Session>
+      <Session name="Wet_Touch_4" sessionId="a689f11f-c080-452c-aa5e-57e39a8c8faf" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="CAPSENSE Proto Data" tags="None">
+        <DataFile shape="[2]" samplerate="68" modified="5250599751627387904" start="0.0073529" length="120.88235294117646">/Data/Wet_Touch_4/CAPSENSE-Proto-Data.data</DataFile>
+        <SessionFile>/Data/Wet_Touch_4/Wet_Touch_4.imsession</SessionFile>
+        <LabelFile modified="5250599751627387904">/Data/Wet_Touch_4/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="49" length="70.7955444">Wet</Label>
+          <Label count="48" length="23.7004838">Touch</Label>
+        </Labels>
+        <CustomColumnValues/>
+      </Session>
+      <Session name="Wet_Touch_5" sessionId="78bf0d82-db91-477a-a292-d96f1aac9922" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="CAPSENSE Proto Data" tags="None">
+        <DataFile shape="[2]" samplerate="68" modified="5250599751627387904" start="0.0073529" length="103.32352941176471">/Data/Wet_Touch_5/CAPSENSE-Proto-Data.data</DataFile>
+        <SessionFile>/Data/Wet_Touch_5/Wet_Touch_5.imsession</SessionFile>
+        <LabelFile modified="5250599751627387904">/Data/Wet_Touch_5/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="41" length="61.3954982">Wet</Label>
+          <Label count="40" length="19.2627707">Touch</Label>
+        </Labels>
+        <CustomColumnValues/>
+      </Session>
+    </DataSet>
+  </Database>
+  <PredefinedLabels>
+    <Label>Dry</Label>
+    <Label>Touch</Label>
+    <Label>Wet</Label>
+  </PredefinedLabels>
+</ImagimobStudio>

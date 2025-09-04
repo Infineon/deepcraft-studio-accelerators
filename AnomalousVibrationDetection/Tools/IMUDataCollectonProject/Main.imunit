@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Imaginet version="2.0.0.0">
+  <Compound unit="e2e038a0-e281-4de4-a43c-355bd5afec8d">
+    <Nodes>
+      <UnitNode id="node_3" x="762.7821683295683" y="624.3830191235172" enabled="true" name="AI_Kit_IMU_Data_Output" unit="ImagimobStudio.Modules.DataTrack" />
+      <DeviceNode id="node_4" x="166.78459373799154" y="619.8881474179361" enabled="true" name="IMU" board="290de5cb-460b-41bf-31cb-8c012f38aff5" device="1" boardName="PSoC 6 AI (CY8CKIT-06S2-AI)">
+        <Int32Argument param="mode_4">2</Int32Argument>
+      </DeviceNode>
+      <LabelListNode id="node_0" width="120" height="120" x="170" y="235.60000000000002" enabled="true">
+        <Label>anomaly</Label>
+      </LabelListNode>
+    </Nodes>
+    <Connections>
+      <Connection>
+        <Source node="node_4" param="Accel" />
+        <Target node="node_3" param="data" />
+      </Connection>
+    </Connections>
+  </Compound>
+</Imaginet>

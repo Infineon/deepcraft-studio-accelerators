@@ -1,0 +1,12 @@
+{
+	"title": "Anomalous Vibration Detection",
+	"description": "Classification-based anomalous vibration detection project.",
+	"algorithm": "Classification",
+	"sensors": ["IMU"],
+	"domain": ["Vibration", "Sensing"],
+	"application": ["Smart Home", "Appliances", "Smart Manufactoring", "Industrial IoT"],
+	"use_case": ["Anomaly Detection"],
+	"kit": ["PSoC-6 Pioneer Kit", "PSoC-6 AI Kit", "PSoC-Edge AI Kit"],
+	"device": ["PSoC-6", "PSoC-Edge"],
+	"workflow": ["ML Development"]
+}

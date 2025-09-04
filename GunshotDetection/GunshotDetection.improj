@@ -1,0 +1,1424 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ImagimobStudio version="1.1.0">
+  <Job id="7ce5fef3-dfb5-11ef-914a-afc875009f2c" />
+  <UnitLibrary>
+    <Directory>Units/AddConstant</Directory>
+  </UnitLibrary>
+  <Preprocessor inshape="[1]" intype="Float32" infreq="48000" outshape="[80,80]" outtype="Float32">
+    <Unit id="Core.Queues.SlidingWindow">
+      <Argument param="input" type="String">data</Argument>
+      <Argument param="time_input" type="String">time</Argument>
+      <Argument param="window_shape" type="Shape">[4096]</Argument>
+      <Argument param="stride" type="Int32">640</Argument>
+      <Argument param="buffer_multiplier" type="Double">1</Argument>
+      <Argument param="output" type="String">data</Argument>
+      <Argument param="time_output" type="String">time</Argument>
+    </Unit>
+    <Unit id="Core.Math.Hann">
+      <Argument param="input" type="String">data</Argument>
+      <Argument param="sym" type="Boolean">True</Argument>
+      <Argument param="output" type="String">data</Argument>
+    </Unit>
+    <Unit id="Core.Math.Fft.RealFft">
+      <Argument param="input" type="String">data</Argument>
+      <Argument param="axis" type="Int32">0</Argument>
+      <Argument param="output" type="String">data</Argument>
+    </Unit>
+    <Unit id="Core.Math.Norm">
+      <Argument param="input" type="String">data</Argument>
+      <Argument param="axis" type="Int32">0</Argument>
+      <Argument param="output" type="String">data</Argument>
+    </Unit>
+    <Unit id="Core.Signal.MelFilterbank">
+      <Argument param="input" type="String">data</Argument>
+      <Argument param="num_filters" type="Int32">80</Argument>
+      <Argument param="sample_rate" type="Int32">48000</Argument>
+      <Argument param="f_low" type="Int32">20</Argument>
+      <Argument param="f_high" type="Int32">20000</Argument>
+      <Argument param="htk" type="Boolean">True</Argument>
+      <Argument param="librosa" type="Boolean">False</Argument>
+      <Argument param="output" type="String">data</Argument>
+    </Unit>
+    <Unit id="Core.Math.AddI">
+      <Argument param="input" type="String">data</Argument>
+      <Argument param="A" type="Double">1</Argument>
+      <Argument param="output" type="String">data</Argument>
+    </Unit>
+    <Unit id="Core.Math.Log">
+      <Argument param="input" type="String">data</Argument>
+      <Argument param="base" type="Double">0</Argument>
+      <Argument param="output" type="String">data</Argument>
+    </Unit>
+    <Unit id="Core.Math.Clip">
+      <Argument param="input" type="String">data</Argument>
+      <Argument param="min" type="Double">0</Argument>
+      <Argument param="max" type="Double">4</Argument>
+      <Argument param="output" type="String">data</Argument>
+    </Unit>
+    <Unit id="Core.Queues.SlidingWindow">
+      <Argument param="input" type="String">data</Argument>
+      <Argument param="time_input" type="String">time</Argument>
+      <Argument param="window_shape" type="Shape">[80,80]</Argument>
+      <Argument param="stride" type="Int32">1200</Argument>
+      <Argument param="buffer_multiplier" type="Double">1</Argument>
+      <Argument param="output" type="String">data</Argument>
+      <Argument param="time_output" type="String">time</Argument>
+    </Unit>
+  </Preprocessor>
+  <ModelFactory>
+    <Epochs>40</Epochs>
+    <BatchSize>128</BatchSize>
+    <SplitCount>16</SplitCount>
+    <Patience>20</Patience>
+    <AppendModels>False</AppendModels>
+    <LossFunction>CategoricalCrossentropy</LossFunction>
+    <FactoryOptions>None</FactoryOptions>
+    <HardwareType>Default</HardwareType>
+    <TrainingEnvironment>
+    </TrainingEnvironment>
+    <ModelFamily>Conv1D</ModelFamily>
+    <ModelFlavor>SmallKern</ModelFlavor>
+    <ClassifierType>GlobalAveragePool</ClassifierType>
+    <Optimization>Balanced</Optimization>
+    <Pooling>True</Pooling>
+    <Downscale>False</Downscale>
+    <LearnRate>Mid</LearnRate>
+    <RegularizationFactor>Low</RegularizationFactor>
+    <LastNetworkInputShape>[80,80]</LastNetworkInputShape>
+    <LastClassCount>2</LastClassCount>
+    <Optimizer>
+      <LearningRate>0.001</LearningRate>
+      <WeightDecay>0.0001</WeightDecay>
+    </Optimizer>
+    <BuildSteps>
+      <Training />
+      <ConfusionMatrix />
+    </BuildSteps>
+  </ModelFactory>
+  <Models>
+    <Model name="conv1d-medium-balanced-0" id="80e4ccb8-acb7-4d4e-b737-ce086d0f25f9">
+      <LossFunction>CategoricalCrossentropy</LossFunction>
+      <Epochs>40</Epochs>
+      <BatchSize>128</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.004</LearningRate>
+        <WeightDecay>0.0001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[80,80]" intype="Float32" infreq="0" outshape="[2]" outtype="Float32">
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">12</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">24</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">24</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.GlobalAveragePool1D" />
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">2</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">softmax</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <Training />
+        <ConfusionMatrix />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="shot" weight="1" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[1]" intype="Float32" infreq="0" outshape="[80,80]" outtype="Float32">
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[4096]</Argument>
+          <Argument param="stride" type="Int32">640</Argument>
+          <Argument param="buffer_multiplier" type="Double">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+        <Unit id="Core.Math.Hann">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="sym" type="Boolean">True</Argument>
+          <Argument param="output" type="String">data</Argument>
+        </Unit>
+        <Unit id="Core.Math.Fft.RealFft">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="axis" type="Int32">0</Argument>
+          <Argument param="output" type="String">data</Argument>
+        </Unit>
+        <Unit id="Core.Math.Norm">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="axis" type="Int32">0</Argument>
+          <Argument param="output" type="String">data</Argument>
+        </Unit>
+        <Unit id="Core.Signal.MelFilterbank">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="num_filters" type="Int32">80</Argument>
+          <Argument param="sample_rate" type="Int32">48000</Argument>
+          <Argument param="f_low" type="Int32">20</Argument>
+          <Argument param="f_high" type="Int32">20000</Argument>
+          <Argument param="htk" type="Boolean">True</Argument>
+          <Argument param="librosa" type="Boolean">False</Argument>
+          <Argument param="output" type="String">data</Argument>
+        </Unit>
+        <Unit id="Core.Math.AddI">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="A" type="Double">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+        </Unit>
+        <Unit id="Core.Math.Log">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="base" type="Double">0</Argument>
+          <Argument param="output" type="String">data</Argument>
+        </Unit>
+        <Unit id="Core.Math.Clip">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="min" type="Double">0</Argument>
+          <Argument param="max" type="Double">4</Argument>
+          <Argument param="output" type="String">data</Argument>
+        </Unit>
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[80,80]</Argument>
+          <Argument param="stride" type="Int32">1200</Argument>
+          <Argument param="buffer_multiplier" type="Double">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="0" outshape="[10]" outtype="Float32" />
+    </Model>
+    <Model name="conv1d-medium-balanced-1" id="5f716404-2cb2-428e-929e-04b7560ab42e">
+      <LossFunction>CategoricalCrossentropy</LossFunction>
+      <Epochs>40</Epochs>
+      <BatchSize>128</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.004</LearningRate>
+        <WeightDecay>0.0001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[80,80]" intype="Float32" infreq="0" outshape="[2]" outtype="Float32">
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.GlobalAveragePool1D" />
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">2</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">softmax</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <Training />
+        <ConfusionMatrix />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="shot" weight="1" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[1]" intype="Float32" infreq="0" outshape="[80,80]" outtype="Float32">
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[4096]</Argument>
+          <Argument param="stride" type="Int32">640</Argument>
+          <Argument param="buffer_multiplier" type="Double">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+        <Unit id="Core.Math.Hann">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="sym" type="Boolean">True</Argument>
+          <Argument param="output" type="String">data</Argument>
+        </Unit>
+        <Unit id="Core.Math.Fft.RealFft">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="axis" type="Int32">0</Argument>
+          <Argument param="output" type="String">data</Argument>
+        </Unit>
+        <Unit id="Core.Math.Norm">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="axis" type="Int32">0</Argument>
+          <Argument param="output" type="String">data</Argument>
+        </Unit>
+        <Unit id="Core.Signal.MelFilterbank">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="num_filters" type="Int32">80</Argument>
+          <Argument param="sample_rate" type="Int32">48000</Argument>
+          <Argument param="f_low" type="Int32">20</Argument>
+          <Argument param="f_high" type="Int32">20000</Argument>
+          <Argument param="htk" type="Boolean">True</Argument>
+          <Argument param="librosa" type="Boolean">False</Argument>
+          <Argument param="output" type="String">data</Argument>
+        </Unit>
+        <Unit id="Core.Math.AddI">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="A" type="Double">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+        </Unit>
+        <Unit id="Core.Math.Log">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="base" type="Double">0</Argument>
+          <Argument param="output" type="String">data</Argument>
+        </Unit>
+        <Unit id="Core.Math.Clip">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="min" type="Double">0</Argument>
+          <Argument param="max" type="Double">4</Argument>
+          <Argument param="output" type="String">data</Argument>
+        </Unit>
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[80,80]</Argument>
+          <Argument param="stride" type="Int32">1200</Argument>
+          <Argument param="buffer_multiplier" type="Double">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="0" outshape="[10]" outtype="Float32" />
+    </Model>
+    <Model name="conv1d-medium-balanced-2" id="07ff91e0-cf99-44b4-9150-0314e4cbc9ab">
+      <LossFunction>CategoricalCrossentropy</LossFunction>
+      <Epochs>40</Epochs>
+      <BatchSize>128</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.004</LearningRate>
+        <WeightDecay>0.0001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[80,80]" intype="Float32" infreq="0" outshape="[2]" outtype="Float32">
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.GlobalAveragePool1D" />
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">2</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">softmax</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <Training />
+        <ConfusionMatrix />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="shot" weight="1" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[1]" intype="Float32" infreq="0" outshape="[80,80]" outtype="Float32">
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[4096]</Argument>
+          <Argument param="stride" type="Int32">640</Argument>
+          <Argument param="buffer_multiplier" type="Double">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+        <Unit id="Core.Math.Hann">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="sym" type="Boolean">True</Argument>
+          <Argument param="output" type="String">data</Argument>
+        </Unit>
+        <Unit id="Core.Math.Fft.RealFft">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="axis" type="Int32">0</Argument>
+          <Argument param="output" type="String">data</Argument>
+        </Unit>
+        <Unit id="Core.Math.Norm">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="axis" type="Int32">0</Argument>
+          <Argument param="output" type="String">data</Argument>
+        </Unit>
+        <Unit id="Core.Signal.MelFilterbank">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="num_filters" type="Int32">80</Argument>
+          <Argument param="sample_rate" type="Int32">48000</Argument>
+          <Argument param="f_low" type="Int32">20</Argument>
+          <Argument param="f_high" type="Int32">20000</Argument>
+          <Argument param="htk" type="Boolean">True</Argument>
+          <Argument param="librosa" type="Boolean">False</Argument>
+          <Argument param="output" type="String">data</Argument>
+        </Unit>
+        <Unit id="Core.Math.AddI">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="A" type="Double">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+        </Unit>
+        <Unit id="Core.Math.Log">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="base" type="Double">0</Argument>
+          <Argument param="output" type="String">data</Argument>
+        </Unit>
+        <Unit id="Core.Math.Clip">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="min" type="Double">0</Argument>
+          <Argument param="max" type="Double">4</Argument>
+          <Argument param="output" type="String">data</Argument>
+        </Unit>
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[80,80]</Argument>
+          <Argument param="stride" type="Int32">1200</Argument>
+          <Argument param="buffer_multiplier" type="Double">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="0" outshape="[10]" outtype="Float32" />
+    </Model>
+    <Model name="conv1d-medium-balanced-3" id="fdaccae1-f806-4b82-aae2-1898d61d8382">
+      <LossFunction>CategoricalCrossentropy</LossFunction>
+      <Epochs>40</Epochs>
+      <BatchSize>128</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.004</LearningRate>
+        <WeightDecay>0.0001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[80,80]" intype="Float32" infreq="0" outshape="[2]" outtype="Float32">
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">64</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">64</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.GlobalAveragePool1D" />
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">2</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">softmax</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <Training />
+        <ConfusionMatrix />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="shot" weight="1" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[1]" intype="Float32" infreq="0" outshape="[80,80]" outtype="Float32">
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[4096]</Argument>
+          <Argument param="stride" type="Int32">640</Argument>
+          <Argument param="buffer_multiplier" type="Double">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+        <Unit id="Core.Math.Hann">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="sym" type="Boolean">True</Argument>
+          <Argument param="output" type="String">data</Argument>
+        </Unit>
+        <Unit id="Core.Math.Fft.RealFft">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="axis" type="Int32">0</Argument>
+          <Argument param="output" type="String">data</Argument>
+        </Unit>
+        <Unit id="Core.Math.Norm">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="axis" type="Int32">0</Argument>
+          <Argument param="output" type="String">data</Argument>
+        </Unit>
+        <Unit id="Core.Signal.MelFilterbank">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="num_filters" type="Int32">80</Argument>
+          <Argument param="sample_rate" type="Int32">48000</Argument>
+          <Argument param="f_low" type="Int32">20</Argument>
+          <Argument param="f_high" type="Int32">20000</Argument>
+          <Argument param="htk" type="Boolean">True</Argument>
+          <Argument param="librosa" type="Boolean">False</Argument>
+          <Argument param="output" type="String">data</Argument>
+        </Unit>
+        <Unit id="Core.Math.AddI">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="A" type="Double">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+        </Unit>
+        <Unit id="Core.Math.Log">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="base" type="Double">0</Argument>
+          <Argument param="output" type="String">data</Argument>
+        </Unit>
+        <Unit id="Core.Math.Clip">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="min" type="Double">0</Argument>
+          <Argument param="max" type="Double">4</Argument>
+          <Argument param="output" type="String">data</Argument>
+        </Unit>
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[80,80]</Argument>
+          <Argument param="stride" type="Int32">1200</Argument>
+          <Argument param="buffer_multiplier" type="Double">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="0" outshape="[10]" outtype="Float32" />
+    </Model>
+  </Models>
+  <Database balance="AnnotatedLength" redistributionScope="OnlyUnassigned">
+    <SymbolMap>
+      <Symbol name="shot" id="1" weight="1" />
+    </SymbolMap>
+    <DataSet id="unassigned" targetSize="0" labels="Unassigned" />
+    <DataSet id="train" targetSize="0.6" labels="Complete">
+      <Session name="ceps__field-recording-birds-crow-distant-road" sessionId="637941b8-3fb2-4bca-9192-06d63adfbd6a" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112308384747" start="0" length="34.614">/Data/background/ceps__field-recording-birds-crow-distant-road/data.wav</DataFile>
+        <SessionFile>/Data/background/ceps__field-recording-birds-crow-distant-road/ceps__field-recording-birds-crow-distant-road.imsession</SessionFile>
+        <LabelFile modified="5250419112308524801">/Data/background/ceps__field-recording-birds-crow-distant-road/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="city-park-a-conversation-between-two-ladies_1" sessionId="c1145699-965f-4a87-bd64-9c18cad49e21" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112310107452" start="0" length="60">/Data/background/city-park-a-conversation-between-two-ladies_1/data.wav</DataFile>
+        <SessionFile>/Data/background/city-park-a-conversation-between-two-ladies_1/city-park-a-conversation-between-two-ladies_1.imsession</SessionFile>
+        <LabelFile modified="5250419112310262447">/Data/background/city-park-a-conversation-between-two-ladies_1/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="kbeeld__forest-summer-roond-005-200619-0186_0" sessionId="57655d49-c1ff-4848-84cb-b779595a0d8d" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112311848427" start="0" length="60">/Data/background/kbeeld__forest-summer-roond-005-200619-0186_0/data.wav</DataFile>
+        <SessionFile>/Data/background/kbeeld__forest-summer-roond-005-200619-0186_0/kbeeld__forest-summer-roond-005-200619-0186_0.imsession</SessionFile>
+        <LabelFile modified="5250419112311988515">/Data/background/kbeeld__forest-summer-roond-005-200619-0186_0/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="396484__macdaddyno1__big-rain-drops-1" sessionId="61958ecf-2013-4570-8995-4ea4c3403078" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112219421464" start="0" length="10.1355">/Data/background/396484__macdaddyno1__big-rain-drops-1/data.wav</DataFile>
+        <SessionFile>/Data/background/396484__macdaddyno1__big-rain-drops-1/396484__macdaddyno1__big-rain-drops-1.imsession</SessionFile>
+        <LabelFile modified="5250419112219571941">/Data/background/396484__macdaddyno1__big-rain-drops-1/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="402791__acidsnowflake__ak47" sessionId="7cc833f0-ea3c-4f0c-b8c9-b81f0ec30f56" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112328099010" start="0" length="83.46122916666667">/Data/gunshots/402791__acidsnowflake__ak47/data.wav</DataFile>
+        <SessionFile>/Data/gunshots/402791__acidsnowflake__ak47/402791__acidsnowflake__ak47.imsession</SessionFile>
+        <LabelFile modified="5250419112328249006">/Data/gunshots/402791__acidsnowflake__ak47/label.label</LabelFile>
+        <Labels>
+          <Label count="25" length="11.2666661">shot</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">gunshots</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="435411__moosegravy__side-by-side-multiple-shooters" sessionId="81f5382f-b918-4de4-aefe-bc42e48e8f0d" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112328532418" start="0" length="5.12">/Data/gunshots/435411__moosegravy__side-by-side-multiple-shooters/data.wav</DataFile>
+        <SessionFile>/Data/gunshots/435411__moosegravy__side-by-side-multiple-shooters/435411__moosegravy__side-by-side-multiple-shooters.imsession</SessionFile>
+        <LabelFile modified="5250419112328642410">/Data/gunshots/435411__moosegravy__side-by-side-multiple-shooters/label.label</LabelFile>
+        <Labels>
+          <Label count="2" length="1.9586805">shot</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">gunshots</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="421955__dobroide__20180313-forest-ambiance_2" sessionId="090edeb4-f455-41a6-8ccc-3b1149ae28e4" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112296222134" start="0" length="60">/Data/background/421955__dobroide__20180313-forest-ambiance_2/data.wav</DataFile>
+        <SessionFile>/Data/background/421955__dobroide__20180313-forest-ambiance_2/421955__dobroide__20180313-forest-ambiance_2.imsession</SessionFile>
+        <LabelFile modified="5250419112296440196">/Data/background/421955__dobroide__20180313-forest-ambiance_2/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="362978__trouby__lift-truck_1" sessionId="df836b72-c66f-452d-a06e-b7ddfb7ddfd9" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112320493618" start="0" length="60">/Data/construction/362978__trouby__lift-truck_1/data.wav</DataFile>
+        <SessionFile>/Data/construction/362978__trouby__lift-truck_1/362978__trouby__lift-truck_1.imsession</SessionFile>
+        <LabelFile modified="5250419112320653901">/Data/construction/362978__trouby__lift-truck_1/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">construction</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="__forest-car-people-nl-roond-01-200619-0186_1" sessionId="0301ea54-6589-473b-baa8-9ba8c455b408" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112307712908" start="0" length="21.8136875">/Data/background/__forest-car-people-nl-roond-01-200619-0186_1/data.wav</DataFile>
+        <SessionFile>/Data/background/__forest-car-people-nl-roond-01-200619-0186_1/__forest-car-people-nl-roond-01-200619-0186_1.imsession</SessionFile>
+        <LabelFile modified="5250419112307852877">/Data/background/__forest-car-people-nl-roond-01-200619-0186_1/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="188402__mikevpme__distant-road-w-birds_0" sessionId="ba56695e-0200-4d09-93af-6bdec71078f0" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419111860595503" start="0" length="60">/Data/background/188402__mikevpme__distant-road-w-birds_0/data.wav</DataFile>
+        <SessionFile>/Data/background/188402__mikevpme__distant-road-w-birds_0/188402__mikevpme__distant-road-w-birds_0.imsession</SessionFile>
+        <LabelFile modified="5250419111860742623">/Data/background/188402__mikevpme__distant-road-w-birds_0/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="517042__sonidosreales245__forestday-bw-66_2" sessionId="af93685f-bc68-43fb-802e-2ece50b29d2e" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112305487626" start="0" length="30.3306875">/Data/background/517042__sonidosreales245__forestday-bw-66_2/data.wav</DataFile>
+        <SessionFile>/Data/background/517042__sonidosreales245__forestday-bw-66_2/517042__sonidosreales245__forestday-bw-66_2.imsession</SessionFile>
+        <LabelFile modified="5250419112305643150">/Data/background/517042__sonidosreales245__forestday-bw-66_2/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="188402__mikevpme__distant-road-w-birds_1" sessionId="6eb94442-7a31-48e3-980f-b1cbf79db7ca" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419111861158727" start="0" length="6.804875">/Data/background/188402__mikevpme__distant-road-w-birds_1/data.wav</DataFile>
+        <SessionFile>/Data/background/188402__mikevpme__distant-road-w-birds_1/188402__mikevpme__distant-road-w-birds_1.imsession</SessionFile>
+        <LabelFile modified="5250419111861297067">/Data/background/188402__mikevpme__distant-road-w-birds_1/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="160772__poissonmort__maxim-russian-machinegun-very-near" sessionId="a0cf1ab8-b70f-4fc2-9ac1-b94ff63260dd" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112324129447" start="0" length="14.027604166666666">/Data/gunshots/160772__poissonmort__maxim-russian-machinegun-very-near/data.wav</DataFile>
+        <SessionFile>/Data/gunshots/160772__poissonmort__maxim-russian-machinegun-very-near/160772__poissonmort__maxim-russian-machinegun-very-near.imsession</SessionFile>
+        <LabelFile modified="5250419112324249447">/Data/gunshots/160772__poissonmort__maxim-russian-machinegun-very-near/label.label</LabelFile>
+        <Labels>
+          <Label count="4" length="1.9333331">shot</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">gunshots</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="237729__flathill__rain-and-thunder-4_1" sessionId="85969eea-3e47-452c-9fd5-da8d291e311e" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419111871531626" start="0" length="5.750208333333333">/Data/background/237729__flathill__rain-and-thunder-4_1/data.wav</DataFile>
+        <SessionFile>/Data/background/237729__flathill__rain-and-thunder-4_1/237729__flathill__rain-and-thunder-4_1.imsession</SessionFile>
+        <LabelFile modified="5250419111871671614">/Data/background/237729__flathill__rain-and-thunder-4_1/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="447__innorecords__rain-sound-and-rainforest_3" sessionId="aa255aaa-d923-4fd1-ab5b-b64aec373efa" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112300423397" start="0" length="60">/Data/background/447__innorecords__rain-sound-and-rainforest_3/data.wav</DataFile>
+        <SessionFile>/Data/background/447__innorecords__rain-sound-and-rainforest_3/447__innorecords__rain-sound-and-rainforest_3.imsession</SessionFile>
+        <LabelFile modified="5250419112300563405">/Data/background/447__innorecords__rain-sound-and-rainforest_3/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="_inspectorj__construction-jackhammer-manual-a" sessionId="92e863da-0e93-4ce9-816d-dcd4a65a72e2" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112322939041" start="0" length="47.09975">/Data/construction/_inspectorj__construction-jackhammer-manual-a/data.wav</DataFile>
+        <SessionFile>/Data/construction/_inspectorj__construction-jackhammer-manual-a/_inspectorj__construction-jackhammer-manual-a.imsession</SessionFile>
+        <LabelFile modified="5250419112323069065">/Data/construction/_inspectorj__construction-jackhammer-manual-a/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">construction</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="city-park-a-conversation-between-two-ladies_2" sessionId="f428004f-0ce9-4a1c-9995-3b1baba49624" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112310977133" start="0" length="59.4736875">/Data/background/city-park-a-conversation-between-two-ladies_2/data.wav</DataFile>
+        <SessionFile>/Data/background/city-park-a-conversation-between-two-ladies_2/city-park-a-conversation-between-two-ladies_2.imsession</SessionFile>
+        <LabelFile modified="5250419112311127123">/Data/background/city-park-a-conversation-between-two-ladies_2/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="kbeeld__forest-summer-roond-005-200619-0186_1" sessionId="bcde41a7-2c70-4635-8ced-4d1d5cc1f11b" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112312881445" start="0" length="60">/Data/background/kbeeld__forest-summer-roond-005-200619-0186_1/data.wav</DataFile>
+        <SessionFile>/Data/background/kbeeld__forest-summer-roond-005-200619-0186_1/kbeeld__forest-summer-roond-005-200619-0186_1.imsession</SessionFile>
+        <LabelFile modified="5250419112313019731">/Data/background/kbeeld__forest-summer-roond-005-200619-0186_1/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="244942__spoonbender__wind-through-trees-3b_1" sessionId="5d1868c1-7fa0-46c4-914e-4408076cf545" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112218705548" start="0" length="56.309333333333335">/Data/background/244942__spoonbender__wind-through-trees-3b_1/data.wav</DataFile>
+        <SessionFile>/Data/background/244942__spoonbender__wind-through-trees-3b_1/244942__spoonbender__wind-through-trees-3b_1.imsession</SessionFile>
+        <LabelFile modified="5250419112218835561">/Data/background/244942__spoonbender__wind-through-trees-3b_1/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="194204__pulswelle__steady-rain_1" sessionId="e7a2cbf1-edb0-43af-aef6-af2498bd87db" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419111863186446" start="0" length="60">/Data/background/194204__pulswelle__steady-rain_1/data.wav</DataFile>
+        <SessionFile>/Data/background/194204__pulswelle__steady-rain_1/194204__pulswelle__steady-rain_1.imsession</SessionFile>
+        <LabelFile modified="5250419111863320602">/Data/background/194204__pulswelle__steady-rain_1/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="243628__lebaston100__heavy-rain_2" sessionId="39a25582-ed2d-48af-a016-3fd536c3dac6" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419111874531684" start="0" length="60">/Data/background/243628__lebaston100__heavy-rain_2/data.wav</DataFile>
+        <SessionFile>/Data/background/243628__lebaston100__heavy-rain_2/243628__lebaston100__heavy-rain_2.imsession</SessionFile>
+        <LabelFile modified="5250419111874696318">/Data/background/243628__lebaston100__heavy-rain_2/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="194204__pulswelle__steady-rain_7" sessionId="283bf8de-77b9-48e7-8db1-98ea7506fbbf" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419111869361788" start="0" length="60">/Data/background/194204__pulswelle__steady-rain_7/data.wav</DataFile>
+        <SessionFile>/Data/background/194204__pulswelle__steady-rain_7/194204__pulswelle__steady-rain_7.imsession</SessionFile>
+        <LabelFile modified="5250419111869503856">/Data/background/194204__pulswelle__steady-rain_7/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="421955__dobroide__20180313-forest-ambiance_3" sessionId="6d6b5dcb-b50d-437b-bb0a-3e4b18d99d54" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112296753353" start="0" length="4.247875">/Data/background/421955__dobroide__20180313-forest-ambiance_3/data.wav</DataFile>
+        <SessionFile>/Data/background/421955__dobroide__20180313-forest-ambiance_3/421955__dobroide__20180313-forest-ambiance_3.imsession</SessionFile>
+        <LabelFile modified="5250419112296893359">/Data/background/421955__dobroide__20180313-forest-ambiance_3/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="559956__cinetony__jogger-in-the-forest" sessionId="68c77741-84a4-41d0-83ac-bed566493674" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112306278532" start="0" length="30.6769375">/Data/background/559956__cinetony__jogger-in-the-forest/data.wav</DataFile>
+        <SessionFile>/Data/background/559956__cinetony__jogger-in-the-forest/559956__cinetony__jogger-in-the-forest.imsession</SessionFile>
+        <LabelFile modified="5250419112306415707">/Data/background/559956__cinetony__jogger-in-the-forest/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="324331__monkeyman535__atv" sessionId="94fd644b-9628-45d5-b677-bd33e0d18831" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112318462010" start="0" length="5.12">/Data/construction/324331__monkeyman535__atv/data.wav</DataFile>
+        <SessionFile>/Data/construction/324331__monkeyman535__atv/324331__monkeyman535__atv.imsession</SessionFile>
+        <LabelFile modified="5250419112318594697">/Data/construction/324331__monkeyman535__atv/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">construction</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="447__innorecords__rain-sound-and-rainforest_0" sessionId="4071fccb-c80d-44b4-b2ab-3405087a7a9c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112297739623" start="0" length="60">/Data/background/447__innorecords__rain-sound-and-rainforest_0/data.wav</DataFile>
+        <SessionFile>/Data/background/447__innorecords__rain-sound-and-rainforest_0/447__innorecords__rain-sound-and-rainforest_0.imsession</SessionFile>
+        <LabelFile modified="5250419112297899607">/Data/background/447__innorecords__rain-sound-and-rainforest_0/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="__forest-car-people-nl-roond-01-200619-0186_0" sessionId="69c46948-f9b1-4fb2-9ac1-de8ccf380bdd" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112307100906" start="0" length="60">/Data/background/__forest-car-people-nl-roond-01-200619-0186_0/data.wav</DataFile>
+        <SessionFile>/Data/background/__forest-car-people-nl-roond-01-200619-0186_0/__forest-car-people-nl-roond-01-200619-0186_0.imsession</SessionFile>
+        <LabelFile modified="5250419112307286095">/Data/background/__forest-car-people-nl-roond-01-200619-0186_0/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="447__innorecords__rain-sound-and-rainforest_2" sessionId="4fe64403-0d87-49f9-9f80-ce5e3fa1ef6a" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112299559615" start="0" length="60">/Data/background/447__innorecords__rain-sound-and-rainforest_2/data.wav</DataFile>
+        <SessionFile>/Data/background/447__innorecords__rain-sound-and-rainforest_2/447__innorecords__rain-sound-and-rainforest_2.imsession</SessionFile>
+        <LabelFile modified="5250419112299699622">/Data/background/447__innorecords__rain-sound-and-rainforest_2/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="237729__flathill__rain-and-thunder-4_0" sessionId="8b00bed9-deb5-497e-beaa-25dce9844371" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419111870968768" start="0" length="60">/Data/background/237729__flathill__rain-and-thunder-4_0/data.wav</DataFile>
+        <SessionFile>/Data/background/237729__flathill__rain-and-thunder-4_0/237729__flathill__rain-and-thunder-4_0.imsession</SessionFile>
+        <LabelFile modified="5250419111871108751">/Data/background/237729__flathill__rain-and-thunder-4_0/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="476202__thegloomworker__rain-drips" sessionId="76bd9837-3071-4edd-92f4-ea00c6d9d406" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112303132331" start="0" length="18.808">/Data/background/476202__thegloomworker__rain-drips/data.wav</DataFile>
+        <SessionFile>/Data/background/476202__thegloomworker__rain-drips/476202__thegloomworker__rain-drips.imsession</SessionFile>
+        <LabelFile modified="5250419112303272355">/Data/background/476202__thegloomworker__rain-drips/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="362978__trouby__lift-truck_0" sessionId="ace7c2b2-d529-4929-88d7-b10fe909a7f0" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112319467187" start="0" length="60">/Data/construction/362978__trouby__lift-truck_0/data.wav</DataFile>
+        <SessionFile>/Data/construction/362978__trouby__lift-truck_0/362978__trouby__lift-truck_0.imsession</SessionFile>
+        <LabelFile modified="5250419112319619205">/Data/construction/362978__trouby__lift-truck_0/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">construction</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="517042__sonidosreales245__forestday-bw-66_1" sessionId="1976ef59-5260-4e3d-806a-2ad2181171f8" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112304853153" start="0" length="60">/Data/background/517042__sonidosreales245__forestday-bw-66_1/data.wav</DataFile>
+        <SessionFile>/Data/background/517042__sonidosreales245__forestday-bw-66_1/517042__sonidosreales245__forestday-bw-66_1.imsession</SessionFile>
+        <LabelFile modified="5250419112305010287">/Data/background/517042__sonidosreales245__forestday-bw-66_1/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="y-or-distant-country-road-stereo-left-heavy_1" sessionId="6143667b-7624-4924-9771-350034ae31c1" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112316374040" start="0" length="51.111">/Data/background/y-or-distant-country-road-stereo-left-heavy_1/data.wav</DataFile>
+        <SessionFile>/Data/background/y-or-distant-country-road-stereo-left-heavy_1/y-or-distant-country-road-stereo-left-heavy_1.imsession</SessionFile>
+        <LabelFile modified="5250419112316494037">/Data/background/y-or-distant-country-road-stereo-left-heavy_1/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="401276__inspectorj__rain-moderate-b_1" sessionId="0a5b019f-ba5d-4d9a-9d2e-0c174c8594a8" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112221567458" start="0" length="20.294604166666666">/Data/background/401276__inspectorj__rain-moderate-b_1/data.wav</DataFile>
+        <SessionFile>/Data/background/401276__inspectorj__rain-moderate-b_1/401276__inspectorj__rain-moderate-b_1.imsession</SessionFile>
+        <LabelFile modified="5250419112221747498">/Data/background/401276__inspectorj__rain-moderate-b_1/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="553820__mathias2002__pistol-lyd" sessionId="39e9bd6d-864e-4613-b360-6f69aea53f9a" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112329766746" start="0" length="25.41425">/Data/gunshots/553820__mathias2002__pistol-lyd/data.wav</DataFile>
+        <SessionFile>/Data/gunshots/553820__mathias2002__pistol-lyd/553820__mathias2002__pistol-lyd.imsession</SessionFile>
+        <LabelFile modified="5250419112329896737">/Data/gunshots/553820__mathias2002__pistol-lyd/label.label</LabelFile>
+        <Labels>
+          <Label count="10" length="4.333333">shot</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">gunshots</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="city-park-a-conversation-between-two-ladies_0" sessionId="4c690b68-fd3a-4b25-b4df-bb97a4318b0b" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112309236949" start="0" length="60">/Data/background/city-park-a-conversation-between-two-ladies_0/data.wav</DataFile>
+        <SessionFile>/Data/background/city-park-a-conversation-between-two-ladies_0/city-park-a-conversation-between-two-ladies_0.imsession</SessionFile>
+        <LabelFile modified="5250419112309357887">/Data/background/city-park-a-conversation-between-two-ladies_0/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="401276__inspectorj__rain-moderate-b_0" sessionId="02a1a2ce-c448-42b8-8b3f-ed0a30a18bab" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112220632957" start="0" length="60">/Data/background/401276__inspectorj__rain-moderate-b_0/data.wav</DataFile>
+        <SessionFile>/Data/background/401276__inspectorj__rain-moderate-b_0/401276__inspectorj__rain-moderate-b_0.imsession</SessionFile>
+        <LabelFile modified="5250419112220897409">/Data/background/401276__inspectorj__rain-moderate-b_0/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="194204__pulswelle__steady-rain_4" sessionId="8688592c-eef7-4b5f-a431-50e0010d4526" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419111866140227" start="0" length="60">/Data/background/194204__pulswelle__steady-rain_4/data.wav</DataFile>
+        <SessionFile>/Data/background/194204__pulswelle__steady-rain_4/194204__pulswelle__steady-rain_4.imsession</SessionFile>
+        <LabelFile modified="5250419111866260238">/Data/background/194204__pulswelle__steady-rain_4/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="243628__lebaston100__heavy-rain_4" sessionId="bbedbada-a19a-4f90-8df4-3817238c4cd8" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419111876530102" start="0" length="60">/Data/background/243628__lebaston100__heavy-rain_4/data.wav</DataFile>
+        <SessionFile>/Data/background/243628__lebaston100__heavy-rain_4/243628__lebaston100__heavy-rain_4.imsession</SessionFile>
+        <LabelFile modified="5250419111876650114">/Data/background/243628__lebaston100__heavy-rain_4/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="447__innorecords__rain-sound-and-rainforest_1" sessionId="cf86688f-556e-44d1-a7ab-6b9fd7966b71" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112298679635" start="0" length="60">/Data/background/447__innorecords__rain-sound-and-rainforest_1/data.wav</DataFile>
+        <SessionFile>/Data/background/447__innorecords__rain-sound-and-rainforest_1/447__innorecords__rain-sound-and-rainforest_1.imsession</SessionFile>
+        <LabelFile modified="5250419112298809623">/Data/background/447__innorecords__rain-sound-and-rainforest_1/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="447__innorecords__rain-sound-and-rainforest_4" sessionId="91dcfb26-4559-4700-b83d-d251dbab62e1" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112300821368" start="0" length="0.0914375">/Data/background/447__innorecords__rain-sound-and-rainforest_4/data.wav</DataFile>
+        <SessionFile>/Data/background/447__innorecords__rain-sound-and-rainforest_4/447__innorecords__rain-sound-and-rainforest_4.imsession</SessionFile>
+        <LabelFile modified="5250419112300971308">/Data/background/447__innorecords__rain-sound-and-rainforest_4/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="194204__pulswelle__steady-rain_5" sessionId="3c31e02a-3f8a-4a79-ad6e-6d45db8522b6" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419111867098050" start="0" length="60">/Data/background/194204__pulswelle__steady-rain_5/data.wav</DataFile>
+        <SessionFile>/Data/background/194204__pulswelle__steady-rain_5/194204__pulswelle__steady-rain_5.imsession</SessionFile>
+        <LabelFile modified="5250419111867294144">/Data/background/194204__pulswelle__steady-rain_5/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="457318__stek59__autumn-wind-and-dry-leaves_1" sessionId="2e9c532b-5638-482a-b40e-443a5f44f7e8" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112302401425" start="0" length="25.826958333333334">/Data/background/457318__stek59__autumn-wind-and-dry-leaves_1/data.wav</DataFile>
+        <SessionFile>/Data/background/457318__stek59__autumn-wind-and-dry-leaves_1/457318__stek59__autumn-wind-and-dry-leaves_1.imsession</SessionFile>
+        <LabelFile modified="5250419112302551445">/Data/background/457318__stek59__autumn-wind-and-dry-leaves_1/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="straget__the-rain-falls-against-the-parasol_2" sessionId="fd2931e5-bad1-4f63-b6c4-c3924a1fd7fe" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112314758535" start="0" length="0.3033958333333333">/Data/background/straget__the-rain-falls-against-the-parasol_2/data.wav</DataFile>
+        <SessionFile>/Data/background/straget__the-rain-falls-against-the-parasol_2/straget__the-rain-falls-against-the-parasol_2.imsession</SessionFile>
+        <LabelFile modified="5250419112314893590">/Data/background/straget__the-rain-falls-against-the-parasol_2/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+    </DataSet>
+    <DataSet id="validation" targetSize="0.2" labels="Complete">
+      <Session name="244942__spoonbender__wind-through-trees-3b_0" sessionId="591634dd-63f4-48c1-b366-9b4a78a92af6" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112194478611" start="0" length="60">/Data/background/244942__spoonbender__wind-through-trees-3b_0/data.wav</DataFile>
+        <SessionFile>/Data/background/244942__spoonbender__wind-through-trees-3b_0/244942__spoonbender__wind-through-trees-3b_0.imsession</SessionFile>
+        <LabelFile modified="5250419112194658734">/Data/background/244942__spoonbender__wind-through-trees-3b_0/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="517042__sonidosreales245__forestday-bw-66_0" sessionId="83408fe0-f509-4e5d-9cf1-136dc140bca0" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112303967029" start="0" length="60">/Data/background/517042__sonidosreales245__forestday-bw-66_0/data.wav</DataFile>
+        <SessionFile>/Data/background/517042__sonidosreales245__forestday-bw-66_0/517042__sonidosreales245__forestday-bw-66_0.imsession</SessionFile>
+        <LabelFile modified="5250419112304117060">/Data/background/517042__sonidosreales245__forestday-bw-66_0/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="243628__lebaston100__heavy-rain_5" sessionId="7b5661bd-4cc1-4e27-b2f6-462e36ee6a9c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419111877134392" start="0" length="14.676833333333333">/Data/background/243628__lebaston100__heavy-rain_5/data.wav</DataFile>
+        <SessionFile>/Data/background/243628__lebaston100__heavy-rain_5/243628__lebaston100__heavy-rain_5.imsession</SessionFile>
+        <LabelFile modified="5250419111877264398">/Data/background/243628__lebaston100__heavy-rain_5/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="249883__maxwiley__m1911-outdoor-echo" sessionId="1693ab4d-4a53-4038-830b-d7f9f58aecae" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112325745957" start="0" length="28.2645">/Data/gunshots/249883__maxwiley__m1911-outdoor-echo/data.wav</DataFile>
+        <SessionFile>/Data/gunshots/249883__maxwiley__m1911-outdoor-echo/249883__maxwiley__m1911-outdoor-echo.imsession</SessionFile>
+        <LabelFile modified="5250419112325889905">/Data/gunshots/249883__maxwiley__m1911-outdoor-echo/label.label</LabelFile>
+        <Labels>
+          <Label count="7" length="2.8">shot</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">gunshots</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="194204__pulswelle__steady-rain_2" sessionId="414174d6-49ec-43e1-bffe-7f1a54f452a3" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419111864217738" start="0" length="60">/Data/background/194204__pulswelle__steady-rain_2/data.wav</DataFile>
+        <SessionFile>/Data/background/194204__pulswelle__steady-rain_2/194204__pulswelle__steady-rain_2.imsession</SessionFile>
+        <LabelFile modified="5250419111864372039">/Data/background/194204__pulswelle__steady-rain_2/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="419091__someonecool15__atv-revving-engine" sessionId="1b6db1c0-54e6-4a43-8774-2f2899750426" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112321598971" start="0" length="7.0530625">/Data/construction/419091__someonecool15__atv-revving-engine/data.wav</DataFile>
+        <SessionFile>/Data/construction/419091__someonecool15__atv-revving-engine/419091__someonecool15__atv-revving-engine.imsession</SessionFile>
+        <LabelFile modified="5250419112321738894">/Data/construction/419091__someonecool15__atv-revving-engine/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">construction</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="243628__lebaston100__heavy-rain_3" sessionId="8a6d3c86-5d61-4244-9091-8395824390ac" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419111875532639" start="0" length="60">/Data/background/243628__lebaston100__heavy-rain_3/data.wav</DataFile>
+        <SessionFile>/Data/background/243628__lebaston100__heavy-rain_3/243628__lebaston100__heavy-rain_3.imsession</SessionFile>
+        <LabelFile modified="5250419111875674978">/Data/background/243628__lebaston100__heavy-rain_3/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="421955__dobroide__20180313-forest-ambiance_0" sessionId="d9be48d8-f0f9-4266-a77b-a01b016c2cf0" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112235969923" start="0" length="60">/Data/background/421955__dobroide__20180313-forest-ambiance_0/data.wav</DataFile>
+        <SessionFile>/Data/background/421955__dobroide__20180313-forest-ambiance_0/421955__dobroide__20180313-forest-ambiance_0.imsession</SessionFile>
+        <LabelFile modified="5250419112236203526">/Data/background/421955__dobroide__20180313-forest-ambiance_0/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="421955__dobroide__20180313-forest-ambiance_1" sessionId="bbd8ac9d-9199-4ff4-902a-0e23b1db64d8" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112253831626" start="0" length="60">/Data/background/421955__dobroide__20180313-forest-ambiance_1/data.wav</DataFile>
+        <SessionFile>/Data/background/421955__dobroide__20180313-forest-ambiance_1/421955__dobroide__20180313-forest-ambiance_1.imsession</SessionFile>
+        <LabelFile modified="5250419112253986552">/Data/background/421955__dobroide__20180313-forest-ambiance_1/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="kbeeld__forest-summer-roond-005-200619-0186_2" sessionId="55420865-978e-4590-8fc8-8da0f80c4ad9" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112313522067" start="0" length="32.737375">/Data/background/kbeeld__forest-summer-roond-005-200619-0186_2/data.wav</DataFile>
+        <SessionFile>/Data/background/kbeeld__forest-summer-roond-005-200619-0186_2/kbeeld__forest-summer-roond-005-200619-0186_2.imsession</SessionFile>
+        <LabelFile modified="5250419112313662001">/Data/background/kbeeld__forest-summer-roond-005-200619-0186_2/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="194204__pulswelle__steady-rain_6" sessionId="4daab68a-e6ef-4288-ac72-fa45c611aee0" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419111868374145" start="0" length="60">/Data/background/194204__pulswelle__steady-rain_6/data.wav</DataFile>
+        <SessionFile>/Data/background/194204__pulswelle__steady-rain_6/194204__pulswelle__steady-rain_6.imsession</SessionFile>
+        <LabelFile modified="5250419111868525508">/Data/background/194204__pulswelle__steady-rain_6/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="194204__pulswelle__steady-rain_0" sessionId="faca892e-47a5-46bb-8bdb-05183e10ee55" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419111862208845" start="0" length="60">/Data/background/194204__pulswelle__steady-rain_0/data.wav</DataFile>
+        <SessionFile>/Data/background/194204__pulswelle__steady-rain_0/194204__pulswelle__steady-rain_0.imsession</SessionFile>
+        <LabelFile modified="5250419111862343795">/Data/background/194204__pulswelle__steady-rain_0/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="194204__pulswelle__steady-rain_3" sessionId="5ae540ab-4af9-46e3-9c68-0becea098523" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419111865194762" start="0" length="60">/Data/background/194204__pulswelle__steady-rain_3/data.wav</DataFile>
+        <SessionFile>/Data/background/194204__pulswelle__steady-rain_3/194204__pulswelle__steady-rain_3.imsession</SessionFile>
+        <LabelFile modified="5250419111865310182">/Data/background/194204__pulswelle__steady-rain_3/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+    </DataSet>
+    <DataSet id="test" targetSize="0.2" labels="Complete">
+      <Session name="straget__the-rain-falls-against-the-parasol_1" sessionId="99d84d84-8b9e-43e6-bb89-90b33c12ae84" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112314364319" start="0" length="60">/Data/background/straget__the-rain-falls-against-the-parasol_1/data.wav</DataFile>
+        <SessionFile>/Data/background/straget__the-rain-falls-against-the-parasol_1/straget__the-rain-falls-against-the-parasol_1.imsession</SessionFile>
+        <LabelFile modified="5250419112314494338">/Data/background/straget__the-rain-falls-against-the-parasol_1/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="spectorj__construction-jackhammer-excavator-a" sessionId="42901372-e746-4f4c-bd98-fbb19ccc302f" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112323566966" start="0" length="33.535125">/Data/construction/spectorj__construction-jackhammer-excavator-a/data.wav</DataFile>
+        <SessionFile>/Data/construction/spectorj__construction-jackhammer-excavator-a/spectorj__construction-jackhammer-excavator-a.imsession</SessionFile>
+        <LabelFile modified="5250419112323709445">/Data/construction/spectorj__construction-jackhammer-excavator-a/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">construction</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="651639__darlingt__truck-1" sessionId="7003f38a-799b-4ead-95b5-18d72512c8ea" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112322201643" start="0" length="11.702">/Data/construction/651639__darlingt__truck-1/data.wav</DataFile>
+        <SessionFile>/Data/construction/651639__darlingt__truck-1/651639__darlingt__truck-1.imsession</SessionFile>
+        <LabelFile modified="5250419112322321622">/Data/construction/651639__darlingt__truck-1/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">construction</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="541164__resaural__distant-gunshot" sessionId="ddd94dd6-e796-4626-b31e-ac433e5be5de" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112329066737" start="0" length="3.3174166666666665">/Data/gunshots/541164__resaural__distant-gunshot/data.wav</DataFile>
+        <SessionFile>/Data/gunshots/541164__resaural__distant-gunshot/541164__resaural__distant-gunshot.imsession</SessionFile>
+        <LabelFile modified="5250419112329196737">/Data/gunshots/541164__resaural__distant-gunshot/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="0.5616319">shot</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">gunshots</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="199455__martinimeniscus__truck-rattle-ff657_1" sessionId="532e9518-342b-48d7-b003-5e526eaa48af" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112317897085" start="0" length="22.464">/Data/construction/199455__martinimeniscus__truck-rattle-ff657_1/data.wav</DataFile>
+        <SessionFile>/Data/construction/199455__martinimeniscus__truck-rattle-ff657_1/199455__martinimeniscus__truck-rattle-ff657_1.imsession</SessionFile>
+        <LabelFile modified="5250419112318039125">/Data/construction/199455__martinimeniscus__truck-rattle-ff657_1/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">construction</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="362978__trouby__lift-truck_2" sessionId="75a7476b-e269-4314-8186-6934489072b4" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112321174001" start="0" length="17.185375">/Data/construction/362978__trouby__lift-truck_2/data.wav</DataFile>
+        <SessionFile>/Data/construction/362978__trouby__lift-truck_2/362978__trouby__lift-truck_2.imsession</SessionFile>
+        <LabelFile modified="5250419112321313922">/Data/construction/362978__trouby__lift-truck_2/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">construction</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="199455__martinimeniscus__truck-rattle-ff657_0" sessionId="5ecebf01-29d4-46fb-8cac-7be87b7e4ecf" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112317304436" start="0" length="60">/Data/construction/199455__martinimeniscus__truck-rattle-ff657_0/data.wav</DataFile>
+        <SessionFile>/Data/construction/199455__martinimeniscus__truck-rattle-ff657_0/199455__martinimeniscus__truck-rattle-ff657_0.imsession</SessionFile>
+        <LabelFile modified="5250419112317441327">/Data/construction/199455__martinimeniscus__truck-rattle-ff657_0/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">construction</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="377786__johanwestling__gun-22mm-7-5mm-9mm-close-single-shots-m10" sessionId="e42e8eaa-8f14-4699-99e2-0f8c44700f28" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112327021310" start="0" length="132.52266666666668">/Data/gunshots/377786__johanwestling__gun-22mm-7-5mm-9mm-close-single-shots-m10/data.wav</DataFile>
+        <SessionFile>/Data/gunshots/377786__johanwestling__gun-22mm-7-5mm-9mm-close-single-shots-m10/377786__johanwestling__gun-22mm-7-5mm-9mm-close-single-shots-m10.imsession</SessionFile>
+        <LabelFile modified="5250419112327141334">/Data/gunshots/377786__johanwestling__gun-22mm-7-5mm-9mm-close-single-shots-m10/label.label</LabelFile>
+        <Labels>
+          <Label count="43" length="18.9333316">shot</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">gunshots</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="243628__lebaston100__heavy-rain_1" sessionId="6017a052-f2fd-4aff-920f-0d534b18d3fa" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419111873530793" start="0" length="60">/Data/background/243628__lebaston100__heavy-rain_1/data.wav</DataFile>
+        <SessionFile>/Data/background/243628__lebaston100__heavy-rain_1/243628__lebaston100__heavy-rain_1.imsession</SessionFile>
+        <LabelFile modified="5250419111873695864">/Data/background/243628__lebaston100__heavy-rain_1/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="194204__pulswelle__steady-rain_8" sessionId="61dfd338-81e4-430d-ba6f-ec79ddeee7ed" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419111869968174" start="0" length="13.775958333333334">/Data/background/194204__pulswelle__steady-rain_8/data.wav</DataFile>
+        <SessionFile>/Data/background/194204__pulswelle__steady-rain_8/194204__pulswelle__steady-rain_8.imsession</SessionFile>
+        <LabelFile modified="5250419111870098155">/Data/background/194204__pulswelle__steady-rain_8/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="223105__hitrison__gun-shots-pistols" sessionId="51cb50a2-0e35-4f1e-9807-dc7cf25ee761" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112325031618" start="0" length="86.72">/Data/gunshots/223105__hitrison__gun-shots-pistols/data.wav</DataFile>
+        <SessionFile>/Data/gunshots/223105__hitrison__gun-shots-pistols/223105__hitrison__gun-shots-pistols.imsession</SessionFile>
+        <LabelFile modified="5250419112325162764">/Data/gunshots/223105__hitrison__gun-shots-pistols/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">gunshots</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="y-or-distant-country-road-stereo-left-heavy_0" sessionId="7fa51dd3-af8e-48c0-a5db-e257af20365f" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112315590373" start="0" length="60">/Data/background/y-or-distant-country-road-stereo-left-heavy_0/data.wav</DataFile>
+        <SessionFile>/Data/background/y-or-distant-country-road-stereo-left-heavy_0/y-or-distant-country-road-stereo-left-heavy_0.imsession</SessionFile>
+        <LabelFile modified="5250419112315744039">/Data/background/y-or-distant-country-road-stereo-left-heavy_0/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="243628__lebaston100__heavy-rain_0" sessionId="11750c20-5ea7-4bbd-a315-30ecd8680d4c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419111872558836" start="0" length="60">/Data/background/243628__lebaston100__heavy-rain_0/data.wav</DataFile>
+        <SessionFile>/Data/background/243628__lebaston100__heavy-rain_0/243628__lebaston100__heavy-rain_0.imsession</SessionFile>
+        <LabelFile modified="5250419111872700793">/Data/background/243628__lebaston100__heavy-rain_0/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="457318__stek59__autumn-wind-and-dry-leaves_0" sessionId="bf7ed9da-fe3d-4278-afed-fddc1e920663" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="48000" modified="5250419112301756650" start="0" length="60">/Data/background/457318__stek59__autumn-wind-and-dry-leaves_0/data.wav</DataFile>
+        <SessionFile>/Data/background/457318__stek59__autumn-wind-and-dry-leaves_0/457318__stek59__autumn-wind-and-dry-leaves_0.imsession</SessionFile>
+        <LabelFile modified="5250419112301935297">/Data/background/457318__stek59__autumn-wind-and-dry-leaves_0/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="7a3c377e-c674-4fe4-b416-0682107004e7">background</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+    </DataSet>
+  </Database>
+  <CustomColumns>
+    <CustomColumn id="7a3c377e-c674-4fe4-b416-0682107004e7" name="Category 1" internalName="Category 1" />
+  </CustomColumns>
+</ImagimobStudio>

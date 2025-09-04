@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Imaginet version="2.0.0.0">
+  <Compound unit="d419d86b-7b57-41d3-9a74-ab428f13a213">
+    <Nodes>
+      <UnitNode id="node_17" x="610.913084669828" y="716.1265234804821" enabled="true" profiling="false" unit="Imaginet.Units.Math.Int16ToFloat32" />
+      <DeviceNode id="node_0" x="67.9921762404582" y="596.5540639274726" enabled="true" profiling="false" name="CAPSENSE Proto" board="290de5cb-460b-41bf-31cb-8c060d1feff5" boardName="PSOC 6 AI (CY8KIT-06S2-AI)" device="0">
+        <BooleanArgument param="float_convert">false</BooleanArgument>
+      </DeviceNode>
+      <UnitNode id="node_2" x="944.2761789124661" y="489.8081746350241" enabled="true" profiling="false" name="CAPSENSE Proto Data" unit="ImagimobStudio.Modules.DataTrack" />
+      <UnitNode id="node_18" x="1196.8480194709261" y="1003.769697964841" enabled="true" profiling="false" name="conv1d-small-accuracy-2 model Labels" unit="ImagimobStudio.Modules.LabelTrack" />
+      <DotNetNode id="node_10" x="654.6382290774175" y="879.2093249661939" enabled="true" profiling="false" name="conv1d-small-accuracy-2 preprocessor">
+        <Interop assembly="Imaginet.Units.KerasModel" class="Imaginet.Units.KerasModel.KerasModel" method="LoadPreprocessor" />
+        <Input param="input" type="Tensor" />
+        <Input param="File" type="FileReference" />
+        <Output param="output" type="Tensor" />
+      </DotNetNode>
+      <UnitNode id="node_19" x="1198.6480194709259" y="763.9696979648409" enabled="true" profiling="false" name="CAPSENSE Proto Data" unit="ImagimobStudio.Modules.DataTrack" />
+      <UnitNode id="node_20" x="1212.648019470926" y="874.9696979648409" enabled="true" profiling="false" name="conv1d-small-accuracy-2 model Data" unit="ImagimobStudio.Modules.DataTrack" />
+      <LabelListNode id="node_8" width="120" height="120" x="59.41049451418826" y="396.04485136228004" enabled="true" profiling="false" name="Predefined Labels">
+        <Label>Touch</Label>
+        <Label>Wet</Label>
+        <Label>Dry</Label>
+      </LabelListNode>
+      <UnitNode id="node_6" x="602.0916685593563" y="492.2473780921101" enabled="true" profiling="false" unit="Imaginet.Units.Math.Int16ToFloat32" />
+      <DotNetNode id="node_11" x="653.8382290774173" y="1021.2093249661939" enabled="true" profiling="false" name="conv1d-small-accuracy-2 model">
+        <Interop assembly="Imaginet.Units.KerasModel" class="Imaginet.Units.KerasModel.KerasModel" method="LoadNetwork" />
+        <Input param="input" type="Tensor" />
+        <Input param="File" type="FileReference" />
+        <Output param="output" type="Tensor" />
+      </DotNetNode>
+    </Nodes>
+    <Connections>
+      <Connection>
+        <Source node="node_6" param="output" />
+        <Target node="node_2" param="data" />
+      </Connection>
+      <Connection>
+        <Source node="node_10" param="output" />
+        <Target node="node_11" param="input" />
+      </Connection>
+      <Connection>
+        <Source node="node_11" param="output" />
+        <Target node="node_18" param="data" />
+      </Connection>
+      <Connection>
+        <Source node="node_17" param="output" />
+        <Target node="node_10" param="input" />
+      </Connection>
+      <Connection>
+        <Source node="node_0" param="CAPSENSE_DIFFCOUNT" />
+        <Target node="node_17" param="input" />
+      </Connection>
+      <Connection>
+        <Source node="node_17" param="output" />
+        <Target node="node_19" param="data" />
+      </Connection>
+      <Connection>
+        <Source node="node_11" param="output" />
+        <Target node="node_20" param="data" />
+      </Connection>
+    </Connections>
+  </Compound>
+</Imaginet>

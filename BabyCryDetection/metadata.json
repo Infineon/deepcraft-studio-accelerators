@@ -1,0 +1,12 @@
+{
+  "title": "Baby Cry Detection",
+  "description": "This project uses a microphone to detect if a baby is crying in the vicinity.",
+  "algorithm": "Classification",
+  "sensors": ["Microphone"],
+  "domain": ["Audio"],
+  "application": ["Baby Monitor", "Smart Home", "Appliances", "Wearables", "Automotive", "Healthcare"],
+  "use_case": ["Baby Cry Detection", "Baby Care"],
+  "kit": ["PSoC-6 Pioneer Kit", "PSoC-6 AI Kit", "PSoC-Edge AI Kit"],
+  "device": ["PSoC-6", "PSoC-Edge"],
+  "workflow": ["ML Development"]
+}

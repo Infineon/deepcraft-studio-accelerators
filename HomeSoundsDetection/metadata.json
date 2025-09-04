@@ -1,0 +1,12 @@
+{
+  "title": "Home Sounds Detection",
+  "description": "This project uses a microphone to detect sound signatures common to a home: baby cry, cough, water tap.",
+  "algorithm": "Classification",
+  "sensors": ["Microphone"],
+  "domain": ["Audio"],
+  "application": ["Smart Home", "Appliances", "Safety Monitoring", "Wearables", "Healthcare"],
+  "use_case": ["Home Sounds Detection", "Anomaly Detection", "Baby Cry Detection", "Cough Detection", "Water Tap Detection"],
+  "kit": ["PSoC-6 Pioneer Kit", "PSoC-6 AI Kit", "PSoC-Edge AI Kit"],
+  "device": ["PSoC-6", "PSoC-Edge"],
+  "workflow": ["ML Development"]
+}

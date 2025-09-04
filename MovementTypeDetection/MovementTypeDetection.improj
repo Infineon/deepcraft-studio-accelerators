@@ -1,0 +1,1058 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ImagimobStudio version="1.1.0">
+  <Job id="a56b1b2b-4c25-11f0-85a5-59e2e8ae06b0" />
+  <ProjectType>Classification</ProjectType>
+  <Preprocessor inshape="[2,3]" intype="Float32" infreq="50" outshape="[100,6]" outtype="Float32">
+    <Unit id="Core.Packages.ContextualWindow">
+      <Argument param="contextual_length_sec" type="Double">2</Argument>
+      <Argument param="prediction_freq" type="Double">5</Argument>
+      <Argument param="input" type="String">data</Argument>
+      <Argument param="time_input" type="String">time</Argument>
+      <Argument param="output" type="String">data</Argument>
+      <Argument param="time_output" type="String">time</Argument>
+    </Unit>
+  </Preprocessor>
+  <ModelFactory>
+    <Epochs>100</Epochs>
+    <BatchSize>16</BatchSize>
+    <SplitCount>16</SplitCount>
+    <Patience>20</Patience>
+    <AppendModels>False</AppendModels>
+    <LossFunction>CategoricalCrossentropy</LossFunction>
+    <HardwareType>Generic</HardwareType>
+    <TrainingEnvironment>
+    </TrainingEnvironment>
+    <ModelFamily>Conv2D</ModelFamily>
+    <ModelFlavor>SmallKern</ModelFlavor>
+    <ClassifierType>GlobalAveragePool</ClassifierType>
+    <Optimization>Balanced</Optimization>
+    <Pooling>True</Pooling>
+    <Downscale>False</Downscale>
+    <LearnRate>Mid</LearnRate>
+    <RegularizationFactor>Low</RegularizationFactor>
+    <LastNetworkInputShape>[100,6]</LastNetworkInputShape>
+    <LastClassCount>3</LastClassCount>
+    <Optimizer>
+      <LearningRate>0.001</LearningRate>
+      <WeightDecay>0.0001</WeightDecay>
+    </Optimizer>
+    <BuildSteps>
+      <Training />
+      <ConfusionMatrix />
+    </BuildSteps>
+  </ModelFactory>
+  <Models>
+    <Model name="conv2d-medium-balanced-0" id="c9490865-9c88-4262-960a-e06ba738dfba">
+      <LossFunction>CategoricalCrossentropy</LossFunction>
+      <Epochs>100</Epochs>
+      <BatchSize>16</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.004</LearningRate>
+        <WeightDecay>0.0001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[100,6]" intype="Float32" infreq="0" outshape="[3]" outtype="Float32">
+        <Unit id="Core.Layers.Reshape">
+          <Argument param="shape" type="Shape">[100,6,1]</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution2D">
+          <Argument param="filters" type="Int32">12</Argument>
+          <Argument param="kernel_size" type="Shape">[3,3]</Argument>
+          <Argument param="strides" type="Shape">[2,2]</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution2D">
+          <Argument param="filters" type="Int32">24</Argument>
+          <Argument param="kernel_size" type="Shape">[3,3]</Argument>
+          <Argument param="strides" type="Shape">[1,1]</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution2D">
+          <Argument param="filters" type="Int32">24</Argument>
+          <Argument param="kernel_size" type="Shape">[3,3]</Argument>
+          <Argument param="strides" type="Shape">[1,1]</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution2D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Shape">[3,3]</Argument>
+          <Argument param="strides" type="Shape">[1,1]</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution2D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Shape">[3,3]</Argument>
+          <Argument param="strides" type="Shape">[1,1]</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.GlobalAveragePool2D" />
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">3</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">softmax</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <Training />
+        <ConfusionMatrix />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="circle" weight="1" />
+        <SymbolWeight symbol="shaking" weight="1" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[2,3]" intype="Float32" infreq="0" outshape="[100,6]" outtype="Float32">
+        <Unit id="Core.Packages.ContextualWindow">
+          <Argument param="contextual_length_sec" type="Double">2</Argument>
+          <Argument param="prediction_freq" type="Double">5</Argument>
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="0" outshape="[10]" outtype="Float32" />
+    </Model>
+    <Model name="conv2d-medium-balanced-1" id="6384bccd-d87f-4cd6-8db4-e885d4d7a469">
+      <LossFunction>CategoricalCrossentropy</LossFunction>
+      <Epochs>100</Epochs>
+      <BatchSize>16</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.004</LearningRate>
+        <WeightDecay>0.0001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[100,6]" intype="Float32" infreq="0" outshape="[3]" outtype="Float32">
+        <Unit id="Core.Layers.Reshape">
+          <Argument param="shape" type="Shape">[100,6,1]</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution2D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Shape">[3,3]</Argument>
+          <Argument param="strides" type="Shape">[2,2]</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution2D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Shape">[3,3]</Argument>
+          <Argument param="strides" type="Shape">[1,1]</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution2D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Shape">[3,3]</Argument>
+          <Argument param="strides" type="Shape">[1,1]</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution2D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Shape">[3,3]</Argument>
+          <Argument param="strides" type="Shape">[1,1]</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution2D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Shape">[3,3]</Argument>
+          <Argument param="strides" type="Shape">[1,1]</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.GlobalAveragePool2D" />
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">3</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">softmax</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <Training />
+        <ConfusionMatrix />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="circle" weight="1" />
+        <SymbolWeight symbol="shaking" weight="1" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[2,3]" intype="Float32" infreq="0" outshape="[100,6]" outtype="Float32">
+        <Unit id="Core.Packages.ContextualWindow">
+          <Argument param="contextual_length_sec" type="Double">2</Argument>
+          <Argument param="prediction_freq" type="Double">5</Argument>
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="0" outshape="[10]" outtype="Float32" />
+    </Model>
+    <Model name="conv2d-medium-balanced-2" id="ca1416a5-589c-4ef9-b871-a269e7bab5b9">
+      <LossFunction>CategoricalCrossentropy</LossFunction>
+      <Epochs>100</Epochs>
+      <BatchSize>16</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.004</LearningRate>
+        <WeightDecay>0.0001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[100,6]" intype="Float32" infreq="0" outshape="[3]" outtype="Float32">
+        <Unit id="Core.Layers.Reshape">
+          <Argument param="shape" type="Shape">[100,6,1]</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution2D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Shape">[3,3]</Argument>
+          <Argument param="strides" type="Shape">[2,2]</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution2D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Shape">[3,3]</Argument>
+          <Argument param="strides" type="Shape">[1,1]</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution2D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Shape">[3,3]</Argument>
+          <Argument param="strides" type="Shape">[1,1]</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution2D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Shape">[3,3]</Argument>
+          <Argument param="strides" type="Shape">[1,1]</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution2D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Shape">[3,3]</Argument>
+          <Argument param="strides" type="Shape">[1,1]</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.GlobalAveragePool2D" />
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">3</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">softmax</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <Training />
+        <ConfusionMatrix />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="circle" weight="1" />
+        <SymbolWeight symbol="shaking" weight="1" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[2,3]" intype="Float32" infreq="0" outshape="[100,6]" outtype="Float32">
+        <Unit id="Core.Packages.ContextualWindow">
+          <Argument param="contextual_length_sec" type="Double">2</Argument>
+          <Argument param="prediction_freq" type="Double">5</Argument>
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="0" outshape="[10]" outtype="Float32" />
+    </Model>
+    <Model name="conv2d-medium-balanced-3" id="c5801c46-f284-4928-9bb4-91180f17aff0">
+      <LossFunction>CategoricalCrossentropy</LossFunction>
+      <Epochs>100</Epochs>
+      <BatchSize>16</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.004</LearningRate>
+        <WeightDecay>0.0001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[100,6]" intype="Float32" infreq="0" outshape="[3]" outtype="Float32">
+        <Unit id="Core.Layers.Reshape">
+          <Argument param="shape" type="Shape">[100,6,1]</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution2D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Shape">[3,3]</Argument>
+          <Argument param="strides" type="Shape">[2,2]</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution2D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Shape">[3,3]</Argument>
+          <Argument param="strides" type="Shape">[1,1]</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution2D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Shape">[3,3]</Argument>
+          <Argument param="strides" type="Shape">[1,1]</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution2D">
+          <Argument param="filters" type="Int32">64</Argument>
+          <Argument param="kernel_size" type="Shape">[3,3]</Argument>
+          <Argument param="strides" type="Shape">[1,1]</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution2D">
+          <Argument param="filters" type="Int32">64</Argument>
+          <Argument param="kernel_size" type="Shape">[3,3]</Argument>
+          <Argument param="strides" type="Shape">[1,1]</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.GlobalAveragePool2D" />
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">3</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">softmax</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <Training />
+        <ConfusionMatrix />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="circle" weight="1" />
+        <SymbolWeight symbol="shaking" weight="1" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[2,3]" intype="Float32" infreq="0" outshape="[100,6]" outtype="Float32">
+        <Unit id="Core.Packages.ContextualWindow">
+          <Argument param="contextual_length_sec" type="Double">2</Argument>
+          <Argument param="prediction_freq" type="Double">5</Argument>
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="0" outshape="[10]" outtype="Float32" />
+    </Model>
+  </Models>
+  <Database balance="AnnotatedLength" redistributionScope="Everything">
+    <SymbolMap>
+      <Symbol name="circle" id="1" weight="1" />
+      <Symbol name="shaking" id="2" weight="1" />
+    </SymbolMap>
+    <DataSet id="unassigned" targetSize="0" labels="Unassigned" />
+    <DataSet id="train" targetSize="0.6038255118720162" labels="Complete">
+      <Session name="CircleHorizontalPlane1" sessionId="2d9b049a-5521-4ed1-ae4e-5bf38d12f84a" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="IMU Data" tags="None">
+        <DataFile shape="[2,3]" samplerate="50" modified="5250455327670979512" start="0.0099999" length="295.64">/Data/Person1/CircleHorizontalPlane1/IMU-Data.data</DataFile>
+        <SessionFile>/Data/Person1/CircleHorizontalPlane1/CircleHorizontalPlane1.imsession</SessionFile>
+        <LabelFile modified="5250455327671148765">/Data/Person1/CircleHorizontalPlane1/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="1" length="295.64">circle</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="cf05cc27-e87c-4806-a71c-c5b2829cfb9b">Person1</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="CircleVerticalPlane1" sessionId="411d7221-6105-488b-95a4-6b3fb3d57e65" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="IMU Data" tags="None">
+        <DataFile shape="[2,3]" samplerate="50" modified="5250455327672353563" start="0.0099999" length="179.56">/Data/Person1/CircleVerticalPlane1/IMU-Data.data</DataFile>
+        <SessionFile>/Data/Person1/CircleVerticalPlane1/CircleVerticalPlane1.imsession</SessionFile>
+        <LabelFile modified="5250455327672492954">/Data/Person1/CircleVerticalPlane1/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="1" length="179.56">circle</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="cf05cc27-e87c-4806-a71c-c5b2829cfb9b">Person1</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="Shaking1" sessionId="4b458f0a-2e42-47e9-a1cf-51599b2cd313" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="IMU Data" tags="None">
+        <DataFile shape="[2,3]" samplerate="50" modified="5250455327672821525" start="0.0099999" length="240.38">/Data/Person1/Shaking1/IMU-Data.data</DataFile>
+        <SessionFile>/Data/Person1/Shaking1/Shaking1.imsession</SessionFile>
+        <LabelFile modified="5250455327672950974">/Data/Person1/Shaking1/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="1" length="240.38">shaking</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="cf05cc27-e87c-4806-a71c-c5b2829cfb9b">Person1</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="StationaryHold1" sessionId="39d83f6d-222d-44a1-af7f-97b5910491bc" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="IMU Data" tags="LabelsMissing">
+        <DataFile shape="[2,3]" samplerate="50" modified="5250455327673389103" start="0.0099999" length="233.94">/Data/Person1/StationaryHold1/IMU-Data.data</DataFile>
+        <SessionFile>/Data/Person1/StationaryHold1/StationaryHold1.imsession</SessionFile>
+        <LabelFile modified="5250455327673558346">/Data/Person1/StationaryHold1/Live-Labeling.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="cf05cc27-e87c-4806-a71c-c5b2829cfb9b">Person1</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="StationaryTable1" sessionId="44836fbf-6424-4751-8c96-577a741d2966" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="IMU Data" tags="LabelsMissing">
+        <DataFile shape="[2,3]" samplerate="50" modified="5250455327673936706" start="0.0099999" length="81.98">/Data/Person1/StationaryTable1/IMU-Data.data</DataFile>
+        <SessionFile>/Data/Person1/StationaryTable1/StationaryTable1.imsession</SessionFile>
+        <LabelFile modified="5250455327674086061">/Data/Person1/StationaryTable1/Live-Labeling.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="cf05cc27-e87c-4806-a71c-c5b2829cfb9b">Person1</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="StationaryTable2" sessionId="999a5c35-56c5-4d75-81c6-1bc100fb8f48" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="IMU Data" tags="LabelsMissing">
+        <DataFile shape="[2,3]" samplerate="50" modified="5250455327674474373" start="0.0099999" length="60.44">/Data/Person1/StationaryTable2/IMU-Data.data</DataFile>
+        <SessionFile>/Data/Person1/StationaryTable2/StationaryTable2.imsession</SessionFile>
+        <LabelFile modified="5250455327674623714">/Data/Person1/StationaryTable2/Live-Labeling.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="cf05cc27-e87c-4806-a71c-c5b2829cfb9b">Person1</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="StationaryTable4" sessionId="b192d6bb-11e1-48bc-a80a-c830a836d784" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="IMU Data" tags="LabelsMissing">
+        <DataFile shape="[2,3]" samplerate="50" modified="5250455327675509881" start="0.0099999" length="65.72">/Data/Person1/StationaryTable4/IMU-Data.data</DataFile>
+        <SessionFile>/Data/Person1/StationaryTable4/StationaryTable4.imsession</SessionFile>
+        <LabelFile modified="5250455327675659241">/Data/Person1/StationaryTable4/Live-Labeling.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="cf05cc27-e87c-4806-a71c-c5b2829cfb9b">Person1</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="Transition3" sessionId="191302e4-8850-4a08-9c7f-c8a6b4468a34" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="IMU Data" tags="None">
+        <DataFile shape="[2,3]" samplerate="50" modified="5250455327676037595" start="0.0099999" length="40.82">/Data/Person1/Transition3/IMU-Data.data</DataFile>
+        <SessionFile>/Data/Person1/Transition3/Transition3.imsession</SessionFile>
+        <LabelFile modified="5250455327676186957">/Data/Person1/Transition3/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="3" length="15.3470589">shaking</Label>
+          <Label count="2" length="11.4042389">circle</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="cf05cc27-e87c-4806-a71c-c5b2829cfb9b">Person1</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="Transitions10" sessionId="b7775ae4-6caa-4aa3-8e46-3a8d6c590c43" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="IMU Data" tags="None">
+        <DataFile shape="[2,3]" samplerate="50" modified="5250455327677053188" start="0.0099999" length="38.44">/Data/Person1/Transitions10/IMU-Data.data</DataFile>
+        <SessionFile>/Data/Person1/Transitions10/Transitions10.imsession</SessionFile>
+        <LabelFile modified="5250455327677202560">/Data/Person1/Transitions10/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="1" length="23.8481481">shaking</Label>
+          <Label count="1" length="8.234448">circle</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="cf05cc27-e87c-4806-a71c-c5b2829cfb9b">Person1</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="Transitions2" sessionId="b8e1416e-f2c2-4be0-abc5-ef7f187d1d6d" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="IMU Data" tags="None">
+        <DataFile shape="[2,3]" samplerate="50" modified="5250455327677561002" start="0.0099999" length="42.24">/Data/Person1/Transitions2/IMU-Data.data</DataFile>
+        <SessionFile>/Data/Person1/Transitions2/Transitions2.imsession</SessionFile>
+        <LabelFile modified="5250455327677700399">/Data/Person1/Transitions2/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="3" length="14.1894067">shaking</Label>
+          <Label count="2" length="12.6235397">circle</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="cf05cc27-e87c-4806-a71c-c5b2829cfb9b">Person1</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="Transitions4" sessionId="3a4f091b-0225-4d0d-a9bd-893e3c039eb6" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="IMU Data" tags="None">
+        <DataFile shape="[2,3]" samplerate="50" modified="5250455327678076050" start="0.0099999" length="80.28">/Data/Person1/Transitions4/IMU-Data.data</DataFile>
+        <SessionFile>/Data/Person1/Transitions4/Transitions4.imsession</SessionFile>
+        <LabelFile modified="5250455327678205448">/Data/Person1/Transitions4/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="2" length="20.1690013">circle</Label>
+          <Label count="3" length="30.6679889">shaking</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="cf05cc27-e87c-4806-a71c-c5b2829cfb9b">Person1</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="Transitions7" sessionId="e46864c8-0788-4b19-8b47-0e278a5f1b37" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="IMU Data" tags="None">
+        <DataFile shape="[2,3]" samplerate="50" modified="5250455327679626372" start="0.0099999" length="46.660000000000004">/Data/Person1/Transitions7/IMU-Data.data</DataFile>
+        <SessionFile>/Data/Person1/Transitions7/Transitions7.imsession</SessionFile>
+        <LabelFile modified="5250455327679775764">/Data/Person1/Transitions7/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="2" length="16.3992899">shaking</Label>
+          <Label count="1" length="19.8694604">circle</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="cf05cc27-e87c-4806-a71c-c5b2829cfb9b">Person1</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="Transitions9" sessionId="26e75a49-59e0-4553-8aa8-c98c47a344a8" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="IMU Data" tags="None">
+        <DataFile shape="[2,3]" samplerate="50" modified="5250455327680644204" start="0.0099999" length="31.36">/Data/Person1/Transitions9/IMU-Data.data</DataFile>
+        <SessionFile>/Data/Person1/Transitions9/Transitions9.imsession</SessionFile>
+        <LabelFile modified="5250455327680783619">/Data/Person1/Transitions9/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="3" length="13.8575673">shaking</Label>
+          <Label count="1" length="12.3878248">circle</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="cf05cc27-e87c-4806-a71c-c5b2829cfb9b">Person1</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="Session-2025-03-25--13-48-14" sessionId="ad23441a-51ed-4495-9803-3971f3361abb" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="IMU Data" tags="None">
+        <DataFile shape="[2,3]" samplerate="50" modified="5250471837663154307" start="0.0099999" length="41.5">/Data/Person2/Session-2025-03-25--13-48-14/IMU-Data.data</DataFile>
+        <SessionFile>/Data/Person2/Session-2025-03-25--13-48-14/Session-2025-03-25--13-48-14.imsession</SessionFile>
+        <LabelFile modified="5250471837663284310">/Data/Person2/Session-2025-03-25--13-48-14/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="3" length="13.7066229">shaking</Label>
+          <Label count="1" length="8.6802967">circle</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="cf05cc27-e87c-4806-a71c-c5b2829cfb9b">Person2</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="Session-2025-03-25--14-42-43" sessionId="9eca934d-c89d-478d-ae2a-5c6db8c07eb8" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="IMU Data" tags="None">
+        <DataFile shape="[2,3]" samplerate="50" modified="5250471837669507331" start="0.0099999" length="42.7">/Data/Person2/Session-2025-03-25--14-42-43/IMU-Data.data</DataFile>
+        <SessionFile>/Data/Person2/Session-2025-03-25--14-42-43/Session-2025-03-25--14-42-43.imsession</SessionFile>
+        <LabelFile modified="5250471837669837341">/Data/Person2/Session-2025-03-25--14-42-43/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="3" length="14.5965443">shaking</Label>
+          <Label count="3" length="20.8814691">circle</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="cf05cc27-e87c-4806-a71c-c5b2829cfb9b">Person2</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="Session-2025-03-25--14-47-11" sessionId="21816f4a-cdd5-4495-9fb4-b89a9cafcb0d" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="IMU Data" tags="None">
+        <DataFile shape="[2,3]" samplerate="50" modified="5250471837671937434" start="0.0099999" length="43.82">/Data/Person2/Session-2025-03-25--14-47-11/IMU-Data.data</DataFile>
+        <SessionFile>/Data/Person2/Session-2025-03-25--14-47-11/Session-2025-03-25--14-47-11.imsession</SessionFile>
+        <LabelFile modified="5250471837672097459">/Data/Person2/Session-2025-03-25--14-47-11/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="2" length="7.6722639">shaking</Label>
+          <Label count="1" length="20.5742063">circle</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="cf05cc27-e87c-4806-a71c-c5b2829cfb9b">Person2</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="Session-2025-03-25--14-54-45" sessionId="8e9a611f-7a56-4151-9e6b-05335459f008" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="IMU Data" tags="None">
+        <DataFile shape="[2,3]" samplerate="50" modified="5250471837673777439" start="0.0099999" length="43.64">/Data/Person2/Session-2025-03-25--14-54-45/IMU-Data.data</DataFile>
+        <SessionFile>/Data/Person2/Session-2025-03-25--14-54-45/Session-2025-03-25--14-54-45.imsession</SessionFile>
+        <LabelFile modified="5250471837673937535">/Data/Person2/Session-2025-03-25--14-54-45/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="1" length="5.4127947">circle</Label>
+          <Label count="3" length="13.3550774">shaking</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="cf05cc27-e87c-4806-a71c-c5b2829cfb9b">Person2</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="Session-2025-03-25--15-02-15" sessionId="c5b4686e-68bc-4ab9-a4fe-b8b8396ab28d" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="IMU Data" tags="None">
+        <DataFile shape="[2,3]" samplerate="50" modified="5250471837675627569" start="0.0099999" length="45.06">/Data/Person2/Session-2025-03-25--15-02-15/IMU-Data.data</DataFile>
+        <SessionFile>/Data/Person2/Session-2025-03-25--15-02-15/Session-2025-03-25--15-02-15.imsession</SessionFile>
+        <LabelFile modified="5250471837675787560">/Data/Person2/Session-2025-03-25--15-02-15/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="1" length="5.0713912">circle</Label>
+          <Label count="2" length="16.6760005">shaking</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="cf05cc27-e87c-4806-a71c-c5b2829cfb9b">Person2</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="Session-2025-03-25--15-08-58" sessionId="64ec7373-322f-4cd2-b12c-91d3db2e6301" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="IMU Data" tags="None">
+        <DataFile shape="[2,3]" samplerate="50" modified="5250471837677717585" start="0.0099999" length="49.14">/Data/Person2/Session-2025-03-25--15-08-58/IMU-Data.data</DataFile>
+        <SessionFile>/Data/Person2/Session-2025-03-25--15-08-58/Session-2025-03-25--15-08-58.imsession</SessionFile>
+        <LabelFile modified="5250471837677857595">/Data/Person2/Session-2025-03-25--15-08-58/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="3" length="16.5418328">circle</Label>
+          <Label count="2" length="9.0161516">shaking</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="cf05cc27-e87c-4806-a71c-c5b2829cfb9b">Person2</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="Session-2025-03-25--16-20-17" sessionId="3f2b1d3b-2749-4d15-b94f-023af07461e0" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="IMU Data" tags="None">
+        <DataFile shape="[2,3]" samplerate="50" modified="5250471837694748235" start="0.0099999" length="56.64">/Data/Person2/Session-2025-03-25--16-20-17/IMU-Data.data</DataFile>
+        <SessionFile>/Data/Person2/Session-2025-03-25--16-20-17/Session-2025-03-25--16-20-17.imsession</SessionFile>
+        <LabelFile modified="5250471837694888230">/Data/Person2/Session-2025-03-25--16-20-17/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="4" length="22.7033215">circle</Label>
+          <Label count="2" length="11.4308042">shaking</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="cf05cc27-e87c-4806-a71c-c5b2829cfb9b">Person2</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="Session-2025-03-25--16-49-29" sessionId="7ba33411-134f-484b-9540-6180cc7369ff" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="IMU Data" tags="None">
+        <DataFile shape="[2,3]" samplerate="50" modified="5250471837703785444" start="0.0099999" length="56.52">/Data/Person2/Session-2025-03-25--16-49-29/IMU-Data.data</DataFile>
+        <SessionFile>/Data/Person2/Session-2025-03-25--16-49-29/Session-2025-03-25--16-49-29.imsession</SessionFile>
+        <LabelFile modified="5250471837703935444">/Data/Person2/Session-2025-03-25--16-49-29/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="3" length="23.1440421">circle</Label>
+          <Label count="2" length="13.3550779">shaking</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="cf05cc27-e87c-4806-a71c-c5b2829cfb9b">Person2</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="Session-2025-03-25--17-25-02" sessionId="5b0954ec-3643-4177-a583-497d8deeca7c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="IMU Data" tags="None">
+        <DataFile shape="[2,3]" samplerate="50" modified="5250471837717940518" start="0.0099999" length="56.04">/Data/Person2/Session-2025-03-25--17-25-02/IMU-Data.data</DataFile>
+        <SessionFile>/Data/Person2/Session-2025-03-25--17-25-02/Session-2025-03-25--17-25-02.imsession</SessionFile>
+        <LabelFile modified="5250471837718140536">/Data/Person2/Session-2025-03-25--17-25-02/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="2" length="11.4959811">shaking</Label>
+          <Label count="2" length="14.6834469">circle</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="cf05cc27-e87c-4806-a71c-c5b2829cfb9b">Person2</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="Session-2025-03-25--17-29-42" sessionId="aded32f9-f8b9-429c-9fd7-b7bc2a712b7d" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="IMU Data" tags="None">
+        <DataFile shape="[2,3]" samplerate="50" modified="5250471837720201808" start="0.0099999" length="57.160000000000004">/Data/Person2/Session-2025-03-25--17-29-42/IMU-Data.data</DataFile>
+        <SessionFile>/Data/Person2/Session-2025-03-25--17-29-42/Session-2025-03-25--17-29-42.imsession</SessionFile>
+        <LabelFile modified="5250471837720371821">/Data/Person2/Session-2025-03-25--17-29-42/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="3" length="12.905046">shaking</Label>
+          <Label count="2" length="11.4059746">circle</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="cf05cc27-e87c-4806-a71c-c5b2829cfb9b">Person2</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+    </DataSet>
+    <DataSet id="validation" targetSize="0.19732074327926563" labels="Complete">
+      <Session name="CircleShaking1" sessionId="93d55383-4920-46f1-8cf4-a1dc2fc38044" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="IMU Data" tags="None">
+        <DataFile shape="[2,3]" samplerate="50" modified="5250455327671636648" start="0.0099999" length="58.22">/Data/Person1/CircleShaking1/IMU-Data.data</DataFile>
+        <SessionFile>/Data/Person1/CircleShaking1/CircleShaking1.imsession</SessionFile>
+        <LabelFile modified="5250455327671865658">/Data/Person1/CircleShaking1/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="1" length="39.9742604">circle</Label>
+          <Label count="1" length="18.2360431">shaking</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="cf05cc27-e87c-4806-a71c-c5b2829cfb9b">Person1</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="Session-2025-03-19--17-23-47" sessionId="514d1d0e-0f3c-48a3-854b-1499882658df" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="IMU Data" tags="None">
+        <DataFile shape="[2,3]" samplerate="50" modified="5250471837659925006" start="0.0099999" length="40.18">/Data/Person2/Session-2025-03-19--17-23-47/IMU-Data.data</DataFile>
+        <SessionFile>/Data/Person2/Session-2025-03-19--17-23-47/Session-2025-03-19--17-23-47.imsession</SessionFile>
+        <LabelFile modified="5250471845178343077">/Data/Person2/Session-2025-03-19--17-23-47/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="2" length="9.8232166">circle</Label>
+          <Label count="3" length="13.4371111">shaking</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="cf05cc27-e87c-4806-a71c-c5b2829cfb9b">Person2</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="Session-2025-03-20--14-36-05" sessionId="d57c8278-a223-45cf-9b54-bfacc98b8390" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="IMU Data" tags="None">
+        <DataFile shape="[2,3]" samplerate="50" modified="5250471837661614254" start="0.0099999" length="40.32">/Data/Person2/Session-2025-03-20--14-36-05/IMU-Data.data</DataFile>
+        <SessionFile>/Data/Person2/Session-2025-03-20--14-36-05/Session-2025-03-20--14-36-05.imsession</SessionFile>
+        <LabelFile modified="5250471837661774256">/Data/Person2/Session-2025-03-20--14-36-05/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="3" length="10.4550477">circle</Label>
+          <Label count="2" length="8.5899188">shaking</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="cf05cc27-e87c-4806-a71c-c5b2829cfb9b">Person2</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="Session-2025-03-25--14-05-14" sessionId="8699778e-20f0-4c24-b49a-20c7271c4cac" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="IMU Data" tags="None">
+        <DataFile shape="[2,3]" samplerate="50" modified="5250471837666172807" start="0.0099999" length="41.74">/Data/Person2/Session-2025-03-25--14-05-14/IMU-Data.data</DataFile>
+        <SessionFile>/Data/Person2/Session-2025-03-25--14-05-14/Session-2025-03-25--14-05-14.imsession</SessionFile>
+        <LabelFile modified="5250471837666317215">/Data/Person2/Session-2025-03-25--14-05-14/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="3" length="20.7759445">shaking</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="cf05cc27-e87c-4806-a71c-c5b2829cfb9b">Person2</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="Session-2025-03-25--14-25-17" sessionId="c7ac9435-b982-4eab-83b2-d092746272a1" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="IMU Data" tags="None">
+        <DataFile shape="[2,3]" samplerate="50" modified="5250471837667727222" start="0.0099999" length="43.42">/Data/Person2/Session-2025-03-25--14-25-17/IMU-Data.data</DataFile>
+        <SessionFile>/Data/Person2/Session-2025-03-25--14-25-17/Session-2025-03-25--14-25-17.imsession</SessionFile>
+        <LabelFile modified="5250471837667857278">/Data/Person2/Session-2025-03-25--14-25-17/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="2" length="12.7498627">shaking</Label>
+          <Label count="2" length="16.1576884">circle</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="cf05cc27-e87c-4806-a71c-c5b2829cfb9b">Person2</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="Session-2025-03-25--15-17-49" sessionId="19719d99-e98f-4a22-a3f7-dc06178a8d3c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="IMU Data" tags="None">
+        <DataFile shape="[2,3]" samplerate="50" modified="5250471837681867769" start="0.0099999" length="50.04">/Data/Person2/Session-2025-03-25--15-17-49/IMU-Data.data</DataFile>
+        <SessionFile>/Data/Person2/Session-2025-03-25--15-17-49/Session-2025-03-25--15-17-49.imsession</SessionFile>
+        <LabelFile modified="5250471837682027795">/Data/Person2/Session-2025-03-25--15-17-49/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="2" length="11.4959813">circle</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="cf05cc27-e87c-4806-a71c-c5b2829cfb9b">Person2</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="Session-2025-03-25--15-33-15" sessionId="9428ff47-b9af-45e4-a377-f08301b1e3b7" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="IMU Data" tags="None">
+        <DataFile shape="[2,3]" samplerate="50" modified="5250471837688007950" start="0.0099999" length="51.68">/Data/Person2/Session-2025-03-25--15-33-15/IMU-Data.data</DataFile>
+        <SessionFile>/Data/Person2/Session-2025-03-25--15-33-15/Session-2025-03-25--15-33-15.imsession</SessionFile>
+        <LabelFile modified="5250471837688157997">/Data/Person2/Session-2025-03-25--15-33-15/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="3" length="16.2166579">circle</Label>
+          <Label count="2" length="11.2228584">shaking</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="cf05cc27-e87c-4806-a71c-c5b2829cfb9b">Person2</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="Session-2025-03-25--15-42-20" sessionId="f14b94de-2678-4c1f-a0dd-49a3b53fd150" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="IMU Data" tags="None">
+        <DataFile shape="[2,3]" samplerate="50" modified="5250471837690178065" start="0.0099999" length="55.58">/Data/Person2/Session-2025-03-25--15-42-20/IMU-Data.data</DataFile>
+        <SessionFile>/Data/Person2/Session-2025-03-25--15-42-20/Session-2025-03-25--15-42-20.imsession</SessionFile>
+        <LabelFile modified="5250471837690348079">/Data/Person2/Session-2025-03-25--15-42-20/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="4" length="24.3575757">circle</Label>
+          <Label count="1" length="6.64495">shaking</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="cf05cc27-e87c-4806-a71c-c5b2829cfb9b">Person2</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="Session-2025-03-25--16-15-11" sessionId="fac41146-37de-4783-9b42-32f00c29a66e" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="IMU Data" tags="None">
+        <DataFile shape="[2,3]" samplerate="50" modified="5250471837692488083" start="0.0099999" length="56.02">/Data/Person2/Session-2025-03-25--16-15-11/IMU-Data.data</DataFile>
+        <SessionFile>/Data/Person2/Session-2025-03-25--16-15-11/Session-2025-03-25--16-15-11.imsession</SessionFile>
+        <LabelFile modified="5250471837692728110">/Data/Person2/Session-2025-03-25--16-15-11/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="1" length="3.9261384">circle</Label>
+          <Label count="5" length="27.4053761">shaking</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="cf05cc27-e87c-4806-a71c-c5b2829cfb9b">Person2</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="Session-2025-03-25--16-38-30" sessionId="181c8f68-3a6b-4ff0-af00-105dda6564fe" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="IMU Data" tags="None">
+        <DataFile shape="[2,3]" samplerate="50" modified="5250471837701365356" start="0.0099999" length="59.06">/Data/Person2/Session-2025-03-25--16-38-30/IMU-Data.data</DataFile>
+        <SessionFile>/Data/Person2/Session-2025-03-25--16-38-30/Session-2025-03-25--16-38-30.imsession</SessionFile>
+        <LabelFile modified="5250471837701525373">/Data/Person2/Session-2025-03-25--16-38-30/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="3" length="27.8243718">circle</Label>
+          <Label count="2" length="13.7616578">shaking</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="cf05cc27-e87c-4806-a71c-c5b2829cfb9b">Person2</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="Session-2025-03-25--17-01-29" sessionId="563cc895-306b-452f-8940-26add6c7ab9a" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="IMU Data" tags="None">
+        <DataFile shape="[2,3]" samplerate="50" modified="5250471837705995508" start="0.0099999" length="52.54">/Data/Person2/Session-2025-03-25--17-01-29/IMU-Data.data</DataFile>
+        <SessionFile>/Data/Person2/Session-2025-03-25--17-01-29/Session-2025-03-25--17-01-29.imsession</SessionFile>
+        <LabelFile modified="5250471837706145508">/Data/Person2/Session-2025-03-25--17-01-29/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="4" length="25.8876833">circle</Label>
+          <Label count="1" length="4.9534519">shaking</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="cf05cc27-e87c-4806-a71c-c5b2829cfb9b">Person2</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="Session-2025-03-25--17-10-18" sessionId="5c7f7102-1b2b-4454-9393-bff87ec1c551" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="IMU Data" tags="None">
+        <DataFile shape="[2,3]" samplerate="50" modified="5250471837710145710" start="0.0099999" length="55.34">/Data/Person2/Session-2025-03-25--17-10-18/IMU-Data.data</DataFile>
+        <SessionFile>/Data/Person2/Session-2025-03-25--17-10-18/Session-2025-03-25--17-10-18.imsession</SessionFile>
+        <LabelFile modified="5250471837710285678">/Data/Person2/Session-2025-03-25--17-10-18/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="3" length="16.4059818">shaking</Label>
+          <Label count="2" length="13.0105706">circle</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="cf05cc27-e87c-4806-a71c-c5b2829cfb9b">Person2</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="Session-2025-03-25--17-14-35" sessionId="0b79d16b-c009-411f-af50-5a0490c13c33" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="IMU Data" tags="None">
+        <DataFile shape="[2,3]" samplerate="50" modified="5250471837712265737" start="0.0099999" length="57.04">/Data/Person2/Session-2025-03-25--17-14-35/IMU-Data.data</DataFile>
+        <SessionFile>/Data/Person2/Session-2025-03-25--17-14-35/Session-2025-03-25--17-14-35.imsession</SessionFile>
+        <LabelFile modified="5250471837712425749">/Data/Person2/Session-2025-03-25--17-14-35/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="3" length="22.7126326">circle</Label>
+          <Label count="2" length="13.7585542">shaking</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="cf05cc27-e87c-4806-a71c-c5b2829cfb9b">Person2</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+    </DataSet>
+    <DataSet id="test" targetSize="0.19885374484871818" labels="Complete">
+      <Session name="StationaryTable3" sessionId="7aa3178d-ca09-41d1-ade2-d672b8b749e5" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="IMU Data" tags="LabelsMissing">
+        <DataFile shape="[2,3]" samplerate="50" modified="5250455327674992125" start="0.0099999" length="60.800000000000004">/Data/Person1/StationaryTable3/IMU-Data.data</DataFile>
+        <SessionFile>/Data/Person1/StationaryTable3/StationaryTable3.imsession</SessionFile>
+        <LabelFile modified="5250455327675131533">/Data/Person1/StationaryTable3/Live-Labeling.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="cf05cc27-e87c-4806-a71c-c5b2829cfb9b">Person1</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="Transitions1" sessionId="32e4734c-0f54-4722-9975-b1fd64383efb" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="IMU Data" tags="None">
+        <DataFile shape="[2,3]" samplerate="50" modified="5250455327676545414" start="0.0099999" length="50.36">/Data/Person1/Transitions1/IMU-Data.data</DataFile>
+        <SessionFile>/Data/Person1/Transitions1/Transitions1.imsession</SessionFile>
+        <LabelFile modified="5250455327676694740">/Data/Person1/Transitions1/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="3" length="15.1136623">shaking</Label>
+          <Label count="2" length="10.7371591">circle</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="cf05cc27-e87c-4806-a71c-c5b2829cfb9b">Person1</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="Transitions5" sessionId="5a4b67f6-e252-42ee-be2f-903ac571433c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="IMU Data" tags="None">
+        <DataFile shape="[2,3]" samplerate="50" modified="5250455327678573826" start="0.0099999" length="60.480000000000004">/Data/Person1/Transitions5/IMU-Data.data</DataFile>
+        <SessionFile>/Data/Person1/Transitions5/Transitions5.imsession</SessionFile>
+        <LabelFile modified="5250455327678713241">/Data/Person1/Transitions5/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="1" length="15.0881824">shaking</Label>
+          <Label count="2" length="40.5586125">circle</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="cf05cc27-e87c-4806-a71c-c5b2829cfb9b">Person1</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="Transitions6" sessionId="86073fcb-4006-4970-8610-e733c21a08cc" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="IMU Data" tags="None">
+        <DataFile shape="[2,3]" samplerate="50" modified="5250455327679118561" start="0.0099999" length="39.58">/Data/Person1/Transitions6/IMU-Data.data</DataFile>
+        <SessionFile>/Data/Person1/Transitions6/Transitions6.imsession</SessionFile>
+        <LabelFile modified="5250455327679258008">/Data/Person1/Transitions6/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="1" length="26.0497771">shaking</Label>
+          <Label count="1" length="7.0071054">circle</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="cf05cc27-e87c-4806-a71c-c5b2829cfb9b">Person1</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="Transitions8" sessionId="cf5420ae-a2bd-4876-b6aa-091c4d72da27" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="IMU Data" tags="None">
+        <DataFile shape="[2,3]" samplerate="50" modified="5250455327680154134" start="0.0099999" length="51.46">/Data/Person1/Transitions8/IMU-Data.data</DataFile>
+        <SessionFile>/Data/Person1/Transitions8/Transitions8.imsession</SessionFile>
+        <LabelFile modified="5250455327680283584">/Data/Person1/Transitions8/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="2" length="25.205118">circle</Label>
+          <Label count="3" length="15.0009972">shaking</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="cf05cc27-e87c-4806-a71c-c5b2829cfb9b">Person1</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="Session-2025-03-25--13-53-41" sessionId="9407b13f-0227-4b83-91a4-0b90dd6844b2" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="IMU Data" tags="None">
+        <DataFile shape="[2,3]" samplerate="50" modified="5250471837664655485" start="0.0099999" length="41.74">/Data/Person2/Session-2025-03-25--13-53-41/IMU-Data.data</DataFile>
+        <SessionFile>/Data/Person2/Session-2025-03-25--13-53-41/Session-2025-03-25--13-53-41.imsession</SessionFile>
+        <LabelFile modified="5250471837664786850">/Data/Person2/Session-2025-03-25--13-53-41/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="3" length="17.1829444">shaking</Label>
+          <Label count="1" length="9.2396156">circle</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="cf05cc27-e87c-4806-a71c-c5b2829cfb9b">Person2</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="Session-2025-03-25--15-15-17" sessionId="d6149c42-0be4-4bd1-95d6-5fe778f753b4" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="IMU Data" tags="None">
+        <DataFile shape="[2,3]" samplerate="50" modified="5250471837679717700" start="0.0099999" length="59.1">/Data/Person2/Session-2025-03-25--15-15-17/IMU-Data.data</DataFile>
+        <SessionFile>/Data/Person2/Session-2025-03-25--15-15-17/Session-2025-03-25--15-15-17.imsession</SessionFile>
+        <LabelFile modified="5250471837679857706">/Data/Person2/Session-2025-03-25--15-15-17/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="3" length="35.360074">circle</Label>
+          <Label count="1" length="4.1558097">shaking</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="cf05cc27-e87c-4806-a71c-c5b2829cfb9b">Person2</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="Session-2025-03-25--15-22-00" sessionId="3bb7456c-85d4-4d1d-927b-0385d02c6214" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="IMU Data" tags="None">
+        <DataFile shape="[2,3]" samplerate="50" modified="5250471837683687830" start="0.0099999" length="50.94">/Data/Person2/Session-2025-03-25--15-22-00/IMU-Data.data</DataFile>
+        <SessionFile>/Data/Person2/Session-2025-03-25--15-22-00/Session-2025-03-25--15-22-00.imsession</SessionFile>
+        <LabelFile modified="5250471837683827830">/Data/Person2/Session-2025-03-25--15-22-00/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="2" length="9.9844955">circle</Label>
+          <Label count="3" length="12.5574352">shaking</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="cf05cc27-e87c-4806-a71c-c5b2829cfb9b">Person2</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="Session-2025-03-25--15-28-53" sessionId="a241ffa9-c616-4503-9977-324e3e34ffae" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="IMU Data" tags="None">
+        <DataFile shape="[2,3]" samplerate="50" modified="5250471837685627918" start="0.0099999" length="66.1">/Data/Person2/Session-2025-03-25--15-28-53/IMU-Data.data</DataFile>
+        <SessionFile>/Data/Person2/Session-2025-03-25--15-28-53/Session-2025-03-25--15-28-53.imsession</SessionFile>
+        <LabelFile modified="5250471837685787920">/Data/Person2/Session-2025-03-25--15-28-53/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="4" length="19.5406852">circle</Label>
+          <Label count="1" length="4.7268843">shaking</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="cf05cc27-e87c-4806-a71c-c5b2829cfb9b">Person2</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="Session-2025-03-25--16-25-17" sessionId="f9032ee4-e397-4e9f-b0e0-26ba0a3197d6" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="IMU Data" tags="None">
+        <DataFile shape="[2,3]" samplerate="50" modified="5250471837696908307" start="0.0099999" length="55.72">/Data/Person2/Session-2025-03-25--16-25-17/IMU-Data.data</DataFile>
+        <SessionFile>/Data/Person2/Session-2025-03-25--16-25-17/Session-2025-03-25--16-25-17.imsession</SessionFile>
+        <LabelFile modified="5250471837697128297">/Data/Person2/Session-2025-03-25--16-25-17/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="4" length="24.3948196">circle</Label>
+          <Label count="2" length="10.6921316">shaking</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="cf05cc27-e87c-4806-a71c-c5b2829cfb9b">Person2</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="Session-2025-03-25--16-30-07" sessionId="38318da4-66bb-4e23-b7dc-ce135c7d644c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="IMU Data" tags="None">
+        <DataFile shape="[2,3]" samplerate="50" modified="5250471837699115266" start="0.0099999" length="55.38">/Data/Person2/Session-2025-03-25--16-30-07/IMU-Data.data</DataFile>
+        <SessionFile>/Data/Person2/Session-2025-03-25--16-30-07/Session-2025-03-25--16-30-07.imsession</SessionFile>
+        <LabelFile modified="5250471837699305283">/Data/Person2/Session-2025-03-25--16-30-07/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="3" length="17.7746988">circle</Label>
+          <Label count="3" length="13.5940599">shaking</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="cf05cc27-e87c-4806-a71c-c5b2829cfb9b">Person2</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="Session-2025-03-25--17-06-14" sessionId="cdbdb073-1f66-4128-9d25-e58e8a1b75e2" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="IMU Data" tags="None">
+        <DataFile shape="[2,3]" samplerate="50" modified="5250471837708105596" start="0.0099999" length="54.56">/Data/Person2/Session-2025-03-25--17-06-14/IMU-Data.data</DataFile>
+        <SessionFile>/Data/Person2/Session-2025-03-25--17-06-14/Session-2025-03-25--17-06-14.imsession</SessionFile>
+        <LabelFile modified="5250471837708255584">/Data/Person2/Session-2025-03-25--17-06-14/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="3" length="18.5568229">shaking</Label>
+          <Label count="2" length="10.9249064">circle</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="cf05cc27-e87c-4806-a71c-c5b2829cfb9b">Person2</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="Session-2025-03-25--17-19-06" sessionId="01384c8e-ce0e-4f5a-aad6-05c964525428" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="IMU Data" tags="None">
+        <DataFile shape="[2,3]" samplerate="50" modified="5250471837715730494" start="0.0099999" length="55.4">/Data/Person2/Session-2025-03-25--17-19-06/IMU-Data.data</DataFile>
+        <SessionFile>/Data/Person2/Session-2025-03-25--17-19-06/Session-2025-03-25--17-19-06.imsession</SessionFile>
+        <LabelFile modified="5250471837715970447">/Data/Person2/Session-2025-03-25--17-19-06/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="1" length="5.9466254">shaking</Label>
+          <Label count="1" length="7.1260185">circle</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="cf05cc27-e87c-4806-a71c-c5b2829cfb9b">Person2</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+    </DataSet>
+  </Database>
+  <CustomColumns>
+    <CustomColumn id="cf05cc27-e87c-4806-a71c-c5b2829cfb9b" name="Category 1" internalName="Category 1" />
+  </CustomColumns>
+</ImagimobStudio>

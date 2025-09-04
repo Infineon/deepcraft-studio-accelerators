@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Annotations>
+	<Annotation>
+		<Path>train_4388.jpg</Path>
+		<Object>
+			<Name>Scissors</Name>
+			<Confidence>0.8751</Confidence>
+			<Bndbox>
+				<X>0.1453125</X>
+				<Y>0.628125</Y>
+				<Width>0.290625</Width>
+				<Height>0.296875</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>Paper</Name>
+			<Confidence>0.6104</Confidence>
+			<Bndbox>
+				<X>0.5265625</X>
+				<Y>0.0796875</Y>
+				<Width>0.159375</Width>
+				<Height>0.115625</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>Paper</Name>
+			<Confidence>0.5536</Confidence>
+			<Bndbox>
+				<X>0.3953125</X>
+				<Y>0.075</Y>
+				<Width>0.15625</Width>
+				<Height>0.11875</Height>
+			</Bndbox>
+		</Object>
+	</Annotation>
+</Annotations>

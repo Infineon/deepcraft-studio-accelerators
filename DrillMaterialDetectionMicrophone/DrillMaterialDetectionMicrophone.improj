@@ -1,0 +1,1296 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ImagimobStudio version="1.1.0">
+  <Job id="b2f454c3-dfae-11ef-a440-b7a221d59385" />
+  <Preprocessor inshape="[1]" intype="Float32" infreq="16000" outshape="[100,40]" outtype="Float32">
+    <Unit id="Core.Packages.SpeechAudio">
+      <Argument param="output_freq" type="Double">100</Argument>
+      <Argument param="output_features" type="Int32">40</Argument>
+      <Argument param="low_cut_freq" type="Int32">300</Argument>
+      <Argument param="high_cut_freq" type="Int32">8000</Argument>
+      <Argument param="input" type="String">data</Argument>
+      <Argument param="time_input" type="String">time</Argument>
+      <Argument param="output" type="String">data</Argument>
+      <Argument param="time_output" type="String">time</Argument>
+    </Unit>
+    <Unit id="Core.Packages.ContextualWindow">
+      <Argument param="contextual_length_sec" type="Double">1</Argument>
+      <Argument param="prediction_freq" type="Double">7</Argument>
+      <Argument param="input" type="String">data</Argument>
+      <Argument param="time_input" type="String">time</Argument>
+      <Argument param="output" type="String">data</Argument>
+      <Argument param="time_output" type="String">time</Argument>
+    </Unit>
+  </Preprocessor>
+  <ModelFactory>
+    <Epochs>100</Epochs>
+    <BatchSize>16</BatchSize>
+    <SplitCount>16</SplitCount>
+    <Patience>20</Patience>
+    <AppendModels>False</AppendModels>
+    <LossFunction>CategoricalCrossentropy</LossFunction>
+    <FactoryOptions>None</FactoryOptions>
+    <HardwareType>Default</HardwareType>
+    <TrainingEnvironment>
+    </TrainingEnvironment>
+    <ModelFamily>Conv1D</ModelFamily>
+    <ModelFlavor>SmallKern</ModelFlavor>
+    <ClassifierType>GlobalAveragePool</ClassifierType>
+    <Optimization>Accuracy</Optimization>
+    <Pooling>True</Pooling>
+    <Downscale>False</Downscale>
+    <LearnRate>Mid</LearnRate>
+    <RegularizationFactor>Low</RegularizationFactor>
+    <LastNetworkInputShape>[100,40]</LastNetworkInputShape>
+    <Optimizer>
+      <LearningRate>0.001</LearningRate>
+      <WeightDecay>0.0001</WeightDecay>
+    </Optimizer>
+    <BuildSteps>
+      <Training />
+      <ConfusionMatrix />
+    </BuildSteps>
+  </ModelFactory>
+  <Models>
+    <Model name="conv1d-medium-accuracy-0" id="28b0b7ba-caaf-42b5-9ced-5f564c397c2d">
+      <LossFunction>CategoricalCrossentropy</LossFunction>
+      <Epochs>100</Epochs>
+      <BatchSize>16</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.004</LearningRate>
+        <WeightDecay>0.0001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[100,40]" intype="Float32" infreq="0" outshape="[6]" outtype="Float32">
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">12</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">24</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">24</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.GlobalAveragePool1D" />
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">6</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">softmax</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <Training />
+        <ConfusionMatrix />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="air" weight="3" />
+        <SymbolWeight symbol="plastic" weight="8" />
+        <SymbolWeight symbol="plastic_out" weight="1" />
+        <SymbolWeight symbol="wood" weight="8" />
+        <SymbolWeight symbol="wood_out" weight="1" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[1]" intype="Float32" infreq="0" outshape="[100,40]" outtype="Float32">
+        <Unit id="Core.Packages.SpeechAudio">
+          <Argument param="output_freq" type="Double">100</Argument>
+          <Argument param="output_features" type="Int32">40</Argument>
+          <Argument param="low_cut_freq" type="Int32">300</Argument>
+          <Argument param="high_cut_freq" type="Int32">8000</Argument>
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+        <Unit id="Core.Packages.ContextualWindow">
+          <Argument param="contextual_length_sec" type="Double">1</Argument>
+          <Argument param="prediction_freq" type="Double">7</Argument>
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="0" outshape="[10]" outtype="Float32" />
+    </Model>
+    <Model name="conv1d-medium-accuracy-1" id="60be2a3a-7fc0-418d-9ded-0fd1b64e74d6">
+      <LossFunction>CategoricalCrossentropy</LossFunction>
+      <Epochs>100</Epochs>
+      <BatchSize>16</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.004</LearningRate>
+        <WeightDecay>0.0001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[100,40]" intype="Float32" infreq="0" outshape="[6]" outtype="Float32">
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.GlobalAveragePool1D" />
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">6</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">softmax</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <Training />
+        <ConfusionMatrix />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="air" weight="3" />
+        <SymbolWeight symbol="plastic" weight="8" />
+        <SymbolWeight symbol="plastic_out" weight="1" />
+        <SymbolWeight symbol="wood" weight="8" />
+        <SymbolWeight symbol="wood_out" weight="1" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[1]" intype="Float32" infreq="0" outshape="[100,40]" outtype="Float32">
+        <Unit id="Core.Packages.SpeechAudio">
+          <Argument param="output_freq" type="Double">100</Argument>
+          <Argument param="output_features" type="Int32">40</Argument>
+          <Argument param="low_cut_freq" type="Int32">300</Argument>
+          <Argument param="high_cut_freq" type="Int32">8000</Argument>
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+        <Unit id="Core.Packages.ContextualWindow">
+          <Argument param="contextual_length_sec" type="Double">1</Argument>
+          <Argument param="prediction_freq" type="Double">7</Argument>
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="0" outshape="[10]" outtype="Float32" />
+    </Model>
+    <Model name="conv1d-medium-accuracy-2" id="da06ea8b-b307-4b41-a116-2a9aff3d06ba">
+      <LossFunction>CategoricalCrossentropy</LossFunction>
+      <Epochs>100</Epochs>
+      <BatchSize>16</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.004</LearningRate>
+        <WeightDecay>0.0001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[100,40]" intype="Float32" infreq="0" outshape="[6]" outtype="Float32">
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.GlobalAveragePool1D" />
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">6</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">softmax</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <Training />
+        <ConfusionMatrix />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="air" weight="3" />
+        <SymbolWeight symbol="plastic" weight="8" />
+        <SymbolWeight symbol="plastic_out" weight="1" />
+        <SymbolWeight symbol="wood" weight="8" />
+        <SymbolWeight symbol="wood_out" weight="1" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[1]" intype="Float32" infreq="0" outshape="[100,40]" outtype="Float32">
+        <Unit id="Core.Packages.SpeechAudio">
+          <Argument param="output_freq" type="Double">100</Argument>
+          <Argument param="output_features" type="Int32">40</Argument>
+          <Argument param="low_cut_freq" type="Int32">300</Argument>
+          <Argument param="high_cut_freq" type="Int32">8000</Argument>
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+        <Unit id="Core.Packages.ContextualWindow">
+          <Argument param="contextual_length_sec" type="Double">1</Argument>
+          <Argument param="prediction_freq" type="Double">7</Argument>
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="0" outshape="[10]" outtype="Float32" />
+    </Model>
+    <Model name="conv1d-medium-accuracy-3" id="e3e6ca2d-5e49-4f08-8098-36a5c7097e7b">
+      <LossFunction>CategoricalCrossentropy</LossFunction>
+      <Epochs>100</Epochs>
+      <BatchSize>16</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.004</LearningRate>
+        <WeightDecay>0.0001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[100,40]" intype="Float32" infreq="0" outshape="[6]" outtype="Float32">
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">64</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">64</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.GlobalAveragePool1D" />
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">6</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">softmax</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <Training />
+        <ConfusionMatrix />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="air" weight="3" />
+        <SymbolWeight symbol="plastic" weight="8" />
+        <SymbolWeight symbol="plastic_out" weight="1" />
+        <SymbolWeight symbol="wood" weight="8" />
+        <SymbolWeight symbol="wood_out" weight="1" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[1]" intype="Float32" infreq="0" outshape="[100,40]" outtype="Float32">
+        <Unit id="Core.Packages.SpeechAudio">
+          <Argument param="output_freq" type="Double">100</Argument>
+          <Argument param="output_features" type="Int32">40</Argument>
+          <Argument param="low_cut_freq" type="Int32">300</Argument>
+          <Argument param="high_cut_freq" type="Int32">8000</Argument>
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+        <Unit id="Core.Packages.ContextualWindow">
+          <Argument param="contextual_length_sec" type="Double">1</Argument>
+          <Argument param="prediction_freq" type="Double">7</Argument>
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="0" outshape="[10]" outtype="Float32" />
+    </Model>
+  </Models>
+  <Database balance="AnnotatedLength" redistributionScope="Everything">
+    <SymbolMap>
+      <Symbol name="air" id="1" weight="3" />
+      <Symbol name="plastic" id="2" weight="8" />
+      <Symbol name="plastic_out" id="3" weight="1" />
+      <Symbol name="wood" id="4" weight="8" />
+      <Symbol name="wood_out" id="5" weight="1" />
+    </SymbolMap>
+    <DataSet id="unassigned" targetSize="0" labels="Unassigned" />
+    <DataSet id="train" targetSize="0.5996715940940939" labels="Complete">
+      <Session name="Air_1" sessionId="a36a0563-9986-4397-8d2f-84fda845efba" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250388095647387904" start="0" length="206.976">/Data/Air_1/Microphone.wav</DataFile>
+        <SessionFile>/Data/Air_1/Air_1.imsession</SessionFile>
+        <LabelFile modified="5250388099107387904">/Data/Air_1/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="25" length="74.0372985">air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="NoneAir3" sessionId="a2dfe788-393c-47c8-9efe-3c6b9030493c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250401036447387904" start="0" length="50.304">/Data/NoneAir3/Microphone.wav</DataFile>
+        <SessionFile>/Data/NoneAir3/NoneAir3.imsession</SessionFile>
+        <LabelFile modified="5250401036447387904">/Data/NoneAir3/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="6" length="11.358991">air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Plastic_19" sessionId="b53143c0-f8dc-4894-b8f4-0efe47a5ffa5" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250400281287387904" start="0" length="24.832">/Data/Plastic_19/Microphone.wav</DataFile>
+        <SessionFile>/Data/Plastic_19/Plastic_19.imsession</SessionFile>
+        <LabelFile modified="5250400290147387904">/Data/Plastic_19/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="4" length="13.1560075">plastic</Label>
+          <Label count="3" length="1.5959726">plastic_out</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Wood_10" sessionId="81b34eee-bc60-4b20-abbe-a7e1d4d9e321" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250388835407387904" start="0" length="69.504">/Data/Wood_10/Microphone.wav</DataFile>
+        <SessionFile>/Data/Wood_10/Wood_10.imsession</SessionFile>
+        <LabelFile modified="5250400195667387904">/Data/Wood_10/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="9" length="41.6179407">wood</Label>
+          <Label count="4" length="2.816692">wood_out</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Wood_19" sessionId="0289be78-c98d-4b31-a2c6-4f0e287f98ca" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250400253727387904" start="0" length="21.504">/Data/Wood_19/Microphone.wav</DataFile>
+        <SessionFile>/Data/Wood_19/Wood_19.imsession</SessionFile>
+        <LabelFile modified="5250400288647387904">/Data/Wood_19/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="3" length="11.2666375">wood</Label>
+          <Label count="1" length="0.8228443">wood_out</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Plastic_14" sessionId="f7d0e576-35c7-48f2-8300-afc82d773276" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250400260127387904" start="0" length="33.728">/Data/Plastic_14/Microphone.wav</DataFile>
+        <SessionFile>/Data/Plastic_14/Plastic_14.imsession</SessionFile>
+        <LabelFile modified="5250400290807387904">/Data/Plastic_14/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="4" length="23.8398541">plastic</Label>
+          <Label count="2" length="0.9355756">plastic_out</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Plastic_16" sessionId="0d1db1b3-9b11-42cf-bdfc-c9aa0825c00c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250400262407387904" start="0" length="29.312">/Data/Plastic_16/Microphone.wav</DataFile>
+        <SessionFile>/Data/Plastic_16/Plastic_16.imsession</SessionFile>
+        <LabelFile modified="5250400290507387904">/Data/Plastic_16/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="3" length="19.5082506">plastic</Label>
+          <Label count="2" length="1.7305706">plastic_out</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="None_1" sessionId="582ab100-0c29-4497-9796-cf4beb664804" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="16000" modified="5250388107747387904" start="0" length="126.016">/Data/None_1/Microphone.wav</DataFile>
+        <SessionFile>/Data/None_1/None_1.imsession</SessionFile>
+        <LabelFile modified="5250388107747387904">/Data/None_1/Live-Labeling.label</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="Plastic_12" sessionId="c5a31379-499a-4202-93d8-711bc8042164" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250400258367387904" start="0" length="38.464">/Data/Plastic_12/Microphone.wav</DataFile>
+        <SessionFile>/Data/Plastic_12/Plastic_12.imsession</SessionFile>
+        <LabelFile modified="5250400291167387904">/Data/Plastic_12/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="3" length="27.3461133">plastic</Label>
+          <Label count="3" length="3.4745863">plastic_out</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Mixed_2" sessionId="34fb167b-84c6-41ab-a926-66d662f6997c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250388842607387904" start="0" length="33.536">/Data/Mixed_2/Microphone.wav</DataFile>
+        <SessionFile>/Data/Mixed_2/Mixed_2.imsession</SessionFile>
+        <LabelFile modified="5250388842607387904">/Data/Mixed_2/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="5" length="3.6827703">air</Label>
+          <Label count="3" length="8.1630407">wood</Label>
+          <Label count="1" length="6.2662809">plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Wood_21" sessionId="2ecf25de-22d8-42c6-afc1-8a143e519feb" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250400267587387904" start="0" length="43.136">/Data/Wood_21/Microphone.wav</DataFile>
+        <SessionFile>/Data/Wood_21/Wood_21.imsession</SessionFile>
+        <LabelFile modified="5250400288987387904">/Data/Wood_21/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="8" length="33.512821">wood</Label>
+          <Label count="1" length="0.3761573">wood_out</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Air_10" sessionId="bdf79600-5876-4cd6-805d-55584fdfc00d" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250400278227387904" start="0" length="28.352">/Data/Air_10/Microphone.wav</DataFile>
+        <SessionFile>/Data/Air_10/Air_10.imsession</SessionFile>
+        <LabelFile modified="5250400278227387904">/Data/Air_10/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="11" length="15.2478702">air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Wood_13" sessionId="e1bef40d-d545-4c8e-bd5b-af54c73c22ce" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250400245167387904" start="0" length="26.688">/Data/Wood_13/Microphone.wav</DataFile>
+        <SessionFile>/Data/Wood_13/Wood_13.imsession</SessionFile>
+        <LabelFile modified="5250400245167387904">/Data/Wood_13/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="5" length="15.2618631">wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Wood_2" sessionId="67d5714c-adae-4cfd-ba18-bf2acb359b0e" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250388125867387904" start="0" length="81.216">/Data/Wood_2/Microphone.wav</DataFile>
+        <SessionFile>/Data/Wood_2/Wood_2.imsession</SessionFile>
+        <LabelFile modified="5250400197027387904">/Data/Wood_2/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="6" length="4.9126934">wood_out</Label>
+          <Label count="9" length="34.6223526">wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Wood_8" sessionId="f3200f6d-a362-4cdb-bb4a-c56c3356f5d6" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250388820507387904" start="0" length="40.704">/Data/Wood_8/Microphone.wav</DataFile>
+        <SessionFile>/Data/Wood_8/Wood_8.imsession</SessionFile>
+        <LabelFile modified="5250400199807387904">/Data/Wood_8/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="5" length="2.6374639">wood_out</Label>
+          <Label count="9" length="18.3817148">wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Air_5" sessionId="6faa870b-7419-40dd-b5df-241d7e212c8d" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250388868367387904" start="0" length="32.448">/Data/Air_5/Microphone.wav</DataFile>
+        <SessionFile>/Data/Air_5/Air_5.imsession</SessionFile>
+        <LabelFile modified="5250388868367387904">/Data/Air_5/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="11" length="21.2329884">air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="NoneAir2" sessionId="bf475c07-99ae-45ee-9371-dd37d20ae017" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250401034987387904" start="0" length="43.328">/Data/NoneAir2/Microphone.wav</DataFile>
+        <SessionFile>/Data/NoneAir2/NoneAir2.imsession</SessionFile>
+        <LabelFile modified="5250401034987387904">/Data/NoneAir2/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="3" length="8.7840992">air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Air_8" sessionId="5654cf87-7e7f-419a-8c70-b922163cc001" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250400276747387904" start="0" length="28.672">/Data/Air_8/Microphone.wav</DataFile>
+        <SessionFile>/Data/Air_8/Air_8.imsession</SessionFile>
+        <LabelFile modified="5250400276747387904">/Data/Air_8/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="10" length="12.9071239">air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Plastic_2" sessionId="c68121a1-b85d-4455-a43a-dc362ba20e43" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250388806467387904" start="0" length="25.344">/Data/Plastic_2/Microphone.wav</DataFile>
+        <SessionFile>/Data/Plastic_2/Plastic_2.imsession</SessionFile>
+        <LabelFile modified="5250400192107387904">/Data/Plastic_2/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="2" length="13.6801959">plastic</Label>
+          <Label count="3" length="1.9467459">plastic_out</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Plastic_7" sessionId="94c23c32-02c3-483c-8829-18481316c34a" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250388815167387904" start="0" length="18.88">/Data/Plastic_7/Microphone.wav</DataFile>
+        <SessionFile>/Data/Plastic_7/Plastic_7.imsession</SessionFile>
+        <LabelFile modified="5250388815167387904">/Data/Plastic_7/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="3" length="7.0005955">plastic</Label>
+          <Label count="1" length="2.5703812">air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="None_2" sessionId="f59c6db2-64e4-402a-a4db-ad254f3867b1" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="16000" modified="5250388109047387904" start="0" length="103.424">/Data/None_2/Microphone.wav</DataFile>
+        <SessionFile>/Data/None_2/None_2.imsession</SessionFile>
+        <LabelFile modified="5250388109047387904">/Data/None_2/Live-Labeling.label</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="Wood_22" sessionId="6aae9145-0b11-4b12-9a5a-3df7fe1eed31" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250400270527387904" start="0" length="22.08">/Data/Wood_22/Microphone.wav</DataFile>
+        <SessionFile>/Data/Wood_22/Wood_22.imsession</SessionFile>
+        <LabelFile modified="5250400289107387904">/Data/Wood_22/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="5" length="13.9702686">wood</Label>
+          <Label count="1" length="0.1808449">wood_out</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Plastic_6" sessionId="591f37d2-0c36-488b-b8dc-28bae90a9b86" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250388813627387904" start="0" length="13.12">/Data/Plastic_6/Microphone.wav</DataFile>
+        <SessionFile>/Data/Plastic_6/Plastic_6.imsession</SessionFile>
+        <LabelFile modified="5250400193867387904">/Data/Plastic_6/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="2" length="4.9280412">plastic</Label>
+          <Label count="2" length="0.7386152">plastic_out</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Wood_15" sessionId="beba0c3a-806b-46a6-8356-829616c2877e" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250400249007387904" start="0" length="25.92">/Data/Wood_15/Microphone.wav</DataFile>
+        <SessionFile>/Data/Wood_15/Wood_15.imsession</SessionFile>
+        <LabelFile modified="5250400288007387904">/Data/Wood_15/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="5" length="18.1025746">wood</Label>
+          <Label count="1" length="0.3414351">wood_out</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Plastic_3" sessionId="20faa353-92aa-4c12-994c-1b4679514073" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250388808307387904" start="0" length="31.168">/Data/Plastic_3/Microphone.wav</DataFile>
+        <SessionFile>/Data/Plastic_3/Plastic_3.imsession</SessionFile>
+        <LabelFile modified="5250400192727387904">/Data/Plastic_3/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="3" length="11.4150747">plastic</Label>
+          <Label count="2" length="1.9076252">plastic_out</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Air_7" sessionId="31e7d0b1-3ad8-4890-97ec-d1665e23ea36" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250400275947387904" start="0" length="22.592">/Data/Air_7/Microphone.wav</DataFile>
+        <SessionFile>/Data/Air_7/Air_7.imsession</SessionFile>
+        <LabelFile modified="5250400275927387904">/Data/Air_7/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="8" length="12.9261534">air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Plastic_21" sessionId="c263edbb-beb7-43fc-bd89-017c740d1b64" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250400282687387904" start="0" length="16.576">/Data/Plastic_21/Microphone.wav</DataFile>
+        <SessionFile>/Data/Plastic_21/Plastic_21.imsession</SessionFile>
+        <LabelFile modified="5250400289347387904">/Data/Plastic_21/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="3" length="6.9326808">plastic</Label>
+          <Label count="2" length="2.4425487">plastic_out</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Wood_3" sessionId="fc7e1a04-4f3a-4c9a-b17a-f409c5d4c43f" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250388128767387904" start="0" length="37.632">/Data/Wood_3/Microphone.wav</DataFile>
+        <SessionFile>/Data/Wood_3/Wood_3.imsession</SessionFile>
+        <LabelFile modified="5250400197607387904">/Data/Wood_3/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="1" length="0.6941615">air</Label>
+          <Label count="5" length="17.709257">wood</Label>
+          <Label count="3" length="3.3845516">wood_out</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="NoneAir" sessionId="9eb3db1f-c798-4df3-81bb-fe088b05b037" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250401034207387904" start="0" length="48.384">/Data/NoneAir/Microphone.wav</DataFile>
+        <SessionFile>/Data/NoneAir/NoneAir.imsession</SessionFile>
+        <LabelFile modified="5250401034207387904">/Data/NoneAir/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="3" length="3.9581282">air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Wood_17" sessionId="dee878f3-69e5-4b74-b51f-615789d97d51" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250400251887387904" start="0" length="30.72">/Data/Wood_17/Microphone.wav</DataFile>
+        <SessionFile>/Data/Wood_17/Wood_17.imsession</SessionFile>
+        <LabelFile modified="5250400288267387904">/Data/Wood_17/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="5" length="21.3314112">wood</Label>
+          <Label count="1" length="0.476524">wood_out</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Plastic_8" sessionId="72803bfa-ba46-4470-9d41-f1fc541055fd" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250388838427387904" start="0" length="49.408">/Data/Plastic_8/Microphone.wav</DataFile>
+        <SessionFile>/Data/Plastic_8/Plastic_8.imsession</SessionFile>
+        <LabelFile modified="5250400194527387904">/Data/Plastic_8/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="7" length="24.8334819">plastic</Label>
+          <Label count="6" length="1.9418183">plastic_out</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Mixed_5" sessionId="5a866ca7-30cd-43f1-a2f8-c2dd0fe9adb8" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250400240987387904" start="0" length="15.488">/Data/Mixed_5/Microphone.wav</DataFile>
+        <SessionFile>/Data/Mixed_5/Mixed_5.imsession</SessionFile>
+        <LabelFile modified="5250400240987387904">/Data/Mixed_5/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="1" length="2.8664283">air</Label>
+          <Label count="1" length="4.52698">wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Wood_18" sessionId="5c5bccb6-9a21-42bd-a0b7-6a4d4373cd66" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250400252687387904" start="0" length="34.304">/Data/Wood_18/Microphone.wav</DataFile>
+        <SessionFile>/Data/Wood_18/Wood_18.imsession</SessionFile>
+        <LabelFile modified="5250400288387387904">/Data/Wood_18/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="5" length="22.0269094">wood</Label>
+          <Label count="1" length="0.3530092">wood_out</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Air_6" sessionId="aff67a10-824a-4d29-afce-03f8d5931806" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250400273047387904" start="0" length="28.352">/Data/Air_6/Microphone.wav</DataFile>
+        <SessionFile>/Data/Air_6/Air_6.imsession</SessionFile>
+        <LabelFile modified="5250400273047387904">/Data/Air_6/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="10" length="15.0895875">air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Wood_12" sessionId="c0e15ec3-c96f-41d3-b21d-362c07ebef09" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250400243547387904" start="0" length="25.728">/Data/Wood_12/Microphone.wav</DataFile>
+        <SessionFile>/Data/Wood_12/Wood_12.imsession</SessionFile>
+        <LabelFile modified="5250400287567387904">/Data/Wood_12/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="4" length="14.1486497">wood</Label>
+          <Label count="1" length="1.3787405">wood_out</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Mixed_4" sessionId="877ccfb7-09de-4998-bcf3-8a402b21e77f" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250388871227387904" start="0" length="47.104">/Data/Mixed_4/Microphone.wav</DataFile>
+        <SessionFile>/Data/Mixed_4/Mixed_4.imsession</SessionFile>
+        <LabelFile modified="5250400190447387904">/Data/Mixed_4/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="2" length="1.3850512">air</Label>
+          <Label count="5" length="16.5828949">wood</Label>
+          <Label count="2" length="11.5166948">plastic</Label>
+          <Label count="1" length="0.116522">plastic_out</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Wood_6" sessionId="8a6381f1-eca5-454e-b02e-1e901dbee803" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250388142707387904" start="0" length="45.76">/Data/Wood_6/Microphone.wav</DataFile>
+        <SessionFile>/Data/Wood_6/Wood_6.imsession</SessionFile>
+        <LabelFile modified="5250400198607387904">/Data/Wood_6/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="1" length="0.7702987">air</Label>
+          <Label count="2" length="9.6143365">wood</Label>
+          <Label count="1" length="1.2499193">wood_out</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Plastic_15" sessionId="c79d1cc7-2dc8-42b2-b0a5-09a0badac13c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250400261707387904" start="0" length="31.744">/Data/Plastic_15/Microphone.wav</DataFile>
+        <SessionFile>/Data/Plastic_15/Plastic_15.imsession</SessionFile>
+        <LabelFile modified="5250400290687387904">/Data/Plastic_15/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="3" length="21.6758341">plastic</Label>
+          <Label count="3" length="1.9480281">plastic_out</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Wood_4" sessionId="e90b20c9-02d5-432e-b87c-6cc326a5f6a1" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250388130487387904" start="0" length="30.912">/Data/Wood_4/Microphone.wav</DataFile>
+        <SessionFile>/Data/Wood_4/Wood_4.imsession</SessionFile>
+        <LabelFile modified="5250400197987387904">/Data/Wood_4/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="5" length="10.5590506">wood</Label>
+          <Label count="1" length="1.1941498">wood_out</Label>
+          <Label count="1" length="0.6590831">air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Plastic_10" sessionId="2520e949-a93b-4811-a1a2-d284b5cab0eb" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250388862027387904" start="0" length="36.736">/Data/Plastic_10/Microphone.wav</DataFile>
+        <SessionFile>/Data/Plastic_10/Plastic_10.imsession</SessionFile>
+        <LabelFile modified="5250400191207387904">/Data/Plastic_10/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="4" length="24.180287">plastic</Label>
+          <Label count="3" length="0.9908416">plastic_out</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Wood_14" sessionId="38804f00-cfe7-4cb2-a2d9-c0f116c2d659" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250400245927387904" start="0" length="30.976">/Data/Wood_14/Microphone.wav</DataFile>
+        <SessionFile>/Data/Wood_14/Wood_14.imsession</SessionFile>
+        <LabelFile modified="5250400287867387904">/Data/Wood_14/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="4" length="20.0359197">wood</Label>
+          <Label count="2" length="1.2331135">wood_out</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Air_4" sessionId="f6c12589-4388-49e8-923c-e218ddd079b8" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250388143707387904" start="0" length="26.304">/Data/Air_4/Microphone.wav</DataFile>
+        <SessionFile>/Data/Air_4/Air_4.imsession</SessionFile>
+        <LabelFile modified="5250388143707387904">/Data/Air_4/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="5" length="2.4958694">air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Plastic_5" sessionId="9841d65b-d66f-44df-85ef-7a3269beb08d" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250388812987387904" start="0" length="26.112">/Data/Plastic_5/Microphone.wav</DataFile>
+        <SessionFile>/Data/Plastic_5/Plastic_5.imsession</SessionFile>
+        <LabelFile modified="5250400193707387904">/Data/Plastic_5/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="5" length="11.2664711">plastic</Label>
+          <Label count="2" length="2.342606">plastic_out</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+    </DataSet>
+    <DataSet id="validation" targetSize="0.19884404990208207" labels="Complete">
+      <Session name="Wood_5" sessionId="c77378d3-ccb2-447d-bb7b-278b330b943d" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250388131707387904" start="0" length="47.104">/Data/Wood_5/Microphone.wav</DataFile>
+        <SessionFile>/Data/Wood_5/Wood_5.imsession</SessionFile>
+        <LabelFile modified="5250400198447387904">/Data/Wood_5/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="6" length="20.4283493">wood</Label>
+          <Label count="4" length="2.0780529">wood_out</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Mixed_3" sessionId="04d2b29a-d478-444e-8149-4bb57371f786" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250388845607387904" start="0" length="34.432">/Data/Mixed_3/Microphone.wav</DataFile>
+        <SessionFile>/Data/Mixed_3/Mixed_3.imsession</SessionFile>
+        <LabelFile modified="5250400189867387904">/Data/Mixed_3/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="1" length="2.1718544">air</Label>
+          <Label count="4" length="8.8339142">plastic</Label>
+          <Label count="2" length="0.9370044">plastic_out</Label>
+          <Label count="2" length="5.8379312">wood</Label>
+          <Label count="1" length="0.3233315">wood_out</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Plastic_18" sessionId="93933507-2ee3-4e92-a92d-2ac130ef98d5" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250400280527387904" start="0" length="14.528">/Data/Plastic_18/Microphone.wav</DataFile>
+        <SessionFile>/Data/Plastic_18/Plastic_18.imsession</SessionFile>
+        <LabelFile modified="5250400290327387904">/Data/Plastic_18/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="2" length="6.1655296">plastic</Label>
+          <Label count="2" length="1.5262762">plastic_out</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Wood_1" sessionId="302f023a-6d85-4c5e-9635-1704f544e044" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250388122227387904" start="0" length="37.568">/Data/Wood_1/Microphone.wav</DataFile>
+        <SessionFile>/Data/Wood_1/Wood_1.imsession</SessionFile>
+        <LabelFile modified="5250400195227387904">/Data/Wood_1/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="5" length="23.3939218">wood</Label>
+          <Label count="2" length="1.2857615">wood_out</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Wood_7" sessionId="b5e270c1-e1fe-4fa6-954e-c4fd6033c7d5" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250388818987387904" start="0" length="70.208">/Data/Wood_7/Microphone.wav</DataFile>
+        <SessionFile>/Data/Wood_7/Wood_7.imsession</SessionFile>
+        <LabelFile modified="5250400199227387904">/Data/Wood_7/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="18" length="36.5457344">wood</Label>
+          <Label count="6" length="4.3651459">wood_out</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Air_9" sessionId="d3a1137e-7a5b-4c82-b7c7-06a11bc487c1" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250400277407387904" start="0" length="20.928">/Data/Air_9/Microphone.wav</DataFile>
+        <SessionFile>/Data/Air_9/Air_9.imsession</SessionFile>
+        <LabelFile modified="5250400277407387904">/Data/Air_9/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="8" length="8.8077747">air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Air_3" sessionId="3761aee1-1e9c-4b94-840b-6b3357960bf4" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250388118687387904" start="0" length="50.432">/Data/Air_3/Microphone.wav</DataFile>
+        <SessionFile>/Data/Air_3/Air_3.imsession</SessionFile>
+        <LabelFile modified="5250388118687387904">/Data/Air_3/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="1" length="44.8724179">air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Plastic_13" sessionId="666e42a7-ffc4-4a72-ad9b-8eacc5bb8388" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250400259367387904" start="0" length="29.632">/Data/Plastic_13/Microphone.wav</DataFile>
+        <SessionFile>/Data/Plastic_13/Plastic_13.imsession</SessionFile>
+        <LabelFile modified="5250400290987387904">/Data/Plastic_13/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="3" length="18.8327916">plastic</Label>
+          <Label count="4" length="2.4948682">plastic_out</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Plastic_9" sessionId="36acdca0-9102-4ad7-a71e-2afdbca4aa54" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250388840067387904" start="0" length="37.824">/Data/Plastic_9/Microphone.wav</DataFile>
+        <SessionFile>/Data/Plastic_9/Plastic_9.imsession</SessionFile>
+        <LabelFile modified="5250400194907387904">/Data/Plastic_9/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="7" length="18.3650305">plastic</Label>
+          <Label count="6" length="2.3939092">plastic_out</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="None_4" sessionId="e66a5203-e040-411a-9e32-5920e63d0155" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="16000" modified="5250388111007387904" start="0" length="68.864">/Data/None_4/Microphone.wav</DataFile>
+        <SessionFile>/Data/None_4/None_4.imsession</SessionFile>
+        <LabelFile modified="5250388111007387904">/Data/None_4/Live-Labeling.label</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+    </DataSet>
+    <DataSet id="test" targetSize="0.20148435600382403" labels="Complete">
+      <Session name="Wood_16" sessionId="22fa77cc-1df4-4102-ba90-b3908308434e" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250400249567387904" start="0" length="18.048">/Data/Wood_16/Microphone.wav</DataFile>
+        <SessionFile>/Data/Wood_16/Wood_16.imsession</SessionFile>
+        <LabelFile modified="5250400288147387904">/Data/Wood_16/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="2" length="9.874979">wood</Label>
+          <Label count="2" length="0.7488234">wood_out</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Plastic_1" sessionId="978fd1d5-2aa7-4c49-af86-5bc1db87aaaa" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250388805347387904" start="0" length="25.6">/Data/Plastic_1/Microphone.wav</DataFile>
+        <SessionFile>/Data/Plastic_1/Plastic_1.imsession</SessionFile>
+        <LabelFile modified="5250400190747387904">/Data/Plastic_1/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="2" length="12.6967418">plastic</Label>
+          <Label count="1" length="0.3879941">plastic_out</Label>
+          <Label count="1" length="0.6954612">air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Wood_9" sessionId="3062b98d-2d73-4a2c-a037-1dcb690c5fc3" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250388833227387904" start="0" length="52.48">/Data/Wood_9/Microphone.wav</DataFile>
+        <SessionFile>/Data/Wood_9/Wood_9.imsession</SessionFile>
+        <LabelFile modified="5250400200147387904">/Data/Wood_9/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="6" length="34.6721204">wood</Label>
+          <Label count="4" length="3.2589921">wood_out</Label>
+          <Label count="1" length="0.1709085">air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Plastic_11" sessionId="e42058c5-ea0a-4334-8de2-3684ebe34b6b" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250388866247387904" start="0" length="37.056">/Data/Plastic_11/Microphone.wav</DataFile>
+        <SessionFile>/Data/Plastic_11/Plastic_11.imsession</SessionFile>
+        <LabelFile modified="5250400191707387904">/Data/Plastic_11/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="4" length="26.5590372">plastic</Label>
+          <Label count="2" length="1.1049195">plastic_out</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Wood_11" sessionId="54e6e42b-cfc4-44c3-876b-acb76ea7b5c8" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250388851527387904" start="0" length="64.256">/Data/Wood_11/Microphone.wav</DataFile>
+        <SessionFile>/Data/Wood_11/Wood_11.imsession</SessionFile>
+        <LabelFile modified="5250400196107387904">/Data/Wood_11/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="9" length="38.5738119">wood</Label>
+          <Label count="4" length="2.5500824">wood_out</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Plastic_17" sessionId="beb76655-95e7-4165-88f5-7ae1ddb46e81" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250400265847387904" start="0" length="23.168">/Data/Plastic_17/Microphone.wav</DataFile>
+        <SessionFile>/Data/Plastic_17/Plastic_17.imsession</SessionFile>
+        <LabelFile modified="5250400265847387904">/Data/Plastic_17/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="7" length="14.3229163">plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Plastic_4" sessionId="8fcdbdf9-1cf4-4f61-bcc9-b7e0ebdc23da" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250388809387387904" start="0" length="28.672">/Data/Plastic_4/Microphone.wav</DataFile>
+        <SessionFile>/Data/Plastic_4/Plastic_4.imsession</SessionFile>
+        <LabelFile modified="5250400193267387904">/Data/Plastic_4/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="4" length="10.6980867">plastic</Label>
+          <Label count="3" length="2.3426303">plastic_out</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="None_3" sessionId="8ccca4a5-8177-4959-9b11-82d2fb69352a" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="LabelsMissing">
+        <DataFile shape="[1]" samplerate="16000" modified="5250388110127387904" start="0" length="84.8">/Data/None_3/Microphone.wav</DataFile>
+        <SessionFile>/Data/None_3/None_3.imsession</SessionFile>
+        <LabelFile modified="5250388110127387904">/Data/None_3/Live-Labeling.label</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="Wood_23" sessionId="3d438b52-1870-4963-99c0-fa36c294c6e3" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250400271367387904" start="0" length="35.264">/Data/Wood_23/Microphone.wav</DataFile>
+        <SessionFile>/Data/Wood_23/Wood_23.imsession</SessionFile>
+        <LabelFile modified="5250400271367387904">/Data/Wood_23/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="9" length="21.8031132">wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="NoneAir4" sessionId="bc331820-c9bf-48d6-8794-26664b99d841" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250401037687387904" start="0" length="51.392">/Data/NoneAir4/Microphone.wav</DataFile>
+        <SessionFile>/Data/NoneAir4/NoneAir4.imsession</SessionFile>
+        <LabelFile modified="5250401037687387904">/Data/NoneAir4/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="14" length="16.7601551">air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Wood_20" sessionId="1f04f2bf-ab5a-4d0c-bc64-c09c46f458a0" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250400254347387904" start="0" length="22.208">/Data/Wood_20/Microphone.wav</DataFile>
+        <SessionFile>/Data/Wood_20/Wood_20.imsession</SessionFile>
+        <LabelFile modified="5250400288867387904">/Data/Wood_20/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="3" length="14.4223812">wood</Label>
+          <Label count="2" length="1.2537524">wood_out</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Plastic_20" sessionId="48cb84c5-1938-4e41-8415-5dca8cb3bf82" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250400282167387904" start="0" length="27.264">/Data/Plastic_20/Microphone.wav</DataFile>
+        <SessionFile>/Data/Plastic_20/Plastic_20.imsession</SessionFile>
+        <LabelFile modified="5250400289567387904">/Data/Plastic_20/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="5" length="12.7012535">plastic</Label>
+          <Label count="5" length="2.951846">plastic_out</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Mixed_1" sessionId="ff6f5ea8-dfe2-4b55-99fd-aee372776ee1" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250388841327387904" start="0" length="29.952">/Data/Mixed_1/Microphone.wav</DataFile>
+        <SessionFile>/Data/Mixed_1/Mixed_1.imsession</SessionFile>
+        <LabelFile modified="5250400188847387904">/Data/Mixed_1/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="2" length="4.7338389">plastic</Label>
+          <Label count="1" length="0.7145416">plastic_out</Label>
+          <Label count="2" length="2.9102688">wood</Label>
+          <Label count="4" length="7.952998">air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Air_2" sessionId="2d786440-60b7-4d64-889f-9424658f2fb9" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Microphone" tags="None">
+        <DataFile shape="[1]" samplerate="16000" modified="5250388117427387904" start="0" length="73.472">/Data/Air_2/Microphone.wav</DataFile>
+        <SessionFile>/Data/Air_2/Air_2.imsession</SessionFile>
+        <LabelFile modified="5250388117427387904">/Data/Air_2/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="9" length="45.8716342">air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+    </DataSet>
+  </Database>
+  <PredefinedLabels>
+    <Label>air</Label>
+    <Label>wood</Label>
+    <Label>plastic</Label>
+    <Label>plastic_out</Label>
+    <Label>wood_out</Label>
+  </PredefinedLabels>
+</ImagimobStudio>

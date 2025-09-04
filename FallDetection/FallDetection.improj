@@ -1,0 +1,1116 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ImagimobStudio version="1.1.0">
+  <Job id="24d16da7-5878-4d7a-a70a-0b8c2d37764f" />
+  <Preprocessor inshape="[6]" intype="Float32" infreq="50.15686274509804" outshape="[60,6]" outtype="Float32">
+    <Unit id="Core.Math.Scale">
+      <Argument param="input" type="String">data </Argument>
+      <Argument param="scale" type="Double">0.125</Argument>
+      <Argument param="output" type="String">data</Argument>
+    </Unit>
+    <Unit id="Core.Queues.SlidingWindow">
+      <Argument param="input" type="String">data</Argument>
+      <Argument param="time_input" type="String">time</Argument>
+      <Argument param="window_shape" type="Shape">[60,6]</Argument>
+      <Argument param="stride" type="Int32">60</Argument>
+      <Argument param="buffer_multiplier" type="Double">1</Argument>
+      <Argument param="output" type="String">data</Argument>
+      <Argument param="time_output" type="String">time</Argument>
+    </Unit>
+  </Preprocessor>
+  <ModelFactory>
+    <Epochs>100</Epochs>
+    <BatchSize>128</BatchSize>
+    <SplitCount>16</SplitCount>
+    <Patience>20</Patience>
+    <AppendModels>False</AppendModels>
+    <LossFunction>CategoricalCrossentropy</LossFunction>
+    <FactoryOptions>None</FactoryOptions>
+    <HardwareType>Default</HardwareType>
+    <TrainingEnvironment>
+    </TrainingEnvironment>
+    <ModelFamily>Conv1D</ModelFamily>
+    <ModelFlavor>SmallKern</ModelFlavor>
+    <ClassifierType>GlobalAveragePool</ClassifierType>
+    <Optimization>Balanced</Optimization>
+    <Pooling>True</Pooling>
+    <Downscale>False</Downscale>
+    <LearnRate>Mid</LearnRate>
+    <RegularizationFactor>Low</RegularizationFactor>
+    <LastNetworkInputShape>[60,6]</LastNetworkInputShape>
+    <LastClassCount>2</LastClassCount>
+    <Optimizer>
+      <LearningRate>0.05</LearningRate>
+      <WeightDecay>0.005</WeightDecay>
+    </Optimizer>
+    <BuildSteps>
+      <Training />
+      <ConfusionMatrix />
+    </BuildSteps>
+  </ModelFactory>
+  <Models>
+    <Model name="conv1d-medium-balanced-0" id="67ed6b18-1e3c-457b-914f-a7d92dc71db2">
+      <LossFunction>CategoricalCrossentropy</LossFunction>
+      <Epochs>100</Epochs>
+      <BatchSize>128</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.004</LearningRate>
+        <WeightDecay>0.0001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[60,6]" intype="Float32" infreq="0" outshape="[2]" outtype="Float32">
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">12</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">24</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">24</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.GlobalAveragePool1D" />
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">2</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">softmax</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <Training />
+        <ConfusionMatrix />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="fall" weight="40" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[6]" intype="Float32" infreq="0" outshape="[60,6]" outtype="Float32">
+        <Unit id="Core.Math.Scale">
+          <Argument param="input" type="String">data </Argument>
+          <Argument param="scale" type="Double">0.125</Argument>
+          <Argument param="output" type="String">data</Argument>
+        </Unit>
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[60,6]</Argument>
+          <Argument param="stride" type="Int32">60</Argument>
+          <Argument param="buffer_multiplier" type="Double">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="0" outshape="[10]" outtype="Float32" />
+    </Model>
+    <Model name="conv1d-medium-balanced-1" id="6ebdbdb2-6585-4db8-80c3-e7028d4e0ebe">
+      <LossFunction>CategoricalCrossentropy</LossFunction>
+      <Epochs>100</Epochs>
+      <BatchSize>128</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.004</LearningRate>
+        <WeightDecay>0.0001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[60,6]" intype="Float32" infreq="0" outshape="[2]" outtype="Float32">
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.GlobalAveragePool1D" />
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">2</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">softmax</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <Training />
+        <ConfusionMatrix />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="fall" weight="40" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[6]" intype="Float32" infreq="0" outshape="[60,6]" outtype="Float32">
+        <Unit id="Core.Math.Scale">
+          <Argument param="input" type="String">data </Argument>
+          <Argument param="scale" type="Double">0.125</Argument>
+          <Argument param="output" type="String">data</Argument>
+        </Unit>
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[60,6]</Argument>
+          <Argument param="stride" type="Int32">60</Argument>
+          <Argument param="buffer_multiplier" type="Double">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="0" outshape="[10]" outtype="Float32" />
+    </Model>
+    <Model name="conv1d-medium-balanced-2" id="cb0f7177-98cc-4814-aab4-ac71cf5d31ba">
+      <LossFunction>CategoricalCrossentropy</LossFunction>
+      <Epochs>100</Epochs>
+      <BatchSize>128</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.004</LearningRate>
+        <WeightDecay>0.0001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[60,6]" intype="Float32" infreq="0" outshape="[2]" outtype="Float32">
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.GlobalAveragePool1D" />
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">2</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">softmax</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <Training />
+        <ConfusionMatrix />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="fall" weight="40" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[6]" intype="Float32" infreq="0" outshape="[60,6]" outtype="Float32">
+        <Unit id="Core.Math.Scale">
+          <Argument param="input" type="String">data </Argument>
+          <Argument param="scale" type="Double">0.125</Argument>
+          <Argument param="output" type="String">data</Argument>
+        </Unit>
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[60,6]</Argument>
+          <Argument param="stride" type="Int32">60</Argument>
+          <Argument param="buffer_multiplier" type="Double">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="0" outshape="[10]" outtype="Float32" />
+    </Model>
+    <Model name="conv1d-medium-balanced-3" id="36fe757c-5c92-4d47-96aa-66630d8b04de">
+      <LossFunction>CategoricalCrossentropy</LossFunction>
+      <Epochs>100</Epochs>
+      <BatchSize>128</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.004</LearningRate>
+        <WeightDecay>0.0001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[60,6]" intype="Float32" infreq="0" outshape="[2]" outtype="Float32">
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">64</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">64</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.GlobalAveragePool1D" />
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">2</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">softmax</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <Training />
+        <ConfusionMatrix />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="fall" weight="40" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[6]" intype="Float32" infreq="0" outshape="[60,6]" outtype="Float32">
+        <Unit id="Core.Math.Scale">
+          <Argument param="input" type="String">data </Argument>
+          <Argument param="scale" type="Double">0.125</Argument>
+          <Argument param="output" type="String">data</Argument>
+        </Unit>
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[60,6]</Argument>
+          <Argument param="stride" type="Int32">60</Argument>
+          <Argument param="buffer_multiplier" type="Double">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="0" outshape="[10]" outtype="Float32" />
+    </Model>
+  </Models>
+  <Database balance="AnnotatedLength" redistributionScope="OnlyUnassigned">
+    <SymbolMap>
+      <Symbol name="fall" id="1" weight="40" />
+    </SymbolMap>
+    <DataSet id="unassigned" targetSize="0" labels="Unassigned" />
+    <DataSet id="train" targetSize="0.6" labels="Complete">
+      <Session name="06_29_2022_16_47_32-b2d479" sessionId="e31c52cc-4b12-4210-8ce5-3ccacca6f559" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="join" tags="None">
+        <DataFile shape="[6]" samplerate="51" modified="5250035658767520005" start="-0.189" length="289.47">/Data/Data_IMU_1/Person_2/06_29_2022_16_47_32-b2d479/join.data</DataFile>
+        <SessionFile>/Data/Data_IMU_1/Person_2/06_29_2022_16_47_32-b2d479/06_29_2022_16_47_32-b2d479.imsession</SessionFile>
+        <LabelFile modified="5250035658767550039">/Data/Data_IMU_1/Person_2/06_29_2022_16_47_32-b2d479/label.label</LabelFile>
+        <Labels>
+          <Label count="14" length="9.3660802">fall</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="e7e5b917-ed5a-4bce-af5e-10825558c174">Data_IMU_1</CustomColumnValue>
+          <CustomColumnValue columnId="2068015c-9aa4-417f-9a9f-9bdc05b33cb6">Person_2</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="06_29_2022_16_54_24-b2d479" sessionId="c196f62e-8b62-47d5-9019-ccd3afe79744" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="join" tags="None">
+        <DataFile shape="[6]" samplerate="51" modified="5250035658768776190" start="-0.264" length="320.2499999999">/Data/Data_IMU_1/Person_2/06_29_2022_16_54_24-b2d479/join.data</DataFile>
+        <SessionFile>/Data/Data_IMU_1/Person_2/06_29_2022_16_54_24-b2d479/06_29_2022_16_54_24-b2d479.imsession</SessionFile>
+        <LabelFile modified="5250035658768801720">/Data/Data_IMU_1/Person_2/06_29_2022_16_54_24-b2d479/label.label</LabelFile>
+        <Labels>
+          <Label count="14" length="9.3028235">fall</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="e7e5b917-ed5a-4bce-af5e-10825558c174">Data_IMU_1</CustomColumnValue>
+          <CustomColumnValue columnId="2068015c-9aa4-417f-9a9f-9bdc05b33cb6">Person_2</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="06_29_2022_17_11_29-b2d479" sessionId="92dcfc52-c2be-45bc-aa5e-c7452d7399d8" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="join" tags="None">
+        <DataFile shape="[6]" samplerate="51" modified="5250035658771831214" start="-0.154" length="353.9959999999">/Data/Data_IMU_1/Person_2/06_29_2022_17_11_29-b2d479/join.data</DataFile>
+        <SessionFile>/Data/Data_IMU_1/Person_2/06_29_2022_17_11_29-b2d479/06_29_2022_17_11_29-b2d479.imsession</SessionFile>
+        <LabelFile modified="5250035658771851097">/Data/Data_IMU_1/Person_2/06_29_2022_17_11_29-b2d479/label.label</LabelFile>
+        <Labels>
+          <Label count="13" length="9.0157869">fall</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="e7e5b917-ed5a-4bce-af5e-10825558c174">Data_IMU_1</CustomColumnValue>
+          <CustomColumnValue columnId="2068015c-9aa4-417f-9a9f-9bdc05b33cb6">Person_2</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="06_29_2022_17_32_51-b2d479" sessionId="04744d49-0f0a-43db-9fdb-da4c813f4a85" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="join" tags="LabelsMissing">
+        <DataFile shape="[6]" samplerate="51" modified="5250035658773213780" start="-0.2839999999" length="156.1649999999">/Data/Data_IMU_1/Person_2/06_29_2022_17_32_51-b2d479/join.data</DataFile>
+        <SessionFile>/Data/Data_IMU_1/Person_2/06_29_2022_17_32_51-b2d479/06_29_2022_17_32_51-b2d479.imsession</SessionFile>
+        <LabelFile modified="5250035658773233677">/Data/Data_IMU_1/Person_2/06_29_2022_17_32_51-b2d479/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="e7e5b917-ed5a-4bce-af5e-10825558c174">Data_IMU_1</CustomColumnValue>
+          <CustomColumnValue columnId="2068015c-9aa4-417f-9a9f-9bdc05b33cb6">Person_2</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="06_29_2022_17_43_14-b2d479" sessionId="39b54f7f-f34f-4250-8c2d-dd7c74c2c7c9" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="join" tags="LabelsMissing">
+        <DataFile shape="[6]" samplerate="51" modified="5250035658775271027" start="-0.264" length="317.46000000000004">/Data/Data_IMU_1/Person_2/06_29_2022_17_43_14-b2d479/join.data</DataFile>
+        <SessionFile>/Data/Data_IMU_1/Person_2/06_29_2022_17_43_14-b2d479/06_29_2022_17_43_14-b2d479.imsession</SessionFile>
+        <LabelFile modified="5250035658775281131">/Data/Data_IMU_1/Person_2/06_29_2022_17_43_14-b2d479/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="e7e5b917-ed5a-4bce-af5e-10825558c174">Data_IMU_1</CustomColumnValue>
+          <CustomColumnValue columnId="2068015c-9aa4-417f-9a9f-9bdc05b33cb6">Person_2</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="07_01_2022_14_57_57-b2d479" sessionId="22c2e318-1886-4328-b93c-3cf650e2f5d7" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="join" tags="None">
+        <DataFile shape="[6]" samplerate="51" modified="5250035658784127528" start="-0.204" length="203.7199999999">/Data/Data_IMU_1/Person_5/07_01_2022_14_57_57-b2d479/join.data</DataFile>
+        <SessionFile>/Data/Data_IMU_1/Person_5/07_01_2022_14_57_57-b2d479/07_01_2022_14_57_57-b2d479.imsession</SessionFile>
+        <LabelFile modified="5250035658784148450">/Data/Data_IMU_1/Person_5/07_01_2022_14_57_57-b2d479/label.label</LabelFile>
+        <Labels>
+          <Label count="14" length="10.4573673">fall</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="e7e5b917-ed5a-4bce-af5e-10825558c174">Data_IMU_1</CustomColumnValue>
+          <CustomColumnValue columnId="2068015c-9aa4-417f-9a9f-9bdc05b33cb6">Person_5</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="07_01_2022_15_06_38-b2d479" sessionId="e742e0c7-b8b4-42a0-91aa-8ed6ab498b99" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="join" tags="None">
+        <DataFile shape="[6]" samplerate="51" modified="5250035658786379017" start="-0.644" length="207.4">/Data/Data_IMU_1/Person_5/07_01_2022_15_06_38-b2d479/join.data</DataFile>
+        <SessionFile>/Data/Data_IMU_1/Person_5/07_01_2022_15_06_38-b2d479/07_01_2022_15_06_38-b2d479.imsession</SessionFile>
+        <LabelFile modified="5250035658786394173">/Data/Data_IMU_1/Person_5/07_01_2022_15_06_38-b2d479/label.label</LabelFile>
+        <Labels>
+          <Label count="14" length="8.554">fall</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="e7e5b917-ed5a-4bce-af5e-10825558c174">Data_IMU_1</CustomColumnValue>
+          <CustomColumnValue columnId="2068015c-9aa4-417f-9a9f-9bdc05b33cb6">Person_5</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="07_01_2022_15_28_39-b2d479" sessionId="db664e88-6145-44e0-834d-5ea2cfdeb50a" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="join" tags="None">
+        <DataFile shape="[6]" samplerate="51" modified="5250035658787647219" start="-0.644" length="415.942">/Data/Data_IMU_1/Person_6/07_01_2022_15_28_39-b2d479/join.data</DataFile>
+        <SessionFile>/Data/Data_IMU_1/Person_6/07_01_2022_15_28_39-b2d479/07_01_2022_15_28_39-b2d479.imsession</SessionFile>
+        <LabelFile modified="5250035658787667220">/Data/Data_IMU_1/Person_6/07_01_2022_15_28_39-b2d479/label.label</LabelFile>
+        <Labels>
+          <Label count="15" length="12.2853362">fall</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="e7e5b917-ed5a-4bce-af5e-10825558c174">Data_IMU_1</CustomColumnValue>
+          <CustomColumnValue columnId="2068015c-9aa4-417f-9a9f-9bdc05b33cb6">Person_6</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="07_01_2022_15_58_25-b2d479" sessionId="aeb07fa2-12f4-4baa-a9b8-cfb0661bf72e" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="join" tags="None">
+        <DataFile shape="[6]" samplerate="51" modified="5250035658790077798" start="-0.164" length="297.9599999999">/Data/Data_IMU_1/Person_6/07_01_2022_15_58_25-b2d479/join.data</DataFile>
+        <SessionFile>/Data/Data_IMU_1/Person_6/07_01_2022_15_58_25-b2d479/07_01_2022_15_58_25-b2d479.imsession</SessionFile>
+        <LabelFile modified="5250035658790103253">/Data/Data_IMU_1/Person_6/07_01_2022_15_58_25-b2d479/label.label</LabelFile>
+        <Labels>
+          <Label count="14" length="12.1382683">fall</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="e7e5b917-ed5a-4bce-af5e-10825558c174">Data_IMU_1</CustomColumnValue>
+          <CustomColumnValue columnId="2068015c-9aa4-417f-9a9f-9bdc05b33cb6">Person_6</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="07_01_2022_16_27_15-b2d479" sessionId="c75e3090-ed92-49f2-8d89-844083230660" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="join" tags="None">
+        <DataFile shape="[6]" samplerate="51" modified="5250035658779750214" start="-0.644" length="250.9999999999">/Data/Data_IMU_1/Person_4/07_01_2022_16_27_15-b2d479/join.data</DataFile>
+        <SessionFile>/Data/Data_IMU_1/Person_4/07_01_2022_16_27_15-b2d479/07_01_2022_16_27_15-b2d479.imsession</SessionFile>
+        <LabelFile modified="5250035658779760202">/Data/Data_IMU_1/Person_4/07_01_2022_16_27_15-b2d479/label.label</LabelFile>
+        <Labels>
+          <Label count="14" length="12.2869254">fall</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="e7e5b917-ed5a-4bce-af5e-10825558c174">Data_IMU_1</CustomColumnValue>
+          <CustomColumnValue columnId="2068015c-9aa4-417f-9a9f-9bdc05b33cb6">Person_4</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="07_01_2022_16_32_29-b2d479" sessionId="f42b59da-4bd9-4189-a476-2fe32c4c7358" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="join" tags="None">
+        <DataFile shape="[6]" samplerate="51" modified="5250035658781024054" start="-0.644" length="273.48">/Data/Data_IMU_1/Person_4/07_01_2022_16_32_29-b2d479/join.data</DataFile>
+        <SessionFile>/Data/Data_IMU_1/Person_4/07_01_2022_16_32_29-b2d479/07_01_2022_16_32_29-b2d479.imsession</SessionFile>
+        <LabelFile modified="5250035658781034047">/Data/Data_IMU_1/Person_4/07_01_2022_16_32_29-b2d479/label.label</LabelFile>
+        <Labels>
+          <Label count="14" length="12.1372815">fall</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="e7e5b917-ed5a-4bce-af5e-10825558c174">Data_IMU_1</CustomColumnValue>
+          <CustomColumnValue columnId="2068015c-9aa4-417f-9a9f-9bdc05b33cb6">Person_4</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="07_01_2022_16_43_36-b2d479" sessionId="99b57ac5-099d-4912-9730-beea65cbd533" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="join" tags="LabelsMissing">
+        <DataFile shape="[6]" samplerate="51" modified="5250035658783513788" start="-0.1939999999" length="93.3939999999">/Data/Data_IMU_1/Person_4/07_01_2022_16_43_36-b2d479/join.data</DataFile>
+        <SessionFile>/Data/Data_IMU_1/Person_4/07_01_2022_16_43_36-b2d479/07_01_2022_16_43_36-b2d479.imsession</SessionFile>
+        <LabelFile modified="5250035658783533809">/Data/Data_IMU_1/Person_4/07_01_2022_16_43_36-b2d479/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="e7e5b917-ed5a-4bce-af5e-10825558c174">Data_IMU_1</CustomColumnValue>
+          <CustomColumnValue columnId="2068015c-9aa4-417f-9a9f-9bdc05b33cb6">Person_4</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="07_06_2022_15_38_56-b2d479" sessionId="57272ff1-49d8-48c5-afad-0ba7741df534" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="join" tags="LabelsMissing">
+        <DataFile shape="[6]" samplerate="51" modified="5250035658764893567" start="-0.5839999999" length="165.9599999999">/Data/Data_IMU_1/Person_1/07_06_2022_15_38_56-b2d479/join.data</DataFile>
+        <SessionFile>/Data/Data_IMU_1/Person_1/07_06_2022_15_38_56-b2d479/07_06_2022_15_38_56-b2d479.imsession</SessionFile>
+        <LabelFile modified="5250035658764908829">/Data/Data_IMU_1/Person_1/07_06_2022_15_38_56-b2d479/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="e7e5b917-ed5a-4bce-af5e-10825558c174">Data_IMU_1</CustomColumnValue>
+          <CustomColumnValue columnId="2068015c-9aa4-417f-9a9f-9bdc05b33cb6">Person_1</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="07_06_2022_16_41_25-b2d479" sessionId="68442067-c6a2-4fce-8ea4-a773342799a5" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="join" tags="LabelsMissing">
+        <DataFile shape="[6]" samplerate="51" modified="5250035658777655616" start="-0.204" length="84.42999999989999">/Data/Data_IMU_1/Person_3/07_06_2022_16_41_25-b2d479/join.data</DataFile>
+        <SessionFile>/Data/Data_IMU_1/Person_3/07_06_2022_16_41_25-b2d479/07_06_2022_16_41_25-b2d479.imsession</SessionFile>
+        <LabelFile modified="5250035658777665684">/Data/Data_IMU_1/Person_3/07_06_2022_16_41_25-b2d479/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="e7e5b917-ed5a-4bce-af5e-10825558c174">Data_IMU_1</CustomColumnValue>
+          <CustomColumnValue columnId="2068015c-9aa4-417f-9a9f-9bdc05b33cb6">Person_3</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="2022-06-29_16-54-20" sessionId="7ad459d8-69b1-4bb1-80d5-ca9fded99fed" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="SFM2" tags="None">
+        <DataFile shape="[6]" samplerate="49" modified="5250035658798713342" start="0.02023620852594715" length="317.78941869142653">/Data/Data_IMU_2/Person_2/2022-06-29_16-54-20/SFM2.data</DataFile>
+        <SessionFile>/Data/Data_IMU_2/Person_2/2022-06-29_16-54-20/2022-06-29_16-54-20.imsession</SessionFile>
+        <LabelFile modified="5250035658798723426">/Data/Data_IMU_2/Person_2/2022-06-29_16-54-20/label.label</LabelFile>
+        <Labels>
+          <Label count="14" length="10.8992022">fall</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="e7e5b917-ed5a-4bce-af5e-10825558c174">Data_IMU_2</CustomColumnValue>
+          <CustomColumnValue columnId="2068015c-9aa4-417f-9a9f-9bdc05b33cb6">Person_2</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="2022-06-29_17-21-52" sessionId="811298cb-110c-4ea7-b1b9-1d5834edafff" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="SFM2" tags="None">
+        <DataFile shape="[6]" samplerate="49" modified="5250035658807834139" start="0.02021668143618513" length="360.34212991850853">/Data/Data_IMU_2/Person_2/2022-06-29_17-21-52/SFM2.data</DataFile>
+        <SessionFile>/Data/Data_IMU_2/Person_2/2022-06-29_17-21-52/2022-06-29_17-21-52.imsession</SessionFile>
+        <LabelFile modified="5250035658807864113">/Data/Data_IMU_2/Person_2/2022-06-29_17-21-52/label.label</LabelFile>
+        <Labels>
+          <Label count="14" length="10.8755947">fall</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="e7e5b917-ed5a-4bce-af5e-10825558c174">Data_IMU_2</CustomColumnValue>
+          <CustomColumnValue columnId="2068015c-9aa4-417f-9a9f-9bdc05b33cb6">Person_2</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="2022-06-29_17-36-40" sessionId="67ba192e-19e2-416e-8eee-1c90ed318538" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="SFM2" tags="LabelsMissing">
+        <DataFile shape="[6]" samplerate="49" modified="5250035658812672269" start="0.020337121399664395" length="206.01503977864448">/Data/Data_IMU_2/Person_2/2022-06-29_17-36-40/SFM2.data</DataFile>
+        <SessionFile>/Data/Data_IMU_2/Person_2/2022-06-29_17-36-40/2022-06-29_17-36-40.imsession</SessionFile>
+        <LabelFile modified="5250035658812692281">/Data/Data_IMU_2/Person_2/2022-06-29_17-36-40/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="e7e5b917-ed5a-4bce-af5e-10825558c174">Data_IMU_2</CustomColumnValue>
+          <CustomColumnValue columnId="2068015c-9aa4-417f-9a9f-9bdc05b33cb6">Person_2</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="2022-07-01_14-57-54" sessionId="99149fad-c87f-45b0-9558-56771c543c15" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="SFM2" tags="None">
+        <DataFile shape="[6]" samplerate="49" modified="5250035658832256828" start="0.02023494589184344" length="203.15885675410757">/Data/Data_IMU_2/Person_5/2022-07-01_14-57-54/SFM2.data</DataFile>
+        <SessionFile>/Data/Data_IMU_2/Person_5/2022-07-01_14-57-54/2022-07-01_14-57-54.imsession</SessionFile>
+        <LabelFile modified="5250035658832277026">/Data/Data_IMU_2/Person_5/2022-07-01_14-57-54/label.label</LabelFile>
+        <Labels>
+          <Label count="12" length="9.0002666">fall</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="e7e5b917-ed5a-4bce-af5e-10825558c174">Data_IMU_2</CustomColumnValue>
+          <CustomColumnValue columnId="2068015c-9aa4-417f-9a9f-9bdc05b33cb6">Person_5</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="2022-07-01_15-06-35" sessionId="121e173c-5203-43d6-b15a-0b92d31ae8a3" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="SFM2" tags="None">
+        <DataFile shape="[6]" samplerate="49" modified="5250035658836060743" start="0.02034147724290951" length="210.83941162274735">/Data/Data_IMU_2/Person_5/2022-07-01_15-06-35/SFM2.data</DataFile>
+        <SessionFile>/Data/Data_IMU_2/Person_5/2022-07-01_15-06-35/2022-07-01_15-06-35.imsession</SessionFile>
+        <LabelFile modified="5250035658836080763">/Data/Data_IMU_2/Person_5/2022-07-01_15-06-35/label.label</LabelFile>
+        <Labels>
+          <Label count="15" length="11.1032745">fall</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="e7e5b917-ed5a-4bce-af5e-10825558c174">Data_IMU_2</CustomColumnValue>
+          <CustomColumnValue columnId="2068015c-9aa4-417f-9a9f-9bdc05b33cb6">Person_5</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="2022-07-01_15-28-41" sessionId="17e3fb1c-992a-4875-8af5-5291374e7fee" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="SFM2" tags="None">
+        <DataFile shape="[6]" samplerate="49" modified="5250035658838315849" start="0.0202975247040407" length="414.90170247540834">/Data/Data_IMU_2/Person_6/2022-07-01_15-28-41/SFM2.data</DataFile>
+        <SessionFile>/Data/Data_IMU_2/Person_6/2022-07-01_15-28-41/2022-07-01_15-28-41.imsession</SessionFile>
+        <LabelFile modified="5250035658838335864">/Data/Data_IMU_2/Person_6/2022-07-01_15-28-41/label.label</LabelFile>
+        <Labels>
+          <Label count="15" length="13.4944652">fall</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="e7e5b917-ed5a-4bce-af5e-10825558c174">Data_IMU_2</CustomColumnValue>
+          <CustomColumnValue columnId="2068015c-9aa4-417f-9a9f-9bdc05b33cb6">Person_6</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="2022-07-01_16-15-52" sessionId="eb51a56a-386b-4667-9bd0-2ab0dfae2bbe" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="SFM2" tags="None">
+        <DataFile shape="[6]" samplerate="50" modified="5250035658820373201" start="0.02015742295731479" length="269.62568947701095">/Data/Data_IMU_2/Person_4/2022-07-01_16-15-52/SFM2.data</DataFile>
+        <SessionFile>/Data/Data_IMU_2/Person_4/2022-07-01_16-15-52/2022-07-01_16-15-52.imsession</SessionFile>
+        <LabelFile modified="5250035658820393170">/Data/Data_IMU_2/Person_4/2022-07-01_16-15-52/label.label</LabelFile>
+        <Labels>
+          <Label count="14" length="12.0228435">fall</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="e7e5b917-ed5a-4bce-af5e-10825558c174">Data_IMU_2</CustomColumnValue>
+          <CustomColumnValue columnId="2068015c-9aa4-417f-9a9f-9bdc05b33cb6">Person_4</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="2022-07-01_16-21-35" sessionId="ad445624-42f3-4a94-80f9-1a451765fb31" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="SFM2" tags="None">
+        <DataFile shape="[6]" samplerate="49" modified="5250035658822884484" start="0.020213108372465923" length="176.46043609162757">/Data/Data_IMU_2/Person_4/2022-07-01_16-21-35/SFM2.data</DataFile>
+        <SessionFile>/Data/Data_IMU_2/Person_4/2022-07-01_16-21-35/2022-07-01_16-21-35.imsession</SessionFile>
+        <LabelFile modified="5250035658822899592">/Data/Data_IMU_2/Person_4/2022-07-01_16-21-35/label.label</LabelFile>
+        <Labels>
+          <Label count="10" length="9.0624288">fall</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="e7e5b917-ed5a-4bce-af5e-10825558c174">Data_IMU_2</CustomColumnValue>
+          <CustomColumnValue columnId="2068015c-9aa4-417f-9a9f-9bdc05b33cb6">Person_4</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="2022-07-01_16-27-16" sessionId="484b79f3-135b-4b3b-ad54-417652e860d1" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="SFM2" tags="None">
+        <DataFile shape="[6]" samplerate="50" modified="5250035658824648588" start="0.020166883539425084" length="251.13820071643178">/Data/Data_IMU_2/Person_4/2022-07-01_16-27-16/SFM2.data</DataFile>
+        <SessionFile>/Data/Data_IMU_2/Person_4/2022-07-01_16-27-16/2022-07-01_16-27-16.imsession</SessionFile>
+        <LabelFile modified="5250035658824678565">/Data/Data_IMU_2/Person_4/2022-07-01_16-27-16/label.label</LabelFile>
+        <Labels>
+          <Label count="14" length="12.3225551">fall</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="e7e5b917-ed5a-4bce-af5e-10825558c174">Data_IMU_2</CustomColumnValue>
+          <CustomColumnValue columnId="2068015c-9aa4-417f-9a9f-9bdc05b33cb6">Person_4</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="2022-07-01_16-32-31" sessionId="dfae5595-999e-4655-9ba1-5aeb14a4b097" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="SFM2" tags="None">
+        <DataFile shape="[6]" samplerate="50" modified="5250035658826797686" start="0.020169510385756675" length="271.86483048960525">/Data/Data_IMU_2/Person_4/2022-07-01_16-32-31/SFM2.data</DataFile>
+        <SessionFile>/Data/Data_IMU_2/Person_4/2022-07-01_16-32-31/2022-07-01_16-32-31.imsession</SessionFile>
+        <LabelFile modified="5250035658826807853">/Data/Data_IMU_2/Person_4/2022-07-01_16-32-31/label.label</LabelFile>
+        <Labels>
+          <Label count="14" length="11.9876379">fall</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="e7e5b917-ed5a-4bce-af5e-10825558c174">Data_IMU_2</CustomColumnValue>
+          <CustomColumnValue columnId="2068015c-9aa4-417f-9a9f-9bdc05b33cb6">Person_4</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="2022-07-06_15-39-02" sessionId="df7fa035-3678-49c2-90d2-abc25bba36ca" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="SFM2" tags="LabelsMissing">
+        <DataFile shape="[6]" samplerate="50" modified="5250035658791458500" start="0.0200992910592686" length="159.3672788089327">/Data/Data_IMU_2/Person_1/2022-07-06_15-39-02/SFM2.data</DataFile>
+        <SessionFile>/Data/Data_IMU_2/Person_1/2022-07-06_15-39-02/2022-07-06_15-39-02.imsession</SessionFile>
+        <LabelFile modified="5250035658791479444">/Data/Data_IMU_2/Person_1/2022-07-06_15-39-02/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="e7e5b917-ed5a-4bce-af5e-10825558c174">Data_IMU_2</CustomColumnValue>
+          <CustomColumnValue columnId="2068015c-9aa4-417f-9a9f-9bdc05b33cb6">Person_1</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="2022-07-06_16-41-26" sessionId="8a1190ce-2039-4150-b93c-62aa7bd3d44e" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="SFM2" tags="LabelsMissing">
+        <DataFile shape="[6]" samplerate="50" modified="5250035658819193619" start="0.020084630767362797" length="82.68842486923099">/Data/Data_IMU_2/Person_3/2022-07-06_16-41-26/SFM2.data</DataFile>
+        <SessionFile>/Data/Data_IMU_2/Person_3/2022-07-06_16-41-26/2022-07-06_16-41-26.imsession</SessionFile>
+        <LabelFile modified="5250035658819218905">/Data/Data_IMU_2/Person_3/2022-07-06_16-41-26/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="e7e5b917-ed5a-4bce-af5e-10825558c174">Data_IMU_2</CustomColumnValue>
+          <CustomColumnValue columnId="2068015c-9aa4-417f-9a9f-9bdc05b33cb6">Person_3</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+    </DataSet>
+    <DataSet id="validation" targetSize="0.2" labels="Complete">
+      <Session name="07_01_2022_15_02_09-b2d479" sessionId="490f90dc-ded7-4300-80bb-0cfbcf507e47" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="join" tags="None">
+        <DataFile shape="[6]" samplerate="51" modified="5250035658785203911" start="-0.644" length="214.4339999999">/Data/Data_IMU_1/Person_5/07_01_2022_15_02_09-b2d479/join.data</DataFile>
+        <SessionFile>/Data/Data_IMU_1/Person_5/07_01_2022_15_02_09-b2d479/07_01_2022_15_02_09-b2d479.imsession</SessionFile>
+        <LabelFile modified="5250035658785224019">/Data/Data_IMU_1/Person_5/07_01_2022_15_02_09-b2d479/label.label</LabelFile>
+        <Labels>
+          <Label count="14" length="8.554">fall</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="e7e5b917-ed5a-4bce-af5e-10825558c174">Data_IMU_1</CustomColumnValue>
+          <CustomColumnValue columnId="2068015c-9aa4-417f-9a9f-9bdc05b33cb6">Person_5</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="07_01_2022_15_36_45-b2d479" sessionId="e04afeff-3998-4ddb-b4c0-4f04bc28c9be" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="join" tags="None">
+        <DataFile shape="[6]" samplerate="51" modified="5250035658789304608" start="-0.154" length="131.6099999999">/Data/Data_IMU_1/Person_6/07_01_2022_15_36_45-b2d479/join.data</DataFile>
+        <SessionFile>/Data/Data_IMU_1/Person_6/07_01_2022_15_36_45-b2d479/07_01_2022_15_36_45-b2d479.imsession</SessionFile>
+        <LabelFile modified="5250035658789324601">/Data/Data_IMU_1/Person_6/07_01_2022_15_36_45-b2d479/label.label</LabelFile>
+        <Labels>
+          <Label count="8" length="6.5601485">fall</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="e7e5b917-ed5a-4bce-af5e-10825558c174">Data_IMU_1</CustomColumnValue>
+          <CustomColumnValue columnId="2068015c-9aa4-417f-9a9f-9bdc05b33cb6">Person_6</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="07_01_2022_16_38_05-b2d479" sessionId="ccd77ace-8a45-462d-9173-5e4e4ccbbd1f" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="join" tags="None">
+        <DataFile shape="[6]" samplerate="51" modified="5250035658782349913" start="-0.1939999999" length="253.3899999998">/Data/Data_IMU_1/Person_4/07_01_2022_16_38_05-b2d479/join.data</DataFile>
+        <SessionFile>/Data/Data_IMU_1/Person_4/07_01_2022_16_38_05-b2d479/07_01_2022_16_38_05-b2d479.imsession</SessionFile>
+        <LabelFile modified="5250035658782379912">/Data/Data_IMU_1/Person_4/07_01_2022_16_38_05-b2d479/label.label</LabelFile>
+        <Labels>
+          <Label count="14" length="11.8193303">fall</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="e7e5b917-ed5a-4bce-af5e-10825558c174">Data_IMU_1</CustomColumnValue>
+          <CustomColumnValue columnId="2068015c-9aa4-417f-9a9f-9bdc05b33cb6">Person_4</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="07_06_2022_15_45_44-b2d479" sessionId="3db5459a-9920-44b1-992d-969cbada7f9c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="join" tags="LabelsMissing">
+        <DataFile shape="[6]" samplerate="51" modified="5250035658765774615" start="-0.644" length="148.424">/Data/Data_IMU_1/Person_1/07_06_2022_15_45_44-b2d479/join.data</DataFile>
+        <SessionFile>/Data/Data_IMU_1/Person_1/07_06_2022_15_45_44-b2d479/07_06_2022_15_45_44-b2d479.imsession</SessionFile>
+        <LabelFile modified="5250035658765799783">/Data/Data_IMU_1/Person_1/07_06_2022_15_45_44-b2d479/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="e7e5b917-ed5a-4bce-af5e-10825558c174">Data_IMU_1</CustomColumnValue>
+          <CustomColumnValue columnId="2068015c-9aa4-417f-9a9f-9bdc05b33cb6">Person_1</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="07_06_2022_16_39_54-b2d479" sessionId="5237fe5e-b43c-45ad-b047-014a2f0fee28" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="join" tags="LabelsMissing">
+        <DataFile shape="[6]" samplerate="51" modified="5250035658777183542" start="-0.1839999999" length="56.097999999900004">/Data/Data_IMU_1/Person_3/07_06_2022_16_39_54-b2d479/join.data</DataFile>
+        <SessionFile>/Data/Data_IMU_1/Person_3/07_06_2022_16_39_54-b2d479/07_06_2022_16_39_54-b2d479.imsession</SessionFile>
+        <LabelFile modified="5250035658777208854">/Data/Data_IMU_1/Person_3/07_06_2022_16_39_54-b2d479/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="e7e5b917-ed5a-4bce-af5e-10825558c174">Data_IMU_1</CustomColumnValue>
+          <CustomColumnValue columnId="2068015c-9aa4-417f-9a9f-9bdc05b33cb6">Person_3</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="2022-06-29_16-47-28" sessionId="5ca155c4-69ec-4309-bd9a-19ebf0ae8be2" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="SFM2" tags="None">
+        <DataFile shape="[6]" samplerate="49" modified="5250035658796140842" start="0.020232245827605168" length="294.3184800541704">/Data/Data_IMU_2/Person_2/2022-06-29_16-47-28/SFM2.data</DataFile>
+        <SessionFile>/Data/Data_IMU_2/Person_2/2022-06-29_16-47-28/2022-06-29_16-47-28.imsession</SessionFile>
+        <LabelFile modified="5250035658796150701">/Data/Data_IMU_2/Person_2/2022-06-29_16-47-28/label.label</LabelFile>
+        <Labels>
+          <Label count="14" length="11.2963623">fall</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="e7e5b917-ed5a-4bce-af5e-10825558c174">Data_IMU_2</CustomColumnValue>
+          <CustomColumnValue columnId="2068015c-9aa4-417f-9a9f-9bdc05b33cb6">Person_2</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="2022-06-29_17-11-30" sessionId="dc2a759b-6c20-4ffc-8cec-bf089fc90dde" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="SFM2" tags="None">
+        <DataFile shape="[6]" samplerate="49" modified="5250035658804904936" start="0.020305251064703465" length="346.1233096490194">/Data/Data_IMU_2/Person_2/2022-06-29_17-11-30/SFM2.data</DataFile>
+        <SessionFile>/Data/Data_IMU_2/Person_2/2022-06-29_17-11-30/2022-06-29_17-11-30.imsession</SessionFile>
+        <LabelFile modified="5250035658804915091">/Data/Data_IMU_2/Person_2/2022-06-29_17-11-30/label.label</LabelFile>
+        <Labels>
+          <Label count="13" length="9.4709278">fall</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="e7e5b917-ed5a-4bce-af5e-10825558c174">Data_IMU_2</CustomColumnValue>
+          <CustomColumnValue columnId="2068015c-9aa4-417f-9a9f-9bdc05b33cb6">Person_2</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="2022-06-29_17-32-47" sessionId="5c433db5-2d82-4084-8caa-1d4fe256bbb9" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="SFM2" tags="LabelsMissing">
+        <DataFile shape="[6]" samplerate="49" modified="5250035658811067433" start="0.020289798802789104" length="154.20247090120847">/Data/Data_IMU_2/Person_2/2022-06-29_17-32-47/SFM2.data</DataFile>
+        <SessionFile>/Data/Data_IMU_2/Person_2/2022-06-29_17-32-47/2022-06-29_17-32-47.imsession</SessionFile>
+        <LabelFile modified="5250035658811077419">/Data/Data_IMU_2/Person_2/2022-06-29_17-32-47/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="e7e5b917-ed5a-4bce-af5e-10825558c174">Data_IMU_2</CustomColumnValue>
+          <CustomColumnValue columnId="2068015c-9aa4-417f-9a9f-9bdc05b33cb6">Person_2</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="2022-07-01_15-53-26" sessionId="df535fee-7512-4a8d-8008-1c75faaf6126" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="SFM2" tags="None">
+        <DataFile shape="[6]" samplerate="49" modified="5250035658843211412" start="0.020235978212866185" length="137.44276402179042">/Data/Data_IMU_2/Person_6/2022-07-01_15-53-26/SFM2.data</DataFile>
+        <SessionFile>/Data/Data_IMU_2/Person_6/2022-07-01_15-53-26/2022-07-01_15-53-26.imsession</SessionFile>
+        <LabelFile modified="5250035658843241380">/Data/Data_IMU_2/Person_6/2022-07-01_15-53-26/label.label</LabelFile>
+        <Labels>
+          <Label count="5" length="4.2289182">fall</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="e7e5b917-ed5a-4bce-af5e-10825558c174">Data_IMU_2</CustomColumnValue>
+          <CustomColumnValue columnId="2068015c-9aa4-417f-9a9f-9bdc05b33cb6">Person_6</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="2022-07-01_16-38-06" sessionId="1a8f87d6-b303-4fe3-bd36-6ca97e217448" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="SFM2" tags="None">
+        <DataFile shape="[6]" samplerate="50" modified="5250035658829110010" start="0.020159615897845172" length="252.57982758413402">/Data/Data_IMU_2/Person_4/2022-07-01_16-38-06/SFM2.data</DataFile>
+        <SessionFile>/Data/Data_IMU_2/Person_4/2022-07-01_16-38-06/2022-07-01_16-38-06.imsession</SessionFile>
+        <LabelFile modified="5250035658829133934">/Data/Data_IMU_2/Person_4/2022-07-01_16-38-06/label.label</LabelFile>
+        <Labels>
+          <Label count="14" length="11.3428012">fall</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="e7e5b917-ed5a-4bce-af5e-10825558c174">Data_IMU_2</CustomColumnValue>
+          <CustomColumnValue columnId="2068015c-9aa4-417f-9a9f-9bdc05b33cb6">Person_4</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="2022-07-06_15-45-45" sessionId="0943aea3-94e3-4ca4-931c-4aa77703a0fe" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="SFM2" tags="LabelsMissing">
+        <DataFile shape="[6]" samplerate="50" modified="5250035658793045291" start="0.020142518549378503" length="147.44323578145838">/Data/Data_IMU_2/Person_1/2022-07-06_15-45-45/SFM2.data</DataFile>
+        <SessionFile>/Data/Data_IMU_2/Person_1/2022-07-06_15-45-45/2022-07-06_15-45-45.imsession</SessionFile>
+        <LabelFile modified="5250035658793075339">/Data/Data_IMU_2/Person_1/2022-07-06_15-45-45/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="e7e5b917-ed5a-4bce-af5e-10825558c174">Data_IMU_2</CustomColumnValue>
+          <CustomColumnValue columnId="2068015c-9aa4-417f-9a9f-9bdc05b33cb6">Person_1</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="2022-07-06_16-37-57" sessionId="7b8d299e-91b4-48e8-ae01-f6dce0b8a535" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="SFM2" tags="LabelsMissing">
+        <DataFile shape="[6]" samplerate="50" modified="5250035658817607041" start="0.020050968843892878" length="61.376015631152384">/Data/Data_IMU_2/Person_3/2022-07-06_16-37-57/SFM2.data</DataFile>
+        <SessionFile>/Data/Data_IMU_2/Person_3/2022-07-06_16-37-57/2022-07-06_16-37-57.imsession</SessionFile>
+        <LabelFile modified="5250035658817627200">/Data/Data_IMU_2/Person_3/2022-07-06_16-37-57/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="e7e5b917-ed5a-4bce-af5e-10825558c174">Data_IMU_2</CustomColumnValue>
+          <CustomColumnValue columnId="2068015c-9aa4-417f-9a9f-9bdc05b33cb6">Person_3</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+    </DataSet>
+    <DataSet id="test" targetSize="0.2" labels="Complete">
+      <Session name="06_29_2022_17_02_15-b2d479" sessionId="d6f650eb-d019-454d-b7f5-e0022a5e5c0c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="join" tags="None">
+        <DataFile shape="[6]" samplerate="51" modified="5250035658770271853" start="-0.2839999999" length="360.85499999990003">/Data/Data_IMU_1/Person_2/06_29_2022_17_02_15-b2d479/join.data</DataFile>
+        <SessionFile>/Data/Data_IMU_1/Person_2/06_29_2022_17_02_15-b2d479/06_29_2022_17_02_15-b2d479.imsession</SessionFile>
+        <LabelFile modified="5250035658770291416">/Data/Data_IMU_1/Person_2/06_29_2022_17_02_15-b2d479/label.label</LabelFile>
+        <Labels>
+          <Label count="14" length="10.1023522">fall</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="e7e5b917-ed5a-4bce-af5e-10825558c174">Data_IMU_1</CustomColumnValue>
+          <CustomColumnValue columnId="2068015c-9aa4-417f-9a9f-9bdc05b33cb6">Person_2</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="06_29_2022_17_36_37-b2d479" sessionId="6db34462-87fe-48bb-8135-515052124c1f" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="join" tags="LabelsMissing">
+        <DataFile shape="[6]" samplerate="51" modified="5250035658774096357" start="-0.644" length="215.5399999999">/Data/Data_IMU_1/Person_2/06_29_2022_17_36_37-b2d479/join.data</DataFile>
+        <SessionFile>/Data/Data_IMU_1/Person_2/06_29_2022_17_36_37-b2d479/06_29_2022_17_36_37-b2d479.imsession</SessionFile>
+        <LabelFile modified="5250035658774116779">/Data/Data_IMU_1/Person_2/06_29_2022_17_36_37-b2d479/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="e7e5b917-ed5a-4bce-af5e-10825558c174">Data_IMU_1</CustomColumnValue>
+          <CustomColumnValue columnId="2068015c-9aa4-417f-9a9f-9bdc05b33cb6">Person_2</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="07_01_2022_16_15_50-b2d479" sessionId="c26bc450-1ac8-40ff-ab94-e305059d7390" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="join" tags="None">
+        <DataFile shape="[6]" samplerate="51" modified="5250035658778312608" start="-0.1939999999" length="270.5899999999">/Data/Data_IMU_1/Person_4/07_01_2022_16_15_50-b2d479/join.data</DataFile>
+        <SessionFile>/Data/Data_IMU_1/Person_4/07_01_2022_16_15_50-b2d479/07_01_2022_16_15_50-b2d479.imsession</SessionFile>
+        <LabelFile modified="5250035658778333492">/Data/Data_IMU_1/Person_4/07_01_2022_16_15_50-b2d479/label.label</LabelFile>
+        <Labels>
+          <Label count="14" length="12.1582354">fall</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="e7e5b917-ed5a-4bce-af5e-10825558c174">Data_IMU_1</CustomColumnValue>
+          <CustomColumnValue columnId="2068015c-9aa4-417f-9a9f-9bdc05b33cb6">Person_4</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="07_06_2022_15_49_49-b2d479" sessionId="10bc7aa6-a271-45b2-9533-740065afbaf9" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="join" tags="LabelsMissing">
+        <DataFile shape="[6]" samplerate="51" modified="5250035658766617226" start="-0.644" length="148.42000000000002">/Data/Data_IMU_1/Person_1/07_06_2022_15_49_49-b2d479/join.data</DataFile>
+        <SessionFile>/Data/Data_IMU_1/Person_1/07_06_2022_15_49_49-b2d479/07_06_2022_15_49_49-b2d479.imsession</SessionFile>
+        <LabelFile modified="5250035658766637071">/Data/Data_IMU_1/Person_1/07_06_2022_15_49_49-b2d479/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="e7e5b917-ed5a-4bce-af5e-10825558c174">Data_IMU_1</CustomColumnValue>
+          <CustomColumnValue columnId="2068015c-9aa4-417f-9a9f-9bdc05b33cb6">Person_1</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="07_06_2022_16_37_57-b2d479" sessionId="5e1528f9-721e-4c2d-8d79-6d6bae399335" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="join" tags="LabelsMissing">
+        <DataFile shape="[6]" samplerate="51" modified="5250035658776783802" start="-0.524" length="55.896999999900004">/Data/Data_IMU_1/Person_3/07_06_2022_16_37_57-b2d479/join.data</DataFile>
+        <SessionFile>/Data/Data_IMU_1/Person_3/07_06_2022_16_37_57-b2d479/07_06_2022_16_37_57-b2d479.imsession</SessionFile>
+        <LabelFile modified="5250035658776793748">/Data/Data_IMU_1/Person_3/07_06_2022_16_37_57-b2d479/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="e7e5b917-ed5a-4bce-af5e-10825558c174">Data_IMU_1</CustomColumnValue>
+          <CustomColumnValue columnId="2068015c-9aa4-417f-9a9f-9bdc05b33cb6">Person_3</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="2022-06-29_17-02-11" sessionId="543ef729-f58e-49b6-9e28-7edd35e30c67" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="SFM2" tags="None">
+        <DataFile shape="[6]" samplerate="49" modified="5250035658801679344" start="0.020301470377578824" length="365.0610403297235">/Data/Data_IMU_2/Person_2/2022-06-29_17-02-11/SFM2.data</DataFile>
+        <SessionFile>/Data/Data_IMU_2/Person_2/2022-06-29_17-02-11/2022-06-29_17-02-11.imsession</SessionFile>
+        <LabelFile modified="5250035658801694975">/Data/Data_IMU_2/Person_2/2022-06-29_17-02-11/label.label</LabelFile>
+        <Labels>
+          <Label count="14" length="11.7052162">fall</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="e7e5b917-ed5a-4bce-af5e-10825558c174">Data_IMU_2</CustomColumnValue>
+          <CustomColumnValue columnId="2068015c-9aa4-417f-9a9f-9bdc05b33cb6">Person_2</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="2022-06-29_17-43-18" sessionId="0c749f80-b10f-4aa6-abbd-c9bb631445bf" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="SFM2" tags="LabelsMissing">
+        <DataFile shape="[6]" samplerate="49" modified="5250035658814774005" start="0.020213499157798527" length="309.58995310086544">/Data/Data_IMU_2/Person_2/2022-06-29_17-43-18/SFM2.data</DataFile>
+        <SessionFile>/Data/Data_IMU_2/Person_2/2022-06-29_17-43-18/2022-06-29_17-43-18.imsession</SessionFile>
+        <LabelFile modified="5250035658814809275">/Data/Data_IMU_2/Person_2/2022-06-29_17-43-18/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="e7e5b917-ed5a-4bce-af5e-10825558c174">Data_IMU_2</CustomColumnValue>
+          <CustomColumnValue columnId="2068015c-9aa4-417f-9a9f-9bdc05b33cb6">Person_2</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="2022-07-01_15-02-11" sessionId="5b4b03d6-2bf0-4a2d-8eb1-24689b45f2b8" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="SFM2" tags="None">
+        <DataFile shape="[6]" samplerate="49" modified="5250035658834116730" start="0.0203121387283237" length="207.3056878612514">/Data/Data_IMU_2/Person_5/2022-07-01_15-02-11/SFM2.data</DataFile>
+        <SessionFile>/Data/Data_IMU_2/Person_5/2022-07-01_15-02-11/2022-07-01_15-02-11.imsession</SessionFile>
+        <LabelFile modified="5250035658834242144">/Data/Data_IMU_2/Person_5/2022-07-01_15-02-11/label.label</LabelFile>
+        <Labels>
+          <Label count="14" length="10.2573673">fall</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="e7e5b917-ed5a-4bce-af5e-10825558c174">Data_IMU_2</CustomColumnValue>
+          <CustomColumnValue columnId="2068015c-9aa4-417f-9a9f-9bdc05b33cb6">Person_5</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="2022-07-01_15-36-42" sessionId="64a61b78-7e4a-4379-a138-90eaf9f105bd" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="SFM2" tags="None">
+        <DataFile shape="[6]" samplerate="49" modified="5250035658841427513" start="0.02029069921875" length="192.17321230076595">/Data/Data_IMU_2/Person_6/2022-07-01_15-36-42/SFM2.data</DataFile>
+        <SessionFile>/Data/Data_IMU_2/Person_6/2022-07-01_15-36-42/2022-07-01_15-36-42.imsession</SessionFile>
+        <LabelFile modified="5250035658841447470">/Data/Data_IMU_2/Person_6/2022-07-01_15-36-42/label.label</LabelFile>
+        <Labels>
+          <Label count="8" length="6.9371045">fall</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="e7e5b917-ed5a-4bce-af5e-10825558c174">Data_IMU_2</CustomColumnValue>
+          <CustomColumnValue columnId="2068015c-9aa4-417f-9a9f-9bdc05b33cb6">Person_6</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="2022-07-01_15-58-26" sessionId="2851ce67-4697-4c5d-9bb3-edfbfa6aa431" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="SFM2" tags="None">
+        <DataFile shape="[6]" samplerate="49" modified="5250035658844630573" start="0.02026059893168209" length="297.7295013010484">/Data/Data_IMU_2/Person_6/2022-07-01_15-58-26/SFM2.data</DataFile>
+        <SessionFile>/Data/Data_IMU_2/Person_6/2022-07-01_15-58-26/2022-07-01_15-58-26.imsession</SessionFile>
+        <LabelFile modified="5250035658844650553">/Data/Data_IMU_2/Person_6/2022-07-01_15-58-26/label.label</LabelFile>
+        <Labels>
+          <Label count="14" length="11.3274577">fall</Label>
+        </Labels>
+        <CustomColumnValues>
+          <CustomColumnValue columnId="e7e5b917-ed5a-4bce-af5e-10825558c174">Data_IMU_2</CustomColumnValue>
+          <CustomColumnValue columnId="2068015c-9aa4-417f-9a9f-9bdc05b33cb6">Person_6</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="2022-07-01_16-43-37" sessionId="32830463-15e1-4744-8dbc-cd3449a55516" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="SFM2" tags="LabelsMissing">
+        <DataFile shape="[6]" samplerate="50" modified="5250035658831204754" start="0.020101004050578655" length="93.77118389594406">/Data/Data_IMU_2/Person_4/2022-07-01_16-43-37/SFM2.data</DataFile>
+        <SessionFile>/Data/Data_IMU_2/Person_4/2022-07-01_16-43-37/2022-07-01_16-43-37.imsession</SessionFile>
+        <LabelFile modified="5250035658831234772">/Data/Data_IMU_2/Person_4/2022-07-01_16-43-37/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="e7e5b917-ed5a-4bce-af5e-10825558c174">Data_IMU_2</CustomColumnValue>
+          <CustomColumnValue columnId="2068015c-9aa4-417f-9a9f-9bdc05b33cb6">Person_4</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="2022-07-06_15-49-50" sessionId="14dbfcca-de1f-4b94-ad8a-0a95645a1246" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="SFM2" tags="LabelsMissing">
+        <DataFile shape="[6]" samplerate="50" modified="5250035658794553553" start="0.0156019" length="117.05196310000001">/Data/Data_IMU_2/Person_1/2022-07-06_15-49-50/SFM2.data</DataFile>
+        <SessionFile>/Data/Data_IMU_2/Person_1/2022-07-06_15-49-50/2022-07-06_15-49-50.imsession</SessionFile>
+        <LabelFile modified="5250035658794573527">/Data/Data_IMU_2/Person_1/2022-07-06_15-49-50/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="e7e5b917-ed5a-4bce-af5e-10825558c174">Data_IMU_2</CustomColumnValue>
+          <CustomColumnValue columnId="2068015c-9aa4-417f-9a9f-9bdc05b33cb6">Person_1</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+      <Session name="2022-07-06_16-39-55" sessionId="f26930b9-2b75-4509-8011-4cc6f3742176" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="SFM2" tags="LabelsMissing">
+        <DataFile shape="[6]" samplerate="50" modified="5250035658818390283" start="0.02007760949388025" length="60.67453589050918">/Data/Data_IMU_2/Person_3/2022-07-06_16-39-55/SFM2.data</DataFile>
+        <SessionFile>/Data/Data_IMU_2/Person_3/2022-07-06_16-39-55/2022-07-06_16-39-55.imsession</SessionFile>
+        <LabelFile modified="5250035658818410454">/Data/Data_IMU_2/Person_3/2022-07-06_16-39-55/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues>
+          <CustomColumnValue columnId="e7e5b917-ed5a-4bce-af5e-10825558c174">Data_IMU_2</CustomColumnValue>
+          <CustomColumnValue columnId="2068015c-9aa4-417f-9a9f-9bdc05b33cb6">Person_3</CustomColumnValue>
+        </CustomColumnValues>
+      </Session>
+    </DataSet>
+  </Database>
+  <CustomColumns>
+    <CustomColumn id="e7e5b917-ed5a-4bce-af5e-10825558c174" name="Category 1" internalName="Category 1" />
+    <CustomColumn id="2068015c-9aa4-417f-9a9f-9bdc05b33cb6" name="Category 2" internalName="Category 2" />
+  </CustomColumns>
+</ImagimobStudio>

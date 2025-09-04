@@ -1,0 +1,12 @@
+{
+  "title": "Gunshot Detection",
+  "description": "Project that uses a microphone to identify gunshots.",
+  "algorithm": "Classification",
+  "sensors": ["Microphone"],
+  "domain": ["Audio"],
+  "application": ["Smart Home", "Industrial IoT", "Appliances", "Safety Monitoring", "Wearables", "Healthcare"],
+  "use_case": ["Gunshot Detection"],
+  "kit": ["PSoC-6 Pioneer Kit", "PSoC-6 AI Kit", "PSoC-Edge AI Kit"],
+  "device": ["PSoC-6", "PSoC-Edge"],
+  "workflow": ["ML Development"]
+}

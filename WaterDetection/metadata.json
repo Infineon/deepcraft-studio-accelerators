@@ -1,0 +1,12 @@
+{
+	"title": "Water Detection",
+	"description": "This project uses capacitive sensing data to build a model to detect water presence and finger touches.",
+	"algorithm": "Classification",
+	"sensors": ["Capacitive & Inductive Sensing"],
+ 	"domain": ["Touch", "Sensing"],
+ 	"application": ["Smart Home", "Appliances", "Smart Manufactoring", "Industrial IoT"],
+ 	"use_case": ["Water Detection", "Touch Detection"],
+ 	"kit": ["PSoC-4100S Max Pioneer Kit", "PSoC-6 Pioneer Kit", "PSoC-6 AI Kit", "PSoC-Edge AI Kit"],
+ 	"device": ["PSoC-4", "PSoC-6", "PSoC-Edge"],
+ 	"workflow": ["ML Development"]
+}

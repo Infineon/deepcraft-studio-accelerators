@@ -1,0 +1,23 @@
+name: Start Pipeline
+
+on:
+  workflow_dispatch:
+    inputs:
+      pr_head:
+        description: 'PR Head (<user>:<branch>)'
+        required: true
+
+jobs:
+  start_pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Requirements
+        run: |
+          python -m pip install requests
+      - name: Start Pipeline
+        env:
+          STARTER_MODELS_PIPELINE_TOKEN: ${{ secrets.STARTER_MODELS_PIPELINE_TOKEN }}
+          PR_HEAD: ${{ github.event.inputs.pr_head }}
+        run: |
+          git clone --depth 1 https://github.com/Infineon/deepcraft-studio-accelerators.git 
+          python deepcraft-studio-accelerators/.github/workflows/start_pipeline.py

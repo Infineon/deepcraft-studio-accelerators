@@ -1,0 +1,12 @@
+{
+  "title": "Siren Detection",
+  "description": "This project uses a microphone to detect if you have an emergency vehicle siren in the vicinity.",
+  "algorithm": "Classification",
+  "sensors": ["Microphone"],
+  "domain": ["Audio"],
+  "application": ["Wearables", "Smart Home", "Appliances", "Healthcare", "Safety Monitoring"],
+  "use_case": ["Emergency Vehicle Siren Detection"],
+  "kit": ["PSoC-6 Pioneer Kit", "PSoC-6 AI Kit", "PSoC-Edge AI Kit"],
+  "device": ["PSoC-6", "PSoC-Edge"],
+  "workflow": ["ML Development"]
+}

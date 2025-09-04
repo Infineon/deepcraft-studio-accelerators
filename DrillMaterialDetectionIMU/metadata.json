@@ -1,0 +1,12 @@
+{
+  "title": "Drill Material Detection IMU",
+  "description": "Project for classifying what material a power drill is drilling into using IMU.",
+  "algorithm": "Classification",
+  "sensors": ["IMU"],
+  "domain": ["Vibration", "Sensing"],
+  "application": ["Smart Home", "Smart Manufactoring", "Industrial IoT", "Appliances", "Safety Monitoring"],
+  "use_case": ["Material Detection", "Anomaly Detection"],
+  "kit": ["PSoC-6 Pioneer Kit", "PSoC-6 AI Kit", "PSoC-Edge AI Kit"],
+  "device": ["PSoC-6", "PSoC-Edge"],
+  "workflow": ["ML Development"]
+}

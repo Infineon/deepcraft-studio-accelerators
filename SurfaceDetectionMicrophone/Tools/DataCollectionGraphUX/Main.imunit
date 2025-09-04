@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Imaginet version="2.0.0.0">
+  <Compound unit="d419d86b-7b57-41d3-9a74-ab428f13a213">
+    <Nodes>
+      <UnitNode id="node_9" x="259.8227119656319" y="651.7663631990183" enabled="true" unit="Imaginet.Units.Io.Camera">
+        <StringArgument param="resolution">1280 720 30</StringArgument>
+        <StringArgument param="source_id">Source#0@\\?\USB#VID_04F2&amp;PID_B753&amp;MI_00#6&amp;8a30801&amp;0&amp;0000#{e5323777-f976-4f5b-9b55-b94699c46e44}\GLOBAL</StringArgument>
+      </UnitNode>
+      <LabelListNode id="node_7" width="NaN" height="NaN" x="541.9962339751312" y="162.79066295522193" enabled="true" name="Predefined Labels">
+        <Label>Air</Label>
+        <Label>Floor</Label>
+        <Label>Carpet</Label>
+      </LabelListNode>
+      <UnitNode id="node_1" x="796.4937233954075" y="497.4781022212851" enabled="true" name="Microphone Data" unit="ImagimobStudio.Modules.DataTrack" />
+      <UnitNode id="node_8" x="770.2410162405777" y="648.8318159950903" enabled="true" name="Local Camera Video" unit="ImagimobStudio.Modules.LiveVideoTrack">
+        <DoubleArgument param="quality">0.05</DoubleArgument>
+      </UnitNode>
+      <DeviceNode id="node_0" x="259.28001924320563" y="496.5435550173578" enabled="true" name="Microphone" board="290de5cb-460b-41bf-31cb-8c031931aff5" boardName="PSoC 6 AI (CY8CKIT-06S2-AI)" device="0" />
+    </Nodes>
+    <Connections>
+      <Connection>
+        <Source node="node_0" param="Audio" />
+        <Target node="node_1" param="data" />
+      </Connection>
+      <Connection>
+        <Source node="node_9" param="data" />
+        <Target node="node_8" param="data" />
+      </Connection>
+    </Connections>
+  </Compound>
+</Imaginet>

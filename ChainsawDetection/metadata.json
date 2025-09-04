@@ -1,0 +1,12 @@
+{
+  "title": "Chainsaw Detection",
+  "description": "This project uses a microphone to identify if a chainsaw is actively cutting nearby.",
+  "algorithm": "Classification",
+  "sensors": ["Microphone"],
+  "domain": ["Audio"],
+  "application": ["Smart Forest/Environment", "Forest Monitoring", "Environmental Protection"],
+  "use_case": ["Chainsaw Detection"],
+  "kit": ["PSoC-6 Pioneer Kit", "PSoC-6 AI Kit", "PSoC-Edge AI Kit"],
+  "device": ["PSoC-6", "PSoC-Edge"],
+  "workflow": ["ML Development"]
+}

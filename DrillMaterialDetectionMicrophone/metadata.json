@@ -1,0 +1,12 @@
+{
+  "title": "Drill Material Detection Audio",
+  "description": "Project that uses a microphone to detect the material being drilled into using audio signature.",
+  "algorithm": "Classification",
+  "sensors": ["Microphone"],
+  "domain": ["Audio"],
+  "application": ["Smart Home", "Smart Manufactoring", "Industrial IoT", "Appliances", "Safety Monitoring"],
+  "use_case": ["Material Detection", "Anomaly Detection"],
+  "kit": ["PSoC-6 Pioneer Kit", "PSoC-6 AI Kit", "PSoC-Edge AI Kit"],
+  "device": ["PSoC-6", "PSoC-Edge"],
+  "workflow": ["ML Development"]
+}

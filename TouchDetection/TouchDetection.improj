@@ -1,0 +1,1567 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ImagimobStudio version="1.1.0">
+  <Job id="0b48688f-86db-11ef-8c4e-eb387fbbfb10" />
+  <Preprocessor inshape="[6]" intype="Float32" infreq="95.2991452991453" outshape="[100,3]" outtype="Float32">
+    <Unit id="Core.Queues.SlidingWindow">
+      <Argument param="input" type="String">data</Argument>
+      <Argument param="time_input" type="String">time</Argument>
+      <Argument param="window_shape" type="Shape">[100,3]</Argument>
+      <Argument param="stride" type="Int32">60</Argument>
+      <Argument param="buffer_multiplier" type="Double">2</Argument>
+      <Argument param="output" type="String">data</Argument>
+      <Argument param="time_output" type="String">time</Argument>
+    </Unit>
+  </Preprocessor>
+  <ModelFactory>
+    <Epochs>250</Epochs>
+    <BatchSize>16</BatchSize>
+    <SplitCount>16</SplitCount>
+    <Patience>20</Patience>
+    <AppendModels>False</AppendModels>
+    <LossFunction>CategoricalCrossentropy</LossFunction>
+    <FactoryOptions>None</FactoryOptions>
+    <HardwareType>Default</HardwareType>
+    <TrainingEnvironment>
+    </TrainingEnvironment>
+    <ModelFamily>Conv1D</ModelFamily>
+    <ModelFlavor>SmallKern</ModelFlavor>
+    <ClassifierType>GlobalAveragePool</ClassifierType>
+    <Optimization>Balanced</Optimization>
+    <Pooling>True</Pooling>
+    <Downscale>False</Downscale>
+    <LearnRate>Mid</LearnRate>
+    <RegularizationFactor>Low</RegularizationFactor>
+    <LastNetworkInputShape>[100,3]</LastNetworkInputShape>
+    <Optimizer>
+      <LearningRate>0.001</LearningRate>
+      <WeightDecay>0.0001</WeightDecay>
+    </Optimizer>
+    <BuildSteps>
+      <Training />
+      <ConfusionMatrix />
+    </BuildSteps>
+  </ModelFactory>
+  <Models>
+    <Model name="conv1d-medium-balanced-0" id="fff9788d-f33c-4759-87d9-6c896398c49f">
+      <LossFunction>CategoricalCrossentropy</LossFunction>
+      <Epochs>250</Epochs>
+      <BatchSize>16</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.004</LearningRate>
+        <WeightDecay>0.0001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[100,3]" intype="Float32" infreq="0" outshape="[2]" outtype="Float32">
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">12</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">24</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">24</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.GlobalAveragePool1D" />
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">2</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">softmax</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <Training />
+        <ConfusionMatrix />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="touch" weight="1" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[6]" intype="Float32" infreq="0" outshape="[100,3]" outtype="Float32">
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[100,3]</Argument>
+          <Argument param="stride" type="Int32">60</Argument>
+          <Argument param="buffer_multiplier" type="Double">2</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="0" outshape="[10]" outtype="Float32" />
+    </Model>
+    <Model name="conv1d-medium-balanced-1" id="18ce6832-97e7-4ca3-ae75-c08254ffafdf">
+      <LossFunction>CategoricalCrossentropy</LossFunction>
+      <Epochs>250</Epochs>
+      <BatchSize>16</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.004</LearningRate>
+        <WeightDecay>0.0001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[100,3]" intype="Float32" infreq="0" outshape="[2]" outtype="Float32">
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.GlobalAveragePool1D" />
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">2</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">softmax</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <Training />
+        <ConfusionMatrix />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="touch" weight="1" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[6]" intype="Float32" infreq="0" outshape="[100,3]" outtype="Float32">
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[100,3]</Argument>
+          <Argument param="stride" type="Int32">60</Argument>
+          <Argument param="buffer_multiplier" type="Double">2</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="0" outshape="[10]" outtype="Float32" />
+    </Model>
+    <Model name="conv1d-medium-balanced-2" id="fbd84135-3071-4f9a-a9e6-1f460629c9fc">
+      <LossFunction>CategoricalCrossentropy</LossFunction>
+      <Epochs>250</Epochs>
+      <BatchSize>16</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.004</LearningRate>
+        <WeightDecay>0.0001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[100,3]" intype="Float32" infreq="0" outshape="[2]" outtype="Float32">
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.GlobalAveragePool1D" />
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">2</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">softmax</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <Training />
+        <ConfusionMatrix />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="touch" weight="1" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[6]" intype="Float32" infreq="0" outshape="[100,3]" outtype="Float32">
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[100,3]</Argument>
+          <Argument param="stride" type="Int32">60</Argument>
+          <Argument param="buffer_multiplier" type="Double">2</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="0" outshape="[10]" outtype="Float32" />
+    </Model>
+    <Model name="conv1d-medium-balanced-3" id="8135f2d8-0445-4dca-81f9-b4c6ac6a7856">
+      <LossFunction>CategoricalCrossentropy</LossFunction>
+      <Epochs>250</Epochs>
+      <BatchSize>16</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.004</LearningRate>
+        <WeightDecay>0.0001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[100,3]" intype="Float32" infreq="0" outshape="[2]" outtype="Float32">
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">64</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">64</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.GlobalAveragePool1D" />
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">2</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">softmax</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <Training />
+        <ConfusionMatrix />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="touch" weight="1" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[6]" intype="Float32" infreq="0" outshape="[100,3]" outtype="Float32">
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[100,3]</Argument>
+          <Argument param="stride" type="Int32">60</Argument>
+          <Argument param="buffer_multiplier" type="Double">2</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="0" outshape="[10]" outtype="Float32" />
+    </Model>
+  </Models>
+  <Database balance="LabelCount" redistributionScope="Everything">
+    <SymbolMap>
+      <Symbol name="touch" id="1" weight="1" />
+    </SymbolMap>
+    <DataSet id="unassigned" targetSize="0" labels="Unassigned" />
+    <DataSet id="train" targetSize="0.6024361055442622" labels="Complete">
+      <Session name="capsense-20240927_171442-29252" sessionId="455cd76d-d0c8-4004-9e1e-89b0dfc79792" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="101" modified="5250316277462335328" start="0" length="49.597">/Data/capsense-20240927_171442-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_171442-29252/capsense-20240927_171442-29252.imsession</SessionFile>
+        <LabelFile modified="5250316277462355346">/Data/capsense-20240927_171442-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="111" length="22.3809952">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_150423-29252" sessionId="b45d9c85-6dbf-41c6-8d4e-3703a042426c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="88" modified="5250316198332924495" start="0" length="11.417">/Data/capsense-20240927_150423-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_150423-29252/capsense-20240927_150423-29252.imsession</SessionFile>
+        <LabelFile modified="5250316198332933593">/Data/capsense-20240927_150423-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="12" length="2.1869996">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_154230-29252" sessionId="c8440072-297d-4061-b170-7f9b1f98af26" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="85" modified="5250316220073750052" start="0" length="11.748">/Data/capsense-20240927_154230-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_154230-29252/capsense-20240927_154230-29252.imsession</SessionFile>
+        <LabelFile modified="5250316220073765607">/Data/capsense-20240927_154230-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="13" length="3.2529993">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20241009_130443-31628" sessionId="0a7bcdad-39d7-44e1-ac1b-5071f45ce6c9" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="67" modified="5250326502387905418" start="0" length="74.682">/Data/capsense-20241009_130443-31628/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20241009_130443-31628/capsense-20241009_130443-31628.imsession</SessionFile>
+        <LabelFile modified="5250326502387925495">/Data/capsense-20241009_130443-31628/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="3" length="72.1799999">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_153936-29252" sessionId="20ea1a5e-46f4-41c7-afe1-81f6a11cea79" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="102" modified="5250316220071666839" start="0" length="9.792">/Data/capsense-20240927_153936-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_153936-29252/capsense-20240927_153936-29252.imsession</SessionFile>
+        <LabelFile modified="5250316220071685897">/Data/capsense-20240927_153936-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="13" length="2.3449992">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_145846-29252" sessionId="31b985d0-3fb0-4824-aff5-245a4af847ab" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="93" modified="5250316198330004593" start="0" length="10.775">/Data/capsense-20240927_145846-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_145846-29252/capsense-20240927_145846-29252.imsession</SessionFile>
+        <LabelFile modified="5250316198330024595">/Data/capsense-20240927_145846-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="6" length="1.0229995">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20241009_130721-31628" sessionId="91ab0cd6-0d5f-4465-9ec4-d88a379758b0" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="73" modified="5250326502388705442" start="0" length="68.114">/Data/capsense-20241009_130721-31628/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20241009_130721-31628/capsense-20241009_130721-31628.imsession</SessionFile>
+        <LabelFile modified="5250326502388725439">/Data/capsense-20241009_130721-31628/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="1" length="66.3199999">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_150120-29252" sessionId="0b530990-a714-4ea5-8acc-896c8fc93c32" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="103" modified="5250316198330955565" start="0" length="9.689">/Data/capsense-20240927_150120-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_150120-29252/capsense-20240927_150120-29252.imsession</SessionFile>
+        <LabelFile modified="5250316198331072182">/Data/capsense-20240927_150120-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="12" length="1.6499994">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_154335-29252" sessionId="e7820a84-ea74-4eaf-8422-2b0da618977a" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="102" modified="5250316220074454141" start="0" length="9.817">/Data/capsense-20240927_154335-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_154335-29252/capsense-20240927_154335-29252.imsession</SessionFile>
+        <LabelFile modified="5250316220074464020">/Data/capsense-20240927_154335-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="29" length="3.6389987">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_160019-29252" sessionId="2c2cc039-fe0f-42a7-af86-1a6e070686f9" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="104" modified="5250316232779524454" start="0" length="47.998">/Data/capsense-20240927_160019-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_160019-29252/capsense-20240927_160019-29252.imsession</SessionFile>
+        <LabelFile modified="5250316232779541802">/Data/capsense-20240927_160019-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="85" length="14.5859962">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_154858-29252" sessionId="8eaac80d-5956-45ee-9037-64a458e4e367" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="107" modified="5250316220077707191" start="0" length="9.329">/Data/capsense-20240927_154858-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_154858-29252/capsense-20240927_154858-29252.imsession</SessionFile>
+        <LabelFile modified="5250316220077727150">/Data/capsense-20240927_154858-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="10" length="1.6219997">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_154416-29252" sessionId="14a61299-c66c-4542-8752-890a20fb3e08" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="99" modified="5250316220074927698" start="0" length="10.136">/Data/capsense-20240927_154416-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_154416-29252/capsense-20240927_154416-29252.imsession</SessionFile>
+        <LabelFile modified="5250316220074951585">/Data/capsense-20240927_154416-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="14" length="2.9009994">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_154705-29252" sessionId="5e6e2051-d576-4e0e-9799-961efe5a122d" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="102" modified="5250316220076577603" start="0" length="9.76">/Data/capsense-20240927_154705-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_154705-29252/capsense-20240927_154705-29252.imsession</SessionFile>
+        <LabelFile modified="5250316220076588884">/Data/capsense-20240927_154705-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="9" length="1.0759995">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_154750-29252" sessionId="e1344639-296c-44f7-9414-f4aa91d91672" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="104" modified="5250316220077044599" start="0" length="9.627">/Data/capsense-20240927_154750-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_154750-29252/capsense-20240927_154750-29252.imsession</SessionFile>
+        <LabelFile modified="5250316220077069211">/Data/capsense-20240927_154750-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="11" length="2.1809994">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_170554-29252" sessionId="8c5a5f35-ce94-4f5b-9a6e-288fb3785d71" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="95" modified="5250316277458713835" start="0" length="52.704">/Data/capsense-20240927_170554-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_170554-29252/capsense-20240927_170554-29252.imsession</SessionFile>
+        <LabelFile modified="5250316277458735324">/Data/capsense-20240927_170554-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="121" length="16.7189939">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_154347-29252" sessionId="e3419bac-b601-46ae-ad5e-a317da3d23d0" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="105" modified="5250316220074626560" start="0" length="9.504">/Data/capsense-20240927_154347-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_154347-29252/capsense-20240927_154347-29252.imsession</SessionFile>
+        <LabelFile modified="5250316220074648138">/Data/capsense-20240927_154347-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="19" length="2.9839989">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_154825-29252" sessionId="c03170f5-3280-414b-8a85-4b95c9948f35" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="90" modified="5250316220077372828" start="0" length="11.064">/Data/capsense-20240927_154825-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_154825-29252/capsense-20240927_154825-29252.imsession</SessionFile>
+        <LabelFile modified="5250316220077382861">/Data/capsense-20240927_154825-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="14" length="2.4029993">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_170746-29252" sessionId="b2f66295-01a7-4618-991c-a524c7b9ea28" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="101" modified="5250316277459497597" start="0" length="49.592">/Data/capsense-20240927_170746-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_170746-29252/capsense-20240927_170746-29252.imsession</SessionFile>
+        <LabelFile modified="5250316277459526479">/Data/capsense-20240927_170746-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="112" length="19.4239936">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20241009_130853-31628" sessionId="4bce2b8e-5fc1-45ba-a015-ac487567c08e" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="68" modified="5250326502389156049" start="0" length="73.779">/Data/capsense-20241009_130853-31628/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20241009_130853-31628/capsense-20241009_130853-31628.imsession</SessionFile>
+        <LabelFile modified="5250326502389176053">/Data/capsense-20241009_130853-31628/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="1" length="72.1949999">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_150438-29252" sessionId="c152b99a-62f0-4a52-ac93-0ad75303afd5" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="84" modified="5250316198333073984" start="0" length="11.883">/Data/capsense-20240927_150438-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_150438-29252/capsense-20240927_150438-29252.imsession</SessionFile>
+        <LabelFile modified="5250316198333093482">/Data/capsense-20240927_150438-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="11" length="2.3829994">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_170654-29252" sessionId="f2e56343-512d-4e91-864c-a44abfb635fe" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="105" modified="5250316277459115395" start="0" length="47.8">/Data/capsense-20240927_170654-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_170654-29252/capsense-20240927_170654-29252.imsession</SessionFile>
+        <LabelFile modified="5250316277459146497">/Data/capsense-20240927_170654-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="121" length="21.5809936">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_154637-29252" sessionId="b1b4b91f-29b4-4112-a2ab-6e0866efed18" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="89" modified="5250316220076228590" start="0" length="11.24">/Data/capsense-20240927_154637-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_154637-29252/capsense-20240927_154637-29252.imsession</SessionFile>
+        <LabelFile modified="5250316220076248560">/Data/capsense-20240927_154637-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="11" length="1.9469997">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_171535-29252" sessionId="5cea2644-d52f-458a-88d7-bed70e2326c7" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="104" modified="5250316277462735686" start="0" length="48.282">/Data/capsense-20240927_171535-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_171535-29252/capsense-20240927_171535-29252.imsession</SessionFile>
+        <LabelFile modified="5250316277462756164">/Data/capsense-20240927_171535-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="154" length="23.4519926">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_154018-29252" sessionId="6135fc09-6443-4267-aa19-a34e4c92b6cd" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="94" modified="5250316220072170543" start="0" length="10.674">/Data/capsense-20240927_154018-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_154018-29252/capsense-20240927_154018-29252.imsession</SessionFile>
+        <LabelFile modified="5250316220072190665">/Data/capsense-20240927_154018-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="13" length="3.2789996">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20241009_131730-31628" sessionId="70803ec4-d328-497b-bdb4-6d317a13cb90" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="68" modified="5250326502391500747" start="0" length="73.644">/Data/capsense-20241009_131730-31628/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20241009_131730-31628/capsense-20241009_131730-31628.imsession</SessionFile>
+        <LabelFile modified="5250326502391510741">/Data/capsense-20241009_131730-31628/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="2" length="71.003">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_150308-29252" sessionId="c265ac39-2d34-4f7d-a089-50fcd5b5fcdb" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="100" modified="5250316198332148482" start="0" length="9.987">/Data/capsense-20240927_150308-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_150308-29252/capsense-20240927_150308-29252.imsession</SessionFile>
+        <LabelFile modified="5250316198332157412">/Data/capsense-20240927_150308-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="9" length="2.0429993">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_170856-29252" sessionId="222b61cd-0c12-43c3-987f-7199a6300260" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="102" modified="5250316277459988577" start="0" length="48.884">/Data/capsense-20240927_170856-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_170856-29252/capsense-20240927_170856-29252.imsession</SessionFile>
+        <LabelFile modified="5250316277460008565">/Data/capsense-20240927_170856-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="81" length="15.2069958">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_154619-29252" sessionId="3e94f02e-c06a-463c-8f2d-84a4edb480aa" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="94" modified="5250316220076060254" start="0" length="10.607">/Data/capsense-20240927_154619-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_154619-29252/capsense-20240927_154619-29252.imsession</SessionFile>
+        <LabelFile modified="5250316220076074762">/Data/capsense-20240927_154619-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="12" length="1.9379993">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_160716-29252" sessionId="358b1612-a0bd-40a2-b7e5-07817fada876" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="104" modified="5250316232782277271" start="0" length="48.068">/Data/capsense-20240927_160716-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_160716-29252/capsense-20240927_160716-29252.imsession</SessionFile>
+        <LabelFile modified="5250316232782297313">/Data/capsense-20240927_160716-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="98" length="16.2429956">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_150830-29252" sessionId="71c4c707-c6ee-4af7-8256-15c120628b9c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="90" modified="5250316198334945290" start="0" length="11.131">/Data/capsense-20240927_150830-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_150830-29252/capsense-20240927_150830-29252.imsession</SessionFile>
+        <LabelFile modified="5250316198334964296">/Data/capsense-20240927_150830-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="12" length="2.0219995">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_154246-29252" sessionId="8f9f779c-0f10-4c3d-a2df-bceeb56bb87a" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="93" modified="5250316220073932393" start="0" length="10.731">/Data/capsense-20240927_154246-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_154246-29252/capsense-20240927_154246-29252.imsession</SessionFile>
+        <LabelFile modified="5250316220073943954">/Data/capsense-20240927_154246-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="17" length="2.9609991">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_154111-29252" sessionId="ac15c20e-9de6-4465-aca0-7d28ed34a7a6" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="101" modified="5250316220072627812" start="0" length="9.907">/Data/capsense-20240927_154111-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_154111-29252/capsense-20240927_154111-29252.imsession</SessionFile>
+        <LabelFile modified="5250316220072637753">/Data/capsense-20240927_154111-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="12" length="2.7839994">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_171740-29252" sessionId="cbfb9a13-473d-4777-9d9b-96206468f1c7" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="107" modified="5250316277463641330" start="0" length="46.55">/Data/capsense-20240927_171740-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_171740-29252/capsense-20240927_171740-29252.imsession</SessionFile>
+        <LabelFile modified="5250316277463651321">/Data/capsense-20240927_171740-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="143" length="17.4409928">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20241009_131143-31628" sessionId="78e1f934-cbb9-4075-8e6c-48c8d77e25af" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="71" modified="5250326502389933337" start="0" length="70.214">/Data/capsense-20241009_131143-31628/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20241009_131143-31628/capsense-20241009_131143-31628.imsession</SessionFile>
+        <LabelFile modified="5250326502389952067">/Data/capsense-20241009_131143-31628/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="2" length="67.075">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_154841-29252" sessionId="852bf630-21c4-4e33-84df-2d8ad69c6c99" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="90" modified="5250316220077547477" start="0" length="11.098">/Data/capsense-20240927_154841-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_154841-29252/capsense-20240927_154841-29252.imsession</SessionFile>
+        <LabelFile modified="5250316220077562189">/Data/capsense-20240927_154841-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="14" length="2.0449991">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_153838-29252" sessionId="a4681ffb-8808-405f-9435-5777d189e1d3" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="89" modified="5250316220071178041" start="0" length="11.202">/Data/capsense-20240927_153838-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_153838-29252/capsense-20240927_153838-29252.imsession</SessionFile>
+        <LabelFile modified="5250316220071186895">/Data/capsense-20240927_153838-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="12" length="2.0739993">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_150239-29252" sessionId="5ea0c1df-a4aa-475b-96ee-1490ce0afcbe" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="84" modified="5250316198331839000" start="0" length="11.846">/Data/capsense-20240927_150239-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_150239-29252/capsense-20240927_150239-29252.imsession</SessionFile>
+        <LabelFile modified="5250316198331852377">/Data/capsense-20240927_150239-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="9" length="3.4109993">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_171940-29252" sessionId="47dcb392-8024-446d-8995-1e80c7b9efa5" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="102" modified="5250316277464547634" start="0" length="49.119">/Data/capsense-20240927_171940-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_171940-29252/capsense-20240927_171940-29252.imsession</SessionFile>
+        <LabelFile modified="5250316277464575204">/Data/capsense-20240927_171940-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="144" length="30.3789936">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_154321-29252" sessionId="d5918056-a3bc-4034-a8ec-ce3a3c314f93" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="103" modified="5250316220074292126" start="0" length="9.682">/Data/capsense-20240927_154321-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_154321-29252/capsense-20240927_154321-29252.imsession</SessionFile>
+        <LabelFile modified="5250316220074308178">/Data/capsense-20240927_154321-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="14" length="2.7259994">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_150149-29252" sessionId="005d3a01-fcb5-47c5-8953-1f6a82247760" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="100" modified="5250316198331374665" start="0" length="10.028">/Data/capsense-20240927_150149-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_150149-29252/capsense-20240927_150149-29252.imsession</SessionFile>
+        <LabelFile modified="5250316198331384198">/Data/capsense-20240927_150149-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="10" length="1.3179996">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_154806-29252" sessionId="3d7422b2-9ad0-4e12-a639-1597aec1f586" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="104" modified="5250316220077204167" start="0" length="9.592">/Data/capsense-20240927_154806-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_154806-29252/capsense-20240927_154806-29252.imsession</SessionFile>
+        <LabelFile modified="5250316220077228012">/Data/capsense-20240927_154806-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="13" length="2.2479993">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_172034-29252" sessionId="5aa32d05-fd13-4625-934a-f6e7a5ecf01a" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="98" modified="5250316277464928042" start="0" length="50.879">/Data/capsense-20240927_172034-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_172034-29252/capsense-20240927_172034-29252.imsession</SessionFile>
+        <LabelFile modified="5250316277464951161">/Data/capsense-20240927_172034-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="110" length="27.3839948">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_153912-29252" sessionId="b43b7ae2-16a7-44ed-a693-77db50c8ba3c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="104" modified="5250316220071508376" start="0" length="9.648">/Data/capsense-20240927_153912-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_153912-29252/capsense-20240927_153912-29252.imsession</SessionFile>
+        <LabelFile modified="5250316220071517968">/Data/capsense-20240927_153912-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="10" length="1.6019994">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20241009_131858-31628" sessionId="af89369f-7517-46ca-9a6b-7f27fd8d580e" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="69" modified="5250326502391876594" start="0" length="72.481">/Data/capsense-20241009_131858-31628/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20241009_131858-31628/capsense-20241009_131858-31628.imsession</SessionFile>
+        <LabelFile modified="5250326502391898861">/Data/capsense-20241009_131858-31628/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="3" length="69.8099998">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_172132-29252" sessionId="24374cee-195d-443f-a680-632aea49d81a" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="102" modified="5250316277465325631" start="0" length="48.96">/Data/capsense-20240927_172132-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_172132-29252/capsense-20240927_172132-29252.imsession</SessionFile>
+        <LabelFile modified="5250316277465345675">/Data/capsense-20240927_172132-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="145" length="25.0599928">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_150805-29252" sessionId="0aac1721-e9cd-4b04-ac6d-75aa4d0717e7" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="102" modified="5250316198334793141" start="0" length="9.806">/Data/capsense-20240927_150805-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_150805-29252/capsense-20240927_150805-29252.imsession</SessionFile>
+        <LabelFile modified="5250316198334812222">/Data/capsense-20240927_150805-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="9" length="1.8639997">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_150057-29252" sessionId="919fb43c-dc67-401a-b58a-8ecfab5ddfbe" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="102" modified="5250316198330795451" start="0" length="9.841">/Data/capsense-20240927_150057-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_150057-29252/capsense-20240927_150057-29252.imsession</SessionFile>
+        <LabelFile modified="5250316198330805696">/Data/capsense-20240927_150057-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="5" length="0.7549998">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_171839-29252" sessionId="c233c1c8-eb96-4da0-9af0-09fd35a0ce44" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="100" modified="5250316277464095541" start="0" length="50.134">/Data/capsense-20240927_171839-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_171839-29252/capsense-20240927_171839-29252.imsession</SessionFile>
+        <LabelFile modified="5250316277464130321">/Data/capsense-20240927_171839-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="144" length="21.846993">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_150025-29252" sessionId="bee4acec-373c-4a17-8589-0f4fae966ff3" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="88" modified="5250316198330474516" start="0" length="11.289">/Data/capsense-20240927_150025-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_150025-29252/capsense-20240927_150025-29252.imsession</SessionFile>
+        <LabelFile modified="5250316198330494481">/Data/capsense-20240927_150025-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="13" length="1.6589995">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_154735-29252" sessionId="195fb5a9-3574-4aab-ba23-2a8703291c3a" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="105" modified="5250316220076894106" start="0" length="9.525">/Data/capsense-20240927_154735-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_154735-29252/capsense-20240927_154735-29252.imsession</SessionFile>
+        <LabelFile modified="5250316220076914320">/Data/capsense-20240927_154735-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="9" length="1.9439996">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_154031-29252" sessionId="bbab8f67-7dac-4c1b-8261-aa3eb2a63fec" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="89" modified="5250316220072334116" start="0" length="11.225">/Data/capsense-20240927_154031-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_154031-29252/capsense-20240927_154031-29252.imsession</SessionFile>
+        <LabelFile modified="5250316220072353065">/Data/capsense-20240927_154031-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="10" length="8.3799994">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_150549-29252" sessionId="713a77c2-ced7-432b-8533-c2aef2730633" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="102" modified="5250316198333724877" start="0" length="9.758">/Data/capsense-20240927_150549-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_150549-29252/capsense-20240927_150549-29252.imsession</SessionFile>
+        <LabelFile modified="5250316198333743977">/Data/capsense-20240927_150549-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="9" length="1.7349996">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20241009_131449-31628" sessionId="bb143f98-7500-4b6c-a546-59314b918795" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="69" modified="5250326502390734165" start="0" length="72.891">/Data/capsense-20241009_131449-31628/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20241009_131449-31628/capsense-20241009_131449-31628.imsession</SessionFile>
+        <LabelFile modified="5250326502390754191">/Data/capsense-20241009_131449-31628/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="1" length="69.9509999">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_150609-29252" sessionId="f66b806d-b334-4184-8c69-ee2c79db7312" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="99" modified="5250316198333883930" start="0" length="10.056">/Data/capsense-20240927_150609-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_150609-29252/capsense-20240927_150609-29252.imsession</SessionFile>
+        <LabelFile modified="5250316198333893948">/Data/capsense-20240927_150609-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="9" length="1.9349997">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_150203-29252" sessionId="7612bc16-8076-4949-80bf-fbc2f4a59d1d" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="102" modified="5250316198331535328" start="0" length="9.838">/Data/capsense-20240927_150203-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_150203-29252/capsense-20240927_150203-29252.imsession</SessionFile>
+        <LabelFile modified="5250316198331554700">/Data/capsense-20240927_150203-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="11" length="1.4119995">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_154506-29252" sessionId="6f4a95c0-50c8-4153-8156-803792afaedb" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="102" modified="5250316220075417141" start="0" length="9.825">/Data/capsense-20240927_154506-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_154506-29252/capsense-20240927_154506-29252.imsession</SessionFile>
+        <LabelFile modified="5250316220075427936">/Data/capsense-20240927_154506-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="11" length="1.6259994">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_150340-29252" sessionId="993950e7-1ec7-48ec-8777-739b40c30716" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="100" modified="5250316198332464469" start="0" length="9.946">/Data/capsense-20240927_150340-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_150340-29252/capsense-20240927_150340-29252.imsession</SessionFile>
+        <LabelFile modified="5250316198332474140">/Data/capsense-20240927_150340-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="8" length="1.7279994">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_154403-29252" sessionId="a9d17f33-0b47-47a4-8ec6-485020b3dda8" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="102" modified="5250316220074777644" start="0" length="9.748">/Data/capsense-20240927_154403-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_154403-29252/capsense-20240927_154403-29252.imsession</SessionFile>
+        <LabelFile modified="5250316220074797447">/Data/capsense-20240927_154403-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="10" length="1.5369994">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_153951-29252" sessionId="e18db12b-79be-4da1-9c36-c1fb91c38a49" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="103" modified="5250316220071826985" start="0" length="9.673">/Data/capsense-20240927_153951-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_153951-29252/capsense-20240927_153951-29252.imsession</SessionFile>
+        <LabelFile modified="5250316220071835920">/Data/capsense-20240927_153951-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="10" length="4.3669997">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_171239-29252" sessionId="0b8e77a8-eac0-4686-bdcd-8c7058c0bf12" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="98" modified="5250316277461559914" start="0" length="51.093">/Data/capsense-20240927_171239-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_171239-29252/capsense-20240927_171239-29252.imsession</SessionFile>
+        <LabelFile modified="5250316277461585457">/Data/capsense-20240927_171239-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="96" length="28.235995">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_160119-29252" sessionId="fc956d39-ff97-4f38-afdc-1cb8267d0835" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="100" modified="5250316232779924878" start="0" length="49.75">/Data/capsense-20240927_160119-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_160119-29252/capsense-20240927_160119-29252.imsession</SessionFile>
+        <LabelFile modified="5250316232779949623">/Data/capsense-20240927_160119-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="70" length="11.4369964">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_150706-29252" sessionId="1ec63c08-d00f-43f7-add4-ea639609ec46" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="103" modified="5250316198334339706" start="0" length="9.724">/Data/capsense-20240927_150706-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_150706-29252/capsense-20240927_150706-29252.imsession</SessionFile>
+        <LabelFile modified="5250316198334349715">/Data/capsense-20240927_150706-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="10" length="2.0299997">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_154306-29252" sessionId="faf29cd7-b028-4e29-a29e-741302108b9a" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="102" modified="5250316220074095064" start="0" length="9.842">/Data/capsense-20240927_154306-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_154306-29252/capsense-20240927_154306-29252.imsession</SessionFile>
+        <LabelFile modified="5250316220074111563">/Data/capsense-20240927_154306-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="12" length="2.0149994">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_154547-29252" sessionId="7d180fd4-fac4-4425-85bf-9f16a209babe" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="102" modified="5250316220075736545" start="0" length="9.82">/Data/capsense-20240927_154547-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_154547-29252/capsense-20240927_154547-29252.imsession</SessionFile>
+        <LabelFile modified="5250316220075756536">/Data/capsense-20240927_154547-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="11" length="2.4219995">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_154136-29252" sessionId="bc5b50b2-dbfc-4dfc-b27f-fc0b61552b20" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="101" modified="5250316220072961512" start="0" length="9.932">/Data/capsense-20240927_154136-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_154136-29252/capsense-20240927_154136-29252.imsession</SessionFile>
+        <LabelFile modified="5250316220072971564">/Data/capsense-20240927_154136-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="13" length="2.7629994">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_171642-29252" sessionId="c58b2a2c-2f12-4bde-9722-1293bfe66079" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="105" modified="5250316277463149494" start="0" length="47.42">/Data/capsense-20240927_171642-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_171642-29252/capsense-20240927_171642-29252.imsession</SessionFile>
+        <LabelFile modified="5250316277463172873">/Data/capsense-20240927_171642-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="133" length="21.8539937">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_160811-29252" sessionId="c87bce92-7918-431d-bcd9-b0b5777752b4" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="98" modified="5250316232782648259" start="0" length="51.251">/Data/capsense-20240927_160811-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_160811-29252/capsense-20240927_160811-29252.imsession</SessionFile>
+        <LabelFile modified="5250316232782678452">/Data/capsense-20240927_160811-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="81" length="13.6909961">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_154203-29252" sessionId="d3a08b4b-4888-41d7-93ec-0b9855797716" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="99" modified="5250316220073341857" start="0" length="10.053">/Data/capsense-20240927_154203-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_154203-29252/capsense-20240927_154203-29252.imsession</SessionFile>
+        <LabelFile modified="5250316220073361911">/Data/capsense-20240927_154203-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="13" length="2.8399992">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_154453-29252" sessionId="c86515e7-f678-49b5-b8e4-2a100c7df90d" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="104" modified="5250316220075243108" start="0" length="9.613">/Data/capsense-20240927_154453-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_154453-29252/capsense-20240927_154453-29252.imsession</SessionFile>
+        <LabelFile modified="5250316220075254355">/Data/capsense-20240927_154453-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="17" length="2.1859994">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_154439-29252" sessionId="d2dede69-5d1c-47de-9b96-19cdcd7b14c4" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="87" modified="5250316220075081916" start="0" length="11.425">/Data/capsense-20240927_154439-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_154439-29252/capsense-20240927_154439-29252.imsession</SessionFile>
+        <LabelFile modified="5250316220075102029">/Data/capsense-20240927_154439-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="13" length="2.4469994">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+    </DataSet>
+    <DataSet id="validation" targetSize="0.1996425987138053" labels="Complete">
+      <Session name="capsense-20240927_170955-29252" sessionId="9466420c-2439-49d7-911b-8cf891e0d419" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="97" modified="5250316277460380655" start="0" length="51.571">/Data/capsense-20240927_170955-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_170955-29252/capsense-20240927_170955-29252.imsession</SessionFile>
+        <LabelFile modified="5250316277460399600">/Data/capsense-20240927_170955-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="99" length="15.3269952">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_172332-29252" sessionId="ccc42cb8-6681-4bbb-a4d0-f296f23647a6" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="104" modified="5250316277466087186" start="0" length="48.089">/Data/capsense-20240927_172332-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_172332-29252/capsense-20240927_172332-29252.imsession</SessionFile>
+        <LabelFile modified="5250316277466119804">/Data/capsense-20240927_172332-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="150" length="21.9609938">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_160403-29252" sessionId="2379496c-31f8-4154-b0de-cf9a4840f836" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="98" modified="5250316232781065157" start="0" length="50.769">/Data/capsense-20240927_160403-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_160403-29252/capsense-20240927_160403-29252.imsession</SessionFile>
+        <LabelFile modified="5250316232781095116">/Data/capsense-20240927_160403-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="87" length="22.3929957">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_154004-29252" sessionId="9f2c2f71-004f-445e-9da4-ad65b4ad374c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="103" modified="5250316220071990926" start="0" length="9.716">/Data/capsense-20240927_154004-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_154004-29252/capsense-20240927_154004-29252.imsession</SessionFile>
+        <LabelFile modified="5250316220072010914">/Data/capsense-20240927_154004-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="12" length="2.6819996">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_170455-29252" sessionId="c5520741-5a92-4f55-a45e-00275a712082" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="102" modified="5250316277458317807" start="0" length="48.826">/Data/capsense-20240927_170455-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_170455-29252/capsense-20240927_170455-29252.imsession</SessionFile>
+        <LabelFile modified="5250316277458340716">/Data/capsense-20240927_170455-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="81" length="10.3609962">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_150356-29252" sessionId="7ba78fe0-78b6-4e9f-9989-dde9c1693420" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="103" modified="5250316198332624488" start="0" length="9.699">/Data/capsense-20240927_150356-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_150356-29252/capsense-20240927_150356-29252.imsession</SessionFile>
+        <LabelFile modified="5250316198332633996">/Data/capsense-20240927_150356-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="14" length="2.3039996">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_150732-29252" sessionId="24e5eeb9-c4c7-40fa-86d2-7bcb2a95d978" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="102" modified="5250316198334481221" start="0" length="9.755">/Data/capsense-20240927_150732-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_150732-29252/capsense-20240927_150732-29252.imsession</SessionFile>
+        <LabelFile modified="5250316198334500146">/Data/capsense-20240927_150732-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="10" length="2.0449995">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20241009_132028-31628" sessionId="2ebbde8c-a1a5-4558-a648-1f7e16a1394b" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="66" modified="5250326502392260034" start="0" length="75.513">/Data/capsense-20241009_132028-31628/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20241009_132028-31628/capsense-20241009_132028-31628.imsession</SessionFile>
+        <LabelFile modified="5250326502392281961">/Data/capsense-20241009_132028-31628/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="2" length="72.693">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_150508-29252" sessionId="c17e6ebf-2bdb-49d8-bba9-b5f100d26b1b" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="101" modified="5250316198333386289" start="0" length="9.891">/Data/capsense-20240927_150508-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_150508-29252/capsense-20240927_150508-29252.imsession</SessionFile>
+        <LabelFile modified="5250316198333395182">/Data/capsense-20240927_150508-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="9" length="2.4109998">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_172229-29252" sessionId="9b48541e-88b0-4ac3-abce-87cc8c98aa24" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="96" modified="5250316277465705628" start="0" length="52.151">/Data/capsense-20240927_172229-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_172229-29252/capsense-20240927_172229-29252.imsession</SessionFile>
+        <LabelFile modified="5250316277465725643">/Data/capsense-20240927_172229-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="199" length="26.6839887">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_160215-29252" sessionId="3b6598f4-bc13-4fa9-a1c4-ba1a8f5a170c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="99" modified="5250316232780313599" start="0" length="50.264">/Data/capsense-20240927_160215-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_160215-29252/capsense-20240927_160215-29252.imsession</SessionFile>
+        <LabelFile modified="5250316232780333601">/Data/capsense-20240927_160215-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="112" length="17.1859951">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_150624-29252" sessionId="ec2fc7fc-fc86-4f65-992d-2d90aa6a2273" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="89" modified="5250316198334028467" start="0" length="11.225">/Data/capsense-20240927_150624-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_150624-29252/capsense-20240927_150624-29252.imsession</SessionFile>
+        <LabelFile modified="5250316198334048513">/Data/capsense-20240927_150624-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="10" length="1.8249995">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_145959-29252" sessionId="ac054eef-b736-4863-a412-b98a88e6497c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="104" modified="5250316198330144580" start="0" length="9.578">/Data/capsense-20240927_145959-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_145959-29252/capsense-20240927_145959-29252.imsession</SessionFile>
+        <LabelFile modified="5250316198330154539">/Data/capsense-20240927_145959-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="7" length="1.8299998">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_154151-29252" sessionId="196134b9-dbab-4f9f-9532-44ba65cf49fa" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="102" modified="5250316220073148349" start="0" length="9.787">/Data/capsense-20240927_154151-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_154151-29252/capsense-20240927_154151-29252.imsession</SessionFile>
+        <LabelFile modified="5250316220073158313">/Data/capsense-20240927_154151-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="12" length="2.4999996">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20241009_131018-31628" sessionId="c9ee1c21-2509-4b28-8617-21a81016cdb4" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="68" modified="5250326502389556404" start="0" length="73.677">/Data/capsense-20241009_131018-31628/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20241009_131018-31628/capsense-20241009_131018-31628.imsession</SessionFile>
+        <LabelFile modified="5250326502389576281">/Data/capsense-20241009_131018-31628/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="1" length="71.618">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20241009_130318-31628" sessionId="eb2c5586-3aeb-4ac0-aeb0-104a40073dc1" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="72" modified="5250326502387512526" start="0" length="69.096">/Data/capsense-20241009_130318-31628/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20241009_130318-31628/capsense-20241009_130318-31628.imsession</SessionFile>
+        <LabelFile modified="5250326502387532600">/Data/capsense-20241009_130318-31628/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="1" length="66.4569999">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_150043-29252" sessionId="d074b559-5a3b-4447-93d5-126095357b16" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="90" modified="5250316198330635484" start="0" length="11.131">/Data/capsense-20240927_150043-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_150043-29252/capsense-20240927_150043-29252.imsession</SessionFile>
+        <LabelFile modified="5250316198330654533">/Data/capsense-20240927_150043-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="9" length="1.3189997">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_154216-29252" sessionId="15bf2a09-80fe-4c29-9a92-846fd33f71cc" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="97" modified="5250316220073536392" start="0" length="10.292">/Data/capsense-20240927_154216-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_154216-29252/capsense-20240927_154216-29252.imsession</SessionFile>
+        <LabelFile modified="5250316220073549372">/Data/capsense-20240927_154216-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="13" length="4.0549995">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20241009_130602-31628" sessionId="d272e27d-1284-4975-bb26-38cf61ce1a4d" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="67" modified="5250326502388305402" start="0" length="75.118">/Data/capsense-20241009_130602-31628/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20241009_130602-31628/capsense-20241009_130602-31628.imsession</SessionFile>
+        <LabelFile modified="5250326502388325432">/Data/capsense-20241009_130602-31628/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="1" length="71.438">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+    </DataSet>
+    <DataSet id="test" targetSize="0.19792129574193254" labels="Complete">
+      <Session name="capsense-20240927_160503-29252" sessionId="d3e608b5-2092-4736-8df6-b304cc8ca171" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="103" modified="5250316232781475159" start="0" length="48.584">/Data/capsense-20240927_160503-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_160503-29252/capsense-20240927_160503-29252.imsession</SessionFile>
+        <LabelFile modified="5250316232781496207">/Data/capsense-20240927_160503-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="94" length="13.3089956">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_160312-29252" sessionId="07cca10a-7c1a-4015-9ab9-55ae7d1d10c8" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="108" modified="5250316232780704643" start="0" length="46.271">/Data/capsense-20240927_160312-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_160312-29252/capsense-20240927_160312-29252.imsession</SessionFile>
+        <LabelFile modified="5250316232780723979">/Data/capsense-20240927_160312-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="96" length="15.7979957">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_154046-29252" sessionId="66a51658-dbeb-4e49-9f44-acecdd232981" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="90" modified="5250316220072463038" start="0" length="3.822">/Data/capsense-20240927_154046-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_154046-29252/capsense-20240927_154046-29252.imsession</SessionFile>
+        <LabelFile modified="5250316220072483475">/Data/capsense-20240927_154046-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="5" length="1.7419997">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20241009_130224-31628" sessionId="bca63e6f-ef61-4e3e-97cc-7344dd035f8a" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="67" modified="5250326502387104613" start="0" length="49.341">/Data/capsense-20241009_130224-31628/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20241009_130224-31628/capsense-20241009_130224-31628.imsession</SessionFile>
+        <LabelFile modified="5250326502387124484">/Data/capsense-20241009_130224-31628/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="2" length="38.287">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20241009_130102-31628" sessionId="0fe11c5c-0fcb-45f9-b9c2-4000d310e98b" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="70" modified="5250326502386813169" start="0" length="39.084">/Data/capsense-20241009_130102-31628/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20241009_130102-31628/capsense-20241009_130102-31628.imsession</SessionFile>
+        <LabelFile modified="5250326502386823216">/Data/capsense-20241009_130102-31628/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="5" length="18.5859998">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20241009_131310-31628" sessionId="dc730254-52eb-47fe-9d57-1dc602b7d8e4" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="74" modified="5250326502390339001" start="0" length="67.807">/Data/capsense-20241009_131310-31628/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20241009_131310-31628/capsense-20241009_131310-31628.imsession</SessionFile>
+        <LabelFile modified="5250326502390369024">/Data/capsense-20241009_131310-31628/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="2" length="63.452">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_150011-29252" sessionId="7d8ce274-391b-41bb-8e9b-188fb6c10070" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="103" modified="5250316198330316240" start="0" length="9.728">/Data/capsense-20240927_150011-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_150011-29252/capsense-20240927_150011-29252.imsession</SessionFile>
+        <LabelFile modified="5250316198330325312">/Data/capsense-20240927_150011-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="8" length="1.1899998">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_171051-29252" sessionId="0f48ced6-fa66-4b92-81ab-e42a31c5d8c6" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="104" modified="5250316277460770526" start="0" length="47.973">/Data/capsense-20240927_171051-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_171051-29252/capsense-20240927_171051-29252.imsession</SessionFile>
+        <LabelFile modified="5250316277460789534">/Data/capsense-20240927_171051-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="114" length="22.411995">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_154604-29252" sessionId="de95287c-a1ac-4534-a4a0-b9280601eaa7" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="101" modified="5250316220075896553" start="0" length="9.912">/Data/capsense-20240927_154604-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_154604-29252/capsense-20240927_154604-29252.imsession</SessionFile>
+        <LabelFile modified="5250316220075909358">/Data/capsense-20240927_154604-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="9" length="1.8959996">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_160611-29252" sessionId="786a00f9-42e7-49d4-93d0-bf3deaa90104" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="96" modified="5250316232781877622" start="0" length="51.861">/Data/capsense-20240927_160611-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_160611-29252/capsense-20240927_160611-29252.imsession</SessionFile>
+        <LabelFile modified="5250316232781907613">/Data/capsense-20240927_160611-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="94" length="16.1909951">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_150748-29252" sessionId="38fec137-267e-4fd1-965f-34cf47336ed6" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="100" modified="5250316198334633257" start="0" length="9.959">/Data/capsense-20240927_150748-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_150748-29252/capsense-20240927_150748-29252.imsession</SessionFile>
+        <LabelFile modified="5250316198334652194">/Data/capsense-20240927_150748-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="8" length="1.4439996">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_150255-29252" sessionId="fba15ced-f865-400f-bd93-1dd111552de1" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="100" modified="5250316198331997369" start="0" length="10.032">/Data/capsense-20240927_150255-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_150255-29252/capsense-20240927_150255-29252.imsession</SessionFile>
+        <LabelFile modified="5250316198332006866">/Data/capsense-20240927_150255-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="8" length="2.3789996">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_150223-29252" sessionId="68034a0c-8399-4065-9cdc-e569b2898f28" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="90" modified="5250316198331689892" start="0" length="11.041">/Data/capsense-20240927_150223-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_150223-29252/capsense-20240927_150223-29252.imsession</SessionFile>
+        <LabelFile modified="5250316198331698996">/Data/capsense-20240927_150223-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="8" length="3.2349997">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_160915-29252" sessionId="8aeea417-5f91-4dbc-acf9-aeae8e23e18f" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="103" modified="5250316232783037506" start="0" length="48.431">/Data/capsense-20240927_160915-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_160915-29252/capsense-20240927_160915-29252.imsession</SessionFile>
+        <LabelFile modified="5250316232783067498">/Data/capsense-20240927_160915-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="76" length="12.8139954">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_171144-29252" sessionId="2310837c-9168-455d-89f4-780b46ce9b67" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="102" modified="5250316277461184359" start="0" length="48.776">/Data/capsense-20240927_171144-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_171144-29252/capsense-20240927_171144-29252.imsession</SessionFile>
+        <LabelFile modified="5250316277461204500">/Data/capsense-20240927_171144-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="80" length="24.8499953">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_153824-29252" sessionId="9764aa58-d377-4a3f-9707-cab058729b16" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="87" modified="5250316220070991780" start="0" length="11.519">/Data/capsense-20240927_153824-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_153824-29252/capsense-20240927_153824-29252.imsession</SessionFile>
+        <LabelFile modified="5250316220071010620">/Data/capsense-20240927_153824-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="12" length="1.5539993">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_154721-29252" sessionId="438bf17f-5eb5-45e2-9d07-7384c5a902a5" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="106" modified="5250316220076738333" start="0" length="9.382">/Data/capsense-20240927_154721-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_154721-29252/capsense-20240927_154721-29252.imsession</SessionFile>
+        <LabelFile modified="5250316220076747666">/Data/capsense-20240927_154721-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="8" length="1.6539994">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_154652-29252" sessionId="dfb74ec6-ba42-42b4-9af1-5e2ab08bed33" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="102" modified="5250316220076403697" start="0" length="9.803">/Data/capsense-20240927_154652-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_154652-29252/capsense-20240927_154652-29252.imsession</SessionFile>
+        <LabelFile modified="5250316220076416527">/Data/capsense-20240927_154652-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="10" length="1.4739996">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_150534-29252" sessionId="4202d1d7-5917-4881-b44a-3c7770a1fbfa" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="100" modified="5250316198333557695" start="0" length="9.996">/Data/capsense-20240927_150534-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_150534-29252/capsense-20240927_150534-29252.imsession</SessionFile>
+        <LabelFile modified="5250316198333577669">/Data/capsense-20240927_150534-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="8" length="1.6379994">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_154124-29252" sessionId="a9353a2a-d598-4a8d-bc3a-022594e3711e" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="103" modified="5250316220072795287" start="0" length="9.66">/Data/capsense-20240927_154124-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_154124-29252/capsense-20240927_154124-29252.imsession</SessionFile>
+        <LabelFile modified="5250316220072805277">/Data/capsense-20240927_154124-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="11" length="2.3929995">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_171340-29252" sessionId="abcb3e6f-5d58-483e-87a8-bce80d0771e8" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="99" modified="5250316277461955378" start="0" length="50.487">/Data/capsense-20240927_171340-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_171340-29252/capsense-20240927_171340-29252.imsession</SessionFile>
+        <LabelFile modified="5250316277461975357">/Data/capsense-20240927_171340-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="107" length="24.9099952">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_150454-29252" sessionId="0e71ecff-8dce-4668-a62d-92b34d682c87" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="103" modified="5250316198333235091" start="0" length="9.656">/Data/capsense-20240927_150454-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_150454-29252/capsense-20240927_150454-29252.imsession</SessionFile>
+        <LabelFile modified="5250316198333245082">/Data/capsense-20240927_150454-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="10" length="3.2999995">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_150647-29252" sessionId="8a2bf1d0-beca-4e9e-bca8-0a6df5564c3c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="95" modified="5250316198334189792" start="0" length="10.504">/Data/capsense-20240927_150647-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_150647-29252/capsense-20240927_150647-29252.imsession</SessionFile>
+        <LabelFile modified="5250316198334199761">/Data/capsense-20240927_150647-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="6" length="1.0729998">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_154526-29252" sessionId="d2690258-8ab1-4ad5-a92b-e089b3e1d3a9" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="103" modified="5250316220075581351" start="0" length="9.708">/Data/capsense-20240927_154526-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_154526-29252/capsense-20240927_154526-29252.imsession</SessionFile>
+        <LabelFile modified="5250316220075591417">/Data/capsense-20240927_154526-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="15" length="2.6379991">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20241009_131610-31628" sessionId="1a2541e7-5cd8-4762-9194-687c8ba704e0" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="68" modified="5250326502391117435" start="0" length="73.204">/Data/capsense-20241009_131610-31628/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20241009_131610-31628/capsense-20241009_131610-31628.imsession</SessionFile>
+        <LabelFile modified="5250326502391136323">/Data/capsense-20241009_131610-31628/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="2" length="71.777">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_150326-29252" sessionId="f78fa8c3-96d5-481e-b022-9797e4515591" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="105" modified="5250316198332313231" start="0" length="9.549">/Data/capsense-20240927_150326-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_150326-29252/capsense-20240927_150326-29252.imsession</SessionFile>
+        <LabelFile modified="5250316198332322396">/Data/capsense-20240927_150326-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="11" length="2.1079996">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_150410-29252" sessionId="b80adf06-25b1-4778-879b-0815430d51f6" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="103" modified="5250316198332774534" start="0" length="9.659">/Data/capsense-20240927_150410-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_150410-29252/capsense-20240927_150410-29252.imsession</SessionFile>
+        <LabelFile modified="5250316198332783616">/Data/capsense-20240927_150410-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="9" length="1.9599994">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="capsense-20240927_150134-29252" sessionId="bae370fe-83cb-44bf-9cd7-33f3d18964ff" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="lcapsense" dataTrack="capsense" tags="None">
+        <DataFile shape="[6]" samplerate="101" modified="5250316198331223358" start="0" length="9.888">/Data/capsense-20240927_150134-29252/capsense.data</DataFile>
+        <SessionFile>/Data/capsense-20240927_150134-29252/capsense-20240927_150134-29252.imsession</SessionFile>
+        <LabelFile modified="5250316198331232261">/Data/capsense-20240927_150134-29252/lcapsense.label</LabelFile>
+        <Labels>
+          <Label count="9" length="1.4529994">touch</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+    </DataSet>
+  </Database>
+</ImagimobStudio>

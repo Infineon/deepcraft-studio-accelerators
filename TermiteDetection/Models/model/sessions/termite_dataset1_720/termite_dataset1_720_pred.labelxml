@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Annotations>
+	<Annotation>
+		<Path>termite_dataset1_720.jpg</Path>
+		<Object>
+			<Name>termite</Name>
+			<Confidence>0.7264</Confidence>
+			<Bndbox>
+				<X>0.4640625</X>
+				<Y>0.18359375</Y>
+				<Width>0.35</Width>
+				<Height>0.3453125</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>termite</Name>
+			<Confidence>0.4731</Confidence>
+			<Bndbox>
+				<X>0.303125</X>
+				<Y>0.33359375</Y>
+				<Width>0.225</Width>
+				<Height>0.2171875</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>termite</Name>
+			<Confidence>0.411</Confidence>
+			<Bndbox>
+				<X>0.09375</X>
+				<Y>0.3234375</Y>
+				<Width>0.1875</Width>
+				<Height>0.246875</Height>
+			</Bndbox>
+		</Object>
+	</Annotation>
+</Annotations>

@@ -1,0 +1,12 @@
+{
+  "title": "Movement Type Detection",
+  "description": "Project to build a model that classifies the movement pattern of an IMU Sensor: Stationary, Shaking or Circle.",
+  "algorithm": "Classification",
+  "sensors": ["IMU"],
+  "domain": ["Vibration", "Sensing"],
+  "application": ["Wearables", "Safety Monitoring", "Healthcare", "Games"],
+  "use_case": ["Hand Movement Type Detection"],
+  "kit": ["PSoC-6 Pioneer Kit", "PSoC-6 AI Kit", "PSoC-Edge AI Kit"],
+  "device": ["PSoC-6", "PSoC-Edge"],
+  "workflow": ["ML Development"]
+}

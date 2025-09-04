@@ -1,0 +1,12 @@
+{
+  "title": "Human Activity Detection",
+  "description": "Project to build a model to detect whether a person is performing different activities e.g. walking.",
+  "algorithm": "Classification",
+  "sensors": ["IMU"],
+  "domain": ["Vibration", "Sensing"],
+  "application": ["Wearables", "Safety Monitoring", "Healthcare", "Games"],
+  "use_case": ["Human Activity Detection", "Walk Detecion", "Run Detection", "Standing Detection", "Sitting Detection", "Jump Detection"],
+  "kit": ["PSoC-6 Pioneer Kit", "PSoC-6 AI Kit", "PSoC-Edge AI Kit"],
+  "device": ["PSoC-6", "PSoC-Edge"],
+  "workflow": ["ML Development"]
+}

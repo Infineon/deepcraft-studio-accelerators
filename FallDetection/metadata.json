@@ -1,0 +1,12 @@
+{
+  "title": "Fall Detection (Belt-mounted)",
+  "description": "Project to build a model that detects if the user has fallen. It's intended to be placed on a belt or waist.",
+  "algorithm": "Classification",
+  "sensors": ["IMU"],
+  "domain": ["Vibration", "Sensing"],
+  "application": ["Wearables", "Smart Home", "Industrial IoT", "Safety Monitoring", "Healthcare"],
+  "use_case": ["Fall Detection"],
+  "kit": ["PSoC-6 Pioneer Kit", "PSoC-6 AI Kit", "PSoC-Edge AI Kit"],
+  "device": ["PSoC-6", "PSoC-Edge"],
+  "workflow": ["ML Development"]
+}

@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Annotations>
+	<Annotation>
+		<Path>train_5581.jpg</Path>
+		<Object>
+			<Name>Rock</Name>
+			<Confidence>0.9169</Confidence>
+			<Bndbox>
+				<X>0.24140625</X>
+				<Y>0.5078125</Y>
+				<Width>0.2078125</Width>
+				<Height>0.428125</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>Scissors</Name>
+			<Confidence>0.7224</Confidence>
+			<Bndbox>
+				<X>0.67421875</X>
+				<Y>0.60703125</Y>
+				<Width>0.3890625</Width>
+				<Height>0.3671875</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>Rock</Name>
+			<Confidence>0.4281</Confidence>
+			<Bndbox>
+				<X>0.675</X>
+				<Y>0.6046875</Y>
+				<Width>0.390625</Width>
+				<Height>0.365625</Height>
+			</Bndbox>
+		</Object>
+	</Annotation>
+</Annotations>
