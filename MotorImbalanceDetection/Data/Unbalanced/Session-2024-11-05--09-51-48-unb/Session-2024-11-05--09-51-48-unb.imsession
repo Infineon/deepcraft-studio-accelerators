@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ImagimobStudio version="0.9">
+  <Timeline id="f1c12bbe-b9f4-4435-98be-1a4344690e30">
+    <Tracks>
+      <Track name="Serial Capture Data" type="datacsv" isLabelTrack="False">
+        <PayloadFile>Serial-Capture-Data.data</PayloadFile>
+      </Track>
+      <Track name="label" type="labelcsv">
+        <PayloadFile>label.label</PayloadFile>
+      </Track>
+      <Track name="Preprocessor" type="datacsv" timecoded="TimestampBeginDuration" isLabelTrack="False">
+        <PayloadFile>..\..\BALANCE_DETECTION_PSOCC3_IQ\PreprocessorTrack\Session-2024-11-05--09-51-48-unb\Serial-Capture-Data_Preprocessor.data</PayloadFile>
+      </Track>
+    </Tracks>
+  </Timeline>
+</ImagimobStudio>

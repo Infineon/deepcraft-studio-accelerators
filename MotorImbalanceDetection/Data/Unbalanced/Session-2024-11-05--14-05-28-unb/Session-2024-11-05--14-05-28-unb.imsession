@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ImagimobStudio version="0.9">
+  <Timeline id="9e9786f5-3ae7-45c4-8827-39c7b9ea53e3">
+    <Tracks>
+      <Track name="Serial Capture Data" type="datacsv" isLabelTrack="False">
+        <PayloadFile>Serial-Capture-Data.data</PayloadFile>
+        <Shape>
+          <Axis name="" size="2">
+            <Label index="0">f0</Label>
+            <Label index="1">f1</Label>
+          </Axis>
+        </Shape>
+      </Track>
+      <Track name="label" type="labelcsv">
+        <PayloadFile>label.label</PayloadFile>
+        <Shape>
+          <Axis name="Labels" size="2">
+            <Label index="0">ol</Label>
+            <Label index="1">unb</Label>
+          </Axis>
+        </Shape>
+      </Track>
+    </Tracks>
+  </Timeline>
+</ImagimobStudio>
