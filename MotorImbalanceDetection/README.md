@@ -31,6 +31,8 @@ The model is suitable for real-time, low powered embedded applications such as:
 
 `Tools`	- Folder containing the GraphUX unit to collect data and evaluate the model in Studio, along with the corresponding .hex file.
 
+`PreprocessorTrack` - Folder containing preprocessed data tracks (i.e. the output of the preprocessor).
+
 ## Sensors and Data
 
 This project utilizes the PSOC C3 Motor Control Kit (KIT_PSC3M5_MC1) for data collection. The kit includes the following components: 
@@ -46,9 +48,13 @@ To complete the setup, the following additional hardware is required (not includ
 
 An Analog-to-digital converter (ADC) is used for data acquisition, with a sampling frequency set to 15kHz. The sampled data consist of 3 x 12-bit
 raw integer values which represent the quantized phase currents of motor. The motor control algorithm calculates Iq (quadrature-axis current) and 
-speed (RPM).FFT is applied directly to Iq and speed to extract frequency-domain features. The frequency-domain data is used as the input for the 
-ML model.
+speed (RPM). Frequency-domain features are extracted by applying FFT to Iq and speed, which are then used as input to the ML model for imbalance
+classification.
 
+The data provided in the project consists of 25 sessions and the data is labelled as Balanced, Unbalanced and Open loop.
+Motor balance is achieved by mounting screws symmetrically around the wheel, ensuring even weight distribution. In contrast, 
+imbalance occurs when screws are clustered on one side, leading to uneven mass, which introduces disturbances and causes unstable 
+oscillations in motor speed.
 
 ## Adding More Data
 
@@ -58,8 +64,6 @@ To prepare the PSOC C3 Motor Control Kit (KIT_PSC3M5_MC1) for data collection:
 
 
 ![Connection Diagram 1](./Resources/image1.png)
-
-The data provided in the project consists of 25 sessions and the data is labelled as Balanced, Unbalanced and Open loop.
 
 To start streaming data to Deepcraft studio first, ensure that the driver for the USB to UART converter (CP210x) device is installed on the 
 computer which will be used for data collection in Studio. Next connect the CP210x device to the adapter board. RXD of the converter must be 
@@ -74,13 +78,12 @@ Flash the code using the Modus Toolbox workspace within Eclipse IDE on to the PS
 Tools > Data Collection. The main steps for flashing the .hex file using ModusToolbox are similar to those described at this link
 https://developer.imagimob.com/getting-started/infineon-ai-evaluation-kit#streaming-firmware-for-psoc-6-ai-evaluation-kit
 
-### There are 2 different ways to capture data 
+### Methods to capture data 
 
-#### Option 1: Using the Predefined Project
+#### Option 1: Predefined GraphUX Project
 
-Launch Deepcraft Studio. Copy and unzip the folder Deepcraft_DATA_COLLECTION_PSOCC3 into the working directory. Open the Main.imunit file by 
-double-clicking it. Click on the Serial Capture block and adjust the COM port settings. Select the correct COM port using the configuration shown 
-in the figure below.
+Launch Deepcraft Studio. Open the Main.imunit file by double-clicking it. Click on the Serial Capture block and adjust the COM port 
+settings. Select the correct COM port using the configuration shown in the figure below.
 
 ![Connection Diagram 4](./Resources/image4.png)
 

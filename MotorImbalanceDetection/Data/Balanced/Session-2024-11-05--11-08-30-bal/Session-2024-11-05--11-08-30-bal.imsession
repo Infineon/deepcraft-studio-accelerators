@@ -4,12 +4,21 @@
     <Tracks>
       <Track name="Serial Capture Data" type="datacsv" isLabelTrack="False">
         <PayloadFile>Serial-Capture-Data.data</PayloadFile>
+        <Shape>
+          <Axis name="" size="2">
+            <Label index="0">Current</Label>
+            <Label index="1">Speed</Label>
+          </Axis>
+        </Shape>
       </Track>
       <Track name="label" type="labelcsv">
         <PayloadFile>label.label</PayloadFile>
-      </Track>
-      <Track name="Preprocessor" type="datacsv" timecoded="TimestampBeginDuration" isLabelTrack="False">
-        <PayloadFile>..\..\BALANCE_DETECTION_PSOCC3_IQ\PreprocessorTrack\Session-2024-11-05--11-08-30-bal\Serial-Capture-Data_Preprocessor.data</PayloadFile>
+        <Shape>
+          <Axis name="Labels" size="2">
+            <Label index="0">open loop</Label>
+            <Label index="1">balanced</Label>
+          </Axis>
+        </Shape>
       </Track>
     </Tracks>
   </Timeline>
