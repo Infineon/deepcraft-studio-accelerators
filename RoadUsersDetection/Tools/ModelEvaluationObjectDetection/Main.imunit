@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Imaginet version="2.0.0.0">
+  <Compound unit="d419d86b-7b57-41d3-9a74-ab428f13a213">
+    <Nodes>
+      <UnitNode id="node_1" x="479.0516666666665" y="678.0600000000001" enabled="true" profiling="false" unit="Imaginet.Units.Math.Resizing">
+        <Int32Argument param="target_height">320</Int32Argument>
+        <Int32Argument param="target_width">320</Int32Argument>
+      </UnitNode>
+      <UnitNode id="node_4" x="1164.5783333333331" y="667.5799999999999" enabled="true" profiling="false" unit="Imaginet.Units.Signal.DetectionFilter" />
+      <UnitNode id="node_3" x="497.60333333333324" y="461.77000000000004" enabled="true" profiling="false" name="Local Camera Video" unit="ImagimobStudio.Modules.LiveVideoTrack" />
+      <UnitNode id="node_5" x="943.2317883740054" y="811.5184677330508" enabled="true" profiling="false" name="Model" unit="Imaginet.Units.TensorFlowLite.TfLiteModel">
+        <Int32Argument param="model_arena_size">1</Int32Argument>
+      </UnitNode>
+      <UnitNode id="node_2" x="1487.4149999999997" y="685.54" enabled="true" profiling="false" unit="ImagimobStudio.Modules.BoundingBoxTrack" />
+      <UnitNode id="node_0" x="19.911666666666406" y="457.5799999999999" enabled="true" profiling="false" unit="Imaginet.Units.Io.Camera">
+        <StringArgument param="source_id">Source#0@\\?\USB#VID_0408&amp;PID_5443&amp;MI_00#6&amp;a44bd0d&amp;0&amp;0000#{e5323777-f976-4f5b-9b55-b94699c46e44}\GLOBAL</StringArgument>
+        <StringArgument param="resolution">1280 720 30</StringArgument>
+        <StringArgument param="output_type">float32</StringArgument>
+      </UnitNode>
+    </Nodes>
+    <Connections>
+      <Connection>
+        <Source node="node_0" param="data" />
+        <Target node="node_1" param="input" />
+      </Connection>
+      <Connection>
+        <Source node="node_0" param="data" />
+        <Target node="node_3" param="data" />
+      </Connection>
+      <Connection>
+        <Source node="node_4" param="output" />
+        <Target node="node_2" param="data" />
+      </Connection>
+      <Connection>
+        <Source node="node_1" param="output" />
+        <Target node="node_5" param="input" />
+      </Connection>
+      <Connection>
+        <Source node="node_5" param="output" />
+        <Target node="node_4" param="input" />
+      </Connection>
+    </Connections>
+  </Compound>
+</Imaginet>

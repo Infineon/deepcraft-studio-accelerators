@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Annotations>
+	<Annotation>
+		<Path>2011_002738.jpg</Path>
+		<Object>
+			<Name>train</Name>
+			<Confidence>0.9099</Confidence>
+			<Bndbox>
+				<X>0.4375</X>
+				<Y>0.27578125</Y>
+				<Width>0.41875</Width>
+				<Height>0.2328125</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>train</Name>
+			<Confidence>0.5134</Confidence>
+			<Bndbox>
+				<X>0.0796875</X>
+				<Y>0.3984375</Y>
+				<Width>0.159375</Width>
+				<Height>0.375</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>car</Name>
+			<Confidence>0.337</Confidence>
+			<Bndbox>
+				<X>0.24375</X>
+				<Y>0.37421875</Y>
+				<Width>0.04375</Width>
+				<Height>0.0390625</Height>
+			</Bndbox>
+		</Object>
+	</Annotation>
+</Annotations>

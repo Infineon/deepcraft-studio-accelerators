@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Annotations>
+	<Annotation>
+		<Path>2010_005810.jpg</Path>
+		<Object>
+			<Name>train</Name>
+			<Confidence>0.8511</Confidence>
+			<Bndbox>
+				<X>0.3359375</X>
+				<Y>0.20234375</Y>
+				<Width>0.671875</Width>
+				<Height>0.4015625</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>bicycle</Name>
+			<Confidence>0.8169</Confidence>
+			<Bndbox>
+				<X>0.6234375</X>
+				<Y>0.25703125</Y>
+				<Width>0.25625</Width>
+				<Height>0.1765625</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>person</Name>
+			<Confidence>0.7798</Confidence>
+			<Bndbox>
+				<X>0.57421875</X>
+				<Y>0.21796875</Y>
+				<Width>0.1515625</Width>
+				<Height>0.2609375</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>person</Name>
+			<Confidence>0.3816</Confidence>
+			<Bndbox>
+				<X>0.70546875</X>
+				<Y>0.1546875</Y>
+				<Width>0.0515625</Width>
+				<Height>0.1625</Height>
+			</Bndbox>
+		</Object>
+	</Annotation>
+</Annotations>

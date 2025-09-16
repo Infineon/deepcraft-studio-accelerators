@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Annotations>
+	<Annotation>
+		<Path>2008_004549.jpg</Path>
+		<Object>
+			<Name>motorbike</Name>
+			<Confidence>0.9268</Confidence>
+			<Bndbox>
+				<X>0.36015625</X>
+				<Y>0.36015625</Y>
+				<Width>0.6359375</Width>
+				<Height>0.4015625</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>person</Name>
+			<Confidence>0.8657</Confidence>
+			<Bndbox>
+				<X>0.2171875</X>
+				<Y>0.18203125</Y>
+				<Width>0.175</Width>
+				<Height>0.2984375</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>car</Name>
+			<Confidence>0.5362</Confidence>
+			<Bndbox>
+				<X>0.0453125</X>
+				<Y>0.29375</Y>
+				<Width>0.090625</Width>
+				<Height>0.303125</Height>
+			</Bndbox>
+		</Object>
+	</Annotation>
+</Annotations>

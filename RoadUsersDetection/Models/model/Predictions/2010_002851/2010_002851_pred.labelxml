@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Annotations>
+	<Annotation>
+		<Path>2010_002851.jpg</Path>
+		<Object>
+			<Name>train</Name>
+			<Confidence>0.8637</Confidence>
+			<Bndbox>
+				<X>0.415625</X>
+				<Y>0.3703125</Y>
+				<Width>0.73125</Width>
+				<Height>0.33125</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>person</Name>
+			<Confidence>0.4513</Confidence>
+			<Bndbox>
+				<X>0.025</X>
+				<Y>0.42109375</Y>
+				<Width>0.025</Width>
+				<Height>0.0640625</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>person</Name>
+			<Confidence>0.315</Confidence>
+			<Bndbox>
+				<X>0.009375</X>
+				<Y>0.4234375</Y>
+				<Width>0.01875</Width>
+				<Height>0.059375</Height>
+			</Bndbox>
+		</Object>
+	</Annotation>
+</Annotations>

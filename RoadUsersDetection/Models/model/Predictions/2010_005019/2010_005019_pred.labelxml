@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Annotations>
+	<Annotation>
+		<Path>2010_005019.jpg</Path>
+		<Object>
+			<Name>person</Name>
+			<Confidence>0.9012</Confidence>
+			<Bndbox>
+				<X>0.3859375</X>
+				<Y>0.2171875</Y>
+				<Width>0.125</Width>
+				<Height>0.31875</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>car</Name>
+			<Confidence>0.5445</Confidence>
+			<Bndbox>
+				<X>0.72421875</X>
+				<Y>0.2640625</Y>
+				<Width>0.1140625</Width>
+				<Height>0.059375</Height>
+			</Bndbox>
+		</Object>
+	</Annotation>
+</Annotations>

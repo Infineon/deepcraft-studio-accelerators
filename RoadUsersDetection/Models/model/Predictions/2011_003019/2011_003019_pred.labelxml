@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Annotations>
+	<Annotation>
+		<Path>2011_003019.jpg</Path>
+		<Object>
+			<Name>motorbike</Name>
+			<Confidence>0.8885</Confidence>
+			<Bndbox>
+				<X>0.4484375</X>
+				<Y>0.46953125</Y>
+				<Width>0.3</Width>
+				<Height>0.2296875</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>car</Name>
+			<Confidence>0.8799</Confidence>
+			<Bndbox>
+				<X>0.3484375</X>
+				<Y>0.046875</Y>
+				<Width>0.346875</Width>
+				<Height>0.09375</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>person</Name>
+			<Confidence>0.8081</Confidence>
+			<Bndbox>
+				<X>0.66015625</X>
+				<Y>0.303125</Y>
+				<Width>0.1171875</Width>
+				<Height>0.259375</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>motorbike</Name>
+			<Confidence>0.3388</Confidence>
+			<Bndbox>
+				<X>0.21328125</X>
+				<Y>0.56015625</Y>
+				<Width>0.1828125</Width>
+				<Height>0.0515625</Height>
+			</Bndbox>
+		</Object>
+	</Annotation>
+</Annotations>

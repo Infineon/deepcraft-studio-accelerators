@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Annotations>
+	<Annotation>
+		<Path>2007_007414.jpg</Path>
+		<Object>
+			<Name>car</Name>
+			<Confidence>0.8911</Confidence>
+			<Bndbox>
+				<X>0.44765625</X>
+				<Y>0.23828125</Y>
+				<Width>0.3078125</Width>
+				<Height>0.1421875</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>person</Name>
+			<Confidence>0.4747</Confidence>
+			<Bndbox>
+				<X>0.73125</X>
+				<Y>0.1171875</Y>
+				<Width>0.046875</Width>
+				<Height>0.103125</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>person</Name>
+			<Confidence>0.3721</Confidence>
+			<Bndbox>
+				<X>0.2109375</X>
+				<Y>0.26328125</Y>
+				<Width>0.0375</Width>
+				<Height>0.0953125</Height>
+			</Bndbox>
+		</Object>
+	</Annotation>
+</Annotations>
