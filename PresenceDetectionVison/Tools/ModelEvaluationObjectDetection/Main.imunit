@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Imaginet version="2.0.0.0">
+  <Compound unit="d419d86b-7b57-41d3-9a74-ab428f13a213">
+    <Nodes>
+      <UnitNode id="node_1" x="-229.8783333333331" y="418.06000000000006" enabled="true" profiling="false" unit="Imaginet.Units.Math.Resizing">
+        <Int32Argument param="target_height">320</Int32Argument>
+        <Int32Argument param="target_width">320</Int32Argument>
+      </UnitNode>
+      <UnitNode id="node_3" x="1332.0683333333334" y="259.24999999999994" enabled="true" profiling="false" name="Local Camera Video" unit="ImagimobStudio.Modules.LiveVideoTrack" />
+      <UnitNode id="node_0" x="-689.0183333333334" y="239.28248759384556" enabled="true" profiling="false" unit="Imaginet.Units.Io.Camera">
+        <StringArgument param="resolution">640 360 15</StringArgument>
+        <StringArgument param="output_type">float32</StringArgument>
+        <StringArgument param="source_id">Source#0@\\?\USB#VID_0408&amp;PID_545A&amp;MI_00#6&amp;2703a037&amp;0&amp;0000#{e5323777-f976-4f5b-9b55-b94699c46e44}\GLOBAL</StringArgument>
+      </UnitNode>
+      <UnitNode id="node_8" x="984.0916666666667" y="240.6993376484137" enabled="true" profiling="false" unit="Imaginet.Units.Signal.DisplayBoundingBox">
+        <StringArgument param="class_names">person</StringArgument>
+      </UnitNode>
+      <UnitNode id="node_6" x="195.77166666666653" y="425.25" enabled="true" profiling="false" name="model_int8" unit="Imaginet.Units.TensorFlowLite.TfLiteModel">
+        <StringArgument param="file_path">C:/Users/masongyi/Documents/Development/Starter Project/PresenceDetectionVison/Models/model/model/model_int8.tflite</StringArgument>
+        <Int32Argument param="model_arena_size">500000</Int32Argument>
+      </UnitNode>
+      <UnitNode id="node_4" x="661.2550000000001" y="418.05999999999995" enabled="true" profiling="false" unit="Imaginet.Units.Signal.DetectionFilter" />
+    </Nodes>
+    <Connections>
+      <Connection>
+        <Source node="node_0" param="data" />
+        <Target node="node_1" param="input" />
+      </Connection>
+      <Connection>
+        <Source node="node_1" param="output" />
+        <Target node="node_6" param="input" />
+      </Connection>
+      <Connection>
+        <Source node="node_6" param="output" />
+        <Target node="node_4" param="input" />
+      </Connection>
+      <Connection>
+        <Source node="node_8" param="output" />
+        <Target node="node_3" param="data" />
+      </Connection>
+      <Connection>
+        <Source node="node_0" param="data" />
+        <Target node="node_8" param="image" />
+      </Connection>
+      <Connection>
+        <Source node="node_4" param="output" />
+        <Target node="node_8" param="detections" />
+      </Connection>
+    </Connections>
+  </Compound>
+</Imaginet>
