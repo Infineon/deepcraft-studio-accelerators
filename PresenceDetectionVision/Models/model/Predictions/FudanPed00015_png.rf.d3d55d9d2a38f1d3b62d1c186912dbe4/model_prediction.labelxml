@@ -4,72 +4,52 @@
 		<Path>FudanPed00015_png.rf.d3d55d9d2a38f1d3b62d1c186912dbe4.jpg</Path>
 		<Object>
 			<Name>person</Name>
-			<Confidence>0.8997</Confidence>
+			<Confidence>0.8815</Confidence>
+			<Bndbox>
+				<X>0.0953125</X>
+				<Y>0.06875</Y>
+				<Width>0.2640625</Width>
+				<Height>0.509375</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>person</Name>
+			<Confidence>0.4309</Confidence>
+			<Bndbox>
+				<X>0.034375</X>
+				<Y>0.0890625</Y>
+				<Width>0.0953125</Width>
+				<Height>0.259375</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>person</Name>
+			<Confidence>0.2459</Confidence>
 			<Bndbox>
 				<X>0.103125</X>
 				<Y>0.084375</Y>
-				<Width>0.25</Width>
-				<Height>0.5078125</Height>
+				<Width>0.2109375</Width>
+				<Height>0.4921875</Height>
 			</Bndbox>
 		</Object>
 		<Object>
 			<Name>person</Name>
-			<Confidence>0.0823</Confidence>
+			<Confidence>0.068</Confidence>
 			<Bndbox>
-				<X>0.028125</X>
-				<Y>0.0921875</Y>
-				<Width>0.078125</Width>
-				<Height>0.1921875</Height>
+				<X>0.0125</X>
+				<Y>0.0953125</Y>
+				<Width>0.1140625</Width>
+				<Height>0.2546875</Height>
 			</Bndbox>
 		</Object>
 		<Object>
 			<Name>person</Name>
-			<Confidence>0.0508</Confidence>
+			<Confidence>0.0588</Confidence>
 			<Bndbox>
-				<X>0.034375</X>
-				<Y>0.1046875</Y>
-				<Width>0.084375</Width>
-				<Height>0.2171875</Height>
-			</Bndbox>
-		</Object>
-		<Object>
-			<Name>person</Name>
-			<Confidence>0.0363</Confidence>
-			<Bndbox>
-				<X>0.36875</X>
-				<Y>0.1</Y>
-				<Width>0.3875</Width>
-				<Height>0.140625</Height>
-			</Bndbox>
-		</Object>
-		<Object>
-			<Name>person</Name>
-			<Confidence>0.0333</Confidence>
-			<Bndbox>
-				<X>0.2296875</X>
-				<Y>0.08125</Y>
-				<Width>0.2546875</Width>
-				<Height>0.1953125</Height>
-			</Bndbox>
-		</Object>
-		<Object>
-			<Name>person</Name>
-			<Confidence>0.0285</Confidence>
-			<Bndbox>
-				<X>0.028125</X>
-				<Y>0.0984375</Y>
-				<Width>0.0921875</Width>
-				<Height>0.2515625</Height>
-			</Bndbox>
-		</Object>
-		<Object>
-			<Name>person</Name>
-			<Confidence>0.0267</Confidence>
-			<Bndbox>
-				<X>0.0578125</X>
-				<Y>0.0578125</Y>
-				<Width>0.196875</Width>
-				<Height>0.515625</Height>
+				<X>0.0234375</X>
+				<Y>0.0703125</Y>
+				<Width>0.0859375</Width>
+				<Height>0.2390625</Height>
 			</Bndbox>
 		</Object>
 	</Annotation>

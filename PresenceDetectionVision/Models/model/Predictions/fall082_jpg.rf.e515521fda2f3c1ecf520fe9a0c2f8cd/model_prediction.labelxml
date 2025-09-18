@@ -4,12 +4,32 @@
 		<Path>fall082_jpg.rf.e515521fda2f3c1ecf520fe9a0c2f8cd.jpg</Path>
 		<Object>
 			<Name>person</Name>
-			<Confidence>0.7695</Confidence>
+			<Confidence>0.763</Confidence>
 			<Bndbox>
-				<X>0.078125</X>
-				<Y>0.040625</Y>
-				<Width>0.3765625</Width>
-				<Height>0.4609375</Height>
+				<X>0.0921875</X>
+				<Y>0.0</Y>
+				<Width>0.36875</Width>
+				<Height>0.4921875</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>person</Name>
+			<Confidence>0.1708</Confidence>
+			<Bndbox>
+				<X>0.1078125</X>
+				<Y>0.0203125</Y>
+				<Width>0.2875</Width>
+				<Height>0.4640625</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>person</Name>
+			<Confidence>0.0805</Confidence>
+			<Bndbox>
+				<X>0.10625</X>
+				<Y>0.0484375</Y>
+				<Width>0.415625</Width>
+				<Height>0.378125</Height>
 			</Bndbox>
 		</Object>
 	</Annotation>

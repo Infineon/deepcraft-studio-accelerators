@@ -4,22 +4,42 @@
 		<Path>PennPed00037_png.rf.94b21bdff83fde196f5855a78d4e2a31.jpg</Path>
 		<Object>
 			<Name>person</Name>
-			<Confidence>0.8077</Confidence>
+			<Confidence>0.7107</Confidence>
 			<Bndbox>
-				<X>0.1171875</X>
-				<Y>0.06875</Y>
-				<Width>0.2</Width>
+				<X>0.1125</X>
+				<Y>0.0421875</Y>
+				<Width>0.2046875</Width>
+				<Height>0.5453125</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>person</Name>
+			<Confidence>0.6269</Confidence>
+			<Bndbox>
+				<X>0.1203125</X>
+				<Y>0.103125</Y>
+				<Width>0.1859375</Width>
+				<Height>0.509375</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>person</Name>
+			<Confidence>0.2938</Confidence>
+			<Bndbox>
+				<X>0.2453125</X>
+				<Y>0.1875</Y>
+				<Width>0.33125</Width>
 				<Height>0.5296875</Height>
 			</Bndbox>
 		</Object>
 		<Object>
 			<Name>person</Name>
-			<Confidence>0.0267</Confidence>
+			<Confidence>0.0329</Confidence>
 			<Bndbox>
-				<X>0.4515625</X>
-				<Y>0.0265625</Y>
-				<Width>0.4875</Width>
-				<Height>0.14375</Height>
+				<X>0.4578125</X>
+				<Y>0.26875</Y>
+				<Width>0.5125</Width>
+				<Height>0.4375</Height>
 			</Bndbox>
 		</Object>
 	</Annotation>
