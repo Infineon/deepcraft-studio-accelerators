@@ -1,0 +1,703 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ImagimobStudio version="1.1.0">
+  <Job id="aea79ba0-94a4-11f0-b89b-c7bc49ac877f" />
+  <ProjectType>Classification</ProjectType>
+  <Preprocessor inshape="[5]" intype="Float32" infreq="20" outshape="[7,5]" outtype="Float32">
+    <Unit id="Core.Queues.SlidingWindow">
+      <Argument param="input" type="String">data</Argument>
+      <Argument param="time_input" type="String">time</Argument>
+      <Argument param="window_shape" type="Shape">[7,5]</Argument>
+      <Argument param="stride" type="Int32">20</Argument>
+      <Argument param="buffer_multiplier" type="Double">1</Argument>
+      <Argument param="output" type="String">data</Argument>
+      <Argument param="time_output" type="String">time</Argument>
+    </Unit>
+  </Preprocessor>
+  <ModelFactory>
+    <Epochs>100</Epochs>
+    <BatchSize>128</BatchSize>
+    <SplitCount>16</SplitCount>
+    <Patience>20</Patience>
+    <AppendModels>False</AppendModels>
+    <LossFunction>CategoricalCrossentropy</LossFunction>
+    <HardwareType>Generic</HardwareType>
+    <TrainingEnvironment>
+    </TrainingEnvironment>
+    <ModelFamily>Conv1D</ModelFamily>
+    <ModelFlavor>SmallKern</ModelFlavor>
+    <ClassifierType>GlobalAveragePool</ClassifierType>
+    <Optimization>Speed</Optimization>
+    <Pooling>True</Pooling>
+    <Downscale>False</Downscale>
+    <LearnRate>Mid</LearnRate>
+    <RegularizationFactor>Mid</RegularizationFactor>
+    <LastNetworkInputShape>[7,5]</LastNetworkInputShape>
+    <Optimizer>
+      <LearningRate>0.001</LearningRate>
+      <WeightDecay>0.0001</WeightDecay>
+    </Optimizer>
+    <BuildSteps>
+      <Training />
+      <ConfusionMatrix />
+    </BuildSteps>
+  </ModelFactory>
+  <Models>
+    <Model name="conv1d-small-speed-0" id="d3741484-a6e5-4372-aab2-1220f746a21c">
+      <LossFunction>CategoricalCrossentropy</LossFunction>
+      <Epochs>100</Epochs>
+      <BatchSize>128</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.004</LearningRate>
+        <WeightDecay>0.001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[7,5]" intype="Float32" infreq="0" outshape="[5]" outtype="Float32">
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">12</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">24</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">24</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.GlobalAveragePool1D" />
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">5</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">softmax</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <Training />
+        <ConfusionMatrix />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="up" weight="4" />
+        <SymbolWeight symbol="down" weight="4" />
+        <SymbolWeight symbol="left" weight="4" />
+        <SymbolWeight symbol="right" weight="4" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[5]" intype="Float32" infreq="20" outshape="[7,5]" outtype="Float32">
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[7,5]</Argument>
+          <Argument param="stride" type="Int32">20</Argument>
+          <Argument param="buffer_multiplier" type="Double">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
+    </Model>
+    <Model name="conv1d-small-speed-1" id="a7f43453-f7fb-4c26-8ac9-7fd77bcb566f">
+      <LossFunction>CategoricalCrossentropy</LossFunction>
+      <Epochs>100</Epochs>
+      <BatchSize>128</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.004</LearningRate>
+        <WeightDecay>0.001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[7,5]" intype="Float32" infreq="0" outshape="[5]" outtype="Float32">
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.GlobalAveragePool1D" />
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">5</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">softmax</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <Training />
+        <ConfusionMatrix />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="up" weight="4" />
+        <SymbolWeight symbol="down" weight="4" />
+        <SymbolWeight symbol="left" weight="4" />
+        <SymbolWeight symbol="right" weight="4" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[5]" intype="Float32" infreq="20" outshape="[7,5]" outtype="Float32">
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[7,5]</Argument>
+          <Argument param="stride" type="Int32">20</Argument>
+          <Argument param="buffer_multiplier" type="Double">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
+    </Model>
+    <Model name="conv1d-small-speed-2" id="e071210c-7bd8-4b74-ba4a-81873bd12f80">
+      <LossFunction>CategoricalCrossentropy</LossFunction>
+      <Epochs>100</Epochs>
+      <BatchSize>128</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.004</LearningRate>
+        <WeightDecay>0.001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[7,5]" intype="Float32" infreq="0" outshape="[5]" outtype="Float32">
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.GlobalAveragePool1D" />
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">5</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">softmax</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <Training />
+        <ConfusionMatrix />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="up" weight="4" />
+        <SymbolWeight symbol="down" weight="4" />
+        <SymbolWeight symbol="left" weight="4" />
+        <SymbolWeight symbol="right" weight="4" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[5]" intype="Float32" infreq="20" outshape="[7,5]" outtype="Float32">
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[7,5]</Argument>
+          <Argument param="stride" type="Int32">20</Argument>
+          <Argument param="buffer_multiplier" type="Double">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
+    </Model>
+    <Model name="conv1d-small-speed-3" id="1c2a89d4-6569-4323-89a3-24afb6de157d">
+      <LossFunction>CategoricalCrossentropy</LossFunction>
+      <Epochs>100</Epochs>
+      <BatchSize>128</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.004</LearningRate>
+        <WeightDecay>0.001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[7,5]" intype="Float32" infreq="0" outshape="[5]" outtype="Float32">
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.GlobalAveragePool1D" />
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">5</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">softmax</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <Training />
+        <ConfusionMatrix />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="up" weight="4" />
+        <SymbolWeight symbol="down" weight="4" />
+        <SymbolWeight symbol="left" weight="4" />
+        <SymbolWeight symbol="right" weight="4" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[5]" intype="Float32" infreq="20" outshape="[7,5]" outtype="Float32">
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[7,5]</Argument>
+          <Argument param="stride" type="Int32">20</Argument>
+          <Argument param="buffer_multiplier" type="Double">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
+    </Model>
+  </Models>
+  <Database balance="LabelCount" redistributionScope="Everything">
+    <SymbolMap>
+      <Symbol name="up" id="1" weight="4" />
+      <Symbol name="down" id="2" weight="4" />
+      <Symbol name="left" id="3" weight="4" />
+      <Symbol name="right" id="4" weight="4" />
+    </SymbolMap>
+    <DataSet id="unassigned" targetSize="0" labels="Unassigned" />
+    <DataSet id="train" targetSize="0.6" labels="Complete">
+      <Session name="right7" sessionId="ead46acc-87ca-4f35-8e8b-cf4856451b6c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="capsense" tags="None">
+        <DataFile shape="[5]" samplerate="20" modified="5250623161235571858" start="0.0171628" length="32.0408971">/Data/Right/right7/capsense.data</DataFile>
+        <SessionFile>/Data/Right/right7/right7.imsession</SessionFile>
+        <LabelFile modified="5250618624496289282">/Data/Right/right7/label.label</LabelFile>
+        <Labels>
+          <Label count="25" length="6.8277347">right</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="down2" sessionId="a794fe55-ca58-42cc-9bcc-bd7ef60db9e5" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="label" dataTrack="capsense" tags="None">
+        <DataFile shape="[5]" samplerate="20" modified="5250623161234968440" start="0.0154927" length="66.9852183">/Data/Down/down2/capsense.data</DataFile>
+        <SessionFile>/Data/Down/down2/down2.imsession</SessionFile>
+        <LabelFile modified="5250618624477924770">/Data/Down/down2/label.label</LabelFile>
+        <Labels>
+          <Label count="104" length="28.40666">down</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="down6" sessionId="00407e9f-1cf9-46d5-a0b0-06cbee3afe6b" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="label" dataTrack="capsense" tags="None">
+        <DataFile shape="[5]" samplerate="20" modified="5250623161235100010" start="0.0173943" length="44.6846814">/Data/Down/down6/capsense.data</DataFile>
+        <SessionFile>/Data/Down/down6/down6.imsession</SessionFile>
+        <LabelFile modified="5250618624481714213">/Data/Down/down6/label.label</LabelFile>
+        <Labels>
+          <Label count="29" length="9.8606351">down</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="left2" sessionId="11799b5f-f6e7-4673-8587-e154e4cd3cfc" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="label" dataTrack="capsense" tags="None">
+        <DataFile shape="[5]" samplerate="20" modified="5250623161235205546" start="0.0168076" length="74.8581378">/Data/Left/left2/capsense.data</DataFile>
+        <SessionFile>/Data/Left/left2/left2.imsession</SessionFile>
+        <LabelFile modified="5250618624483649659">/Data/Left/left2/label.label</LabelFile>
+        <Labels>
+          <Label count="102" length="23.86794">left</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="left8" sessionId="5aaa1214-373e-4e83-87dd-a6d6ccc351db" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="label" dataTrack="capsense" tags="None">
+        <DataFile shape="[5]" samplerate="20" modified="5250623161235379493" start="0.0164599" length="28.9639256">/Data/Left/left8/capsense.data</DataFile>
+        <SessionFile>/Data/Left/left8/left8.imsession</SessionFile>
+        <LabelFile modified="5250618624489085435">/Data/Left/left8/label.label</LabelFile>
+        <Labels>
+          <Label count="23" length="6.8010494">left</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="no_label_1" sessionId="64472796-5cd7-4cfa-ae2c-6b81f07a72f3" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="label" dataTrack="capsense" tags="LabelsMissing">
+        <DataFile shape="[5]" samplerate="20" modified="5250623161235641939" start="0.016995" length="78.45620720000001">/Data/Unlabelled/no_label_1/capsense.data</DataFile>
+        <SessionFile>/Data/Unlabelled/no_label_1/no_label_1.imsession</SessionFile>
+        <LabelFile modified="5250618624490168633">/Data/Unlabelled/no_label_1/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="right2" sessionId="e909e7c8-a510-4257-83dc-6022e7a1bb3f" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="label" dataTrack="capsense" tags="None">
+        <DataFile shape="[5]" samplerate="20" modified="5250623161235443396" start="0.0169952" length="77.9136064">/Data/Right/right2/capsense.data</DataFile>
+        <SessionFile>/Data/Right/right2/right2.imsession</SessionFile>
+        <LabelFile modified="5250618624492043064">/Data/Right/right2/label.label</LabelFile>
+        <Labels>
+          <Label count="104" length="29.36975">right</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="up2" sessionId="e8e0f3b9-c82a-4597-bcf0-603c7aabcb10" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="label" dataTrack="capsense" tags="None">
+        <DataFile shape="[5]" samplerate="20" modified="5250623161235747176" start="0.0162494" length="76.03649899999999">/Data/Up/up2/capsense.data</DataFile>
+        <SessionFile>/Data/Up/up2/up2.imsession</SessionFile>
+        <LabelFile modified="5250618624498416539">/Data/Up/up2/label.label</LabelFile>
+        <Labels>
+          <Label count="116" length="30.63185">up</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="up6" sessionId="0c4a38b4-67df-4233-bc00-b65575eadbfb" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="label" dataTrack="capsense" tags="None">
+        <DataFile shape="[5]" samplerate="20" modified="5250623161235857168" start="0.0160654" length="41.9393518">/Data/Up/up6/capsense.data</DataFile>
+        <SessionFile>/Data/Up/up6/up6.imsession</SessionFile>
+        <LabelFile modified="5250618624501781687">/Data/Up/up6/label.label</LabelFile>
+        <Labels>
+          <Label count="29" length="7.2686588">up</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="down4" sessionId="3e994718-31ee-4773-af69-d87f1089e6bc" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="label" dataTrack="capsense" tags="None">
+        <DataFile shape="[5]" samplerate="20" modified="5250623161235028475" start="0.0163903" length="86.5178101">/Data/Down/down4/capsense.data</DataFile>
+        <SessionFile>/Data/Down/down4/down4.imsession</SessionFile>
+        <LabelFile modified="5250618624480150618">/Data/Down/down4/label.label</LabelFile>
+        <Labels>
+          <Label count="40" length="38.0543728">down</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="left4" sessionId="fa22c1ae-d90e-4582-a830-618e05920387" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="label" dataTrack="capsense" tags="None">
+        <DataFile shape="[5]" samplerate="20" modified="5250623161235275547" start="0.0170262" length="92.9302888">/Data/Left/left4/capsense.data</DataFile>
+        <SessionFile>/Data/Left/left4/left4.imsession</SessionFile>
+        <LabelFile modified="5250618624485497146">/Data/Left/left4/label.label</LabelFile>
+        <Labels>
+          <Label count="40" length="34.0244128">left</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="right4" sessionId="e151b02e-e24c-4503-ab74-63c44a451711" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="label" dataTrack="capsense" tags="None">
+        <DataFile shape="[5]" samplerate="20" modified="5250623161235498359" start="0.0164466" length="86.3322852">/Data/Right/right4/capsense.data</DataFile>
+        <SessionFile>/Data/Right/right4/right4.imsession</SessionFile>
+        <LabelFile modified="5250618624493939286">/Data/Right/right4/label.label</LabelFile>
+        <Labels>
+          <Label count="40" length="32.0000608">right</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="up4" sessionId="f6113338-21ef-498a-b744-80dd10ac9e30" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="label" dataTrack="capsense" tags="None">
+        <DataFile shape="[5]" samplerate="20" modified="5250623161235797177" start="0.0164778" length="83.5427594">/Data/Up/up4/capsense.data</DataFile>
+        <SessionFile>/Data/Up/up4/up4.imsession</SessionFile>
+        <LabelFile modified="5250618624500163999">/Data/Up/up4/label.label</LabelFile>
+        <Labels>
+          <Label count="40" length="27.5314912">up</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+    </DataSet>
+    <DataSet id="validation" targetSize="0.2" labels="Complete">
+      <Session name="down" sessionId="f73f3c17-d277-45df-a028-7353ab377d87" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="label" dataTrack="capsense" tags="None">
+        <DataFile shape="[5]" samplerate="20" modified="5250623161234908436" start="0.0160964" length="45.0852739">/Data/Down/down/capsense.data</DataFile>
+        <SessionFile>/Data/Down/down/down.imsession</SessionFile>
+        <LabelFile modified="5250618624476734760">/Data/Down/down/label.label</LabelFile>
+        <Labels>
+          <Label count="48" length="15.3483544">down</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="left" sessionId="f4a56f6e-466f-406f-a201-7a2a4570a4a3" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="label" dataTrack="capsense" tags="None">
+        <DataFile shape="[5]" samplerate="20" modified="5250623161235134308" start="0.0170197" length="31.688777700000003">/Data/Left/left/capsense.data</DataFile>
+        <SessionFile>/Data/Left/left/left.imsession</SessionFile>
+        <LabelFile modified="5250618624482084218">/Data/Left/left/label.label</LabelFile>
+        <Labels>
+          <Label count="32" length="10.5630982">left</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="no_label_2" sessionId="e584c507-7a74-4a09-8299-3ba2dd0af4ee" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="label" dataTrack="capsense" tags="LabelsMissing">
+        <DataFile shape="[5]" samplerate="20" modified="5250623161235665571" start="0.0172815" length="51.1030345">/Data/Unlabelled/no_label_2/capsense.data</DataFile>
+        <SessionFile>/Data/Unlabelled/no_label_2/no_label_2.imsession</SessionFile>
+        <LabelFile modified="5250618624490418637">/Data/Unlabelled/no_label_2/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="right" sessionId="3256dd9b-5c96-4499-9ae3-2093cb802f76" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="label" dataTrack="capsense" tags="None">
+        <DataFile shape="[5]" samplerate="20" modified="5250623161235409477" start="0.0160105" length="30.8824198">/Data/Right/right/capsense.data</DataFile>
+        <SessionFile>/Data/Right/right/right.imsession</SessionFile>
+        <LabelFile modified="5250618624490670786">/Data/Right/right/label.label</LabelFile>
+        <Labels>
+          <Label count="27" length="10.0112183">right</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="up" sessionId="8a8e9e8d-55c1-4717-8ac6-6e65cc19d47b" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="label" dataTrack="capsense" tags="None">
+        <DataFile shape="[5]" samplerate="20" modified="5250623161235697108" start="0.0167568" length="48.1981475">/Data/Up/up/capsense.data</DataFile>
+        <SessionFile>/Data/Up/up/up.imsession</SessionFile>
+        <LabelFile modified="5250618624496719295">/Data/Up/up/label.label</LabelFile>
+        <Labels>
+          <Label count="48" length="13.9446622">up</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="down5" sessionId="b5ea9fac-381a-4c91-9772-f8f5067cb162" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="label" dataTrack="capsense" tags="None">
+        <DataFile shape="[5]" samplerate="20" modified="5250623161235070022" start="0.0172029" length="22.7484538">/Data/Down/down5/capsense.data</DataFile>
+        <SessionFile>/Data/Down/down5/down5.imsession</SessionFile>
+        <LabelFile modified="5250618624481234219">/Data/Down/down5/label.label</LabelFile>
+        <Labels>
+          <Label count="10" length="8.3805184">down</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="left5" sessionId="15135c96-784c-4922-a3ea-1f0189b11254" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="label" dataTrack="capsense" tags="None">
+        <DataFile shape="[5]" samplerate="20" modified="5250623161235295516" start="0.0166228" length="26.5879183">/Data/Left/left5/capsense.data</DataFile>
+        <SessionFile>/Data/Left/left5/left5.imsession</SessionFile>
+        <LabelFile modified="5250618624487075477">/Data/Left/left5/label.label</LabelFile>
+        <Labels>
+          <Label count="10" length="7.6644976">left</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="left6" sessionId="05a17344-cf8a-4409-a0d8-0925d2d53500" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="label" dataTrack="capsense" tags="None">
+        <DataFile shape="[5]" samplerate="20" modified="5250623161235318467" start="0.0171299" length="30.796538599999998">/Data/Left/left6/capsense.data</DataFile>
+        <SessionFile>/Data/Left/left6/left6.imsession</SessionFile>
+        <LabelFile modified="5250618624487605443">/Data/Left/left6/label.label</LabelFile>
+        <Labels>
+          <Label count="21" length="7.0909537">left</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="right5" sessionId="83669b92-9478-4a77-ab46-65de1c98f240" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="label" dataTrack="capsense" tags="None">
+        <DataFile shape="[5]" samplerate="20" modified="5250623161235518353" start="0.0166059" length="25.274882">/Data/Right/right5/capsense.data</DataFile>
+        <SessionFile>/Data/Right/right5/right5.imsession</SessionFile>
+        <LabelFile modified="5250618624494879285">/Data/Right/right5/label.label</LabelFile>
+        <Labels>
+          <Label count="11" length="7.8847472">right</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="right6" sessionId="baccf16f-3a29-45c2-9dfd-0558e8254f65" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="label" dataTrack="capsense" tags="None">
+        <DataFile shape="[5]" samplerate="20" modified="5250623161235548423" start="0.0164077" length="31.1150272">/Data/Right/right6/capsense.data</DataFile>
+        <SessionFile>/Data/Right/right6/right6.imsession</SessionFile>
+        <LabelFile modified="5250618624495409295">/Data/Right/right6/label.label</LabelFile>
+        <Labels>
+          <Label count="22" length="7.4773192">right</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="up5" sessionId="374db2e5-72a6-4410-93fa-9b56f2e15ef0" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="label" dataTrack="capsense" tags="None">
+        <DataFile shape="[5]" samplerate="20" modified="5250623161235827194" start="0.0164864" length="23.8197677">/Data/Up/up5/capsense.data</DataFile>
+        <SessionFile>/Data/Up/up5/up5.imsession</SessionFile>
+        <LabelFile modified="5250618624501273285">/Data/Up/up5/label.label</LabelFile>
+        <Labels>
+          <Label count="10" length="6.7422928">up</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+    </DataSet>
+    <DataSet id="test" targetSize="0.2" labels="Complete">
+      <Session name="down1" sessionId="de2b8e9d-da11-4eae-adee-f50ad95a3a8b" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="label" dataTrack="capsense" tags="None">
+        <DataFile shape="[5]" samplerate="20" modified="5250623161234938459" start="0.0168278" length="6.870814800000001">/Data/Down/down1/capsense.data</DataFile>
+        <SessionFile>/Data/Down/down1/down1.imsession</SessionFile>
+        <LabelFile modified="5250618624477474768">/Data/Down/down1/label.label</LabelFile>
+        <Labels>
+          <Label count="5" length="1.9614762">down</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="down3" sessionId="aac7845d-7589-4cae-8e31-3f8f3231e014" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="label" dataTrack="capsense" tags="None">
+        <DataFile shape="[5]" samplerate="20" modified="5250623161235008479" start="0.0157778" length="19.5130811">/Data/Down/down3/capsense.data</DataFile>
+        <SessionFile>/Data/Down/down3/down3.imsession</SessionFile>
+        <LabelFile modified="5250618624479071590">/Data/Down/down3/label.label</LabelFile>
+        <Labels>
+          <Label count="17" length="4.7824099">down</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="left3" sessionId="a1ab11fd-1112-4a80-b2ff-d90ab029edba" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="label" dataTrack="capsense" tags="None">
+        <DataFile shape="[5]" samplerate="20" modified="5250623161235245515" start="0.0165887" length="19.3088174">/Data/Left/left3/capsense.data</DataFile>
+        <SessionFile>/Data/Left/left3/left3.imsession</SessionFile>
+        <LabelFile modified="5250618624484697146">/Data/Left/left3/label.label</LabelFile>
+        <Labels>
+          <Label count="18" length="5.45031">left</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="no_label" sessionId="63c6691b-42a8-4510-896e-3b76228f6a5c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="label" dataTrack="capsense" tags="LabelsMissing">
+        <DataFile shape="[5]" samplerate="20" modified="5250623161235611964" start="0.0172694" length="75.51889369999999">/Data/Unlabelled/no_label/capsense.data</DataFile>
+        <SessionFile>/Data/Unlabelled/no_label/no_label.imsession</SessionFile>
+        <LabelFile modified="5250618624489510428">/Data/Unlabelled/no_label/label.label</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="right1" sessionId="89712153-ffc1-447d-ab9f-7fd40bd555d4" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="label" dataTrack="capsense" tags="None">
+        <DataFile shape="[5]" samplerate="20" modified="5250623161235429495" start="0.015924" length="5.276493">/Data/Right/right1/capsense.data</DataFile>
+        <SessionFile>/Data/Right/right1/right1.imsession</SessionFile>
+        <LabelFile modified="5250618624491613074">/Data/Right/right1/label.label</LabelFile>
+        <Labels>
+          <Label count="4" length="1.4368432">right</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="right3" sessionId="d144289d-dbd7-4f15-a1b5-44782df8e1a3" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="label" dataTrack="capsense" tags="None">
+        <DataFile shape="[5]" samplerate="20" modified="5250623161235468232" start="0.0164335" length="18.2598693">/Data/Right/right3/capsense.data</DataFile>
+        <SessionFile>/Data/Right/right3/right3.imsession</SessionFile>
+        <LabelFile modified="5250618624493239295">/Data/Right/right3/label.label</LabelFile>
+        <Labels>
+          <Label count="18" length="5.2473599">right</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="up1" sessionId="fae35cc2-fc10-4e30-8633-10d19385c536" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="label" dataTrack="capsense" tags="None">
+        <DataFile shape="[5]" samplerate="20" modified="5250623161235717188" start="0.0173223" length="11.804755">/Data/Up/up1/capsense.data</DataFile>
+        <SessionFile>/Data/Up/up1/up1.imsession</SessionFile>
+        <LabelFile modified="5250618624497859278">/Data/Up/up1/label.label</LabelFile>
+        <Labels>
+          <Label count="5" length="1.1847242">up</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="up3" sessionId="ccc51de7-a7b6-4d10-a1dd-dacd00dbfa40" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="label" dataTrack="capsense" tags="None">
+        <DataFile shape="[5]" samplerate="20" modified="5250623161235777193" start="0.0168014" length="19.0243575">/Data/Up/up3/capsense.data</DataFile>
+        <SessionFile>/Data/Up/up3/up3.imsession</SessionFile>
+        <LabelFile modified="5250618624499466519">/Data/Up/up3/label.label</LabelFile>
+        <Labels>
+          <Label count="16" length="4.87465">up</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="left1" sessionId="01451732-88b1-400f-9b16-0a5e57d6a68e" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="label" dataTrack="capsense" tags="None">
+        <DataFile shape="[5]" samplerate="20" modified="5250623161235165533" start="0.016516" length="13.0576214">/Data/Left/left1/capsense.data</DataFile>
+        <SessionFile>/Data/Left/left1/left1.imsession</SessionFile>
+        <LabelFile modified="5250618624483081636">/Data/Left/left1/label.label</LabelFile>
+        <Labels>
+          <Label count="7" length="2.4198244">left</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="left7" sessionId="94f5a646-d564-46dd-b52f-63606bdbd753" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="label" dataTrack="capsense" tags="None">
+        <DataFile shape="[5]" samplerate="20" modified="5250623161235349505" start="0.0166261" length="15.6505084">/Data/Left/left7/capsense.data</DataFile>
+        <SessionFile>/Data/Left/left7/left7.imsession</SessionFile>
+        <LabelFile modified="5250618624488475432">/Data/Left/left7/label.label</LabelFile>
+        <Labels>
+          <Label count="10" length="3.5818388">left</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+    </DataSet>
+  </Database>
+  <PredefinedLabels>
+    <Label>up</Label>
+    <Label>down</Label>
+    <Label>left</Label>
+    <Label>right</Label>
+  </PredefinedLabels>
+</ImagimobStudio>
