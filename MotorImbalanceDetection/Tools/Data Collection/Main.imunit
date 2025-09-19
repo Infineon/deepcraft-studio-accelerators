@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Imaginet version="2.0.0.0">
+  <Compound unit="d419d86b-7b57-41d3-9a74-ab428f13a213">
+    <Nodes>
+      <UnitNode id="node_0" x="145" y="237" enabled="true" unit="Imaginet.Units.Io.ImagimobSerialCapture">
+        <BooleanArgument param="rescale">false</BooleanArgument>
+        <DoubleArgument param="sample_rate">15000</DoubleArgument>
+        <StringArgument param="sensor">Iq and Angular Velocity</StringArgument>
+        <StringArgument param="flow_control">None</StringArgument>
+        <StringArgument param="port">COM3</StringArgument>
+        <StringArgument param="output_type">s16</StringArgument>
+      </UnitNode>
+      <UnitNode id="node_1" x="653" y="229" enabled="true" name="Serial Capture Data" unit="ImagimobStudio.Modules.DataTrack" />
+    </Nodes>
+    <Connections>
+      <Connection>
+        <Source node="node_0" param="data" />
+        <Target node="node_1" param="data" />
+      </Connection>
+    </Connections>
+  </Compound>
+</Imaginet>

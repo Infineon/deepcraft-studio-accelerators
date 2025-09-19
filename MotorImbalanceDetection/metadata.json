@@ -1,0 +1,12 @@
+{
+  "title": "Motor Load Imbalance Detection",
+  "description": "Project to build a model that detects if the load of an electric motor is balanced or not.",
+  "algorithm": "Classification",
+  "sensors": ["Current"],
+  "domain": ["Electronic Sensing"],
+  "application": ["Smart Home", "Appliances", "Industrial IoT", "Safety Monitoring", "Automotive"],
+  "use_case": ["Predictive Maintenance", "Anomaly Detection"],
+  "kit": ["PSOC\u2122 C3 Motor Control Kit", "PSOC\u2122 6 Pioneer Kit", "PSOC\u2122 6 AI Kit", "PSOC\u2122 Edge AI Kit"],
+  "device": ["PSOC\u2122 C3", "PSOC\u2122 6", "PSOC\u2122 Edge"],
+  "workflow": ["ML Development"]
+}
