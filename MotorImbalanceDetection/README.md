@@ -66,7 +66,11 @@ To prepare the PSOC C3 Motor Control Kit (KIT_PSC3M5_MC1) for data collection:
 ![Connection Diagram 1](./Resources/image1.png)
 
 To start streaming data to Deepcraft studio first, ensure that the driver for the USB to UART converter (CP210x) device is installed on the 
-computer which will be used for data collection in Studio. Next connect the CP210x device to the adapter board. RXD of the converter must be 
+computer which will be used for data collection in Studio. The USB to UART converter supports 15kHz data streaming to Studio. The converter used in the project
+is available at:
+https://www.reichelt.com/se/en/shop/product/developer_boards_-_usb_type-a_to_uart_cp2102-266051?country=se&CCTYPE=private&LANGUAGE=en.
+
+Next connect the CP210x device to the adapter board. RXD of the converter must be 
 connected to C3 pin of the J11 pin group. TXD of the converter must be connected to B3 pin of the J11 pin group. GND of the converter can be 
 connected to B19 of the J11 pin group. The connections are shown in the figure below:
 
@@ -74,8 +78,8 @@ connected to B19 of the J11 pin group. The connections are shown in the figure b
 ![Connection Diagram 3](./Resources/image3.png)
 
 
-Flash the code using the Modus Toolbox workspace within Eclipse IDE on to the PSOC C3 drive card. The .hex file can be accessed by navigating to 
-Tools > Data Collection. The main steps for flashing the .hex file using ModusToolbox are similar to those described at this link
+Flash the code using the Modus Toolbox Programmer on to the PSOC C3 drive card. The .hex file can be accessed by navigating to 
+Tools > Data Collection. The main steps for flashing the .hex file are similar to those described at this link
 https://developer.imagimob.com/getting-started/infineon-ai-evaluation-kit#streaming-firmware-for-psoc-6-ai-evaluation-kit
 
 ### Methods to capture data 
