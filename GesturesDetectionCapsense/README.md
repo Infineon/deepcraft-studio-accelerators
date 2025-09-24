@@ -2,15 +2,15 @@
 
 ## Overview - Use-Case
 
-This touch interactive project enables users to detect directional gestures such as 
-+ Up
-+ Down
-+ Left
-+ Right 
-
 The project uses capacitive sensing (CAPSENSE™) technology to interpret gesture patterns and improve user interface interactions.
-A supervised learning model is trained on touch-based sensor data to accurately classify gestures. This allows for a seamless and efficient interface, particularly suited for embedded systems and smart devices.
-CapSense provides a compact and reliable method for gesture recognition, making it ideal for devices where traditional mechanical buttons are impractical or undesirable.
+A supervised learning model is trained on touch-based sensor data to accurately classify gestures. This touch interactive project enables users to detect directional gestures such as 
++ Swipe Up
++ Swipe Down
++ Swipe Left
++ Swipe Right
+
+This project allows for a seamless and efficient interface, particularly suited for embedded systems and smart devices.
+CAPSENSE provides a compact and reliable method for gesture recognition, making it ideal for devices where traditional mechanical buttons are impractical or undesirable.
 This technology enhances user experience across a range of modern products, including:
 + Smart home control panels
 + Wearable devices
@@ -29,7 +29,9 @@ By replacing physical buttons with intuitive gesture-based controls, this approa
 `Tools`	- Folder containing a python script used for downsampling data.
 
 ## Sensor & Data
-The Capsense sensor is designed using multiple capacitive electrodes arranged to detect directional gestures such as up, down, left and right. Each electrode senses changes in self-capacitance when a finger approaches or touches the overlay surface. The overlay, typically made of plastic or glass, acts as a dielectric layer and influences the sensor’s sensitivity based on its thickness and material properties. The capacitance is modeled using the parallel plate capacitor equation:
+
+This project uses data collected with a CAPSENSE-based custom board which consists of 5 slider segments connected to a PSOC4 board.
+The CAPSENSE sensor is designed using multiple capacitive electrodes arranged to detect directional gestures such as up-swipe, down-swipe, left-swipe and right-swipe. Each electrode senses changes in self-capacitance when a finger approaches or touches the overlay surface. The overlay, typically made of plastic or glass, acts as a dielectric layer and influences the sensor’s sensitivity based on its thickness and material properties. The capacitance is modeled using the parallel plate capacitor equation:
 
 C = ( epsilon_0 * epsilon_r * A) / D
 
@@ -40,37 +42,43 @@ epsilon_r is the dielectric constant of the overlay,
  
 𝐴 is the area of overlap between the finger and the sensor pad and 𝐷 is the overlay thickness.
 
-CAPSENSE™ firmware processes the raw capacitance data to estimate touch position and direction, enabling gesture recognition through centroid calculation and filtering algorithms.
+![Connection Diagram 1](./Resources/Images/custom_sensor_board.png)
 
-![Connection Diagram 1](./Resources/custom_sensor_board.png)
-
-The picture above shows the PCB layout of the custom capacitive sensor board designed for the project. On the left side of the board, there is a vertical
-row of six circular pads, labeled with signal identifiers such as GND and P1. Each pin on the left side of the PCB corresponds to a specific gesture zone. When a finger touches or approaches the area above a pin’s associated electrode, the capsense system detects a change in capacitance and interprets it as a directional gesture. 
-These pads serve as connection points to the main controller or evaluation kit.
-
+The image above shows the PCB layout of the custom capacitive sensor board designed for the project. The P4_iMob_FabFiles located in the Resources folder contain all necessary fabrication assets and can be provided to a PCB manufacturer to build the custom board. On the left side of the board, there is a vertical
+row of six pins, labeled with signal identifiers such as GND and P1. Each pin on the left side of the PCB corresponds to a specific gesture zone. 
+When a finger touches or approaches the area above a pin’s associated electrode, the CAPSENSE system detects a change in capacitance and it is send to the model which then interprets it as a specific directional gesture. 
+These pins serve as connection points to the main controller or evaluation kit.
 
 
-| **Pin Label** | **Gesture Function**|
+
+| **Pin Label(P1)** | **Gesture Function**|
 |-----------|-------------------------|
 | 1         | Ground reference        |
 | 2         | Left                    |
 | 3         | Middle                  |
-| 4         | Up                      |
+| 4         | Down                    |
 | 5         | Right                   |
-| 6         | Down                    |
+| 6         | Up                      |
 
 
 
 ## Adding More Data
 
 The project utilizes PSoC4000T EVK (CY8CPROTO-040T) plus custom sensor board.
-To collect more data ensure that boards are connected as shown in the picture below. 
+To collect more data ensure that boards are connected as shown in the image below. 
 
-![Connection Diagram 2](./Resources/175c8425-bc9f-4eeb-9116-37dc8e8ac23b.PNG)
+![Connection Diagram 2](./Resources/Images/capsenseboard.PNG)
 
-The figure below shows the recording window, where the blue, green, red, violet, yellow waveform represents left, middle, up, right and down gestures respectively. The data is labeled as 'up'.
+To start the project, create an example CAPSENSE project by selecting the peripherals as ¨UART Transmit and Receive¨ in ModusToolbox IDE. Set up data transmission over UART to a PC running the Imagimob Capture Server software.
+Configure the UART, RX, and TX by referring to the code snippet located at Resources > uart_configuration_code_snippet and collect data using the [Capture Server](https://bitbucket.org/imagimob/captureserver/src/master/).
+The collected data in this project has been downsampled using the provided script to optimize model efficiency and reduce computational overhead.
 
-![Connection Diagram 3](./Resources/waveform.png)
+To tune the CAPSENSE custom board, get the sensor parasitic capacitance and use [ModusToolbox™ CAPSENSE™ Tuner](https://documentation.infineon.com/modustoolbox/docs/pdn1712080509469) for tuning.
+
+Shown below is the recording window, where each waveform color—violet, green, yellow, blue, and red corresponds to the left, middle, up, right, and down slider segments on the custom board. The displayed data is labeled as ‘up’.
+
+![Connection Diagram 3](./Resources/Images/waveform.png)
+
 
 ## Steps to Production
 To bring a gesture detection model to production involves collecting gesture samples from a wide range of users and environments. Diversity in data ensures that the model learns to generalize across real-world conditions and reduces the risk of overfitting to a narrow set of inputs. 

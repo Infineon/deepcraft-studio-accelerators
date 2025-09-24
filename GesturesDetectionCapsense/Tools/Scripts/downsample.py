@@ -4,13 +4,13 @@ import pandas as pd
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        "Script to convert Imagimob Studio label format to y vector format. Data are recursively found from the given input directory")
+        "Script to downsample the dataset to one-third of its original size")
 
     parser.add_argument(
         "--input-dir", "-i",
         type=str,
         required=True,
-        help="Directory where the collected data and label files are placed.")
+        help="Directory where the collected data files are placed.")
 
     return parser.parse_args()
 
@@ -29,7 +29,7 @@ def main():
     args = parse_args()
     input_dir = Path(args.input_dir)
 
-    # finding recursively wave and label files
+    # Recursively search for .data files
     data_files = search_for_data_files(input_dir, '*.data')
 
     for datafile in data_files:
