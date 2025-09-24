@@ -1,4 +1,4 @@
-﻿# Project Title
+﻿# Presence Detection Project
 
 ## Overview - Use-Case
 
@@ -16,7 +16,7 @@ Users can further expand this project by training their own models, importing ne
 
 ## Contents
 
-**`Data`** 	- Contains data taken from Roboflow with human class images: [Human datasets](https://universe.roboflow.com/leo-ueno/people-detection-o4rdr/dataset/1). 
+**`Data`** 	- Contains data taken from Roboflow with human class images: [Human datasets](https://universe.roboflow.com/leo-ueno/people-detection-o4rdr/dataset/1). This dataset used images and/or annotations from Universe projects with CC BY 4.0 license.
 
 **`Models`** - Folder where trained trained yolo5n, model predictions and generated Edge code are saved. 
 
@@ -31,7 +31,7 @@ Users can further expand this project by training their own models, importing ne
    2. Download the trained model `.tflite` file from trained job. 
    3. Add downloaded tflite model path in the **Model Evaluation Object Detection Graph UX** in the `Tools` folder.
    4. Run the Graph UX project to evaluate model performance in real time using selected camera.
-   5. Make sure human presence in front of the camera and observe detection from live camera.
+   5. Make sure to have human presence in front of the camera and observe detection from live camera.
 
 ## Adding More Data
 
@@ -44,15 +44,7 @@ Steps for adding own collected data:
 ## Steps to Production
 
 The recommended path to production for this project includes the following steps:
-- Add more data of human expeically in the scenario close to your own use case if detection rate is low.
+- Add more images with people especially in the scenario close to your own use case if detection rate is low.
 - Add negative data to make human presence detections robust against non relevant objects.
 - Try different augmentation settings to increase the variability of the dataset.
 - Try different advanced settings such as optimizer,  iou threshold or confidence threshold to make model more or less sensitive.
-
-## Getting Started
-
-Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about Imagimob Studio and go through step-by-step tutorials to get you quickly started.
-
-## Help & Support
-
-If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum ](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) Imagimob Studio page.

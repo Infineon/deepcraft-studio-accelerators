@@ -2,5 +2,25 @@
 <Annotations>
 	<Annotation>
 		<Path>000889.jpg</Path>
+		<Object>
+			<Name>person</Name>
+			<Confidence>0.8409</Confidence>
+			<Bndbox>
+				<X>0.45124355554580686</X>
+				<Y>0.7167446851730347</Y>
+				<Width>0.10439012050628663</Width>
+				<Height>0.49680275917053224</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>person</Name>
+			<Confidence>0.7316</Confidence>
+			<Bndbox>
+				<X>0.5805742263793945</X>
+				<Y>0.43386549949645997</Y>
+				<Width>0.047617530822753905</Width>
+				<Height>0.21469879150390625</Height>
+			</Bndbox>
+		</Object>
 	</Annotation>
 </Annotations>

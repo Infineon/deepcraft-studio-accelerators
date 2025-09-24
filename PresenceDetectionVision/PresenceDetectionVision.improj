@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ImagimobStudio version="1.1.0">
-  <Job id="8431d0bf-97c4-11f0-80ee-271f2f494501" />
+  <Job id="8540d42c-994a-11f0-8549-f1324dca88f6" />
   <ProjectType>ObjectDetection</ProjectType>
   <ProjectId>ed33b163-c9e2-4d33-896d-2e0799f0d399</ProjectId>
   <ModelFactory>
     <Epochs>100</Epochs>
     <BatchSize>32</BatchSize>
     <SplitCount>16</SplitCount>
-    <Patience>10</Patience>
+    <Patience>20</Patience>
     <AppendModels>False</AppendModels>
     <LossFunction>CategoricalCrossentropy</LossFunction>
     <HardwareType>Infineon</HardwareType>
@@ -51,8 +51,8 @@
     </Augmentation>
     <AdvancedOptions>
       <Optimizer>Auto</Optimizer>
-      <LearningRateInitial>0.1</LearningRateInitial>
-      <LearningRateFinal>0.1</LearningRateFinal>
+      <LearningRateInitial>0.01</LearningRateInitial>
+      <LearningRateFinal>0.01</LearningRateFinal>
       <Momentum>0.937</Momentum>
       <WeightDecay>0.0005</WeightDecay>
       <ConfidenceThresholdValidation>0.001</ConfidenceThresholdValidation>
