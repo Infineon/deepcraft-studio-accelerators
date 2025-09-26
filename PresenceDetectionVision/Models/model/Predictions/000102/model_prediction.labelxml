@@ -4,12 +4,22 @@
 		<Path>000102.jpg</Path>
 		<Object>
 			<Name>person</Name>
-			<Confidence>0.8255</Confidence>
+			<Confidence>0.733</Confidence>
 			<Bndbox>
-				<X>0.5516601204872131</X>
-				<Y>0.5856483459472657</Y>
-				<Width>0.6864693403244019</Width>
-				<Height>0.8627237319946289</Height>
+				<X>0.5156226873397827</X>
+				<Y>0.5718965291976928</Y>
+				<Width>1.012187623977661</Width>
+				<Height>0.973234224319458</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>person</Name>
+			<Confidence>0.6817</Confidence>
+			<Bndbox>
+				<X>0.5480465292930603</X>
+				<Y>0.562247097492218</Y>
+				<Width>0.6671843767166138</Width>
+				<Height>0.7517942190170288</Height>
 			</Bndbox>
 		</Object>
 	</Annotation>
