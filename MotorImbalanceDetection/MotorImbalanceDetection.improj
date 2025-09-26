@@ -1,0 +1,945 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ImagimobStudio version="1.1.0">
+  <Job id="b28f2730-8fee-11f0-a340-b589d9ae1b02" />
+  <ProjectType>Classification</ProjectType>
+  <Preprocessor inshape="[2]" intype="Float32" infreq="15000" outshape="[513,2]" outtype="Float32">
+    <Unit id="Core.Queues.SlidingWindow">
+      <Argument param="input" type="String">data</Argument>
+      <Argument param="time_input" type="String">time</Argument>
+      <Argument param="window_shape" type="Shape">[1024,2]</Argument>
+      <Argument param="stride" type="Int32">2048</Argument>
+      <Argument param="buffer_multiplier" type="Double">1</Argument>
+      <Argument param="output" type="String">data</Argument>
+      <Argument param="time_output" type="String">time</Argument>
+    </Unit>
+    <Unit id="Core.Math.Fft.RealFft">
+      <Argument param="input" type="String">data</Argument>
+      <Argument param="axis" type="Int32">1</Argument>
+      <Argument param="output" type="String">data</Argument>
+    </Unit>
+    <Unit id="Core.Math.Norm">
+      <Argument param="input" type="String">data</Argument>
+      <Argument param="axis" type="Int32">0</Argument>
+      <Argument param="output" type="String">data</Argument>
+    </Unit>
+  </Preprocessor>
+  <ModelFactory>
+    <Epochs>35</Epochs>
+    <BatchSize>32</BatchSize>
+    <SplitCount>16</SplitCount>
+    <Patience>15</Patience>
+    <AppendModels>True</AppendModels>
+    <LossFunction>MeanSquaredError</LossFunction>
+    <HardwareType>Generic</HardwareType>
+    <TrainingEnvironment>
+    </TrainingEnvironment>
+    <ModelFamily>Conv1DLSTM</ModelFamily>
+    <ModelFlavor>LargeKern</ModelFlavor>
+    <ClassifierType>Hybrid</ClassifierType>
+    <Optimization>Accuracy</Optimization>
+    <Pooling>True</Pooling>
+    <Downscale>True</Downscale>
+    <LearnRate>Low</LearnRate>
+    <RegularizationFactor>Low</RegularizationFactor>
+    <LastNetworkInputShape>[513,2]</LastNetworkInputShape>
+    <LastClassCount>4</LastClassCount>
+    <Optimizer>
+      <LearningRate>0.001</LearningRate>
+      <WeightDecay>0.0001</WeightDecay>
+    </Optimizer>
+    <BuildSteps>
+      <Training />
+      <ConfusionMatrix />
+    </BuildSteps>
+  </ModelFactory>
+  <Models>
+    <Model name="conv1dlstm-medium-balanced-0" id="e2dd3aec-18ac-4335-8be5-876fb0fd9724">
+      <LossFunction>MeanSquaredError</LossFunction>
+      <Epochs>35</Epochs>
+      <BatchSize>32</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>15</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.0001</LearningRate>
+        <WeightDecay>0.0001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[513,2]" intype="Float32" infreq="0" outshape="[4]" outtype="Float32">
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">13</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">12</Argument>
+          <Argument param="kernel_size" type="Int32">5</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">24</Argument>
+          <Argument param="kernel_size" type="Int32">5</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">24</Argument>
+          <Argument param="kernel_size" type="Int32">5</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.LSTM">
+          <Argument param="units" type="Int32">16</Argument>
+          <Argument param="activation" type="String">tanh</Argument>
+          <Argument param="recurrent_activation" type="String">sigmoid</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="return_sequences" type="Boolean">True</Argument>
+          <Argument param="return_state" type="Boolean">False</Argument>
+          <Argument param="stateful" type="Boolean">False</Argument>
+          <Argument param="go_backwards" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.GlobalAveragePool1D" />
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">50</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dropout">
+          <Argument param="rate" type="Double">0.1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="units" type="Int32">4</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="trainable" type="Boolean">True</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">softmax</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <Training />
+        <ConfusionMatrix />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="open loop" weight="1" />
+        <SymbolWeight symbol="unbalanced" weight="1" />
+        <SymbolWeight symbol="balanced" weight="1" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[2]" intype="Float32" infreq="15000" outshape="[513,2]" outtype="Float32">
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[1024,2]</Argument>
+          <Argument param="stride" type="Int32">2048</Argument>
+          <Argument param="buffer_multiplier" type="Double">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+        <Unit id="Core.Math.Fft.RealFft">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="axis" type="Int32">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+        </Unit>
+        <Unit id="Core.Math.Norm">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="axis" type="Int32">0</Argument>
+          <Argument param="output" type="String">data</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
+    </Model>
+    <Model name="conv1dlstm-medium-balanced-1" id="aa1b8d75-057f-4ee2-b815-8630ae4170b2">
+      <LossFunction>MeanSquaredError</LossFunction>
+      <Epochs>35</Epochs>
+      <BatchSize>32</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>15</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.0001</LearningRate>
+        <WeightDecay>0.0001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[513,2]" intype="Float32" infreq="0" outshape="[4]" outtype="Float32">
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">13</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Int32">5</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Int32">5</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Int32">5</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.LSTM">
+          <Argument param="units" type="Int32">32</Argument>
+          <Argument param="activation" type="String">tanh</Argument>
+          <Argument param="recurrent_activation" type="String">sigmoid</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="return_sequences" type="Boolean">True</Argument>
+          <Argument param="return_state" type="Boolean">False</Argument>
+          <Argument param="stateful" type="Boolean">False</Argument>
+          <Argument param="go_backwards" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.GlobalAveragePool1D" />
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">50</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dropout">
+          <Argument param="rate" type="Double">0.1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="units" type="Int32">4</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="trainable" type="Boolean">True</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">softmax</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <Training />
+        <ConfusionMatrix />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="open loop" weight="1" />
+        <SymbolWeight symbol="unbalanced" weight="1" />
+        <SymbolWeight symbol="balanced" weight="1" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[2]" intype="Float32" infreq="15000" outshape="[513,2]" outtype="Float32">
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[1024,2]</Argument>
+          <Argument param="stride" type="Int32">2048</Argument>
+          <Argument param="buffer_multiplier" type="Double">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+        <Unit id="Core.Math.Fft.RealFft">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="axis" type="Int32">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+        </Unit>
+        <Unit id="Core.Math.Norm">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="axis" type="Int32">0</Argument>
+          <Argument param="output" type="String">data</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
+    </Model>
+    <Model name="conv1dlstm-medium-balanced-2" id="0c53d0e2-b480-48c1-9a11-6f949deb1943">
+      <LossFunction>MeanSquaredError</LossFunction>
+      <Epochs>35</Epochs>
+      <BatchSize>32</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>15</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.0001</LearningRate>
+        <WeightDecay>0.0001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[513,2]" intype="Float32" infreq="0" outshape="[4]" outtype="Float32">
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">13</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Int32">5</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">5</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">5</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.LSTM">
+          <Argument param="units" type="Int32">64</Argument>
+          <Argument param="activation" type="String">tanh</Argument>
+          <Argument param="recurrent_activation" type="String">sigmoid</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="return_sequences" type="Boolean">True</Argument>
+          <Argument param="return_state" type="Boolean">False</Argument>
+          <Argument param="stateful" type="Boolean">False</Argument>
+          <Argument param="go_backwards" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.GlobalAveragePool1D" />
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">50</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dropout">
+          <Argument param="rate" type="Double">0.1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="units" type="Int32">4</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="trainable" type="Boolean">True</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">softmax</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <Training />
+        <ConfusionMatrix />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="open loop" weight="1" />
+        <SymbolWeight symbol="unbalanced" weight="1" />
+        <SymbolWeight symbol="balanced" weight="1" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[2]" intype="Float32" infreq="15000" outshape="[513,2]" outtype="Float32">
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[1024,2]</Argument>
+          <Argument param="stride" type="Int32">2048</Argument>
+          <Argument param="buffer_multiplier" type="Double">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+        <Unit id="Core.Math.Fft.RealFft">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="axis" type="Int32">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+        </Unit>
+        <Unit id="Core.Math.Norm">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="axis" type="Int32">0</Argument>
+          <Argument param="output" type="String">data</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
+    </Model>
+    <Model name="conv1dlstm-medium-balanced-3" id="3548dab7-7650-4a52-b30d-2d875b440fd0">
+      <LossFunction>MeanSquaredError</LossFunction>
+      <Epochs>35</Epochs>
+      <BatchSize>32</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>15</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.0001</LearningRate>
+        <WeightDecay>0.0001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[513,2]" intype="Float32" infreq="0" outshape="[4]" outtype="Float32">
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">13</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Int32">5</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">5</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">5</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">64</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">64</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.LSTM">
+          <Argument param="units" type="Int32">64</Argument>
+          <Argument param="activation" type="String">tanh</Argument>
+          <Argument param="recurrent_activation" type="String">sigmoid</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="return_sequences" type="Boolean">True</Argument>
+          <Argument param="return_state" type="Boolean">False</Argument>
+          <Argument param="stateful" type="Boolean">False</Argument>
+          <Argument param="go_backwards" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.GlobalAveragePool1D" />
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">50</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dropout">
+          <Argument param="rate" type="Double">0.1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="units" type="Int32">4</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="trainable" type="Boolean">True</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">softmax</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <Training />
+        <ConfusionMatrix />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="open loop" weight="1" />
+        <SymbolWeight symbol="unbalanced" weight="1" />
+        <SymbolWeight symbol="balanced" weight="1" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[2]" intype="Float32" infreq="15000" outshape="[513,2]" outtype="Float32">
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[1024,2]</Argument>
+          <Argument param="stride" type="Int32">2048</Argument>
+          <Argument param="buffer_multiplier" type="Double">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+        <Unit id="Core.Math.Fft.RealFft">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="axis" type="Int32">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+        </Unit>
+        <Unit id="Core.Math.Norm">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="axis" type="Int32">0</Argument>
+          <Argument param="output" type="String">data</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
+    </Model>
+  </Models>
+  <Database balance="AnnotatedLength" redistributionScope="Everything">
+    <SymbolMap>
+      <Symbol name="open loop" id="1" weight="1" />
+      <Symbol name="unbalanced" id="2" weight="1" />
+      <Symbol name="balanced" id="3" weight="1" />
+    </SymbolMap>
+    <DataSet id="unassigned" targetSize="0" labels="Unassigned" />
+    <DataSet id="train" targetSize="0.6" labels="Complete">
+      <Session name="Session-2024-11-05--09-49-46-unb" sessionId="0143e220-4ae9-4d0a-8cd2-77f5eb97036d" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="Serial Capture Data" tags="None">
+        <DataFile shape="[2]" samplerate="15000" modified="5250615194948366917" start="3.33E-05" length="31.327266666666667">/Data/Unbalanced/Session-2024-11-05--09-49-46-unb/Serial-Capture-Data.data</DataFile>
+        <SessionFile>/Data/Unbalanced/Session-2024-11-05--09-49-46-unb/Session-2024-11-05--09-49-46-unb.imsession</SessionFile>
+        <LabelFile modified="5250618890984470175">/Data/Unbalanced/Session-2024-11-05--09-49-46-unb/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="2.9834256">open loop</Label>
+          <Label count="1" length="22.4659103">unbalanced</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Session-2024-11-05--10-04-49-unb" sessionId="410cc88a-d41a-4071-8c72-18f3bac5fe2b" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="Serial Capture Data" tags="None">
+        <DataFile shape="[2]" samplerate="15000" modified="5250615194950039717" start="3.33E-05" length="29.242600000000003">/Data/Unbalanced/Session-2024-11-05--10-04-49-unb/Serial-Capture-Data.data</DataFile>
+        <SessionFile>/Data/Unbalanced/Session-2024-11-05--10-04-49-unb/Session-2024-11-05--10-04-49-unb.imsession</SessionFile>
+        <LabelFile modified="5250618888190159759">/Data/Unbalanced/Session-2024-11-05--10-04-49-unb/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="3.2198828">open loop</Label>
+          <Label count="1" length="23.1803288">unbalanced</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Session-2024-11-05--10-06-06-unb" sessionId="83195f1d-019c-4234-9b02-a8a1c26f2b6f" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="Serial Capture Data" tags="None">
+        <DataFile shape="[2]" samplerate="15000" modified="5250615194950660337" start="3.33E-05" length="40.60326666666667">/Data/Unbalanced/Session-2024-11-05--10-06-06-unb/Serial-Capture-Data.data</DataFile>
+        <SessionFile>/Data/Unbalanced/Session-2024-11-05--10-06-06-unb/Session-2024-11-05--10-06-06-unb.imsession</SessionFile>
+        <LabelFile modified="5250618887986248438">/Data/Unbalanced/Session-2024-11-05--10-06-06-unb/label.label</LabelFile>
+        <Labels>
+          <Label count="2" length="5.6811611">open loop</Label>
+          <Label count="2" length="23.7715311">unbalanced</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Session-2024-11-05--10-08-57-unb" sessionId="fa4e2760-aa0f-4a37-86a3-63aefa013889" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="Serial Capture Data" tags="None">
+        <DataFile shape="[2]" samplerate="15000" modified="5250615194950876391" start="3.33E-05" length="11.809266666666668">/Data/Unbalanced/Session-2024-11-05--10-08-57-unb/Serial-Capture-Data.data</DataFile>
+        <SessionFile>/Data/Unbalanced/Session-2024-11-05--10-08-57-unb/Session-2024-11-05--10-08-57-unb.imsession</SessionFile>
+        <LabelFile modified="5250618887361081002">/Data/Unbalanced/Session-2024-11-05--10-08-57-unb/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="2.3293361">open loop</Label>
+          <Label count="1" length="5.5060304">unbalanced</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Session-2024-11-05--10-09-53-unb" sessionId="fd18d04a-9eab-433b-910b-7218823dd2c4" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="Serial Capture Data" tags="None">
+        <DataFile shape="[2]" samplerate="15000" modified="5250615194951159998" start="3.33E-05" length="18.483933333333333">/Data/Unbalanced/Session-2024-11-05--10-09-53-unb/Serial-Capture-Data.data</DataFile>
+        <SessionFile>/Data/Unbalanced/Session-2024-11-05--10-09-53-unb/Session-2024-11-05--10-09-53-unb.imsession</SessionFile>
+        <LabelFile modified="5250618887031260012">/Data/Unbalanced/Session-2024-11-05--10-09-53-unb/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="9.4639143">open loop</Label>
+          <Label count="1" length="1.615419">unbalanced</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Session-2024-11-05--10-31-52-unb" sessionId="658f0662-65e3-49b8-bea7-63ead47c32a3" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="Serial Capture Data" tags="None">
+        <DataFile shape="[2]" samplerate="15000" modified="5250615194951501981" start="3.33E-05" length="21.857933333333335">/Data/Unbalanced/Session-2024-11-05--10-31-52-unb/Serial-Capture-Data.data</DataFile>
+        <SessionFile>/Data/Unbalanced/Session-2024-11-05--10-31-52-unb/Session-2024-11-05--10-31-52-unb.imsession</SessionFile>
+        <LabelFile modified="5250618886816272379">/Data/Unbalanced/Session-2024-11-05--10-31-52-unb/label.label</LabelFile>
+        <Labels>
+          <Label count="2" length="4.6257802">open loop</Label>
+          <Label count="1" length="10.2498527">unbalanced</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Session-2024-11-05--10-54-39-bal" sessionId="4ecde4b7-e215-4717-883f-83fc2eb6272d" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="Serial Capture Data" tags="None">
+        <DataFile shape="[2]" samplerate="15000" modified="5250615194952324307" start="3.33E-05" length="42.72793333333333">/Data/Balanced/Session-2024-11-05--10-54-39-bal/Serial-Capture-Data.data</DataFile>
+        <SessionFile>/Data/Balanced/Session-2024-11-05--10-54-39-bal/Session-2024-11-05--10-54-39-bal.imsession</SessionFile>
+        <LabelFile modified="5250618899053391464">/Data/Balanced/Session-2024-11-05--10-54-39-bal/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="0.9839928">open loop</Label>
+          <Label count="1" length="39.81204">balanced</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Session-2024-11-05--11-03-15-bal" sessionId="e7d9b24d-4412-4785-9ddc-eec3f0375210" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="Serial Capture Data" tags="None">
+        <DataFile shape="[2]" samplerate="15000" modified="5250615194953940791" start="3.33E-05" length="19.245933333333333">/Data/Balanced/Session-2024-11-05--11-03-15-bal/Serial-Capture-Data.data</DataFile>
+        <SessionFile>/Data/Balanced/Session-2024-11-05--11-03-15-bal/Session-2024-11-05--11-03-15-bal.imsession</SessionFile>
+        <LabelFile modified="5250618896600292127">/Data/Balanced/Session-2024-11-05--11-03-15-bal/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="1.7367518">open loop</Label>
+          <Label count="1" length="14.1290827">balanced</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Session-2024-11-05--11-09-33-bal" sessionId="560fe838-dc2d-45ce-a4f3-e46fa816f119" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="Serial Capture Data" tags="None">
+        <DataFile shape="[2]" samplerate="15000" modified="5250615194955988604" start="3.33E-05" length="23.507933333333334">/Data/Balanced/Session-2024-11-05--11-09-33-bal/Serial-Capture-Data.data</DataFile>
+        <SessionFile>/Data/Balanced/Session-2024-11-05--11-09-33-bal/Session-2024-11-05--11-09-33-bal.imsession</SessionFile>
+        <LabelFile modified="5250618896121876257">/Data/Balanced/Session-2024-11-05--11-09-33-bal/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="1.0971777">open loop</Label>
+          <Label count="1" length="18.1074477">balanced</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Session-2024-11-05--11-20-19-bal" sessionId="f9e01458-dedf-465d-9f43-fbc6ae9b1e51" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="Serial Capture Data" tags="None">
+        <DataFile shape="[2]" samplerate="15000" modified="5250615194958122228" start="3.33E-05" length="83.7166">/Data/Balanced/Session-2024-11-05--11-20-19-bal/Serial-Capture-Data.data</DataFile>
+        <SessionFile>/Data/Balanced/Session-2024-11-05--11-20-19-bal/Session-2024-11-05--11-20-19-bal.imsession</SessionFile>
+        <LabelFile modified="5250618891631903080">/Data/Balanced/Session-2024-11-05--11-20-19-bal/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="1.6228058">open loop</Label>
+          <Label count="1" length="73.5716082">balanced</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Session-2024-11-05--11-23-43-bal" sessionId="e608a280-0589-4a1c-a36f-d7939038b0c4" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="Serial Capture Data" tags="None">
+        <DataFile shape="[2]" samplerate="15000" modified="5250615194959683472" start="3.33E-05" length="91.23193333333334">/Data/Balanced/Session-2024-11-05--11-23-43-bal/Serial-Capture-Data.data</DataFile>
+        <SessionFile>/Data/Balanced/Session-2024-11-05--11-23-43-bal/Session-2024-11-05--11-23-43-bal.imsession</SessionFile>
+        <LabelFile modified="5250618891381196122">/Data/Balanced/Session-2024-11-05--11-23-43-bal/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="1.1896117">open loop</Label>
+          <Label count="1" length="82.6974867">balanced</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Session-2024-11-05--11-31-31-unb" sessionId="78c8db10-f2cf-4a5c-bed9-24b5cebce3b9" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="Serial Capture Data" tags="None">
+        <DataFile shape="[2]" samplerate="15000" modified="5250615194961125370" start="3.33E-05" length="55.2866">/Data/Unbalanced/Session-2024-11-05--11-31-31-unb/Serial-Capture-Data.data</DataFile>
+        <SessionFile>/Data/Unbalanced/Session-2024-11-05--11-31-31-unb/Session-2024-11-05--11-31-31-unb.imsession</SessionFile>
+        <LabelFile modified="5250618886381406448">/Data/Unbalanced/Session-2024-11-05--11-31-31-unb/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="2.8556547">open loop</Label>
+          <Label count="1" length="45.7970258">unbalanced</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Session-2024-11-05--14-05-28-unb" sessionId="9e9786f5-3ae7-45c4-8827-39c7b9ea53e3" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="label" dataTrack="Serial Capture Data" tags="None">
+        <DataFile shape="[2]" samplerate="15000" modified="5250615194963394278" start="3.33E-05" length="19.065266666666666">/Data/Unbalanced/Session-2024-11-05--14-05-28-unb/Serial-Capture-Data.data</DataFile>
+        <SessionFile>/Data/Unbalanced/Session-2024-11-05--14-05-28-unb/Session-2024-11-05--14-05-28-unb.imsession</SessionFile>
+        <LabelFile modified="5250618883503703555">/Data/Unbalanced/Session-2024-11-05--14-05-28-unb/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="1.2887896">open loop</Label>
+          <Label count="1" length="15.9645155">unbalanced</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Session-2024-11-05--14-06-47-unb" sessionId="dee7a82b-7f18-4333-97df-a846fcfe4b3d" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="label" dataTrack="Serial Capture Data" tags="None">
+        <DataFile shape="[2]" samplerate="15000" modified="5250615194964038896" start="3.33E-05" length="38.5066">/Data/Unbalanced/Session-2024-11-05--14-06-47-unb/Serial-Capture-Data.data</DataFile>
+        <SessionFile>/Data/Unbalanced/Session-2024-11-05--14-06-47-unb/Session-2024-11-05--14-06-47-unb.imsession</SessionFile>
+        <LabelFile modified="5250618883805000163">/Data/Unbalanced/Session-2024-11-05--14-06-47-unb/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="0.5815487">open loop</Label>
+          <Label count="1" length="36.334987">unbalanced</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Session-2024-11-05--14-09-19-unb" sessionId="803655bf-5fbf-424b-86b0-7c987bca6c82" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="label" dataTrack="Serial Capture Data" tags="None">
+        <DataFile shape="[2]" samplerate="15000" modified="5250615194964890653" start="3.33E-05" length="52.598600000000005">/Data/Unbalanced/Session-2024-11-05--14-09-19-unb/Serial-Capture-Data.data</DataFile>
+        <SessionFile>/Data/Unbalanced/Session-2024-11-05--14-09-19-unb/Session-2024-11-05--14-09-19-unb.imsession</SessionFile>
+        <LabelFile modified="5250618885496335202">/Data/Unbalanced/Session-2024-11-05--14-09-19-unb/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="3.044745">open loop</Label>
+          <Label count="1" length="46.596465">unbalanced</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Session-2024-11-05--14-11-16-unb" sessionId="1a640ed5-89c3-47c0-a92b-da3425b8b2e1" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="label" dataTrack="Serial Capture Data" tags="None">
+        <DataFile shape="[2]" samplerate="15000" modified="5250615194965643918" start="3.33E-05" length="45.40126666666667">/Data/Unbalanced/Session-2024-11-05--14-11-16-unb/Serial-Capture-Data.data</DataFile>
+        <SessionFile>/Data/Unbalanced/Session-2024-11-05--14-11-16-unb/Session-2024-11-05--14-11-16-unb.imsession</SessionFile>
+        <LabelFile modified="5250618885088105095">/Data/Unbalanced/Session-2024-11-05--14-11-16-unb/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="0.9956077">open loop</Label>
+          <Label count="1" length="41.2549709">unbalanced</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+    </DataSet>
+    <DataSet id="validation" targetSize="0.2" labels="Complete">
+      <Session name="Session-2024-11-05--09-58-47-unb" sessionId="aaf7166e-cb16-4973-acc3-c47d22656556" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="Serial Capture Data" tags="None">
+        <DataFile shape="[2]" samplerate="15000" modified="5250615194949547263" start="3.33E-05" length="21.92526666666667">/Data/Unbalanced/Session-2024-11-05--09-58-47-unb/Serial-Capture-Data.data</DataFile>
+        <SessionFile>/Data/Unbalanced/Session-2024-11-05--09-58-47-unb/Session-2024-11-05--09-58-47-unb.imsession</SessionFile>
+        <LabelFile modified="5250618888406879330">/Data/Unbalanced/Session-2024-11-05--09-58-47-unb/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="8.8140588">open loop</Label>
+          <Label count="1" length="8.8726387">unbalanced</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Session-2024-11-05--10-57-37-bal" sessionId="9dfa9d19-84e5-4281-acde-720a60a2114e" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="Serial Capture Data" tags="None">
+        <DataFile shape="[2]" samplerate="15000" modified="5250615194953606081" start="3.33E-05" length="73.8266">/Data/Balanced/Session-2024-11-05--10-57-37-bal/Serial-Capture-Data.data</DataFile>
+        <SessionFile>/Data/Balanced/Session-2024-11-05--10-57-37-bal/Session-2024-11-05--10-57-37-bal.imsession</SessionFile>
+        <LabelFile modified="5250618896839285885">/Data/Balanced/Session-2024-11-05--10-57-37-bal/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="1.1445404">open loop</Label>
+          <Label count="1" length="67.2400889">balanced</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Session-2024-11-05--11-08-30-bal" sessionId="3aa5ad38-8e29-4004-9182-28f1e52d7f49" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="Serial Capture Data" tags="None">
+        <DataFile shape="[2]" samplerate="15000" modified="5250615194955594381" start="3.33E-05" length="62.65326666666667">/Data/Balanced/Session-2024-11-05--11-08-30-bal/Serial-Capture-Data.data</DataFile>
+        <SessionFile>/Data/Balanced/Session-2024-11-05--11-08-30-bal/Session-2024-11-05--11-08-30-bal.imsession</SessionFile>
+        <LabelFile modified="5250618874658743094">/Data/Balanced/Session-2024-11-05--11-08-30-bal/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="2.9526636">open loop</Label>
+          <Label count="1" length="57.6367409">balanced</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Session-2024-11-05--11-34-44-unb" sessionId="ee401d8a-a006-4673-9214-f15b513c63f2" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="Serial Capture Data" tags="None">
+        <DataFile shape="[2]" samplerate="15000" modified="5250615194962010447" start="3.33E-05" length="57.17326666666667">/Data/Unbalanced/Session-2024-11-05--11-34-44-unb/Serial-Capture-Data.data</DataFile>
+        <SessionFile>/Data/Unbalanced/Session-2024-11-05--11-34-44-unb/Session-2024-11-05--11-34-44-unb.imsession</SessionFile>
+        <LabelFile modified="5250618886028274699">/Data/Unbalanced/Session-2024-11-05--11-34-44-unb/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="1.0107385">open loop</Label>
+          <Label count="1" length="46.1847765">unbalanced</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Session-2024-11-05--14-03-37-unb" sessionId="1db9a3ec-71cd-46e5-8e0b-e4a720459342" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="label" dataTrack="Serial Capture Data" tags="None">
+        <DataFile shape="[2]" samplerate="15000" modified="5250615194963047111" start="3.33E-05" length="63.720600000000005">/Data/Unbalanced/Session-2024-11-05--14-03-37-unb/Serial-Capture-Data.data</DataFile>
+        <SessionFile>/Data/Unbalanced/Session-2024-11-05--14-03-37-unb/Session-2024-11-05--14-03-37-unb.imsession</SessionFile>
+        <LabelFile modified="5250618883161035634">/Data/Unbalanced/Session-2024-11-05--14-03-37-unb/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="2.4451132">open loop</Label>
+          <Label count="1" length="57.3379862">unbalanced</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+    </DataSet>
+    <DataSet id="test" targetSize="0.2" labels="Complete">
+      <Session name="Session-2024-11-05--09-51-48-unb" sessionId="f1c12bbe-b9f4-4435-98be-1a4344690e30" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="Serial Capture Data" tags="None">
+        <DataFile shape="[2]" samplerate="15000" modified="5250615194949176577" start="3.33E-05" length="48.76926666666667">/Data/Unbalanced/Session-2024-11-05--09-51-48-unb/Serial-Capture-Data.data</DataFile>
+        <SessionFile>/Data/Unbalanced/Session-2024-11-05--09-51-48-unb/Session-2024-11-05--09-51-48-unb.imsession</SessionFile>
+        <LabelFile modified="5250618889100141367">/Data/Unbalanced/Session-2024-11-05--09-51-48-unb/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="4.1899954">open loop</Label>
+          <Label count="1" length="36.6569779">unbalanced</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Session-2024-11-05--11-04-14-bal" sessionId="77a82d7f-d9e9-4555-a50e-ab306e2eb982" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="Serial Capture Data" tags="None">
+        <DataFile shape="[2]" samplerate="15000" modified="5250615194954554551" start="3.33E-05" length="39.805933333333336">/Data/Balanced/Session-2024-11-05--11-04-14-bal/Serial-Capture-Data.data</DataFile>
+        <SessionFile>/Data/Balanced/Session-2024-11-05--11-04-14-bal/Session-2024-11-05--11-04-14-bal.imsession</SessionFile>
+        <LabelFile modified="5250618899752677890">/Data/Balanced/Session-2024-11-05--11-04-14-bal/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="2.2862287">open loop</Label>
+          <Label count="1" length="30.8576874">balanced</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Session-2024-11-05--11-14-39-bal" sessionId="1913557d-3b38-4ce1-a1c8-128d9b1df865" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="Serial Capture Data" tags="None">
+        <DataFile shape="[2]" samplerate="15000" modified="5250615194956749903" start="3.33E-05" length="50.02993333333333">/Data/Balanced/Session-2024-11-05--11-14-39-bal/Serial-Capture-Data.data</DataFile>
+        <SessionFile>/Data/Balanced/Session-2024-11-05--11-14-39-bal/Session-2024-11-05--11-14-39-bal.imsession</SessionFile>
+        <LabelFile modified="5250618900962960168">/Data/Balanced/Session-2024-11-05--11-14-39-bal/label.label</LabelFile>
+        <Labels>
+          <Label count="2" length="3.0443396">open loop</Label>
+          <Label count="2" length="39.9143795">balanced</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="Session-2024-11-05--11-28-43-unb" sessionId="792e1f5d-1e1b-4281-a7ce-e69c21db5346" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="Serial Capture Data" tags="None">
+        <DataFile shape="[2]" samplerate="15000" modified="5250615194960244358" start="3.33E-05" length="33.52726666666667">/Data/Unbalanced/Session-2024-11-05--11-28-43-unb/Serial-Capture-Data.data</DataFile>
+        <SessionFile>/Data/Unbalanced/Session-2024-11-05--11-28-43-unb/Session-2024-11-05--11-28-43-unb.imsession</SessionFile>
+        <LabelFile modified="5250618886555531871">/Data/Unbalanced/Session-2024-11-05--11-28-43-unb/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="1.8888568">open loop</Label>
+          <Label count="1" length="26.115106">unbalanced</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+    </DataSet>
+  </Database>
+</ImagimobStudio>

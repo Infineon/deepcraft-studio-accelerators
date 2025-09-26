@@ -1,0 +1,12 @@
+{
+  "title": "Gestures Detection (CAPSENSE)",
+  "description": "CAPSENSE-based gestures detection model detects up, down, left and right gestures",
+  "algorithm": "Classification",
+  "sensors": ["Capacitive & Inductive Sensing"],
+  "domain": ["Touch", "Sensing"],
+  "application": ["Smart Home", "Appliances", "Smart Manufactoring", "Industrial IoT"],
+  "use_case": ["Gestures Detection"],
+  "kit": ["PSOC\u2122 4100S Max Pioneer Kit", "PSOC\u2122 6 Pioneer Kit", "PSOC\u2122 6 AI Kit", "PSOC\u2122 Edge AI Kit"],
+  "device": ["PSOC\u2122 4", "PSOC\u2122 6", "PSOC\u2122 Edge"],
+  "workflow": ["ML Development"]
+}
