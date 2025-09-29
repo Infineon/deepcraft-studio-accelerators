@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ImagimobStudio version="0.9">
+  <Timeline id="3f0b16b9-4960-4c1b-a808-a78e719698d6">
+    <Tracks>
+      <Track name="image" type="imagejpg">
+        <PayloadFile>20250415-151727_data-batch_1_overlay_35_png.rf.d4f9f3ef3aba50387be9169fc305c798.jpg</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="label" type="labelxml">
+        <PayloadFile>20250415-151727_data-batch_1_overlay_35_png.rf.d4f9f3ef3aba50387be9169fc305c798.labelxml</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="model_prediction" type="labelxml">
+        <PayloadFile>..\..\..\..\Models\model\Predictions\20250415-151727_data-batch_1_overlay_35_png.rf.d4f9f3ef3aba50387be9169fc305c798\model_prediction.labelxml</PayloadFile>
+        <Shape />
+      </Track>
+    </Tracks>
+  </Timeline>
+</ImagimobStudio>

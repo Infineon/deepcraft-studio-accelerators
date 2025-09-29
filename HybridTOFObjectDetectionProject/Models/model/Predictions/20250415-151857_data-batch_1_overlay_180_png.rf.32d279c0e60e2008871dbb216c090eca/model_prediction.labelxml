@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Annotations>
+	<Annotation>
+		<Path>20250415-151857_data-batch_1_overlay_180_png.rf.32d279c0e60e2008871dbb216c090eca.jpg</Path>
+		<Object>
+			<Name>ball</Name>
+			<Confidence>0.8139</Confidence>
+			<Bndbox>
+				<X>0.5831977844238281</X>
+				<Y>0.7406249046325684</Y>
+				<Width>0.03912420272827148</Width>
+				<Height>0.04529027938842774</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>toy</Name>
+			<Confidence>0.7593</Confidence>
+			<Bndbox>
+				<X>0.5361103534698486</X>
+				<Y>0.5586276054382324</Y>
+				<Width>0.04063873291015625</Width>
+				<Height>0.03665628433227539</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>human</Name>
+			<Confidence>0.5304</Confidence>
+			<Bndbox>
+				<X>0.4158193230628967</X>
+				<Y>0.3542484641075134</Y>
+				<Width>0.2873743772506714</Width>
+				<Height>0.16199562549591065</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>obstacle</Name>
+			<Confidence>0.3674</Confidence>
+			<Bndbox>
+				<X>0.5183642864227295</X>
+				<Y>0.28159661293029786</Y>
+				<Width>0.0891946792602539</Width>
+				<Height>0.05198736190795898</Height>
+			</Bndbox>
+		</Object>
+	</Annotation>
+</Annotations>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+
+
+    <Type Name="royale::Pair&lt;*&gt;">
+        <DisplayString>({first}, {second})</DisplayString>
+        <Expand>
+            <Item Name="first">first</Item>
+            <Item Name="second">second</Item>
+        </Expand>
+    </Type>
+
+    <Type Name="royale::basicString&lt;char&gt;">
+        <DisplayString>{m_strdata._Ptr,s}</DisplayString>
+        <StringView>m_strdata._Ptr,m_actualSize</StringView>
+        <Expand>
+            <Item Name="[size]">m_actualSize</Item>
+            <Item Name="[capacity]">m_allocationSize</Item>
+            <ArrayItems>
+                <Size>m_actualSize</Size>
+                <ValuePointer>m_strdata._Ptr</ValuePointer>
+            </ArrayItems>
+        </Expand>
+    </Type>
+
+    <Type Name="royale::Vector&lt;*&gt;">
+        <DisplayString>{{ size={m_actualSize} }}</DisplayString>
+        <Expand>
+            <Item Name="[size]" ExcludeView="simple">m_actualSize</Item>
+            <Item Name="[capacity]" ExcludeView="simple">m_allocationSize</Item>
+            <ArrayItems>
+                <Size>m_actualSize</Size>
+                <ValuePointer>($T1*)m_data._Ptr</ValuePointer>
+            </ArrayItems>
+        </Expand>
+    </Type>
+
+    <Type Name="royale::Variant">
+        <DisplayString Condition="m_type == 0">{i} : Int[{intMin},{intMax}]</DisplayString>
+        <DisplayString Condition="m_type == 1">{f} : Float[{floatMin},{floatMax}]</DisplayString>
+        <DisplayString Condition="m_type == 2 &amp;&amp; b == true">True : Bool</DisplayString>
+        <DisplayString Condition="m_type == 2 &amp;&amp; b == false">False : Bool</DisplayString>
+    </Type>
+
+
+</AutoVisualizer>

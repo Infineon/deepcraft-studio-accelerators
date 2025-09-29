@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Annotations>
+	<Annotation>
+		<Path>overlay_1745484499_png.rf.8f77d95633d011793d312c063bf491f3.jpg</Path>
+		<Object>
+			<Name>hedgehog</Name>
+			<Confidence>0.8606</Confidence>
+			<Bndbox>
+				<X>0.6240656852722168</X>
+				<Y>0.5033963203430176</Y>
+				<Width>0.08961687088012696</Width>
+				<Height>0.13022098541259766</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>ball</Name>
+			<Confidence>0.5307</Confidence>
+			<Bndbox>
+				<X>0.5333466529846191</X>
+				<Y>0.3739838838577271</Y>
+				<Width>0.06193361282348633</Width>
+				<Height>0.0671302318572998</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>obstacle</Name>
+			<Confidence>0.2732</Confidence>
+			<Bndbox>
+				<X>0.40095934867858884</X>
+				<Y>0.6588412761688233</Y>
+				<Width>0.5058049201965332</Width>
+				<Height>0.22577991485595703</Height>
+			</Bndbox>
+		</Object>
+	</Annotation>
+</Annotations>
