@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Annotations>
+	<Annotation>
+		<Path>train_1024.jpg</Path>
+		<Object>
+			<Name>Rock</Name>
+			<Confidence>0.4704</Confidence>
+			<Bndbox>
+				<X>0.857374119758606</X>
+				<Y>0.7024993896484375</Y>
+				<Width>0.18958086967468263</Width>
+				<Height>0.1777205467224121</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>Paper</Name>
+			<Confidence>0.4067</Confidence>
+			<Bndbox>
+				<X>0.3401020050048828</X>
+				<Y>0.6904192924499511</Y>
+				<Width>0.36890535354614257</Width>
+				<Height>0.12189159393310547</Height>
+			</Bndbox>
+		</Object>
+	</Annotation>
+</Annotations>

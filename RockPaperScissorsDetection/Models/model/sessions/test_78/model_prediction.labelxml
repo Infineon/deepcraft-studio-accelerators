@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Annotations>
+	<Annotation>
+		<Path>test_78.jpg</Path>
+		<Object>
+			<Name>Paper</Name>
+			<Confidence>0.2986</Confidence>
+			<Bndbox>
+				<X>0.6422922611236572</X>
+				<Y>0.5200435161590576</Y>
+				<Width>0.17254390716552734</Width>
+				<Height>0.18569679260253907</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>Paper</Name>
+			<Confidence>0.2953</Confidence>
+			<Bndbox>
+				<X>0.6528022766113282</X>
+				<Y>0.8090782165527344</Y>
+				<Width>0.2675060272216797</Width>
+				<Height>0.13957443237304687</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>Rock</Name>
+			<Confidence>0.2655</Confidence>
+			<Bndbox>
+				<X>0.24204087257385254</X>
+				<Y>0.34199323654174807</Y>
+				<Width>0.13385272026062012</Width>
+				<Height>0.2818158149719238</Height>
+			</Bndbox>
+		</Object>
+	</Annotation>
+</Annotations>

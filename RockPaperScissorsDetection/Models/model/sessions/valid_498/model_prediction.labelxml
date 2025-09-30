@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Annotations>
+	<Annotation>
+		<Path>valid_498.jpg</Path>
+		<Object>
+			<Name>Rock</Name>
+			<Confidence>0.6023</Confidence>
+			<Bndbox>
+				<X>0.7748367309570312</X>
+				<Y>0.5590362668037414</Y>
+				<Width>0.20514850616455077</Width>
+				<Height>0.35484044551849364</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>Scissors</Name>
+			<Confidence>0.5411</Confidence>
+			<Bndbox>
+				<X>0.3230092227458954</X>
+				<Y>0.5367511987686158</Y>
+				<Width>0.2984080910682678</Width>
+				<Height>0.611919355392456</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>Scissors</Name>
+			<Confidence>0.4462</Confidence>
+			<Bndbox>
+				<X>0.32306761145591734</X>
+				<Y>0.645342493057251</Y>
+				<Width>0.381116783618927</Width>
+				<Height>0.4322354316711426</Height>
+			</Bndbox>
+		</Object>
+	</Annotation>
+</Annotations>

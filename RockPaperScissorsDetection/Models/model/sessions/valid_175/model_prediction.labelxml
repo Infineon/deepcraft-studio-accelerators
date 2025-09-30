@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Annotations>
+	<Annotation>
+		<Path>valid_175.jpg</Path>
+		<Object>
+			<Name>Rock</Name>
+			<Confidence>0.3588</Confidence>
+			<Bndbox>
+				<X>0.5346554756164551</X>
+				<Y>0.5164296984672546</Y>
+				<Width>0.6922073364257812</Width>
+				<Height>0.538458275794983</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>Paper</Name>
+			<Confidence>0.3378</Confidence>
+			<Bndbox>
+				<X>0.42638330459594725</X>
+				<Y>0.4760746955871582</Y>
+				<Width>0.5267534255981445</Width>
+				<Height>0.3883538246154785</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>Paper</Name>
+			<Confidence>0.3301</Confidence>
+			<Bndbox>
+				<X>0.5415837168693542</X>
+				<Y>0.4553355097770691</Y>
+				<Width>0.6452232599258423</Width>
+				<Height>0.4832185983657837</Height>
+			</Bndbox>
+		</Object>
+	</Annotation>
+</Annotations>

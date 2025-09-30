@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Annotations>
+	<Annotation>
+		<Path>valid_428.jpg</Path>
+		<Object>
+			<Name>Scissors</Name>
+			<Confidence>0.2803</Confidence>
+			<Bndbox>
+				<X>0.26309428811073304</X>
+				<Y>0.5866037964820862</Y>
+				<Width>0.3506124377250671</Width>
+				<Height>0.6135891675949097</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>Paper</Name>
+			<Confidence>0.2757</Confidence>
+			<Bndbox>
+				<X>0.2440370500087738</X>
+				<Y>0.5950184464454651</Y>
+				<Width>0.3908404469490051</Width>
+				<Height>0.6493086576461792</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>Paper</Name>
+			<Confidence>0.261</Confidence>
+			<Bndbox>
+				<X>0.27121675610542295</X>
+				<Y>0.6277008056640625</Y>
+				<Width>0.399275529384613</Width>
+				<Height>0.4214509963989258</Height>
+			</Bndbox>
+		</Object>
+	</Annotation>
+</Annotations>

@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Annotations>
+	<Annotation>
+		<Path>test_153.jpg</Path>
+		<Object>
+			<Name>Paper</Name>
+			<Confidence>0.5962</Confidence>
+			<Bndbox>
+				<X>0.905919075012207</X>
+				<Y>0.5304609298706054</Y>
+				<Width>0.3002614974975586</Width>
+				<Height>0.36545400619506835</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>Paper</Name>
+			<Confidence>0.558</Confidence>
+			<Bndbox>
+				<X>0.8508903503417968</X>
+				<Y>0.5652278661727905</Y>
+				<Width>0.39162559509277345</Width>
+				<Height>0.49947400093078614</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>Scissors</Name>
+			<Confidence>0.2605</Confidence>
+			<Bndbox>
+				<X>0.821171760559082</X>
+				<Y>0.5789342880249023</Y>
+				<Width>0.45609092712402344</Width>
+				<Height>0.6006298065185547</Height>
+			</Bndbox>
+		</Object>
+	</Annotation>
+</Annotations>
