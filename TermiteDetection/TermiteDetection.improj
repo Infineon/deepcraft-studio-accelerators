@@ -2,6 +2,7 @@
 <ImagimobStudio version="1.1.0">
   <Job id="1e24ac47-4d19-11f0-a138-a9b180af8397" />
   <ProjectType>ObjectDetection</ProjectType>
+  <ProjectId>8e605f27-1e71-485f-a24b-cae29ed8dc03</ProjectId>
   <ModelFactory>
     <Epochs>100</Epochs>
     <BatchSize>64</BatchSize>
@@ -50,8 +51,8 @@
     </Augmentation>
     <AdvancedOptions>
       <Optimizer>Auto</Optimizer>
-      <LearningRateInitial>0.05</LearningRateInitial>
-      <LearningRateFinal>0.15</LearningRateFinal>
+      <LearningRateInitial>0.01</LearningRateInitial>
+      <LearningRateFinal>0.01</LearningRateFinal>
       <Momentum>0.937</Momentum>
       <WeightDecay>0.0005</WeightDecay>
       <ConfidenceThresholdValidation>0.001</ConfidenceThresholdValidation>
