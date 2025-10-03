@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Annotations>
+	<Annotation>
+		<Path>2011_001271.jpg</Path>
+		<Object>
+			<Name>car</Name>
+			<Confidence>0.772</Confidence>
+			<Bndbox>
+				<X>0.8372224807739258</X>
+				<Y>0.4477564811706543</Y>
+				<Width>0.4332576751708984</Width>
+				<Height>0.1577442169189453</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>car</Name>
+			<Confidence>0.6838</Confidence>
+			<Bndbox>
+				<X>0.19964927434921265</X>
+				<Y>0.48346797227859495</Y>
+				<Width>0.30947554111480713</Width>
+				<Height>0.18830840587615966</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>bicycle</Name>
+			<Confidence>0.4122</Confidence>
+			<Bndbox>
+				<X>0.5151336789131165</X>
+				<Y>0.5739465236663819</Y>
+				<Width>0.33213937282562256</Width>
+				<Height>0.20584478378295898</Height>
+			</Bndbox>
+		</Object>
+	</Annotation>
+</Annotations>

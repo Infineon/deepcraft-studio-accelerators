@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Annotations>
+	<Annotation>
+		<Path>2008_007766.jpg</Path>
+		<Object>
+			<Name>person</Name>
+			<Confidence>0.681</Confidence>
+			<Bndbox>
+				<X>0.550174605846405</X>
+				<Y>0.5020409226417542</Y>
+				<Width>0.3242321252822876</Width>
+				<Height>0.6185431241989136</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>bicycle</Name>
+			<Confidence>0.4804</Confidence>
+			<Bndbox>
+				<X>0.5663124561309815</X>
+				<Y>0.6978421449661255</Y>
+				<Width>0.2701432228088379</Width>
+				<Height>0.4368539333343506</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>bicycle</Name>
+			<Confidence>0.2886</Confidence>
+			<Bndbox>
+				<X>0.5259912848472595</X>
+				<Y>0.6759965419769287</Y>
+				<Width>0.42458832263946533</Width>
+				<Height>0.493306827545166</Height>
+			</Bndbox>
+		</Object>
+	</Annotation>
+</Annotations>

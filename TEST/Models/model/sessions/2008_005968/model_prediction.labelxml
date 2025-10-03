@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Annotations>
+	<Annotation>
+		<Path>2008_005968.jpg</Path>
+		<Object>
+			<Name>train</Name>
+			<Confidence>0.5081</Confidence>
+			<Bndbox>
+				<X>0.6005842685699463</X>
+				<Y>0.4165915012359619</Y>
+				<Width>0.933198070526123</Width>
+				<Height>0.7634316444396972</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>bus</Name>
+			<Confidence>0.3361</Confidence>
+			<Bndbox>
+				<X>0.583564305305481</X>
+				<Y>0.41474285125732424</Y>
+				<Width>0.9756577968597412</Width>
+				<Height>0.7933193206787109</Height>
+			</Bndbox>
+		</Object>
+	</Annotation>
+</Annotations>

@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Annotations>
+	<Annotation>
+		<Path>2009_004093.jpg</Path>
+		<Object>
+			<Name>bicycle</Name>
+			<Confidence>0.6169</Confidence>
+			<Bndbox>
+				<X>0.5967309236526489</X>
+				<Y>0.36963634490966796</Y>
+				<Width>0.8940812587738037</Width>
+				<Height>0.7392726898193359</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>motorbike</Name>
+			<Confidence>0.359</Confidence>
+			<Bndbox>
+				<X>0.6004654884338378</X>
+				<Y>0.42870259284973145</Y>
+				<Width>0.9196548461914062</Width>
+				<Height>0.8574051856994629</Height>
+			</Bndbox>
+		</Object>
+	</Annotation>
+</Annotations>

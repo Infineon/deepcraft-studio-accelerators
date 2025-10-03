@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Annotations>
+	<Annotation>
+		<Path>2007_008801.jpg</Path>
+		<Object>
+			<Name>car</Name>
+			<Confidence>0.5737</Confidence>
+			<Bndbox>
+				<X>0.9606012344360352</X>
+				<Y>0.1351686656475067</Y>
+				<Width>0.2550493240356445</Width>
+				<Height>0.18838316202163696</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>motorbike</Name>
+			<Confidence>0.369</Confidence>
+			<Bndbox>
+				<X>0.5611860513687134</X>
+				<Y>0.5574930071830749</Y>
+				<Width>0.8785300731658936</Width>
+				<Height>0.6165876626968384</Height>
+			</Bndbox>
+		</Object>
+	</Annotation>
+</Annotations>

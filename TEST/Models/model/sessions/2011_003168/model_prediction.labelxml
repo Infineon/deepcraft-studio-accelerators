@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Annotations>
+	<Annotation>
+		<Path>2011_003168.jpg</Path>
+		<Object>
+			<Name>person</Name>
+			<Confidence>0.5821</Confidence>
+			<Bndbox>
+				<X>0.3152244031429291</X>
+				<Y>0.47908362150192263</Y>
+				<Width>0.2903912663459778</Width>
+				<Height>0.5995283365249634</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>person</Name>
+			<Confidence>0.5043</Confidence>
+			<Bndbox>
+				<X>0.8651490449905396</X>
+				<Y>0.4230131983757019</Y>
+				<Width>0.3992125988006592</Width>
+				<Height>0.7153644800186157</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>bicycle</Name>
+			<Confidence>0.3121</Confidence>
+			<Bndbox>
+				<X>0.7850992202758789</X>
+				<Y>0.6314557075500489</Y>
+				<Width>0.46051464080810545</Width>
+				<Height>0.3940147399902344</Height>
+			</Bndbox>
+		</Object>
+	</Annotation>
+</Annotations>

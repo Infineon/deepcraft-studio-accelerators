@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Annotations>
+	<Annotation>
+		<Path>2011_001806.jpg</Path>
+		<Object>
+			<Name>bicycle</Name>
+			<Confidence>0.6567</Confidence>
+			<Bndbox>
+				<X>0.33269342184066775</X>
+				<Y>0.9372154235839844</Y>
+				<Width>0.376348614692688</Width>
+				<Height>0.25885581970214844</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>train</Name>
+			<Confidence>0.5898</Confidence>
+			<Bndbox>
+				<X>0.4362173318862915</X>
+				<Y>0.33329354524612426</Y>
+				<Width>0.8095386028289795</Width>
+				<Height>0.6643689870834351</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>train</Name>
+			<Confidence>0.2858</Confidence>
+			<Bndbox>
+				<X>0.628405237197876</X>
+				<Y>0.3664547801017761</Y>
+				<Width>0.31479854583740235</Width>
+				<Height>0.6054229974746704</Height>
+			</Bndbox>
+		</Object>
+	</Annotation>
+</Annotations>
