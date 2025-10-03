@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ImagimobStudio version="0.9">
+  <Timeline id="de5a3df8-3e70-44c5-84e8-b3bed74bc4ef">
+    <Tracks>
+      <Track name="image" type="imagejpg">
+        <PayloadFile>2008_006819.jpg</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="label" type="labelxml">
+        <PayloadFile>2008_006819.labelxml</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="model_prediction" type="labelxml">
+        <PayloadFile>..\..\..\Models\model\sessions\2008_006819\model_prediction.labelxml</PayloadFile>
+        <Shape />
+      </Track>
+    </Tracks>
+  </Timeline>
+</ImagimobStudio>
