@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Annotations>
+	<Annotation>
+		<Path>2012_003403.jpg</Path>
+		<Object>
+			<Name>bus</Name>
+			<Confidence>0.3216</Confidence>
+			<Bndbox>
+				<X>0.5640452742576599</X>
+				<Y>0.32413228750228884</Y>
+				<Width>0.7812310457229614</Width>
+				<Height>0.5465998888015747</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>person</Name>
+			<Confidence>0.2697</Confidence>
+			<Bndbox>
+				<X>0.6626327514648438</X>
+				<Y>0.4842977046966553</Y>
+				<Width>0.0666804313659668</Width>
+				<Height>0.15603256225585938</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>train</Name>
+			<Confidence>0.2528</Confidence>
+			<Bndbox>
+				<X>0.6188350677490234</X>
+				<Y>0.32109694480895995</Y>
+				<Width>0.8601322174072266</Width>
+				<Height>0.5761932373046875</Height>
+			</Bndbox>
+		</Object>
+	</Annotation>
+</Annotations>
