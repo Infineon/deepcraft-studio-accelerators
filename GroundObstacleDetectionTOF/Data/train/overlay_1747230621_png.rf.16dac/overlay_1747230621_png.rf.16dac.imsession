@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ImagimobStudio version="0.9">
+  <Timeline id="94e2feb0-dca2-4199-a464-8f5963eb4a3d">
+    <Tracks>
+      <Track name="image" type="imagejpg">
+        <PayloadFile>overlay_1747230621_png.rf.16dac.jpg</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="label" type="labelxml">
+        <PayloadFile>overlay_1747230621_png.rf.16dac.labelxml</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="model_prediction" type="labelxml">
+        <PayloadFile>..\..\..\Models\model\Predictions\overlay_1747230621_png.rf.16dac\model_prediction.labelxml</PayloadFile>
+        <Shape />
+      </Track>
+    </Tracks>
+  </Timeline>
+</ImagimobStudio>

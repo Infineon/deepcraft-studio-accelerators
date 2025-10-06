@@ -1,0 +1,22 @@
+var searchData=
+[
+  ['_7ecameramanager_689',['~CameraManager',['../a00957.html#a193ae8534a1c460352d2074ecb6f18ff',1,'royale::CameraManager']]],
+  ['_7eicameradevice_690',['~ICameraDevice',['../a00977.html#a94077c8ebcc1b1c0b6b96b6b2d19c6f5',1,'royale::ICameraDevice']]],
+  ['_7eidepthdatalistener_691',['~IDepthDataListener',['../a00981.html#a4c0e5d0bad086faef99f6aad5ee3ea6e',1,'royale::IDepthDataListener']]],
+  ['_7eidepthimagelistener_692',['~IDepthImageListener',['../a00985.html#ad02b1ec22d4ea2c51d2358e9a4f8ff2f',1,'royale::IDepthImageListener']]],
+  ['_7eidepthirimagelistener_693',['~IDepthIRImageListener',['../a00989.html#a9c46fb8ba7e587a741254251ad6e9e84',1,'royale::IDepthIRImageListener']]],
+  ['_7eievent_694',['~IEvent',['../a00993.html#af8d12c224716b437a56ac81473ca99dc',1,'royale::IEvent']]],
+  ['_7eieventlistener_695',['~IEventListener',['../a00997.html#ab7a1836298b6e734396d0de8fbc64ab1',1,'royale::IEventListener']]],
+  ['_7eiexposuregrouplistener_696',['~IExposureGroupListener',['../a01001.html#a919c92aaa7b9e62913ffba89890038bd',1,'royale::IExposureGroupListener']]],
+  ['_7eiexposurelistener_697',['~IExposureListener',['../a01005.html#acfac4b4c7ddc8d6b5e4d2368eae7957e',1,'royale::IExposureListener']]],
+  ['_7eiextendeddata_698',['~IExtendedData',['../a01009.html#ababd0b48c444e71266aba8bd3aee362e',1,'royale::IExtendedData']]],
+  ['_7eiextendeddatalistener_699',['~IExtendedDataListener',['../a01013.html#a8c84944d75832150ab472354609399f5',1,'royale::IExtendedDataListener']]],
+  ['_7eiirimagelistener_700',['~IIRImageListener',['../a01017.html#a71da8db1bc3d53bc9d7d56f622f04570',1,'royale::IIRImageListener']]],
+  ['_7eiplaybackstoplistener_701',['~IPlaybackStopListener',['../a01029.html#a32a0a6dd71269fa191e82ec9e0dc127a',1,'royale::IPlaybackStopListener']]],
+  ['_7eipointcloudlistener_702',['~IPointCloudListener',['../a01033.html#aa192bf75d4d1158dd899da3f0dae389e',1,'royale::IPointCloudListener']]],
+  ['_7eirawdatalistener_703',['~IRawDataListener',['../a01037.html#a0ea335fdbe3d6132437bcec4a50e53e9',1,'royale::IRawDataListener']]],
+  ['_7eirecord_704',['~IRecord',['../a01041.html#a666a608bfd954ced3b092c51abb2756c',1,'royale::IRecord']]],
+  ['_7eirecordstoplistener_705',['~IRecordStopListener',['../a01045.html#a0549546da1a0f7cb8609692ded60e8c6',1,'royale::IRecordStopListener']]],
+  ['_7eireplay_706',['~IReplay',['../a01049.html#acaaa7b3016fc16dd159c7337f38b36e0',1,'royale::IReplay']]],
+  ['_7evariant_707',['~Variant',['../a01069.html#a03b2cb2270622a0924a8c2672474630d',1,'royale::Variant']]]
+];

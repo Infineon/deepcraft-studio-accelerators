@@ -1,0 +1,169 @@
+; Installation INF for the CamBoard pico
+;
+; (c) Copyright 2017 pmdtechnologies ag
+;
+
+[Version]
+Signature="$WINDOWS NT$"
+Class = PMD Devices
+ClassGuid={59158dd2-ecf1-4018-b1e6-334eb625e50f}
+provider=%CYUSB3_Provider%
+CatalogFile=CYUSB3.cat
+DriverVer=08/08/2019,1.6.16.00
+
+[SourceDisksNames]
+1=%CYUSB3_Install%,,,
+
+[SourceDisksFiles]
+CYUSB3.sys = 1
+WdfCoinstaller01011.dll=1 ; WDF CoInstaller make sure the number matches with SourceDisksNames
+
+[DestinationDirs]
+CYUSB3.Files.Ext = 10,System32\Drivers
+CoInstaller_CopyFiles = 11
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+; ================== Class section ==================
+
+[ClassInstall32]
+Addreg=MyDeviceClassReg
+
+[MyDeviceClassReg]
+HKR,,,0,%ClassName%
+HKR,,Icon,,-1
+
+; ========== Manufacturer/Models sections ===========
+
+[Manufacturer]
+%CYUSB3_Provider%=pmdtechnologies,NTx86.6.2
+
+;for x86 platforms
+[pmdtechnologies.NTx86.6.2]
+%VID_058B&PID_00A0.DeviceDesc%=CyUsb3, USB\VID_058B&PID_00A0
+%VID_1C28&PID_C012.DeviceDesc%=CyUsb3, USB\VID_1C28&PID_C012
+%VID_1C28&PID_C010.DeviceDesc%=CyUsb3, USB\VID_1C28&PID_C010
+%VID_1C28&PID_C00F.DeviceDesc%=CyUsb3, USB\VID_1C28&PID_C00F
+%VID_1C28&PID_C00D.DeviceDesc%=CyUsb3, USB\VID_1C28&PID_C00D
+%VID_058B&PID_00A1.DeviceDesc%=CyUsb3, USB\VID_058B&PID_00A1
+%VID_058B&PID_00A2.DeviceDesc%=CyUsb3, USB\VID_058B&PID_00A2
+%VID_058B&PID_00A3.DeviceDesc%=CyUsb3, USB\VID_058B&PID_00A3
+%VID_058B&PID_00A4.DeviceDesc%=CyUsb3, USB\VID_058B&PID_00A4
+%VID_1C28&PID_C020.DeviceDesc%=CyUsb3, USB\VID_1C28&PID_C020
+%VID_1C28&PID_C021.DeviceDesc%=CyUsb3, USB\VID_1C28&PID_C021
+%VID_1C28&PID_C022.DeviceDesc%=CyUsb3, USB\VID_1C28&PID_C022
+%VID_1C28&PID_C023.DeviceDesc%=CyUsb3, USB\VID_1C28&PID_C023
+%VID_1C28&PID_C024.DeviceDesc%=CyUsb3, USB\VID_1C28&PID_C024
+%VID_1C28&PID_C025.DeviceDesc%=CyUsb3, USB\VID_1C28&PID_C025
+%VID_1C28&PID_C027.DeviceDesc%=CyUsb3, USB\VID_1C28&PID_C027
+%VID_1C28&PID_C028.DeviceDesc%=CyUsb3, USB\VID_1C28&PID_C028
+%VID_1C28&PID_C02A.DeviceDesc%=CyUsb3, USB\VID_1C28&PID_C02A
+%VID_1C28&PID_C02C.DeviceDesc%=CyUsb3, USB\VID_1C28&PID_C02C
+%VID_1C28&PID_C02D.DeviceDesc%=CyUsb3, USB\VID_1C28&PID_C02D
+%VID_1C28&PID_C02E.DeviceDesc%=CyUsb3, USB\VID_1C28&PID_C02E
+%VID_1C28&PID_C02F.DeviceDesc%=CyUsb3, USB\VID_1C28&PID_C02F
+%VID_1C28&PID_C030.DeviceDesc%=CyUsb3, USB\VID_1C28&PID_C030
+%VID_1C28&PID_C031.DeviceDesc%=CyUsb3, USB\VID_1C28&PID_C031
+%VID_1C28&PID_C032.DeviceDesc%=CyUsb3, USB\VID_1C28&PID_C032
+%VID_1C28&PID_C033.DeviceDesc%=CyUsb3, USB\VID_1C28&PID_C033
+%VID_1C28&PID_C034.DeviceDesc%=CyUsb3, USB\VID_1C28&PID_C034
+%VID_1C28&PID_C035.DeviceDesc%=CyUsb3, USB\VID_1C28&PID_C035
+%VID_1C28&PID_C036.DeviceDesc%=CyUsb3, USB\VID_1C28&PID_C036
+%VID_1C28&PID_C037.DeviceDesc%=CyUsb3, USB\VID_1C28&PID_C037
+%VID_1C28&PID_C039.DeviceDesc%=CyUsb3, USB\VID_1C28&PID_C039
+%VID_1C28&PID_C03A.DeviceDesc%=CyUsb3, USB\VID_1C28&PID_C03A
+
+[CYUSB3.NTx86]
+CopyFiles=CYUSB3.Files.Ext
+AddReg=CyUsb3.AddReg
+
+[CYUSB3.NTx86.HW]
+AddReg=CYUSB3.AddReg.Guid
+
+[CYUSB3.NTx86.Services]
+Addservice = CYUSB3,2,CYUSB3.AddService
+
+[CYUSB3.AddReg]
+; Deprecating - do not use in new apps to identify a CYUSB3 driver
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,CYUSB3.sys
+; You may optionally include a check for DriverBase in your application to check for a CYUSB3 driver
+HKR,,DriverBase,,CYUSB3.sys
+HKR,"Parameters","MaximumTransferSize",0x10001,4096
+HKR,"Parameters","DebugLevel",0x10001,2
+HKR,,FriendlyName,,%CYUSB3_Description%
+
+[CYUSB3.AddService]
+DisplayName    = %CYUSB3_Description%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\System32\Drivers\CYUSB3.sys
+AddReg         = CYUSB3.AddReg
+LoadOrderGroup = Base
+
+[CYUSB3.Files.Ext]
+CYUSB3.sys
+
+[CYUSB3.AddReg.Guid]
+HKR,,DriverGUID,,%CYUSB3.GUID%
+HKR,,Exclusive,0x10001,1
+
+[CYUSB3.NTx86.CoInstallers]
+AddReg=CoInstaller_AddReg
+CopyFiles=CoInstaller_CopyFiles
+
+[CoInstaller_CopyFiles]
+WdfCoinstaller01011.dll
+
+[CoInstaller_AddReg]
+HKR,,CoInstallers32,0x00010000, "WdfCoinstaller01011.dll,WdfCoInstaller"
+
+[CYUSB3.NTx86.Wdf]
+KmdfService = CYUSB3, CYUSB3_wdfsect
+
+[CYUSB3_wdfsect]
+KmdfLibraryVersion = 1.9
+
+[Strings]
+CYUSB3_Provider    = "pmdtechnologies ag"
+CYUSB3_Company     = "pmdtechnologies ag"
+CYUSB3_Description = "pmdtechnologies Camera"
+CYUSB3_DisplayName = "pmdtechnologies Camera"
+CYUSB3_Install     = "pmdtechnologies Installation"
+ClassName          = "PMD Devices"
+VID_058B&PID_00A0.DeviceDesc="Infineon IRS10x0C Evaluation Kit"
+VID_1C28&PID_C012.DeviceDesc="pmd[vision] CamBoard pico flexx"
+VID_1C28&PID_C010.DeviceDesc="pmd[vision] CamBoard pico flexx"
+VID_1C28&PID_C00F.DeviceDesc="pmd[vision] CamBoard pico 71.19k"
+VID_1C28&PID_C00D.DeviceDesc="pmd[vision] CamBoard pico"
+VID_058B&PID_00A1.DeviceDesc="Infineon IRS16x5C Evaluation Kit LED"
+VID_058B&PID_00A2.DeviceDesc="Infineon IRS16x5C VCSEL CAM"
+VID_058B&PID_00A3.DeviceDesc="Infineon IRS1125C Evaluation Kit VCSEL"
+VID_058B&PID_00A4.DeviceDesc="Infineon IRS1125A Evaluation Kit"
+VID_1C28&PID_C020.DeviceDesc="Skylla"
+VID_1C28&PID_C021.DeviceDesc="Charybdis"
+VID_1C28&PID_C022.DeviceDesc="Daedalus"
+VID_1C28&PID_C023.DeviceDesc="Alea"
+VID_1C28&PID_C024.DeviceDesc="CamBoard pico maxx"
+VID_1C28&PID_C025.DeviceDesc="CamBoard pico monstar"
+VID_1C28&PID_C027.DeviceDesc="Apollo"
+VID_1C28&PID_C028.DeviceDesc="Salome"
+VID_1C28&PID_C02A.DeviceDesc="Lewis"
+VID_1C28&PID_C02C.DeviceDesc="Equinox"
+VID_1C28&PID_C02D.DeviceDesc="x1"
+VID_1C28&PID_C02E.DeviceDesc="f1"
+VID_1C28&PID_C02F.DeviceDesc="m1"
+VID_1C28&PID_C030.DeviceDesc="U7"
+VID_1C28&PID_C031.DeviceDesc="Selene"
+VID_1C28&PID_C032.DeviceDesc="Orpheus"
+VID_1C28&PID_C033.DeviceDesc="Pmd Module"
+VID_1C28&PID_C034.DeviceDesc="Gaia"
+VID_1C28&PID_C035.DeviceDesc="Byt"
+VID_1C28&PID_C036.DeviceDesc="Holkin"
+VID_1C28&PID_C037.DeviceDesc="Ambient"
+VID_1C28&PID_C039.DeviceDesc="pmd modules 277x"
+VID_1C28&PID_C03A.DeviceDesc="x1.1"
+CYUSB3.GUID="{2C2B212B-BC84-4319-B465-367604F4F8FF}"
+CYUSB3_Unused      = "."

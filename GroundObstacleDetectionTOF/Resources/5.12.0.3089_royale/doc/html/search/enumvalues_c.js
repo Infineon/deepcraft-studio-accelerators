@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['raw_855',['Raw',['../a00139.html#ade70688fceca9ac2b41401bd8ed0119ca65e65c8ab0d8609ce12fc68a03cb8e00',1,'royale']]],
+  ['resource_5ferror_856',['RESOURCE_ERROR',['../a00139.html#a08d2011020d279958ab43e88aa954f83ae8f19147b1155bd2cc91003c9180d459',1,'royale']]],
+  ['royale_5fcapture_5fstream_857',['ROYALE_CAPTURE_STREAM',['../a00139.html#a2628ea8d12e8b2563c32f05dc7fff6faa6daad140ecd5d6517f91f1631c6c37f3',1,'royale']]],
+  ['royale_5fdevice_5fdisconnected_858',['ROYALE_DEVICE_DISCONNECTED',['../a00139.html#a2628ea8d12e8b2563c32f05dc7fff6faa85c7ab3670c7b3b16ba87517e8325ced',1,'royale']]],
+  ['royale_5ferror_859',['ROYALE_ERROR',['../a00139.html#a30d89ea3d9ad48ed6dbb2f12d45838b1a6519d8b4603111bfbbac32bb6f5d069d',1,'royale']]],
+  ['royale_5ferror_5fdescription_860',['ROYALE_ERROR_DESCRIPTION',['../a00139.html#a2628ea8d12e8b2563c32f05dc7fff6faae4167d830603d4b1bcd580b084f8386f',1,'royale']]],
+  ['royale_5feye_5fsafety_861',['ROYALE_EYE_SAFETY',['../a00139.html#a2628ea8d12e8b2563c32f05dc7fff6faa48ad65e6644731a4e039455dc936b9ba',1,'royale']]],
+  ['royale_5ffatal_862',['ROYALE_FATAL',['../a00139.html#a30d89ea3d9ad48ed6dbb2f12d45838b1a297c3c56501cca1f3b008b1ee760a427',1,'royale']]],
+  ['royale_5fframe_5fdrop_863',['ROYALE_FRAME_DROP',['../a00139.html#a2628ea8d12e8b2563c32f05dc7fff6faaff3d2dcadfdfe17f1badf6d178ac8d24',1,'royale']]],
+  ['royale_5finfo_864',['ROYALE_INFO',['../a00139.html#a30d89ea3d9ad48ed6dbb2f12d45838b1abb5d6118a4967b24d7037e5b66c18949',1,'royale::ROYALE_INFO()'],['../a00139.html#a2628ea8d12e8b2563c32f05dc7fff6faabb5d6118a4967b24d7037e5b66c18949',1,'royale::ROYALE_INFO()']]],
+  ['royale_5fover_5ftemperature_865',['ROYALE_OVER_TEMPERATURE',['../a00139.html#a2628ea8d12e8b2563c32f05dc7fff6faab058dca8d908d963029e25a19c75c568',1,'royale']]],
+  ['royale_5fprocessing_866',['ROYALE_PROCESSING',['../a00139.html#a2628ea8d12e8b2563c32f05dc7fff6faa879a1a17cdc7528a15efc4725a4377e1',1,'royale']]],
+  ['royale_5fraw_5fframe_5fstats_867',['ROYALE_RAW_FRAME_STATS',['../a00139.html#a2628ea8d12e8b2563c32f05dc7fff6faaccbab4c0ea968511e1f036e0f21900d6',1,'royale']]],
+  ['royale_5frecording_868',['ROYALE_RECORDING',['../a00139.html#a2628ea8d12e8b2563c32f05dc7fff6faac314c59790593fece4d2cf4770efd61d',1,'royale']]],
+  ['royale_5funknown_869',['ROYALE_UNKNOWN',['../a00139.html#a2628ea8d12e8b2563c32f05dc7fff6faa78891f3ebd86c44bfab1ff1c12a08914',1,'royale']]],
+  ['royale_5fwarning_870',['ROYALE_WARNING',['../a00139.html#a30d89ea3d9ad48ed6dbb2f12d45838b1a10411a49676319e039bbedfffdf9ce0a',1,'royale']]],
+  ['runtime_5ferror_871',['RUNTIME_ERROR',['../a00139.html#a08d2011020d279958ab43e88aa954f83a62be47fdd89da032cf78dfce82239579',1,'royale']]]
+];

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Annotations>
+  <Annotation>
+    <Object>
+      <Name>hedgehog</Name>
+      <Bndbox>
+        <X>0.97021484375</X>
+        <Y>0.609375</Y>
+        <Width>0.05633544921875</Width>
+        <Height>0.10945638020833333</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>ball</Name>
+      <Bndbox>
+        <X>0.5478940217391305</X>
+        <Y>0.5661231884057973</Y>
+        <Width>0.03192934782608692</Width>
+        <Height>0.03985507246376822</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>obstacle</Name>
+      <Bndbox>
+        <X>0.33763586956521746</X>
+        <Y>0.33469202898550726</Y>
+        <Width>0.23641304347826092</Width>
+        <Height>0.5190217391304349</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+</Annotations>

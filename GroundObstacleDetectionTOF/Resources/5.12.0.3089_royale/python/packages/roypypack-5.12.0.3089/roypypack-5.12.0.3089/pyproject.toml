@@ -1,0 +1,100 @@
+[build-system]
+requires = ["scikit-build-core", "swig==4.1.1", "numpy>=1.24.2"]
+build-backend = "scikit_build_core.build"
+
+[project]
+name = "roypypack"
+version = "5.12.0.3089"
+authors = [
+  { name="pmd technologies ag" },
+]
+description = "Python wrapper for Royale."
+readme = "README.md"
+requires-python = ">=3.7"
+dependencies = [
+  "numpy>=1.24.2",
+  "matplotlib"
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: Windows :: Linux",
+]
+
+[project.urls]
+"Homepage" = "https://3d.pmdtec.com/en/royale-software/"
+
+# Following config is from https://github.com/scikit-build/scikit-build-core (April 3rd, 2023)
+[tool.scikit-build]
+# The PEP 517 build hooks will add ninja and/or cmake if the versions on the
+# system are not at least these versions. Disabled by an empty string.
+cmake.minimum-version = "3.24"  # default: "3.15"
+# ninja.minimum-version = "1.5" # default
+
+# Fallback on gmake/make if available and ninja is missing (Unix). Will only
+# fallback on platforms without a known ninja wheel.
+#ninja.make-fallback = true # default
+
+# Extra args for CMake. Pip, unlike build, does not support lists, so semicolon
+# can be used to separate. Setting this in config or envvar will override the
+# entire list. See also cmake.define.
+#cmake.args = []  # default
+# cmake.args = ["-DDO_COOL_STUFF=ON", "-DOTHER=OFF"]
+
+# This activates verbose builds
+cmake.verbose = true  # default: false
+
+# This controls the CMake build type
+#cmake.build-type = "Release"  # default
+
+# Display logs at or above this level.
+#logging.level = "WARNING"  # default
+
+# Include and exclude patterns, in gitignore syntax. Include overrides exclude.
+# Wheels include packages included in the sdist; CMake has the final say.
+#sdist.include = ["src/<package>/*"]  # []  # default
+#sdist.exclude = []  # default
+
+# Make reproducible SDists (Python 3.9+ and UNIX recommended). Respects
+# SOURCE_DATE_EPOCH when true (the default).
+#sdist.reproducible = true  # default
+
+# The root-level packages to include. Special default: if not given, the package
+# is auto-discovered if it's name matches the main name.
+#wheel.packages = ["src/<package>", "<package>"]  # default
+
+# Setting py-api to "cp37" would build ABI3 wheels for Python 3.7+.  If CPython
+# is less than this value, or on PyPy, this will be ignored.  Setting the api to
+# "py3" or "py2.py3" would build wheels that don't depend on Python (ctypes, etc).
+#wheel.py-api = ""  # default
+
+# Setting this to true will expand tags (universal2 will add Intel and Apple
+# Silicon tags, for pip <21.0.1 compatibility).
+#wheel.expand-macos-universal-tags = false  # default
+
+# This allows you to change the install dir, such as to the package name. The
+# original dir is still at SKBUILD_PLATLIB_DIR (also SKBUILD_DATA_DIR, etc. are
+# available)
+#wheel.install-dir = "."  # default
+
+# This will backport an internal copy of FindPython if CMake is less than this
+# value. Set to 0 or the empty string to disable. The default will be kept in
+# sync with the version of FindPython stored in scikit-build-core.
+#backport.find-python = "3.26.1"  # default
+
+# Enable experimental features if any are available
+#experimental = false  # default
+
+# Strictly validate config options
+#strict-config = true  # default
+
+# This provides some backward compatibility if set. Defaults to the latest
+# scikit-build-core version.
+#minimum-version = "0.2"  # current version  # default
+
+# Build directory (empty will use a temporary directory). {cache_tag} and
+# {wheel_tag} are available to provide a unique directory per interpreter.
+#build-dir = ""  # default
+
+[tool.scikit-build.cmake.define]
+# Put CMake defines in this table.
+# DO_COOL_STUFF = "ON"

@@ -1,0 +1,11 @@
+{"title": "Hybrid TOF camera Object Detection",
+ "description": "This project uses hybrid TOF camera gray scale image to build a object detection model.",
+ "algorithm": "Classification",
+ "sensors": ["hybrid TOF camera"],
+ "domain": ["Vision"],
+ "application": ["Smart Home", "Appliances"],
+ "use_case": ["Object Detection", "Depth Estimation"],
+ "kit": ["PSoC-Edge AI Kit"],
+ "device": ["PSoC-Edge"],
+ "workflow": ["ML Development"]
+}
