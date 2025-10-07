@@ -1,5 +1,7 @@
 ﻿# Rock Scissors Paper Detection Project
 
+This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
+
 ## Overview
 
 The **Rock, Scissors, Paper Detection Project** is a real-time gesture recognition system powered by a YOLO-based backend for detecting and classifying hand gestures. The project aims to build a robust end-to-end system that identifies rock, scissors, and paper gestures from live video input.

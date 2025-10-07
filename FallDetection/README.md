@@ -1,5 +1,7 @@
 ﻿# Fall Detection (Belt-mounted)
 
+This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
+
 ## Overview
 
 This starter model allows you to build models to detect a fall using an IMU (Interial Mesurement Unit - accelerometer and gyroscope) mounted on the buckle of a belt.

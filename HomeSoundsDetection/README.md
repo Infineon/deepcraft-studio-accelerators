@@ -1,5 +1,7 @@
 ﻿# Home Sounds Detection
 
+This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
+
 ## Overview
 This starter model is capable of detecting a number of audio signatures common to a home setting.
 It currently has 3 labels: 'cough', 'baby cry', and 'water tap', but it can easily be modified to add more.

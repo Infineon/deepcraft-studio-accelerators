@@ -1,5 +1,7 @@
 # Road Users Object Detection Project
 
+This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
+
 ## Overview - Data & Use-Case
 
 This is an object detection project specifically tailored to identifying road users, leveraging the robust capabilities of the YOLO (You Only Look Once) algorithm. The model has been trained on a customized subset of the [PASCAL VOC 2012](https://docs.ultralytics.com/datasets/detect/voc/) dataset. 

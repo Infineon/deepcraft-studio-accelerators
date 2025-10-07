@@ -1,5 +1,7 @@
 ﻿# Human Activity
 
+This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
+
 ## Overview
 
 This starter model allows you to build a human activity detector that can be used on any supported Infineon MCU (or other MCUs) with a BMI160 IMU or another IMU. You can use this project as a starting point to develop a production ready model intended for deployment in wristed wearables. 

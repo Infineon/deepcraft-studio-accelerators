@@ -1,5 +1,7 @@
 ﻿# Drill Material Detection w/ IMU
 
+This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
+
 ## Overview
 
 This is a starter model that is capable of classifying the material a power drill is drilling into based on the IMU (6-axis accelerometer and gyroscope) signature and is imagined to be incorporated into smart power tools. 

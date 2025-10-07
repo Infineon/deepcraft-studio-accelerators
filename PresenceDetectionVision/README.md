@@ -1,5 +1,7 @@
 ﻿# Presence Detection Project
 
+This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
+
 ## Overview - Use-Case
 
 The **Presence Detection Project** aims to automatically detect and localize humans in images or video frames. The solution focuses on a lightweight model that can run efficiently on edge devices while maintaining acceptable accuracy and latency.

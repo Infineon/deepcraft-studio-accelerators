@@ -1,5 +1,7 @@
 # Siren Detector 
 
+This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
+
 **NOTE:** This project is the Siren starter model and not the DEEPCRAFT™ Ready Model for Siren Detection. The Ready Model is available on the [Imagimob](https://www.imagimob.com/) website
 
 ## Overview 

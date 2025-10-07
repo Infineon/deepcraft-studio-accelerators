@@ -1,6 +1,6 @@
 ﻿# Surface Detection for Vacuum Cleaners - Starter Model Project
 
-![](Resources/imgs/demo_studio_screenshot.png)
+This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
 
 ## Use-case description
 
@@ -9,6 +9,8 @@ This starter model offers a framework to develop a **surface detection project**
 The project is designed for use with a simple and inexpensive vacuum cleaner, but the methodology can be adapted to other models or machinery with similar sound-based differentiation characteristics.
 
 This is a **classification project**, a type of Supervised Learning where the system categorizes data into distinct classes. In this project, the three classes are Floor, Carpet, and Air.
+
+![](Resources/imgs/demo_studio_screenshot.png)
 
 ### How can I know if this project fits my use case?
 

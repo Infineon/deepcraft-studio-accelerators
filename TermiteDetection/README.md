@@ -1,5 +1,7 @@
 # Termite Detection
 
+This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
+
 ## Overview
 
 The **Termite Detection Project** is an example project showing how to build a model that can detect termites. The project aims to build a robust end-to-end system that identifies termites from live video input.

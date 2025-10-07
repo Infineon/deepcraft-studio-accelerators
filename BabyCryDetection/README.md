@@ -1,5 +1,7 @@
 # Baby Cry (Starter Model)
 
+This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
+
 **NOTE:** This project is the Baby Cry starter model and not the DEEPCRAFT™ Ready Model for Baby Cry Detection. The Ready Model is available on the Imagimob website
 
 ## Overview

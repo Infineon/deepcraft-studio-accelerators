@@ -1,5 +1,7 @@
 # Keyword Detector
 
+This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
+
 ## Overview
 
 This machine learning project contains everything to get started with keyword detection. Bundled with the project is a trained model, the Google Speech commands dataset, and the guide how to download and prepare the dataset as well as some hints on how to take the model to production.

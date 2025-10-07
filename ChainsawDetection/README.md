@@ -1,5 +1,7 @@
 ﻿# Chainsaw Detection
 
+This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
+
 ## Overview
 This is a starter model that classifies if there is an actively cutting chainsaw in the vicinity; chainsaws that are stalling are defined as not cutting. 
 A fully developed model could be used to detect illegal logging or create automatic warning systems. 

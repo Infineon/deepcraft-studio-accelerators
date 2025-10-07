@@ -1,5 +1,7 @@
 # CAPSENSE&trade; Water Detection Project using DEEPCRAFT&trade; Studio
 
+This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
+
 ## Overview - Use-Case
 
 This project allows you to build a model for detecting water and finger presses on surfaces using the capacitive sensing technology CAPSENSE&trade; in combination with machine learning.

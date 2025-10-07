@@ -1,5 +1,7 @@
 ﻿# Capsense-Sense based touch detection
 
+This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
+
 ## Overview
 
 This starter project allows you to build a touch detection that can be used on any supported Infineon MCU with a capsense.

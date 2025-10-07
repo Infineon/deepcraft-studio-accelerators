@@ -1,5 +1,7 @@
 ﻿# Gunshot Detection
 
+This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
+
 ## Overview
 
 This is a starter model for detecting gunshots in a noisy environment, quite far along in its development. The model includes strong invariance to many different background noises with around 1 hour of microphone data.
