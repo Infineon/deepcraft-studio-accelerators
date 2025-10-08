@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Annotations>
+	<Annotation>
+		<Path>2010_001828.jpg</Path>
+		<Object>
+			<Name>person</Name>
+			<Confidence>0.8318</Confidence>
+			<Bndbox>
+				<X>0.6455356121063233</X>
+				<Y>0.42674527168273924</Y>
+				<Width>0.6223212242126465</Width>
+				<Height>0.6299064636230469</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>car</Name>
+			<Confidence>0.4746</Confidence>
+			<Bndbox>
+				<X>0.29869115352630615</X>
+				<Y>0.3555224061012268</Y>
+				<Width>0.5255273342132568</Width>
+				<Height>0.40066421031951904</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>motorbike</Name>
+			<Confidence>0.2879</Confidence>
+			<Bndbox>
+				<X>0.5425533294677735</X>
+				<Y>0.49989957809448243</Y>
+				<Width>1.085106658935547</Width>
+				<Height>0.401840877532959</Height>
+			</Bndbox>
+		</Object>
+	</Annotation>
+</Annotations>

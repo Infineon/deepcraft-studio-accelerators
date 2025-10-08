@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Annotations>
+	<Annotation>
+		<Path>2008_003691.jpg</Path>
+		<Object>
+			<Name>bus</Name>
+			<Confidence>0.895</Confidence>
+			<Bndbox>
+				<X>0.6349438786506653</X>
+				<Y>0.4265449523925781</Y>
+				<Width>0.6967567205429077</Width>
+				<Height>0.4118988037109375</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>car</Name>
+			<Confidence>0.3425</Confidence>
+			<Bndbox>
+				<X>0.2730399131774902</X>
+				<Y>0.39339184761047363</Y>
+				<Width>0.06986756324768066</Width>
+				<Height>0.05283832550048828</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>car</Name>
+			<Confidence>0.2507</Confidence>
+			<Bndbox>
+				<X>0.20912975668907166</X>
+				<Y>0.41369171142578126</Y>
+				<Width>0.05182038545608521</Width>
+				<Height>0.06554336547851562</Height>
+			</Bndbox>
+		</Object>
+	</Annotation>
+</Annotations>

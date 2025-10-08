@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Annotations>
+	<Annotation>
+		<Path>2009_001113.jpg</Path>
+		<Object>
+			<Name>bus</Name>
+			<Confidence>0.9365</Confidence>
+			<Bndbox>
+				<X>0.47878400087356565</X>
+				<Y>0.36696323156356814</Y>
+				<Width>0.7609069585800171</Width>
+				<Height>0.48799183368682864</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>car</Name>
+			<Confidence>0.2921</Confidence>
+			<Bndbox>
+				<X>0.8785357475280762</X>
+				<Y>0.3327304840087891</Y>
+				<Width>0.06340866088867188</Width>
+				<Height>0.028444194793701173</Height>
+			</Bndbox>
+		</Object>
+	</Annotation>
+</Annotations>

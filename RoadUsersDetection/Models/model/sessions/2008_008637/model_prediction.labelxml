@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Annotations>
+	<Annotation>
+		<Path>2008_008637.jpg</Path>
+		<Object>
+			<Name>person</Name>
+			<Confidence>0.8512</Confidence>
+			<Bndbox>
+				<X>0.5955332756042481</X>
+				<Y>0.5276870250701904</Y>
+				<Width>0.24747095108032227</Width>
+				<Height>0.48774375915527346</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>train</Name>
+			<Confidence>0.5219</Confidence>
+			<Bndbox>
+				<X>0.15615451335906982</X>
+				<Y>0.30697991847991946</Y>
+				<Width>0.2199549198150635</Width>
+				<Height>0.14467053413391112</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>car</Name>
+			<Confidence>0.364</Confidence>
+			<Bndbox>
+				<X>1.028503704071045</X>
+				<Y>0.43318352699279783</Y>
+				<Width>0.04334583282470703</Width>
+				<Height>0.1155557632446289</Height>
+			</Bndbox>
+		</Object>
+	</Annotation>
+</Annotations>

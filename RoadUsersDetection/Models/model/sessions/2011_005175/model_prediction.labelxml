@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Annotations>
+	<Annotation>
+		<Path>2011_005175.jpg</Path>
+		<Object>
+			<Name>person</Name>
+			<Confidence>0.7522</Confidence>
+			<Bndbox>
+				<X>0.4969466209411621</X>
+				<Y>0.4315521717071533</Y>
+				<Width>0.23855152130126953</Width>
+				<Height>0.4126274108886719</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>motorbike</Name>
+			<Confidence>0.6972</Confidence>
+			<Bndbox>
+				<X>0.5481152653694152</X>
+				<Y>0.5567668080329895</Y>
+				<Width>0.5000007390975952</Width>
+				<Height>0.3220477819442749</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>car</Name>
+			<Confidence>0.6709</Confidence>
+			<Bndbox>
+				<X>0.998869800567627</X>
+				<Y>0.18553298711776733</Y>
+				<Width>0.09335670471191407</Width>
+				<Height>0.06199014186859131</Height>
+			</Bndbox>
+		</Object>
+	</Annotation>
+</Annotations>

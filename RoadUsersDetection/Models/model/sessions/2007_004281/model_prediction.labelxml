@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Annotations>
+	<Annotation>
+		<Path>2007_004281.jpg</Path>
+		<Object>
+			<Name>person</Name>
+			<Confidence>0.4008</Confidence>
+			<Bndbox>
+				<X>0.9982985496520996</X>
+				<Y>0.630637264251709</Y>
+				<Width>0.10914230346679688</Width>
+				<Height>0.30126380920410156</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>bus</Name>
+			<Confidence>0.3171</Confidence>
+			<Bndbox>
+				<X>0.9516948699951172</X>
+				<Y>0.41087807416915895</Y>
+				<Width>0.2174999237060547</Width>
+				<Height>0.7431686639785766</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>train</Name>
+			<Confidence>0.3161</Confidence>
+			<Bndbox>
+				<X>0.7646000385284424</X>
+				<Y>0.46332148313522337</Y>
+				<Width>0.3721869468688965</Width>
+				<Height>0.6234392404556275</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>train</Name>
+			<Confidence>0.2593</Confidence>
+			<Bndbox>
+				<X>0.9541512489318847</X>
+				<Y>0.4173670172691345</Y>
+				<Width>0.21942386627197266</Width>
+				<Height>0.7450803041458129</Height>
+			</Bndbox>
+		</Object>
+	</Annotation>
+</Annotations>

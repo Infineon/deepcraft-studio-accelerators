@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Annotations>
+	<Annotation>
+		<Path>2009_002689.jpg</Path>
+		<Object>
+			<Name>train</Name>
+			<Confidence>0.7481</Confidence>
+			<Bndbox>
+				<X>0.513655686378479</X>
+				<Y>0.42463997602462766</Y>
+				<Width>0.9418006420135498</Width>
+				<Height>0.5387758493423462</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>car</Name>
+			<Confidence>0.4422</Confidence>
+			<Bndbox>
+				<X>1.0028407096862793</X>
+				<Y>0.6006081581115723</Y>
+				<Width>0.09481925964355468</Width>
+				<Height>0.10806999206542969</Height>
+			</Bndbox>
+		</Object>
+	</Annotation>
+</Annotations>

@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Annotations>
+	<Annotation>
+		<Path>2012_003197.jpg</Path>
+		<Object>
+			<Name>bicycle</Name>
+			<Confidence>0.7753</Confidence>
+			<Bndbox>
+				<X>0.524480652809143</X>
+				<Y>0.6926254272460938</Y>
+				<Width>0.8058310985565186</Width>
+				<Height>0.514622688293457</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>person</Name>
+			<Confidence>0.617</Confidence>
+			<Bndbox>
+				<X>0.5887046575546264</X>
+				<Y>0.5036486625671387</Y>
+				<Width>0.4503929615020752</Width>
+				<Height>0.8661352157592773</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>motorbike</Name>
+			<Confidence>0.3165</Confidence>
+			<Bndbox>
+				<X>0.553093671798706</X>
+				<Y>0.6889203786849976</Y>
+				<Width>0.8312020301818848</Width>
+				<Height>0.4939995288848877</Height>
+			</Bndbox>
+		</Object>
+	</Annotation>
+</Annotations>
