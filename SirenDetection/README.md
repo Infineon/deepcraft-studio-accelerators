@@ -36,6 +36,9 @@ Read more at https://developer.imagimob.com/getting-started/infineon-aurix-and-i
 ## Deploying on PSOC and other MCU
 For deploying this model on other MCUs you can follow the standard deployment process and use the code examples provided in our documentation. [PSOC 6 & PSOC Edge](https://developer.imagimob.com/deployment/deploy-models-supported-boards/deploy-siren-detection-model-PSoC-boards) and other [non-Infineon MCUs](https://developer.imagimob.com/deployment/deploy-models-other-boards)
 
+## Data Licence
+All included data, is based on data extracted from freesound.org using [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/deed.en) & [CC0](https://creativecommons.org/public-domain/cc0/)
+
 ## Getting Started
 
 Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about Imagimob Studio and go through step-by-step tutorials to get you quickly started.

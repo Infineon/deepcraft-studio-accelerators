@@ -80,6 +80,9 @@ The folders train_set, validation_set, and test_set contain:
 
 `PreprocessorTrack` - Folder where preprocessed data is located
 
+## Data Licence
+All included data, is based on data extracted from freesound.org using [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/deed.en) & [CC0](https://creativecommons.org/public-domain/cc0/)
+
 ## Getting Started
 
 Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about Imagimob Studio and go through step-by-step tutorials to get you quickly started.

@@ -6,7 +6,7 @@ This machine learning project contains everything to get started with keyword de
 
 ## Data
 
-The original dataset can be downloaded from [here](http://download.tensorflow.org/data/speech_commands_v0.02.tar.gz).
+The original dataset can be downloaded from [here](http://download.tensorflow.org/data/speech_commands_v0.02.tar.gz) with info about licencing also covered [here](https://www.tensorflow.org/datasets/catalog/speech_commands).
 The dataset differs from the original dataset in that the single wave files are concatenated to longer time series by stitching them together with 0.1 seconds of silence in between 
 to prevent that multiple words are in one input time window of the model. For the transformation, you need to modify the paths in the Python script (locatied at Tools/prepare_dataset.py).
 
