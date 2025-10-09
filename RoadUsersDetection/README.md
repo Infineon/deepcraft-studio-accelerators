@@ -39,6 +39,8 @@ The recommended path to production for this road users detection project include
 - Experiment with different data augmentation settings to increase dataset variability, such as enabling more frequent 'flip left-right' or 'flip up-down' transformations to generate mirrored images of road users.
 - Optimize advanced settings, such as the optimizer, Intersection over Union (IoU) threshold, or confidence threshold, to fine-tune the model's sensitivity and performance for specific use cases.
 
+## Attribution & Citation
+Dataset: Everingham, M., Van Gool, L., Williams, C. K. I., Winn, J., & Zisserman, A. (2010). The Pascal Visual Object Classes (VOC) Challenge. International Journal of Computer Vision, 88(2), 303–328. 
 
 ## Getting Started
 
