@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Annotations>
+	<Annotation>
+		<Path>2011_000767.jpg</Path>
+		<Object>
+			<Name>person</Name>
+			<Confidence>0.6511</Confidence>
+			<Bndbox>
+				<X>0.0960480511188507</X>
+				<Y>0.9021767854690552</Y>
+				<Width>0.055450165271759035</Width>
+				<Height>0.20888895988464357</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>person</Name>
+			<Confidence>0.4998</Confidence>
+			<Bndbox>
+				<X>0.20244028568267822</X>
+				<Y>0.8875155448913574</Y>
+				<Width>0.07341055870056153</Width>
+				<Height>0.2293720245361328</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>bus</Name>
+			<Confidence>0.435</Confidence>
+			<Bndbox>
+				<X>0.418010413646698</X>
+				<Y>0.8027887344360352</Y>
+				<Width>0.5253982782363892</Width>
+				<Height>0.4154804229736328</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>train</Name>
+			<Confidence>0.3078</Confidence>
+			<Bndbox>
+				<X>0.43990105390548706</X>
+				<Y>0.8108206748962402</Y>
+				<Width>0.5496696710586548</Width>
+				<Height>0.43845977783203127</Height>
+			</Bndbox>
+		</Object>
+	</Annotation>
+</Annotations>

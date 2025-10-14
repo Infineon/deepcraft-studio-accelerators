@@ -1,5 +1,7 @@
 ﻿# Presence Detection Project
 
+This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
+
 ## Overview - Use-Case
 
 The **Presence Detection Project** aims to automatically detect and localize humans in images or video frames. The solution focuses on a lightweight model that can run efficiently on edge devices while maintaining acceptable accuracy and latency.
@@ -48,3 +50,18 @@ The recommended path to production for this project includes the following steps
 - Add negative data to make human presence detections robust against non relevant objects.
 - Try different augmentation settings to increase the variability of the dataset.
 - Try different advanced settings such as optimizer,  iou threshold or confidence threshold to make model more or less sensitive.
+
+## Attribution & Citation
+@misc{
+people-detection-o4rdr_dataset,
+title = { People Detection Dataset },
+type = { Open Source Dataset },
+author = { Leo Ueno },
+howpublished = { \url{ https://universe.roboflow.com/leo-ueno/people-detection-o4rdr } },
+url = { https://universe.roboflow.com/leo-ueno/people-detection-o4rdr },
+journal = { Roboflow Universe },
+publisher = { Roboflow },
+year = { 2025 },
+month = { oct },
+note = { visited on 2025-10-09 },
+}

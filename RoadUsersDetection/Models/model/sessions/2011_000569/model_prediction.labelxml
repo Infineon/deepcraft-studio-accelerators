@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Annotations>
+	<Annotation>
+		<Path>2011_000569.jpg</Path>
+		<Object>
+			<Name>car</Name>
+			<Confidence>0.852</Confidence>
+			<Bndbox>
+				<X>0.16318325996398925</X>
+				<Y>0.5208526611328125</Y>
+				<Width>0.22316408157348633</Width>
+				<Height>0.20514459609985353</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>car</Name>
+			<Confidence>0.848</Confidence>
+			<Bndbox>
+				<X>0.5971295356750488</X>
+				<Y>0.4442258834838867</Y>
+				<Width>0.5802024841308594</Width>
+				<Height>0.3670845031738281</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>person</Name>
+			<Confidence>0.385</Confidence>
+			<Bndbox>
+				<X>0.2431406021118164</X>
+				<Y>0.6063654899597168</Y>
+				<Width>0.05677328109741211</Width>
+				<Height>0.07702016830444336</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>bus</Name>
+			<Confidence>0.3043</Confidence>
+			<Bndbox>
+				<X>0.5980071663856507</X>
+				<Y>0.4471490740776062</Y>
+				<Width>0.5902722120285034</Width>
+				<Height>0.3736049890518188</Height>
+			</Bndbox>
+		</Object>
+	</Annotation>
+</Annotations>

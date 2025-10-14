@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Annotations>
+	<Annotation>
+		<Path>2011_002006.jpg</Path>
+		<Object>
+			<Name>person</Name>
+			<Confidence>0.8557</Confidence>
+			<Bndbox>
+				<X>0.5176378726959229</X>
+				<Y>0.43255876302719115</Y>
+				<Width>0.29835309982299807</Width>
+				<Height>0.6683766603469848</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>bicycle</Name>
+			<Confidence>0.8323</Confidence>
+			<Bndbox>
+				<X>0.4979273319244385</X>
+				<Y>0.5681130409240722</Y>
+				<Width>0.6478642463684082</Width>
+				<Height>0.3983865737915039</Height>
+			</Bndbox>
+		</Object>
+	</Annotation>
+</Annotations>

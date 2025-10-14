@@ -1,5 +1,7 @@
 ﻿# Chainsaw Detection
 
+This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
+
 ## Overview
 This is a starter model that classifies if there is an actively cutting chainsaw in the vicinity; chainsaws that are stalling are defined as not cutting. 
 A fully developed model could be used to detect illegal logging or create automatic warning systems. 
@@ -31,6 +33,9 @@ Chainsaw, Moderately Distant, A.wav by InspectorJ -- https://freesound.org/s/418
 Chainsaw trimming trees with street noise by Morphic__ -- https://freesound.org/s/541277/ -- License: Attribution 4.0
 crowd_of_people_in_a_hall.wav by kwahmah_02 -- https://freesound.org/s/254810/ -- License: Attribution 3.0
 People, Crowd Talking Chatting by FreeToUseSounds -- https://freesound.org/s/414307/ -- License: Attribution 3.0
+
+Other sounds may also be used as you can see in our master attribution list: https://github.com/Infineon/deepcraft-studio-accelerators/blob/main/AttributionLists/Freesound_Attribution_List.csv
+
 ## Getting Started
 
 Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about Imagimob Studio and go through step-by-step tutorials to get you quickly started.

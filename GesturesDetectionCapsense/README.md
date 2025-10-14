@@ -1,5 +1,7 @@
 ﻿# Capsense Gesture Detection
 
+This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
+
 ## Overview - Use-Case
 
 The project uses capacitive sensing (CAPSENSE™) technology to interpret gesture patterns and improve user interface interactions.

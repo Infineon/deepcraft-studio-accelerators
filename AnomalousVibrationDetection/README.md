@@ -1,5 +1,7 @@
 ﻿# Anomaly Detection for Vibrating Machinery - Starter Model Project
 
+This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
+
 ## Use-case description
 
 This starter model aims to provide general guidance on how to develop an **anomaly detection system** for detecting anomalous behavior in machinery based on vibration measurements.

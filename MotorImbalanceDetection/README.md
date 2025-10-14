@@ -1,5 +1,7 @@
 ﻿# Motor Imbalance Detection
 
+This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
+
 ## Overview - Use-Case
 
 This project allows you to develop an AI model capable of detecting imbalances in the motor load while the motor is operating.

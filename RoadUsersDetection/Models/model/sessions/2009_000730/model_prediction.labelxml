@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Annotations>
+	<Annotation>
+		<Path>2009_000730.jpg</Path>
+		<Object>
+			<Name>motorbike</Name>
+			<Confidence>0.6297</Confidence>
+			<Bndbox>
+				<X>0.47726869583129883</X>
+				<Y>0.36110743284225466</Y>
+				<Width>0.5759720802307129</Width>
+				<Height>0.307063889503479</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>person</Name>
+			<Confidence>0.4445</Confidence>
+			<Bndbox>
+				<X>0.4626095175743103</X>
+				<Y>0.3500542283058167</Y>
+				<Width>0.4808923006057739</Width>
+				<Height>0.30362155437469485</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>person</Name>
+			<Confidence>0.3459</Confidence>
+			<Bndbox>
+				<X>0.4190348148345947</X>
+				<Y>0.32083663940429685</Y>
+				<Width>0.32533864974975585</Width>
+				<Height>0.2787726402282715</Height>
+			</Bndbox>
+		</Object>
+	</Annotation>
+</Annotations>

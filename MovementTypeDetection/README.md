@@ -1,5 +1,7 @@
 ﻿# Movement Type Detection w/ IMU
 
+This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
+
 ## Overview
 
 This is a simple starter model capable of differentiating between 3 different movement types: circle, shaking and stationary based on the IMU (6-axis accelerometer and gyroscope) of the AI Evaluation Kit. Note that in this project, stationary is unlabelled. This project serves as a code example but can also be adapted and expanded if you have an interesting application. As is, the model performs well when differentiating between the clear movement types, but has some errors in edge cases where shaking and circle motions are similar (and indeed with no clear ground truth).

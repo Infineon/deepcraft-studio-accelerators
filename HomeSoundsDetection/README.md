@@ -1,5 +1,7 @@
 ﻿# Home Sounds Detection
 
+This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
+
 ## Overview
 This starter model is capable of detecting a number of audio signatures common to a home setting.
 It currently has 3 labels: 'cough', 'baby cry', and 'water tap', but it can easily be modified to add more.
@@ -20,13 +22,10 @@ Furthermore, background data needs to be collected depending on the location the
 The existing preprocessor and model architecture are unlikely to suffice, and you will need to fine-tune or overhaul these. In this it is important to keep in mind the capacity and memory limits of the deployment location.
 Finally, you should evaluate the model in a realistic setting. 
 In the case that false positives are a problem, you could apply post-processing techniques such as temporal smoothing.
-## Getting Started
 
-Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about Imagimob Studio and go through step-by-step tutorials to get you quickly started.
+## Attribution & Citation
+This project is produced by using a subset of our master freesound set, see here for the full attributions: https://github.com/Infineon/deepcraft-studio-accelerators/blob/main/AttributionLists/Freesound_Attribution_List.csv
 
-## Help & Support
-
-If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum ](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) Imagimob Studio page.
 ## Getting Started
 
 Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about Imagimob Studio and go through step-by-step tutorials to get you quickly started.

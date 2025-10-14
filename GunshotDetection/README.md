@@ -1,5 +1,7 @@
 ﻿# Gunshot Detection
 
+This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
+
 ## Overview
 
 This is a starter model for detecting gunshots in a noisy environment, quite far along in its development. The model includes strong invariance to many different background noises with around 1 hour of microphone data.
@@ -62,6 +64,8 @@ Gun Shots - Pistols by Hitrison -- https://freesound.org/s/223105/ -- License: A
 M1911_Outdoor_Echo.mp3 by MaxWiley -- https://freesound.org/s/249883/ -- License: Attribution 3.0
 
 Gunshot, Distant, A.wav by InspectorJ -- https://freesound.org/s/417345/ -- License: Attribution 4.0
+
+Other sounds may also be used as can be seen from our master attribution list here https://github.com/Infineon/deepcraft-studio-accelerators/blob/main/AttributionLists/Freesound_Attribution_List.csv
 
 ## Getting Started
 
