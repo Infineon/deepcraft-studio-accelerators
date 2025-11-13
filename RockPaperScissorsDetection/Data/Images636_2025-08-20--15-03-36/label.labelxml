@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Annotations>
+  <Annotation>
+    <Object>
+      <Name>Scissors</Name>
+      <Bndbox>
+        <X>0.6663800515907137</X>
+        <Y>0.5687876182287188</Y>
+        <Width>0.20292347377472053</Width>
+        <Height>0.13757523645743763</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>Rock</Name>
+      <Bndbox>
+        <X>0.8899398108340499</X>
+        <Y>0.6364287761536256</Y>
+        <Width>0.12725709372312988</Width>
+        <Height>0.2361708225852679</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>Paper</Name>
+      <Bndbox>
+        <X>0.570238719832109</X>
+        <Y>0.8867785939139561</Y>
+        <Width>0.18037775445960136</Width>
+        <Height>0.16117523609653728</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+</Annotations>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ImagimobStudio version="0.9">
+  <Timeline id="3f80b284-f3d1-4c5b-aee7-88d13ab7ad4a">
+    <Tracks>
+      <Track name="image" type="imagejpg">
+        <PayloadFile>roboflow_data500.jpg</PayloadFile>
+      </Track>
+      <Track name="label" type="labelxml">
+        <PayloadFile>roboflow_data500.labelxml</PayloadFile>
+      </Track>
+    </Tracks>
+  </Timeline>
+</ImagimobStudio>
