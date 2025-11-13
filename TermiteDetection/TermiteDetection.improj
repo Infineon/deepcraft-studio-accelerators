@@ -1,7 +1,8 @@
-<?xml version='1.0' encoding='utf-8'?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <ImagimobStudio version="1.1.0">
-  <Job id="1e24ac47-4d19-11f0-a138-a9b180af8397"/>
+  <Job id="1e24ac47-4d19-11f0-a138-a9b180af8397" />
   <ProjectType>ObjectDetection</ProjectType>
+  <ProjectId>c25fb075-9d02-45e4-9f8f-0c0c5cd7af4e</ProjectId>
   <ModelFactory>
     <Epochs>100</Epochs>
     <BatchSize>64</BatchSize>
@@ -21,13 +22,14 @@
     <LearnRate>Mid</LearnRate>
     <RegularizationFactor>Low</RegularizationFactor>
     <LastNetworkInputShape>[10]</LastNetworkInputShape>
+    <LastClassCount>1</LastClassCount>
     <Optimizer>
       <LearningRate>0.001</LearningRate>
       <WeightDecay>0.0001</WeightDecay>
     </Optimizer>
     <BuildSteps>
-      <Training/>
-      <ConfusionMatrix/>
+      <Training />
+      <ConfusionMatrix />
     </BuildSteps>
     <YoloVersion>yolov5nLegacy</YoloVersion>
     <ImageSize>320</ImageSize>
@@ -57,6 +59,9 @@
       <ConfidenceThresholdValidation>0.001</ConfidenceThresholdValidation>
       <ConfidenceThresholdPrediction>0.25</ConfidenceThresholdPrediction>
       <IouThreshold>0.7</IouThreshold>
+      <ImageWeights>False</ImageWeights>
+      <TrainingMode>Training</TrainingMode>
+      <FreezeLayers>10</FreezeLayers>
     </AdvancedOptions>
   </ModelFactory>
   <Models>
@@ -73,21 +78,21 @@
         <WeightDecay>0.0001</WeightDecay>
       </Optimizer>
       <BuildSteps>
-        <Training/>
-        <ConfusionMatrix/>
+        <Training />
+        <ConfusionMatrix />
       </BuildSteps>
       <SymbolWeights override="True">
-        <SymbolWeight symbol="termite" weight="1"/>
+        <SymbolWeight symbol="termite" weight="1" />
       </SymbolWeights>
-      <Preprocessor override="False" inshape="[640,640,3]" intype="Float32" infreq="0" outshape="[640,640,3]" outtype="Float32"/>
-      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32"/>
+      <Preprocessor override="False" inshape="[640,640,3]" intype="Float32" infreq="0" outshape="[640,640,3]" outtype="Float32" />
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
     </Model>
   </Models>
   <Database balance="LabelCount" redistributionScope="Everything">
     <SymbolMap>
-      <Symbol name="termite" id="1" weight="1"/>
+      <Symbol name="termite" id="1" weight="1" />
     </SymbolMap>
-    <DataSet id="unassigned" targetSize="0" labels="Unassigned"/>
+    <DataSet id="unassigned" targetSize="0" labels="Unassigned" />
     <DataSet id="train" targetSize="0.6" labels="Complete">
       <Session name="termite_dataset1_208" sessionId="072c0d2e-d1e1-4319-9515-f60306d013ba" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="image" tags="None">
         <DataFile shape="[640,640,3]" samplerate="0" modified="5250545329786987173">/Data/termite_dataset1/termite_dataset1_208/termite_dataset1_208.jpg</DataFile>
@@ -25132,7 +25137,7 @@
     </DataSet>
   </Database>
   <CustomColumns>
-    <CustomColumn id="9ab1daf8-f70c-4adb-9b78-296ad8a43f31" name="Category 1" internalName="Category 1"/>
-    <CustomColumn id="e27f9de4-cb53-4816-b97f-4eb4cee61be2" name="Category 2" internalName="Category 2"/>
+    <CustomColumn id="9ab1daf8-f70c-4adb-9b78-296ad8a43f31" name="Category 1" internalName="Category 1" />
+    <CustomColumn id="e27f9de4-cb53-4816-b97f-4eb4cee61be2" name="Category 2" internalName="Category 2" />
   </CustomColumns>
 </ImagimobStudio>
