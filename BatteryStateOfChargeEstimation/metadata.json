@@ -3,13 +3,13 @@
     "description": "In this project, we build a regression model to estimate Li-Ion battery state",
     "algorithm": "Regression",
     "sensors": [
-        "N/A"
+        "Current","Voltage","Temperature"
     ],
     "domain": [
-        "Battery Management System (BMS)"
+        "Electronic Sensing"
     ],
     "application": [
-        "Automotive and consumer BMS"
+        "Battery Management System (BMS)"
     ],
     "use_case": [
         "State of Charge (SoC) Estimation"
