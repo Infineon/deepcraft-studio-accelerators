@@ -17,8 +17,7 @@ Users can further expand this project by training their own models, importing ne
 
 1. **Real-Time Termite Detection**: The project uses a YOLO-based model to detect and classify termites accurately and in real-time.   
 2. **Custom Data Integration**: Users can add new data through the data import or using `Object Detection Data Collection Graph UX` template and label their own data for model training.
-3. **Model Evaluation**: Evaluate trained models by providing the path to a `.tflite` file, using the model evaluation object detection available in the `Tools` folder.
-
+3. **Model Evaluation**: Evaluate trained models by double click `.tflite` file, and it will generate a Graph Ux project to run.
 
 ## Contents
 
@@ -30,16 +29,12 @@ Users can further expand this project by training their own models, importing ne
 
 - **`Models`** - Stores the trained YOLO-based model and its quantized versions as well as their predictions.
 
-- **`Tools`**: This folder contains only the **Model Evaluation Graph** as part of the **GraphUx project**, allowing users to:
-  - Input a trained `.tflite` model.
-  - Visualize and analyze the performance of the model.
-
 
 ## Steps to get started: Model Training and Evaluation
   
    1. Train the YOLO-based model using the provided dataset or custom data.
    2. Download the trained model `.tflite` file from trained job. 
-   3. Add downloaded tflite model path in the **Model Evaluation Object Detection Graph UX** in the `Tools` folder.
+   3. Double click the `.tflite` file and it will create a Graph Ux project.
    4. Run the Graph UX project to evaluate model performance in real time using selected camera.
    5. Put infront of the camera pictures with termites or real termites and observe detection from live camera.
 
