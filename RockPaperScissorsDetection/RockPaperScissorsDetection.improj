@@ -2,7 +2,7 @@
 <ImagimobStudio version="1.1.0">
   <Job id="a7feee37-510e-11f0-9e6e-f98c963a93eb" />
   <ProjectType>ObjectDetection</ProjectType>
-  <ProjectId>22bb2be3-741e-43a3-a49a-a488c14eb42a</ProjectId>
+  <ProjectId>e2b5b7ea-377b-42d0-a279-feda463d9021</ProjectId>
   <ModelFactory>
     <Epochs>200</Epochs>
     <BatchSize>64</BatchSize>
@@ -22,7 +22,7 @@
     <LearnRate>Mid</LearnRate>
     <RegularizationFactor>Low</RegularizationFactor>
     <LastNetworkInputShape>[10]</LastNetworkInputShape>
-    <LastClassCount>1</LastClassCount>
+    <LastClassCount>4</LastClassCount>
     <Optimizer>
       <LearningRate>0.001</LearningRate>
       <WeightDecay>0.0001</WeightDecay>
@@ -85,6 +85,7 @@
         <SymbolWeight symbol="Scissors" weight="1" />
         <SymbolWeight symbol="Paper" weight="1" />
         <SymbolWeight symbol="Rock" weight="1" />
+        <SymbolWeight symbol="(unlabeled)" weight="1" />
       </SymbolWeights>
       <Preprocessor override="False" inshape="[640,480,3]" intype="Float32" infreq="0" outshape="[640,480,3]" outtype="Float32" />
       <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
@@ -92,6 +93,7 @@
   </Models>
   <Database balance="LabelCount" redistributionScope="Everything">
     <SymbolMap>
+      <Symbol name="(unlabeled)" id="0" weight="1" />
       <Symbol name="Scissors" id="1" weight="1" />
       <Symbol name="Paper" id="2" weight="1" />
       <Symbol name="Rock" id="3" weight="1" />

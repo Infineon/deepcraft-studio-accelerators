@@ -4,9 +4,15 @@
     <Tracks>
       <Track name="image" type="imagejpg">
         <PayloadFile>roboflow_data854.jpg</PayloadFile>
+        <Shape />
       </Track>
       <Track name="label" type="labelxml">
         <PayloadFile>roboflow_data854.labelxml</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="model_predictions" type="labelxml">
+        <PayloadFile>..\..\Models\model\Predictions\roboflow_data854\model_predictions.labelxml</PayloadFile>
+        <Shape />
       </Track>
     </Tracks>
   </Timeline>

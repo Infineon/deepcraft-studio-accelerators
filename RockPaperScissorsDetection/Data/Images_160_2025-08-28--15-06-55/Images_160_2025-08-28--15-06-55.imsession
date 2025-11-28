@@ -4,9 +4,15 @@
     <Tracks>
       <Track name="image" type="imagejpg">
         <PayloadFile>Images_160_2025-08-28--15-06-55.jpg</PayloadFile>
+        <Shape />
       </Track>
       <Track name="label" type="labelxml">
         <PayloadFile>label.labelxml</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="model_predictions" type="labelxml">
+        <PayloadFile>..\..\Models\model\Predictions\Images_160_2025-08-28--15-06-55\model_predictions.labelxml</PayloadFile>
+        <Shape />
       </Track>
     </Tracks>
   </Timeline>
