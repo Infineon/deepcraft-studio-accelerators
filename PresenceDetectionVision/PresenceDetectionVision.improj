@@ -2,12 +2,12 @@
 <ImagimobStudio version="1.1.0">
   <Job id="5828284c-9a19-11f0-b61c-c3b71d7036f3" />
   <ProjectType>ObjectDetection</ProjectType>
-  <ProjectId>ed33b163-c9e2-4d33-896d-2e0799f0d399</ProjectId>
+  <ProjectId>0aaf82bc-a5e8-497a-a5a5-2e312d95568c</ProjectId>
   <ModelFactory>
     <Epochs>100</Epochs>
     <BatchSize>32</BatchSize>
     <SplitCount>16</SplitCount>
-    <Patience>20</Patience>
+    <Patience>0</Patience>
     <AppendModels>False</AppendModels>
     <LossFunction>CategoricalCrossentropy</LossFunction>
     <HardwareType>Infineon</HardwareType>
@@ -22,6 +22,7 @@
     <LearnRate>Mid</LearnRate>
     <RegularizationFactor>Low</RegularizationFactor>
     <LastNetworkInputShape>[10]</LastNetworkInputShape>
+    <LastClassCount>2</LastClassCount>
     <Optimizer>
       <LearningRate>0.001</LearningRate>
       <WeightDecay>0.0001</WeightDecay>
@@ -58,6 +59,9 @@
       <ConfidenceThresholdValidation>0.001</ConfidenceThresholdValidation>
       <ConfidenceThresholdPrediction>0.25</ConfidenceThresholdPrediction>
       <IouThreshold>0.7</IouThreshold>
+      <ImageWeights>False</ImageWeights>
+      <TrainingMode>Training</TrainingMode>
+      <FreezeLayers>10</FreezeLayers>
     </AdvancedOptions>
   </ModelFactory>
   <Models>
@@ -79,6 +83,7 @@
       </BuildSteps>
       <SymbolWeights override="True">
         <SymbolWeight symbol="person" weight="1" />
+        <SymbolWeight symbol="(unlabeled)" weight="1" />
       </SymbolWeights>
       <Preprocessor override="False" inshape="[640,640,3]" intype="Float32" infreq="0" outshape="[640,640,3]" outtype="Float32" />
       <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
@@ -86,6 +91,7 @@
   </Models>
   <Database balance="LabelCount" redistributionScope="OnlyUnassigned">
     <SymbolMap>
+      <Symbol name="(unlabeled)" id="0" weight="1" />
       <Symbol name="person" id="1" weight="1" />
     </SymbolMap>
     <DataSet id="unassigned" targetSize="0" labels="Unassigned" />
