@@ -10,10 +10,6 @@
         <PayloadFile>roboflow_data81.labelxml</PayloadFile>
         <Shape />
       </Track>
-      <Track name="model_predictions" type="labelxml">
-        <PayloadFile>..\..\Models\model\Predictions\roboflow_data81\model_predictions.labelxml</PayloadFile>
-        <Shape />
-      </Track>
     </Tracks>
   </Timeline>
 </ImagimobStudio>
