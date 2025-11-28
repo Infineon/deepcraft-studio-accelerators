@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Annotations>
+  <Annotation>
+    <Object>
+      <Name>train</Name>
+      <Bndbox>
+        <X>0.4826086956521739</X>
+        <Y>0.45299999999999996</Y>
+        <Width>0.6652173913043478</Width>
+        <Height>0.814</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>car</Name>
+      <Bndbox>
+        <X>0.9543478260869565</X>
+        <Y>0.30100000000000005</Y>
+        <Width>0.05652173913043479</Width>
+        <Height>0.045999999999999985</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>person</Name>
+      <Bndbox>
+        <X>0.04456521739130435</X>
+        <Y>0.194</Y>
+        <Width>0.02391304347826087</Width>
+        <Height>0.04000000000000001</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>car</Name>
+      <Bndbox>
+        <X>0.9923913043478261</X>
+        <Y>0.264</Y>
+        <Width>0.01521739130434785</Width>
+        <Height>0.03999999999999998</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+</Annotations>

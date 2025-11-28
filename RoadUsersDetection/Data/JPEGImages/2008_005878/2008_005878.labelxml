@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Annotations>
+  <Annotation>
+    <Object>
+      <Name>bus</Name>
+      <Bndbox>
+        <X>0.5826666666666667</X>
+        <Y>0.501</Y>
+        <Width>0.8346666666666667</Width>
+        <Height>0.998</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>car</Name>
+      <Bndbox>
+        <X>0.09466666666666668</X>
+        <Y>0.7969999999999999</Y>
+        <Width>0.09333333333333334</Width>
+        <Height>0.07799999999999996</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>person</Name>
+      <Bndbox>
+        <X>0.124</X>
+        <Y>0.815</Y>
+        <Width>0.039999999999999994</Width>
+        <Height>0.061999999999999944</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>person</Name>
+      <Bndbox>
+        <X>0.05466666666666667</X>
+        <Y>0.813</Y>
+        <Width>0.04533333333333334</Width>
+        <Height>0.06999999999999995</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+</Annotations>

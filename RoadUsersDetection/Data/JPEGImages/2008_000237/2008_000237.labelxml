@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Annotations>
+  <Annotation>
+    <Object>
+      <Name>motorbike</Name>
+      <Bndbox>
+        <X>0.033</X>
+        <Y>0.41200000000000003</Y>
+        <Width>0.062</Width>
+        <Height>0.09333333333333332</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>car</Name>
+      <Bndbox>
+        <X>0.499</X>
+        <Y>0.35333333333333333</Y>
+        <Width>0.278</Width>
+        <Height>0.15733333333333333</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>person</Name>
+      <Bndbox>
+        <X>0.54</X>
+        <Y>0.8906666666666667</Y>
+        <Width>0.07199999999999995</Width>
+        <Height>0.21866666666666668</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>person</Name>
+      <Bndbox>
+        <X>0.45399999999999996</X>
+        <Y>0.944</Y>
+        <Width>0.07200000000000001</Width>
+        <Height>0.11199999999999999</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+</Annotations>
