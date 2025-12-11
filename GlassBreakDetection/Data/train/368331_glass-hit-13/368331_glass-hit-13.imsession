@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ImagimobStudio version="0.9">
+  <Timeline id="c60b9898-d9c8-42d4-aa33-de26310ba11d">
+    <Tracks>
+      <Track name="data" type="audiowav" isLabelTrack="False" frequency="0">
+        <PayloadFile>data.wav</PayloadFile>
+        <Shape>
+          <Axis name="Audio" size="1">
+            <Label index="0">Mono</Label>
+          </Axis>
+        </Shape>
+      </Track>
+      <Track name="conv2d-medium-speed-10" type="datacsv" isLabelTrack="False">
+        <PayloadFile>../../Models/conv2d-medium-speed-1/Predictions/sessions/368331_glass-hit-13/conv2d-medium-speed-10.data</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="Preprocessor" type="datacsv" isLabelTrack="False">
+        <PayloadFile>../../PreprocessorTrack/368331_glass-hit-13/data_Preprocessor.data</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="label" type="labelcsv">
+        <PayloadFile>label.label</PayloadFile>
+        <Shape>
+          <Axis name="Labels" size="1">
+            <Label index="0">glass_break</Label>
+          </Axis>
+        </Shape>
+      </Track>
+      <Track name="conv2d-medium-speed-20" type="datacsv" timecoded="TimestampBeginDuration" isLabelTrack="False">
+        <PayloadFile>..\..\Models\conv2d-medium-speed-2\Predictions\sessions\368331_glass-hit-13\conv2d-medium-speed-20.data</PayloadFile>
+        <Offset unit="seconds">2.0064580000E-001</Offset>
+        <Shape />
+      </Track>
+      <Track name="conv2d-medium-speed-30" type="datacsv" timecoded="TimestampBeginDuration" isLabelTrack="False">
+        <PayloadFile>..\..\Models\conv2d-medium-speed-3\Predictions\sessions\368331_glass-hit-13\conv2d-medium-speed-30.data</PayloadFile>
+        <Offset unit="seconds">1.4064570000E-001</Offset>
+        <Shape />
+      </Track>
+    </Tracks>
+  </Timeline>
+</ImagimobStudio>

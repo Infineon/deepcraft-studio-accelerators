@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ImagimobStudio version="0.9">
+  <Timeline id="19be61ba-e886-4ded-9a6e-d4ecb36e3924">
+    <Tracks>
+      <Track name="data" type="audiowav" isLabelTrack="False" frequency="48000">
+        <PayloadFile>data.wav</PayloadFile>
+        <Shape>
+          <Axis name="Audio" size="1">
+            <Label index="0">Mono</Label>
+          </Axis>
+        </Shape>
+      </Track>
+      <Track name="conv2d-medium-speed-10" type="datacsv" isLabelTrack="False">
+        <PayloadFile>../../../Models/conv2d-medium-speed-1/Predictions/sessions/0013_546668_breaking-glass-10/conv2d-medium-speed-10.data</PayloadFile>
+        <Shape>
+          <Axis name="" size="3">
+            <Label index="0">Duration (seconds)</Label>
+            <Label index="1">pred_unlabelled</Label>
+            <Label index="2">pred_glass_break</Label>
+          </Axis>
+        </Shape>
+      </Track>
+      <Track name="Preprocessor" type="datacsv" isLabelTrack="False">
+        <PayloadFile>../../../PreprocessorTrack/mono_output_48Khz_16bit/0013_546668_breaking-glass-10/data_Preprocessor.data</PayloadFile>
+        <Shape>
+          <Axis name="" size="31">
+            <Label index="0">Duration (seconds)</Label>
+            <Label index="1">f0</Label>
+            <Label index="2">f1</Label>
+            <Label index="3">f2</Label>
+            <Label index="4">f3</Label>
+            <Label index="5">f4</Label>
+            <Label index="6">f5</Label>
+            <Label index="7">f6</Label>
+            <Label index="8">f7</Label>
+            <Label index="9">f8</Label>
+            <Label index="10">f9</Label>
+            <Label index="11">f10</Label>
+            <Label index="12">f11</Label>
+            <Label index="13">f12</Label>
+            <Label index="14">f13</Label>
+            <Label index="15">f14</Label>
+            <Label index="16">f15</Label>
+            <Label index="17">f16</Label>
+            <Label index="18">f17</Label>
+            <Label index="19">f18</Label>
+            <Label index="20">f19</Label>
+            <Label index="21">f20</Label>
+            <Label index="22">f21</Label>
+            <Label index="23">f22</Label>
+            <Label index="24">f23</Label>
+            <Label index="25">f24</Label>
+            <Label index="26">f25</Label>
+            <Label index="27">f26</Label>
+            <Label index="28">f27</Label>
+            <Label index="29">f28</Label>
+            <Label index="30">f29</Label>
+          </Axis>
+        </Shape>
+      </Track>
+      <Track name="label" type="labelcsv">
+        <PayloadFile>label.label</PayloadFile>
+        <Shape>
+          <Axis name="Labels" size="1">
+            <Label index="0">glass_break</Label>
+          </Axis>
+        </Shape>
+      </Track>
+      <Track name="conv2d-medium-speed-20" type="datacsv" timecoded="TimestampBeginDuration" isLabelTrack="False">
+        <PayloadFile>..\..\..\Models\conv2d-medium-speed-2\Predictions\sessions\0013_546668_breaking-glass-10\conv2d-medium-speed-20.data</PayloadFile>
+        <Offset unit="seconds">2.0064580000E-001</Offset>
+        <Shape>
+          <Axis name="" size="2">
+            <Label index="0">pred_unlabelled</Label>
+            <Label index="1">pred_glass_break</Label>
+          </Axis>
+        </Shape>
+      </Track>
+      <Track name="conv2d-medium-speed-30" type="datacsv" timecoded="TimestampBeginDuration" isLabelTrack="False">
+        <PayloadFile>..\..\..\Models\conv2d-medium-speed-3\Predictions\sessions\0013_546668_breaking-glass-10\conv2d-medium-speed-30.data</PayloadFile>
+        <Offset unit="seconds">1.4064570000E-001</Offset>
+        <Shape>
+          <Axis name="" size="2">
+            <Label index="0">pred_unlabelled</Label>
+            <Label index="1">pred_glass_break</Label>
+          </Axis>
+        </Shape>
+      </Track>
+    </Tracks>
+  </Timeline>
+</ImagimobStudio>

@@ -1,0 +1,12 @@
+{
+  "title": "Glass Break Detection",
+  "description": "This project uses a microphone to detect glass breaking sounds.",
+  "algorithm": "Classification",
+  "sensors": ["Microphone"],
+  "domain": ["Audio"],
+  "application": ["Smart Home", "Safety Monitoring", "Vehicles"],
+  "use_case": ["Intrusion Detection","Smart Security Monitoring","Audio Event Detection"],
+  "kit": ["PSoC-Edge AI Kit"],
+  "device": ["PSoC-Edge"],
+  "workflow": ["ML Development"]
+}

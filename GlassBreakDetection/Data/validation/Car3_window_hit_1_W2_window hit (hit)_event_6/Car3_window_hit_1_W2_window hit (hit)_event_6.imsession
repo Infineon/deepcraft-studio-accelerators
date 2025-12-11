@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ImagimobStudio version="0.9">
+  <Timeline id="93d50a3e-ef27-44fa-8240-78538d226b67">
+    <Tracks>
+      <Track name="data" type="audiowav" isLabelTrack="False" frequency="0">
+        <PayloadFile>data.wav</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="Preprocessor" type="datacsv" isLabelTrack="False">
+        <PayloadFile>../../../PreprocessorTrack/infineon_48kHz_16bit_mono/Car3_window_hit_1_W2_window hit (hit)_event_6/data_Preprocessor.data</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="label" type="labelcsv">
+        <PayloadFile>label.label</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="conv2d-medium-speed-20" type="datacsv" timecoded="TimestampBeginDuration" isLabelTrack="False">
+        <PayloadFile>..\..\..\Models\conv2d-medium-speed-2\Predictions\sessions\Car3_window_hit_1_W2_window hit (hit)_event_6\conv2d-medium-speed-20.data</PayloadFile>
+        <Offset unit="seconds">2.0064580000E-001</Offset>
+        <Shape />
+      </Track>
+      <Track name="conv2d-medium-speed-30" type="datacsv" timecoded="TimestampBeginDuration" isLabelTrack="False">
+        <PayloadFile>..\..\..\Models\conv2d-medium-speed-3\Predictions\sessions\Car3_window_hit_1_W2_window hit (hit)_event_6\conv2d-medium-speed-30.data</PayloadFile>
+        <Offset unit="seconds">1.4064570000E-001</Offset>
+        <Shape />
+      </Track>
+    </Tracks>
+  </Timeline>
+</ImagimobStudio>

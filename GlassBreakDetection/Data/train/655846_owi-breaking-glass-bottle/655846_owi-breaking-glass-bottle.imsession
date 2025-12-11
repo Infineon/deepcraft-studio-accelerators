@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ImagimobStudio version="0.9">
+  <Timeline id="e0f77e11-8071-427a-b637-54810f4c2398">
+    <Tracks>
+      <Track name="data" type="audiowav" isLabelTrack="False" frequency="0">
+        <PayloadFile>data.wav</PayloadFile>
+        <Shape>
+          <Axis name="Audio" size="1">
+            <Label index="0">Mono</Label>
+          </Axis>
+        </Shape>
+      </Track>
+      <Track name="Preprocessor" type="datacsv" isLabelTrack="False">
+        <PayloadFile>../../PreprocessorTrack/655846_owi-breaking-glass-bottle/data_Preprocessor.data</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="label" type="labelcsv">
+        <PayloadFile>label.label</PayloadFile>
+        <Shape>
+          <Axis name="Labels" size="1">
+            <Label index="0">glass_break</Label>
+          </Axis>
+        </Shape>
+      </Track>
+      <Track name="conv2d-medium-speed-20" type="datacsv" timecoded="TimestampBeginDuration" isLabelTrack="False">
+        <PayloadFile>..\..\Models\conv2d-medium-speed-2\Predictions\sessions\655846_owi-breaking-glass-bottle\conv2d-medium-speed-20.data</PayloadFile>
+        <Offset unit="seconds">2.0064580000E-001</Offset>
+        <Shape />
+      </Track>
+    </Tracks>
+  </Timeline>
+</ImagimobStudio>

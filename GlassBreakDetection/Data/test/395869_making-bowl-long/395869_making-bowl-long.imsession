@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ImagimobStudio version="0.9">
+  <Timeline id="608fee20-a845-4c12-bb41-d34aa5a0759d">
+    <Tracks>
+      <Track name="data" type="audiowav" isLabelTrack="False" frequency="0">
+        <PayloadFile>data.wav</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="Preprocessor" type="datacsv" isLabelTrack="False">
+        <PayloadFile>../../../PreprocessorTrack/s3_data_48kHz_16bit_mono/395869_making-bowl-long/data_Preprocessor.data</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="label" type="labelcsv">
+        <PayloadFile>label.label</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="conv2d-medium-speed-20" type="datacsv" timecoded="TimestampBeginDuration" isLabelTrack="False">
+        <PayloadFile>..\..\..\Models\conv2d-medium-speed-2\Predictions\sessions\395869_making-bowl-long\conv2d-medium-speed-20.data</PayloadFile>
+        <Offset unit="seconds">2.0064600000E-001</Offset>
+        <Shape />
+      </Track>
+      <Track name="conv2d-medium-speed-30" type="datacsv" timecoded="TimestampBeginDuration" isLabelTrack="False">
+        <PayloadFile>..\..\..\Models\conv2d-medium-speed-3\Predictions\sessions\395869_making-bowl-long\conv2d-medium-speed-30.data</PayloadFile>
+        <Offset unit="seconds">1.4064590000E-001</Offset>
+        <Shape />
+      </Track>
+    </Tracks>
+  </Timeline>
+</ImagimobStudio>
