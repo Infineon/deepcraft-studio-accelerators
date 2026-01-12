@@ -53,7 +53,7 @@ def start_pipeline(owner: str, branch: str) -> None:
                                 'repo_owner': owner,
                                 'branch': branch,
                                 'project_name': project_name,
-                                'is_template': is_template,
+                                'root_path': STUDIO_TEMPLATES_DIR if is_template else '',
                             }),
                         },
                     ],
