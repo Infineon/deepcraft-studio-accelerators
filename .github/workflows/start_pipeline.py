@@ -21,52 +21,46 @@ def start_pipeline(owner: str, branch: str) -> None:
         text=True,
         check=True
     ).stdout.splitlines()
-    projects = set()
     for file in changed_files:
         file_path = Path(file)
-        root_dir = file_path.parts[0]
-        if root_dir == STUDIO_TEMPLATES_DIR:
-            root_dir = file_path.parts[1]
-        if root_dir != file_path.name and not root_dir.startswith('.') and not root_dir.startswith('_'):
-            projects.add(root_dir)
-    if not projects:
-        print('No project changes found')
-        exit(0)
-    print(f'Found {len(projects)} projects')
-
-    for project_name in sorted(projects):
-        print(f'Starting pipeline for project: {project_name}')
-        response = requests.post(
-            url='https://api.bitbucket.org/2.0/repositories/Imagimob/_starter-projects-pipeline/pipelines',
-            headers={
-                'Authorization': f'Bearer {TOKEN}',
-                'Content-Type': 'application/json',
-                'Accept': 'application/json',
-            },
-            json={
-                'target': {
-                    'type': 'pipeline_ref_target',
-                    'ref_type': 'branch',
-                    'ref_name': 'master',
-                    'selector': {
-                        'type': 'custom',
-                        'pattern': 'update-project',
-                    }
+        is_template = False
+        project_name = file_path.parts[0]
+        if project_name == STUDIO_TEMPLATES_DIR:
+            is_template = True
+            project_name = file_path.parts[1]
+        if project_name != file_path.name and not project_name.startswith('.') and not project_name.startswith('_'):
+            response = requests.post(
+                url='https://api.bitbucket.org/2.0/repositories/Imagimob/_starter-projects-pipeline/pipelines',
+                headers={
+                    'Authorization': f'Bearer {TOKEN}',
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
                 },
-                'variables': [
-                    {
-                        'key': 'PIPELINE',
-                        'value': json.dumps({
-                            'repo_owner': owner,
-                            'branch': branch,
-                            'project_name': project_name,
-                        }),
+                json={
+                    'target': {
+                        'type': 'pipeline_ref_target',
+                        'ref_type': 'branch',
+                        'ref_name': 'master',
+                        'selector': {
+                            'type': 'custom',
+                            'pattern': 'update-project',
+                        }
                     },
-                ],
-            },
-        )
-        response.raise_for_status()
-        print(f'Pipeline started successfully for {project_name}')
+                    'variables': [
+                        {
+                            'key': 'PIPELINE',
+                            'value': json.dumps({
+                                'repo_owner': owner,
+                                'branch': branch,
+                                'project_name': project_name,
+                                'is_template': is_template,
+                            }),
+                        },
+                    ],
+                },
+            )
+            response.raise_for_status()
+            print(f'Pipeline started successfully for {project_name}')
 
 
 def main():
