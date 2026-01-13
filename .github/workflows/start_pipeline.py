@@ -40,7 +40,8 @@ def start_pipeline(owner: str, branch: str) -> None:
                     'target': {
                         'type': 'pipeline_ref_target',
                         'ref_type': 'branch',
-                        'ref_name': 'master',
+                        # TODO: Set ref_name back to main before merging
+                        'ref_name': 'feature/SD-5322-move-templates-to-accelerators',
                         'selector': {
                             'type': 'custom',
                             'pattern': 'update-project',
