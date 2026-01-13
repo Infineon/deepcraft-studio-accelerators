@@ -1,11 +1,14 @@
 name: Start Pipeline
 
 on:
+  push:
+    branches:
+      - main
+  pull_request:
   workflow_dispatch:
     inputs:
       pr_head:
         description: 'PR Head (<user>:<branch>)'
-        required: true
 
 jobs:
   start_pipeline:
@@ -17,7 +20,7 @@ jobs:
       - name: Start Pipeline
         env:
           STARTER_MODELS_PIPELINE_TOKEN: ${{ secrets.STARTER_MODELS_PIPELINE_TOKEN }}
-          PR_HEAD: ${{ github.event.inputs.pr_head }}
+          PR_HEAD: ${{ (github.event.pull_request && format('{0}:{1}', github.event.pull_request.head.user.login, github.event.pull_request.head.ref)) || github.event.inputs.pr_head || '' }}
         run: |
           git clone --depth 1 https://github.com/Infineon/deepcraft-studio-accelerators.git 
           python deepcraft-studio-accelerators/.github/workflows/start_pipeline.py
