@@ -5,40 +5,49 @@ on:
     branches:
       - main
   pull_request:
+  workflow_dispatch:
+    inputs:
+      pr_head:
+        description: 'PR Head (<user>:<branch>)'
+        required: true
 
 jobs:
   start_pipeline:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
-        run: |
-          if [ "${{ github.event_name }}" == "pull_request" ]; then
-            # For pull requests, clone and checkout the PR head
-            git clone https://github.com/${{ github.repository }}.git deepcraft-studio-accelerators
-            cd deepcraft-studio-accelerators
-            git fetch origin pull/${{ github.event.pull_request.number }}/head:pr-${{ github.event.pull_request.number }}
-            git checkout pr-${{ github.event.pull_request.number }}
-          else
-            # For push events or workflow_dispatch, checkout the current ref
-            git clone https://github.com/${{ github.repository }}.git deepcraft-studio-accelerators
-            cd deepcraft-studio-accelerators
-            git checkout ${{ github.sha }}
-          fi
       - name: Setup Requirements
         run: |
           python -m pip install requests
-      - name: Start Pipeline
+      - name: Checkout and Start Pipeline
         env:
           STARTER_MODELS_PIPELINE_TOKEN: ${{ secrets.STARTER_MODELS_PIPELINE_TOKEN }}
         run: |
           if [ "${{ github.event_name }}" == "pull_request" ]; then
+            # PR update
             OWNER="${{ github.event.pull_request.head.user.login }}"
             BRANCH="${{ github.event.pull_request.head.ref }}"
             IS_PR="--is-pr"
+            git clone https://github.com/${{ github.repository }}.git deepcraft-studio-accelerators
+            cd deepcraft-studio-accelerators
+            git fetch origin pull/${{ github.event.pull_request.number }}/head:pr-${{ github.event.pull_request.number }}
+            git checkout pr-${{ github.event.pull_request.number }}
+          elif [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            # Manual run of a PR, for closing it and merging after approval
+            PR_HEAD="${{ github.event.inputs.pr_head }}"
+            OWNER=$(echo $PR_HEAD | cut -d':' -f1)
+            BRANCH=$(echo $PR_HEAD | cut -d':' -f2)
+            IS_PR="--is-pr"
+            git clone --branch $BRANCH https://github.com/$OWNER/${{ github.event.repository.name }}.git deepcraft-studio-accelerators
+            cd deepcraft-studio-accelerators
           else
+            # Push to main
             OWNER="${{ github.repository_owner }}"
             BRANCH="${{ github.event.repository.default_branch }}"
             IS_PR=""
+            git clone https://github.com/${{ github.repository }}.git deepcraft-studio-accelerators
+            cd deepcraft-studio-accelerators
+            git checkout ${{ github.sha }}
           fi
-          cd deepcraft-studio-accelerators
+          
+          # Start the pipeline
           python .github/workflows/start_pipeline.py --owner "$OWNER" --branch "$BRANCH" $IS_PR
