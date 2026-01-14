@@ -31,6 +31,9 @@ def start_pipeline(owner: str, branch: str, is_pr: bool = False) -> None:
         if project_name != file_path.name and not project_name.startswith('.') and not project_name.startswith('_'):
             changed_projects.add((project_name, is_template))
     for project_name, is_template in changed_projects:
+        # TODO: Remove below condition before merging
+        if not is_template:
+            continue
         response = requests.post(
             url='https://api.bitbucket.org/2.0/repositories/Imagimob/_starter-projects-pipeline/pipelines',
             headers={
