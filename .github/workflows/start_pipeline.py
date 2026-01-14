@@ -65,6 +65,8 @@ def start_pipeline(owner: str, branch: str, is_pr: bool = False) -> None:
         )
         response.raise_for_status()
         print(f'Pipeline started successfully for {project_name}')
+        # TODO: Remove below before merging
+        break
 
 
 def main():
