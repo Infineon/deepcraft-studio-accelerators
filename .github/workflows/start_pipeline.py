@@ -11,7 +11,7 @@ TOKEN = os.getenv('STARTER_MODELS_PIPELINE_TOKEN')
 def start_pipeline(owner: str, branch: str, is_pr: bool = False) -> None:
     print('Collect all projects that have changes')
     if is_pr:
-        git_diff_range = f'origin/master...{branch}'
+        git_diff_range = f'origin/main...{branch}'
     else:
         git_diff_range = 'HEAD~1'
     changed_files = subprocess.run(
