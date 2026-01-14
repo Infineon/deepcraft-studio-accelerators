@@ -7,11 +7,10 @@ import requests
 
 STUDIO_TEMPLATES_DIR = '_studio_templates'
 TOKEN = os.getenv('STARTER_MODELS_PIPELINE_TOKEN')
-PR_HEAD = os.getenv('PR_HEAD', None)
 
-def start_pipeline(owner: str, branch: str) -> None:
+def start_pipeline(owner: str, branch: str, is_pr: bool = False) -> None:
     print('Collect all projects that have changes')
-    if PR_HEAD:
+    if is_pr:
         git_diff_range = f'origin/master...{branch}'
     else:
         git_diff_range = 'HEAD~1'
@@ -55,6 +54,7 @@ def start_pipeline(owner: str, branch: str) -> None:
                                 'branch': branch,
                                 'project_name': project_name,
                                 'root_path': STUDIO_TEMPLATES_DIR if is_template else '',
+                                'is_pr': is_pr,
                             }),
                         },
                     ],
@@ -65,23 +65,21 @@ def start_pipeline(owner: str, branch: str) -> None:
 
 
 def main():
-    if PR_HEAD:
-        default_owner, _, default_branch = PR_HEAD.partition(':')
-    else:
-        default_owner = 'Infineon'
-        default_branch = 'main'
     parser = argparse.ArgumentParser(
         description='Start pipeline for changed projects in the repository'
     )
     parser.add_argument(
         '--owner',
         help='Repository owner',
-        default=default_owner,
     )
     parser.add_argument(
         '--branch',
         help='Branch name to compare for changes',
-        default=default_branch,
+    )
+    parser.add_argument(
+        '--is-pr',
+        action='store_true',
+        help='Whether this is a pull request',
     )
     start_pipeline(**vars(parser.parse_args()))
 
