@@ -20,6 +20,7 @@ def start_pipeline(owner: str, branch: str, is_pr: bool = False) -> None:
         text=True,
         check=True
     ).stdout.splitlines()
+    changed_projects = set()
     for file in changed_files:
         file_path = Path(file)
         is_template = False
@@ -28,40 +29,42 @@ def start_pipeline(owner: str, branch: str, is_pr: bool = False) -> None:
             is_template = True
             project_name = file_path.parts[1]
         if project_name != file_path.name and not project_name.startswith('.') and not project_name.startswith('_'):
-            response = requests.post(
-                url='https://api.bitbucket.org/2.0/repositories/Imagimob/_starter-projects-pipeline/pipelines',
-                headers={
-                    'Authorization': f'Bearer {TOKEN}',
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
+            changed_projects.add((project_name, is_template))
+    for project_name, is_template in changed_projects:
+        response = requests.post(
+            url='https://api.bitbucket.org/2.0/repositories/Imagimob/_starter-projects-pipeline/pipelines',
+            headers={
+                'Authorization': f'Bearer {TOKEN}',
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+            },
+            json={
+                'target': {
+                    'type': 'pipeline_ref_target',
+                    'ref_type': 'branch',
+                    # TODO: Set ref_name back to main before merging
+                    'ref_name': 'feature/SD-5322-move-templates-to-accelerators',
+                    'selector': {
+                        'type': 'custom',
+                        'pattern': 'update-project',
+                    }
                 },
-                json={
-                    'target': {
-                        'type': 'pipeline_ref_target',
-                        'ref_type': 'branch',
-                        # TODO: Set ref_name back to main before merging
-                        'ref_name': 'feature/SD-5322-move-templates-to-accelerators',
-                        'selector': {
-                            'type': 'custom',
-                            'pattern': 'update-project',
-                        }
+                'variables': [
+                    {
+                        'key': 'PIPELINE',
+                        'value': json.dumps({
+                            'repo_owner': owner,
+                            'branch': branch,
+                            'project_name': project_name,
+                            'root_path': STUDIO_TEMPLATES_DIR if is_template else '',
+                            'is_pr': is_pr,
+                        }),
                     },
-                    'variables': [
-                        {
-                            'key': 'PIPELINE',
-                            'value': json.dumps({
-                                'repo_owner': owner,
-                                'branch': branch,
-                                'project_name': project_name,
-                                'root_path': STUDIO_TEMPLATES_DIR if is_template else '',
-                                'is_pr': is_pr,
-                            }),
-                        },
-                    ],
-                },
-            )
-            response.raise_for_status()
-            print(f'Pipeline started successfully for {project_name}')
+                ],
+            },
+        )
+        response.raise_for_status()
+        print(f'Pipeline started successfully for {project_name}')
 
 
 def main():
