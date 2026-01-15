@@ -1,15 +1,11 @@
 name: Start Pipeline
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
   workflow_dispatch:
     inputs:
       pr_head:
-        description: 'PR Head (<user>:<branch>)'
-        required: true
+        description: 'PR Head ([<owner>:]<branch>)'
 
 jobs:
   start_pipeline:
@@ -23,7 +19,6 @@ jobs:
           STARTER_MODELS_PIPELINE_TOKEN: ${{ secrets.STARTER_MODELS_PIPELINE_TOKEN }}
         run: |
           if [ "${{ github.event_name }}" == "pull_request" ]; then
-            # PR update
             OWNER="${{ github.event.pull_request.head.user.login }}"
             BRANCH="${{ github.event.pull_request.head.ref }}"
             IS_PR="--is-pr"
@@ -31,22 +26,19 @@ jobs:
             cd deepcraft-studio-accelerators
             git fetch origin pull/${{ github.event.pull_request.number }}/head:pr-${{ github.event.pull_request.number }}
             git checkout pr-${{ github.event.pull_request.number }}
-          elif [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
-            # Manual run of a PR, for closing it and merging after approval
+          else
             PR_HEAD="${{ github.event.inputs.pr_head }}"
-            OWNER=$(echo $PR_HEAD | cut -d':' -f1)
-            BRANCH=$(echo $PR_HEAD | cut -d':' -f2)
-            IS_PR="--is-pr"
+            if [ -n "$PR_HEAD" ]; then
+              OWNER=$(echo $PR_HEAD | cut -d':' -f1)
+              BRANCH=$(echo $PR_HEAD | cut -d':' -f2)
+              IS_PR="--is-pr"
+            else
+              OWNER="${{ github.repository_owner }}"
+              BRANCH="${{ github.ref_name }}"
+              IS_PR=""
+            fi
             git clone --branch $BRANCH https://github.com/$OWNER/${{ github.event.repository.name }}.git deepcraft-studio-accelerators
             cd deepcraft-studio-accelerators
-          else
-            # Push to main
-            OWNER="${{ github.repository_owner }}"
-            BRANCH="${{ github.event.repository.default_branch }}"
-            IS_PR=""
-            git clone https://github.com/${{ github.repository }}.git deepcraft-studio-accelerators
-            cd deepcraft-studio-accelerators
-            git checkout ${{ github.sha }}
           fi
           
           # Start the pipeline
