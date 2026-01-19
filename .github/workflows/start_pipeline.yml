@@ -37,6 +37,7 @@ jobs:
             fi
           fi
           
-          git clone --branch $BRANCH https://github.com/$OWNER/$REPO.git deepcraft-studio-accelerators
+          git clone https://github.com/$OWNER/$REPO.git deepcraft-studio-accelerators
           cd deepcraft-studio-accelerators
+          git checkout $BRANCH
           python .github/workflows/start_pipeline.py --owner "$OWNER" --repo "$REPO" --branch "$BRANCH" $IS_PR
