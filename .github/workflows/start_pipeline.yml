@@ -21,7 +21,7 @@ jobs:
           if [ "${{ github.event_name }}" == "pull_request" ]; then
             OWNER="${{ github.event.pull_request.head.user.login }}"
             REPO="${{ github.event.pull_request.head.repo.name }}"
-            BRANCH="pull/${{ github.event.pull_request.number }}/head"
+            BRANCH="pr-${{ github.event.pull_request.number }}"
             IS_PR="--is-pr"
           else
             PR_HEAD="${{ github.event.inputs.pr_head }}"
@@ -39,5 +39,6 @@ jobs:
           
           git clone https://github.com/$OWNER/$REPO.git deepcraft-studio-accelerators
           cd deepcraft-studio-accelerators
+          git fetch origin pull/${{ github.event.pull_request.number }}/head:$BRANCH
           git checkout $BRANCH
           python .github/workflows/start_pipeline.py --owner "$OWNER" --repo "$REPO" --branch "$BRANCH" $IS_PR
