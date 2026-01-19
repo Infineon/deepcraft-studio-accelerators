@@ -21,7 +21,7 @@ jobs:
           if [ "${{ github.event_name }}" == "pull_request" ]; then
             OWNER="${{ github.event.pull_request.head.user.login }}"
             REPO="${{ github.event.pull_request.head.repo.name }}"
-            BRANCH="pr-${{ github.event.pull_request.number }}"
+            BRANCH="${{ github.event.pull_request.head.ref }}"
             IS_PR="--is-pr"
           else
             PR_HEAD="${{ github.event.inputs.pr_head }}"
