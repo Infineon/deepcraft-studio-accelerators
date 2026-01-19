@@ -8,7 +8,7 @@ import requests
 STUDIO_TEMPLATES_DIR = '_studio_templates'
 TOKEN = os.getenv('STARTER_MODELS_PIPELINE_TOKEN')
 
-def start_pipeline(owner: str, branch: str, is_pr: bool = False) -> None:
+def start_pipeline(owner: str, repo: str, branch: str, is_pr: bool = False) -> None:
     print('Collect all projects that have changes')
     if is_pr:
         git_diff_range = 'origin/main'
@@ -54,6 +54,7 @@ def start_pipeline(owner: str, branch: str, is_pr: bool = False) -> None:
                         'key': 'PIPELINE',
                         'value': json.dumps({
                             'repo_owner': owner,
+                            'repo_name': repo,
                             'branch': branch,
                             'project_name': project_name,
                             'root_path': STUDIO_TEMPLATES_DIR if is_template else '',
@@ -74,6 +75,10 @@ def main():
     parser.add_argument(
         '--owner',
         help='Repository owner',
+    )
+    parser.add_argument(
+        '--repo',
+        help='Repository name',
     )
     parser.add_argument(
         '--branch',
