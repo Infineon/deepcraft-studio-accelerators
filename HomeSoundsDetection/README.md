@@ -24,7 +24,7 @@ Finally, you should evaluate the model in a realistic setting.
 In the case that false positives are a problem, you could apply post-processing techniques such as temporal smoothing.
 
 ## Attribution & Citation
-This project is produced by using a subset of our master freesound set, see here for the full attributions: https://github.com/Infineon/deepcraft-studio-accelerators/blob/main/AttributionLists/Freesound_Attribution_List.csv
+This project is produced by using a subset of our master freesound set, see here for the full attributions: https://github.com/Infineon/deepcraft-studio-accelerators/blob/main/_AttributionLists/Freesound_Attribution_List.csv
 
 ## Getting Started
 

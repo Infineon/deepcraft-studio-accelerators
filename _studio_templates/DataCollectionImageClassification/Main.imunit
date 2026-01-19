@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Imaginet version="2.0.0.0">
+  <Compound unit="d419d86b-7b57-41d3-9a74-ab428f13a213">
+    <Nodes>
+      <ImageCollectionNode id="node_2" device="" folder="" filename="Images_{0}_{1:yyyy-MM-dd--HH-mm-ss}" filetype="Jpg" burstMode="False" imageAnnotationMode="ImageClassification" x="269.80000000000007" y="353.20000000000005" enabled="true" profiling="false" name="Image collection" />
+      <LabelListNode id="node_1" width="120" height="120" x="528.2" y="330" enabled="true" profiling="false" name="Predefined Labels">
+        <Label>MyLabel1</Label>
+        <Label>MyLabel2</Label>
+      </LabelListNode>
+    </Nodes>
+    <Connections />
+  </Compound>
+</Imaginet>

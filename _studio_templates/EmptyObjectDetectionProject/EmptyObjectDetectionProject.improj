@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ImagimobStudio version="1.1.0">
+  <Job id="35da1f89-0215-44a7-ab32-46d1f0cb92d5" />
+  <ProjectType>ObjectDetection</ProjectType>
+  <ProjectId>a5a1018f-862a-4b35-b8ef-a8a27114888c</ProjectId>
+  <ModelFactory>
+    <Epochs>100</Epochs>
+    <BatchSize>16</BatchSize>
+    <SplitCount>16</SplitCount>
+    <Patience>100</Patience>
+    <AppendModels>False</AppendModels>
+    <LossFunction>CategoricalCrossentropy</LossFunction>
+    <HardwareType>Infineon</HardwareType>
+    <TrainingEnvironment>
+    </TrainingEnvironment>
+    <ModelFamily>Conv1D</ModelFamily>
+    <ModelFlavor>SmallKern</ModelFlavor>
+    <ClassifierType>GlobalAveragePool</ClassifierType>
+    <Optimization>Balanced</Optimization>
+    <Pooling>True</Pooling>
+    <Downscale>False</Downscale>
+    <LearnRate>Mid</LearnRate>
+    <RegularizationFactor>Low</RegularizationFactor>
+    <LastNetworkInputShape>[10]</LastNetworkInputShape>
+    <LastClassCount>1</LastClassCount>
+    <Optimizer>
+      <LearningRate>0.001</LearningRate>
+      <WeightDecay>0.0001</WeightDecay>
+    </Optimizer>
+    <BuildSteps>
+      <Training />
+      <ConfusionMatrix />
+    </BuildSteps>
+    <YoloVersion>yolov5nLegacy</YoloVersion>
+    <ImageSize>320</ImageSize>
+    <Augmentation>
+      <Degrees>0</Degrees>
+      <Translate>0.1</Translate>
+      <Scale>0.5</Scale>
+      <Shear>0</Shear>
+      <FlipLeftRight>0.5</FlipLeftRight>
+      <FlipUpDown>0</FlipUpDown>
+      <Perspective>0</Perspective>
+      <Bgr>0</Bgr>
+      <Mosaic>1</Mosaic>
+      <Mixup>0</Mixup>
+      <CopyPasteMode>Flip</CopyPasteMode>
+      <CopyPaste>0</CopyPaste>
+      <HsvSaturation>0.7</HsvSaturation>
+      <HsvValue>0.4</HsvValue>
+      <HsvHue>0.015</HsvHue>
+    </Augmentation>
+    <AdvancedOptions>
+      <Optimizer>Auto</Optimizer>
+      <LearningRateInitial>0.1</LearningRateInitial>
+      <LearningRateFinal>0.1</LearningRateFinal>
+      <Momentum>0.937</Momentum>
+      <WeightDecay>0.0005</WeightDecay>
+      <ConfidenceThresholdValidation>0.001</ConfidenceThresholdValidation>
+      <ConfidenceThresholdPrediction>0.25</ConfidenceThresholdPrediction>
+      <IouThreshold>0.7</IouThreshold>
+      <ImageWeights>False</ImageWeights>
+      <TrainingMode>Training</TrainingMode>
+      <FreezeLayers>10</FreezeLayers>
+    </AdvancedOptions>
+  </ModelFactory>
+  <Database balance="AnnotatedLength" redistributionScope="Everything">
+    <SymbolMap>
+      <Symbol name="(unlabeled)" id="0" weight="1" />
+    </SymbolMap>
+    <DataSet id="unassigned" targetSize="0" labels="Unassigned" />
+    <DataSet id="train" targetSize="0.6" labels="Complete" />
+    <DataSet id="validation" targetSize="0.2" labels="Complete" />
+    <DataSet id="test" targetSize="0.2" labels="Complete" />
+  </Database>
+</ImagimobStudio>
