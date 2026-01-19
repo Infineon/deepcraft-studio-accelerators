@@ -1,11 +1,12 @@
 name: Start Pipeline
 
 on:
-  pull_request:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
   workflow_dispatch:
     inputs:
       pr_number:
-        description: 'PR Number'
+        description: 'PR Number (leave empty for main branch)'
 
 jobs:
   start_pipeline:
