@@ -34,7 +34,7 @@ Chainsaw trimming trees with street noise by Morphic__ -- https://freesound.org/
 crowd_of_people_in_a_hall.wav by kwahmah_02 -- https://freesound.org/s/254810/ -- License: Attribution 3.0
 People, Crowd Talking Chatting by FreeToUseSounds -- https://freesound.org/s/414307/ -- License: Attribution 3.0
 
-Other sounds may also be used as you can see in our master attribution list: https://github.com/Infineon/deepcraft-studio-accelerators/blob/main/AttributionLists/Freesound_Attribution_List.csv
+Other sounds may also be used as you can see in our master attribution list: https://github.com/Infineon/deepcraft-studio-accelerators/blob/main/_AttributionLists/Freesound_Attribution_List.csv
 
 ## Getting Started
 
