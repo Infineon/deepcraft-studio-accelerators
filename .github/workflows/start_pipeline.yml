@@ -8,7 +8,7 @@ on:
       pr_number:
         description: 'PR Number (leave empty for main branch)'
       merge_request:
-        description: 'Whether to merge the PR and deploy its most recent package'
+        description: 'Merge the PR and deploy its most recent package'
         type: boolean
         default: false
 

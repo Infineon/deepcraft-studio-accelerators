@@ -75,7 +75,7 @@ def main():
     )
     parser.add_argument(
         '--merge-request',
-        help='Whether to merge the PR and deploy its most recent recent package',
+        help='Merge the PR and deploy its most recent recent package',
         action='store_true',
     )
     start_pipeline(**vars(parser.parse_args()))
