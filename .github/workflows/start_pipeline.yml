@@ -7,6 +7,10 @@ on:
     inputs:
       pr_number:
         description: 'PR Number (leave empty for main branch)'
+      merge_request:
+        description: 'Whether to merge the PR and deploy its most recent package'
+        type: boolean
+        default: false
 
 jobs:
   start_pipeline:
@@ -26,9 +30,13 @@ jobs:
           else
             PR_NUMBER=""
           fi
+          if [ ${{ github.event.inputs.merge_request }} == true ]; then
+            MERGE_REQUEST="--merge-request"
+          fi
           
           git clone https://github.com/Infineon/deepcraft-studio-accelerators.git deepcraft-studio-accelerators
           cd deepcraft-studio-accelerators
           git fetch origin pull/$PR_NUMBER/head
           git checkout FETCH_HEAD
-          python .github/workflows/start_pipeline.py --pr-number "$PR_NUMBER"
+
+          python .github/workflows/start_pipeline.py --pr-number "$PR_NUMBER" $MERGE_REQUEST
