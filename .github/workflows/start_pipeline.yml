@@ -30,7 +30,7 @@ jobs:
           else
             PR_NUMBER=""
           fi
-          if [ ${{ github.event.inputs.merge_request }} == true ]; then
+          if [ "${{ github.event.inputs.merge_request }}" == "true" ]; then
             MERGE_REQUEST="--merge-request"
           fi
           
