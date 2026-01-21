@@ -1,10 +1,10 @@
 name: Start Pipeline
 
 on:
-  pull_request_target:
-    types: [synchronize]  # Use manual trigger for new PRs
   pull_request_review:
-    types: [submitted]  # Trigger on PR review submission (including approvals)
+    types: [submitted]  # Trigger on PR review submission
+  pull_request_target:
+    types: [synchronize]
   workflow_dispatch:
     inputs:
       pr_number:
@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     if: |
       github.event_name != 'pull_request_review' || 
-      github.event.review.state == 'approved'
+      github.event.review.state == 'changes_requested'
     steps:
       - name: Setup Requirements
         run: |
