@@ -30,7 +30,7 @@ All users are welcome to submit new models/projects, subject to the Infineon DEE
 ## Submission Process
 To submit a project, create a pull request with your data and DEEPCRAFT™ Studio project file (.improj) using the automation tool provided below.
 
-Use the available `PROJECT_TEMPLATE` to structure your project:
+Use the available `_PROJECT_TEMPLATE` to structure your project:
 * Rename your accelerator project folder. For instance, the name can contain the use case and the sensor used in the project. Check the project names of the already available projects. Make sure to pick up a name which is not been already used
 * Add content to the relevant folders and delete the ones which do not apply to your project. Data folder is mandatory and it will not show up in this repository. Add your custom folder(s) if needed
 * Set up the provided project file example or replace it with your own project file
@@ -40,7 +40,7 @@ Use the available `PROJECT_TEMPLATE` to structure your project:
     - Guidelines for collecting and expanding the dataset
     - Recommended path to production, including steps to make the model production-ready, with focus on reducing False Positives and/or False Negatives
 * Before the submission
-    - Make sure to remove all the `README.md` files contained in all subfolders of the `PROJECT_TEMPLATE` if you use it
+    - Make sure to remove all the `README.md` files contained in all subfolders of the `_PROJECT_TEMPLATE` if you use it
     - Fill in the fields in the `metadata.json` file as follows:
         - `title` (max 40 characters): give a title to your project making sure it does not exist already. For instance, use words describing the use case and sensor. Get inspired by the existing ones in DEEPCRAFT™ Studio.
         - `description` (max 100 characters): briefly describe your project. Get inspired by the existing ones in DEEPCRAFT™ Studio.

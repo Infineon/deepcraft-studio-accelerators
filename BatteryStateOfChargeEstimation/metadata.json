@@ -1,0 +1,26 @@
+{
+    "title": "Battery State of Charge Estimation",
+    "description": "In this project, we build a regression model to estimate Li-Ion battery state",
+    "algorithm": "Regression",
+    "sensors": [
+        "Current","Voltage","Temperature"
+    ],
+    "domain": [
+        "Electronic Sensing"
+    ],
+    "application": [
+        "Battery Management System (BMS)"
+    ],
+    "use_case": [
+        "State of Charge (SoC) Estimation"
+    ],
+    "kit": [
+        "AURIX TC4x STD Triboard"
+    ],
+    "device": [
+        "AURIX"
+    ],
+    "workflow": [
+        "ML Development"
+    ]
+}

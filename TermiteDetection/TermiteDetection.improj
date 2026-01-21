@@ -21,6 +21,7 @@
     <LearnRate>Mid</LearnRate>
     <RegularizationFactor>Low</RegularizationFactor>
     <LastNetworkInputShape>[10]</LastNetworkInputShape>
+    <LastClassCount>1</LastClassCount>
     <Optimizer>
       <LearningRate>0.001</LearningRate>
       <WeightDecay>0.0001</WeightDecay>
@@ -57,6 +58,9 @@
       <ConfidenceThresholdValidation>0.001</ConfidenceThresholdValidation>
       <ConfidenceThresholdPrediction>0.25</ConfidenceThresholdPrediction>
       <IouThreshold>0.7</IouThreshold>
+      <ImageWeights>False</ImageWeights>
+      <TrainingMode>Training</TrainingMode>
+      <FreezeLayers>10</FreezeLayers>
     </AdvancedOptions>
   </ModelFactory>
   <Models>
