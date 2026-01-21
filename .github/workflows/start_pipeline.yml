@@ -39,4 +39,4 @@ jobs:
           git fetch origin pull/$PR_NUMBER/head
           git checkout FETCH_HEAD
 
-          python .github/workflows/start_pipeline.py --pr-number
+          python .github/workflows/start_pipeline.py --pr-number "$PR_NUMBER"
