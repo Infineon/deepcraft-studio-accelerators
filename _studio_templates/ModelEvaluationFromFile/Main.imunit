@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Imaginet version="2.0.0.0">
+  <Compound unit="4b09537c-6d68-417a-b50e-2165c404fe9d">
+    <Nodes>
+      <UnitNode id="node_3" x="598.8" y="228.40000000000003" enabled="true" name="clogged_hairdryer Output Samples DataTrack" unit="ImagimobStudio.Modules.DataTrack" />
+      <DotNetNode id="node_8" x="646" y="468" enabled="true" name="conv2d-small-balanced-0 model">
+        <Interop assembly="Imaginet.Units.KerasModel" class="Imaginet.Units.KerasModel.KerasModel" method="LoadNetwork" />
+        <Input param="File" type="FileReference">
+          <StringArgument>Models/conv2d-small-balanced-0.h5</StringArgument>
+        </Input>
+        <Input param="input" type="Tensor" />
+        <Output param="output" type="Tensor" />
+      </DotNetNode>
+      <DotNetNode id="node_7" x="645" y="327" enabled="true" name="conv2d-small-balanced-0 preprocessor">
+        <Interop assembly="Imaginet.Units.KerasModel" class="Imaginet.Units.KerasModel.KerasModel" method="LoadPreprocessor" />
+        <Input param="File" type="FileReference">
+          <StringArgument>Models/conv2d-small-balanced-0.h5</StringArgument>
+        </Input>
+        <Input param="input" type="Tensor" />
+        <Output param="output" type="Tensor" />
+      </DotNetNode>
+      <UnitNode id="node_4" x="1172.4000000000003" y="480.40000000000015" enabled="true" name="conv2d-small-balanced-0 Network Output LabelTrack" unit="ImagimobStudio.Modules.LabelTrack" />
+      <UnitNode id="node_2" x="1170.8" y="315.6" enabled="true" name="conv2d-small-balanced-0 Network Output DataTrack" unit="ImagimobStudio.Modules.DataTrack" />
+      <UnitNode id="node_0" x="71.59999999999991" y="270.8" enabled="true" name="clogged_hairdryer.wav" unit="Imaginet.Units.Io.WaveFileReader">
+        <StringArgument param="file_path">clogged_hairdryer.wav</StringArgument>
+      </UnitNode>
+    </Nodes>
+    <Connections>
+      <Connection>
+        <Source node="node_0" param="data" />
+        <Target node="node_3" param="data" />
+      </Connection>
+      <Connection>
+        <Source node="node_7" param="output" />
+        <Target node="node_8" param="input" />
+      </Connection>
+      <Connection>
+        <Source node="node_0" param="data" />
+        <Target node="node_7" param="input" />
+      </Connection>
+      <Connection>
+        <Source node="node_8" param="output" />
+        <Target node="node_2" param="data" />
+      </Connection>
+      <Connection>
+        <Source node="node_8" param="output" />
+        <Target node="node_4" param="data" />
+      </Connection>
+    </Connections>
+  </Compound>
+</Imaginet>

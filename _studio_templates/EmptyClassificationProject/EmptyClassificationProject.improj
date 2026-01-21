@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ImagimobStudio>
+  <Job  id="35da1f89-04e5-44a7-ab32-46d1f0cb92d5"/>
+  <ProjectType>Classification</ProjectType>
+  <ModelFactory>
+    <Epochs>100</Epochs>
+    <BatchSize>128</BatchSize>
+    <TrainingEnvironment>
+    </TrainingEnvironment>
+    <Optimizer>
+      <LearningRate>0.05</LearningRate>
+      <WeightDecay>0.005</WeightDecay>
+    </Optimizer>
+    <BuildSteps>
+      <Training />
+      <ConfusionMatrix />
+    </BuildSteps>
+  </ModelFactory>
+  <Database balance="AnnotatedLength">
+    <DataSet id="train" targetSize="0.6" />
+    <DataSet id="validation" targetSize="0.2" />
+    <DataSet id="test" targetSize="0.2" />
+  </Database>
+</ImagimobStudio>

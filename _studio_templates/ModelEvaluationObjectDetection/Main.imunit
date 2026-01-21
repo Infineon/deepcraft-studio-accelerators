@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Imaginet version="2.0.0.0">
+  <Compound unit="d419d86b-7b57-41d3-9a74-ab428f13a213">
+    <Nodes>
+      <UnitNode id="node_10" x="-263.64050976180613" y="139.08152291359374" enabled="true" profiling="false" name="Local Camera Video" unit="ImagimobStudio.Modules.LiveVideoTrack" />
+      <UnitNode id="node_12" x="1004.6750567205027" y="167.71702253703506" enabled="true" profiling="false" unit="Imaginet.Units.Math.Dequantize" />
+      <UnitNode id="node_9" x="-267.3029582812028" y="-48.80868280493178" enabled="true" profiling="false" unit="Imaginet.Units.Signal.ImagePadding">
+        <Int32Argument param="target_width">320</Int32Argument>
+        <Int32Argument param="target_height">320</Int32Argument>
+      </UnitNode>
+      <UnitNode id="node_6" x="675.3855659393134" y="-57.66665626276949" enabled="true" profiling="false" name="model_int8 TFLite Model" unit="Imaginet.Units.TensorFlowLite.TfLiteModel">
+        <StringArgument param="file_path">Models/model_int8.tflite</StringArgument>
+        <Int32Argument param="model_arena_size">10000</Int32Argument>
+      </UnitNode>
+      <UnitNode id="node_7" x="1830.075631190315" y="169.6991395505122" enabled="true" profiling="false" unit="ImagimobStudio.Modules.BoundingBoxTrack" />
+      <UnitNode id="node_8" x="1420.6561217618041" y="169.73895578751876" enabled="true" profiling="false" unit="Imaginet.Units.Signal.DetectionFilter" />
+      <UnitNode id="node_13" x="-854.3809057414696" y="-49.024475303384406" enabled="true" profiling="false" unit="Imaginet.Units.Io.Camera">
+        <StringArgument param="output_type">uint8</StringArgument>
+        <StringArgument param="source_id">Source#0@\\?\USB#VID_0408&amp;PID_545A&amp;MI_00#6&amp;2703a037&amp;0&amp;0000#{e5323777-f976-4f5b-9b55-b94699c46e44}\GLOBAL</StringArgument>
+        <StringArgument param="resolution">1280 720 30</StringArgument>
+      </UnitNode>
+      <UnitNode id="node_11" x="128.48265651771533" y="-47.87501000124985" enabled="true" profiling="false" unit="Imaginet.Units.Math.Cast">
+        <StringArgument param="output_type">int8</StringArgument>
+      </UnitNode>
+    </Nodes>
+    <Connections>
+      <Connection>
+        <Source node="node_13" param="data" />
+        <Target node="node_10" param="data" />
+      </Connection>
+      <Connection>
+        <Source node="node_8" param="output" />
+        <Target node="node_7" param="data" />
+      </Connection>
+      <Connection>
+        <Source node="node_9" param="output" />
+        <Target node="node_11" param="input" />
+      </Connection>
+      <Connection>
+        <Source node="node_13" param="data" />
+        <Target node="node_9" param="input" />
+      </Connection>
+      <Connection>
+        <Source node="node_11" param="output" />
+        <Target node="node_6" param="input" />
+      </Connection>
+      <Connection>
+        <Source node="node_6" param="output" />
+        <Target node="node_12" param="input" />
+      </Connection>
+      <Connection>
+        <Source node="node_12" param="output" />
+        <Target node="node_8" param="input" />
+      </Connection>
+    </Connections>
+  </Compound>
+</Imaginet>
