@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Imaginet version="2.0.0.0">
+  <Compound unit="679f3d94-ad0f-4126-82b7-723af7dce710">
+    <Nodes>
+      <UnitNode id="node_2" x="1117.7016666666666" y="411.525" enabled="true" profiling="false" name="Network Network Output DataTrack" unit="ImagimobStudio.Modules.DataTrack" />
+      <UnitNode id="node_5" x="1115.72" y="585.565" enabled="true" profiling="false" name="Network Network Output LabelTrack" unit="ImagimobStudio.Modules.LabelTrack" />
+      <UnitNode id="node_6" x="-5.5166666666666515" y="201.52500000000006" enabled="true" profiling="false" name="Audio" unit="ImagimobStudio.Modules.DataTrack" />
+      <DotNetNode id="node_11" x="662.1200000000001" y="404.0450000000001" enabled="true" profiling="false" name="conv1d-medium-balanced-0 model">
+        <Interop assembly="Imaginet.Units.KerasModel" class="Imaginet.Units.KerasModel.KerasModel" method="LoadNetwork" />
+        <Input param="input" type="Tensor" />
+        <Input param="File" type="FileReference">
+          <StringArgument>Models/conv1d-medium-balanced-0.h5</StringArgument>
+        </Input>
+        <Output param="output" type="Tensor" />
+      </DotNetNode>
+      <UnitNode id="node_13" x="282.2566666666669" y="396.855" enabled="true" profiling="false" unit="Imaginet.Units.Signal.ContextualWindow">
+        <DoubleArgument param="prediction_freq">14</DoubleArgument>
+        <StringArgument param="input">data</StringArgument>
+        <DoubleArgument param="contextual_length_sec">0.5</DoubleArgument>
+      </UnitNode>
+      <UnitNode id="node_14" x="324.52166666666676" y="222.52500000000006" enabled="true" profiling="false" name="Mel Spectrogram Data" unit="ImagimobStudio.Modules.DataTrack" />
+      <UnitNode id="node_0" x="-573.7533333333333" y="396.85500000000013" enabled="true" profiling="false" unit="Imaginet.Units.Io.Microphone" />
+      <UnitNode id="node_12" x="-86.27999999999997" y="375.89500000000004" enabled="true" profiling="false" unit="Imaginet.Units.Signal.MelSpectrogram">
+        <StringArgument param="input">data</StringArgument>
+      </UnitNode>
+      <UnitNode id="node_1" x="-523.5600000000002" y="67.97500000000008" enabled="false" profiling="false" unit="Imaginet.Units.Io.ImagimobSerialCapture">
+        <StringArgument param="port">COM3</StringArgument>
+      </UnitNode>
+    </Nodes>
+    <Connections>
+      <Connection>
+        <Source node="node_0" param="data" />
+        <Target node="node_6" param="data" />
+      </Connection>
+      <Connection>
+        <Source node="node_1" param="data" />
+        <Target node="node_6" param="data" />
+      </Connection>
+      <Connection>
+        <Source node="node_11" param="output" />
+        <Target node="node_5" param="data" />
+      </Connection>
+      <Connection>
+        <Source node="node_11" param="output" />
+        <Target node="node_2" param="data" />
+      </Connection>
+      <Connection>
+        <Source node="node_12" param="output" />
+        <Target node="node_13" param="input" />
+      </Connection>
+      <Connection>
+        <Source node="node_0" param="data" />
+        <Target node="node_12" param="input" />
+      </Connection>
+      <Connection>
+        <Source node="node_13" param="output" />
+        <Target node="node_11" param="input" />
+      </Connection>
+      <Connection>
+        <Source node="node_12" param="output" />
+        <Target node="node_14" param="data" />
+      </Connection>
+    </Connections>
+  </Compound>
+</Imaginet>

@@ -39,7 +39,7 @@ Read more at https://developer.imagimob.com/getting-started/infineon-aurix-and-i
 For deploying this model on other MCUs you can follow the standard deployment process and use the code examples provided in our documentation. [PSOC 6 & PSOC Edge](https://developer.imagimob.com/deployment/deploy-models-supported-boards/deploy-siren-detection-model-PSoC-boards) and other [non-Infineon MCUs](https://developer.imagimob.com/deployment/deploy-models-other-boards)
 
 ## Data Licence
-All included data, is based on data extracted from freesound.org using [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/deed.en) & [CC0](https://creativecommons.org/public-domain/cc0/). You can see our master attribution list for more details; https://github.com/Infineon/deepcraft-studio-accelerators/blob/main/AttributionLists/Freesound_Attribution_List.csv
+All included data, is based on data extracted from freesound.org using [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/deed.en) & [CC0](https://creativecommons.org/public-domain/cc0/). You can see our master attribution list for more details; https://github.com/Infineon/deepcraft-studio-accelerators/blob/main/_AttributionLists/Freesound_Attribution_List.csv
 
 ## Getting Started
 
