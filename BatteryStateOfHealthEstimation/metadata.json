@@ -1,0 +1,27 @@
+{
+    "title": "Battery State of Health Estimation",
+    "description": "In this project, we build a regression model to estimate the remaining battery capacity as a key indicator of its state of health",
+    "algorithm": "Regression",
+    "sensors": [
+        "N/A"
+    ],
+    "domain": [
+        "Battery Management System (BMS)"
+    ],
+    "application": [
+        "Automotive and consumer BMS"
+    ],
+    "use_case": [
+        "Capacity Estimation",
+        "State of Health (SoH) Estimation"
+    ],
+    "kit": [
+        "AURIX TC4x STD Triboard"
+    ],
+    "device": [
+        "AURIX"
+    ],
+    "workflow": [
+        "ML Development"
+    ]
+}
