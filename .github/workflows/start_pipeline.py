@@ -8,7 +8,7 @@ import requests
 STUDIO_TEMPLATES_DIR = '_studio_templates'
 TOKEN = os.environ['STARTER_MODELS_PIPELINE_TOKEN']
 
-def start_pipeline(pr_number: str = '', merge_request: bool = False) -> None:
+def start_pipeline(pr_number: str = '') -> None:
     print('Collect all projects that have changes')
     if pr_number:
         git_diff_range = 'origin/main'
@@ -55,7 +55,6 @@ def start_pipeline(pr_number: str = '', merge_request: bool = False) -> None:
                             'pr_number': pr_number,
                             'project_name': project_name,
                             'root_path': STUDIO_TEMPLATES_DIR if is_template else '',
-                            'merge_request': merge_request,
                         }),
                     },
                 ],
@@ -72,11 +71,6 @@ def main():
     parser.add_argument(
         '--pr-number',
         help='Pull request number',
-    )
-    parser.add_argument(
-        '--merge-request',
-        help='Merge the PR and deploy its most recent recent package',
-        action='store_true',
     )
     start_pipeline(**vars(parser.parse_args()))
 
