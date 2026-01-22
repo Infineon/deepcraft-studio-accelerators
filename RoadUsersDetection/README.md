@@ -16,15 +16,13 @@ The model is of a compact size and optimized architecture, making it highly suit
 
 `Data` 	- Contains the road users dataset derived from [PASCAL VOC 2012](https://docs.ultralytics.com/datasets/detect/voc/) object detection dataset, also available on [Kaggle](https://www.kaggle.com/datasets/gopalbhattrai/pascal-voc-2012-dataset). With 5074 RGB images covering the following categories: person, bicycle, bus, train, car and motorbike. Original & citation can be found [here](https://exposing.ai/voc/)
 
-`Models` - Contains the trained and quantized model in .tflite file, ready for deployement, together with its predictions.
-
-`Tools`	-  Contains only the Model Evaluation Graph as part of the GraphUx project, which allows to visualize and analyze the performance of the model.
+`Models` - Contains the trained and quantized model in .tflite file, ready for deployement, together with its predictions.								  
 
 ## Model Training and Evaluation
  
 1. Train YOLO model using the provided dataset.
-2. Download the .tflite model from the trained job.
-3. Add downloaded .tflite model path in the Model Evaluation Object Detection Graph UX in the Tools folder.
+2. Download the `.tflite` model from the trained job. 
+3. Double click the `.tflite` file and it will create a Graph Ux project.
 4. Run the Graph UX project to evaluate model performance in real time using selected camera.
 
 
