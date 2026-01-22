@@ -22,16 +22,12 @@ Users can further expand this project by training their own models, importing ne
 
 **`Models`** - Folder where trained trained yolo5n, model predictions and generated Edge code are saved. 
 
-**`Tools`**	- Folder where contains the **Model Evaluation Graph** as part of the **GraphUx project**, allowing users to:
-  - Input a trained `.tflite` model.
-  - Visualize and analyze the performance of the model.
-
 
 ## Steps to get started: Model Training and Evaluation
   
    1. Train the YOLO-based model using the provided dataset or custom data.
    2. Download the trained model `.tflite` file from trained job. 
-   3. Add downloaded tflite model path in the **Model Evaluation Object Detection Graph UX** in the `Tools` folder.
+   3. Double click the `.tflite` file and it will create a Graph Ux project.
    4. Run the Graph UX project to evaluate model performance in real time using selected camera.
    5. Make sure to have human presence in front of the camera and observe detection from live camera.
 
