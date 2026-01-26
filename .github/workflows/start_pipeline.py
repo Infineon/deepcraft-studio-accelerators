@@ -52,7 +52,7 @@ def start_pipeline(pr_number: str = '') -> None:
                         'key': 'PIPELINE',
                         'value': json.dumps({
                             'pr_number': pr_number,
-                            'path': Path(STUDIO_TEMPLATES_DIR if is_template else '', project_name),
+                            'path': str(Path(STUDIO_TEMPLATES_DIR if is_template else '', project_name)),
                         }),
                     },
                 ],
