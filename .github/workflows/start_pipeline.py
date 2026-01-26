@@ -3,6 +3,7 @@ import json
 import os
 import subprocess
 from pathlib import Path
+
 import requests
 
 STUDIO_TEMPLATES_DIR = '_studio_templates'
@@ -23,11 +24,9 @@ def start_pipeline(pr_number: str = '') -> None:
     changed_projects = set()
     for file in changed_files:
         file_path = Path(file)
-        is_template = False
-        project_name = file_path.parts[0]
-        if project_name == STUDIO_TEMPLATES_DIR:
-            is_template = True
-            project_name = file_path.parts[1]
+        file_parts = file_path.parts
+        is_template = STUDIO_TEMPLATES_DIR == file_parts[0]
+        project_name = file_parts[1] if is_template else file_parts[0]
         if project_name != file_path.name and not project_name.startswith('.') and not project_name.startswith('_'):
             changed_projects.add((project_name, is_template))
     for project_name, is_template in changed_projects:
@@ -53,8 +52,7 @@ def start_pipeline(pr_number: str = '') -> None:
                         'key': 'PIPELINE',
                         'value': json.dumps({
                             'pr_number': pr_number,
-                            'project_name': project_name,
-                            'root_path': STUDIO_TEMPLATES_DIR if is_template else '',
+                            'path': Path(STUDIO_TEMPLATES_DIR if is_template else '', project_name),
                         }),
                     },
                 ],
