@@ -41,7 +41,7 @@ def start_pipeline(pr_number: str = '') -> None:
                 'target': {
                     'type': 'pipeline_ref_target',
                     'ref_type': 'branch',
-                    'ref_name': 'master',
+                    'ref_name': 'feature/SD-5320-package-starter-projects-pipelin',
                     'selector': {
                         'type': 'custom',
                         'pattern': 'update-project',
