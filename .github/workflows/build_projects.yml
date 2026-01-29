@@ -19,62 +19,65 @@ jobs:
       - name: Check if workflow_dispatch was triggered recently for this PR
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: pwsh
         run: |
-          if [ "${{ github.event_name }}" == "pull_request_target" ]; then
-            RUN_IDS=$(gh run list \
-              --workflow=update_projects.yml \
-              --event=workflow_dispatch \
-              --limit=10 \
-              --json databaseId \
-              --jq '.[].databaseId' \
-              --repo ${{ github.repository }})
+          if ("${{ github.event_name }}" -eq "pull_request_target") {
+            $RUN_IDS = gh run list `
+              --workflow=update_projects.yml `
+              --event=workflow_dispatch `
+              --limit=10 `
+              --json databaseId `
+              --jq '.[].databaseId' `
+              --repo ${{ github.repository }}
             
-            PREVIOUS_DISPATCH="false"
-            for run_id in $RUN_IDS; do
-              RUN_DETAILS=$(gh api "/repos/{owner}/{repo}/actions/runs/$run_id" --jq '.inputs.pr_number')
-              if [ "$RUN_DETAILS" == "${{ github.event.pull_request.number }}" ]; then
-                PREVIOUS_DISPATCH="true"
-              fi
-            done
+            $PREVIOUS_DISPATCH = $false
+            foreach ($run_id in $RUN_IDS -split "`n") {
+              $RUN_DETAILS = gh api "/repos/{owner}/{repo}/actions/runs/$run_id" --jq '.inputs.pr_number'
+              if ($RUN_DETAILS -eq "${{ github.event.pull_request.number }}") {
+                $PREVIOUS_DISPATCH = $true
+              }
+            }
 
-            if [ "$PREVIOUS_DISPATCH" == "false" ]; then
-              echo "Run this workflow manually - it's been a while since the last time"
+            if (-not $PREVIOUS_DISPATCH) {
+              Write-Host "Run this workflow manually - it's been a while since the last time"
               exit 1
-            fi
-          fi
+            }
+          }
 
       - name: Configure AWS credentials
+        shell: pwsh
         run: |
-          OIDC_TOKEN=$(curl -s -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=sts.amazonaws.com" | jq -r '.value')
+          $OIDC_TOKEN = (Invoke-RestMethod -Uri "$env:ACTIONS_ID_TOKEN_REQUEST_URL&audience=sts.amazonaws.com" -Headers @{Authorization = "bearer $env:ACTIONS_ID_TOKEN_REQUEST_TOKEN"}).value
           
-          CREDENTIALS=$(aws sts assume-role-with-web-identity \
-            --role-arn arn:aws:iam::236695143472:role/GitHubAction-AssumeRoleWithAction \
-            --role-session-name "github-actions-${{ github.run_id }}" \
-            --web-identity-token "$OIDC_TOKEN" \
-            --duration-seconds 3600 \
-            --query 'Credentials' \
-            --output json)
+          $CREDENTIALS = aws sts assume-role-with-web-identity `
+            --role-arn arn:aws:iam::236695143472:role/GitHubAction-AssumeRoleWithAction `
+            --role-session-name "github-actions-${{ github.run_id }}" `
+            --web-identity-token "$OIDC_TOKEN" `
+            --duration-seconds 3600 `
+            --query 'Credentials' `
+            --output json | ConvertFrom-Json
           
-          echo "AWS_ACCESS_KEY_ID=$(echo $CREDENTIALS | jq -r '.AccessKeyId')" >> $GITHUB_ENV
-          echo "AWS_SECRET_ACCESS_KEY=$(echo $CREDENTIALS | jq -r '.SecretAccessKey')" >> $GITHUB_ENV
-          echo "AWS_SESSION_TOKEN=$(echo $CREDENTIALS | jq -r '.SessionToken')" >> $GITHUB_ENV
-          echo "AWS_DEFAULT_REGION=eu-central-1" >> $GITHUB_ENV
+          "AWS_ACCESS_KEY_ID=$($CREDENTIALS.AccessKeyId)" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+          "AWS_SECRET_ACCESS_KEY=$($CREDENTIALS.SecretAccessKey)" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+          "AWS_SESSION_TOKEN=$($CREDENTIALS.SessionToken)" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+          "AWS_DEFAULT_REGION=eu-central-1" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
 
       - name: Install Pipeline Package
+        shell: pwsh
         run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.STARTER_PROJECTS_READ_ONLY }}" > ~/.ssh/id_ed25519
-          chmod 600 ~/.ssh/id_ed25519
-          ssh-keyscan bitbucket.org >> ~/.ssh/known_hosts
+          New-Item -ItemType Directory -Force -Path ~/.ssh | Out-Null
+          "${{ secrets.STARTER_PROJECTS_READ_ONLY }}" | Out-File -FilePath ~/.ssh/id_ed25519 -Encoding utf8 -NoNewline
+          ssh-keyscan bitbucket.org | Out-File -FilePath ~/.ssh/known_hosts -Encoding utf8 -Append
           pip install git+ssh://git@bitbucket.org/imagimob/_starter-projects-pipeline.git
 
       - name: Build changed projects
+        shell: pwsh
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          if [ "${{ github.event_name }}" == "pull_request_target" ]; then
-            PR_NUMBER="${{ github.event.pull_request.number }}"
-          elif [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
-            PR_NUMBER="${{ github.event.inputs.pr_number }}"
-          fi
+          if ("${{ github.event_name }}" -eq "pull_request_target") {
+            $PR_NUMBER = "${{ github.event.pull_request.number }}"
+          } elseif ("${{ github.event_name }}" -eq "workflow_dispatch") {
+            $PR_NUMBER = "${{ github.event.inputs.pr_number }}"
+          }
           update-changes --pr-number "$PR_NUMBER"
