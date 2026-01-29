@@ -22,35 +22,14 @@ jobs:
         shell: pwsh
         run: |
           if ("${{ github.event_name }}" -eq "pull_request_target") {
-            $RUN_IDS = gh run list `
-              --workflow=build_projects.yml `
-              --event=workflow_dispatch `
-              --limit=10 `
-              --json databaseId `
-              --jq '.[].databaseId' `
-              --repo ${{ github.repository }}
-            if ($LASTEXITCODE -ne 0) {
-              Write-Host "Failed to list workflow runs"
-              exit 1
-            }
-            
-            $PREVIOUS_DISPATCH = $false
+            $RUN_IDS = gh api "/repos/{owner}/{repo}/actions/workflows/build_projects.yml/runs?event=workflow_dispatch&per_page=10" --jq '.workflow_runs[].id'
             foreach ($run_id in $RUN_IDS -split "`n") {
-              if ([string]::IsNullOrWhiteSpace($run_id)) { continue }
-              
               $RUN_PR_NUMBER = gh api "/repos/{owner}/{repo}/actions/runs/$run_id" --jq '.inputs.pr_number'
-              Write-Host "Found workflow_dispatch run $run_id with PR number: $RUN_PR_NUMBER"
-              
               if ($RUN_PR_NUMBER -eq "${{ github.event.pull_request.number }}") {
-                $PREVIOUS_DISPATCH = $true
-                break
+                exit 0
               }
             }
-
-            if (-not $PREVIOUS_DISPATCH) {
-              Write-Host "Run this workflow manually - it's been a while since the last time"
-              exit 1
-            }
+            exit 1
           }
 
       - name: Configure AWS credentials
