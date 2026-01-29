@@ -29,10 +29,9 @@ jobs:
               --jq '.[].databaseId')
             
             PREVIOUS_DISPATCH="false"
-            for run_id in RUN_IDS; do
-              # Get the inputs for this specific run
-              RUN_DETAILS=$(gh api "/repos/${{ github.repository }}/actions/runs/$run_id" --jq '.inputs.pr_number')
-              if [ "$RUN_DETAILS" == "$PR_NUMBER" ]; then
+            for run_id in $RUN_IDS; do
+              RUN_DETAILS=$(gh api "/repos/{owner}/{repo}/actions/runs/$run_id" --jq '.inputs.pr_number')
+              if [ "$RUN_DETAILS" == "${{ github.event.pull_request.number }}" ]; then
                 PREVIOUS_DISPATCH="true"
               fi
             done
