@@ -1,30 +1,16 @@
-name: Update Changed Projects
+name: Build Changed Projects
 
 on:
-  pull_request_review:
-    types: [submitted]  # Trigger on PR review submission
   pull_request_target:
     types: [synchronize]
-  push:
-    branches:
-      - main
   workflow_dispatch:
     inputs:
       pr_number:
         description: 'PR Number (leave empty for main branch)'
-      merge_pr:
-        description: 'Merge the PR (must be approved first)'
-        type: boolean
-        required: false
-        default: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: |
-      (github.event_name == 'workflow_dispatch' && 
-       github.event.inputs.merge_pr == 'false') ||
-      github.event_name == 'pull_request_target'
     permissions:
       id-token: write   # This is required for requesting the JWT
       contents: read
@@ -90,53 +76,5 @@ jobs:
             PR_NUMBER="${{ github.event.pull_request.number }}"
           elif [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
             PR_NUMBER="${{ github.event.inputs.pr_number }}"
-          fi
-          update-changes --pr-number "$PR_NUMBER"
-
-  build_and_deploy:
-    runs-on: ubuntu-latest
-    if: |  # Only triggers that require updating the repository
-      (github.event_name == 'workflow_dispatch' && 
-       github.event.inputs.merge_pr  == 'true') ||
-      github.event_name == 'push'
-    permissions:
-      id-token: write   # This is required for requesting the JWT
-      contents: write
-      pull-requests: write
-    steps:
-      - name: Configure AWS credentials
-        run: |
-          OIDC_TOKEN=$(curl -s -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=sts.amazonaws.com" | jq -r '.value')
-          
-          CREDENTIALS=$(aws sts assume-role-with-web-identity \
-            --role-arn arn:aws:iam::236695143472:role/GitHubAction-AssumeRoleWithAction \
-            --role-session-name "github-actions-${{ github.run_id }}" \
-            --web-identity-token "$OIDC_TOKEN" \
-            --duration-seconds 3600 \
-            --query 'Credentials' \
-            --output json)
-          
-          echo "AWS_ACCESS_KEY_ID=$(echo $CREDENTIALS | jq -r '.AccessKeyId')" >> $GITHUB_ENV
-          echo "AWS_SECRET_ACCESS_KEY=$(echo $CREDENTIALS | jq -r '.SecretAccessKey')" >> $GITHUB_ENV
-          echo "AWS_SESSION_TOKEN=$(echo $CREDENTIALS | jq -r '.SessionToken')" >> $GITHUB_ENV
-          echo "AWS_DEFAULT_REGION=eu-central-1" >> $GITHUB_ENV
-
-      - name: Install Pipeline Package
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.STARTER_PROJECTS_READ_ONLY }}" > ~/.ssh/id_ed25519
-          chmod 600 ~/.ssh/id_ed25519
-          ssh-keyscan bitbucket.org >> ~/.ssh/known_hosts
-          pip install git+ssh://git@bitbucket.org/imagimob/_starter-projects-pipeline.git
-
-      - name: Build and deploy (if needed) changed projects
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
-            PR_NUMBER="${{ github.event.inputs.pr_number }}"
-          else
-            # Assume this is a push to main
-            PR_NUMBER=""
           fi
           update-changes --pr-number "$PR_NUMBER"
