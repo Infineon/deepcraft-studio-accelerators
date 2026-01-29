@@ -28,7 +28,7 @@ jobs:
               --limit=10 `
               --json databaseId `
               --jq '.[].databaseId' `
-              --repo ${{ github.repository }}
+              --repo ${{ github.repository }})
             
             $PREVIOUS_DISPATCH = $false
             foreach ($run_id in $RUN_IDS -split "`n") {
