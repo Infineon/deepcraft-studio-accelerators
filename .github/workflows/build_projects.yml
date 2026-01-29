@@ -23,7 +23,7 @@ jobs:
         run: |
           if ("${{ github.event_name }}" -eq "pull_request_target") {
             $RUN_IDS = gh run list `
-              --workflow=update_projects.yml `
+              --workflow=build_projects.yml `
               --event=workflow_dispatch `
               --limit=10 `
               --json databaseId `
