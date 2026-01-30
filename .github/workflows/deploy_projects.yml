@@ -1,4 +1,5 @@
 name: Deploy Changed Projects
+run-name: ${{ github.event.inputs.pr_number }}
 
 on:
   push:
