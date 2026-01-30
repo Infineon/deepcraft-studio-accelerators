@@ -24,7 +24,7 @@ jobs:
         run: |
           if ("${{ github.event_name }}" -eq "pull_request_target") {
             $ONE_MONTH_AGO = (Get-Date).AddMonths(-1).ToString("yyyy-MM-dd")
-            $RUN_NAMES = gh api "/repos/{owner}/{repo}/actions/workflows/build_projects.yml/runs?event=workflow_dispatch&created=>=$ONE_MONTH_AGO" --jq '.workflow_runs[].display_title'
+            $RUN_NAMES = gh api "repos/${{ github.repository }}/actions/workflows/build_projects.yml/runs?event=workflow_dispatch&created=>=$ONE_MONTH_AGO" --jq '.workflow_runs[].display_title'
             if ($RUN_NAMES -notmatch "${{ github.event.pull_request.number }}") {
               Write-Host "Run this workflow manually - it's been a while since the last time"
               exit 1
