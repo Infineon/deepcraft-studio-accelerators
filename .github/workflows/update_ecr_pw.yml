@@ -1,23 +1,20 @@
-name: Deploy Changed Projects
-run-name: ${{ github.event.inputs.pr_number }}
-
-permissions:
-  id-token: write   # This is required for requesting the JWT
-  contents: write
-  pull-requests: write
+name: Update ECR PW
 
 on:
-  push:
-    branches:
-      - main
+  # Disable cron until we start using aws ecr
+  # schedule:
+    # Token is valid for 12 hours, so update it every 11 hours
+    # - cron: 02 */11 * * *
   workflow_dispatch:
-    inputs:
-      pr_number:
-        description: 'PR Number (leave empty for main branch)'
 
 jobs:
-  deploy:
+  update-ecr-pw:
     runs-on: windows-11-arm
+    permissions:
+      id-token: write
+      contents: read
+    env:
+      GH_TOKEN: ${{ secrets.GH_CLI }}
     steps:
       - name: Configure AWS credentials
         shell: pwsh
@@ -36,22 +33,7 @@ jobs:
           "AWS_SECRET_ACCESS_KEY=$($CREDENTIALS.SecretAccessKey)" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
           "AWS_SESSION_TOKEN=$($CREDENTIALS.SessionToken)" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
           "AWS_DEFAULT_REGION=eu-central-1" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
-
-      - name: Install Pipeline Package
-        shell: pwsh
+      - name: Get pw and update secret
         run: |
-          git clone https://x-token-auth:${{ secrets.STARTER_MODELS_PIPELINE_TOKEN }}@bitbucket.org/imagimob/_starter-projects-pipeline.git
-          pip install -e _starter-projects-pipeline
-
-      - name: Build and deploy (if needed) changed projects
-        shell: pwsh
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          if ("${{ github.event_name }}" -eq "workflow_dispatch") {
-            $PR_NUMBER = "${{ github.event.inputs.pr_number }}"
-          } else {
-            # Assume this is a push to main
-            $PR_NUMBER = ""
-          }
-          update-changes --pr-number "$PR_NUMBER"
+          $AWS_ECR_PW = "aws ecr get-login-password --region eu-central-1 --output text"
+          gh secret set AWS_ECR_PW --repo ${{ github.repository }} --body "$AWS_ECR_PW"
