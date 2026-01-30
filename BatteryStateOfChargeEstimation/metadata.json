@@ -1,6 +1,7 @@
 {
-    "title": "Battery State of Charge Estimation",
+    "title": "DEEPCRAFT\u2122 Studio Accelerator for Battery State of Charge Estimation",
     "description": "In this project, we build a regression model to estimate Li-Ion battery state",
+    "long_description": "This project is an example for Li‑ion battery state estimation using a multilayer perceptron (MLP) neural network. We estimate battery State of Charge (SoC). It represents the amount of electrical charge currently stored in a battery relative to its maximum capacity, expressed on a 0–1 scale.",
     "algorithm": "Regression",
     "sensors": [
         "Current","Voltage","Temperature"
@@ -15,12 +16,18 @@
         "State of Charge (SoC) Estimation"
     ],
     "kit": [
-        "AURIX TC4x STD Triboard"
+        "AURIX\u2122 TC4x STD Triboard"
     ],
     "device": [
-        "AURIX"
+        "AURIX\u2122"
     ],
     "workflow": [
         "ML Development"
-    ]
+    ],
+    "thumbnail_image_id": "lowres-GettyImages-2178383062.webp",
+    "main_image_id": "lowres-GettyImages-2178383062webp",
+    "brand_image_id": "deepcraft.webp",
+    "brand_url": "https://www.infineon.com/design-resources/embedded-software/deepcraft-edge-ai-solutions",
+    "links": [{"label": "Download", "url": "https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio","heading": "Access Project via DEEPCRAFT\u2122 Studio", "sub-heading": "Download and install DEEPCRAFT\u2122 Studio to fully access this project and start developing your Edge AI product"},
+                {"label": "GitHub", "url": "https://github.com/Infineon/deepcraft-studio-accelerators/tree/main/BatteryStateOfChargeEstimation","heading": "Project Repository", "sub-heading": "Get more details about this project"}]
 }
