@@ -1,6 +1,11 @@
 name: Build Changed Projects
 run-name: ${{ github.event.inputs.pr_number }}
 
+permissions:
+  id-token: write   # This is required for requesting the JWT
+  contents: read
+  pull-requests: write
+
 on:
   pull_request_target:
     types: [synchronize]
@@ -12,12 +17,8 @@ on:
 jobs:
   build:
     runs-on: windows-11-arm
-    permissions:
-      id-token: write   # This is required for requesting the JWT
-      contents: read
-      pull-requests: write
     steps:
-      - name: Check if workflow_dispatch was triggered recently for this PR
+      - name: Ensure this workflow has been triggered manually recently for this PR
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         shell: pwsh
@@ -26,7 +27,7 @@ jobs:
             $ONE_MONTH_AGO = (Get-Date).AddMonths(-1).ToString("yyyy-MM-dd")
             $RUN_NAMES = gh api "repos/${{ github.repository }}/actions/workflows/build_projects.yml/runs?event=workflow_dispatch&created=>=$ONE_MONTH_AGO" --jq '.workflow_runs[].display_title'
             if ($RUN_NAMES -notmatch "${{ github.event.pull_request.number }}") {
-              Write-Host "Run this workflow manually - it's been a while since the last time"
+              Write-Host "Run this workflow manually - it hasn't been done recently"
               exit 1
             }
           }

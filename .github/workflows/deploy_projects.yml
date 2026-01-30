@@ -1,6 +1,11 @@
 name: Deploy Changed Projects
 run-name: ${{ github.event.inputs.pr_number }}
 
+permissions:
+  id-token: write   # This is required for requesting the JWT
+  contents: write
+  pull-requests: write
+
 on:
   push:
     branches:
@@ -13,10 +18,6 @@ on:
 jobs:
   deploy:
     runs-on: windows-11-arm
-    permissions:
-      id-token: write   # This is required for requesting the JWT
-      contents: write
-      pull-requests: write
     steps:
       - name: Configure AWS credentials
         shell: pwsh
