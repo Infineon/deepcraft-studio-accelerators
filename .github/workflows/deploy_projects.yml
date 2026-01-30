@@ -40,9 +40,9 @@ jobs:
       - name: Install Pipeline Package
         shell: pwsh
         run: |
-          New-Item -ItemType Directory -Force -Path ~/.ssh | Out-Null
-          "${{ secrets.STARTER_PROJECTS_READ_ONLY }}" | Out-File -FilePath ~/.ssh/id_ed25519 -Encoding utf8 -NoNewline
-          ssh-keyscan bitbucket.org | Out-File -FilePath ~/.ssh/known_hosts -Encoding utf8 -Append
+          New-Item -ItemType Directory -Force -Path $HOME\.ssh | Out-Null
+          "${{ secrets.STARTER_PROJECTS_READ_ONLY }}" | Out-File -FilePath $HOME\.ssh\id_ed25519 -Encoding utf8 -NoNewline
+          ssh-keyscan bitbucket.org | Out-File -FilePath $HOME\.ssh\known_hosts -Encoding utf8 -Append
           pip install git+ssh://git@bitbucket.org/imagimob/_starter-projects-pipeline.git
 
       - name: Build and deploy (if needed) changed projects
