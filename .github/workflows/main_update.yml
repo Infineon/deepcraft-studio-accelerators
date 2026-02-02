@@ -1,0 +1,29 @@
+name: main - Update Changed Projects
+
+permissions:
+  id-token: write
+  contents: write
+
+on:
+  push:
+    branches:
+      - main
+  repository_dispatch:
+    types: [deploy_main]
+
+jobs:
+  deploy:
+    runs-on: windows-11-arm
+    steps:
+      - name: Install Pipeline Package
+        shell: pwsh
+        run: |
+          git clone https://x-token-auth:${{ secrets.STARTER_MODELS_PIPELINE_TOKEN }}@bitbucket.org/imagimob/_starter-projects-pipeline.git
+          pip install -e _starter-projects-pipeline
+
+      - name: Build and deploy (if needed) changed projects
+        shell: pwsh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          update-changes

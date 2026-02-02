@@ -1,0 +1,33 @@
+name: PR - Update Changed Projects
+run-name: ${{ github.event.inputs.pr_number }}
+
+permissions:
+  id-token: write
+  contents: write
+  pull-requests: write
+
+on:
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: 'PR Number'
+        required: true
+  repository_dispatch:
+    types: [deploy_pr]
+
+jobs:
+  deploy:
+    runs-on: windows-11-arm
+    steps:
+      - name: Install Pipeline Package
+        shell: pwsh
+        run: |
+          git clone https://x-token-auth:${{ secrets.STARTER_MODELS_PIPELINE_TOKEN }}@bitbucket.org/imagimob/_starter-projects-pipeline.git
+          pip install -e _starter-projects-pipeline
+
+      - name: Build and deploy (if needed) changed projects
+        shell: pwsh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          update-changes --pr-number "${{ github.event.inputs.pr_number }}" --merge-pr

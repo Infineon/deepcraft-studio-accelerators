@@ -1,18 +1,21 @@
-name: Build Changed Projects
+name: PR - Build Changed Projects
 run-name: ${{ github.event.inputs.pr_number }}
 
 permissions:
-  id-token: write   # This is required for requesting the JWT
+  id-token: write
   contents: read
   pull-requests: write
 
 on:
-  pull_request_target:
-    types: [synchronize]
   workflow_dispatch:
     inputs:
       pr_number:
-        description: 'PR Number (leave empty for main branch)'
+        description: 'PR Number'
+        required: true
+  pull_request_target:
+    types: [synchronize]
+  repository_dispatch:
+    types: [build_pr]
 
 jobs:
   build:
@@ -32,24 +35,6 @@ jobs:
             }
           }
 
-      - name: Configure AWS credentials
-        shell: pwsh
-        run: |
-          $OIDC_TOKEN = (Invoke-RestMethod -Uri "$env:ACTIONS_ID_TOKEN_REQUEST_URL&audience=sts.amazonaws.com" -Headers @{Authorization = "bearer $env:ACTIONS_ID_TOKEN_REQUEST_TOKEN"}).value
-          
-          $CREDENTIALS = aws sts assume-role-with-web-identity `
-            --role-arn arn:aws:iam::236695143472:role/GitHubAction-AssumeRoleWithAction `
-            --role-session-name "github-actions-${{ github.run_id }}" `
-            --web-identity-token "$OIDC_TOKEN" `
-            --duration-seconds 3600 `
-            --query 'Credentials' `
-            --output json | ConvertFrom-Json
-          
-          "AWS_ACCESS_KEY_ID=$($CREDENTIALS.AccessKeyId)" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
-          "AWS_SECRET_ACCESS_KEY=$($CREDENTIALS.SecretAccessKey)" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
-          "AWS_SESSION_TOKEN=$($CREDENTIALS.SessionToken)" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
-          "AWS_DEFAULT_REGION=eu-central-1" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
-
       - name: Install Pipeline Package
         shell: pwsh
         run: |
@@ -63,7 +48,7 @@ jobs:
         run: |
           if ("${{ github.event_name }}" -eq "pull_request_target") {
             $PR_NUMBER = "${{ github.event.pull_request.number }}"
-          } elseif ("${{ github.event_name }}" -eq "workflow_dispatch") {
+          } else {
             $PR_NUMBER = "${{ github.event.inputs.pr_number }}"
           }
           update-changes --pr-number "$PR_NUMBER"
