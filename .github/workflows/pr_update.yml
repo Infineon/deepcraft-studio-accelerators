@@ -13,7 +13,7 @@ on:
         description: 'PR Number'
         required: true
   repository_dispatch:
-    types: [deploy_pr]
+    types: [pr_update]
 
 jobs:
   deploy:
@@ -25,7 +25,7 @@ jobs:
           git clone https://x-token-auth:${{ secrets.STARTER_MODELS_PIPELINE_TOKEN }}@bitbucket.org/imagimob/_starter-projects-pipeline.git
           pip install -e _starter-projects-pipeline
 
-      - name: Build and deploy (if needed) changed projects
+      - name: Update changed projects
         shell: pwsh
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -15,13 +15,13 @@ on:
   pull_request_target:
     types: [synchronize]
   repository_dispatch:
-    types: [build_pr]
+    types: [pr_build]
 
 jobs:
   build:
     runs-on: windows-11-arm
     steps:
-      - name: Ensure this workflow has been triggered manually recently for this PR
+      - name: Ensure recent manual trigger
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         shell: pwsh

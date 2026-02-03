@@ -6,7 +6,7 @@ permissions:
 
 on:
   repository_dispatch:
-    types: [build_all]
+    types: [main_update_all]
 
 jobs:
   deploy:
@@ -18,7 +18,7 @@ jobs:
           git clone https://x-token-auth:${{ secrets.STARTER_MODELS_PIPELINE_TOKEN }}@bitbucket.org/imagimob/_starter-projects-pipeline.git
           pip install -e _starter-projects-pipeline
 
-      - name: Build and deploy all projects
+      - name: Update all projects
         shell: pwsh
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
