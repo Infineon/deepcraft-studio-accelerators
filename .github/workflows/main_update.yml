@@ -8,8 +8,6 @@ on:
   push:
     branches:
       - main
-  repository_dispatch:
-    types: [main_update]
 
 jobs:
   deploy:

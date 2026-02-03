@@ -1,4 +1,4 @@
-name: PR - Update Changed Projects
+name: PR - Deploy Changed Projects
 run-name: ${{ github.event.inputs.pr_number }}
 
 permissions:
@@ -12,8 +12,6 @@ on:
       pr_number:
         description: 'PR Number'
         required: true
-  repository_dispatch:
-    types: [pr_update]
 
 jobs:
   deploy:
@@ -25,7 +23,7 @@ jobs:
           git clone https://x-token-auth:${{ secrets.STARTER_MODELS_PIPELINE_TOKEN }}@bitbucket.org/imagimob/_starter-projects-pipeline.git
           pip install -e _starter-projects-pipeline
 
-      - name: Update changed projects
+      - name: Deploy changed projects
         shell: pwsh
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
