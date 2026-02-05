@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ImagimobStudio version="0.9">
+  <Timeline id="de56788f-c252-47d3-ad6f-42af9707619a">
+    <Tracks>
+      <Track name="DPS-Data-With-Additional-Features" type="datacsv" isLabelTrack="False">
+        <PayloadFile>DPS-Data-With-Additional-Features.data</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="DPS-Data" type="datacsv" isLabelTrack="False">
+        <PayloadFile>DPS-Data.data</PayloadFile>
+        <Shape>
+          <Axis name="Channel" size="2">
+            <Label index="0">Pressure</Label>
+            <Label index="1">Temp</Label>
+          </Axis>
+        </Shape>
+      </Track>
+      <Track name="Select Data temp" type="datacsv" isLabelTrack="False">
+        <PayloadFile>Select-Data-temp.data</PayloadFile>
+        <Shape>
+          <Axis name="" size="1" />
+        </Shape>
+      </Track>
+      <Track name="Select Data" type="datacsv" isLabelTrack="False">
+        <PayloadFile>Select-Data.data</PayloadFile>
+        <Shape>
+          <Axis name="" size="1" />
+        </Shape>
+      </Track>
+      <Track name="Live Labeling" type="labelcsv">
+        <PayloadFile>Live-Labeling.label</PayloadFile>
+        <Shape />
+      </Track>
+    </Tracks>
+  </Timeline>
+</ImagimobStudio>
