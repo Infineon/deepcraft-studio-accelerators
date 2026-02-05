@@ -1,0 +1,12 @@
+{
+	"title": "Human Breath Detection via DPS",
+	"description": "Classification-based project, which should recognize breathing and distinguish.",
+	"algorithm": "Classification",
+	"sensors": ["DPS"],
+	"domain": ["Temperature", "Pressure","Sensing"],
+	"application": ["Proof of Concept", "Health", "Monitoring"],
+	"use_case": ["Change of pressure and temperature Detection"],
+	"kit": ["PSoC-6 AI Kit", "PSoC-Edge AI Kit"],
+	"device": ["PSoC-6", "PSoC-Edge"],
+	"workflow": ["ML Development"]
+}

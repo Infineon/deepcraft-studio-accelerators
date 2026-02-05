@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Imaginet version="2.0.0.0">
+  <Compound unit="e2e038a0-e281-4de4-a43c-355bd5afec8d">
+    <Nodes>
+      <UnitNode id="node_7" x="569.7308446799459" y="661.3234112326776" enabled="true" profiling="false" name="DPS Data" unit="ImagimobStudio.Modules.DataTrack" />
+      <UnitNode id="node_8" x="330.1229242911575" y="332.43915357558717" enabled="true" profiling="false" unit="Imaginet.Units.Math.Select">
+        <Int32Argument param="index">1</Int32Argument>
+        <Int32Argument param="count">1</Int32Argument>
+      </UnitNode>
+      <DeviceNode id="node_4" x="-3.3743963858756274" y="674.3485303478096" enabled="true" profiling="false" name="DPS" board="290de5cb-460b-41bf-1f19-8d0d1818aff7" boardName="PSoC 6 AI (CY8CKIT-06S2-AI)" device="3" />
+      <UnitNode id="node_6" x="321.16815489950403" y="512.6199680015843" enabled="true" profiling="false" unit="Imaginet.Units.Math.Select">
+        <Int32Argument param="axis">0</Int32Argument>
+        <Int32Argument param="count">1</Int32Argument>
+      </UnitNode>
+      <LabelListNode id="node_0" width="120" height="120" x="170" y="235.60000000000002" enabled="true" profiling="false">
+        <Label>cool_blow</Label>
+        <Label>warm_breath</Label>
+      </LabelListNode>
+      <UnitNode id="node_5" x="579.4996840162944" y="519.13252755915" enabled="true" profiling="false" name="Select Data" unit="ImagimobStudio.Modules.DataTrack" />
+      <UnitNode id="node_9" x="637.2986500896942" y="381.28335025733327" enabled="true" profiling="false" name="Select Data temp" unit="ImagimobStudio.Modules.DataTrack" />
+    </Nodes>
+    <Connections>
+      <Connection>
+        <Source node="node_4" param="Data" />
+        <Target node="node_6" param="input" />
+      </Connection>
+      <Connection>
+        <Source node="node_6" param="output" />
+        <Target node="node_5" param="data" />
+      </Connection>
+      <Connection>
+        <Source node="node_4" param="Data" />
+        <Target node="node_7" param="data" />
+      </Connection>
+      <Connection>
+        <Source node="node_4" param="Data" />
+        <Target node="node_8" param="input" />
+      </Connection>
+      <Connection>
+        <Source node="node_8" param="output" />
+        <Target node="node_9" param="data" />
+      </Connection>
+    </Connections>
+  </Compound>
+</Imaginet>

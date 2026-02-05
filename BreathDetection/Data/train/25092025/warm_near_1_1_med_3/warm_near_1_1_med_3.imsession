@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ImagimobStudio version="0.9">
+  <Timeline id="0a0b5275-7095-432c-a8c2-0b58daa01469">
+    <Tracks>
+      <Track name="DPS-Data-With-Additional-Features" type="datacsv" isLabelTrack="False">
+        <PayloadFile>DPS-Data-With-Additional-Features.data</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="DPS-Data" type="datacsv" isLabelTrack="False">
+        <PayloadFile>DPS-Data.data</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="DPS-Data-p-and-t-normalized-t-slope" type="datacsv" isLabelTrack="False">
+        <PayloadFile>DPS-Data-p-and-t-normalized-t-slope.data</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="DPS-Data-P-T-normalized" type="datacsv" isLabelTrack="False">
+        <PayloadFile>DPS-Data-P-T-normalized.data</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="DPS-Data-P-T-P-T-high-pass" type="datacsv" isLabelTrack="False">
+        <PayloadFile>DPS-Data-P-T-P-T-high-pass.data</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="pressure" type="datacsv" isLabelTrack="False">
+        <PayloadFile>pressure.data</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="temperature" type="datacsv" isLabelTrack="False">
+        <PayloadFile>temperature.data</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="Live Labeling" type="labelcsv">
+        <PayloadFile>Live-Labeling.label</PayloadFile>
+        <Shape>
+          <Axis name="Labels" size="1">
+            <Label index="0">warm_breath</Label>
+          </Axis>
+        </Shape>
+      </Track>
+    </Tracks>
+  </Timeline>
+</ImagimobStudio>

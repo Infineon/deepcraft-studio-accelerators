@@ -1,0 +1,11 @@
+{
+    "date": "2025-10-23",
+    "location": "Varese, Italy",
+    "setting": "indoor",
+    "collected_by": "Gioele Mombelli",
+    "device": "PSOC 6 AI Kit DPS368",
+    "description": "Breathe detection dataset collected in a controlled indoor environment.",
+    "sampling_rate_hz": 64,
+    "labels": ["cool_blow", "warm_breath"],
+    "notes": "Data collected in late afternoon, indoor environment with stable controlled temperature. Kit was positioned at about 25cm for cool blow, and close to mouth for warm breath."
+}
