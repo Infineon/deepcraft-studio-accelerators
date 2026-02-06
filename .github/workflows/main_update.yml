@@ -33,6 +33,7 @@ jobs:
         shell: pwsh
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SENSOR_MAP: ${{ vars.SENSOR_MAP }}
         run: |
           if ("${{ github.event.event_type }}" -eq "main_update_all") {
             update-all
