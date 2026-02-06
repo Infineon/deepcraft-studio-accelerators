@@ -37,7 +37,7 @@ jobs:
           if ("${{ github.event.event_type }}" -eq "main_update_all") {
             update-all
           } elseif ("${{ github.event.event_type }}" -eq "main_update_post") {
-            update-project --rel-path "${{ github.event.client_payload.rel_path }}" --job-id "${{ github.event.client_payload.job_id }}"
+            update-project --rel-path "${{ github.event.client_payload.rel_path }}" --job-id ${{ github.event.client_payload.job_id }}
           } elseif ("${{ github.event_name }}" -eq "push") {
             update-changes
           } else {

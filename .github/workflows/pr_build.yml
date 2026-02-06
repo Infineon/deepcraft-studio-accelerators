@@ -62,4 +62,4 @@ jobs:
           } else {
             throw "Unsupported event: ${{ github.event_name }}"
           }
-          update-changes --pr-number "$PR_NUMBER" $JOB_ID
+          update-changes --pr-number $PR_NUMBER $JOB_ID
