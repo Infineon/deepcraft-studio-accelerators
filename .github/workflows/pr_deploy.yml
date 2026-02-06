@@ -28,4 +28,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          update-changes --pr-number "${{ github.event.inputs.pr_number }}" --merge-pr
+          update-changes --pr-number ${{ github.event.inputs.pr_number }} --merge-pr
