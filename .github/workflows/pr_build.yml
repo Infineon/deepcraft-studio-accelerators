@@ -50,6 +50,7 @@ jobs:
         shell: pwsh
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SENSOR_MAP: ${{ vars.SENSOR_MAP }}
         run: |
           if ("${{ github.event_name }}" -eq "workflow_dispatch") {
             update-changes --pr-number ${{ github.event.inputs.pr_number }}
