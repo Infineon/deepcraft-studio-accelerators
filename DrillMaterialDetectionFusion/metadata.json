@@ -1,0 +1,12 @@
+{
+  "title": "Drill Material Detection (Studio Accelerator)",
+  "description": "This studio accelerator uses a microphone and IMU to identify the material being drilled by the drill.",
+  "algorithm": "Classification",
+  "sensors": ["Microphone","IMU"],
+  "domain": ["Audio",""],
+  "application": ["Power tools", "Industrial"],
+  "use_case": ["Drill Material Detection"],
+  "kit": ["PSoC-6 AI Kit", "PSoC-Edge AI Kit"],
+  "device": ["PSoC-6", "PSoC-Edge"],
+  "workflow": ["ML Development"]
+}
