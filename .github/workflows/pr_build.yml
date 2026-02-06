@@ -51,15 +51,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          $JOB_ID = ""
           if ("${{ github.event_name }}" -eq "workflow_dispatch") {
-            $PR_NUMBER = "${{ github.event.inputs.pr_number }}"
+            update-changes --pr-number ${{ github.event.inputs.pr_number }}
           } elseif ("${{ github.event_name }}" -eq "pull_request_target") {
-            $PR_NUMBER = "${{ github.event.pull_request.number }}"
+            update-changes --pr-number ${{ github.event.pull_request.number }}
           } elseif ("${{ github.event_name }}" -eq "repository_dispatch") {
-            $PR_NUMBER = "${{ github.event.client_payload.pr_number }}"
-            $JOB_ID = "--job-id ${{ github.event.client_payload.job_id }}"
+            update-changes --pr-number ${{ github.event.client_payload.pr_number }} --job-id ${{ github.event.client_payload.job_id }}
           } else {
             throw "Unsupported event: ${{ github.event_name }}"
           }
-          update-changes --pr-number $PR_NUMBER $JOB_ID
