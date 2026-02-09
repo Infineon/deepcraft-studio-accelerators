@@ -1,0 +1,12 @@
+{
+  "title": "Golf Balls Detection",
+  "description": "Detects golf balls in the image frame.",
+  "algorithm": "Object Detection",
+  "sensors": ["Camera"],
+  "domain": ["Vision"],
+  "application": ["Consumer Robots"],
+  "use_case": ["Golf Balls Detection", "Object Detection"],
+  "kit": ["PSoC-Edge Evaluation Kit"],
+  "device": ["PSoC-Edge"],
+  "workflow": ["ML Development"]
+}
