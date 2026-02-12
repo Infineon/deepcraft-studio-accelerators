@@ -1,8 +1,8 @@
 name: main - Update Projects
 run-name: >
   ${{
-    github.event.event_type == 'main_update_all' && 'All Projects' ||
-    github.event.event_type == 'main_update_post' && github.event.client_payload.rel_path ||
+    github.event.action == 'main_update_all' && 'All Projects' ||
+    github.event.action == 'main_update_post' && github.event.client_payload.rel_path ||
     ''
   }}
 
@@ -18,10 +18,12 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - Models/**
 
 jobs:
   deploy:
-    runs-on: windows-11-arm
+    runs-on: windows-2025
     steps:
       - name: Install Pipeline Package
         shell: pwsh
@@ -35,10 +37,14 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SENSOR_MAP: ${{ vars.SENSOR_MAP }}
         run: |
-          if ("${{ github.event.event_type }}" -eq "main_update_all") {
+          if ("${{ github.event.action }}" -eq "main_update_all") {
             update-all
-          } elseif ("${{ github.event.event_type }}" -eq "main_update_post") {
-            update-project --rel-path "${{ github.event.client_payload.rel_path }}" --job-id ${{ github.event.client_payload.job_id }}
+          } elseif ("${{ github.event.action }}" -eq "main_update_post") {
+            update-trained `
+              --rel-path ${{ github.event.client_payload.rel_path }} `
+              --job-id ${{ github.event.client_payload.job_id }} `
+              --commit ${{ github.event.client_payload.commit }} `
+              --studio-version ${{ github.event.client_payload.studio_version }}
           } elseif ("${{ github.event_name }}" -eq "push") {
             update-changes
           } else {
