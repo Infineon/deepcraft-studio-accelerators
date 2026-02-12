@@ -57,7 +57,7 @@ jobs:
           } elseif ("${{ github.event_name }}" -eq "pull_request_target") {
             update-changes --pr-number ${{ github.event.pull_request.number }}
           } elseif ("${{ github.event_name }}" -eq "repository_dispatch") {
-            update-trained --pr-number ${{ github.event.client_payload.pr_number }} --job-id ${{ github.event.client_payload.job_id }}
+            update-trained --pr-number ${{ github.event.client_payload.pr_number }} --rel-path ${{ github.event.client_payload.rel_path }} --job-id ${{ github.event.client_payload.job_id }}
           } else {
             throw "Unsupported event: ${{ github.event_name }}"
           }
