@@ -15,7 +15,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: windows-11-arm
+    runs-on: windows-2025
     steps:
       - name: Install Pipeline Package
         shell: pwsh
@@ -29,4 +29,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SENSOR_MAP: ${{ vars.SENSOR_MAP }}
         run: |
-          update-changes --pr-number ${{ github.event.inputs.pr_number }} --merge-pr
+          pr-deploy --pr-number ${{ github.event.inputs.pr_number }}

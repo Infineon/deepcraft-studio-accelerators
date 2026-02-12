@@ -24,7 +24,7 @@ on:
 
 jobs:
   build:
-    runs-on: windows-11-arm
+    runs-on: windows-2025
     steps:
       - name: Ensure recent manual trigger
         env:
@@ -57,7 +57,12 @@ jobs:
           } elseif ("${{ github.event_name }}" -eq "pull_request_target") {
             update-changes --pr-number ${{ github.event.pull_request.number }}
           } elseif ("${{ github.event_name }}" -eq "repository_dispatch") {
-            update-changes --pr-number ${{ github.event.client_payload.pr_number }} --job-id ${{ github.event.client_payload.job_id }}
+            update-trained `
+              --pr-number ${{ github.event.client_payload.pr_number }} `
+              --rel-path ${{ github.event.client_payload.rel_path }} `
+              --job-id ${{ github.event.client_payload.job_id }} `
+              --commit ${{ github.event.client_payload.commit }} `
+              --studio-version ${{ github.event.client_payload.studio_version }}
           } else {
             throw "Unsupported event: ${{ github.event_name }}"
           }
