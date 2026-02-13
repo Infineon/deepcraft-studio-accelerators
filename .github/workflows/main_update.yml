@@ -40,7 +40,7 @@ jobs:
           if ("${{ github.event.action }}" -eq "main_update_all") {
             update-all
           } elseif ("${{ github.event.action }}" -eq "main_update_post") {
-            update-trained --project ${{ github.event.client_payload }}
+            update-trained --project '${{ toJson(github.event.client_payload) }}'
           } elseif ("${{ github.event_name }}" -eq "push") {
             update-changes
           } else {
