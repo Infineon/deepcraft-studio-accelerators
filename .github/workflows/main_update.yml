@@ -40,11 +40,7 @@ jobs:
           if ("${{ github.event.action }}" -eq "main_update_all") {
             update-all
           } elseif ("${{ github.event.action }}" -eq "main_update_post") {
-            update-trained `
-              --rel-path ${{ github.event.client_payload.rel_path }} `
-              --job-id ${{ github.event.client_payload.job_id }} `
-              --commit ${{ github.event.client_payload.commit }} `
-              --studio-version ${{ github.event.client_payload.studio_version }}
+            update-trained --project ${{ github.event.client_payload }}
           } elseif ("${{ github.event_name }}" -eq "push") {
             update-changes
           } else {
