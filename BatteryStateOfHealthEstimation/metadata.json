@@ -1,5 +1,5 @@
 {
-    "title": "DEEPCRAFT\u2122 Studio Accelerator for Battery State of Health Estimation",
+    "title": "Battery State of Health Estimation",
     "description": "In this project, we build a regression model to estimate the remaining battery capacity as a key indicator of its state of health",
     "long_description": "This project demonstrates Li-Ion battery aging estimation using a multilayer perceptron (MLP). An approach inspired by state of the art papers with some modifications, you can find more info in the project repo. In this work, the remaining capacity is selected as the SoH indicator. The model is trained and validated using an open-source dataset containing cycling data from 48 NMC-Graphite Sanyo/Panasonic UR18650E cylindrical cells.",
     "algorithm": "Regression",

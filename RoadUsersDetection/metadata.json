@@ -1,28 +1,19 @@
 {
   "title": "Road Users Detection",
-  "description": "Project to build a model that detects people, trains, cars, busses, bicycles, motorbikes in an image.",
+  "description": "Recognize if there are people, trains, cars, busses, bicycles, motorbikes in an image",
+  "long_description": "This project allows you to train a YOLO-based model to identify people, trains, cars, busses, bicycles, motorbikes in an image/video. This project aims to achieve precise predictions of road users, which is critical for applications in autonomous driving and advanced driver-assistance systems.",
   "algorithm": "Object Detection",
-  "sensors": [
-    "Camera"
-  ],
-  "domain": [
-    "Vision"
-  ],
-  "application": [
-    "Automotive",
-    "ADAS"
-  ],
-  "use_case": [
-    "Road Users Detection",
-    "Object Detection"
-  ],
-  "kit": [
-    "PSOC\u2122 Edge AI Kit"
-  ],
-  "device": [
-    "PSOC\u2122 Edge"
-  ],
-  "workflow": [
-    "ML Development"
-  ]
+  "sensors": ["Camera"],
+  "domain": ["Vision"],
+  "application": ["Automotive", "ADAS"],
+  "use_case": ["Road Users Detection", "Object Detection"],
+  "kit": ["PSOC\u2122 Edge AI Kit"],
+  "device": ["PSOC\u2122 Edge"],
+  "workflow": ["ML Development"],
+  "thumbnail_image_id": "lowres_22941_AI_Visual_Automotive_AI.webp",
+  "main_image_id": "lowres_22941_AI_Visual_Automotive_AI.webp",
+  "brand_image_id": "deepcraft.webp",
+  "brand_url": "https://www.infineon.com/design-resources/embedded-software/deepcraft-edge-ai-solutions",
+  "links": [{"label": "Download", "url": "https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio","heading": "Access Project via DEEPCRAFT\u2122 Studio", "sub-heading": "Download and install DEEPCRAFT\u2122 Studio to fully access this project and start developing your Edge AI product"},
+            {"label": "GitHub", "url": "https://github.com/Infineon/deepcraft-studio-accelerators/tree/main/RoadUsersDetection","heading": "Project Repository", "sub-heading": "Get more details about this project"}]
 }

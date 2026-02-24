@@ -1,12 +1,19 @@
 {
 	"title": "Water Detection",
-	"description": "This project uses capacitive sensing data to build a model to detect water presence and finger touches.",
+	"description": "Use capacitive sensing data to build a model to detect water presence and finger touches",
+	"long_description": "This project allows you to build a model for detecting water presence and finger presses on surfaces using the capacitive sensing technology of Infineon CAPSENSE\u2122. This model is suitable for applications like water/rain detector for safety of electronic devices or equipments, touch button/control for use in wet environments, etc.",
 	"algorithm": "Classification",
-	"sensors": ["Capacitive & Inductive Sensing"],
- 	"domain": ["Touch", "Sensing"],
- 	"application": ["Smart Home", "Appliances", "Smart Manufactoring", "Industrial IoT"],
- 	"use_case": ["Water Detection", "Touch Detection"],
- 	"kit": ["PSoC-4100S Max Pioneer Kit", "PSoC-6 Pioneer Kit", "PSoC-6 AI Kit", "PSoC-Edge AI Kit"],
- 	"device": ["PSoC-4", "PSoC-6", "PSoC-Edge"],
- 	"workflow": ["ML Development"]
-}
+	"sensors": ["Capacitive Sensing","Inductive Sensing"],
+	"domain": ["Touch", "Sensing"],
+	"application": ["Smart Home", "Appliances", "Smart Manufacturing", "Industrial IoT"],
+	"use_case": ["Water Detection", "Touch Detection"],
+	"kit": ["PSOC\u2122 6 Pioneer Kit", "PSOC\u2122 6 AI Kit", "PSOC\u2122 Edge AI Kit"],
+	"device": ["PSOC\u2122 6", "PSOC\u2122 Edge"],
+	"workflow": ["ML Development"],
+	"thumbnail_image_id": "lowres_16864_Smartwatch_underwater.webp",
+	"main_image_id": "lowres_16864_Smartwatch_underwater.webp",
+	"brand_image_id": "deepcraft.webp",
+	"brand_url": "https://www.infineon.com/design-resources/embedded-software/deepcraft-edge-ai-solutions",
+	"links": [{"label": "Download", "url": "https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio","heading": "Access Project via DEEPCRAFT\u2122 Studio", "sub-heading": "Download and install DEEPCRAFT\u2122 Studio to fully access this project and start developing your Edge AI product"},
+				{"label": "GitHub", "url": "https://github.com/Infineon/deepcraft-studio-accelerators/tree/main/WaterDetection","heading": "Project Repository", "sub-heading": "Get more details about this project"}]
+	}

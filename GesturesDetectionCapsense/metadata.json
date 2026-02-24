@@ -1,12 +1,19 @@
 {
   "title": "Gestures Detection (CAPSENSE)",
   "description": "CAPSENSE-based gestures detection model detects up, down, left and right gestures",
+  "long_description": "The project uses capacitive sensing (CAPSENSE\u2122) technology to interpret gesture patterns and improve user interface interactions. A supervised learning model is trained on touch-based sensor data to accurately classify the following swipes: up, down, left, right",
   "algorithm": "Classification",
-  "sensors": ["Capacitive & Inductive Sensing"],
+  "sensors": ["Capacitive Sensing","Inductive Sensing"],
   "domain": ["Touch", "Sensing"],
-  "application": ["Smart Home", "Appliances", "Smart Manufactoring", "Industrial IoT"],
+  "application": ["Smart Home", "Appliances", "Smart Manufacturing", "Industrial IoT"],
   "use_case": ["Gestures Detection"],
   "kit": ["PSOC\u2122 4100S Max Pioneer Kit", "PSOC\u2122 6 Pioneer Kit", "PSOC\u2122 6 AI Kit", "PSOC\u2122 Edge AI Kit"],
   "device": ["PSOC\u2122 4", "PSOC\u2122 6", "PSOC\u2122 Edge"],
-  "workflow": ["ML Development"]
+  "workflow": ["ML Development"],
+  "thumbnail_image_id": "lowres_Setting_up_intelligent_home_system.webp",
+  "main_image_id": "lowres_Setting_up_intelligent_home_system.webp",
+  "brand_image_id": "deepcraft.webp",
+  "brand_url": "https://www.infineon.com/design-resources/embedded-software/deepcraft-edge-ai-solutions",
+  "links": [{"label": "Download", "url": "https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio","heading": "Access Project via DEEPCRAFT\u2122 Studio", "sub-heading": "Download and install DEEPCRAFT\u2122 Studio to fully access this project and start developing your Edge AI product"},
+            {"label": "GitHub", "url": "https://github.com/Infineon/deepcraft-studio-accelerators/tree/main/GesturesDetectionCapsense","heading": "Project Repository", "sub-heading": "Get more details about this project"}]
 }

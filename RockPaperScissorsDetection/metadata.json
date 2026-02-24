@@ -1,12 +1,19 @@
 {
   "title": "Rock Paper Scissors Detection",
-  "description": "Project to build a model that recognizes hand gestures (Rock, Paper or Scissors) in an image.",
+  "description": "Recognize hand gestures (Rock, Paper or Scissors) in an image",
+  "long_description": "This project allows you to train a YOLO-based model to identify rock, paper and scissors hand gestures in an image/video. This model is suitable for interactive applications, making it ideal for educational purposes, gaming, gestures controlled systems, etc.",
   "algorithm": "Object Detection",
   "sensors": ["Camera"],
   "domain": ["Vision"],
   "application": ["Games", "Smart Home", "Appliances"],
   "use_case": ["Gestures Recognition", "Object Detection"],
-  "kit": ["PSoC-Edge AI Kit"],
-  "device": ["PSoC-Edge"],
-  "workflow": ["ML Development"]
+  "kit": ["PSOC\u2122 Edge AI Kit"],
+  "device": ["PSOC\u2122 Edge"],
+  "workflow": ["ML Development"],
+  "thumbnail_image_id": "lowres_25760_Icon_rock_paper_scissors_RGB.webp",
+  "main_image_id": "lowres_25760_Icon_rock_paper_scissors_RGB.webp",
+  "brand_image_id": "deepcraft.webp",
+  "brand_url": "https://www.infineon.com/design-resources/embedded-software/deepcraft-edge-ai-solutions",
+  "links": [{"label": "Download", "url": "https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio","heading": "Access Project via DEEPCRAFT\u2122 Studio", "sub-heading": "Download and install DEEPCRAFT\u2122 Studio to fully access this project and start developing your Edge AI product"},
+            {"label": "GitHub", "url": "https://github.com/Infineon/deepcraft-studio-accelerators/tree/main/RockPaperScissorsDetection","heading": "Project Repository", "sub-heading": "Get more details about this project"}]
 }

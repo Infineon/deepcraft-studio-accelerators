@@ -1,12 +1,19 @@
 {
   "title": "Baby Cry Detection (Studio Accelerator)",
-  "description": "This Studio Accelerator uses a microphone to detect if a baby is crying in the vicinity.",
+  "description": "Use a microphone to detect if a baby is crying in the vicinity",
+  "long_description": "This Studio Accelerator allows you to build a baby cry detector that can be used on any supported (Infineon) MCU with a microphone for smart home and baby monitoring applications.",
   "algorithm": "Classification",
   "sensors": ["Microphone"],
   "domain": ["Audio"],
   "application": ["Baby Monitor", "Smart Home", "Appliances", "Wearables", "Automotive", "Healthcare"],
   "use_case": ["Baby Cry Detection", "Baby Care"],
-  "kit": ["PSoC-6 Pioneer Kit", "PSoC-6 AI Kit", "PSoC-Edge AI Kit"],
-  "device": ["PSoC-6", "PSoC-Edge"],
-  "workflow": ["ML Development"]
+  "kit": ["PSOC\u2122 6 Pioneer Kit", "PSOC\u2122 6 AI Kit", "PSOC\u2122 Edge AI Kit"],
+  "device": ["PSOC\u2122 6", "PSOC\u2122 Edge"],
+  "workflow": ["ML Development"],
+  "thumbnail_image_id": "lowres_18900_baby_sleeping_in_crib.webp",
+  "main_image_id": "lowres_18900_baby_sleeping_in_crib.webp",
+  "brand_image_id": "deepcraft.webp",
+  "brand_url": "https://www.infineon.com/design-resources/embedded-software/deepcraft-edge-ai-solutions",
+  "links": [{"label": "Download", "url": "https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio","heading": "Access Project via DEEPCRAFT\u2122 Studio", "sub-heading": "Download and install DEEPCRAFT\u2122 Studio to fully access this project and start developing your Edge AI product"},
+            {"label": "GitHub", "url": "https://github.com/Infineon/deepcraft-studio-accelerators/tree/main/BabyCryDetection","heading": "Project Repository", "sub-heading": "Get more details about this project"}]
 }

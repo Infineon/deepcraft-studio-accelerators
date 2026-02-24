@@ -1,12 +1,19 @@
 {
   "title": "Motor Load Imbalance Detection",
-  "description": "Project to build a model that detects if the load of an electric motor is balanced or not.",
+  "description": "Detect if the load of an electric motor is balanced or not",
+  "long_description": "This project allows you to develop an AI model capable of detecting imbalances in the motor load while the motor is operating. The model is suitable for real-time, low powered embedded applications in industrial machines (conveyers, pumps, compressors), automotive systems (Electrical Vehicle motors, actuators), etc.",
   "algorithm": "Classification",
-  "sensors": ["Current"],
+  "sensors": ["Voltage","Current"],
   "domain": ["Electronic Sensing"],
   "application": ["Smart Home", "Appliances", "Industrial IoT", "Safety Monitoring", "Automotive"],
   "use_case": ["Predictive Maintenance", "Anomaly Detection"],
   "kit": ["PSOC\u2122 C3 Motor Control Kit", "PSOC\u2122 6 Pioneer Kit", "PSOC\u2122 6 AI Kit", "PSOC\u2122 Edge AI Kit"],
   "device": ["PSOC\u2122 C3", "PSOC\u2122 6", "PSOC\u2122 Edge"],
-  "workflow": ["ML Development"]
+  "workflow": ["ML Development"],
+  "thumbnail_image_id": "lowres_4092_drive_motor.webp",
+  "main_image_id": "lowres_4092_drive_motor.webp",
+  "brand_image_id": "deepcraft.webp",
+  "brand_url": "https://www.infineon.com/design-resources/embedded-software/deepcraft-edge-ai-solutions",
+  "links": [{"label": "Download", "url": "https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio","heading": "Access Project via DEEPCRAFT\u2122 Studio", "sub-heading": "Download and install DEEPCRAFT\u2122 Studio to fully access this project and start developing your Edge AI product"},
+            {"label": "GitHub", "url": "https://github.com/Infineon/deepcraft-studio-accelerators/tree/main/MotorImbalanceDetection","heading": "Project Repository", "sub-heading": "Get more details about this project"}]
 }

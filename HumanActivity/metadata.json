@@ -1,12 +1,18 @@
 {
   "title": "Human Activity Detection",
-  "description": "Project to build a model to detect whether a person is performing different activities e.g. walking.",
+  "description": "Detect whether a person is performing different activities e.g. walking",
+  "long_description": "This project allows you to build a human activity detector that can be used on any supported Infineon MCU (or other MCUs) with a BMI160 IMU or another IMU. You can use this project as a starting point to develop a production ready model intended for deployment in wristed wearables. The available model is capable of detecting the following human activities: running, standing, walking, sitting, jumping.",
   "algorithm": "Classification",
   "sensors": ["IMU"],
   "domain": ["Vibration", "Sensing"],
   "application": ["Wearables", "Safety Monitoring", "Healthcare", "Games"],
-  "use_case": ["Human Activity Detection", "Walk Detecion", "Run Detection", "Standing Detection", "Sitting Detection", "Jump Detection"],
-  "kit": ["PSoC-6 Pioneer Kit", "PSoC-6 AI Kit", "PSoC-Edge AI Kit"],
-  "device": ["PSoC-6", "PSoC-Edge"],
-  "workflow": ["ML Development"]
+  "kit": ["PSOC\u2122 6 Pioneer Kit", "PSOC\u2122 6 AI Kit", "PSOC\u2122 Edge AI Kit"],
+  "device": ["PSOC\u2122 6", "PSOC\u2122 Edge"],
+  "workflow": ["ML Development"],
+  "thumbnail_image_id": "lowres_22401_Illustration_side_view_woman_bag_RGB.webp",
+  "main_image_id": "lowres_22401_Illustration_side_view_woman_bag_RGB.webp",
+  "brand_image_id": "deepcraft.webp",
+  "brand_url": "https://www.infineon.com/design-resources/embedded-software/deepcraft-edge-ai-solutions",
+  "links": [{"label": "Download", "url": "https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio","heading": "Access Project via DEEPCRAFT\u2122 Studio", "sub-heading": "Download and install DEEPCRAFT\u2122 Studio to fully access this project and start developing your Edge AI product"},
+            {"label": "GitHub", "url": "https://github.com/Infineon/deepcraft-studio-accelerators/tree/main/HumanActivity","heading": "Project Repository", "sub-heading": "Get more details about this project"}]
 }

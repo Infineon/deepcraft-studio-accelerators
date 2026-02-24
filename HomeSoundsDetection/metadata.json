@@ -1,12 +1,19 @@
 {
   "title": "Home Sounds Detection",
-  "description": "This project uses a microphone to detect sound signatures common to a home: baby cry, cough, water tap.",
+  "description": "Use a microphone to detect sound signatures common to a home: baby cry, cough, water tap.",
+  "long_description": "This project allows you to build a model capable of detecting a number of audio signatures common to a home setting. It currently can detect 3 sounds, cough, baby cry, and water tap running, but it can easily be modified to add more.",
   "algorithm": "Classification",
   "sensors": ["Microphone"],
   "domain": ["Audio"],
   "application": ["Smart Home", "Appliances", "Safety Monitoring", "Wearables", "Healthcare"],
   "use_case": ["Home Sounds Detection", "Anomaly Detection", "Baby Cry Detection", "Cough Detection", "Water Tap Detection"],
-  "kit": ["PSoC-6 Pioneer Kit", "PSoC-6 AI Kit", "PSoC-Edge AI Kit"],
-  "device": ["PSoC-6", "PSoC-Edge"],
-  "workflow": ["ML Development"]
+  "kit": ["PSOC\u2122 6 Pioneer Kit", "PSOC\u2122 6 AI Kit", "PSOC\u2122 Edge AI Kit"],
+  "device": ["PSOC\u2122 6", "PSOC\u2122 Edge"],
+  "workflow": ["ML Development"],
+  "thumbnail_image_id": "lowres_19297_smart_home_living_room.webp",
+  "main_image_id": "lowres_19297_smart_home_living_room.webp",
+  "brand_image_id": "deepcraft.webp",
+  "brand_url": "https://www.infineon.com/design-resources/embedded-software/deepcraft-edge-ai-solutions",
+  "links": [{"label": "Download", "url": "https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio","heading": "Access Project via DEEPCRAFT\u2122 Studio", "sub-heading": "Download and install DEEPCRAFT\u2122 Studio to fully access this project and start developing your Edge AI product"},
+            {"label": "GitHub", "url": "https://github.com/Infineon/deepcraft-studio-accelerators/tree/main/HomeSoundsDetection","heading": "Project Repository", "sub-heading": "Get more details about this project"}]
 }

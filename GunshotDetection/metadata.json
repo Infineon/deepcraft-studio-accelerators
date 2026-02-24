@@ -1,12 +1,19 @@
 {
   "title": "Gunshot Detection",
-  "description": "Project that uses a microphone to identify gunshots.",
+  "description": "Use a microphone to identify gunshots.",
+  "long_description": "This project allows you to build a model for detecting gunshots in a noisy environment. This model is suitable for smart home and industrial IoT devices for safty monitoring.",
   "algorithm": "Classification",
   "sensors": ["Microphone"],
   "domain": ["Audio"],
   "application": ["Smart Home", "Industrial IoT", "Appliances", "Safety Monitoring", "Wearables", "Healthcare"],
   "use_case": ["Gunshot Detection"],
-  "kit": ["PSoC-6 Pioneer Kit", "PSoC-6 AI Kit", "PSoC-Edge AI Kit"],
-  "device": ["PSoC-6", "PSoC-Edge"],
-  "workflow": ["ML Development"]
+  "kit": ["PSOC\u2122 6 Pioneer Kit", "PSOC\u2122 6 AI Kit", "PSOC\u2122 Edge AI Kit"],
+  "device": ["PSOC\u2122 6", "PSOC\u2122 Edge"],
+  "workflow": ["ML Development"],
+  "thumbnail_image_id": "lowres_16853_IP_camera.webp",
+  "main_image_id": "lowres_16853_IP_camera.webp",
+  "brand_image_id": "deepcraft.webp",
+  "brand_url": "https://www.infineon.com/design-resources/embedded-software/deepcraft-edge-ai-solutions",
+  "links": [{"label": "Download", "url": "https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio","heading": "Access Project via DEEPCRAFT\u2122 Studio", "sub-heading": "Download and install DEEPCRAFT\u2122 Studio to fully access this project and start developing your Edge AI product"},
+            {"label": "GitHub", "url": "https://github.com/Infineon/deepcraft-studio-accelerators/tree/main/GunshotDetection","heading": "Project Repository", "sub-heading": "Get more details about this project"}]
 }

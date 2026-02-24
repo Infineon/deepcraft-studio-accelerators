@@ -1,12 +1,19 @@
 {
   "title": "Drill Material Detection Audio",
-  "description": "Project that uses a microphone to detect the material being drilled into using audio signature.",
+  "description": "Use a microphone to detect the material being drilled into using audio signature.",
+  "long_description": "This project allows you to develop a model that is capable of classifying the material a power drill is drilling into based on the audio signature and is imagined to be incorporated into smart power tools. The current project only differentiates between wood, plastic, and air but is easily scalable to include more labels.",
   "algorithm": "Classification",
   "sensors": ["Microphone"],
   "domain": ["Audio"],
-  "application": ["Smart Home", "Smart Manufactoring", "Industrial IoT", "Appliances", "Safety Monitoring"],
+  "application": ["Smart Home", "Smart Manufacturing", "Industrial IoT", "Appliances", "Safety Monitoring"],
   "use_case": ["Material Detection", "Anomaly Detection"],
-  "kit": ["PSoC-6 Pioneer Kit", "PSoC-6 AI Kit", "PSoC-Edge AI Kit"],
-  "device": ["PSoC-6", "PSoC-Edge"],
-  "workflow": ["ML Development"]
+  "kit": ["PSOC\u2122 6 Pioneer Kit", "PSOC\u2122 6 AI Kit", "PSOC\u2122 Edge AI Kit"],
+  "device": ["PSOC\u2122 6", "PSOC\u2122 Edge"],
+  "workflow": ["ML Development"],
+  "thumbnail_image_id": "lowres_22926_man_using_cordless_drill.webp",
+  "main_image_id": "lowres_22926_man_using_cordless_drill.webp",
+  "brand_image_id": "deepcraft.webp",
+  "brand_url": "https://www.infineon.com/design-resources/embedded-software/deepcraft-edge-ai-solutions",
+  "links": [{"label": "Download", "url": "https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio","heading": "Access Project via DEEPCRAFT\u2122 Studio", "sub-heading": "Download and install DEEPCRAFT\u2122 Studio to fully access this project and start developing your Edge AI product"},
+            {"label": "GitHub", "url": "https://github.com/Infineon/deepcraft-studio-accelerators/tree/main/DrillMaterialDetectionMicrophone","heading": "Project Repository", "sub-heading": "Get more details about this project"}]
 }
