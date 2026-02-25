@@ -1,0 +1,2299 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ImagimobStudio version="1.1.0">
+  <Job id="9d12c3b9-fddf-11f0-b5b2-3b20d4a036f5" />
+  <ProjectType>Classification</ProjectType>
+  <ProjectId>32093117-bfae-4b7f-b9b7-8ebf6a9bf2ff</ProjectId>
+  <Preprocessor inshape="[46]" intype="Float32" infreq="100" outshape="[50,46]" outtype="Float32">
+    <Unit id="Core.Queues.SlidingWindow">
+      <Argument param="input" type="String">data</Argument>
+      <Argument param="time_input" type="String">time</Argument>
+      <Argument param="window_shape" type="Shape">[50,46]</Argument>
+      <Argument param="stride" type="Int32">230</Argument>
+      <Argument param="buffer_multiplier" type="Double">1</Argument>
+      <Argument param="output" type="String">data</Argument>
+      <Argument param="time_output" type="String">time</Argument>
+    </Unit>
+  </Preprocessor>
+  <ModelFactory>
+    <Epochs>100</Epochs>
+    <BatchSize>16</BatchSize>
+    <SplitCount>16</SplitCount>
+    <Patience>20</Patience>
+    <AppendModels>False</AppendModels>
+    <LossFunction>CategoricalCrossentropy</LossFunction>
+    <HardwareType>Infineon</HardwareType>
+    <TrainingEnvironment>
+    </TrainingEnvironment>
+    <ModelFamily>Conv1DLSTM</ModelFamily>
+    <ModelFlavor>LargeKern</ModelFlavor>
+    <ClassifierType>Dense</ClassifierType>
+    <Optimization>Accuracy</Optimization>
+    <Pooling>True</Pooling>
+    <Downscale>False</Downscale>
+    <LearnRate>Mid</LearnRate>
+    <RegularizationFactor>Mid</RegularizationFactor>
+    <LastNetworkInputShape>[50,46]</LastNetworkInputShape>
+    <LastClassCount>4</LastClassCount>
+    <Optimizer>
+      <LearningRate>0.001</LearningRate>
+      <WeightDecay>0.0001</WeightDecay>
+    </Optimizer>
+    <BuildSteps>
+      <Training />
+      <ConfusionMatrix />
+    </BuildSteps>
+  </ModelFactory>
+  <Models>
+    <Model name="conv1dlstm-medium-accuracy-0" id="9f710172-f428-47aa-a9b3-efa319eab7b7">
+      <LossFunction>CategoricalCrossentropy</LossFunction>
+      <Epochs>100</Epochs>
+      <BatchSize>16</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.004</LearningRate>
+        <WeightDecay>0.001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[50,46]" intype="Float32" infreq="0" outshape="[4]" outtype="Float32">
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">12</Argument>
+          <Argument param="kernel_size" type="Int32">5</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">24</Argument>
+          <Argument param="kernel_size" type="Int32">5</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">24</Argument>
+          <Argument param="kernel_size" type="Int32">5</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dropout">
+          <Argument param="rate" type="Double">0.05</Argument>
+        </Unit>
+        <Unit id="Core.Layers.LSTM">
+          <Argument param="units" type="Int32">16</Argument>
+          <Argument param="activation" type="String">tanh</Argument>
+          <Argument param="recurrent_activation" type="String">sigmoid</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="return_sequences" type="Boolean">False</Argument>
+          <Argument param="return_state" type="Boolean">False</Argument>
+          <Argument param="stateful" type="Boolean">False</Argument>
+          <Argument param="go_backwards" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Flatten" />
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">40</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dropout">
+          <Argument param="rate" type="Double">0.2</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">4</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">softmax</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <Training />
+        <ConfusionMatrix />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="Air" weight="4" />
+        <SymbolWeight symbol="Plastic" weight="7" />
+        <SymbolWeight symbol="Wood" weight="9" />
+        <SymbolWeight symbol="(unlabeled)" weight="1" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[46]" intype="Float32" infreq="100" outshape="[50,46]" outtype="Float32">
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[50,46]</Argument>
+          <Argument param="stride" type="Int32">230</Argument>
+          <Argument param="buffer_multiplier" type="Double">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
+    </Model>
+    <Model name="conv1dlstm-medium-accuracy-1" id="23e508f7-2abd-4cd6-b408-19cf6ba080cd">
+      <LossFunction>CategoricalCrossentropy</LossFunction>
+      <Epochs>100</Epochs>
+      <BatchSize>16</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.004</LearningRate>
+        <WeightDecay>0.001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[50,46]" intype="Float32" infreq="0" outshape="[4]" outtype="Float32">
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Int32">5</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Int32">5</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Int32">5</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dropout">
+          <Argument param="rate" type="Double">0.05</Argument>
+        </Unit>
+        <Unit id="Core.Layers.LSTM">
+          <Argument param="units" type="Int32">32</Argument>
+          <Argument param="activation" type="String">tanh</Argument>
+          <Argument param="recurrent_activation" type="String">sigmoid</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="return_sequences" type="Boolean">False</Argument>
+          <Argument param="return_state" type="Boolean">False</Argument>
+          <Argument param="stateful" type="Boolean">False</Argument>
+          <Argument param="go_backwards" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Flatten" />
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">40</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dropout">
+          <Argument param="rate" type="Double">0.2</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">4</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">softmax</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <Training />
+        <ConfusionMatrix />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="Air" weight="4" />
+        <SymbolWeight symbol="Plastic" weight="7" />
+        <SymbolWeight symbol="Wood" weight="9" />
+        <SymbolWeight symbol="(unlabeled)" weight="1" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[46]" intype="Float32" infreq="100" outshape="[50,46]" outtype="Float32">
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[50,46]</Argument>
+          <Argument param="stride" type="Int32">230</Argument>
+          <Argument param="buffer_multiplier" type="Double">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
+    </Model>
+    <Model name="conv1dlstm-medium-accuracy-2" id="8c9c3051-46b7-44a0-a734-d70835db5143">
+      <LossFunction>CategoricalCrossentropy</LossFunction>
+      <Epochs>100</Epochs>
+      <BatchSize>16</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.004</LearningRate>
+        <WeightDecay>0.001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[50,46]" intype="Float32" infreq="0" outshape="[4]" outtype="Float32">
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Int32">5</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">5</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">5</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dropout">
+          <Argument param="rate" type="Double">0.05</Argument>
+        </Unit>
+        <Unit id="Core.Layers.LSTM">
+          <Argument param="units" type="Int32">64</Argument>
+          <Argument param="activation" type="String">tanh</Argument>
+          <Argument param="recurrent_activation" type="String">sigmoid</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="return_sequences" type="Boolean">False</Argument>
+          <Argument param="return_state" type="Boolean">False</Argument>
+          <Argument param="stateful" type="Boolean">False</Argument>
+          <Argument param="go_backwards" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Flatten" />
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">40</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dropout">
+          <Argument param="rate" type="Double">0.2</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">4</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">softmax</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <Training />
+        <ConfusionMatrix />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="Air" weight="4" />
+        <SymbolWeight symbol="Plastic" weight="7" />
+        <SymbolWeight symbol="Wood" weight="9" />
+        <SymbolWeight symbol="(unlabeled)" weight="1" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[46]" intype="Float32" infreq="100" outshape="[50,46]" outtype="Float32">
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[50,46]</Argument>
+          <Argument param="stride" type="Int32">230</Argument>
+          <Argument param="buffer_multiplier" type="Double">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
+    </Model>
+    <Model name="conv1dlstm-medium-accuracy-3" id="98d41722-32b0-4a38-a52e-766f10f84aa3">
+      <LossFunction>CategoricalCrossentropy</LossFunction>
+      <Epochs>100</Epochs>
+      <BatchSize>16</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.004</LearningRate>
+        <WeightDecay>0.001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[50,46]" intype="Float32" infreq="0" outshape="[4]" outtype="Float32">
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Int32">5</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">5</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Int32">5</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">64</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution1D">
+          <Argument param="filters" type="Int32">64</Argument>
+          <Argument param="kernel_size" type="Int32">3</Argument>
+          <Argument param="strides" type="Int32">1</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.MaxPool1D">
+          <Argument param="pool_size" type="Int32">2</Argument>
+          <Argument param="strides" type="Int32">2</Argument>
+          <Argument param="padding" type="String">valid</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dropout">
+          <Argument param="rate" type="Double">0.05</Argument>
+        </Unit>
+        <Unit id="Core.Layers.LSTM">
+          <Argument param="units" type="Int32">64</Argument>
+          <Argument param="activation" type="String">tanh</Argument>
+          <Argument param="recurrent_activation" type="String">sigmoid</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="return_sequences" type="Boolean">False</Argument>
+          <Argument param="return_state" type="Boolean">False</Argument>
+          <Argument param="stateful" type="Boolean">False</Argument>
+          <Argument param="go_backwards" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Flatten" />
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">40</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dropout">
+          <Argument param="rate" type="Double">0.2</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">4</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">softmax</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <Training />
+        <ConfusionMatrix />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="Air" weight="4" />
+        <SymbolWeight symbol="Plastic" weight="7" />
+        <SymbolWeight symbol="Wood" weight="9" />
+        <SymbolWeight symbol="(unlabeled)" weight="1" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[46]" intype="Float32" infreq="100" outshape="[50,46]" outtype="Float32">
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[50,46]</Argument>
+          <Argument param="stride" type="Int32">230</Argument>
+          <Argument param="buffer_multiplier" type="Double">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
+    </Model>
+  </Models>
+  <Database balance="AnnotatedLength" redistributionScope="Everything">
+    <SymbolMap>
+      <Symbol name="(unlabeled)" id="0" weight="1" />
+      <Symbol name="Air" id="1" weight="4" />
+      <Symbol name="Plastic" id="2" weight="7" />
+      <Symbol name="Wood" id="3" weight="9" />
+    </SymbolMap>
+    <DataSet id="unassigned" targetSize="0" labels="Unassigned" />
+    <DataSet id="train" targetSize="0.7273961282861006" labels="Complete">
+      <Session name="P46" sessionId="1639ae0c-dcdb-4d8b-961c-011450dbbcdd" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556797078301" start="0" length="83.31999969482422">/Data/P46/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P46/P46.imsession</SessionFile>
+        <LabelFile modified="5250681423965632862">/Data/P46/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="53.2955619">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A32" sessionId="3618d274-25eb-4d21-8621-da663d3d2743" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681555843239763" start="0" length="38.95000076293945">/Data/A32/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A32/A32.imsession</SessionFile>
+        <LabelFile modified="5250675652407749651">/Data/A32/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="26.1305238">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P29" sessionId="a44aef77-befb-4e9d-9b8c-96d228392ce1" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556546529340" start="0" length="70.72000122070312">/Data/P29/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P29/P29.imsession</SessionFile>
+        <LabelFile modified="5250680737851996993">/Data/P29/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="40.0815277">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P52" sessionId="a01ddd2c-024a-4360-aa9b-2582d6b296f1" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556873825097" start="0" length="64.63999938964844">/Data/P52/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P52/P52.imsession</SessionFile>
+        <LabelFile modified="5250681441222045027">/Data/P52/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="42.8447731">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A23" sessionId="20727475-a27f-4196-b810-02950151e674" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681555762745911" start="0" length="61.27000045776367">/Data/A23/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A23/A23.imsession</SessionFile>
+        <LabelFile modified="5250675630235532961">/Data/A23/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="46.2179424">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A19" sessionId="eca58b3c-7ba5-4aff-ab7c-d9845ffddecd" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681555720564114" start="0" length="62.720001220703125">/Data/A19/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A19/A19.imsession</SessionFile>
+        <LabelFile modified="5250671994004655566">/Data/A19/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="46.5181252">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W31" sessionId="01878265-e1b4-4691-b1d2-09a1a67f4998" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557401603694" start="0" length="110.16999816894531">/Data/W31/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W31/W31.imsession</SessionFile>
+        <LabelFile modified="5250680656887324760">/Data/W31/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="63.0811242">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W12" sessionId="afe98b80-403b-47b7-a53c-5a5b41090dd6" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557106657732" start="0" length="68.05000305175781">/Data/W12/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W12/W12.imsession</SessionFile>
+        <LabelFile modified="5250679085745074906">/Data/W12/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="27.8205484">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W20" sessionId="d1686c58-5756-4910-9209-1b205c016e5d" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557200743870" start="0" length="52.34000015258789">/Data/W20/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W20/W20.imsession</SessionFile>
+        <LabelFile modified="5250679127012624077">/Data/W20/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="10" length="27.6702918">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P13" sessionId="57000766-5437-48cb-ad0b-0dbbf7a483da" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556355866684" start="0" length="68.22000122070312">/Data/P13/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P13/P13.imsession</SessionFile>
+        <LabelFile modified="5250679004782801065">/Data/P13/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="30.0595128">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P26" sessionId="7800e7e1-ce14-4d68-a98a-38622eb67aee" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556511533695" start="0" length="60.560001373291016">/Data/P26/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P26/P26.imsession</SessionFile>
+        <LabelFile modified="5250680729761362734">/Data/P26/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="36.3767902">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A08" sessionId="dbe6ac79-9c04-4c51-8aa1-6b0bfa3d95e7" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681555598611496" start="0" length="78.8499984741211">/Data/A08/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A08/A08.imsession</SessionFile>
+        <LabelFile modified="5250670242293674648">/Data/A08/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="10" length="70.3137279">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W56" sessionId="2bd3ce78-aaa2-45f0-89bc-4149fd527bc1" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557809165834" start="0" length="80.54000091552734">/Data/W56/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W56/W56.imsession</SessionFile>
+        <LabelFile modified="5250681507129681445">/Data/W56/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="56.7032808">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P42" sessionId="3f413169-16e0-48df-9752-6ad2e6b6ecf4" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556737330478" start="0" length="93.91000366210938">/Data/P42/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P42/P42.imsession</SessionFile>
+        <LabelFile modified="5250681400346153679">/Data/P42/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="55.6927897">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P43" sessionId="aa26803c-d174-40fe-8566-d8769067bc82" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556755712577" start="0" length="96.5999984741211">/Data/P43/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P43/P43.imsession</SessionFile>
+        <LabelFile modified="5250681403029617324">/Data/P43/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="58.3451939">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P03" sessionId="be9312cf-c5dd-45f9-a1eb-eb6b0a81e65f" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556186868507" start="0" length="97.08999633789062">/Data/P03/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P03/P03.imsession</SessionFile>
+        <LabelFile modified="5250678932756621222">/Data/P03/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="53.8997095">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P16" sessionId="837d4fde-00e0-44da-bead-e50626c8f43d" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556391403956" start="0" length="66.19999694824219">/Data/P16/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P16/P16.imsession</SessionFile>
+        <LabelFile modified="5250679017680066084">/Data/P16/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="35.1501313">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W21" sessionId="0a55c845-ac5e-4c3c-86ab-12e9d6b18c63" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557219901842" start="0" length="95.95999908447266">/Data/W21/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W21/W21.imsession</SessionFile>
+        <LabelFile modified="5250679129760232208">/Data/W21/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="50.9936103">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A35" sessionId="c8a1c5ba-44c3-4d62-992d-3c568b5b3e5f" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681555867015224" start="0" length="44.59000015258789">/Data/A35/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A35/A35.imsession</SessionFile>
+        <LabelFile modified="5250675659925172320">/Data/A35/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="35.6535427">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A43" sessionId="d7685660-6c2e-48c1-8c61-4defb877b189" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681555944570063" start="0" length="54.47999954223633">/Data/A43/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A43/A43.imsession</SessionFile>
+        <LabelFile modified="5250675676026980959">/Data/A43/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="22" length="37.2078311">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W42" sessionId="73dfe63d-3852-4d68-9791-580362908c34" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557615560156" start="0" length="90.9000015258789">/Data/W42/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W42/W42.imsession</SessionFile>
+        <LabelFile modified="5250681468839646261">/Data/W42/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="55.5729612">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W55" sessionId="afcd2f3a-32b5-4636-9153-dd458d8adc82" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557795635026" start="0" length="76.80000305175781">/Data/W55/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W55/W55.imsession</SessionFile>
+        <LabelFile modified="5250681499731192247">/Data/W55/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="50.062723">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W28" sessionId="b5159b61-1550-4912-b84e-28832a2672c5" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557345999861" start="0" length="109.18000030517578">/Data/W28/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W28/W28.imsession</SessionFile>
+        <LabelFile modified="5250680641587716926">/Data/W28/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="56.5482141">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W33" sessionId="17599526-ec08-49e3-a8cc-ac14f3f07c54" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557441529649" start="0" length="106.05000305175781">/Data/W33/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W33/W33.imsession</SessionFile>
+        <LabelFile modified="5250680666247520474">/Data/W33/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="63.4707134">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W30" sessionId="7c1f2be2-13c2-4d7e-97e4-40dd153f3314" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557381683081" start="0" length="100.05000305175781">/Data/W30/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W30/W30.imsession</SessionFile>
+        <LabelFile modified="5250680653756453409">/Data/W30/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="19" length="57.4757514">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W17" sessionId="935c1c98-1b74-4450-b5c0-9ddca9fdef91" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557165825260" start="0" length="65.0999984741211">/Data/W17/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W17/W17.imsession</SessionFile>
+        <LabelFile modified="5250679103138810604">/Data/W17/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="26.351251">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P34" sessionId="1df9d247-d689-4d0c-9f9c-7cec47a0338c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556612201142" start="0" length="75.36000061035156">/Data/P34/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P34/P34.imsession</SessionFile>
+        <LabelFile modified="5250680757274530224">/Data/P34/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="44.7147045">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W02" sessionId="23f6d928-9165-4cb3-9aac-aa7e79484848" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556988496358" start="0" length="61.279998779296875">/Data/W02/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W02/W02.imsession</SessionFile>
+        <LabelFile modified="5250679050021285754">/Data/W02/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="27.7181602">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A56" sessionId="1819e3d9-92d5-4ff4-b622-56dd164b7da8" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556081487218" start="0" length="54.83000183105469">/Data/A56/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A56/A56.imsession</SessionFile>
+        <LabelFile modified="5250681540054388614">/Data/A56/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="43.3206646">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W50" sessionId="c851abb1-8187-42d5-81b7-03075125389b" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557724590997" start="0" length="73.05000305175781">/Data/W50/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W50/W50.imsession</SessionFile>
+        <LabelFile modified="5250681487759751884">/Data/W50/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="51.7323741">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W36" sessionId="f4d09d07-e2f4-460f-b2e1-05d0d9fd6e6f" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557503822946" start="0" length="114.0999984741211">/Data/W36/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W36/W36.imsession</SessionFile>
+        <LabelFile modified="5250680686390596460">/Data/W36/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="72.6832072">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A24" sessionId="79da707d-ee84-4f70-a490-6a16a2b0025b" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681555773171635" start="0" length="56.970001220703125">/Data/A24/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A24/A24.imsession</SessionFile>
+        <LabelFile modified="5250675632773033545">/Data/A24/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="50.2573517">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W24" sessionId="0b4877b9-80c7-4b0f-901d-ef5f538198a7" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557266371882" start="0" length="125.30999755859375">/Data/W24/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W24/W24.imsession</SessionFile>
+        <LabelFile modified="5250680625970679730">/Data/W24/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="64.8430611">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W03" sessionId="e0dd3ccd-d1aa-4b8a-89de-f2fd234a5c0d" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556999690366" start="0" length="64.26000213623047">/Data/W03/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W03/W03.imsession</SessionFile>
+        <LabelFile modified="5250679052264450419">/Data/W03/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="30.2200067">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A20" sessionId="771ce600-59d2-43cf-816c-4716d3a540cb" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681555730643689" start="0" length="51.86000061035156">/Data/A20/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A20/A20.imsession</SessionFile>
+        <LabelFile modified="5250675606675008280">/Data/A20/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="40.8647892">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P33" sessionId="6aee82c1-3893-4901-8a3b-19db51b3fe0c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556598699869" start="0" length="67.29000091552734">/Data/P33/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P33/P33.imsession</SessionFile>
+        <LabelFile modified="5250680755110038793">/Data/P33/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="17" length="39.6483159">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A16" sessionId="5ffdea0f-b4f2-4a03-8f52-4995a48ee8dd" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681555684176054" start="0" length="59.59000015258789">/Data/A16/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A16/A16.imsession</SessionFile>
+        <LabelFile modified="5250671986206054293">/Data/A16/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="48.3794558">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P28" sessionId="11566680-8b73-425d-8ea5-20035a6b772d" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556533728666" start="0" length="58.400001525878906">/Data/P28/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P28/P28.imsession</SessionFile>
+        <LabelFile modified="5250680735366348810">/Data/P28/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="31.5304344">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W32" sessionId="9e96a940-a2fa-41f6-adb4-d733a83e857c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557422131205" start="0" length="118.66999816894531">/Data/W32/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W32/W32.imsession</SessionFile>
+        <LabelFile modified="5250680662671643597">/Data/W32/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="69.6954189">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A30" sessionId="c62629d7-e312-4666-ac28-04fa6f606ea4" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681555828414723" start="0" length="31.719999313354492">/Data/A30/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A30/A30.imsession</SessionFile>
+        <LabelFile modified="5250675649126040793">/Data/A30/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="24.0448046">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P50" sessionId="16b30f59-26a5-4ab0-88c3-4dc423f42e1c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556848837926" start="0" length="77.54000091552734">/Data/P50/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P50/P50.imsession</SessionFile>
+        <LabelFile modified="5250681436737799791">/Data/P50/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="55.31627">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W37" sessionId="290d10ba-d7fc-4960-9c06-f00bdabf9035" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557525975336" start="0" length="128.02999877929688">/Data/W37/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W37/W37.imsession</SessionFile>
+        <LabelFile modified="5250680689844162013">/Data/W37/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="79.4091717">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P45" sessionId="518d29a7-bd34-4f19-abbd-25b463a2b111" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556783029698" start="0" length="67.5999984741211">/Data/P45/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P45/P45.imsession</SessionFile>
+        <LabelFile modified="5250681415804610748">/Data/P45/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="45.8897591">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W45" sessionId="e2509345-915f-471b-8d96-644344ae7ee2" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557657354057" start="0" length="80.79000091552734">/Data/W45/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W45/W45.imsession</SessionFile>
+        <LabelFile modified="5250681476957213550">/Data/W45/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="56.2193591">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P15" sessionId="af271d05-9530-4bd3-93f7-ff100059420a" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556379112766" start="0" length="65.19000244140625">/Data/P15/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P15/P15.imsession</SessionFile>
+        <LabelFile modified="5250679015301331291">/Data/P15/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="33.1081523">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W15" sessionId="36198df7-7373-498b-8577-dd4decb0aa27" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557142095545" start="0" length="65.51000213623047">/Data/W15/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W15/W15.imsession</SessionFile>
+        <LabelFile modified="5250679096786498463">/Data/W15/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="27.437298">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A50" sessionId="e11d0058-76f4-4f0f-95b3-804493049d16" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556020361648" start="0" length="56.72999954223633">/Data/A50/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A50/A50.imsession</SessionFile>
+        <LabelFile modified="5250681529080376199">/Data/A50/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="47.5203505">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P18" sessionId="da031cb6-6f0c-4b3e-90e8-f41a83ae65a2" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556412622837" start="0" length="58.04999923706055">/Data/P18/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P18/P18.imsession</SessionFile>
+        <LabelFile modified="5250679025265546241">/Data/P18/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="33.8393366">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A45" sessionId="a48fa489-bab9-4dc6-b607-df1c5056b840" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681555965324776" start="0" length="59.369998931884766">/Data/A45/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A45/A45.imsession</SessionFile>
+        <LabelFile modified="5250681516690887748">/Data/A45/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="49.2956665">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A02" sessionId="7eaa3d93-1309-493e-975a-f8760e506c7f" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681555508929436" start="0" length="71.08000183105469">/Data/A02/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A02/A02.imsession</SessionFile>
+        <LabelFile modified="5250670222565924098">/Data/A02/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="10" length="61.1782346">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A06" sessionId="259d87cd-c8f3-49b3-8911-951c7848e6b6" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681555568813760" start="0" length="67.51000213623047">/Data/A06/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A06/A06.imsession</SessionFile>
+        <LabelFile modified="5250670237599650094">/Data/A06/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="10" length="57.7422935">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A44" sessionId="e533c387-99cf-4cf1-9630-b0ff9d3acc68" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681555954334464" start="0" length="54.459999084472656">/Data/A44/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A44/A44.imsession</SessionFile>
+        <LabelFile modified="5250675678635350090">/Data/A44/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="39.7011733">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W40" sessionId="99ab6855-6822-4da1-ae5b-75a932b823c6" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557584207641" start="0" length="76.44000244140625">/Data/W40/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W40/W40.imsession</SessionFile>
+        <LabelFile modified="5250681464457605388">/Data/W40/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="47.4642264">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P06" sessionId="24beec14-3c65-45ef-b2ec-d416e022c840" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556233916297" start="0" length="112.75">/Data/P06/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P06/P06.imsession</SessionFile>
+        <LabelFile modified="5250678950909761076">/Data/P06/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="31" length="56.8317423">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P08" sessionId="0512e69c-11b2-486b-9d57-283be1e410c8" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556278096845" start="0" length="133.66000366210938">/Data/P08/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P08/P08.imsession</SessionFile>
+        <LabelFile modified="5250680841757770838">/Data/P08/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="87.560933">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P01" sessionId="78708f80-e00b-4c94-9c4b-73ebf8ba5845" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556151701758" start="0" length="88.70999908447266">/Data/P01/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P01/P01.imsession</SessionFile>
+        <LabelFile modified="5250678920067904685">/Data/P01/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="42.021793">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P37" sessionId="c3540c2b-b31f-4ec3-82d3-a272f3add665" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556659099089" start="0" length="100.51000213623047">/Data/P37/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P37/P37.imsession</SessionFile>
+        <LabelFile modified="5250680764940056429">/Data/P37/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="55.6759265">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A57" sessionId="7368b484-5842-4cc4-8a30-bd27d76e2277" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556092088850" start="0" length="54.439998626708984">/Data/A57/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A57/A57.imsession</SessionFile>
+        <LabelFile modified="5250681541855643045">/Data/A57/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="18" length="45.1429602">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A07" sessionId="891a7840-2487-476e-9da6-c1f4947e0cf9" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681555584421611" start="0" length="81.7699966430664">/Data/A07/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A07/A07.imsession</SessionFile>
+        <LabelFile modified="5250675726003988459">/Data/A07/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="10" length="68.6375196">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W25" sessionId="429b6c6a-5bd8-4740-bc10-ef66b2f8df2b" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557286831248" start="0" length="126.43000030517578">/Data/W25/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W25/W25.imsession</SessionFile>
+        <LabelFile modified="5250680629700112166">/Data/W25/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="70.2509906">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A59" sessionId="1b63d03f-100c-41fe-8127-7f52b253aeb5" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556112668320" start="0" length="51.54999923706055">/Data/A59/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A59/A59.imsession</SessionFile>
+        <LabelFile modified="5250681545654259862">/Data/A59/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="36.2158647">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P04" sessionId="7700f21b-a177-4c5c-acb3-d4cac06f6452" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556199135188" start="0" length="69.37000274658203">/Data/P04/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P04/P04.imsession</SessionFile>
+        <LabelFile modified="5250678940314942505">/Data/P04/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="34.8845613">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A03" sessionId="23b7e633-051b-496d-83fa-43ccacb56342" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681555523838664" start="0" length="86.5999984741211">/Data/A03/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A03/A03.imsession</SessionFile>
+        <LabelFile modified="5250670225052389699">/Data/A03/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="10" length="76.3973691">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A22" sessionId="0b4a16a6-2f9d-464d-b9c6-29ff734ae6df" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681555751848258" start="0" length="58.08000183105469">/Data/A22/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A22/A22.imsession</SessionFile>
+        <LabelFile modified="5250675627998192607">/Data/A22/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="45.8489079">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W27" sessionId="bd7ff4ee-81ae-406d-9cc0-265ee6b11511" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557326176794" start="0" length="121">/Data/W27/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W27/W27.imsession</SessionFile>
+        <LabelFile modified="5250680637963735609">/Data/W27/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="63.8652368">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A00" sessionId="024af428-e75c-47a0-bec2-d40e90949c41" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681555481700220" start="0" length="75">/Data/A00/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A00/A00.imsession</SessionFile>
+        <LabelFile modified="5250670217898372808">/Data/A00/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="10" length="61.9083733">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W41" sessionId="facd56bc-4179-428f-80a7-f39761f005cc" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557599131964" start="0" length="88.80000305175781">/Data/W41/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W41/W41.imsession</SessionFile>
+        <LabelFile modified="5250681466661827162">/Data/W41/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="53.2909583">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A58" sessionId="5e515aff-60b3-4a52-a6a7-c7883d608fce" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556102647535" start="0" length="57.18000030517578">/Data/A58/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A58/A58.imsession</SessionFile>
+        <LabelFile modified="5250681543923384465">/Data/A58/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="48.6570792">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A05" sessionId="aa645550-2acf-4e7f-a7dc-ccd7b931ea15" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681555555898914" start="0" length="85.16000366210938">/Data/A05/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A05/A05.imsession</SessionFile>
+        <LabelFile modified="5250670231306053484">/Data/A05/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="10" length="74.7601628">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P07" sessionId="22e03c6b-8f10-4f76-98ff-7958e4fa21ef" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556256380854" start="0" length="136.41000366210938">/Data/P07/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P07/P07.imsession</SessionFile>
+        <LabelFile modified="5250680836645754336">/Data/P07/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="81.5293747">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A14" sessionId="b634ec41-ee08-4c7a-a76d-d1145440692f" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681555660981264" start="0" length="54.709999084472656">/Data/A14/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A14/A14.imsession</SessionFile>
+        <LabelFile modified="5250671981937619931">/Data/A14/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="43.3550964">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P05" sessionId="21424079-36c5-4839-821d-2d31a2cd194a" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556213984051" start="0" length="77.55999755859375">/Data/P05/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P05/P05.imsession</SessionFile>
+        <LabelFile modified="5250678945218813467">/Data/P05/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="36.7482878">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P10" sessionId="1c46bc55-9dbb-4be5-ab56-2b564b048bed" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556310583925" start="0" length="121.87999725341797">/Data/P10/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P10/P10.imsession</SessionFile>
+        <LabelFile modified="5250680845074153172">/Data/P10/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="19" length="78.9462273">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W58" sessionId="554b931c-e59b-420e-a53c-2fc491832eb4" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557835942128" start="0" length="74.70999908447266">/Data/W58/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W58/W58.imsession</SessionFile>
+        <LabelFile modified="5250681511277547564">/Data/W58/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="49.3937819">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P12" sessionId="b6ae8032-b017-48bf-9921-49a530a3e462" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556343792762" start="0" length="64.87999725341797">/Data/P12/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P12/P12.imsession</SessionFile>
+        <LabelFile modified="5250679002235900823">/Data/P12/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="29.6304568">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A09" sessionId="d2955ff5-4118-44b7-aaab-0c12b072429c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681555610266467" start="0" length="65.1500015258789">/Data/A09/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A09/A09.imsession</SessionFile>
+        <LabelFile modified="5250670244465455463">/Data/A09/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="10" length="55.4313544">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A12" sessionId="5e1acc58-1dcd-4a11-a77d-6132f3f1ed91" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681555639645485" start="0" length="53.9900016784668">/Data/A12/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A12/A12.imsession</SessionFile>
+        <LabelFile modified="5250671971684986384">/Data/A12/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="40.879601">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A10" sessionId="f151bae4-fa19-4486-a5f0-66bb5609ae73" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681555618700521" start="0" length="40.349998474121094">/Data/A10/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A10/A10.imsession</SessionFile>
+        <LabelFile modified="5250671966910418442">/Data/A10/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="22.9258445">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A29" sessionId="a150efbe-125b-4ea0-9e24-0185255daeb2" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681555821246856" start="0" length="37.02000045776367">/Data/A29/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A29/A29.imsession</SessionFile>
+        <LabelFile modified="5250675644754549987">/Data/A29/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="27.3426191">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A31" sessionId="a5318cc5-77ca-4d5f-b0c2-2d849f8e0c14" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681555835439280" start="0" length="30.299999237060547">/Data/A31/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A31/A31.imsession</SessionFile>
+        <LabelFile modified="5250675650584719154">/Data/A31/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="15.3871001">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A33" sessionId="7d9bfb8c-30db-4fdc-8894-ecfa0785ea35" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681555848787064" start="0" length="24.420000076293945">/Data/A33/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A33/A33.imsession</SessionFile>
+        <LabelFile modified="5250675653864416268">/Data/A33/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="11.6479403">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A34" sessionId="aec7c993-58b3-40e0-8059-f919c722e770" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681555858084768" start="0" length="38.04999923706055">/Data/A34/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A34/A34.imsession</SessionFile>
+        <LabelFile modified="5250675657837810160">/Data/A34/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="25.716356">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A36" sessionId="819cd8db-8e4f-41bf-8909-c7f53367a1dc" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681555875722632" start="0" length="46.709999084472656">/Data/A36/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A36/A36.imsession</SessionFile>
+        <LabelFile modified="5250675662456659574">/Data/A36/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="37.8690726">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A37" sessionId="23547015-21b5-4572-9cfd-a87447539017" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681555885927737" start="0" length="52.84000015258789">/Data/A37/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A37/A37.imsession</SessionFile>
+        <LabelFile modified="5250675664444529094">/Data/A37/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="39.2362689">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A40" sessionId="3a4e39df-73f7-4340-8600-20c2e243e868" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681555913567612" start="0" length="55.83000183105469">/Data/A40/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A40/A40.imsession</SessionFile>
+        <LabelFile modified="5250675670108900782">/Data/A40/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="38.1998641">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A48" sessionId="2c926f01-55e2-494f-abaf-33f3932bd4bd" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681555998474892" start="0" length="59.79999923706055">/Data/A48/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A48/A48.imsession</SessionFile>
+        <LabelFile modified="5250681523316026515">/Data/A48/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="51.9114953">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A53" sessionId="33d5f3e7-552a-411f-925d-618041e65101" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556051388568" start="0" length="61.29999923706055">/Data/A53/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A53/A53.imsession</SessionFile>
+        <LabelFile modified="5250681534442109601">/Data/A53/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="48.4026805">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P02" sessionId="980e9c03-0993-4392-8056-1c92b007d01d" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556170903829" start="0" length="115.0199966430664">/Data/P02/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P02/P02.imsession</SessionFile>
+        <LabelFile modified="5250678929396435156">/Data/P02/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="62.0162464">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P19" sessionId="b361c4ac-fe96-4982-9228-04771ec8ce43" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556423740828" start="0" length="61.810001373291016">/Data/P19/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P19/P19.imsession</SessionFile>
+        <LabelFile modified="5250679027569072132">/Data/P19/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="31.5008541">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P23" sessionId="1a36b904-367a-47a6-8107-69101f9e1819" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556475999259" start="0" length="68.95999908447266">/Data/P23/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P23/P23.imsession</SessionFile>
+        <LabelFile modified="5250680719980544674">/Data/P23/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="36.5148158">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P36" sessionId="4b3f548d-c849-4c4d-bb41-11e290e7668e" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556642300798" start="0" length="78.33999633789062">/Data/P36/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P36/P36.imsession</SessionFile>
+        <LabelFile modified="5250680762162248393">/Data/P36/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="47.8980638">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P39" sessionId="7cdef012-dbbe-4eff-bc7e-98498db50204" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556691796490" start="0" length="88.02999877929688">/Data/P39/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P39/P39.imsession</SessionFile>
+        <LabelFile modified="5250680771948087348">/Data/P39/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="18" length="50.7472767">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P40" sessionId="ed3a5529-4cc3-466f-addd-eee29df82a06" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556706507422" start="0" length="86.36000061035156">/Data/P40/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P40/P40.imsession</SessionFile>
+        <LabelFile modified="5250681395613587285">/Data/P40/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="49.7902531">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P44" sessionId="5c71ee3d-3943-41db-9649-9b32fe2aa4c7" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556770563634" start="0" length="83.4800033569336">/Data/P44/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P44/P44.imsession</SessionFile>
+        <LabelFile modified="5250681407603134097">/Data/P44/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="47.2326782">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P49" sessionId="b03f4896-bcf3-4c23-b7b4-c9646031b5d2" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556835362956" start="0" length="68.4000015258789">/Data/P49/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P49/P49.imsession</SessionFile>
+        <LabelFile modified="5250681432419917872">/Data/P49/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="43.4656671">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P53" sessionId="d9abd8a1-73d5-4517-aedf-22c38aa79bc9" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556886187853" start="0" length="67.58000183105469">/Data/P53/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P53/P53.imsession</SessionFile>
+        <LabelFile modified="5250681443109134103">/Data/P53/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="21" length="45.970903">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P57" sessionId="589bbe51-43c4-493c-a6c2-02c3b6e5f1c8" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556929331446" start="0" length="55.34000015258789">/Data/P57/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P57/P57.imsession</SessionFile>
+        <LabelFile modified="5250681452380941737">/Data/P57/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="40.3470035">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P59" sessionId="8cca8480-f81f-49d0-894b-f5939c7abd45" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556954013913" start="0" length="68.23999786376953">/Data/P59/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P59/P59.imsession</SessionFile>
+        <LabelFile modified="5250681456338650862">/Data/P59/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="45.7582344">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W00" sessionId="937d3b3c-81a8-474e-9541-86ec1894296e" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556964973851" start="0" length="61.970001220703125">/Data/W00/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W00/W00.imsession</SessionFile>
+        <LabelFile modified="5250679042762553901">/Data/W00/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="28.4950218">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W04" sessionId="03a875a6-09c7-4022-a404-faa3c6cc30b4" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557011368797" start="0" length="67.51000213623047">/Data/W04/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W04/W04.imsession</SessionFile>
+        <LabelFile modified="5250679054584372319">/Data/W04/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="28.8860469">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W07" sessionId="55ff6997-3f07-4949-938c-a282b1164c37" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557045131439" start="0" length="56.9900016784668">/Data/W07/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W07/W07.imsession</SessionFile>
+        <LabelFile modified="5250679069871950935">/Data/W07/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="27.7591389">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W09" sessionId="466c07c8-2a73-4f8a-bf2a-4499278aa48d" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557067927217" start="0" length="63.310001373291016">/Data/W09/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W09/W09.imsession</SessionFile>
+        <LabelFile modified="5250679074805358230">/Data/W09/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="27.8882069">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W10" sessionId="ceebc690-b1fd-44a8-9511-ea8cb7b38c86" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557082538872" start="0" length="83.8499984741211">/Data/W10/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W10/W10.imsession</SessionFile>
+        <LabelFile modified="5250679080946536896">/Data/W10/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="25" length="34.1575222">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W11" sessionId="90df5cd5-583d-4082-b415-61b6f00ab82a" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557094816732" start="0" length="64.81999969482422">/Data/W11/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W11/W11.imsession</SessionFile>
+        <LabelFile modified="5250679083634700929">/Data/W11/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="27.6488983">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W16" sessionId="90d046fd-c322-48b0-b318-e355b35fcb5b" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557154230616" start="0" length="64.58999633789062">/Data/W16/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W16/W16.imsession</SessionFile>
+        <LabelFile modified="5250679100365869326">/Data/W16/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="27.5911143">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W22" sessionId="6c09f031-b89a-4731-8f18-b5744d94e74a" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557234621048" start="0" length="86.20999908447266">/Data/W22/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W22/W22.imsession</SessionFile>
+        <LabelFile modified="5250679133126311584">/Data/W22/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="40.0570233">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W39" sessionId="5fb6bdf3-9102-4f31-97d1-62dd45f84b39" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557570956118" start="0" length="139.36000061035156">/Data/W39/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W39/W39.imsession</SessionFile>
+        <LabelFile modified="5250680699633808473">/Data/W39/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="88.7957245">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W47" sessionId="c08776cc-fcb6-4964-90cd-9716391ea370" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557685857573" start="0" length="77.27999877929688">/Data/W47/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W47/W47.imsession</SessionFile>
+        <LabelFile modified="5250681481345645771">/Data/W47/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="50.9505281">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W48" sessionId="f1d9b261-f60e-4837-8d1e-345ea09bb23e" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557699356608" start="0" length="71.33000183105469">/Data/W48/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W48/W48.imsession</SessionFile>
+        <LabelFile modified="5250681483266681815">/Data/W48/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="49.9972706">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+    </DataSet>
+    <DataSet id="validation" targetSize="0.0843623139661276" labels="Complete">
+      <Session name="W51" sessionId="fa4e069b-8800-4fca-8932-76e4f3f98404" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557738911694" start="0" length="84.31999969482422">/Data/W51/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W51/W51.imsession</SessionFile>
+        <LabelFile modified="5250681490160017586">/Data/W51/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="57.6466693">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W52" sessionId="2152bf7a-7710-459b-8be9-ccafb0b78add" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557752610947" start="0" length="75.87000274658203">/Data/W52/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W52/W52.imsession</SessionFile>
+        <LabelFile modified="5250681492506238794">/Data/W52/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="53.5556205">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W53" sessionId="59cc7456-ded4-4830-b322-dab10aa902b8" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557767446611" start="0" length="78.54000091552734">/Data/W53/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W53/W53.imsession</SessionFile>
+        <LabelFile modified="5250681494602004700">/Data/W53/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="46.9114691">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W49" sessionId="d73e5138-d333-4ec7-a07f-5424f8f8e10d" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557712139103" start="0" length="73.94999694824219">/Data/W49/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W49/W49.imsession</SessionFile>
+        <LabelFile modified="5250681485443097435">/Data/W49/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="46.8560479">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W43" sessionId="604fbd90-5fe2-4700-a10c-215788980acf" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557628712715" start="0" length="78.69999694824219">/Data/W43/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W43/W43.imsession</SessionFile>
+        <LabelFile modified="5250681470941956380">/Data/W43/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="54.6991038">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W38" sessionId="634a420c-5c6e-4241-907e-aba2cda81fd2" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557547053394" start="0" length="119.63999938964844">/Data/W38/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W38/W38.imsession</SessionFile>
+        <LabelFile modified="5250680695689911198">/Data/W38/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="75.1418484">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W35" sessionId="fad45a99-39b9-4494-a1f2-086bf5ef5326" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557484669323" start="0" length="137.3699951171875">/Data/W35/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W35/W35.imsession</SessionFile>
+        <LabelFile modified="5250680681876733412">/Data/W35/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="79.7126012">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W34" sessionId="3edc0e0f-640e-43f4-aec5-11f4fa6e6959" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557461307129" start="0" length="116.6500015258789">/Data/W34/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W34/W34.imsession</SessionFile>
+        <LabelFile modified="5250680669745777543">/Data/W34/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="71.4420772">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W26" sessionId="8d84f67b-8cb5-4ce9-8a61-fadbe8d71b88" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557305891467" start="0" length="117.80000305175781">/Data/W26/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W26/W26.imsession</SessionFile>
+        <LabelFile modified="5250680634997749543">/Data/W26/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="66.2682676">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W18" sessionId="8f8d121e-8cce-4508-bc7b-91a28d1a13d6" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557178269160" start="0" length="67">/Data/W18/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W18/W18.imsession</SessionFile>
+        <LabelFile modified="5250679105386025203">/Data/W18/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="27.3172871">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W13" sessionId="110a6705-d89d-4f03-b610-8ad04ae8e49a" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557118035132" start="0" length="64.77999877929688">/Data/W13/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W13/W13.imsession</SessionFile>
+        <LabelFile modified="5250679091856652463">/Data/W13/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="27.3428286">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W06" sessionId="c5728f3b-6e95-4b7f-8ac8-1dd17ea89163" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557034546483" start="0" length="68.22000122070312">/Data/W06/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W06/W06.imsession</SessionFile>
+        <LabelFile modified="5250679067882178144">/Data/W06/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="30.5500315">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P58" sessionId="5a7b802b-7e29-4ec3-9abb-52bdfd8af70b" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556941624706" start="0" length="62.060001373291016">/Data/P58/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P58/P58.imsession</SessionFile>
+        <LabelFile modified="5250681454384358117">/Data/P58/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="42.3742532">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P51" sessionId="eee369dc-e5b1-41c8-a95b-b58162a311fd" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556861706262" start="0" length="71.76000213623047">/Data/P51/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P51/P51.imsession</SessionFile>
+        <LabelFile modified="5250681438772981464">/Data/P51/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="46.1949679">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P47" sessionId="81c6ade5-5a65-470f-ae49-d7dac1c9d62f" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556809849292" start="0" length="70.63999938964844">/Data/P47/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P47/P47.imsession</SessionFile>
+        <LabelFile modified="5250681426087479726">/Data/P47/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="44.267255">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P41" sessionId="9476a69c-0c07-43d9-9093-40c0f9881bb3" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556721425758" start="0" length="90.25">/Data/P41/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P41/P41.imsession</SessionFile>
+        <LabelFile modified="5250681397905545855">/Data/P41/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="56.0713341">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P35" sessionId="3cfd85a1-ef60-4639-b3a2-42705684e18d" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556627894964" start="0" length="83.0999984741211">/Data/P35/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P35/P35.imsession</SessionFile>
+        <LabelFile modified="5250680759628827735">/Data/P35/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="47.7130889">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P30" sessionId="80d0f58f-9580-409e-be33-06604f3447ed" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556559842589" start="0" length="68.83000183105469">/Data/P30/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P30/P30.imsession</SessionFile>
+        <LabelFile modified="5250680743756749621">/Data/P30/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="38.0876313">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P27" sessionId="119a3216-319c-4a55-a312-7f910566cd44" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556523188573" start="0" length="63.11000061035156">/Data/P27/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P27/P27.imsession</SessionFile>
+        <LabelFile modified="5250680732109659826">/Data/P27/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="34.5123948">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P25" sessionId="dd4f5f6f-8983-476b-8562-8a0ff6db60b1" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556500862416" start="0" length="69.91999816894531">/Data/P25/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P25/P25.imsession</SessionFile>
+        <LabelFile modified="5250680727707230646">/Data/P25/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="44.8610041">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P24" sessionId="44cd4298-6af9-4891-8af0-1a2c5d417064" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556488650936" start="0" length="68.87999725341797">/Data/P24/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P24/P24.imsession</SessionFile>
+        <LabelFile modified="5250680722864341595">/Data/P24/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="38.7386475">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P22" sessionId="82cfe5d4-ab55-4b46-88c9-cb1599772a0d" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556463307128" start="0" length="61.91999816894531">/Data/P22/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P22/P22.imsession</SessionFile>
+        <LabelFile modified="5250680717039568504">/Data/P22/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="35.4144213">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P20" sessionId="3267dd64-672d-4fe6-9ece-2dea6e0ab770" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556440138220" start="0" length="97.19999694824219">/Data/P20/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P20/P20.imsession</SessionFile>
+        <LabelFile modified="5250680713097015726">/Data/P20/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="59.0909842">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P00" sessionId="6a529589-7c22-43f4-aa31-5f14596e541c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556135362665" start="0" length="139.4199981689453">/Data/P00/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P00/P00.imsession</SessionFile>
+        <LabelFile modified="5250678916719516920">/Data/P00/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="75.8464012">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A55" sessionId="9d5313ce-a3cf-4d88-b644-6c486510f417" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556071784100" start="0" length="57.97999954223633">/Data/A55/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A55/A55.imsession</SessionFile>
+        <LabelFile modified="5250681537927191944">/Data/A55/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="48.6542979">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A47" sessionId="44bf37d1-87ac-4f4c-8c6d-19be5439a527" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681555987349020" start="0" length="58.720001220703125">/Data/A47/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A47/A47.imsession</SessionFile>
+        <LabelFile modified="5250681521254069828">/Data/A47/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="49.0034193">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A41" sessionId="088bb2dd-4f54-435b-987c-81c5c108d0db" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681555923897179" start="0" length="54.970001220703125">/Data/A41/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A41/A41.imsession</SessionFile>
+        <LabelFile modified="5250675671891885677">/Data/A41/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="37.7501425">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A51" sessionId="2010b786-a1fb-4551-8aac-546e561d6c20" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556030651692" start="0" length="54.2400016784668">/Data/A51/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A51/A51.imsession</SessionFile>
+        <LabelFile modified="5250681530790863864">/Data/A51/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="47.0854072">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A39" sessionId="0be6fb50-4270-4d7d-afa2-381389e7bcf5" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681555902863255" start="0" length="48.90999984741211">/Data/A39/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A39/A39.imsession</SessionFile>
+        <LabelFile modified="5250675668282823023">/Data/A39/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="22" length="35.8851211">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A38" sessionId="a5a096e1-0ce1-47b0-87a6-c5108f35a750" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681555893742055" start="0" length="39.77000045776367">/Data/A38/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A38/A38.imsession</SessionFile>
+        <LabelFile modified="5250675666330625327">/Data/A38/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="18" length="32.1879565">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A27" sessionId="f32de27f-dcfd-47da-9c88-6b509dbc65dc" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681555804616337" start="0" length="55.470001220703125">/Data/A27/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A27/A27.imsession</SessionFile>
+        <LabelFile modified="5250675641310793352">/Data/A27/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="46.78285">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A26" sessionId="3bad0d96-12f1-4ec9-bb0d-d9755abcd525" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681555793951306" start="0" length="55.959999084472656">/Data/A26/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A26/A26.imsession</SessionFile>
+        <LabelFile modified="5250675639261728366">/Data/A26/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="48.7505119">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A21" sessionId="4fb734a4-8b17-4940-bd37-7ad62ff521d3" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681555740978489" start="0" length="50.72999954223633">/Data/A21/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A21/A21.imsession</SessionFile>
+        <LabelFile modified="5250675623181621575">/Data/A21/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="40.8595544">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A11" sessionId="7ed84375-c78b-42c2-862c-e1feb6f967d8" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681555628964293" start="0" length="51.810001373291016">/Data/A11/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A11/A11.imsession</SessionFile>
+        <LabelFile modified="5250671969399086343">/Data/A11/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="43.3859599">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A13" sessionId="6d1e3302-9d02-4a25-8e46-1f281eedea5a" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681555649810050" start="0" length="52.400001525878906">/Data/A13/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A13/A13.imsession</SessionFile>
+        <LabelFile modified="5250671977575338036">/Data/A13/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="47.4122936">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+    </DataSet>
+    <DataSet id="test" targetSize="0.18824155774777182" labels="Complete">
+      <Session name="A01" sessionId="dd73d0c2-afeb-4865-b220-4c533c3f3c67" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681555495167638" start="0" length="75.43000030517578">/Data/A01/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A01/A01.imsession</SessionFile>
+        <LabelFile modified="5250670220517510062">/Data/A01/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="10" length="66.3360093">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A04" sessionId="5006d201-de46-4c70-878c-bfe282274849" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681555539826879" start="0" length="90.37999725341797">/Data/A04/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A04/A04.imsession</SessionFile>
+        <LabelFile modified="5250670228354410484">/Data/A04/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="10" length="80.3853884">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A15" sessionId="a8f14de5-8fea-4333-8953-79a0a8d23e07" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681555673482212" start="0" length="65.1500015258789">/Data/A15/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A15/A15.imsession</SessionFile>
+        <LabelFile modified="5250671984231179995">/Data/A15/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="49.9126076">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A17" sessionId="5a64635a-0b08-45cc-b954-df20bc56f872" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681555695503071" start="0" length="64.75">/Data/A17/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A17/A17.imsession</SessionFile>
+        <LabelFile modified="5250671989374869945">/Data/A17/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="46.1469717">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A18" sessionId="6afa0048-d84a-4e43-a766-b9a37f619fe8" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681555707345629" start="0" length="65.58000183105469">/Data/A18/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A18/A18.imsession</SessionFile>
+        <LabelFile modified="5250671991659568420">/Data/A18/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="48.6932588">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A25" sessionId="563e807d-7926-424c-ba13-a59adf3b031d" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681555783337863" start="0" length="54.880001068115234">/Data/A25/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A25/A25.imsession</SessionFile>
+        <LabelFile modified="5250675637373390568">/Data/A25/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="47.9013544">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A28" sessionId="20408d21-aa96-465e-950f-36fd96317641" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681555813735969" start="0" length="48.47999954223633">/Data/A28/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A28/A28.imsession</SessionFile>
+        <LabelFile modified="5250675643156159804">/Data/A28/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="38.8529802">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A42" sessionId="691fc40f-8bc1-4a6c-b91b-a3c8c1a6afb7" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681555934274630" start="0" length="50.599998474121094">/Data/A42/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A42/A42.imsession</SessionFile>
+        <LabelFile modified="5250675673996389860">/Data/A42/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="31.7318117">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A46" sessionId="b476150b-db35-46e2-adaa-6e8e90931f79" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681555976524616" start="0" length="54.75">/Data/A46/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A46/A46.imsession</SessionFile>
+        <LabelFile modified="5250681519443670521">/Data/A46/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="45.2033445">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A49" sessionId="49a7580d-9156-427f-841d-bd780a88d7ca" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556008809351" start="0" length="55.380001068115234">/Data/A49/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A49/A49.imsession</SessionFile>
+        <LabelFile modified="5250681527149142177">/Data/A49/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="47.3077178">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A52" sessionId="75ff310a-a0b0-407c-b71d-7939fa910b52" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556040021882" start="0" length="46.939998626708984">/Data/A52/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A52/A52.imsession</SessionFile>
+        <LabelFile modified="5250681532624200952">/Data/A52/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="39.0646433">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="A54" sessionId="c7dd4612-52bf-489e-87de-926df48e8b05" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556061146739" start="0" length="52.380001068115234">/Data/A54/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/A54/A54.imsession</SessionFile>
+        <LabelFile modified="5250681536172143747">/Data/A54/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="44.7236315">Air</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P09" sessionId="f3597e1c-1442-47ad-9515-763b54aafa2a" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556289815491" start="0" length="67.19999694824219">/Data/P09/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P09/P09.imsession</SessionFile>
+        <LabelFile modified="5250678977589535724">/Data/P09/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="21" length="33.0931008">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P11" sessionId="d1d7b4aa-4a47-49c9-96bd-1c6aaee995e4" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556332334478" start="0" length="129.64999389648438">/Data/P11/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P11/P11.imsession</SessionFile>
+        <LabelFile modified="5250680848191054420">/Data/P11/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="87.1045604">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P14" sessionId="c651b7d0-959e-4005-820d-b94405dd8c2f" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556367086878" start="0" length="62.54999923706055">/Data/P14/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P14/P14.imsession</SessionFile>
+        <LabelFile modified="5250679011254460928">/Data/P14/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="32.8108329">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P17" sessionId="9a1bbc80-af87-40bf-a307-c4b51d18aa10" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556402149202" start="0" length="56.119998931884766">/Data/P17/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P17/P17.imsession</SessionFile>
+        <LabelFile modified="5250679022693463624">/Data/P17/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="31.6277018">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P21" sessionId="b6392fc3-20e1-414e-afe6-83c92924327c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556451911778" start="0" length="68.31999969482422">/Data/P21/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P21/P21.imsession</SessionFile>
+        <LabelFile modified="5250680714998864692">/Data/P21/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="34.0395589">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P31" sessionId="465d71f2-3b65-4e76-9983-dcef50aed0c0" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556574135664" start="0" length="76.25">/Data/P31/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P31/P31.imsession</SessionFile>
+        <LabelFile modified="5250680746423022032">/Data/P31/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="42.9597408">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P32" sessionId="c90fee05-d196-4a3f-9b62-7fd2f4d38af2" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556586461046" start="0" length="70.04000091552734">/Data/P32/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P32/P32.imsession</SessionFile>
+        <LabelFile modified="5250680748849563454">/Data/P32/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="41.136729">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P38" sessionId="09cc9a7c-9091-425b-afc8-04d42f7d75da" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556677082455" start="0" length="94.87999725341797">/Data/P38/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P38/P38.imsession</SessionFile>
+        <LabelFile modified="5250680769426778918">/Data/P38/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="52.2080522">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P48" sessionId="e8b2c110-ac62-4de6-8853-d27e84839cc6" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556822773973" start="0" length="71.01000213623047">/Data/P48/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P48/P48.imsession</SessionFile>
+        <LabelFile modified="5250681430318520472">/Data/P48/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="48.641521">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P54" sessionId="e948ef0b-4426-4584-8e03-7e94949423e1" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556897515479" start="0" length="61.060001373291016">/Data/P54/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P54/P54.imsession</SessionFile>
+        <LabelFile modified="5250681446366970941">/Data/P54/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="42.6319405">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P55" sessionId="3da1739d-07cd-47b3-a69b-639f017c226b" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556908352552" start="0" length="61.56999969482422">/Data/P55/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P55/P55.imsession</SessionFile>
+        <LabelFile modified="5250681448543194708">/Data/P55/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="21" length="42.3168281">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="P56" sessionId="2ca5dff1-eb82-4aa9-bcf0-bcf5fc8e326f" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556918745733" start="0" length="53.869998931884766">/Data/P56/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/P56/P56.imsession</SessionFile>
+        <LabelFile modified="5250681450524062544">/Data/P56/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="36.2123765">Plastic</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W01" sessionId="d3ff3cad-929c-4a39-91b6-9caf5e533e3c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681556976705869" start="0" length="61.630001068115234">/Data/W01/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W01/W01.imsession</SessionFile>
+        <LabelFile modified="5250679045093772403">/Data/W01/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="27.1167647">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W05" sessionId="0edb00d2-2a7a-4bce-a5eb-3f6d3bd04487" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557022505463" start="0" length="59.58000183105469">/Data/W05/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W05/W05.imsession</SessionFile>
+        <LabelFile modified="5250679060411240311">/Data/W05/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="27.8872435">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W08" sessionId="7d01eb18-cebc-493f-9296-73441820d19b" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557056493584" start="0" length="64.22000122070312">/Data/W08/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W08/W08.imsession</SessionFile>
+        <LabelFile modified="5250679072406004244">/Data/W08/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="29.3134349">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W14" sessionId="a6469c83-bf5c-46bd-9a71-570dd61fbd9c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557130174753" start="0" length="68.19999694824219">/Data/W14/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W14/W14.imsession</SessionFile>
+        <LabelFile modified="5250679094580849695">/Data/W14/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="27.7676852">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W19" sessionId="82317598-590a-4988-867f-927bb7c9c79b" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557190805708" start="0" length="64.81999969482422">/Data/W19/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W19/W19.imsession</SessionFile>
+        <LabelFile modified="5250679108282290769">/Data/W19/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="27.167458">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W23" sessionId="066ee8a8-c1c5-46c3-9110-5c9ecc7e7469" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557245755458" start="0" length="59.939998626708984">/Data/W23/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W23/W23.imsession</SessionFile>
+        <LabelFile modified="5250679134986850326">/Data/W23/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="15" length="28.7840901">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W29" sessionId="af4e974a-5ecc-46fc-a44c-a5f0e558cdc8" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557364659663" start="0" length="110.3499984741211">/Data/W29/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W29/W29.imsession</SessionFile>
+        <LabelFile modified="5250680644486973068">/Data/W29/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="54.1080308">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W44" sessionId="176257ac-c160-4390-8406-5bd89333ced2" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557643372293" start="0" length="83.41999816894531">/Data/W44/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W44/W44.imsession</SessionFile>
+        <LabelFile modified="5250681474873960256">/Data/W44/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="54.3324253">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W46" sessionId="ed860d8e-9597-4d29-9646-53a47571778b" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557671180816" start="0" length="79.87999725341797">/Data/W46/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W46/W46.imsession</SessionFile>
+        <LabelFile modified="5250681479184379315">/Data/W46/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="54.8373139">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W54" sessionId="cb7bc99f-6e8b-4114-97a8-ab3e9c6ea5d9" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557782186358" start="0" length="81.77999877929688">/Data/W54/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W54/W54.imsession</SessionFile>
+        <LabelFile modified="5250681497106356920">/Data/W54/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="49.0661149">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W57" sessionId="76da8ff6-d80d-48b5-8aab-16ab949bdac4" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557822388314" start="0" length="74.51000213623047">/Data/W57/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W57/W57.imsession</SessionFile>
+        <LabelFile modified="5250681509130929076">/Data/W57/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="47.0287105">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="W59" sessionId="dbbef608-c222-40f3-97a8-8340bffa5f96" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="True" labelTrack="Live Labeling" dataTrack="Concatenate-DataMod" tags="None">
+        <DataFile shape="[46]" samplerate="100" modified="5250681557852080468" start="0" length="93.51000213623047">/Data/W59/Concatenate-DataMod.data</DataFile>
+        <SessionFile>/Data/W59/W59.imsession</SessionFile>
+        <LabelFile modified="5250681513654279855">/Data/W59/Live-Labeling.label</LabelFile>
+        <Labels>
+          <Label count="20" length="58.9882716">Wood</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+    </DataSet>
+  </Database>
+</ImagimobStudio>

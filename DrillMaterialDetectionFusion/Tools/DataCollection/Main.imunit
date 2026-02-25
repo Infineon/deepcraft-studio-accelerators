@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Imaginet version="2.0.0.0">
+  <Compound unit="d419d86b-7b57-41d3-9a74-ab428f13a213">
+    <Nodes>
+      <UnitNode id="node_4" x="-57.28582495833109" y="-417.8339686444091" enabled="true" profiling="false" unit="Imaginet.Units.Signal.MelSpectrogram">
+        <Int32Argument param="output_features">40</Int32Argument>
+        <Int32Argument param="low_cut_freq">1000</Int32Argument>
+      </UnitNode>
+      <UnitNode id="node_12" x="-137.66333725084814" y="-689.7003744852235" enabled="true" profiling="false" name="Microphone Data" unit="ImagimobStudio.Modules.DataTrack" />
+      <UnitNode id="node_5" x="-50.0584615962897" y="-210.325650732611" enabled="true" profiling="false" unit="Imaginet.Units.Math.Reshape">
+        <ShapeArgument param="shape">[6]</ShapeArgument>
+      </UnitNode>
+      <UnitNode id="node_3" x="288.3622250016159" y="-154.1021896253239" enabled="true" profiling="false" unit="Imaginet.Units.Math.Clip">
+        <DoubleArgument param="max">40</DoubleArgument>
+        <DoubleArgument param="min">-40</DoubleArgument>
+      </UnitNode>
+      <UnitNode id="node_13" x="-298.24382654923136" y="-27.979432007323112" enabled="true" profiling="false" name="IMU Data" unit="ImagimobStudio.Modules.DataTrack" />
+      <UnitNode id="node_7" x="1193.7741788537442" y="-118.12013965921278" enabled="true" profiling="false" name="Concatenate Data" unit="ImagimobStudio.Modules.DataTrack" />
+      <DeviceNode id="node_10" x="-359.38260600043634" y="-562.9209634730789" enabled="true" profiling="false" name="Microphone" board="290de5cb-460b-41bf-7ad4-80062a3e0133" boardName="PSOC Edge E84 AI Kit " device="0" />
+      <UnitNode id="node_2" x="302.5356345732001" y="-368.73098938275183" enabled="true" profiling="false" unit="Imaginet.Units.Math.Scale">
+        <DoubleArgument param="scale">20</DoubleArgument>
+      </UnitNode>
+      <UnitNode id="node_0" x="545.1699204499105" y="-73.47441337550555" enabled="true" profiling="false" unit="Imaginet.Units.Math.AddConstant">
+        <DoubleArgument param="A">40</DoubleArgument>
+      </UnitNode>
+      <DeviceNode id="node_11" x="-436.4407849090743" y="-292.5938591464104" enabled="true" profiling="false" name="IMU" board="290de5cb-460b-41bf-7ad4-80062a3e0133" boardName="PSOC Edge E84 AI Kit " device="1">
+        <Int32Argument param="frequency_1">1</Int32Argument>
+      </DeviceNode>
+      <LabelListNode id="node_1" width="120" height="120" x="1075.1489666184264" y="-434.1208696437763" enabled="true" profiling="false" name="Predefined Labels">
+        <Label>Wood</Label>
+        <Label>Plastic</Label>
+        <Label>Wood_out</Label>
+        <Label>Plastic_out</Label>
+        <Label>Air</Label>
+      </LabelListNode>
+      <UnitNode id="node_6" x="825.2355868547547" y="-276.21043459849244" enabled="true" profiling="false" unit="Imaginet.Units.Math.Concat" />
+    </Nodes>
+    <Connections>
+      <Connection>
+        <Source node="node_4" param="output" />
+        <Target node="node_2" param="input" />
+      </Connection>
+      <Connection>
+        <Source node="node_2" param="output" />
+        <Target node="node_6" param="i0" />
+      </Connection>
+      <Connection>
+        <Source node="node_6" param="output" />
+        <Target node="node_7" param="data" />
+      </Connection>
+      <Connection>
+        <Source node="node_5" param="output" />
+        <Target node="node_3" param="input" />
+      </Connection>
+      <Connection>
+        <Source node="node_3" param="output" />
+        <Target node="node_0" param="input" />
+      </Connection>
+      <Connection>
+        <Source node="node_0" param="output" />
+        <Target node="node_6" param="i1" />
+      </Connection>
+      <Connection>
+        <Source node="node_10" param="Audio" />
+        <Target node="node_4" param="input" />
+      </Connection>
+      <Connection>
+        <Source node="node_11" param="Combined" />
+        <Target node="node_5" param="input" />
+      </Connection>
+      <Connection>
+        <Source node="node_10" param="Audio" />
+        <Target node="node_12" param="data" />
+      </Connection>
+      <Connection>
+        <Source node="node_11" param="Combined" />
+        <Target node="node_13" param="data" />
+      </Connection>
+    </Connections>
+  </Compound>
+</Imaginet>

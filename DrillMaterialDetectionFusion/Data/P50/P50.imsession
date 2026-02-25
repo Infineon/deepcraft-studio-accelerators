@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ImagimobStudio version="0.9">
+  <Timeline id="16b30f59-26a5-4ab0-88c3-4dc423f42e1c">
+    <Tracks>
+      <Track name="Concatenate-DataMod" type="datacsv" isLabelTrack="False">
+        <PayloadFile>Concatenate-DataMod.data</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="Live Labeling" type="labelcsv">
+        <PayloadFile>Live-Labeling.label</PayloadFile>
+        <Shape />
+      </Track>
+    </Tracks>
+  </Timeline>
+</ImagimobStudio>
