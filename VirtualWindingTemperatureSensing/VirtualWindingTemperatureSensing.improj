@@ -1,0 +1,1102 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ImagimobStudio version="1.1.0">
+  <Job id="d807389a-37d2-11f1-8344-a5ba5521b08b" />
+  <ProjectType>Regression</ProjectType>
+  <ProjectId>0057f1bd-a181-4539-8889-c3e18fc7550c</ProjectId>
+  <Preprocessor inshape="[3]" intype="Float32" infreq="0" outshape="[1,3]" outtype="Float32">
+    <Unit id="Core.Queues.SlidingWindow">
+      <Argument param="input" type="String">data</Argument>
+      <Argument param="time_input" type="String">time</Argument>
+      <Argument param="window_shape" type="Shape">[1,3]</Argument>
+      <Argument param="stride" type="Int32">3</Argument>
+      <Argument param="buffer_multiplier" type="Double">1</Argument>
+      <Argument param="output" type="String">data</Argument>
+      <Argument param="time_output" type="String">time</Argument>
+    </Unit>
+  </Preprocessor>
+  <ModelFactory>
+    <Epochs>100</Epochs>
+    <BatchSize>128</BatchSize>
+    <SplitCount>16</SplitCount>
+    <Patience>20</Patience>
+    <AppendModels>True</AppendModels>
+    <LossFunction>MeanSquaredError</LossFunction>
+    <HardwareType>Infineon</HardwareType>
+    <TrainingEnvironment>
+    </TrainingEnvironment>
+    <ModelFamily>Dense</ModelFamily>
+    <ModelFlavor>SmallKern</ModelFlavor>
+    <ClassifierType>Dense</ClassifierType>
+    <Optimization>Balanced</Optimization>
+    <Pooling>True</Pooling>
+    <Downscale>False</Downscale>
+    <LearnRate>Mid</LearnRate>
+    <RegularizationFactor>Mid</RegularizationFactor>
+    <LastNetworkInputShape>[1,3]</LastNetworkInputShape>
+    <LastClassCount>1</LastClassCount>
+    <Optimizer>
+      <LearningRate>0.001</LearningRate>
+      <WeightDecay>0.0001</WeightDecay>
+    </Optimizer>
+    <BuildSteps>
+      <NoMapping />
+      <Training />
+      <RegressionEvaluations />
+    </BuildSteps>
+  </ModelFactory>
+  <Models>
+    <Model name="temp_virtual_sensor">
+      <LossFunction>MeanSquaredError</LossFunction>
+      <Epochs>100</Epochs>
+      <BatchSize>128</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.005</LearningRate>
+        <WeightDecay>0.0005</WeightDecay>
+      </Optimizer>
+      <Network inshape="[1,3]" intype="Float32" infreq="1" outshape="[1]" outtype="Float32">
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">5</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">relu</Argument>
+          <Argument param="trainable" type="Boolean">True</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Reshape">
+          <Argument param="shape" type="Shape">[1,5]</Argument>
+          <Argument param="trainable" type="Boolean">True</Argument>
+        </Unit>
+        <Unit id="Core.Layers.GRU">
+          <Argument param="units" type="Int32">5</Argument>
+          <Argument param="activation" type="String">tanh</Argument>
+          <Argument param="recurrent_activation" type="String">sigmoid</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="return_sequences" type="Boolean">False</Argument>
+          <Argument param="return_state" type="Boolean">False</Argument>
+          <Argument param="go_backwards" type="Boolean">False</Argument>
+          <Argument param="stateful" type="Boolean">False</Argument>
+          <Argument param="reset_after" type="Boolean">True</Argument>
+          <Argument param="trainable" type="Boolean">True</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">3</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">relu</Argument>
+          <Argument param="trainable" type="Boolean">True</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">1</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="trainable" type="Boolean">True</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <NoMapping />
+        <Training />
+        <RegressionEvaluations />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="unlabeled" weight="1" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[3]" intype="Float32" infreq="0" outshape="[1,3]" outtype="Float32">
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[1,3]</Argument>
+          <Argument param="stride" type="Int32">3</Argument>
+          <Argument param="buffer_multiplier" type="Double">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
+    </Model>
+    <Model name="dense-small-balanced-0" id="05a9617b-554a-456c-9d6b-310d38db4907">
+      <LossFunction>MeanSquaredError</LossFunction>
+      <Epochs>100</Epochs>
+      <BatchSize>128</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.004</LearningRate>
+        <WeightDecay>0.001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[1,3]" intype="Float32" infreq="0" outshape="[1]" outtype="Float32">
+        <Unit id="Core.Layers.Flatten" />
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">32</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">32</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">10</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dropout">
+          <Argument param="rate" type="Double">0.2</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">1</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <NoMapping />
+        <Training />
+        <RegressionEvaluations />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="unlabeled" weight="1" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[3]" intype="Float32" infreq="0" outshape="[1,3]" outtype="Float32">
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[1,3]</Argument>
+          <Argument param="stride" type="Int32">3</Argument>
+          <Argument param="buffer_multiplier" type="Double">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
+    </Model>
+    <Model name="dense-small-balanced-1" id="063ebe38-d5dd-41e7-b2eb-f33dc7a5e2ff">
+      <LossFunction>MeanSquaredError</LossFunction>
+      <Epochs>100</Epochs>
+      <BatchSize>128</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.004</LearningRate>
+        <WeightDecay>0.001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[1,3]" intype="Float32" infreq="0" outshape="[1]" outtype="Float32">
+        <Unit id="Core.Layers.Flatten" />
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">16</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">32</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">10</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dropout">
+          <Argument param="rate" type="Double">0.2</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">1</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <NoMapping />
+        <Training />
+        <RegressionEvaluations />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="unlabeled" weight="1" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[3]" intype="Float32" infreq="0" outshape="[1,3]" outtype="Float32">
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[1,3]</Argument>
+          <Argument param="stride" type="Int32">3</Argument>
+          <Argument param="buffer_multiplier" type="Double">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
+    </Model>
+    <Model name="dense-small-balanced-2" id="6d23905f-bd2b-41e3-b3c1-e2b47e170098">
+      <LossFunction>MeanSquaredError</LossFunction>
+      <Epochs>100</Epochs>
+      <BatchSize>128</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.004</LearningRate>
+        <WeightDecay>0.001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[1,3]" intype="Float32" infreq="0" outshape="[1]" outtype="Float32">
+        <Unit id="Core.Layers.Flatten" />
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">16</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">16</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">10</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dropout">
+          <Argument param="rate" type="Double">0.2</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">1</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <NoMapping />
+        <Training />
+        <RegressionEvaluations />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="unlabeled" weight="1" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[3]" intype="Float32" infreq="0" outshape="[1,3]" outtype="Float32">
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[1,3]</Argument>
+          <Argument param="stride" type="Int32">3</Argument>
+          <Argument param="buffer_multiplier" type="Double">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
+    </Model>
+    <Model name="dense-small-balanced-3" id="686738fa-d793-4ba9-a90e-f2111b255914">
+      <LossFunction>MeanSquaredError</LossFunction>
+      <Epochs>100</Epochs>
+      <BatchSize>128</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.004</LearningRate>
+        <WeightDecay>0.001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[1,3]" intype="Float32" infreq="0" outshape="[1]" outtype="Float32">
+        <Unit id="Core.Layers.Flatten" />
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">32</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">16</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">10</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dropout">
+          <Argument param="rate" type="Double">0.2</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">1</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <NoMapping />
+        <Training />
+        <RegressionEvaluations />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="unlabeled" weight="1" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[3]" intype="Float32" infreq="0" outshape="[1,3]" outtype="Float32">
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[1,3]</Argument>
+          <Argument param="stride" type="Int32">3</Argument>
+          <Argument param="buffer_multiplier" type="Double">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
+    </Model>
+  </Models>
+  <Database balance="AnnotatedLength" redistributionScope="Everything">
+    <SymbolMap>
+      <Symbol name="unlabeled" id="0" weight="1" />
+    </SymbolMap>
+    <DataSet id="unassigned" targetSize="0" labels="Unassigned" />
+    <DataSet id="train" targetSize="0.6970668504472758" labels="Complete">
+      <Session name="part01_downsampled_normalized_10_50-100watt_random_22Celsius_preheated" sessionId="7ed4f254-7249-427c-9b07-d50bdc4b7265" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763527387904" start="0" length="270">/Data/processed/4_training_data_set/part01_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part01_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/part01_downsampled_normalized_10_50-100watt_random_22Celsius_preheated.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763527387904">/Data/processed/4_training_data_set/part01_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part01_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius" sessionId="2564e709-fea4-4b32-b1e0-3e13cf3f61b0" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763547387904" start="0" length="5370">/Data/processed/4_training_data_set/part01_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part01_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/part01_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763547387904">/Data/processed/4_training_data_set/part01_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part02_downsampled_normalized_09_random_45_75_135_22Celsius_preheated" sessionId="8e5190f7-8cc2-41a5-9165-782c6e3810d1" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763517387904" start="580" length="570">/Data/processed/4_training_data_set/part02_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part02_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/part02_downsampled_normalized_09_random_45_75_135_22Celsius_preheated.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763517387904">/Data/processed/4_training_data_set/part02_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part02_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius" sessionId="84688a4d-7e2b-4c1e-b1a7-fd11f65831bf" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763547387904" start="5380" length="5370">/Data/processed/4_training_data_set/part02_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part02_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/part02_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763547387904">/Data/processed/4_training_data_set/part02_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part02_downsampled_normalized_12_easy_intermediate_preheated_22Celsius" sessionId="61355095-e567-4e24-9181-53e5c2f322af" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763587387904" start="4200" length="4190">/Data/processed/4_training_data_set/part02_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part02_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/part02_downsampled_normalized_12_easy_intermediate_preheated_22Celsius.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763587387904">/Data/processed/4_training_data_set/part02_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part03_downsampled_normalized_09_random_45_75_135_22Celsius_preheated" sessionId="05dab786-2da8-4789-9f83-218566d6d9e7" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763517387904" start="1160" length="570">/Data/processed/4_training_data_set/part03_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part03_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/part03_downsampled_normalized_09_random_45_75_135_22Celsius_preheated.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763517387904">/Data/processed/4_training_data_set/part03_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part03_downsampled_normalized_10_50-100watt_random_22Celsius_preheated" sessionId="a91343ee-24b2-4c16-b1a2-3b04ffe4fc50" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763527387904" start="560" length="270">/Data/processed/4_training_data_set/part03_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part03_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/part03_downsampled_normalized_10_50-100watt_random_22Celsius_preheated.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763527387904">/Data/processed/4_training_data_set/part03_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part03_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius" sessionId="2bab7901-77cc-49a7-af28-a8c602022be1" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763547387904" start="10760" length="5370">/Data/processed/4_training_data_set/part03_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part03_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/part03_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763547387904">/Data/processed/4_training_data_set/part03_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part05_downsampled_normalized_10_50-100watt_random_22Celsius_preheated" sessionId="c28a7bf9-b87d-43df-9a59-fc97e11314d6" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763527387904" start="1120" length="270">/Data/processed/4_training_data_set/part05_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part05_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/part05_downsampled_normalized_10_50-100watt_random_22Celsius_preheated.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763527387904">/Data/processed/4_training_data_set/part05_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part05_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius" sessionId="cfc24ddd-2e4e-4710-bf1f-44947423e92f" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763547387904" start="21520" length="5370">/Data/processed/4_training_data_set/part05_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part05_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/part05_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763547387904">/Data/processed/4_training_data_set/part05_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part05_downsampled_normalized_12_easy_intermediate_preheated_22Celsius" sessionId="9e556e01-4b1d-404e-a197-04af6461cf0f" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763587387904" start="16800" length="4190">/Data/processed/4_training_data_set/part05_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part05_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/part05_downsampled_normalized_12_easy_intermediate_preheated_22Celsius.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763587387904">/Data/processed/4_training_data_set/part05_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part06_downsampled_normalized_09_random_45_75_135_22Celsius_preheated" sessionId="987702fe-b3ee-42b6-871d-727bc01b9068" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763517387904" start="2900" length="570">/Data/processed/4_training_data_set/part06_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part06_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/part06_downsampled_normalized_09_random_45_75_135_22Celsius_preheated.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763517387904">/Data/processed/4_training_data_set/part06_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part06_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius" sessionId="7950e791-2cbb-4dd4-8ae5-bed48b6c6fe9" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763547387904" start="26900" length="5370">/Data/processed/4_training_data_set/part06_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part06_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/part06_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763547387904">/Data/processed/4_training_data_set/part06_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part06_downsampled_normalized_12_easy_intermediate_preheated_22Celsius" sessionId="832b99e6-2888-4f95-987b-482c468c1ab9" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763587387904" start="21000" length="4190">/Data/processed/4_training_data_set/part06_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part06_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/part06_downsampled_normalized_12_easy_intermediate_preheated_22Celsius.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763587387904">/Data/processed/4_training_data_set/part06_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part07_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius" sessionId="cc85beae-0439-44bf-bac7-7893bfde3a1c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763557387904" start="32280" length="5370">/Data/processed/4_training_data_set/part07_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part07_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/part07_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763557387904">/Data/processed/4_training_data_set/part07_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part09_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius" sessionId="6dc14e08-9b69-4f70-b396-f5e115f31e0d" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763557387904" start="43040" length="5370">/Data/processed/4_training_data_set/part09_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part09_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/part09_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763557387904">/Data/processed/4_training_data_set/part09_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part10_downsampled_normalized_10_50-100watt_random_22Celsius_preheated" sessionId="cfc8be52-26b0-4776-bcc3-e1c67f8a4255" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763527387904" start="2520" length="270">/Data/processed/4_training_data_set/part10_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part10_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/part10_downsampled_normalized_10_50-100watt_random_22Celsius_preheated.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763527387904">/Data/processed/4_training_data_set/part10_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part10_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius" sessionId="d6f9ab3c-dd19-4f71-b368-3efc56394ce0" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763557387904" start="48420" length="5370">/Data/processed/4_training_data_set/part10_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part10_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/part10_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763557387904">/Data/processed/4_training_data_set/part10_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part11_downsampled_normalized_09_random_45_75_135_22Celsius_preheated" sessionId="f7b20abb-ca11-4a4b-8239-d685518d6b37" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763517387904" start="5800" length="570">/Data/processed/4_training_data_set/part11_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part11_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/part11_downsampled_normalized_09_random_45_75_135_22Celsius_preheated.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763517387904">/Data/processed/4_training_data_set/part11_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part11_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius" sessionId="cd946b91-9a68-4d15-886b-4b103e1b8dda" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763557387904" start="53800" length="5370">/Data/processed/4_training_data_set/part11_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part11_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/part11_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763557387904">/Data/processed/4_training_data_set/part11_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part12_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius" sessionId="d9761516-2c50-446b-b1e2-4c9566dc2d3e" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763557387904" start="59180" length="5370">/Data/processed/4_training_data_set/part12_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part12_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/part12_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763557387904">/Data/processed/4_training_data_set/part12_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part13_downsampled_normalized_09_random_45_75_135_22Celsius_preheated" sessionId="867168a8-630f-468e-9c9a-250c8fe29b21" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763517387904" start="6960" length="570">/Data/processed/4_training_data_set/part13_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part13_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/part13_downsampled_normalized_09_random_45_75_135_22Celsius_preheated.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763517387904">/Data/processed/4_training_data_set/part13_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part13_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius" sessionId="69970e79-a949-4bdf-931b-c9ad092899df" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763567387904" start="64560" length="5370">/Data/processed/4_training_data_set/part13_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part13_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/part13_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763567387904">/Data/processed/4_training_data_set/part13_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part13_downsampled_normalized_12_easy_intermediate_preheated_22Celsius" sessionId="c7507169-eca1-4af0-8d8e-d4a04fe04e2a" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763597387904" start="50400" length="4190">/Data/processed/4_training_data_set/part13_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part13_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/part13_downsampled_normalized_12_easy_intermediate_preheated_22Celsius.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763597387904">/Data/processed/4_training_data_set/part13_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part14_downsampled_normalized_09_random_45_75_135_22Celsius_preheated" sessionId="410c806e-ee51-4c9f-a47e-2e031694f367" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763517387904" start="7540" length="570">/Data/processed/4_training_data_set/part14_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part14_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/part14_downsampled_normalized_09_random_45_75_135_22Celsius_preheated.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763517387904">/Data/processed/4_training_data_set/part14_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part14_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius" sessionId="7845de8c-f048-4e77-9a04-a8ff1fefd04a" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763567387904" start="69940" length="5370">/Data/processed/4_training_data_set/part14_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part14_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/part14_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763567387904">/Data/processed/4_training_data_set/part14_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part14_downsampled_normalized_12_easy_intermediate_preheated_22Celsius" sessionId="5f367f6b-3bd9-4d95-96e2-c9e590f2482b" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763597387904" start="54600" length="4190">/Data/processed/4_training_data_set/part14_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part14_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/part14_downsampled_normalized_12_easy_intermediate_preheated_22Celsius.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763597387904">/Data/processed/4_training_data_set/part14_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part16_downsampled_normalized_10_50-100watt_random_22Celsius_preheated" sessionId="636725ee-5a43-42dd-9f13-ff95dd2e0a8b" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763527387904" start="4200" length="270">/Data/processed/4_training_data_set/part16_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part16_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/part16_downsampled_normalized_10_50-100watt_random_22Celsius_preheated.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763527387904">/Data/processed/4_training_data_set/part16_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part16_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius" sessionId="9b64b26e-aff1-4aaa-a454-bc704b07c717" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763567387904" start="80700" length="5370">/Data/processed/4_training_data_set/part16_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part16_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/part16_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763567387904">/Data/processed/4_training_data_set/part16_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part17_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius" sessionId="e8c1cc9b-35f5-4097-b9cb-6df08258e973" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763567387904" start="86080" length="5370">/Data/processed/4_training_data_set/part17_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part17_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/part17_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763567387904">/Data/processed/4_training_data_set/part17_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part18_downsampled_normalized_09_random_45_75_135_22Celsius_preheated" sessionId="d691e2da-fe50-4ebe-a5ea-1092cd6c6282" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763517387904" start="9860" length="570">/Data/processed/4_training_data_set/part18_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part18_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/part18_downsampled_normalized_09_random_45_75_135_22Celsius_preheated.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763517387904">/Data/processed/4_training_data_set/part18_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part18_downsampled_normalized_10_50-100watt_random_22Celsius_preheated" sessionId="ca0eaa9b-0765-459d-a6ba-52d3813ae6e8" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763527387904" start="4760" length="270">/Data/processed/4_training_data_set/part18_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part18_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/part18_downsampled_normalized_10_50-100watt_random_22Celsius_preheated.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763527387904">/Data/processed/4_training_data_set/part18_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part18_downsampled_normalized_12_easy_intermediate_preheated_22Celsius" sessionId="450b8fcb-9e7c-48bc-b0b6-950ffdea46e2" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763607387904" start="71400" length="4190">/Data/processed/4_training_data_set/part18_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part18_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/part18_downsampled_normalized_12_easy_intermediate_preheated_22Celsius.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763607387904">/Data/processed/4_training_data_set/part18_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part19_downsampled_normalized_10_50-100watt_random_22Celsius_preheated" sessionId="116277ac-5954-4aa9-82ee-ccd354f6e3ba" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763537387904" start="5040" length="270">/Data/processed/4_training_data_set/part19_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part19_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/part19_downsampled_normalized_10_50-100watt_random_22Celsius_preheated.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763537387904">/Data/processed/4_training_data_set/part19_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part19_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius" sessionId="a1bc6c54-4d59-4123-a46e-4663ec989a69" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763567387904" start="96840" length="5370">/Data/processed/4_training_data_set/part19_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part19_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/part19_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763567387904">/Data/processed/4_training_data_set/part19_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part20_downsampled_normalized_09_random_45_75_135_22Celsius_preheated" sessionId="fc0e9b21-5212-4f9c-9e4c-7e50e9bfbff6" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763517387904" start="11020" length="570">/Data/processed/4_training_data_set/part20_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part20_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/part20_downsampled_normalized_09_random_45_75_135_22Celsius_preheated.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763517387904">/Data/processed/4_training_data_set/part20_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part20_downsampled_normalized_12_easy_intermediate_preheated_22Celsius" sessionId="908f5272-a52d-4484-8f1c-7a9d4635c130" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763617387904" start="79800" length="4190">/Data/processed/4_training_data_set/part20_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part20_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/part20_downsampled_normalized_12_easy_intermediate_preheated_22Celsius.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763617387904">/Data/processed/4_training_data_set/part20_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part22_downsampled_normalized_09_random_45_75_135_22Celsius_preheated" sessionId="a846b3e4-0644-4acd-9861-39fc057aae5f" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763527387904" start="12180" length="570">/Data/processed/4_training_data_set/part22_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part22_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/part22_downsampled_normalized_09_random_45_75_135_22Celsius_preheated.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763527387904">/Data/processed/4_training_data_set/part22_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part23_downsampled_normalized_09_random_45_75_135_22Celsius_preheated" sessionId="e6658398-85c9-410c-95f6-1d0e26eb861b" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763527387904" start="12760" length="570">/Data/processed/4_training_data_set/part23_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part23_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/part23_downsampled_normalized_09_random_45_75_135_22Celsius_preheated.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763527387904">/Data/processed/4_training_data_set/part23_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part23_downsampled_normalized_10_50-100watt_random_22Celsius_preheated" sessionId="a1c9caee-a9a6-49a9-8ed3-d2d1d60514a3" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763537387904" start="6160" length="270">/Data/processed/4_training_data_set/part23_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part23_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/part23_downsampled_normalized_10_50-100watt_random_22Celsius_preheated.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763537387904">/Data/processed/4_training_data_set/part23_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part23_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius" sessionId="7a8a1079-9413-4785-9a99-b24d15dfc44f" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763577387904" start="118360" length="5370">/Data/processed/4_training_data_set/part23_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part23_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/part23_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763577387904">/Data/processed/4_training_data_set/part23_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part24_downsampled_normalized_09_random_45_75_135_22Celsius_preheated" sessionId="60fe8d00-306d-4461-81ca-7073c47b20d2" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763527387904" start="13340" length="570">/Data/processed/4_training_data_set/part24_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part24_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/part24_downsampled_normalized_09_random_45_75_135_22Celsius_preheated.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763527387904">/Data/processed/4_training_data_set/part24_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part24_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius" sessionId="2296450e-febf-4bb3-8ad3-304ddefc2b72" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763577387904" start="123740" length="5370">/Data/processed/4_training_data_set/part24_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part24_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/part24_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763577387904">/Data/processed/4_training_data_set/part24_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part24_downsampled_normalized_12_easy_intermediate_preheated_22Celsius" sessionId="379816be-e33e-484b-a7e6-c727881fe65c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763617387904" start="96600" length="4190">/Data/processed/4_training_data_set/part24_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part24_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/part24_downsampled_normalized_12_easy_intermediate_preheated_22Celsius.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763617387904">/Data/processed/4_training_data_set/part24_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part25_downsampled_normalized_09_random_45_75_135_22Celsius_preheated" sessionId="196e9063-4f30-48ef-8902-ab834bab3ee8" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763527387904" start="13920" length="530">/Data/processed/4_training_data_set/part25_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part25_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/part25_downsampled_normalized_09_random_45_75_135_22Celsius_preheated.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763527387904">/Data/processed/4_training_data_set/part25_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part25_downsampled_normalized_12_easy_intermediate_preheated_22Celsius" sessionId="42dc26e6-d6ea-4da5-a6cc-1b330affe707" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763617387904" start="100800" length="4030">/Data/processed/4_training_data_set/part25_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part25_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/part25_downsampled_normalized_12_easy_intermediate_preheated_22Celsius.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763617387904">/Data/processed/4_training_data_set/part25_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part02_downsampled_normalized_10_50-100watt_random_22Celsius_preheated" sessionId="e2d50ea6-40f5-49b6-aeca-a0dd08f4e80d" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763527387904" start="280" length="270">/Data/processed/4_training_data_set/part02_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part02_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/part02_downsampled_normalized_10_50-100watt_random_22Celsius_preheated.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763527387904">/Data/processed/4_training_data_set/part02_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part05_downsampled_normalized_09_random_45_75_135_22Celsius_preheated" sessionId="63a00062-4464-4bae-bdf9-8eab2995865b" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763517387904" start="2320" length="570">/Data/processed/4_training_data_set/part05_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part05_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/part05_downsampled_normalized_09_random_45_75_135_22Celsius_preheated.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763517387904">/Data/processed/4_training_data_set/part05_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part08_downsampled_normalized_09_random_45_75_135_22Celsius_preheated" sessionId="c840ca58-94c4-41e7-9d90-a1dae0f4142c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763517387904" start="4060" length="570">/Data/processed/4_training_data_set/part08_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part08_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/part08_downsampled_normalized_09_random_45_75_135_22Celsius_preheated.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763517387904">/Data/processed/4_training_data_set/part08_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part08_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius" sessionId="3fbf1f17-301a-408b-a9fd-9e7d60c78860" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763557387904" start="37660" length="5370">/Data/processed/4_training_data_set/part08_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part08_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/part08_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763557387904">/Data/processed/4_training_data_set/part08_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part09_downsampled_normalized_10_50-100watt_random_22Celsius_preheated" sessionId="4a2f9b49-d995-44b9-8468-d42dfb113a37" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763527387904" start="2240" length="270">/Data/processed/4_training_data_set/part09_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part09_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/part09_downsampled_normalized_10_50-100watt_random_22Celsius_preheated.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763527387904">/Data/processed/4_training_data_set/part09_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part10_downsampled_normalized_09_random_45_75_135_22Celsius_preheated" sessionId="6168776e-f316-4bd5-b648-3362b95550ce" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763517387904" start="5220" length="570">/Data/processed/4_training_data_set/part10_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part10_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/part10_downsampled_normalized_09_random_45_75_135_22Celsius_preheated.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763517387904">/Data/processed/4_training_data_set/part10_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part10_downsampled_normalized_12_easy_intermediate_preheated_22Celsius" sessionId="fd75f1e6-64ca-4746-a564-5ad1813f1b23" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763597387904" start="37800" length="4190">/Data/processed/4_training_data_set/part10_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part10_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/part10_downsampled_normalized_12_easy_intermediate_preheated_22Celsius.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763597387904">/Data/processed/4_training_data_set/part10_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part11_downsampled_normalized_12_easy_intermediate_preheated_22Celsius" sessionId="8424d552-9dec-401d-932d-c953923523cd" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763597387904" start="42000" length="4190">/Data/processed/4_training_data_set/part11_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part11_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/part11_downsampled_normalized_12_easy_intermediate_preheated_22Celsius.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763597387904">/Data/processed/4_training_data_set/part11_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part17_downsampled_normalized_12_easy_intermediate_preheated_22Celsius" sessionId="06c79e1f-2d81-4a00-b463-ec46d2b4ac24" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763607387904" start="67200" length="4190">/Data/processed/4_training_data_set/part17_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part17_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/part17_downsampled_normalized_12_easy_intermediate_preheated_22Celsius.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763607387904">/Data/processed/4_training_data_set/part17_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part19_downsampled_normalized_09_random_45_75_135_22Celsius_preheated" sessionId="30500ddb-276e-4440-b915-775a1b4b7f57" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763517387904" start="10440" length="570">/Data/processed/4_training_data_set/part19_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part19_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/part19_downsampled_normalized_09_random_45_75_135_22Celsius_preheated.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763517387904">/Data/processed/4_training_data_set/part19_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part19_downsampled_normalized_12_easy_intermediate_preheated_22Celsius" sessionId="645b106e-f3ce-48d2-b451-5a3e646db656" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763617387904" start="75600" length="4190">/Data/processed/4_training_data_set/part19_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part19_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/part19_downsampled_normalized_12_easy_intermediate_preheated_22Celsius.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763617387904">/Data/processed/4_training_data_set/part19_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part20_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius" sessionId="5ddc4db8-2fc3-4dc4-a18e-1a63e155ead9" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763567387904" start="102220" length="5370">/Data/processed/4_training_data_set/part20_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part20_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/part20_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763567387904">/Data/processed/4_training_data_set/part20_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part04_downsampled_normalized_09_random_45_75_135_22Celsius_preheated" sessionId="95fbe762-e718-479b-a962-9779edab5daf" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763517387904" start="1740" length="570">/Data/processed/4_training_data_set/part04_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part04_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/part04_downsampled_normalized_09_random_45_75_135_22Celsius_preheated.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763517387904">/Data/processed/4_training_data_set/part04_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part04_downsampled_normalized_10_50-100watt_random_22Celsius_preheated" sessionId="f8b92c01-ea97-4156-8a73-15b289e63c33" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763527387904" start="840" length="270">/Data/processed/4_training_data_set/part04_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part04_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/part04_downsampled_normalized_10_50-100watt_random_22Celsius_preheated.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763527387904">/Data/processed/4_training_data_set/part04_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part15_downsampled_normalized_12_easy_intermediate_preheated_22Celsius" sessionId="34516046-ff2a-4c0c-b070-9541b90cd3b3" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763607387904" start="58800" length="4190">/Data/processed/4_training_data_set/part15_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part15_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/part15_downsampled_normalized_12_easy_intermediate_preheated_22Celsius.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763607387904">/Data/processed/4_training_data_set/part15_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part23_downsampled_normalized_12_easy_intermediate_preheated_22Celsius" sessionId="d5bde2c8-5d95-4407-93a6-3fa901185e84" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763617387904" start="92400" length="4190">/Data/processed/4_training_data_set/part23_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part23_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/part23_downsampled_normalized_12_easy_intermediate_preheated_22Celsius.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763617387904">/Data/processed/4_training_data_set/part23_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part25_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius" sessionId="9a07555a-e9f9-40f9-82d5-87a799d9b020" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763577387904" start="129120" length="5140">/Data/processed/4_training_data_set/part25_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part25_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/part25_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763577387904">/Data/processed/4_training_data_set/part25_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+    </DataSet>
+    <DataSet id="validation" targetSize="0.2" labels="Complete">
+      <Session name="part01_downsampled_normalized_12_easy_intermediate_preheated_22Celsius" sessionId="2710cadf-de43-4861-a5ee-fc85f642869c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763577387904" start="0" length="4190">/Data/processed/4_training_data_set/part01_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part01_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/part01_downsampled_normalized_12_easy_intermediate_preheated_22Celsius.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763577387904">/Data/processed/4_training_data_set/part01_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part04_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius" sessionId="b8fb5aea-e83b-4cc9-af17-032c1062bf01" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763547387904" start="16140" length="5370">/Data/processed/4_training_data_set/part04_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part04_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/part04_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763547387904">/Data/processed/4_training_data_set/part04_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part07_downsampled_normalized_09_random_45_75_135_22Celsius_preheated" sessionId="c1b8e6df-f812-4190-811c-a460e4a38b10" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763517387904" start="3480" length="570">/Data/processed/4_training_data_set/part07_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part07_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/part07_downsampled_normalized_09_random_45_75_135_22Celsius_preheated.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763517387904">/Data/processed/4_training_data_set/part07_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part07_downsampled_normalized_10_50-100watt_random_22Celsius_preheated" sessionId="7738c754-1107-487c-8014-aefdbbff6c41" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763527387904" start="1680" length="270">/Data/processed/4_training_data_set/part07_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part07_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/part07_downsampled_normalized_10_50-100watt_random_22Celsius_preheated.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763527387904">/Data/processed/4_training_data_set/part07_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part08_downsampled_normalized_10_50-100watt_random_22Celsius_preheated" sessionId="0e681261-b9ec-4b7c-ba20-9dce7161eddf" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763527387904" start="1960" length="270">/Data/processed/4_training_data_set/part08_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part08_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/part08_downsampled_normalized_10_50-100watt_random_22Celsius_preheated.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763527387904">/Data/processed/4_training_data_set/part08_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part09_downsampled_normalized_09_random_45_75_135_22Celsius_preheated" sessionId="606d7b38-07fa-4f57-98c6-ddc48f19ce89" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763517387904" start="4640" length="570">/Data/processed/4_training_data_set/part09_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part09_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/part09_downsampled_normalized_09_random_45_75_135_22Celsius_preheated.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763517387904">/Data/processed/4_training_data_set/part09_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part12_downsampled_normalized_12_easy_intermediate_preheated_22Celsius" sessionId="4f7db467-f1ba-4814-a35f-9420b755cc4e" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763597387904" start="46200" length="4190">/Data/processed/4_training_data_set/part12_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part12_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/part12_downsampled_normalized_12_easy_intermediate_preheated_22Celsius.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763597387904">/Data/processed/4_training_data_set/part12_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part13_downsampled_normalized_10_50-100watt_random_22Celsius_preheated" sessionId="eaa0a022-6718-43d0-a3bc-c02ac1bd463e" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763527387904" start="3360" length="270">/Data/processed/4_training_data_set/part13_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part13_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/part13_downsampled_normalized_10_50-100watt_random_22Celsius_preheated.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763527387904">/Data/processed/4_training_data_set/part13_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part15_downsampled_normalized_09_random_45_75_135_22Celsius_preheated" sessionId="77e39635-98c6-4247-a430-ab135bf77917" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763517387904" start="8120" length="570">/Data/processed/4_training_data_set/part15_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part15_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/part15_downsampled_normalized_09_random_45_75_135_22Celsius_preheated.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763517387904">/Data/processed/4_training_data_set/part15_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part16_downsampled_normalized_12_easy_intermediate_preheated_22Celsius" sessionId="3ea9c87d-659d-4ee6-80dd-6ac694b9afa2" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763607387904" start="63000" length="4190">/Data/processed/4_training_data_set/part16_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part16_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/part16_downsampled_normalized_12_easy_intermediate_preheated_22Celsius.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763607387904">/Data/processed/4_training_data_set/part16_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part17_downsampled_normalized_09_random_45_75_135_22Celsius_preheated" sessionId="a9c8513a-a48f-4b33-8735-ec74459d90e1" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763517387904" start="9280" length="570">/Data/processed/4_training_data_set/part17_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part17_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/part17_downsampled_normalized_09_random_45_75_135_22Celsius_preheated.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763517387904">/Data/processed/4_training_data_set/part17_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part21_downsampled_normalized_09_random_45_75_135_22Celsius_preheated" sessionId="52d8bc77-af71-4648-9a39-5132fb61fa41" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763527387904" start="11600" length="570">/Data/processed/4_training_data_set/part21_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part21_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/part21_downsampled_normalized_09_random_45_75_135_22Celsius_preheated.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763527387904">/Data/processed/4_training_data_set/part21_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part21_downsampled_normalized_10_50-100watt_random_22Celsius_preheated" sessionId="bd05137d-e256-4e95-aaca-348d46e1f254" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763537387904" start="5600" length="270">/Data/processed/4_training_data_set/part21_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part21_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/part21_downsampled_normalized_10_50-100watt_random_22Celsius_preheated.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763537387904">/Data/processed/4_training_data_set/part21_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part21_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius" sessionId="e099af56-8e86-497b-bcab-c5ecc645e1fb" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763577387904" start="107600" length="5370">/Data/processed/4_training_data_set/part21_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part21_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/part21_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763577387904">/Data/processed/4_training_data_set/part21_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part21_downsampled_normalized_12_easy_intermediate_preheated_22Celsius" sessionId="c4f4590b-a239-44c7-a1af-8b433095ad09" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763617387904" start="84000" length="4190">/Data/processed/4_training_data_set/part21_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part21_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/part21_downsampled_normalized_12_easy_intermediate_preheated_22Celsius.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763617387904">/Data/processed/4_training_data_set/part21_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part06_downsampled_normalized_10_50-100watt_random_22Celsius_preheated" sessionId="246a7a21-1e42-4f25-92ec-42b4492903cb" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763527387904" start="1400" length="270">/Data/processed/4_training_data_set/part06_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part06_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/part06_downsampled_normalized_10_50-100watt_random_22Celsius_preheated.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763527387904">/Data/processed/4_training_data_set/part06_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part09_downsampled_normalized_12_easy_intermediate_preheated_22Celsius" sessionId="cb8600be-3636-4ca3-b1de-0a1d69e2910e" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763587387904" start="33600" length="4190">/Data/processed/4_training_data_set/part09_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part09_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/part09_downsampled_normalized_12_easy_intermediate_preheated_22Celsius.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763587387904">/Data/processed/4_training_data_set/part09_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part15_downsampled_normalized_10_50-100watt_random_22Celsius_preheated" sessionId="85787ff8-a9c5-4e11-ae71-a45246631348" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763527387904" start="3920" length="270">/Data/processed/4_training_data_set/part15_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part15_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/part15_downsampled_normalized_10_50-100watt_random_22Celsius_preheated.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763527387904">/Data/processed/4_training_data_set/part15_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part22_downsampled_normalized_12_easy_intermediate_preheated_22Celsius" sessionId="58b1631f-566f-471b-bfc4-e9623d7aad7f" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763617387904" start="88200" length="4190">/Data/processed/4_training_data_set/part22_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part22_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/part22_downsampled_normalized_12_easy_intermediate_preheated_22Celsius.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763617387904">/Data/processed/4_training_data_set/part22_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part17_downsampled_normalized_10_50-100watt_random_22Celsius_preheated" sessionId="eaa6335c-53af-4625-9f5c-34b3714d9d31" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763527387904" start="4480" length="270">/Data/processed/4_training_data_set/part17_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part17_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/part17_downsampled_normalized_10_50-100watt_random_22Celsius_preheated.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763527387904">/Data/processed/4_training_data_set/part17_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part18_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius" sessionId="ee1e8db2-4df0-435d-93b7-26cef753b72b" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763567387904" start="91460" length="5370">/Data/processed/4_training_data_set/part18_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part18_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/part18_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763567387904">/Data/processed/4_training_data_set/part18_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part22_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius" sessionId="1e559fe6-39bf-413e-9fe6-0e62316bb177" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763577387904" start="112980" length="5370">/Data/processed/4_training_data_set/part22_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part22_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/part22_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763577387904">/Data/processed/4_training_data_set/part22_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part24_downsampled_normalized_10_50-100watt_random_22Celsius_preheated" sessionId="749eec7e-83e2-4f30-b283-69f7f386828f" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763537387904" start="6440" length="270">/Data/processed/4_training_data_set/part24_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part24_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/part24_downsampled_normalized_10_50-100watt_random_22Celsius_preheated.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763537387904">/Data/processed/4_training_data_set/part24_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+    </DataSet>
+    <DataSet id="test" targetSize="0.10293314955272422" labels="Complete">
+      <Session name="part01_downsampled_normalized_09_random_45_75_135_22Celsius_preheated" sessionId="2f7bd70b-f6c3-4b8a-86db-2ac9d28d914e" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763517387904" start="0" length="570">/Data/processed/4_training_data_set/part01_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part01_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/part01_downsampled_normalized_09_random_45_75_135_22Celsius_preheated.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763517387904">/Data/processed/4_training_data_set/part01_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part03_downsampled_normalized_12_easy_intermediate_preheated_22Celsius" sessionId="ecc3dfb0-b418-4c31-b3c1-44c6f961f682" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763587387904" start="8400" length="4190">/Data/processed/4_training_data_set/part03_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part03_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/part03_downsampled_normalized_12_easy_intermediate_preheated_22Celsius.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763587387904">/Data/processed/4_training_data_set/part03_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part04_downsampled_normalized_12_easy_intermediate_preheated_22Celsius" sessionId="1a6d0b06-1b42-4978-b7fc-0e2f2dc4cc7e" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763587387904" start="12600" length="4190">/Data/processed/4_training_data_set/part04_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part04_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/part04_downsampled_normalized_12_easy_intermediate_preheated_22Celsius.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763587387904">/Data/processed/4_training_data_set/part04_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part08_downsampled_normalized_12_easy_intermediate_preheated_22Celsius" sessionId="b488301d-04dc-4769-b755-726b5d8e3659" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763587387904" start="29400" length="4190">/Data/processed/4_training_data_set/part08_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part08_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/part08_downsampled_normalized_12_easy_intermediate_preheated_22Celsius.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763587387904">/Data/processed/4_training_data_set/part08_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part12_downsampled_normalized_10_50-100watt_random_22Celsius_preheated" sessionId="176a8bdb-4e77-4973-b348-e2349eb96b89" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763527387904" start="3080" length="270">/Data/processed/4_training_data_set/part12_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part12_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/part12_downsampled_normalized_10_50-100watt_random_22Celsius_preheated.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763527387904">/Data/processed/4_training_data_set/part12_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part14_downsampled_normalized_10_50-100watt_random_22Celsius_preheated" sessionId="164902f4-b1fd-4742-9e4c-bb9a1e308813" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763527387904" start="3640" length="270">/Data/processed/4_training_data_set/part14_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part14_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/part14_downsampled_normalized_10_50-100watt_random_22Celsius_preheated.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763527387904">/Data/processed/4_training_data_set/part14_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part25_downsampled_normalized_10_50-100watt_random_22Celsius_preheated" sessionId="0118d598-afd5-4a7e-9ca2-58a211079014" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763537387904" start="6720" length="270">/Data/processed/4_training_data_set/part25_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part25_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/part25_downsampled_normalized_10_50-100watt_random_22Celsius_preheated.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763537387904">/Data/processed/4_training_data_set/part25_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part07_downsampled_normalized_12_easy_intermediate_preheated_22Celsius" sessionId="4529a40d-9151-43b0-a379-1bc83c7b1607" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763587387904" start="25200" length="4190">/Data/processed/4_training_data_set/part07_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part07_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/part07_downsampled_normalized_12_easy_intermediate_preheated_22Celsius.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763587387904">/Data/processed/4_training_data_set/part07_downsampled_normalized_12_easy_intermediate_preheated_22Celsius/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part11_downsampled_normalized_10_50-100watt_random_22Celsius_preheated" sessionId="46303b2e-e7b9-4118-8d05-3124e8e8ed4b" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763527387904" start="2800" length="270">/Data/processed/4_training_data_set/part11_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part11_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/part11_downsampled_normalized_10_50-100watt_random_22Celsius_preheated.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763527387904">/Data/processed/4_training_data_set/part11_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part12_downsampled_normalized_09_random_45_75_135_22Celsius_preheated" sessionId="8e2f978d-2bc5-4198-9d44-ff535c4e365c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763517387904" start="6380" length="570">/Data/processed/4_training_data_set/part12_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part12_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/part12_downsampled_normalized_09_random_45_75_135_22Celsius_preheated.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763517387904">/Data/processed/4_training_data_set/part12_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part15_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius" sessionId="d78ad86e-0046-445e-be71-13cdc5ace889" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763567387904" start="75320" length="5370">/Data/processed/4_training_data_set/part15_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part15_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/part15_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763567387904">/Data/processed/4_training_data_set/part15_downsampled_normalized_11_easy_intermediate_advanced_preheated_22Celsius/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part16_downsampled_normalized_09_random_45_75_135_22Celsius_preheated" sessionId="c7cc2425-a0c8-4f19-808a-ec8a1967f249" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763517387904" start="8700" length="570">/Data/processed/4_training_data_set/part16_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part16_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/part16_downsampled_normalized_09_random_45_75_135_22Celsius_preheated.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763517387904">/Data/processed/4_training_data_set/part16_downsampled_normalized_09_random_45_75_135_22Celsius_preheated/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part20_downsampled_normalized_10_50-100watt_random_22Celsius_preheated" sessionId="1b6d5370-6d25-4319-9880-725ec9a28a80" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763537387904" start="5320" length="270">/Data/processed/4_training_data_set/part20_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part20_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/part20_downsampled_normalized_10_50-100watt_random_22Celsius_preheated.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763537387904">/Data/processed/4_training_data_set/part20_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="part22_downsampled_normalized_10_50-100watt_random_22Celsius_preheated" sessionId="f904e941-bc9b-43b3-98e9-eb7f8164dd0f" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250802763537387904" start="5880" length="270">/Data/processed/4_training_data_set/part22_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_data_set/part22_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/part22_downsampled_normalized_10_50-100watt_random_22Celsius_preheated.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250802763537387904">/Data/processed/4_training_data_set/part22_downsampled_normalized_10_50-100watt_random_22Celsius_preheated/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+    </DataSet>
+  </Database>
+</ImagimobStudio>
