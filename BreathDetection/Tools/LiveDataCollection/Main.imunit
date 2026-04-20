@@ -2,42 +2,42 @@
 <Imaginet version="2.0.0.0">
   <Compound unit="e2e038a0-e281-4de4-a43c-355bd5afec8d">
     <Nodes>
-      <UnitNode id="node_9" x="646.4482485542056" y="312.6613617734989" enabled="true" profiling="false" name="temp" unit="ImagimobStudio.Modules.DataTrack" />
-      <UnitNode id="node_8" x="340.1874826021199" y="314.13995664656466" enabled="true" profiling="false" unit="Imaginet.Units.Math.Select">
-        <Int32Argument param="count">1</Int32Argument>
-        <Int32Argument param="index">1</Int32Argument>
-      </UnitNode>
-      <UnitNode id="node_7" x="672.206347482472" y="584.466784130783" enabled="true" profiling="false" name="DPS Data" unit="ImagimobStudio.Modules.DataTrack" />
-      <LabelListNode id="node_0" width="120" height="120" x="57.91156306671979" y="340.1114714528492" enabled="true" profiling="false">
+      <LabelListNode id="node_0" width="120" height="120" x="179.67314697449814" y="209.24644182888187" enabled="true" profiling="false">
         <Label>cool_blow</Label>
         <Label>warm_breath</Label>
       </LabelListNode>
-      <DeviceNode id="node_4" x="28.649198239913687" y="589.257264627855" enabled="true" profiling="false" name="DPS" board="290de5cb-460b-41bf-1f19-8d0d1818aff7" boardName="PSoC 6 AI (CY8CKIT-06S2-AI)" device="3" />
-      <UnitNode id="node_6" x="336.722472289173" y="487.0010923009527" enabled="true" profiling="false" unit="Imaginet.Units.Math.Select">
+      <DeviceNode id="node_4" x="151.5666666666666" y="502.44" enabled="true" profiling="false" name="DPS" board="290de5cb-460b-41bf-31cb-8c012f38aff5" boardName="PSoC 6 AI (CY8CKIT-06S2-AI)" device="3" />
+      <UnitNode id="node_5" x="768.4933333333333" y="499.44" enabled="true" profiling="false" name="DPS Data" unit="ImagimobStudio.Modules.DataTrack" />
+      <UnitNode id="node_6" x="464.2933333333333" y="87.29000000000005" enabled="true" profiling="false" unit="Imaginet.Units.Math.Select">
         <Int32Argument param="count">1</Int32Argument>
-        <Int32Argument param="axis">0</Int32Argument>
+        <Int32Argument param="index">0</Int32Argument>
       </UnitNode>
-      <UnitNode id="node_5" x="667.3358292756027" y="477.9593344688494" enabled="true" profiling="false" name="pressure" unit="ImagimobStudio.Modules.DataTrack" />
+      <UnitNode id="node_7" x="464.2933333333333" y="311.29" enabled="true" profiling="false" unit="Imaginet.Units.Math.Select">
+        <Int32Argument param="count">1</Int32Argument>
+        <Int32Argument param="index">1</Int32Argument>
+      </UnitNode>
+      <UnitNode id="node_8" x="743.97" y="325.44000000000005" enabled="true" profiling="false" name="Select Data temp" unit="ImagimobStudio.Modules.DataTrack" />
+      <UnitNode id="node_9" x="762.52" y="112.44000000000003" enabled="true" profiling="false" name="Select Data" unit="ImagimobStudio.Modules.DataTrack" />
     </Nodes>
     <Connections>
+      <Connection>
+        <Source node="node_4" param="Data" />
+        <Target node="node_5" param="data" />
+      </Connection>
+      <Connection>
+        <Source node="node_4" param="Data" />
+        <Target node="node_7" param="input" />
+      </Connection>
+      <Connection>
+        <Source node="node_7" param="output" />
+        <Target node="node_8" param="data" />
+      </Connection>
       <Connection>
         <Source node="node_4" param="Data" />
         <Target node="node_6" param="input" />
       </Connection>
       <Connection>
         <Source node="node_6" param="output" />
-        <Target node="node_5" param="data" />
-      </Connection>
-      <Connection>
-        <Source node="node_4" param="Data" />
-        <Target node="node_7" param="data" />
-      </Connection>
-      <Connection>
-        <Source node="node_4" param="Data" />
-        <Target node="node_8" param="input" />
-      </Connection>
-      <Connection>
-        <Source node="node_8" param="output" />
         <Target node="node_9" param="data" />
       </Connection>
     </Connections>

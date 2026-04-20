@@ -6,7 +6,7 @@ This project is designed to work exclusively with DEEPCRAFT™ Studio. Download 
 
 This project demonstrates an AI model that classifies three states based solely on air-pressure and temperature dynamics at the sensor: cool_blow, warm_breath, and none. By learning the characteristic signatures of fast, focused airflow versus slow, warm exhalation, the model provides robust, on-device inference without external instrumentation, highlighting the precision and sensitivity of the XENSIV digital barometric pressure sensor (DPS) integrated with PSoC 6.
 
-To our knowledge, this is the first AI-driven project to use a XENSIV digital barometric air pressure sensor for breath-type differentiation. The goal is twofold: showcase the sensor’s capability to separate subtle human airflow modalities using only pressure and temperature, and inspire customers to envision practical applications where low-power, embedded ML can add real-time context awareness to compact devices.
+This project uses a XENSIV digital barometric air pressure sensor for breath-type differentiation. The goal is twofold: showcase the sensor’s capability to separate subtle human airflow modalities using only pressure and temperature, and inspire customers to envision practical applications where low-power, embedded ML can add real-time context awareness to compact devices.
 
 
 ### Value and potential applications:
@@ -42,11 +42,13 @@ Do not blow forcefully.
 
 `Tools`    - Folder containing different tools; read the text below or the appropriate readme file.
 
-`Tools\Evaluation with manual offset` - Folder with a Evaluation project to live test the model incl. options for manual offset.
+`Tools\LiveDataCollection`- Folder with the Data Collection GraphUX project you can use for collecting additional data and expanding the dataset.
 
-`Tools\LiveDataCollection`- Folder with the Data Collection GraphUX project you can use for collecting more data.
+`Tools\LiveModelEvaluation`- Folder with the Data Collection GraphUX project you can use for evaluating models.
 
-`Units` - Folder where custom layers and pre-processors can be added
+`Units` - Folder where custom layers and pre-processors can be added.
+
+`Units\BFE` - Folder containing a custom preprocessor block designed specifically for this application.
 
 ### Sensor settings specification
 
@@ -62,7 +64,7 @@ Follow the instructions in the README.md file of the ModusToolbox project to cor
 For starting data collection, navigate to the `Tools\LiveDataCollection` folder and double-click the `Main.imunit` file.
 Make sure you have correctly connected the PSOC6 AI Kit to your machine via the USB connector (use J2 for streaming).
 
-In the GraphUX, you should now see the following simple project; The data stream of the built-in DPS, containing temperature and pressure data, is divided into two separate streams for individual visualization of pressure and temperatur:
+In the GraphUX, you should now see the following simple project; The data stream of the built-in DPS, containing temperature and pressure data, is divided into two separate streams for individual visualization of pressure and temperature:
 ![](Resources/imgs/data_collection_graphux.png)
 
 Click the white play/start button on the toolbar to execute the GraphUX pipeline. The live.imsession window will now open.
@@ -76,6 +78,8 @@ By clicking the "Record" button in the .imsession window, Now you should be able
 If needed, you can use the predefined "cool_blow" & "warm_breath" label to label the collected data.
 
 Once you have completed data collection, you can save the sample in the `Data` folder or your preferred folder.
+
+**Important**: Take care of saving only the combined data streams (DPS-Data.data). Models will process two data streams at the same time. Data streams are split with "Select" nodes in this project just for visualization purposes.
 
 ## A note on data labeling / Model output:
 
@@ -112,7 +116,7 @@ The preprocessor is already set, and some models are already defined for you, wh
 4. Deploy and do a real-time test of your prototype model
 
 Last thing to be done in prototyping phase is to deploy the firmware to the device by leveraging the template application already available in ModusToolbox: [MTB Example ML Imagimob MTBML Deploy](https://github.com/Infineon/mtb-example-ml-imagimob-mtbml-deploy) and test the firmware on the device. The UART terminal will show you real-time predictions.
-For live testing in Deepcraft Studio, you can also use the evaluation project in `Tools\Evaluation with manual offset`. It allows you to apply small manual offsets per stream (pressure/temperature) to compensate slow ambient drift and sensor self-heating.
+For live testing in Deepcraft Studio, you can also use the evaluation project in `Tools\LiveModelEvaluation`.
 
 5. Going to the production board system
 
@@ -124,28 +128,18 @@ You may also leverage Deepcraft Studio's Transfer Learning features for fine-tun
 
 
 ## Evaluating your final AI Modell using DEEPCRAFT Studio
-You can test your ML model as usual using the PSoC, or run it directly on your PC with Deepcraft. To improve this workflow, you will find a project for evaluating your AI model in the `Tools\Evaluation with manual offset` folder. In the graphical chart, you can independently adjust the offset of each stream (temperature and pressure) using numeric values. Make sure to use this feature: ambient pressure can change even within minutes, and small adjustments to this parameter can significantly improve your model’s performance. Also note that the PSoC may heat up due to insufficient cooling. You can compensate for this, for example by applying a negative value to the temperature offset.
-To change the offset of a given stream, simply click the gray box (highlighted in blue in the screenshot) and, under “constant” (pink), left-click the right input field to set the value as desired:
-![](Resources/imgs/Evaluation_with_offset.png)
+You can test your ML model as usual using the PSoC, or run it directly on your PC with Deepcraft. To improve this workflow, you will find a project for evaluating your AI model in the `Tools\LiveModelEvaluation` folder. Open it by clicking the `Main.imunit` file. You will be prompted with a GraphUX interface showing the data flow:
 
-As you can see below, your Modell should now give you great results! Green: cool_blow; Red: warm_breath; Blue: None. 
-If your Modell always gives the same Output, e.g. always "unlabeled", try to change the offset.
-![](Resources/imgs/Eval_ex_1.png)
-![](Resources/imgs/Eval_ex_2.png)
 
-## Advanced Feature Extraction Notebooks
-For experienced users and ML experts, we provide two Jupyter Notebooks that enable advanced data analysis and feature extraction from the recorded pressure and temperature data. These notebooks allow you to:
+![](Resources/imgs/evaluation_gux.png)
 
-- Normalize the data (e.g., 0-1 scaling);
-- Apply filtering techniques (high-pass, low-pass);
-- Generate signal envelopes;
-- Adjust offsets;
-- Perform detailed statistical analysis.
+Click on the "Play" button in the toolbar, and when the live.imsession tab opens, click on the "Start Recording" button to start collecting data.
 
-Use these tools to dive deeper into your data, explore additional signal characteristics, and optimize your ML model for the best performance on the PSoC 6 AI Kit. These notebooks are designed for advanced users who want to explore the full potential of the sensor data and customize their approach.
+Wait until you see some data appearing in `SmallDense preprocessor Data` data track, and then perform some cool blow or warm breath in the way explained above. You can observe the model making predictions in real time:
 
-To give you a glimpse of the feature extraction process, see the visual example below:
-![](Resources/imgs/extractionexample.png)
+![](Resources/imgs/real-time-prediction.png)
+
+![](Resources/imgs/live-testing.gif)
 
 ## Getting Started
 

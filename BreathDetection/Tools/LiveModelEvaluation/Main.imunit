@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Imaginet version="2.0.0.0">
+  <Compound unit="e2e038a0-e281-4de4-a43c-355bd5afec8d">
+    <Nodes>
+      <LabelListNode id="node_0" width="120" height="120" x="-126.14358630488039" y="97.42605947351637" enabled="true" profiling="false">
+        <Label>cool_blow</Label>
+        <Label>warm_breath</Label>
+      </LabelListNode>
+      <DeviceNode id="node_12" x="-129.01666666666642" y="495.1050000000001" enabled="true" profiling="false" name="DPS" board="290de5cb-460b-41bf-31cb-8c012f38aff5" boardName="PSoC 6 AI (CY8CKIT-06S2-AI)" device="3" />
+      <UnitNode id="node_14" x="1138.4099999999999" y="102.10499999999999" enabled="true" profiling="false" name="SmallDense preprocessor Data" unit="ImagimobStudio.Modules.DataTrack" />
+      <UnitNode id="node_15" x="1154.4766666666665" y="276.145" enabled="true" profiling="false" name="SmallDense model Labels" unit="ImagimobStudio.Modules.LabelTrack" />
+      <UnitNode id="node_16" x="1205.5049999999997" y="492.10499999999996" enabled="true" profiling="false" name="DPS Data" unit="ImagimobStudio.Modules.DataTrack" />
+      <DotNetNode id="node_19" x="183.71000000000004" y="94.62500000000006" enabled="true" profiling="false" name="small-dense-breath-model preprocessor">
+        <Interop assembly="Imaginet.Units.KerasModel" class="Imaginet.Units.KerasModel.KerasModel" method="LoadPreprocessor" />
+        <Input param="File" type="FileReference">
+          <StringArgument>C:/Users/Mombelli/ImagimobProjects/BreathDetectionAccelerator/BreathDetection/Models/small-dense-breath-model/small-dense-breath-model.h5</StringArgument>
+        </Input>
+        <Input param="input" type="Tensor" />
+        <Output param="output" type="Tensor" />
+      </DotNetNode>
+      <DotNetNode id="node_20" x="661.06" y="239.62499999999997" enabled="true" profiling="false" name="small-dense-breath-model model">
+        <Interop assembly="Imaginet.Units.KerasModel" class="Imaginet.Units.KerasModel.KerasModel" method="LoadNetwork" />
+        <Input param="File" type="FileReference">
+          <StringArgument>C:/Users/Mombelli/ImagimobProjects/BreathDetectionAccelerator/BreathDetection/Models/small-dense-breath-model/small-dense-breath-model.h5</StringArgument>
+        </Input>
+        <Input param="input" type="Tensor" />
+        <Output param="output" type="Tensor" />
+      </DotNetNode>
+    </Nodes>
+    <Connections>
+      <Connection>
+        <Source node="node_12" param="Data" />
+        <Target node="node_16" param="data" />
+      </Connection>
+      <Connection>
+        <Source node="node_19" param="output" />
+        <Target node="node_20" param="input" />
+      </Connection>
+      <Connection>
+        <Source node="node_12" param="Data" />
+        <Target node="node_19" param="input" />
+      </Connection>
+      <Connection>
+        <Source node="node_20" param="output" />
+        <Target node="node_15" param="data" />
+      </Connection>
+      <Connection>
+        <Source node="node_19" param="output" />
+        <Target node="node_14" param="data" />
+      </Connection>
+    </Connections>
+  </Compound>
+</Imaginet>

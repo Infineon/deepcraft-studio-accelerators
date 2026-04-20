@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ImagimobStudio version="0.9">
+  <Timeline id="244d6b72-c408-41f6-b6f0-1f33dbfe8c51">
+    <Tracks>
+      <Track name="DPS-Data" type="datacsv" isLabelTrack="False">
+        <PayloadFile>DPS-Data.data</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="Live-Labeling" type="labelcsv">
+        <PayloadFile>Live-Labeling.label</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="BFE_PreprocessorTrack" type="datacsv" timecoded="TimestampBeginDuration" isLabelTrack="False">
+        <PayloadFile>..\..\PreprocessorTrack\switch 9\DPS-Data_BFE_PreprocessorTrack.data</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="small-dense-breath-model0" type="datacsv" timecoded="TimestampBeginDuration" isLabelTrack="False">
+        <PayloadFile>..\..\Models\small-dense-breath-model\Predictions\sessions\switch 9\small-dense-breath-model0.data</PayloadFile>
+        <Offset unit="seconds">1.4843750000E+000</Offset>
+        <Shape />
+      </Track>
+    </Tracks>
+  </Timeline>
+</ImagimobStudio>

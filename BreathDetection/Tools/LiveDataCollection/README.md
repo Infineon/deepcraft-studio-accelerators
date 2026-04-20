@@ -26,14 +26,4 @@ By clicking the "Record" button in the .imsession window, Now you should be able
 
 If needed, you can use the predefined "cool_blow" & "warm_breath" label to label the collected data.
 
-### Getting Started
-
-For more Information please read the main README file.
-Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about Imagimob Studio and go through step-by-step tutorials to get you quickly started.
-
-### Help & Support
-
-If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum ](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) Imagimob Studio page.
-
-
-
+**Important**: Take care of saving only the combined data streams (DPS-Data.data). Models will process two data streams at the same time. Data streams are split with "Select" nodes in this project just for visualization purposes.

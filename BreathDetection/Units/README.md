@@ -2,8 +2,9 @@
 
 Folder where custom layers and pre-processors can be added.
 
-Note: We got the best results with the 1.5s preprocessor. The 2s one could be also suitable as well as one with 1s.
-You could try different Hz - settings, too.
+`BFE` -  folder containing the custom feature extraction for the BreathDetection model (Breath Feature Extraction).
+
+Note: Best results were obtained with the 1.5s preprocessor and custom feature extraction.
 
 For more Information please read the main README file.
 
