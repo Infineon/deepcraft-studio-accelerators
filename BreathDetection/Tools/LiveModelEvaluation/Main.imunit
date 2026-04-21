@@ -6,47 +6,47 @@
         <Label>cool_blow</Label>
         <Label>warm_breath</Label>
       </LabelListNode>
-      <DeviceNode id="node_12" x="-129.01666666666642" y="495.1050000000001" enabled="true" profiling="false" name="DPS" board="290de5cb-460b-41bf-31cb-8c012f38aff5" boardName="PSoC 6 AI (CY8CKIT-06S2-AI)" device="3" />
-      <UnitNode id="node_14" x="1138.4099999999999" y="102.10499999999999" enabled="true" profiling="false" name="SmallDense preprocessor Data" unit="ImagimobStudio.Modules.DataTrack" />
-      <UnitNode id="node_15" x="1154.4766666666665" y="276.145" enabled="true" profiling="false" name="SmallDense model Labels" unit="ImagimobStudio.Modules.LabelTrack" />
+      <UnitNode id="node_14" x="1138.4099999999999" y="102.10499999999999" enabled="true" profiling="false" name="Preprocessed Data" unit="ImagimobStudio.Modules.DataTrack" />
+      <UnitNode id="node_15" x="1154.4766666666665" y="276.145" enabled="true" profiling="false" name="Dense Model Labels" unit="ImagimobStudio.Modules.LabelTrack" />
       <UnitNode id="node_16" x="1205.5049999999997" y="492.10499999999996" enabled="true" profiling="false" name="DPS Data" unit="ImagimobStudio.Modules.DataTrack" />
-      <DotNetNode id="node_19" x="183.71000000000004" y="94.62500000000006" enabled="true" profiling="false" name="small-dense-breath-model preprocessor">
+      <DotNetNode id="node_21" x="372.98651400851975" y="218.0822066103466" enabled="true" profiling="false" name="dense-medium-accuracy-1 preprocessor">
         <Interop assembly="Imaginet.Units.KerasModel" class="Imaginet.Units.KerasModel.KerasModel" method="LoadPreprocessor" />
         <Input param="File" type="FileReference">
-          <StringArgument>C:/Users/Mombelli/ImagimobProjects/BreathDetectionAccelerator/BreathDetection/Models/small-dense-breath-model/small-dense-breath-model.h5</StringArgument>
+          <StringArgument>C:/Users/Mombelli/ImagimobProjects/BreathDetectionAccelerator/BreathDetection/Models/dense-medium-accuracy-1/dense-medium-accuracy-1.h5</StringArgument>
         </Input>
         <Input param="input" type="Tensor" />
         <Output param="output" type="Tensor" />
       </DotNetNode>
-      <DotNetNode id="node_20" x="661.06" y="239.62499999999997" enabled="true" profiling="false" name="small-dense-breath-model model">
+      <DotNetNode id="node_22" x="372.98651400851975" y="360.0822066103466" enabled="true" profiling="false" name="dense-medium-accuracy-1 model">
         <Interop assembly="Imaginet.Units.KerasModel" class="Imaginet.Units.KerasModel.KerasModel" method="LoadNetwork" />
         <Input param="File" type="FileReference">
-          <StringArgument>C:/Users/Mombelli/ImagimobProjects/BreathDetectionAccelerator/BreathDetection/Models/small-dense-breath-model/small-dense-breath-model.h5</StringArgument>
+          <StringArgument>C:/Users/Mombelli/ImagimobProjects/BreathDetectionAccelerator/BreathDetection/Models/dense-medium-accuracy-1/dense-medium-accuracy-1.h5</StringArgument>
         </Input>
         <Input param="input" type="Tensor" />
         <Output param="output" type="Tensor" />
       </DotNetNode>
+      <DeviceNode id="node_23" x="-82.23353159309659" y="417.93490955739776" enabled="true" profiling="false" name="DPS" board="290de5cb-460b-41bf-31cb-8c031931aff5" boardName="PSoC 6 AI (CY8CKIT-06S2-AI)" device="3" />
     </Nodes>
     <Connections>
       <Connection>
-        <Source node="node_12" param="Data" />
-        <Target node="node_16" param="data" />
+        <Source node="node_21" param="output" />
+        <Target node="node_22" param="input" />
       </Connection>
       <Connection>
-        <Source node="node_19" param="output" />
-        <Target node="node_20" param="input" />
+        <Source node="node_23" param="Data" />
+        <Target node="node_21" param="input" />
       </Connection>
       <Connection>
-        <Source node="node_12" param="Data" />
-        <Target node="node_19" param="input" />
-      </Connection>
-      <Connection>
-        <Source node="node_20" param="output" />
+        <Source node="node_22" param="output" />
         <Target node="node_15" param="data" />
       </Connection>
       <Connection>
-        <Source node="node_19" param="output" />
+        <Source node="node_21" param="output" />
         <Target node="node_14" param="data" />
+      </Connection>
+      <Connection>
+        <Source node="node_23" param="Data" />
+        <Target node="node_16" param="data" />
       </Connection>
     </Connections>
   </Compound>

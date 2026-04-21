@@ -135,7 +135,7 @@ You can test your ML model as usual using the PSoC, or run it directly on your P
 
 Click on the "Play" button in the toolbar, and when the live.imsession tab opens, click on the "Start Recording" button to start collecting data.
 
-Wait until you see some data appearing in `SmallDense preprocessor Data` data track, and then perform some cool blow or warm breath in the way explained above. You can observe the model making predictions in real time:
+Wait until you see some data appearing in `Preprocessed Data` data track, and then perform some cool blow or warm breath in the way explained above. You can observe the model making predictions in real time:
 
 ![](Resources/imgs/real-time-prediction.png)
 

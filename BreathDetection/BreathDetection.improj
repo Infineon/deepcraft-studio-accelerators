@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ImagimobStudio version="1.1.0">
-  <Job id="da2bca4a-3cb7-11f1-b64e-ab65fdbc4248" />
+  <Job id="d3a89e70-3d65-11f1-929e-3da035cc7718" />
   <ProjectType>Classification</ProjectType>
   <ProjectId>40406073-5d19-4ce0-9398-6d4661236fd2</ProjectId>
   <UnitLibrary>
     <Directory>Units/BFE</Directory>
   </UnitLibrary>
-  <Preprocessor inshape="[2]" intype="Float32" infreq="64" outshape="[19]" outtype="Float32">
+  <Preprocessor inshape="[2]" intype="Float32" infreq="64" outshape="[1,19]" outtype="Float32">
     <Unit id="Core.Packages.ContextualWindow">
       <Argument param="contextual_length_sec" type="Double">1.5</Argument>
       <Argument param="prediction_freq" type="Double">1.33</Argument>
@@ -19,6 +19,15 @@
       <Argument param="input" type="String">data</Argument>
       <Argument param="sampling_rate" type="Int32">64</Argument>
       <Argument param="output" type="String">data</Argument>
+    </Unit>
+    <Unit id="Core.Queues.SlidingWindow">
+      <Argument param="input" type="String">data</Argument>
+      <Argument param="time_input" type="String">time</Argument>
+      <Argument param="window_shape" type="Shape">[1,19]</Argument>
+      <Argument param="stride" type="Int32">19</Argument>
+      <Argument param="buffer_multiplier" type="Double">1</Argument>
+      <Argument param="output" type="String">data</Argument>
+      <Argument param="time_output" type="String">time</Argument>
     </Unit>
   </Preprocessor>
   <ModelFactory>
@@ -39,7 +48,7 @@
     <Downscale>False</Downscale>
     <LearnRate>Low</LearnRate>
     <RegularizationFactor>Mid</RegularizationFactor>
-    <LastNetworkInputShape>[19]</LastNetworkInputShape>
+    <LastNetworkInputShape>[1,19]</LastNetworkInputShape>
     <LastClassCount>3</LastClassCount>
     <Optimizer>
       <LearningRate>0.001</LearningRate>
@@ -51,276 +60,78 @@
     </BuildSteps>
   </ModelFactory>
   <Models>
-    <Model name="small-dense-breath-model" id="7c002577-c20a-438a-8a89-57f3a1420574">
+    <Model name="dense-medium-accuracy-0" id="5ab9468b-ea3c-4ecc-8a81-2c97d8c5bd48">
       <LossFunction>CategoricalCrossentropy</LossFunction>
-      <Epochs>500</Epochs>
+      <Epochs>100</Epochs>
       <BatchSize>16</BatchSize>
       <SplitCount>16</SplitCount>
       <Patience>20</Patience>
       <TrainingEnvironment>
       </TrainingEnvironment>
       <Optimizer>
-        <LearningRate>0.001</LearningRate>
-        <WeightDecay>0.0001</WeightDecay>
+        <LearningRate>0.0001</LearningRate>
+        <WeightDecay>0.001</WeightDecay>
       </Optimizer>
-      <Network inshape="[19]" intype="Float32" infreq="1" outshape="[3]" outtype="Float32">
+      <Network inshape="[1,19]" intype="Float32" infreq="0" outshape="[3]" outtype="Float32">
+        <Unit id="Core.Layers.Flatten" />
         <Unit id="Core.Layers.Dense">
-          <Argument param="input" type="String">data</Argument>
-          <Argument param="units" type="Int32">16</Argument>
-          <Argument param="use_bias" type="Boolean">True</Argument>
-          <Argument param="activation" type="String">relu</Argument>
-          <Argument param="trainable" type="Boolean">True</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Dense">
-          <Argument param="input" type="String">data</Argument>
-          <Argument param="units" type="Int32">3</Argument>
-          <Argument param="use_bias" type="Boolean">False</Argument>
-          <Argument param="activation" type="String">sigmoid</Argument>
-          <Argument param="trainable" type="Boolean">True</Argument>
-        </Unit>
-      </Network>
-      <BuildSteps>
-        <Training />
-        <ConfusionMatrix />
-      </BuildSteps>
-      <SymbolWeights override="True">
-        <SymbolWeight symbol="unlabeled" weight="1" />
-        <SymbolWeight symbol="cool_blow" weight="1" />
-        <SymbolWeight symbol="warm_breath" weight="1" />
-      </SymbolWeights>
-      <Preprocessor override="False" inshape="[2]" intype="Float32" infreq="64" outshape="[19]" outtype="Float32">
-        <Unit id="Core.Packages.ContextualWindow">
-          <Argument param="contextual_length_sec" type="Double">1.5</Argument>
-          <Argument param="prediction_freq" type="Double">1.33</Argument>
-          <Argument param="input" type="String">data</Argument>
-          <Argument param="time_input" type="String">time</Argument>
-          <Argument param="output" type="String">data</Argument>
-          <Argument param="time_output" type="String">time</Argument>
-        </Unit>
-        <Unit id="BreathDetection.FeatureExtraction">
-          <Argument param="input" type="String">data</Argument>
-          <Argument param="sampling_rate" type="Int32">64</Argument>
-          <Argument param="output" type="String">data</Argument>
-        </Unit>
-      </Preprocessor>
-      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
-    </Model>
-    <Model name="small-dense-breath-model-1" id="6ecabd81-6979-4ec4-8fdd-f6a078413e94">
-      <LossFunction>CategoricalCrossentropy</LossFunction>
-      <Epochs>500</Epochs>
-      <BatchSize>16</BatchSize>
-      <SplitCount>16</SplitCount>
-      <Patience>20</Patience>
-      <TrainingEnvironment>
-      </TrainingEnvironment>
-      <Optimizer>
-        <LearningRate>0.001</LearningRate>
-        <WeightDecay>0.0001</WeightDecay>
-      </Optimizer>
-      <Network inshape="[19]" intype="Float32" infreq="1" outshape="[3]" outtype="Float32">
-        <Unit id="Core.Layers.Dense">
-          <Argument param="input" type="String">data</Argument>
-          <Argument param="units" type="Int32">8</Argument>
-          <Argument param="use_bias" type="Boolean">True</Argument>
-          <Argument param="activation" type="String">relu</Argument>
-          <Argument param="kernel_regularizer" type="Regularizer" l1="0.01" l2="0.01" />
-          <Argument param="bias_regularizer" type="Regularizer" l1="0.01" l2="0.01" />
-          <Argument param="activity_regularizer" type="Regularizer" l1="0.01" l2="0.01" />
-          <Argument param="trainable" type="Boolean">True</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Dense">
-          <Argument param="input" type="String">data</Argument>
-          <Argument param="units" type="Int32">3</Argument>
-          <Argument param="use_bias" type="Boolean">False</Argument>
-          <Argument param="activation" type="String">sigmoid</Argument>
-          <Argument param="trainable" type="Boolean">True</Argument>
-        </Unit>
-      </Network>
-      <BuildSteps>
-        <Training />
-        <ConfusionMatrix />
-      </BuildSteps>
-      <SymbolWeights override="True">
-        <SymbolWeight symbol="unlabeled" weight="1" />
-        <SymbolWeight symbol="cool_blow" weight="1" />
-        <SymbolWeight symbol="warm_breath" weight="1" />
-      </SymbolWeights>
-      <Preprocessor override="False" inshape="[2]" intype="Float32" infreq="64" outshape="[19]" outtype="Float32">
-        <Unit id="Core.Packages.ContextualWindow">
-          <Argument param="contextual_length_sec" type="Double">1.5</Argument>
-          <Argument param="prediction_freq" type="Double">1.33</Argument>
-          <Argument param="input" type="String">data</Argument>
-          <Argument param="time_input" type="String">time</Argument>
-          <Argument param="output" type="String">data</Argument>
-          <Argument param="time_output" type="String">time</Argument>
-        </Unit>
-        <Unit id="BreathDetection.FeatureExtraction">
-          <Argument param="input" type="String">data</Argument>
-          <Argument param="sampling_rate" type="Int32">64</Argument>
-          <Argument param="output" type="String">data</Argument>
-        </Unit>
-      </Preprocessor>
-      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
-    </Model>
-    <Model name="small-dense-breath-model-2" id="ee769ca8-c03c-49cf-b369-cf26ed957508">
-      <LossFunction>CategoricalCrossentropy</LossFunction>
-      <Epochs>500</Epochs>
-      <BatchSize>16</BatchSize>
-      <SplitCount>16</SplitCount>
-      <Patience>20</Patience>
-      <TrainingEnvironment>
-      </TrainingEnvironment>
-      <Optimizer>
-        <LearningRate>0.001</LearningRate>
-        <WeightDecay>0.0001</WeightDecay>
-      </Optimizer>
-      <Network inshape="[19]" intype="Float32" infreq="1" outshape="[3]" outtype="Float32">
-        <Unit id="Core.Layers.Dense">
-          <Argument param="input" type="String">data</Argument>
-          <Argument param="units" type="Int32">16</Argument>
-          <Argument param="use_bias" type="Boolean">True</Argument>
-          <Argument param="activation" type="String">relu</Argument>
-          <Argument param="trainable" type="Boolean">True</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Dense">
-          <Argument param="input" type="String">data</Argument>
-          <Argument param="units" type="Int32">8</Argument>
-          <Argument param="use_bias" type="Boolean">True</Argument>
-          <Argument param="activation" type="String">relu</Argument>
-          <Argument param="kernel_regularizer" type="Regularizer" l1="0.01" l2="0.01" />
-          <Argument param="bias_regularizer" type="Regularizer" l1="0.01" l2="0.01" />
-          <Argument param="activity_regularizer" type="Regularizer" l1="0.01" l2="0.01" />
-          <Argument param="trainable" type="Boolean">True</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Dense">
-          <Argument param="input" type="String">data</Argument>
-          <Argument param="units" type="Int32">3</Argument>
-          <Argument param="use_bias" type="Boolean">False</Argument>
-          <Argument param="activation" type="String">sigmoid</Argument>
-          <Argument param="trainable" type="Boolean">True</Argument>
-        </Unit>
-      </Network>
-      <BuildSteps>
-        <Training />
-        <ConfusionMatrix />
-      </BuildSteps>
-      <SymbolWeights override="True">
-        <SymbolWeight symbol="unlabeled" weight="1" />
-        <SymbolWeight symbol="cool_blow" weight="1" />
-        <SymbolWeight symbol="warm_breath" weight="1" />
-      </SymbolWeights>
-      <Preprocessor override="False" inshape="[2]" intype="Float32" infreq="64" outshape="[19]" outtype="Float32">
-        <Unit id="Core.Packages.ContextualWindow">
-          <Argument param="contextual_length_sec" type="Double">1.5</Argument>
-          <Argument param="prediction_freq" type="Double">1.33</Argument>
-          <Argument param="input" type="String">data</Argument>
-          <Argument param="time_input" type="String">time</Argument>
-          <Argument param="output" type="String">data</Argument>
-          <Argument param="time_output" type="String">time</Argument>
-        </Unit>
-        <Unit id="BreathDetection.FeatureExtraction">
-          <Argument param="input" type="String">data</Argument>
-          <Argument param="sampling_rate" type="Int32">64</Argument>
-          <Argument param="output" type="String">data</Argument>
-        </Unit>
-      </Preprocessor>
-      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
-    </Model>
-    <Model name="small-dense-breath-model-3" id="af4304d1-030f-4798-9d48-8098cd21e561">
-      <LossFunction>CategoricalCrossentropy</LossFunction>
-      <Epochs>500</Epochs>
-      <BatchSize>16</BatchSize>
-      <SplitCount>16</SplitCount>
-      <Patience>20</Patience>
-      <TrainingEnvironment>
-      </TrainingEnvironment>
-      <Optimizer>
-        <LearningRate>0.001</LearningRate>
-        <WeightDecay>0.0001</WeightDecay>
-      </Optimizer>
-      <Network inshape="[19]" intype="Float32" infreq="1" outshape="[3]" outtype="Float32">
-        <Unit id="Core.Layers.Dense">
-          <Argument param="input" type="String">data</Argument>
-          <Argument param="units" type="Int32">16</Argument>
-          <Argument param="use_bias" type="Boolean">True</Argument>
-          <Argument param="activation" type="String">relu</Argument>
-          <Argument param="trainable" type="Boolean">True</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Dense">
-          <Argument param="input" type="String">data</Argument>
           <Argument param="units" type="Int32">32</Argument>
           <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
           <Argument param="activation" type="String">relu</Argument>
-          <Argument param="kernel_regularizer" type="Regularizer" l1="0.02" l2="0.02" />
-          <Argument param="bias_regularizer" type="Regularizer" l1="0.02" l2="0.02" />
-          <Argument param="activity_regularizer" type="Regularizer" l1="0.02" l2="0.02" />
-          <Argument param="trainable" type="Boolean">True</Argument>
         </Unit>
         <Unit id="Core.Layers.Dense">
-          <Argument param="input" type="String">data</Argument>
+          <Argument param="units" type="Int32">32</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">16</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">30</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dropout">
+          <Argument param="rate" type="Double">0.2</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
           <Argument param="units" type="Int32">3</Argument>
           <Argument param="use_bias" type="Boolean">False</Argument>
-          <Argument param="activation" type="String">sigmoid</Argument>
-          <Argument param="trainable" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">softmax</Argument>
         </Unit>
       </Network>
       <BuildSteps>
         <Training />
         <ConfusionMatrix />
       </BuildSteps>
-      <SymbolWeights override="True">
-        <SymbolWeight symbol="unlabeled" weight="1" />
-        <SymbolWeight symbol="cool_blow" weight="1" />
-        <SymbolWeight symbol="warm_breath" weight="1" />
-      </SymbolWeights>
-      <Preprocessor override="False" inshape="[2]" intype="Float32" infreq="64" outshape="[19]" outtype="Float32">
-        <Unit id="Core.Packages.ContextualWindow">
-          <Argument param="contextual_length_sec" type="Double">1.5</Argument>
-          <Argument param="prediction_freq" type="Double">1.33</Argument>
-          <Argument param="input" type="String">data</Argument>
-          <Argument param="time_input" type="String">time</Argument>
-          <Argument param="output" type="String">data</Argument>
-          <Argument param="time_output" type="String">time</Argument>
-        </Unit>
-        <Unit id="BreathDetection.FeatureExtraction">
-          <Argument param="input" type="String">data</Argument>
-          <Argument param="sampling_rate" type="Int32">64</Argument>
-          <Argument param="output" type="String">data</Argument>
-        </Unit>
-      </Preprocessor>
-      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
-    </Model>
-    <Model name="xtrasmall-dense-breath-model" id="6ee43623-159a-465c-b69c-bd6d255dcf41">
-      <LossFunction>CategoricalCrossentropy</LossFunction>
-      <Epochs>500</Epochs>
-      <BatchSize>16</BatchSize>
-      <SplitCount>16</SplitCount>
-      <Patience>20</Patience>
-      <TrainingEnvironment>
-      </TrainingEnvironment>
-      <Optimizer>
-        <LearningRate>0.001</LearningRate>
-        <WeightDecay>0.0001</WeightDecay>
-      </Optimizer>
-      <Network inshape="[19]" intype="Float32" infreq="1" outshape="[3]" outtype="Float32">
-        <Unit id="Core.Layers.Dense">
-          <Argument param="input" type="String">data</Argument>
-          <Argument param="units" type="Int32">3</Argument>
-          <Argument param="use_bias" type="Boolean">True</Argument>
-          <Argument param="activation" type="String">sigmoid</Argument>
-          <Argument param="trainable" type="Boolean">True</Argument>
-        </Unit>
-      </Network>
-      <BuildSteps>
-        <Training />
-        <ConfusionMatrix />
-      </BuildSteps>
-      <SymbolWeights override="True">
+      <SymbolWeights override="False">
         <SymbolWeight symbol="unlabeled" weight="1" />
         <SymbolWeight symbol="cool_blow" weight="3" />
         <SymbolWeight symbol="warm_breath" weight="3" />
       </SymbolWeights>
-      <Preprocessor override="False" inshape="[2]" intype="Float32" infreq="64" outshape="[19]" outtype="Float32">
+      <Preprocessor override="False" inshape="[2]" intype="Float32" infreq="64" outshape="[1,19]" outtype="Float32">
         <Unit id="Core.Packages.ContextualWindow">
           <Argument param="contextual_length_sec" type="Double">1.5</Argument>
           <Argument param="prediction_freq" type="Double">1.33</Argument>
@@ -333,6 +144,306 @@
           <Argument param="input" type="String">data</Argument>
           <Argument param="sampling_rate" type="Int32">64</Argument>
           <Argument param="output" type="String">data</Argument>
+        </Unit>
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[1,19]</Argument>
+          <Argument param="stride" type="Int32">19</Argument>
+          <Argument param="buffer_multiplier" type="Double">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
+    </Model>
+    <Model name="dense-medium-accuracy-1" id="3d510a49-f986-4361-98bf-e4fc1aa32b6c">
+      <LossFunction>CategoricalCrossentropy</LossFunction>
+      <Epochs>100</Epochs>
+      <BatchSize>16</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.0001</LearningRate>
+        <WeightDecay>0.001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[1,19]" intype="Float32" infreq="0" outshape="[3]" outtype="Float32">
+        <Unit id="Core.Layers.Flatten" />
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">16</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">32</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">16</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">30</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dropout">
+          <Argument param="rate" type="Double">0.2</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">3</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">softmax</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <Training />
+        <ConfusionMatrix />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="unlabeled" weight="1" />
+        <SymbolWeight symbol="cool_blow" weight="3" />
+        <SymbolWeight symbol="warm_breath" weight="3" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[2]" intype="Float32" infreq="64" outshape="[1,19]" outtype="Float32">
+        <Unit id="Core.Packages.ContextualWindow">
+          <Argument param="contextual_length_sec" type="Double">1.5</Argument>
+          <Argument param="prediction_freq" type="Double">1.33</Argument>
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+        <Unit id="BreathDetection.FeatureExtraction">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="sampling_rate" type="Int32">64</Argument>
+          <Argument param="output" type="String">data</Argument>
+        </Unit>
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[1,19]</Argument>
+          <Argument param="stride" type="Int32">19</Argument>
+          <Argument param="buffer_multiplier" type="Double">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
+    </Model>
+    <Model name="dense-medium-accuracy-2" id="c75c4d3b-40c3-4a72-8f86-d893a5f5771f">
+      <LossFunction>CategoricalCrossentropy</LossFunction>
+      <Epochs>100</Epochs>
+      <BatchSize>16</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.0001</LearningRate>
+        <WeightDecay>0.001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[1,19]" intype="Float32" infreq="0" outshape="[3]" outtype="Float32">
+        <Unit id="Core.Layers.Flatten" />
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">32</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">64</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">32</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">30</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dropout">
+          <Argument param="rate" type="Double">0.2</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">3</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">softmax</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <Training />
+        <ConfusionMatrix />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="unlabeled" weight="1" />
+        <SymbolWeight symbol="cool_blow" weight="3" />
+        <SymbolWeight symbol="warm_breath" weight="3" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[2]" intype="Float32" infreq="64" outshape="[1,19]" outtype="Float32">
+        <Unit id="Core.Packages.ContextualWindow">
+          <Argument param="contextual_length_sec" type="Double">1.5</Argument>
+          <Argument param="prediction_freq" type="Double">1.33</Argument>
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+        <Unit id="BreathDetection.FeatureExtraction">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="sampling_rate" type="Int32">64</Argument>
+          <Argument param="output" type="String">data</Argument>
+        </Unit>
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[1,19]</Argument>
+          <Argument param="stride" type="Int32">19</Argument>
+          <Argument param="buffer_multiplier" type="Double">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
+    </Model>
+    <Model name="dense-medium-accuracy-3" id="abf7df0e-464a-4ed9-8a09-44b2e74af594">
+      <LossFunction>CategoricalCrossentropy</LossFunction>
+      <Epochs>100</Epochs>
+      <BatchSize>16</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.0001</LearningRate>
+        <WeightDecay>0.001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[1,19]" intype="Float32" infreq="0" outshape="[3]" outtype="Float32">
+        <Unit id="Core.Layers.Flatten" />
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">16</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">32</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">32</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">30</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dropout">
+          <Argument param="rate" type="Double">0.2</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">3</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">softmax</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <Training />
+        <ConfusionMatrix />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="unlabeled" weight="1" />
+        <SymbolWeight symbol="cool_blow" weight="3" />
+        <SymbolWeight symbol="warm_breath" weight="3" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[2]" intype="Float32" infreq="64" outshape="[1,19]" outtype="Float32">
+        <Unit id="Core.Packages.ContextualWindow">
+          <Argument param="contextual_length_sec" type="Double">1.5</Argument>
+          <Argument param="prediction_freq" type="Double">1.33</Argument>
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+        <Unit id="BreathDetection.FeatureExtraction">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="sampling_rate" type="Int32">64</Argument>
+          <Argument param="output" type="String">data</Argument>
+        </Unit>
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[1,19]</Argument>
+          <Argument param="stride" type="Int32">19</Argument>
+          <Argument param="buffer_multiplier" type="Double">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
         </Unit>
       </Preprocessor>
       <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
@@ -969,7 +1080,7 @@
         <LabelFile modified="5250743989168471450">/Data/Session-2025-12-01--10-09-39/Live-Labeling.label</LabelFile>
         <Labels>
           <Label count="8" length="13.1366542">cool_blow</Label>
-          <Label count="7" length="10.9866082">warm_breath</Label>
+          <Label count="7" length="10.9866081">warm_breath</Label>
         </Labels>
         <CustomColumnValues />
       </Session>
@@ -1120,7 +1231,7 @@
         <SessionFile>/Data/switch 7/switch 7.imsession</SessionFile>
         <LabelFile modified="5250743989137495004">/Data/switch 7/Live-Labeling.label</LabelFile>
         <Labels>
-          <Label count="3" length="8.0411098">warm_breath</Label>
+          <Label count="3" length="8.0411097">warm_breath</Label>
           <Label count="1" length="2.7964033">cool_blow</Label>
         </Labels>
         <CustomColumnValues />
@@ -1377,7 +1488,7 @@
         <SessionFile>/Data/warm_near_1_1_med_1/warm_near_1_1_med_1.imsession</SessionFile>
         <LabelFile modified="5250743989186502170">/Data/warm_near_1_1_med_1/Live-Labeling.label</LabelFile>
         <Labels>
-          <Label count="15" length="22.7507763">warm_breath</Label>
+          <Label count="15" length="22.7507762">warm_breath</Label>
         </Labels>
         <CustomColumnValues />
       </Session>
@@ -1386,7 +1497,7 @@
         <SessionFile>/Data/warm_near_1_1_med_11/warm_near_1_1_med_11.imsession</SessionFile>
         <LabelFile modified="5250743989187347595">/Data/warm_near_1_1_med_11/Live-Labeling.label</LabelFile>
         <Labels>
-          <Label count="11" length="13.061922">warm_breath</Label>
+          <Label count="11" length="13.0619219">warm_breath</Label>
         </Labels>
         <CustomColumnValues />
       </Session>
@@ -1395,7 +1506,7 @@
         <SessionFile>/Data/warm_near_1_1_med_2/warm_near_1_1_med_2.imsession</SessionFile>
         <LabelFile modified="5250743989187733361">/Data/warm_near_1_1_med_2/Live-Labeling.label</LabelFile>
         <Labels>
-          <Label count="11" length="17.6832905">warm_breath</Label>
+          <Label count="11" length="17.6832904">warm_breath</Label>
         </Labels>
         <CustomColumnValues />
       </Session>
@@ -1413,7 +1524,7 @@
         <SessionFile>/Data/warm_near_1_1_med_4/warm_near_1_1_med_4.imsession</SessionFile>
         <LabelFile modified="5250743989188539028">/Data/warm_near_1_1_med_4/Live-Labeling.label</LabelFile>
         <Labels>
-          <Label count="13" length="19.6356798">warm_breath</Label>
+          <Label count="13" length="19.6356797">warm_breath</Label>
         </Labels>
         <CustomColumnValues />
       </Session>
@@ -1521,7 +1632,7 @@
         <SessionFile>/Data/warm_near_2_2_normal_6/warm_near_2_2_normal_6.imsession</SessionFile>
         <LabelFile modified="5250743989194005809">/Data/warm_near_2_2_normal_6/Live-Labeling.label</LabelFile>
         <Labels>
-          <Label count="8" length="20.3982364">warm_breath</Label>
+          <Label count="8" length="20.3982363">warm_breath</Label>
         </Labels>
         <CustomColumnValues />
       </Session>
@@ -1672,7 +1783,7 @@
         <SessionFile>/Data/Session-2025-12-01--10-24-07/Session-2025-12-01--10-24-07.imsession</SessionFile>
         <LabelFile modified="5250743989151079681">/Data/Session-2025-12-01--10-24-07/Live-Labeling.label</LabelFile>
         <Labels>
-          <Label count="7" length="12.9232553">warm_breath</Label>
+          <Label count="7" length="12.9232552">warm_breath</Label>
           <Label count="6" length="9.4858525">cool_blow</Label>
         </Labels>
         <CustomColumnValues />
@@ -1773,7 +1884,7 @@
         <SessionFile>/Data/cool_Near_2_1_med_1/cool_Near_2_1_med_1.imsession</SessionFile>
         <LabelFile modified="5250743989185226612">/Data/cool_Near_2_1_med_1/Live-Labeling.label</LabelFile>
         <Labels>
-          <Label count="8" length="23.5228415">cool_blow</Label>
+          <Label count="8" length="23.5228414">cool_blow</Label>
         </Labels>
         <CustomColumnValues />
       </Session>
@@ -1782,7 +1893,7 @@
         <SessionFile>/Data/cool_Near_2_1_med_3/cool_Near_2_1_med_3.imsession</SessionFile>
         <LabelFile modified="5250743989186036785">/Data/cool_Near_2_1_med_3/Live-Labeling.label</LabelFile>
         <Labels>
-          <Label count="8" length="19.6912918">cool_blow</Label>
+          <Label count="8" length="19.6912917">cool_blow</Label>
         </Labels>
         <CustomColumnValues />
       </Session>
@@ -1792,7 +1903,7 @@
         <LabelFile modified="5250743989160271617">/Data/mixed 3/Live-Labeling.label</LabelFile>
         <Labels>
           <Label count="2" length="8.6523447">warm_breath</Label>
-          <Label count="2" length="8.681451">cool_blow</Label>
+          <Label count="2" length="8.6814509">cool_blow</Label>
         </Labels>
         <CustomColumnValues />
       </Session>
@@ -1856,7 +1967,7 @@
         <SessionFile>/Data/Session-2025-12-01--09-47-52/Session-2025-12-01--09-47-52.imsession</SessionFile>
         <LabelFile modified="5250743989166688252">/Data/Session-2025-12-01--09-47-52/Live-Labeling.label</LabelFile>
         <Labels>
-          <Label count="10" length="10.8938093">cool_blow</Label>
+          <Label count="10" length="10.8938092">cool_blow</Label>
         </Labels>
         <CustomColumnValues />
       </Session>
@@ -1876,7 +1987,7 @@
         <LabelFile modified="5250743989136833899">/Data/switch 3/Live-Labeling.label</LabelFile>
         <Labels>
           <Label count="2" length="9.327239">warm_breath</Label>
-          <Label count="2" length="6.1994658">cool_blow</Label>
+          <Label count="2" length="6.1994657">cool_blow</Label>
         </Labels>
         <CustomColumnValues />
       </Session>
@@ -1940,7 +2051,7 @@
         <SessionFile>/Data/warm_near_2_2_normal_7/warm_near_2_2_normal_7.imsession</SessionFile>
         <LabelFile modified="5250743989194361043">/Data/warm_near_2_2_normal_7/Live-Labeling.label</LabelFile>
         <Labels>
-          <Label count="8" length="19.2796085">warm_breath</Label>
+          <Label count="8" length="19.2796084">warm_breath</Label>
         </Labels>
         <CustomColumnValues />
       </Session>
