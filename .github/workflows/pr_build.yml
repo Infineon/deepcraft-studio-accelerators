@@ -54,11 +54,11 @@ jobs:
           STARTER_PROJECTS_PIPELINE_TOKEN: ${{ secrets.STARTER_PROJECTS_PIPELINE_TOKEN }}
         run: |
           if ("${{ github.event_name }}" -eq "workflow_dispatch") {
-            update-changes --pr-number ${{ github.event.inputs.pr_number }}
+            dcp update-changes --pr-number ${{ github.event.inputs.pr_number }}
           } elseif ("${{ github.event_name }}" -eq "pull_request_target") {
-            update-changes --pr-number ${{ github.event.pull_request.number }}
+            dcp update-changes --pr-number ${{ github.event.pull_request.number }}
           } elseif ("${{ github.event_name }}" -eq "repository_dispatch") {
-            update-trained --project '${{ toJson(github.event.client_payload) }}'
+            dcp update-trained --project '${{ toJson(github.event.client_payload) }}'
           } else {
             throw "Unsupported event: ${{ github.event_name }}"
           }

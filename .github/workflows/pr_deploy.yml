@@ -30,4 +30,4 @@ jobs:
           SENSOR_MAP: ${{ vars.SENSOR_MAP }}
           STARTER_PROJECTS_PIPELINE_TOKEN: ${{ secrets.STARTER_PROJECTS_PIPELINE_TOKEN }}
         run: |
-          deploy-pr --pr-number ${{ github.event.inputs.pr_number }}
+          dcp deploy-pr --pr-number ${{ github.event.inputs.pr_number }}

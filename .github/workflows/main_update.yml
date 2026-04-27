@@ -39,11 +39,13 @@ jobs:
           STARTER_PROJECTS_PIPELINE_TOKEN: ${{ secrets.STARTER_PROJECTS_PIPELINE_TOKEN }}
         run: |
           if ("${{ github.event.action }}" -eq "main_update_all") {
-            update-all
+            $args = @()
+            if ('${{ toJson(github.event.client_payload) }}' -ne 'null') { $args += "--version", "${{ github.event.client_payload.version }}", "--commit", "${{ github.event.client_payload.commit }}" }
+            dcp update-all @args
           } elseif ("${{ github.event.action }}" -eq "main_update_post") {
-            update-trained --project '${{ toJson(github.event.client_payload) }}'
+            dcp update-trained --project '${{ toJson(github.event.client_payload) }}'
           } elseif ("${{ github.event_name }}" -eq "push") {
-            update-changes --commit '${{ github.sha }}'
+            dcp update-changes --commit '${{ github.sha }}'
           } else {
             throw "Unsupported event: ${{ github.event_name }}"
           }
