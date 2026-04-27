@@ -28,7 +28,7 @@ jobs:
       - name: Install Pipeline Package
         shell: pwsh
         run: |
-          git clone https://x-token-auth:${{ secrets.STARTER_MODELS_PIPELINE_TOKEN }}@bitbucket.org/imagimob/starter-projects-pipeline.git
+          git clone https://x-token-auth:${{ secrets.STARTER_PROJECTS_PIPELINE_TOKEN }}@bitbucket.org/imagimob/starter-projects-pipeline.git
           pip install -e starter-projects-pipeline
 
       - name: Update projects
@@ -36,13 +36,16 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SENSOR_MAP: ${{ vars.SENSOR_MAP }}
+          STARTER_PROJECTS_PIPELINE_TOKEN: ${{ secrets.STARTER_PROJECTS_PIPELINE_TOKEN }}
         run: |
           if ("${{ github.event.action }}" -eq "main_update_all") {
-            update-all
+            $args = @()
+            if ('${{ toJson(github.event.client_payload) }}' -ne 'null') { $args += "--version", "${{ github.event.client_payload.version }}", "--commit", "${{ github.event.client_payload.commit }}" }
+            dcp update-all @args
           } elseif ("${{ github.event.action }}" -eq "main_update_post") {
-            update-trained --project '${{ toJson(github.event.client_payload) }}'
+            dcp update-trained --project '${{ toJson(github.event.client_payload) }}'
           } elseif ("${{ github.event_name }}" -eq "push") {
-            update-changes --commit '${{ github.sha }}'
+            dcp update-changes --commit '${{ github.sha }}'
           } else {
             throw "Unsupported event: ${{ github.event_name }}"
           }

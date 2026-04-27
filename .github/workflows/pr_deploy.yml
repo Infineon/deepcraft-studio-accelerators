@@ -20,7 +20,7 @@ jobs:
       - name: Install Pipeline Package
         shell: pwsh
         run: |
-          git clone https://x-token-auth:${{ secrets.STARTER_MODELS_PIPELINE_TOKEN }}@bitbucket.org/imagimob/starter-projects-pipeline.git
+          git clone https://x-token-auth:${{ secrets.STARTER_PROJECTS_PIPELINE_TOKEN }}@bitbucket.org/imagimob/starter-projects-pipeline.git
           pip install -e starter-projects-pipeline
 
       - name: Deploy changed projects
@@ -28,5 +28,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SENSOR_MAP: ${{ vars.SENSOR_MAP }}
+          STARTER_PROJECTS_PIPELINE_TOKEN: ${{ secrets.STARTER_PROJECTS_PIPELINE_TOKEN }}
         run: |
-          pr-deploy --pr-number ${{ github.event.inputs.pr_number }}
+          dcp deploy-pr --pr-number ${{ github.event.inputs.pr_number }}

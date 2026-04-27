@@ -43,7 +43,7 @@ jobs:
       - name: Install Pipeline Package
         shell: pwsh
         run: |
-          git clone https://x-token-auth:${{ secrets.STARTER_MODELS_PIPELINE_TOKEN }}@bitbucket.org/imagimob/starter-projects-pipeline.git
+          git clone https://x-token-auth:${{ secrets.STARTER_PROJECTS_PIPELINE_TOKEN }}@bitbucket.org/imagimob/starter-projects-pipeline.git
           pip install -e starter-projects-pipeline
 
       - name: Build changed projects
@@ -51,13 +51,14 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SENSOR_MAP: ${{ vars.SENSOR_MAP }}
+          STARTER_PROJECTS_PIPELINE_TOKEN: ${{ secrets.STARTER_PROJECTS_PIPELINE_TOKEN }}
         run: |
           if ("${{ github.event_name }}" -eq "workflow_dispatch") {
-            update-changes --pr-number ${{ github.event.inputs.pr_number }}
+            dcp update-changes --pr-number ${{ github.event.inputs.pr_number }}
           } elseif ("${{ github.event_name }}" -eq "pull_request_target") {
-            update-changes --pr-number ${{ github.event.pull_request.number }}
+            dcp update-changes --pr-number ${{ github.event.pull_request.number }}
           } elseif ("${{ github.event_name }}" -eq "repository_dispatch") {
-            update-trained --project '${{ toJson(github.event.client_payload) }}'
+            dcp update-trained --project '${{ toJson(github.event.client_payload) }}'
           } else {
             throw "Unsupported event: ${{ github.event_name }}"
           }
