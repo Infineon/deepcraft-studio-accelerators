@@ -26,15 +26,15 @@
         <Package url="https://api.imagimob.com/v1/Data/Object/EmptyClassificationProject-8d7b231-v5.9.4284.65534.zip" size="1110"/>
       </Dialog>
     </Template>
-    <Template training="true">
+    <Template>
       <DisplayName>Siren Detection (Studio Accelerator)</DisplayName>
       <Description>Use a microphone to detect if you have an emergency vehicle siren in the vicinity</Description>
       <DisplayPath>/Studio Accelerators/Classification/Microphone</DisplayPath>
       <LicenseTags/>
-      <Dialog view="/Modules/ProjectTemplatesModule/GenericProject/GenericProjectDialog">
+      <Dialog>
         <DefaultProjectName>SirenDetection</DefaultProjectName>
-        <Package url="https://api.imagimob.com/v1/Data/Object/SirenDetection-08dad6c-5.12.5078.65534.zip" size="472777315"/>
-        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/SirenDetection-08dad6c-5.12.5078.65534.no-data.zip" size="85488909"/>
+        <Package url="https://api.imagimob.com/v1/Data/Object/SirenDetection-6402316-5.12.5226.65534.zip" size="472799477"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/SirenDetection-6402316-5.12.5226.65534.no-data.zip" size="85533723"/>
       </Dialog>
     </Template>
     <Template>
