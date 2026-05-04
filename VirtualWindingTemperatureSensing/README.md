@@ -1,4 +1,5 @@
 ﻿# Virtual Motor Winding Temperature Estimation
+This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
 
 ## Overview - Use-Case
 
@@ -32,10 +33,10 @@ This machine learning project enables estimation of the temperature of motor win
 
 - **Target Motor:** [Pierburg CWA150](https://www.tecomotive.com/en/products/CWA150.html) water pump motor
 - **Power Supply:** 12V
-- **Motor Controller:** [REF_WATERPUMP150W](https://www.infineon.com/evaluation-board/REF-WATERPUMP150W) evaluation board with TLE995x
+- **Motor Controller:** [REF_WATERPUMP150W](https://www.infineon.com/evaluation-board/REF-WATERPUMP150W) evaluation board with TLE995x. The firmware could be requested via Infineon Developer Center
 - **Temperature Sensors:**
   - Die temperature sensor (embedded in TLE995x) - Input feature
-  - Coil temperature sensor - Target measurement (ground truth)
+  - Coil temperature sensor - Any K-type thermocouple to measure the target motor winding temperature (ground truth), for example RS219/1016
 - **Data Acquisition:** [TraceBox](https://www.moteon.com/tracebox.html) measurement device
 
 ### Data Specifications
@@ -44,7 +45,7 @@ The dataset consists of multiple measurement sessions collected from TLE995x mot
 
 **Input Features (data.csv):**
 - `spi_time` - Timestamp (seconds)
-- `die_temp_filtered` - Filtered die temperature (°C) from internal temperature sensor
+- `die_temp_filtered` - Filtered die temperature (°C) from internal temperature sensor to remove any noise caused by ADC measurement. In-built ADC filters are used to acquire the average die temperature measurments.
 - `dqCommand_combined` - Magnitude of the current flowing through the motor
   - Direct and quadrature current is measured from the field oriented control (FOC) algorithm operating the 3-phase BLDC motor. Direct and quadrature current are squared and added to achieve: |imag² + real²| = `dqCommand_combined`
 - `outputSpeed_rpm` - Motor output speed (RPM)
@@ -69,7 +70,6 @@ The dataset consists of multiple measurement sessions collected from TLE995x mot
 - Multiple training/validation sets ready for DEEPCRAFT Studio
 - Format: CSV files with data.csv (inputs) and label.csv (targets) pairs
 
-**Data Attribution:** Usage restrictions apply - consult with Infineon before commercial use.
 
 ### Physical Installation
 
@@ -79,7 +79,19 @@ The dataset consists of multiple measurement sessions collected from TLE995x mot
 4. Connect TraceBox to board for data measurement
 5. Configure TraceBox for continuous data logging
 
-![Connection Schema](Resources/connection_schema.png)
+---
+Physical setup with waterpump and water tank
+![Physical_Setup](Resources/waterpump_cropped_high.png)
+
+---
+Temperature sensor installation at the motor windings
+![Temp_sense](Resources/Motor_thermal_probes.png)
+
+---
+Data logging setup
+![Setup](Resources/setup.png)
+
+---
 
 ## Adding More Data
 
@@ -103,6 +115,8 @@ To expand the dataset with new measurements:
 
 3. **Data Processing Pipeline**
    
+   To run the automated processing scripts, see [Tools/scripts/README.md](Tools/scripts/README.md) for more details
+
    Run the automated processing scripts:
    ```powershell
    # Activate virtual environment
@@ -150,7 +164,7 @@ To ensure robust model performance, collect data covering:
 
 **DEEPCRAFT Studio Features:**
 - Use Data Augmentation capabilities if applicable to sensor data
-- Leverage Studio's data management to organize multiple datasets
+- Leverage Studio to visualize multiple datasets
 
 ### 2. Robust Train/Test Split
 
@@ -200,8 +214,3 @@ To ensure robust model performance, collect data covering:
 - Define update strategy for model improvements
 ---
 
-## Documentation
-
-For detailed information on data processing scripts and pipeline:
-- See [Tools/scripts/README.md](Tools/scripts/README.md) for comprehensive data processing documentation
-- See [DEEPCRAFT Studio Documentation](https://deepcraft.infineon.com) for model training guidance

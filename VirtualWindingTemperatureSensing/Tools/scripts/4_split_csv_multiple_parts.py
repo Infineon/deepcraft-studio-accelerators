@@ -58,7 +58,13 @@ def split_csv_and_create_subfolders(csv_file_path, output_folder, num_parts=50):
     # Create computed column
     df['dqCommand_combined'] = df['dqCommand_imag'] ** 2 + df['dqCommand_real'] ** 2
     
+    # Extract file number (e.g., "09", "10", "11", "12") from filename
     base_name = csv_file_path.stem
+    if base_name.startswith('downsampled_normalized_'):
+        base_name = base_name.replace('downsampled_normalized_', '', 1)
+    # Extract the leading number (first part before underscore)
+    file_number = base_name.split('_')[0]
+    
     output_folder.mkdir(parents=True, exist_ok=True)
     total_rows = len(df)
     part_size = (total_rows + num_parts - 1) // num_parts  # ceil division
@@ -70,7 +76,7 @@ def split_csv_and_create_subfolders(csv_file_path, output_folder, num_parts=50):
         start = i * part_size
         end = min(start + part_size, total_rows)
         part_df = df.iloc[start:end]
-        part_folder = output_folder / f"part{str(i+1).zfill(2)}_{base_name}"
+        part_folder = output_folder / f"{file_number}_part{str(i+1).zfill(2)}"
         part_folder.mkdir(parents=True, exist_ok=True)
 
         # ID_ file (saved as data.csv)

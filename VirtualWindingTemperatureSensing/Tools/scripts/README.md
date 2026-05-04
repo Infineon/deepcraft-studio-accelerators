@@ -20,26 +20,15 @@ This folder contains Python scripts for processing winding temperature sensing d
 - Python 3.7 or higher (Python 3.10+ recommended)
 
 ### Python Dependencies
-
-```bash
-pip install scipy pandas numpy scikit-learn
+Create Python virtual environment by using the following command:
+``` 
+python -m venv Tools\venvVTS
+```
+Set up the virtual environment by running the following command:
+``` 
+pip install -r requirements.txt
 ```
 
-**Required Packages:**
-- `scipy` - MATLAB file reading (`.mat` format)
-- `pandas` - Data manipulation and CSV handling
-- `numpy` - Numerical operations and array handling
-- `scikit-learn` - Normalization (MinMaxScaler) and ML utilities
-- `pathlib` - File path operations (built-in, no install needed)
-- `pickle` - Scaler serialization (built-in, no install needed)
-
-### Package Versions (Tested)
-```
-scipy>=1.7.0
-pandas>=1.3.0
-numpy>=1.21.0
-scikit-learn>=1.0.0
-```
 
 ### System Requirements
 - **RAM:** 8GB minimum (16GB recommended for large datasets)
@@ -73,8 +62,6 @@ python Tools\scripts\4_split_csv_multiple_parts.py
 | **1** | `1_convert_mat_csv.py` | **Convert** .mat → CSV | Flattens MATLAB arrays, preserves variable names |
 | | `1_print_mat_headers.py` | Inspect .mat structure | Shows variables, shapes, data types (debugging) |
 | **2** | `2_downsample_normalize.py` | **Downsample + Normalize** | 10 Hz → 0.1 Hz (99% reduction), Min-Max [0,1] |
-| | `2a_downsample.py` | Downsample only (alt) | 10-second intervals, recalculates spi_time |
-| | `2b_normalize.py` | Normalize only (alt) | Min-Max scaling, saves scaler .pkl files |
 | **3** | `3_separate_input_data_target_data.py` | **Split data/label** | Creates subfolders with data.csv & label.csv |
 | **4** | `4_split_csv_multiple_parts.py` | **Partition** (optional) | Splits into N parts (default: 10, user-configurable) |
 
