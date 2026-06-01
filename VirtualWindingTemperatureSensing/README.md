@@ -45,9 +45,9 @@ The dataset consists of multiple measurement sessions collected from TLE995x mot
 
 **Input Features (data.csv):**
 - `spi_time` - Timestamp (seconds)
-- `die_temp_filtered` - Filtered die temperature (°C) from internal temperature sensor to remove any noise caused by ADC measurement. In-built ADC filters are used to acquire the average die temperature measurments.
+- `die_temp_filtered` - Filtered die temperature (°C) from internal temperature sensor to remove any noise caused by ADC measurement. Built-in ADC filters are used to acquire the average die temperature measurements.
 - `dqCommand_combined` - Magnitude of the current flowing through the motor
-  - Direct and quadrature current is measured from the field oriented control (FOC) algorithm operating the 3-phase BLDC motor. Direct and quadrature current are squared and added to achieve: |imag² + real²| = `dqCommand_combined`
+  - Direct and quadrature currents are measured from the field-oriented control (FOC) algorithm operating the 3-phase BLDC motor. Direct and quadrature currents are squared and added to achieve: imag² + real² = `dqCommand_combined`
 - `outputSpeed_rpm` - Motor output speed (RPM)
 
 **Target Variable (label.csv):**
@@ -80,7 +80,7 @@ The dataset consists of multiple measurement sessions collected from TLE995x mot
 5. Configure TraceBox for continuous data logging
 
 ---
-Physical setup with waterpump and water tank
+Physical setup with water pump and water tank
 ![Physical_Setup](Resources/waterpump_cropped_high.png)
 
 ---
@@ -115,7 +115,7 @@ To expand the dataset with new measurements:
 
 3. **Data Processing Pipeline**
    
-   To run the automated processing scripts, see [Tools/scripts/README.md](Tools/scripts/README.md) for more details
+   To run the automated processing scripts, see [Tools/README.md](Tools/README.md) for more details
 
    Run the automated processing scripts:
    ```powershell

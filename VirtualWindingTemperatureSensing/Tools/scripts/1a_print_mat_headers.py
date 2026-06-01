@@ -9,8 +9,6 @@ Usage:
 
 Input Folder:  ../../Data/measurement_data/ (MATLAB .mat files)
 Output:        Console output showing file structure
-
-Project: DEEPCRAFT - Virtual Winding Temperature Sensing v2
 """
 
 import scipy.io

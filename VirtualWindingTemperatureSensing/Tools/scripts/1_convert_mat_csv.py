@@ -9,8 +9,6 @@ Usage:
 
 Input Folder:  ../../Data/measurement_data/ (MATLAB .mat files)
 Output Folder: ../../Data/processed/1_measurement_data_csv/ (.csv files with same base name)
-
-Project: DEEPCRAFT - Virtual Winding Temperature Sensing v2
 """
 
 import os
