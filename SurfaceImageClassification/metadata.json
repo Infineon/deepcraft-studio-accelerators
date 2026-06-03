@@ -1,0 +1,19 @@
+{
+  "title": "Surface Image Classification",
+  "description": "Project to build a model that classifies surfaces from images.",
+  "long_description": "The Surface Image Classification Project is a real-time road surface classification system powered by a deep learning backend for classifying different road surface conditions.",
+  "algorithm": "Image Classification",
+  "sensors": ["Camera"],
+  "domain": ["Vision"],
+  "application": ["Autonomous", "Navigation"],
+  "use_case": ["Road Navigation", "Image Classification"],
+  "kit": ["PSoC-Edge AI Kit"],
+  "device": ["PSoC-Edge"],
+  "type": ["Model Development"],
+  "workflow": ["ML Development"],
+  "thumbnail_image_id": "city.png",
+  "main_image_id": "city.png",
+  "brand_image_id": "deepcraft.webp",
+  "brand_url": "https://www.infineon.com/design-resources/embedded-software/deepcraft-edge-ai-solutions",
+  "links": [{"label": "Download", "url": "https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio", "heading": "Access Project via DEEPCRAFT\u2122 Studio", "sub-heading": "Download and install DEEPCRAFT\u2122 Studio to fully access this project and start developing your Edge AI product"}, {"label": "GitHub", "heading": "Project Repository", "sub-heading": "Get more details about this project", "url": "https://github.com/Infineon/deepcraft-studio-accelerators/tree/main/SurfaceImageClassification"}]
+}
