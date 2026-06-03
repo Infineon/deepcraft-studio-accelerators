@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ImagimobStudio version="0.9">
+  <Timeline id="af7ad31e-6ba2-48e2-ae06-8ed11f5a6a0b">
+    <Tracks>
+      <Track name="image" type="imagejpg">
+        <PayloadFile>wet_gravel_240.jpg</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="label" type="labelxml">
+        <PayloadFile>wet_gravel_240.labelxml</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="yolov5n-size320-batch64-epoch10_predictions" type="labelxml">
+        <PayloadFile>..\..\..\yolov5n-size320-batch64-epoch10\Predictions\sessions\wet_gravel_240\wet_gravel_240.labelxml</PayloadFile>
+        <Shape />
+      </Track>
+    </Tracks>
+  </Timeline>
+</ImagimobStudio>

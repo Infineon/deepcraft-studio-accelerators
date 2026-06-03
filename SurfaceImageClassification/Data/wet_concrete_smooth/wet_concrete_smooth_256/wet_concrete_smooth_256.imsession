@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ImagimobStudio version="0.9">
+  <Timeline id="805a4861-55a3-4c22-8a3d-5669f8f1d5b7">
+    <Tracks>
+      <Track name="image" type="imagejpg">
+        <PayloadFile>wet_concrete_smooth_256.jpg</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="label" type="labelxml">
+        <PayloadFile>wet_concrete_smooth_256.labelxml</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="yolov5n-size320-batch64-epoch10_predictions" type="labelxml">
+        <PayloadFile>..\..\..\yolov5n-size320-batch64-epoch10\Predictions\sessions\wet_concrete_smooth_256\wet_concrete_smooth_256.labelxml</PayloadFile>
+        <Shape />
+      </Track>
+    </Tracks>
+  </Timeline>
+</ImagimobStudio>

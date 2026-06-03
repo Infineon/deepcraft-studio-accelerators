@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ImagimobStudio version="0.9">
+  <Timeline id="7fc54fc0-610a-4d76-a803-1e7d7fbdf400">
+    <Tracks>
+      <Track name="image" type="imagejpg">
+        <PayloadFile>water_concrete_severe_27.jpg</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="label" type="labelxml">
+        <PayloadFile>water_concrete_severe_27.labelxml</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="yolov5n-size320-batch64-epoch10_predictions" type="labelxml">
+        <PayloadFile>..\..\..\yolov5n-size320-batch64-epoch10\Predictions\sessions\water_concrete_severe_27\water_concrete_severe_27.labelxml</PayloadFile>
+        <Shape />
+      </Track>
+    </Tracks>
+  </Timeline>
+</ImagimobStudio>

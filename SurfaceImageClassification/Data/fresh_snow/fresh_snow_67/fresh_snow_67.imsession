@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ImagimobStudio version="0.9">
+  <Timeline id="08ea0d38-d4a5-4a18-a88d-071b7def8aa4">
+    <Tracks>
+      <Track name="image" type="imagejpg">
+        <PayloadFile>fresh_snow_67.jpg</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="label" type="labelxml">
+        <PayloadFile>fresh_snow_67.labelxml</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="yolov5n-size320-batch64-epoch10_predictions" type="labelxml">
+        <PayloadFile>..\..\..\yolov5n-size320-batch64-epoch10\Predictions\sessions\fresh_snow_67\fresh_snow_67.labelxml</PayloadFile>
+        <Shape />
+      </Track>
+    </Tracks>
+  </Timeline>
+</ImagimobStudio>

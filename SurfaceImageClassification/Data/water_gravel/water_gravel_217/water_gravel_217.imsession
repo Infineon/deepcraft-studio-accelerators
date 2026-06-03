@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ImagimobStudio version="0.9">
+  <Timeline id="3a1614de-988f-4c11-945c-393361b4e030">
+    <Tracks>
+      <Track name="image" type="imagejpg">
+        <PayloadFile>water_gravel_217.jpg</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="label" type="labelxml">
+        <PayloadFile>water_gravel_217.labelxml</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="yolov5n-size320-batch64-epoch10_predictions" type="labelxml">
+        <PayloadFile>..\..\..\yolov5n-size320-batch64-epoch10\Predictions\sessions\water_gravel_217\water_gravel_217.labelxml</PayloadFile>
+        <Shape />
+      </Track>
+    </Tracks>
+  </Timeline>
+</ImagimobStudio>
