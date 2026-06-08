@@ -442,6 +442,17 @@
         <Package url="https://api.imagimob.com/v1/Data/Object/Yolov8n80ClassesModelEvaluation-c7cbaee-5.12.5078.65534.zip" size="8687895"/>
       </Dialog>
     </Template>
+    <Template>
+      <DisplayName>Virtual Winding Temperature Sensing</DisplayName>
+      <Description>Estimate the temperature of an electric motor windings using a regression model</Description>
+      <DisplayPath>/Studio Accelerators/Regression/Electrical Signals</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>VirtualWindingTemperatureSensing</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/VirtualWindingTemperatureSensing-caeb550-5.12.5078.65534.zip" size="62133127"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/VirtualWindingTemperatureSensing-caeb550-5.12.5078.65534.no-data.zip" size="12568719"/>
+      </Dialog>
+    </Template>
   </ProjectTemplates>
   <CandidateTemplates>
     <Template>
