@@ -1,12 +1,14 @@
 # DEEPCRAFT™ Studio Accelerators
 
+## 📖 Overview
+
 This repository contains **DEEPCRAFT™ Studio Accelerators** — deep learning based projects for various use-cases designed as starting points for building custom applications. These projects contain data and a project file that is ready to be used with [DEEPCRAFT™ Studio](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio) for simplified Edge AI model development.
 
 This repository is automatically pulled and content is generated in DEEPCRAFT™ Studio. For the best experience, access these models through DEEPCRAFT™ Studio.
 
 For commercial use, our standard terms and conditions apply: https://developer.imagimob.com/legal/studio-terms-and-conditions.
 
-## 📖 Usage
+## 🚀 Usage
 
 These projects are designed to be used through [DEEPCRAFT™ Studio](https://www.imagimob.com/studio) and should be accessed through that platform. See also Studio's [online documentation](https://developer.imagimob.com/) for more details.
 
@@ -29,10 +31,19 @@ All users are welcome to submit new models/projects, subject to the Infineon DEE
 
 ### How it works
 
-1. **Prepare your project** — build your DEEPCRAFT™ Studio accelerator locally. We recommend starting from [`_PROJECT_TEMPLATE`](_PROJECT_TEMPLATE), but you can also bring your own project. Complete your project files, `README.md`, and `metadata.json`. See [Step 1](#step-1--prepare-your-project) and [Step 2](#step-2--prepare-metadatajson) below for details.
-2. **Submit your project** — use the [PR tool](https://github.com/Infineon/deepcraft-studio-accelerators-pr-tool) to open a pull request against this repository. The tool validates your project layout and metadata, pushes your files to your fork, and opens the PR in your browser. See [Step 3](#step-3--get-the-pr-tool) and [Step 4](#step-4--run-the-pr-tool-and-submit) below.
-3. **Review** — the Infineon team reviews your pull request. Automated pipelines may run to generate pre-processing, model predictions, and training outputs. Reviewers may request changes — address feedback by updating your project locally and re-running the PR tool to update the same pull request.
-4. **Publication** — once approved, your pull request is merged into `main`. The project is then published and becomes available through DEEPCRAFT™ Studio and the [DEEPCRAFT™ AI Hub](https://deepcraft.infineon.com).
+1. 📁 **Prepare your project** — build your DEEPCRAFT™ Studio accelerator locally. We recommend starting from [`_PROJECT_TEMPLATE`](_PROJECT_TEMPLATE), but you can also bring your own project. Complete your project files, `README.md`, and `metadata.json`. See [Step 1](#step-1--prepare-your-project) and [Step 2](#step-2--prepare-metadatajson) below for details.
+
+---
+
+2. 📤 **Submit your project** — use the [PR tool](https://github.com/Infineon/deepcraft-studio-accelerators-pr-tool) to open a pull request against this repository. The tool validates your project layout and metadata, pushes your files to your fork, and opens the PR in your browser. See [Step 3](#step-3--get-the-pr-tool) and [Step 4](#step-4--run-the-pr-tool-and-submit) below.
+
+---
+
+3. 🔍 **Review** — the Infineon team reviews your pull request. Automated pipelines may run to generate pre-processing, model predictions, and training outputs. Reviewers may request changes — address feedback by updating your project locally and re-running the PR tool to update the same pull request.
+
+---
+
+4. 🌐 **Publication** — once approved, your pull request is merged into `main`. The project is then published and becomes available through DEEPCRAFT™ Studio and the [DEEPCRAFT™ AI Hub](https://deepcraft.infineon.com).
 
 ### Submission requirements
 
@@ -45,11 +56,11 @@ Before opening a pull request, make sure you have the following tools and softwa
 - **Git** — version 2.43 or newer (the PR tool uses it to manage your submission)
 - **GitHub CLI (`gh`)** *(optional)* — for authentication; bundled with the PR tool on Windows. Install from [cli.github.com](https://cli.github.com/) only if you need it on other platforms or prefer a system-wide copy
 
-## 📤 Submission Process
+## 📝 Submission Process
 
 Follow the steps below to prepare and submit your project. For a high-level overview, see [How it works](#how-it-works) in the Contribution section.
 
-### Step 1 — Prepare your project
+### 📁 Step 1 — Prepare your project
 
 You can bring your own DEEPCRAFT™ Studio project, but we **recommend using [`_PROJECT_TEMPLATE`](_PROJECT_TEMPLATE)** as a starting point — it provides the expected folder layout and files for submission.
 
@@ -67,14 +78,18 @@ If you use the template:
 
 If you bring your own project instead, make sure it includes the required files (`README.md`, `metadata.json`, `.improj`, `Data/`) and follows the expected layout. Use [`_PROJECT_TEMPLATE`](_PROJECT_TEMPLATE) as a reference.
 
-### Step 2 — Prepare `metadata.json`
+---
+
+### 📋 Step 2 — Prepare `metadata.json`
 
 Choose one of the following options:
 
 1. **Guided (recommended)** — when you run the PR tool (Step 4), it walks you through metadata collection interactively and writes `metadata.json` for you.
 2. **Manual** — fill in `metadata.json` yourself using [`_PROJECT_TEMPLATE/metadata.json`](_PROJECT_TEMPLATE/metadata.json) as a reference for the required fields and structure. The PR tool will validate your file when you run it.
 
-### Step 3 — Get the PR tool
+---
+
+### 🛠️ Step 3 — Get the PR tool
 
 Get the pull request automation tool (PR tool) from the [deepcraft-studio-accelerators-pr-tool](https://github.com/Infineon/deepcraft-studio-accelerators-pr-tool) repository.
 
@@ -103,7 +118,9 @@ git sparse-checkout set pr_tool
 cd pr_tool
 ```
 
-### Step 4 — Run the PR tool and submit
+---
+
+### 🚀 Step 4 — Run the PR tool and submit
 
 From the `pr_tool` folder, run:
 
