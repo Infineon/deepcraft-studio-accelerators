@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ImagimobStudio version="1.1.0">
-  <Job id="14dd0be9-0359-11f1-85c8-3d4334de69d6" />
+  <Job id="01b6ca26-7131-11f1-afe5-116ea546e370" />
   <ProjectType>ObjectDetection</ProjectType>
   <ProjectId>f4cf2b37-d4d0-41c6-844b-cdbc796682d3</ProjectId>
   <ModelFactory>
@@ -32,7 +32,7 @@
       <ConfusionMatrix />
     </BuildSteps>
     <YoloVersion>yolov5nLegacy</YoloVersion>
-    <ImageSize>320</ImageSize>
+    <ImageSize>256</ImageSize>
     <Augmentation>
       <Degrees>15</Degrees>
       <Translate>0.1</Translate>
@@ -60,13 +60,13 @@
       <ConfidenceThresholdPrediction>0.25</ConfidenceThresholdPrediction>
       <IouThreshold>0.7</IouThreshold>
       <ImageWeights>False</ImageWeights>
-      <TrainingMode>FineTuning</TrainingMode>
+      <TrainingMode>Training</TrainingMode>
       <FreezeLayers>10</FreezeLayers>
     </AdvancedOptions>
     <IsNasEnabled>False</IsNasEnabled>
   </ModelFactory>
   <Models>
-    <Model name="yolov5n-legacy-size320-batch16-epoch300" id="5e210d60-4dcb-4928-baea-dc479ba57344">
+    <Model name="yolov5n-legacy-size256-batch16-epoch300" id="5e210d60-4dcb-4928-baea-dc479ba57344">
       <LossFunction>CategoricalCrossentropy</LossFunction>
       <Epochs>300</Epochs>
       <BatchSize>16</BatchSize>
@@ -14878,6 +14878,6 @@
     </DataSet>
   </Database>
   <CustomColumns>
-    <CustomColumn id="419501cc-a1b3-4786-ad65-5b3aab70c291" name="Category 1" internalName="Category 1" />
+    <CustomColumn id="419501cc-a1b3-4786-ad65-5b3aab70c291" name="Data Source" internalName="Category 1" />
   </CustomColumns>
 </ImagimobStudio>
