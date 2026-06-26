@@ -3,7 +3,7 @@
 This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
 
 ## Overview
-This is a starter model that classifies if there is an actively cutting chainsaw in the vicinity; chainsaws that are stalling are defined as not cutting. 
+This is an Accelerator project that classifies if there is an actively cutting chainsaw in the vicinity; chainsaws that are stalling are defined as not cutting. 
 A fully developed model could be used to detect illegal logging or create automatic warning systems. 
 
 ## Collection of Data
@@ -14,7 +14,7 @@ The data was collected at 16000Hz, and the project contains around 700 minutes o
 After a preliminary evaluation, the model performed very poorly on chainsaw audio played through a speaker, making it harder to demo. As such, additional data was collected by playing chainsaw audio through a variety of speakers to supplement the dataset, after which it significantly improved on sounds played through speakers.
 
 ## Adding More Data
-Adding more background noise data can be done online or by collecting microphone data of a suitable environment (i.e., forest, construction site, river). This can then be imported into the studio project.
+Adding more background noise data can be done online or by collecting microphone data of a suitable environment (i.e., forest, construction site, river). This can then be imported into the Studio project.
 Adding more chainsaw data ought to be done through a thorough collection. Adding variation of different types of chainsaws, different types of trees, and varying the distance from the microphone is strongly recommended, with the distances being most important. 
 
 ## Steps to Production

@@ -31,7 +31,7 @@ the reliability and diversity of the training set. All audio recordings in the d
 ## Adding More Data
 The project currently includes 369 audio WAV files, forming the foundation for model training. While this provides a solid starting point, additional recordings are needed to broaden coverage. 
 In particular, expanding the dataset with more diverse glass break samples as well as recordings captured under noisier conditions and varying distances will help improve the model’s robustness and generalization to real-world environments. 
-Deepcraft Studio provides a streamlined environment for recording glass break audio samples and offers integrated tools for labeling and preprocessing, ensuring that data preparation is both efficient and consistent. While studio recordings offer clean baseline samples, they should be complemented with field recordings 
+DEEPCRAFT™ Studio provides a streamlined environment for recording glass break audio samples and offers integrated tools for labeling and preprocessing, ensuring that data preparation is both efficient and consistent. While studio recordings offer clean baseline samples, they should be complemented with field recordings 
 or augmented with synthetic noise to ensure the model performs reliably in real-world scenarios.
 
 ## Steps to Production

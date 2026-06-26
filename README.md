@@ -31,7 +31,7 @@ All users are welcome to submit new models/projects, subject to the Infineon DEE
 
 ### How it works
 
-1. 📁 **Prepare your project** — build your DEEPCRAFT™ Studio accelerator locally. We recommend starting from [`_PROJECT_TEMPLATE`](_PROJECT_TEMPLATE), but you can also bring your own project. Complete your project files, `README.md`, and `metadata.json`. See [Step 1](#step-1--prepare-your-project) and [Step 2](#step-2--prepare-metadatajson) below for details.
+1. 📁 **Prepare your project** — build your DEEPCRAFT™ Studio Accelerator locally. We recommend starting from [`_PROJECT_TEMPLATE`](_PROJECT_TEMPLATE), but you can also bring your own project. Complete your project files, `README.md`, and `metadata.json`. See [Step 1](#step-1--prepare-your-project) and [Step 2](#step-2--prepare-metadatajson) below for details.
 
 ---
 
@@ -49,7 +49,7 @@ All users are welcome to submit new models/projects, subject to the Infineon DEE
 
 Before opening a pull request, make sure you have the following tools and software:
 
-- **[DEEPCRAFT™ Studio](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)** — to build and export your accelerator project (`.improj` file and local `Data/` folder)
+- **[DEEPCRAFT™ Studio](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)** — to build and export your Accelerator project (`.improj` file and local `Data/` folder)
 - **[GitHub account](https://github.com/join)** — required to fork this repository and manage your pull request
 - **[PR tool](https://github.com/Infineon/deepcraft-studio-accelerators-pr-tool)** — the latest version from [deepcraft-studio-accelerators-pr-tool](https://github.com/Infineon/deepcraft-studio-accelerators-pr-tool); validates your project, pushes files, and opens the pull request
 - **Python 3.10+** — to run the PR tool (no extra packages required)
@@ -66,7 +66,7 @@ You can bring your own DEEPCRAFT™ Studio project, but we **recommend using [`_
 
 If you use the template:
 
-1. **Rename** your accelerator project folder. The name can describe the use case and sensor used. Check existing project names and pick one that is not already in use.
+1. **Rename** your Accelerator project folder. The name can describe the use case and sensor used. Check existing project names and pick one that is not already in use.
 2. **Add content** to the relevant folders and delete those that do not apply. The `Data/` folder is mandatory and will not appear in this repository. Add custom folder(s) if needed.
 3. **Set up** the provided project file example or replace it with your own `.improj` file.
 4. **Write** the project `README.md`, including:
@@ -128,7 +128,7 @@ From the `pr_tool` folder, run:
 python .\pr_tool.py --repo accelerators --path <project-path>
 ```
 
-Replace `<project-path>` with the root path of your studio accelerator project. For more information, review the tool's [README.md](https://github.com/Infineon/deepcraft-studio-accelerators-pr-tool/blob/main/pr_tool/README.md).
+Replace `<project-path>` with the root path of your Studio Accelerator project. For more information, review the tool's [README.md](https://github.com/Infineon/deepcraft-studio-accelerators-pr-tool/blob/main/pr_tool/README.md).
 
 What happens next:
 

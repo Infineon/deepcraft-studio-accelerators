@@ -1,17 +1,17 @@
-﻿# Anomaly Detection for Vibrating Machinery - Starter Model Project
+﻿# Anomaly Detection for Vibrating Machinery - Studio Accelerator Project
 
 This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
 
 ## Use-case description
 
-This starter model aims to provide general guidance on how to develop an **anomaly detection system** for detecting anomalous behavior in machinery based on vibration measurements.
+This Accelerator project aims to provide general guidance on how to develop an **anomaly detection system** for detecting anomalous behavior in machinery based on vibration measurements.
 This project will monitor a simple desktop fan, but the same concept and workflow can be easily ported to any other machinery, whether industrial or consumer.
 
 The task is framed as a **classification project**: a type of Supervised Learning where a model learns to classify data into a discrete number of classes. For this project, only two classes will be used: normal functioning and anomalous functioning. You will need to provide both normal and anomalous data for the machinery you want to monitor to build a robust classifier.
 
 ### How can I know if this project fits my use case?
 
-You can use this starter project if:
+You can use this Accelerator project if:
 
 - You need to monitor a machinery whose behavior can be inferred by its vibration;
 - You have the possibility of collecting both normal functioning data and anomalous functioning data, either from an already faulty machine or by artificially inducing anomalies on a functioning machine.
@@ -41,7 +41,7 @@ This project demonstrates how to approach classification-based vibration monitor
 
 ## Sensor settings specification
 
-This starter project requires the [PSOC™ 6 AI Evaluation Kit](https://www.infineon.com/cms/en/product/evaluation-boards/cy8ckit-062s2-ai/). This platform is equipped with PSoC™ 6 MCU and IMU sensors. The board is designed for easy prototyping and lets you collect real-life data to easily build a compelling ML product fast.
+This Accelerator project requires the [PSOC™ 6 AI Evaluation Kit](https://www.infineon.com/cms/en/product/evaluation-boards/cy8ckit-062s2-ai/). This platform is equipped with PSoC™ 6 MCU and IMU sensors. The board is designed for easy prototyping and lets you collect real-life data to easily build a compelling ML product fast.
 
 The desktop fan is optional; you may want to collect data directly from your machinery instead. However, if you want to replicate the project out-of-the-box with a small desktop fan, any inexpensive product similar to the one shown will be suitable:
 
@@ -77,7 +77,7 @@ Once you have completed data collection, you can save the sample in the `Data` f
 ### A note on data labeling
 
 This project uses only one label to frame the task as a binary classification problem.
-Note that Deepcraft Studio introduces an "Unlabelled data" class by default, which we will use as "Normal" behavior data.
+Note that DEEPCRAFT™ Studio introduces an "Unlabelled data" class by default, which we will use as "Normal" behavior data.
 The only additional label needed is "anomaly", which represents anomalous data.
 
 **Anomaly**: This label indicates that the machinery is operating anomalously.
@@ -126,8 +126,8 @@ More in detail, the steps to be followed could look like this:
 
 **3. Import your data and train the prototype model**
 
-  Import the data you collected in the "Data" tab of the .improj file in Deepcraft Studio.
-  You are now able to follow the standard Deepcraft Studio steps for processing, training, and deploying your Anomaly Detection model.
+  Import the data you collected in the "Data" tab of the .improj file in DEEPCRAFT™ Studio.
+  You are now able to follow the standard DEEPCRAFT™ Studio steps for processing, training, and deploying your Anomaly Detection model.
   The preprocessor is already set, and some models are already defined for you, which performance is guaranteed to be in real-time on the PSOC6 AI Kit.
 
   **4. Deploy and do a real-time test of your prototype model**
@@ -138,7 +138,7 @@ More in detail, the steps to be followed could look like this:
 
 Last step is to move to the actual final production setup. The production system will likely have the MCU placed on a board inside the machine and the IMU sensor in a specific position, not necessarly the same one of the prorotyping phase. If you can go as close as possible to production conditions during prototyping phase, you will be able to deliver the same model also on the production board with little-to-no additional training or data needed. If this is not the case, you might need to do a new data collection step to allow the model to learn the nuances of the final setup. Follow again steps 2, 3 and 4 also for the production setup to reach a functioning application.
 
-You may also leverage Deepcraft Studio's Transfer Learning features for fine-tuning the prototype model to production data. This could lead to better results and faster go-to-production times, but the usage of Transfer Learning is recommended only to experienced ML users.
+You may also leverage DEEPCRAFT™ Studio's Transfer Learning features for fine-tuning the prototype model to production data. This could lead to better results and faster go-to-production times, but the usage of Transfer Learning is recommended only to experienced ML users.
 
 **Note:** All subsequent ML system lifetime monitoring procedures must be defined and implemented by you according to you needs, requirements and targets.
 

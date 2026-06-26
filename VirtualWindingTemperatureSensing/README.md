@@ -67,7 +67,7 @@ The dataset consists of multiple measurement sessions collected from TLE995x mot
 
 **Files:**
 - 4 measurement sessions (.mat files)
-- Multiple training/validation sets ready for DEEPCRAFT Studio
+- Multiple training/validation sets ready for DEEPCRAFT™ Studio
 - Format: CSV files with data.csv (inputs) and label.csv (targets) pairs
 
 
@@ -125,7 +125,7 @@ To expand the dataset with new measurements:
 
 5. **Dataset Organization**
    - Processed data is automatically organized in `Data/processed/` subfolders
-   - Ready for import into DEEPCRAFT Studio
+   - Ready for import into DEEPCRAFT™ Studio
    - Training/validation split can be configured in Studio
 
 ### Important Measurement Scenarios
@@ -150,7 +150,7 @@ To ensure robust model performance, collect data covering:
 - Record data across **full motor lifecycle** (new motor vs. aged motor)
 - Add measurements from **different application scenarios** (continuous operation, intermittent use, high-duty cycles)
 
-**DEEPCRAFT Studio Features:**
+**DEEPCRAFT™ Studio Features:**
 - Use Data Augmentation capabilities if applicable to sensor data
 - Leverage Studio to visualize multiple datasets
 

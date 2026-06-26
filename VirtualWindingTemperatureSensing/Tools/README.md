@@ -63,7 +63,7 @@ python Tools\scripts\4_generate_training_set.py
 | **3** | `3_split_data_label.py` | **Split data/label** | Creates subfolders with data.csv & label.csv |
 | **4** | `4_generate_training_set.py` | **Training set** | Splits into 100 folders for training |
 
-**Output:** Organized subfolders with `data.csv` (input features) and `label.csv` (target values) ready for DEEPCRAFT Studio.
+**Output:** Organized subfolders with `data.csv` (input features) and `label.csv` (target values) ready for DEEPCRAFT™ Studio.
 
 ---
 
@@ -119,7 +119,7 @@ python Tools\scripts\4_generate_training_set.py
 └─────────────────────────────────────────────────────────┘
                        │
                        ▼
-              Ready for DEEPCRAFT Studio
+              Ready for DEEPCRAFT™ Studio
 ```
 
 ---

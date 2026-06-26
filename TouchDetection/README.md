@@ -4,11 +4,11 @@ This project is designed to work exclusively with DEEPCRAFT™ Studio. Download 
 
 ## Overview
 
-This starter project allows you to build a touch detection that can be used on any supported Infineon MCU with a capsense.
+This Accelerator project allows you to build a touch detection that can be used on any supported Infineon MCU with a capsense.
 
-This starter project gives you the infrastructure to allow you to expand on the project or to mimic it and create your own project based on the available/included data and tools. 
+This Accelerator project gives you the infrastructure to allow you to expand on the project or to mimic it and create your own project based on the available/included data and tools. 
 
-The starter project is intended to be a demonstration of how you could build a model using Imagimob AI for a device with a capsense.
+The Accelerator project is intended to be a demonstration of how you could build a model using Imagimob AI for a device with a capsense.
 
 Below you can find code examples about how to deploy the output of this project to any supported Infineon MCU with a capsense.
 
