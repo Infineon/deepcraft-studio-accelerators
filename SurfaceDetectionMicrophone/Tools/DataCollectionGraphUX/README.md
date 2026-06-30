@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is an empty starter project containing an empty canvas for you to start building ML graphs in.
+This is an empty Studio project containing an empty canvas for you to start building ML graphs in.
 
 Get started by opening the Main.imunit file from the Solution Explorer.
 

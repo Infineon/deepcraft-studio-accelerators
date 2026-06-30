@@ -67,7 +67,7 @@ To prepare the PSOC C3 Motor Control Kit (KIT_PSC3M5_MC1) for data collection:
 
 ![Connection Diagram 1](./Resources/image1.png)
 
-To start streaming data to Deepcraft studio first, ensure that the driver for the USB to UART converter (CP210x) device is installed on the 
+To start streaming data to DEEPCRAFT™ Studio first, ensure that the driver for the USB to UART converter (CP210x) device is installed on the 
 computer which will be used for data collection in Studio. The USB to UART converter supports 15kHz data streaming to Studio. The converter used in the project
 is available at:
 https://www.reichelt.com/se/en/shop/product/developer_boards_-_usb_type-a_to_uart_cp2102-266051?country=se&CCTYPE=private&LANGUAGE=en.
@@ -88,7 +88,7 @@ https://developer.imagimob.com/getting-started/infineon-ai-evaluation-kit#stream
 
 #### Option 1: Predefined GraphUX Project
 
-Launch Deepcraft Studio. Open the Main.imunit file by double-clicking it. Click on the Serial Capture block and adjust the COM port 
+Launch DEEPCRAFT™ Studio. Open the Main.imunit file by double-clicking it. Click on the Serial Capture block and adjust the COM port 
 settings. Select the correct COM port using the configuration shown in the figure below.
 
 ![Connection Diagram 4](./Resources/image4.png)
@@ -98,7 +98,7 @@ If the sensor and sample rate are not detected:
 + Try changing the stop bit setting.
 + Right-click anywhere in the workspace and click Start to begin data capture.
 
-#### Option 2: Create the project from scratch by following the guidelines provided in the Deepcraft Studio documentation.
+#### Option 2: Create the project from scratch by following the guidelines provided in the DEEPCRAFT™ Studio documentation.
 
 The figure below shows the recording window, where the blue waveform represents current and the green waveform indicates motor speed. 
 The data is labeled as 'open loop' and 'balanced'.

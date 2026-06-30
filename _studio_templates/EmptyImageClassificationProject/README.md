@@ -12,4 +12,4 @@ Image Classification projects are of type Supervised Learning where a model lear
 
 `Models` - Folder where trained models, their predictions and generated Edge code are saved.
 
-`Tools`	- Folder where all extra tools and scripts belonging to the project should be placed. 
+`Tools`	- Folder where all extra tools and scripts belonging to the project should be placed.

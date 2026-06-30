@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Imaginet version="2.0.0.0">
+  <Compound unit="b7c1d464-d355-4fdb-8c66-a066817a86b4">
+    <Nodes>
+      <UnitNode id="node_3" x="-168.1977423677856" y="428.85317917636326" enabled="true" profiling="false" name="Local Camera Video" unit="ImagimobStudio.Modules.LiveVideoTrack" />
+      <UnitNode id="node_5" x="378.82833333333383" y="230.11848156335998" enabled="true" profiling="false" name="yolo26n_int8.imunit TFLite Model" unit="Imaginet.Units.TensorFlowLite.TfLiteModel">
+        <StringArgument param="file_path">Model/yolo26n_int8.tflite</StringArgument>
+        <Int32Argument param="model_arena_size">10000</Int32Argument>
+      </UnitNode>
+      <UnitNode id="node_7" x="-168.07457608826417" y="239.45863476895062" enabled="true" profiling="false" unit="Imaginet.Units.Math.Cast">
+        <StringArgument param="output_type">int8</StringArgument>
+      </UnitNode>
+      <UnitNode id="node_0" x="-1150.9381383474492" y="240.7471809593852" enabled="true" profiling="false" unit="Imaginet.Units.Io.Camera">
+        <StringArgument param="source_id">Source#0@\\?\USB#VID_0408&amp;PID_545A&amp;MI_00#6&amp;2703a037&amp;0&amp;0000#{e5323777-f976-4f5b-9b55-b94699c46e44}\GLOBAL</StringArgument>
+        <StringArgument param="output_type">uint8</StringArgument>
+        <StringArgument param="resolution">640 360 15</StringArgument>
+      </UnitNode>
+      <UnitNode id="node_6" x="-563.8601908871823" y="235.72803937077083" enabled="true" profiling="false" unit="Imaginet.Units.Math.Resizing">
+        <Int32Argument param="interpolation_mode">2</Int32Argument>
+        <Int32Argument param="target_width">224</Int32Argument>
+        <Int32Argument param="target_height">224</Int32Argument>
+      </UnitNode>
+      <UnitNode id="node_10" x="1578.120493376078" y="277.9606270567266" enabled="true" profiling="false" unit="Imaginet.Units.Math.Concat">
+        <Int32Argument param="axis">1</Int32Argument>
+      </UnitNode>
+      <UnitNode id="node_11" x="2817.5833533763553" y="23.992036052475328" enabled="true" profiling="false" unit="ImagimobStudio.Modules.BoundingBoxTrack" />
+      <UnitNode id="node_12" x="1301.3181349633667" y="210.611190655026" enabled="true" profiling="false" name="Person class" unit="Imaginet.Units.Math.Select">
+        <Int32Argument param="axis">1</Int32Argument>
+        <Int32Argument param="count">1</Int32Argument>
+        <Int32Argument param="index">4</Int32Argument>
+      </UnitNode>
+      <UnitNode id="node_13" x="882.2066867096903" y="242.66873831048338" enabled="true" profiling="false" unit="Imaginet.Units.Math.Dequantize">
+        <StringArgument param="output_type">int8</StringArgument>
+      </UnitNode>
+      <UnitNode id="node_14" x="1294.64285178879" y="380.12818112962407" enabled="true" profiling="false" name="Car class" unit="Imaginet.Units.Math.Select">
+        <Int32Argument param="axis">1</Int32Argument>
+        <Int32Argument param="count">1</Int32Argument>
+        <Int32Argument param="index">6</Int32Argument>
+      </UnitNode>
+      <UnitNode id="node_15" x="2624.5618625662773" y="26.30494989729334" enabled="true" profiling="false" unit="Imaginet.Units.Math.Labels">
+        <StringArgument param="axis_labels">{,,,,},{x,y,w,h,person,car}</StringArgument>
+      </UnitNode>
+      <UnitNode id="node_16" x="1306.1956442766284" y="1.6827856829721668" enabled="true" profiling="false" name="Bbox Coordinates" unit="Imaginet.Units.Math.Select">
+        <Int32Argument param="axis">1</Int32Argument>
+        <Int32Argument param="count">4</Int32Argument>
+        <Int32Argument param="index">0</Int32Argument>
+      </UnitNode>
+      <UnitNode id="node_17" x="1787.2433533763565" y="9.645534944002293" enabled="true" profiling="false" name="Final Concatenate " unit="Imaginet.Units.Math.Concat">
+        <Int32Argument param="axis">1</Int32Argument>
+      </UnitNode>
+      <UnitNode id="node_18" x="2068.1866867096887" y="6.032036052475291" enabled="true" profiling="false" unit="Imaginet.Units.Signal.DetectionFilter">
+        <DoubleArgument param="threshold">0.3</DoubleArgument>
+      </UnitNode>
+      <UnitNode id="node_19" x="2314.305541967071" y="198.89435123365269" enabled="true" profiling="false" name="final cast" unit="Imaginet.Units.Math.Cast" />
+    </Nodes>
+    <Connections>
+      <Connection>
+        <Source node="node_6" param="output" />
+        <Target node="node_3" param="data" />
+      </Connection>
+      <Connection>
+        <Source node="node_6" param="output" />
+        <Target node="node_7" param="input" />
+      </Connection>
+      <Connection>
+        <Source node="node_0" param="data" />
+        <Target node="node_6" param="input" />
+      </Connection>
+      <Connection>
+        <Source node="node_7" param="output" />
+        <Target node="node_5" param="input" />
+      </Connection>
+      <Connection>
+        <Source node="node_14" param="output" />
+        <Target node="node_10" param="i1" />
+      </Connection>
+      <Connection>
+        <Source node="node_12" param="output" />
+        <Target node="node_10" param="i0" />
+      </Connection>
+      <Connection>
+        <Source node="node_16" param="output" />
+        <Target node="node_17" param="i0" />
+      </Connection>
+      <Connection>
+        <Source node="node_17" param="output" />
+        <Target node="node_18" param="input" />
+      </Connection>
+      <Connection>
+        <Source node="node_10" param="output" />
+        <Target node="node_17" param="i1" />
+      </Connection>
+      <Connection>
+        <Source node="node_15" param="output" />
+        <Target node="node_11" param="data" />
+      </Connection>
+      <Connection>
+        <Source node="node_13" param="output" />
+        <Target node="node_16" param="input" />
+      </Connection>
+      <Connection>
+        <Source node="node_13" param="output" />
+        <Target node="node_12" param="input" />
+      </Connection>
+      <Connection>
+        <Source node="node_13" param="output" />
+        <Target node="node_14" param="input" />
+      </Connection>
+      <Connection>
+        <Source node="node_5" param="output" />
+        <Target node="node_13" param="input" />
+      </Connection>
+      <Connection>
+        <Source node="node_18" param="output" />
+        <Target node="node_19" param="input" />
+      </Connection>
+      <Connection>
+        <Source node="node_19" param="output" />
+        <Target node="node_15" param="input" />
+      </Connection>
+    </Connections>
+  </Compound>
+</Imaginet>

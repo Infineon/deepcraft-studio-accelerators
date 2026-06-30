@@ -3,16 +3,16 @@
 This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
 
 ## Overview
-This starter model is capable of detecting a number of audio signatures common to a home setting.
+This Accelerator project is capable of detecting a number of audio signatures common to a home setting.
 It currently has 3 labels: 'cough', 'baby cry', and 'water tap', but it can easily be modified to add more.
-The starter model contains 550 minutes of data, most of it being unlabelled background noise. 
+The Accelerator project contains 550 minutes of data, most of it being unlabelled background noise. 
 
 ## Collection of Data
 The data was collected by downloading Creative Commons licensed audio files from freesounds.org.
 
 ## Adding More Data
 In order to add more data, you need to upload 16000 Hz audio files with appropriate labels. This could be done either by finding more data online or recording audio using a microphone, such as the AI Evaluation Kit (https://www.infineon.com/cms/en/product/evaluation-boards/cy8ckit-062s2-ai/). 
-Regardless of how the data is obtained, it can be labelled in DEEPCRAFT Studio.
+Regardless of how the data is obtained, it can be labelled in DEEPCRAFT™ Studio.
 
 ## Steps to Production
 The first step toward production is identifying which home sounds you want your model to detect. If you wish to focus on human sounds, for example, 'water tap' might be removed. Another thing that is strongly recommended is to use the augmentation functionality to improve model performance. This model originally had augmented data but it was removed to make the download smaller, you can perform this through the data tab of the project file (.improj)

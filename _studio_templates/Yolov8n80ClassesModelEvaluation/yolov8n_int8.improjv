@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<ImagimobStudio version="2.0.0.0">
+  <Project id="f3f3d20a-69cb-4ca8-b8ae-0fbf8a9ee0fe">
+    <Resources />
+    <Options>
+      <UseCMSIS>false</UseCMSIS>
+    </Options>
+    <CodeGenerationParams>
+      <Unit id="a1e31147-f0d2-403a-b36f-985d2559d6ee">
+        <Input>node_6</Input>
+        <Output>node_19</Output>
+        <Platform>InfineonPsocEdgeM55U55</Platform>
+        <OutputFileName>model</OutputFileName>
+        <OutputDirectory>CodeGen</OutputDirectory>
+        <CPrefix>IMAI_</CPrefix>
+        <TimestampTracking>false</TimestampTracking>
+        <UseCmsis>true</UseCmsis>
+        <TensorFlowLiteMicroApi>ModusToolbox_ML_Middleware_V3</TensorFlowLiteMicroApi>
+        <PreferEnqueueDequeueApi>false</PreferEnqueueDequeueApi>
+        <MlCoreToolsOptions>
+          <RecursionLimit>1000</RecursionLimit>
+          <MaxBlockDependency>3</MaxBlockDependency>
+          <Sparsity>false</Sparsity>
+          <EthosUMemoryMode>SharedSram</EthosUMemoryMode>
+          <EthosUOptimize>Performance</EthosUOptimize>
+          <EthosUSystemConfig>Pse8xSOCMEM300MHz</EthosUSystemConfig>
+          <EthosUTensorAllocator>HillClimb</EthosUTensorAllocator>
+        </MlCoreToolsOptions>
+      </Unit>
+    </CodeGenerationParams>
+  </Project>
+</ImagimobStudio>

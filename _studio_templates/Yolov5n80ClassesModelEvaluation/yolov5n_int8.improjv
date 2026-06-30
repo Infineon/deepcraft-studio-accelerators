@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<ImagimobStudio version="2.0.0.0">
+  <Project id="a46e2469-3ab4-41f5-a4d0-a1fcf3816e5f">
+    <Resources />
+    <Options>
+      <UseCMSIS>false</UseCMSIS>
+    </Options>
+    <CodeGenerationParams>
+      <Unit id="d2dba5f7-c971-415a-a89b-1b1569d69771">
+        <Input>node_6</Input>
+        <Output>node_19</Output>
+        <Platform>InfineonPsocEdgeM55U55</Platform>
+        <OutputFileName>model</OutputFileName>
+        <OutputDirectory>CodeGen2</OutputDirectory>
+        <CPrefix>IMAI_</CPrefix>
+        <TimestampTracking>false</TimestampTracking>
+        <UseCmsis>true</UseCmsis>
+        <TensorFlowLiteMicroApi>ModusToolbox_ML_Middleware_V3</TensorFlowLiteMicroApi>
+        <PreferEnqueueDequeueApi>false</PreferEnqueueDequeueApi>
+        <MlCoreToolsOptions>
+          <RecursionLimit>1000</RecursionLimit>
+          <MaxBlockDependency>3</MaxBlockDependency>
+          <Sparsity>false</Sparsity>
+          <EthosUMemoryMode>SharedSram</EthosUMemoryMode>
+          <EthosUOptimize>Performance</EthosUOptimize>
+          <EthosUSystemConfig>Pse8xSOCMEM300MHz</EthosUSystemConfig>
+          <EthosUTensorAllocator>HillClimb</EthosUTensorAllocator>
+        </MlCoreToolsOptions>
+      </Unit>
+      <Unit id="e3eb72e0-3a1e-443a-a1e0-15ebe287737c">
+        <Input>node_0</Input>
+        <Output>node_5</Output>
+        <Platform>InfineonPsocEdgeM55U55</Platform>
+        <OutputFileName>model</OutputFileName>
+        <OutputDirectory>Firmware</OutputDirectory>
+        <CPrefix>IMAI_</CPrefix>
+        <TimestampTracking>false</TimestampTracking>
+        <UseCmsis>true</UseCmsis>
+        <TensorFlowLiteMicroApi>ModusToolbox_ML_Middleware_V3</TensorFlowLiteMicroApi>
+        <PreferEnqueueDequeueApi>false</PreferEnqueueDequeueApi>
+        <MlCoreToolsOptions>
+          <RecursionLimit>1000</RecursionLimit>
+          <MaxBlockDependency>3</MaxBlockDependency>
+          <Sparsity>false</Sparsity>
+          <EthosUMemoryMode>SharedSram</EthosUMemoryMode>
+          <EthosUOptimize>Performance</EthosUOptimize>
+          <EthosUSystemConfig>Pse8xSOCMEM300MHz</EthosUSystemConfig>
+          <EthosUTensorAllocator>HillClimb</EthosUTensorAllocator>
+        </MlCoreToolsOptions>
+      </Unit>
+    </CodeGenerationParams>
+  </Project>
+</ImagimobStudio>

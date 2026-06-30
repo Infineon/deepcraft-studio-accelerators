@@ -1,0 +1,1102 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ImagimobStudio version="1.1.0">
+  <Job id="510d76b8-5d99-11f1-8180-7fdb4f8dad39" />
+  <ProjectType>Regression</ProjectType>
+  <ProjectId>0057f1bd-a181-4539-8889-c3e18fc7550c</ProjectId>
+  <Preprocessor inshape="[3]" intype="Float32" infreq="0" outshape="[1,3]" outtype="Float32">
+    <Unit id="Core.Queues.SlidingWindow">
+      <Argument param="input" type="String">data</Argument>
+      <Argument param="time_input" type="String">time</Argument>
+      <Argument param="window_shape" type="Shape">[1,3]</Argument>
+      <Argument param="stride" type="Int32">3</Argument>
+      <Argument param="buffer_multiplier" type="Double">1</Argument>
+      <Argument param="output" type="String">data</Argument>
+      <Argument param="time_output" type="String">time</Argument>
+    </Unit>
+  </Preprocessor>
+  <ModelFactory>
+    <Epochs>100</Epochs>
+    <BatchSize>128</BatchSize>
+    <SplitCount>16</SplitCount>
+    <Patience>20</Patience>
+    <AppendModels>True</AppendModels>
+    <LossFunction>MeanSquaredError</LossFunction>
+    <HardwareType>Infineon</HardwareType>
+    <TrainingEnvironment>
+    </TrainingEnvironment>
+    <ModelFamily>Dense</ModelFamily>
+    <ModelFlavor>SmallKern</ModelFlavor>
+    <ClassifierType>Dense</ClassifierType>
+    <Optimization>Balanced</Optimization>
+    <Pooling>True</Pooling>
+    <Downscale>False</Downscale>
+    <LearnRate>Mid</LearnRate>
+    <RegularizationFactor>Mid</RegularizationFactor>
+    <LastNetworkInputShape>[1,3]</LastNetworkInputShape>
+    <LastClassCount>1</LastClassCount>
+    <Optimizer>
+      <LearningRate>0.001</LearningRate>
+      <WeightDecay>0.0001</WeightDecay>
+    </Optimizer>
+    <BuildSteps>
+      <NoMapping />
+      <Training />
+      <RegressionEvaluations />
+    </BuildSteps>
+  </ModelFactory>
+  <Models>
+    <Model name="temp_virtual_sensor">
+      <LossFunction>MeanSquaredError</LossFunction>
+      <Epochs>100</Epochs>
+      <BatchSize>128</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.005</LearningRate>
+        <WeightDecay>0.0005</WeightDecay>
+      </Optimizer>
+      <Network inshape="[1,3]" intype="Float32" infreq="1" outshape="[1]" outtype="Float32">
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">5</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">relu</Argument>
+          <Argument param="trainable" type="Boolean">True</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Reshape">
+          <Argument param="shape" type="Shape">[1,5]</Argument>
+          <Argument param="trainable" type="Boolean">True</Argument>
+        </Unit>
+        <Unit id="Core.Layers.GRU">
+          <Argument param="units" type="Int32">5</Argument>
+          <Argument param="activation" type="String">tanh</Argument>
+          <Argument param="recurrent_activation" type="String">sigmoid</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="return_sequences" type="Boolean">False</Argument>
+          <Argument param="return_state" type="Boolean">False</Argument>
+          <Argument param="go_backwards" type="Boolean">False</Argument>
+          <Argument param="stateful" type="Boolean">False</Argument>
+          <Argument param="reset_after" type="Boolean">True</Argument>
+          <Argument param="trainable" type="Boolean">True</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">3</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">relu</Argument>
+          <Argument param="trainable" type="Boolean">True</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">1</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="trainable" type="Boolean">True</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <NoMapping />
+        <Training />
+        <RegressionEvaluations />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="unlabeled" weight="1" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[3]" intype="Float32" infreq="0" outshape="[1,3]" outtype="Float32">
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[1,3]</Argument>
+          <Argument param="stride" type="Int32">3</Argument>
+          <Argument param="buffer_multiplier" type="Double">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
+    </Model>
+    <Model name="dense-small-balanced-0" id="05a9617b-554a-456c-9d6b-310d38db4907">
+      <LossFunction>MeanSquaredError</LossFunction>
+      <Epochs>100</Epochs>
+      <BatchSize>128</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.004</LearningRate>
+        <WeightDecay>0.001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[1,3]" intype="Float32" infreq="0" outshape="[1]" outtype="Float32">
+        <Unit id="Core.Layers.Flatten" />
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">32</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">32</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">10</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dropout">
+          <Argument param="rate" type="Double">0.2</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">1</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <NoMapping />
+        <Training />
+        <RegressionEvaluations />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="unlabeled" weight="1" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[3]" intype="Float32" infreq="0" outshape="[1,3]" outtype="Float32">
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[1,3]</Argument>
+          <Argument param="stride" type="Int32">3</Argument>
+          <Argument param="buffer_multiplier" type="Double">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
+    </Model>
+    <Model name="dense-small-balanced-1" id="063ebe38-d5dd-41e7-b2eb-f33dc7a5e2ff">
+      <LossFunction>MeanSquaredError</LossFunction>
+      <Epochs>100</Epochs>
+      <BatchSize>128</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.004</LearningRate>
+        <WeightDecay>0.001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[1,3]" intype="Float32" infreq="0" outshape="[1]" outtype="Float32">
+        <Unit id="Core.Layers.Flatten" />
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">16</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">32</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">10</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dropout">
+          <Argument param="rate" type="Double">0.2</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">1</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <NoMapping />
+        <Training />
+        <RegressionEvaluations />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="unlabeled" weight="1" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[3]" intype="Float32" infreq="0" outshape="[1,3]" outtype="Float32">
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[1,3]</Argument>
+          <Argument param="stride" type="Int32">3</Argument>
+          <Argument param="buffer_multiplier" type="Double">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
+    </Model>
+    <Model name="dense-small-balanced-2" id="6d23905f-bd2b-41e3-b3c1-e2b47e170098">
+      <LossFunction>MeanSquaredError</LossFunction>
+      <Epochs>100</Epochs>
+      <BatchSize>128</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.004</LearningRate>
+        <WeightDecay>0.001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[1,3]" intype="Float32" infreq="0" outshape="[1]" outtype="Float32">
+        <Unit id="Core.Layers.Flatten" />
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">16</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">16</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">10</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dropout">
+          <Argument param="rate" type="Double">0.2</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">1</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <NoMapping />
+        <Training />
+        <RegressionEvaluations />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="unlabeled" weight="1" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[3]" intype="Float32" infreq="0" outshape="[1,3]" outtype="Float32">
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[1,3]</Argument>
+          <Argument param="stride" type="Int32">3</Argument>
+          <Argument param="buffer_multiplier" type="Double">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
+    </Model>
+    <Model name="dense-small-balanced-3" id="686738fa-d793-4ba9-a90e-f2111b255914">
+      <LossFunction>MeanSquaredError</LossFunction>
+      <Epochs>100</Epochs>
+      <BatchSize>128</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.004</LearningRate>
+        <WeightDecay>0.001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[1,3]" intype="Float32" infreq="0" outshape="[1]" outtype="Float32">
+        <Unit id="Core.Layers.Flatten" />
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">32</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">16</Argument>
+          <Argument param="use_bias" type="Boolean">True</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">10</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dropout">
+          <Argument param="rate" type="Double">0.2</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">1</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <NoMapping />
+        <Training />
+        <RegressionEvaluations />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="unlabeled" weight="1" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[3]" intype="Float32" infreq="0" outshape="[1,3]" outtype="Float32">
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[1,3]</Argument>
+          <Argument param="stride" type="Int32">3</Argument>
+          <Argument param="buffer_multiplier" type="Double">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
+    </Model>
+  </Models>
+  <Database balance="AnnotatedLength" redistributionScope="Everything">
+    <SymbolMap>
+      <Symbol name="unlabeled" id="0" weight="1" />
+    </SymbolMap>
+    <DataSet id="unassigned" targetSize="0" labels="Unassigned" />
+    <DataSet id="train" targetSize="0.6970668504472758" labels="Complete">
+      <Session name="dataset002" sessionId="b2a5c168-e00d-4398-a726-60898a4e57f7" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995041379521" start="580" length="570">/Data/processed/4_training_set/dataset002/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset002/dataset002.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995041379521">/Data/processed/4_training_set/dataset002/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset004" sessionId="514c1b9b-d967-4419-8536-e26808b7b480" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995041649509" start="1740" length="570">/Data/processed/4_training_set/dataset004/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset004/dataset004.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995041649509">/Data/processed/4_training_set/dataset004/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset005" sessionId="c170c078-c754-4211-8e86-b21fc6d72a37" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995041759629" start="2320" length="570">/Data/processed/4_training_set/dataset005/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset005/dataset005.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995041759629">/Data/processed/4_training_set/dataset005/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset006" sessionId="24097306-3ef7-474c-88c6-2672b317316f" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995041899790" start="2900" length="570">/Data/processed/4_training_set/dataset006/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset006/dataset006.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995041899790">/Data/processed/4_training_set/dataset006/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset007" sessionId="56d47726-ea27-404c-9c2a-427e2ea61615" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995042031967" start="3480" length="570">/Data/processed/4_training_set/dataset007/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset007/dataset007.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995042031967">/Data/processed/4_training_set/dataset007/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset009" sessionId="6281bd5c-d1aa-4385-be9d-6f3aafeff23e" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995042322031" start="4640" length="570">/Data/processed/4_training_set/dataset009/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset009/dataset009.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995042322031">/Data/processed/4_training_set/dataset009/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset010" sessionId="4998cc63-ff4f-4b3d-8bd8-db14dc3ae24f" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995042492184" start="5220" length="570">/Data/processed/4_training_set/dataset010/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset010/dataset010.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995042492184">/Data/processed/4_training_set/dataset010/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset011" sessionId="5b26ab08-6187-4672-bfcd-6535101bc843" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995042671955" start="5800" length="570">/Data/processed/4_training_set/dataset011/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset011/dataset011.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995042671955">/Data/processed/4_training_set/dataset011/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset012" sessionId="cb36ba7d-fae1-4524-8304-7802d39a6d4e" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995042771904" start="6380" length="570">/Data/processed/4_training_set/dataset012/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset012/dataset012.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995042771904">/Data/processed/4_training_set/dataset012/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset013" sessionId="3dccfc8d-d5dc-4f7f-9661-53c4061f1517" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995042902125" start="6960" length="570">/Data/processed/4_training_set/dataset013/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset013/dataset013.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995042902125">/Data/processed/4_training_set/dataset013/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset016" sessionId="45f5d5f7-802b-4a91-97ad-c7485c23255e" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995043315145" start="8700" length="570">/Data/processed/4_training_set/dataset016/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset016/dataset016.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995043315145">/Data/processed/4_training_set/dataset016/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset017" sessionId="9deb2549-05eb-4410-8a4c-c43d57c1fe52" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995043425168" start="9280" length="570">/Data/processed/4_training_set/dataset017/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset017/dataset017.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995043425168">/Data/processed/4_training_set/dataset017/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset018" sessionId="6b860ffa-da59-4879-848c-b3c61e35c209" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995043705072" start="9860" length="570">/Data/processed/4_training_set/dataset018/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset018/dataset018.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995043705072">/Data/processed/4_training_set/dataset018/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset019" sessionId="34715307-1097-49aa-be97-dc12e679eca9" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995043925280" start="10440" length="570">/Data/processed/4_training_set/dataset019/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset019/dataset019.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995043925280">/Data/processed/4_training_set/dataset019/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset021" sessionId="7e507547-c3c6-492c-a3c9-1b21fc60538d" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995044327187" start="11600" length="570">/Data/processed/4_training_set/dataset021/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset021/dataset021.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995044327187">/Data/processed/4_training_set/dataset021/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset022" sessionId="82a3aa4e-dc16-4331-bce1-11d7dd9cb378" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995044567088" start="12180" length="560">/Data/processed/4_training_set/dataset022/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset022/dataset022.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995044567088">/Data/processed/4_training_set/dataset022/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset023" sessionId="dbea0f30-d5c7-4b11-99f3-a38c4f26bd2e" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995044717109" start="12750" length="560">/Data/processed/4_training_set/dataset023/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset023/dataset023.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995044717109">/Data/processed/4_training_set/dataset023/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset024" sessionId="27e715d0-75d9-4c43-8c43-0c3cd1770c7d" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995044907336" start="13320" length="560">/Data/processed/4_training_set/dataset024/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset024/dataset024.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995044907336">/Data/processed/4_training_set/dataset024/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset025" sessionId="7825a0b6-2370-4e7c-9e07-617bbb0f02c3" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995045092444" start="13890" length="560">/Data/processed/4_training_set/dataset025/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset025/dataset025.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995045092444">/Data/processed/4_training_set/dataset025/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset027" sessionId="ed1ab2bb-70cb-47fb-abc7-5fafd96aa69d" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995045422405" start="280" length="270">/Data/processed/4_training_set/dataset027/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset027/dataset027.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995045422405">/Data/processed/4_training_set/dataset027/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset028" sessionId="d9ab3188-5d13-4466-a032-a16272d1bd7b" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995045562444" start="560" length="270">/Data/processed/4_training_set/dataset028/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset028/dataset028.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995045562444">/Data/processed/4_training_set/dataset028/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset029" sessionId="757b156c-7a30-4e72-b7ab-f8aba2def860" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995045692482" start="840" length="270">/Data/processed/4_training_set/dataset029/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset029/dataset029.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995045692482">/Data/processed/4_training_set/dataset029/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset030" sessionId="356c85b3-84f0-47cd-b337-0dcc7c84dc01" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995045802651" start="1120" length="270">/Data/processed/4_training_set/dataset030/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset030/dataset030.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995045802651">/Data/processed/4_training_set/dataset030/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset033" sessionId="d63f77c3-5715-4477-bfa7-c5581e1f3c7c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995046247923" start="1960" length="270">/Data/processed/4_training_set/dataset033/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset033/dataset033.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995046247923">/Data/processed/4_training_set/dataset033/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset036" sessionId="e8116dfe-5cfa-46b4-a1cd-2fe95ce02bfd" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995046677956" start="2800" length="270">/Data/processed/4_training_set/dataset036/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset036/dataset036.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995046677956">/Data/processed/4_training_set/dataset036/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset039" sessionId="7404d71e-35d2-46ca-a6ac-6c37e1a70b0e" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995047039787" start="3640" length="270">/Data/processed/4_training_set/dataset039/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset039/dataset039.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995047039787">/Data/processed/4_training_set/dataset039/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset040" sessionId="d59157d3-83cd-442a-949d-0fd4c962d59f" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995047189775" start="3920" length="270">/Data/processed/4_training_set/dataset040/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset040/dataset040.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995047189775">/Data/processed/4_training_set/dataset040/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset041" sessionId="8121a0af-c54f-47c5-9629-62de28df0ea8" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995047319795" start="4200" length="270">/Data/processed/4_training_set/dataset041/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset041/dataset041.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995047319795">/Data/processed/4_training_set/dataset041/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset042" sessionId="8f6d5ff2-95e1-4c5f-8413-c9779c3484b4" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995047429934" start="4480" length="270">/Data/processed/4_training_set/dataset042/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset042/dataset042.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995047429934">/Data/processed/4_training_set/dataset042/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset043" sessionId="2bc6b8a9-b432-479f-9b3a-5dedf3775867" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995047549727" start="4760" length="270">/Data/processed/4_training_set/dataset043/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset043/dataset043.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995047549727">/Data/processed/4_training_set/dataset043/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset045" sessionId="d8a0e62f-ae19-4f9f-b269-c67fc2304723" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995047769672" start="5320" length="270">/Data/processed/4_training_set/dataset045/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset045/dataset045.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995047769672">/Data/processed/4_training_set/dataset045/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset046" sessionId="ecce1263-1614-43f6-be0d-5be8766e1810" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995047919773" start="5600" length="270">/Data/processed/4_training_set/dataset046/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset046/dataset046.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995047919773">/Data/processed/4_training_set/dataset046/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset048" sessionId="6e843be7-8982-482c-8dcd-67abcff72d71" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995048175055" start="6160" length="270">/Data/processed/4_training_set/dataset048/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset048/dataset048.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995048175055">/Data/processed/4_training_set/dataset048/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset049" sessionId="4922e748-fd68-4999-824f-e18f5a10c921" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995048315393" start="6440" length="270">/Data/processed/4_training_set/dataset049/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset049/dataset049.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995048315393">/Data/processed/4_training_set/dataset049/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset050" sessionId="20baa3fa-fe98-4902-9c39-855b3dac6242" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995048415187" start="6720" length="270">/Data/processed/4_training_set/dataset050/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset050/dataset050.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995048415187">/Data/processed/4_training_set/dataset050/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset051" sessionId="60623ebf-b3bd-4343-bc2b-62551730f369" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995048605114" start="0" length="5370">/Data/processed/4_training_set/dataset051/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset051/dataset051.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995048605114">/Data/processed/4_training_set/dataset051/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset052" sessionId="6db94251-8218-4755-b86f-7662a08c3cd1" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995048825353" start="5380" length="5370">/Data/processed/4_training_set/dataset052/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset052/dataset052.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995048825353">/Data/processed/4_training_set/dataset052/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset054" sessionId="48c96b32-0c64-4423-9e27-3d9fa5713d28" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995049240498" start="16130" length="5360">/Data/processed/4_training_set/dataset054/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset054/dataset054.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995049240498">/Data/processed/4_training_set/dataset054/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset055" sessionId="c2831449-3db6-45ec-9c88-b8aa4c21536b" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995049450524" start="21500" length="5360">/Data/processed/4_training_set/dataset055/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset055/dataset055.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995049450524">/Data/processed/4_training_set/dataset055/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset056" sessionId="11edef72-a411-4566-89f4-ff73b4b6645e" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995049740573" start="26870" length="5360">/Data/processed/4_training_set/dataset056/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset056/dataset056.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995049740573">/Data/processed/4_training_set/dataset056/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset057" sessionId="4770aca6-752d-4f4e-8178-a78b876e70ce" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995049930726" start="32240" length="5360">/Data/processed/4_training_set/dataset057/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset057/dataset057.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995049930726">/Data/processed/4_training_set/dataset057/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset059" sessionId="88f6b34e-b031-4275-923c-de26f9635a4d" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995050416062" start="42980" length="5360">/Data/processed/4_training_set/dataset059/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset059/dataset059.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995050416062">/Data/processed/4_training_set/dataset059/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset061" sessionId="75b88121-275f-4a65-b898-016b139dba63" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995050886303" start="53720" length="5360">/Data/processed/4_training_set/dataset061/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset061/dataset061.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995050886303">/Data/processed/4_training_set/dataset061/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset062" sessionId="84584012-8254-4fa4-9c3e-f611300f7222" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995051071655" start="59090" length="5360">/Data/processed/4_training_set/dataset062/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset062/dataset062.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995051071655">/Data/processed/4_training_set/dataset062/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset064" sessionId="e3d7c8a2-3834-4d2e-8c62-3d8ba3365839" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995051491725" start="69830" length="5360">/Data/processed/4_training_set/dataset064/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset064/dataset064.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995051491725">/Data/processed/4_training_set/dataset064/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset065" sessionId="825cd5ee-9b38-4512-a827-38550be3505f" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995051701657" start="75200" length="5360">/Data/processed/4_training_set/dataset065/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset065/dataset065.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995051701657">/Data/processed/4_training_set/dataset065/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset066" sessionId="20c1489d-083a-4954-98d4-219225a93f43" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995051911756" start="80570" length="5360">/Data/processed/4_training_set/dataset066/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset066/dataset066.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995051911756">/Data/processed/4_training_set/dataset066/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset068" sessionId="4a1c4e32-843b-4e29-b034-59de699ac1b3" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995052417043" start="91310" length="5360">/Data/processed/4_training_set/dataset068/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset068/dataset068.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995052417043">/Data/processed/4_training_set/dataset068/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset071" sessionId="9ceac896-fdaf-47aa-bdcf-1554f145c210" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995053272583" start="107420" length="5360">/Data/processed/4_training_set/dataset071/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset071/dataset071.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995053272583">/Data/processed/4_training_set/dataset071/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset073" sessionId="165be144-1aab-4993-b0f4-be89dddca667" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995053782623" start="118160" length="5360">/Data/processed/4_training_set/dataset073/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset073/dataset073.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995053782623">/Data/processed/4_training_set/dataset073/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset075" sessionId="fdc288a2-c170-420f-8dd0-2713c5446e92" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995054290661" start="128900" length="5360">/Data/processed/4_training_set/dataset075/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset075/dataset075.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995054290661">/Data/processed/4_training_set/dataset075/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset077" sessionId="e98c233b-4456-43cb-ba50-2e3eca788d95" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995055136080" start="4200" length="4190">/Data/processed/4_training_set/dataset077/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset077/dataset077.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995055136080">/Data/processed/4_training_set/dataset077/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset078" sessionId="a2ac71bf-633c-42c0-8713-7b7640e4697c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995055436088" start="8400" length="4190">/Data/processed/4_training_set/dataset078/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset078/dataset078.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995055436088">/Data/processed/4_training_set/dataset078/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset079" sessionId="26065dcc-5401-4c9c-b103-3334c5878171" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995055766166" start="12600" length="4190">/Data/processed/4_training_set/dataset079/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset079/dataset079.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995055766166">/Data/processed/4_training_set/dataset079/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset080" sessionId="0a839237-bf99-4e97-a0f7-9c68598c2c4c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995055967243" start="16800" length="4190">/Data/processed/4_training_set/dataset080/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset080/dataset080.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995055967243">/Data/processed/4_training_set/dataset080/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset081" sessionId="d4e85352-8695-40f0-aaf9-9f3dfa73696b" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995056157270" start="21000" length="4190">/Data/processed/4_training_set/dataset081/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset081/dataset081.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995056157270">/Data/processed/4_training_set/dataset081/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset082" sessionId="17e0e05f-1e61-4cc5-abee-e3d71efea8fd" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995056357455" start="25200" length="4190">/Data/processed/4_training_set/dataset082/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset082/dataset082.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995056357455">/Data/processed/4_training_set/dataset082/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset083" sessionId="cf458582-bea2-43ab-bd26-61db4537897a" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995056567272" start="29400" length="4190">/Data/processed/4_training_set/dataset083/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset083/dataset083.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995056567272">/Data/processed/4_training_set/dataset083/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset084" sessionId="ebceb67d-bfd6-4bf6-89f6-140b86f7691c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995056727359" start="33600" length="4190">/Data/processed/4_training_set/dataset084/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset084/dataset084.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995056727359">/Data/processed/4_training_set/dataset084/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset087" sessionId="6d5b4309-491d-4de0-8d55-7670effb0d28" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995057482789" start="46180" length="4180">/Data/processed/4_training_set/dataset087/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset087/dataset087.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995057482789">/Data/processed/4_training_set/dataset087/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset089" sessionId="12fd6c1f-ce9f-473a-9f0a-844727c116c0" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995057998222" start="54560" length="4180">/Data/processed/4_training_set/dataset089/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset089/dataset089.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995057998222">/Data/processed/4_training_set/dataset089/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset090" sessionId="4929984d-3cbe-4c8f-a044-6d8c5de40210" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995058348216" start="58750" length="4180">/Data/processed/4_training_set/dataset090/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset090/dataset090.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995058348216">/Data/processed/4_training_set/dataset090/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset091" sessionId="33b8854b-0261-4038-a328-e8b14dac8f1f" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995058568229" start="62940" length="4180">/Data/processed/4_training_set/dataset091/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset091/dataset091.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995058568229">/Data/processed/4_training_set/dataset091/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset092" sessionId="91c6bc50-047d-4694-b923-991933ccab4a" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995058858343" start="67130" length="4180">/Data/processed/4_training_set/dataset092/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset092/dataset092.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995058858343">/Data/processed/4_training_set/dataset092/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset094" sessionId="adf56ed0-536e-4a91-af4c-b07fd58a4099" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995059343569" start="75510" length="4180">/Data/processed/4_training_set/dataset094/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset094/dataset094.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995059343569">/Data/processed/4_training_set/dataset094/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset096" sessionId="1c81bda0-b024-4e93-b16e-f7b5f35824cb" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995059743562" start="83890" length="4180">/Data/processed/4_training_set/dataset096/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset096/dataset096.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995059743562">/Data/processed/4_training_set/dataset096/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset097" sessionId="a69503bf-074a-4ed7-8e5a-a15a0c76dc0d" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995059969184" start="88080" length="4180">/Data/processed/4_training_set/dataset097/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset097/dataset097.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995059969184">/Data/processed/4_training_set/dataset097/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset098" sessionId="77fd767c-99e6-4ae3-b46e-638fb1848f4c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995060299269" start="92270" length="4180">/Data/processed/4_training_set/dataset098/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset098/dataset098.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995060299269">/Data/processed/4_training_set/dataset098/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset099" sessionId="d0a051b9-46b5-405a-bc53-3cd5ccba3aef" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995060509022" start="96460" length="4180">/Data/processed/4_training_set/dataset099/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset099/dataset099.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995060509022">/Data/processed/4_training_set/dataset099/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset100" sessionId="4cddb93b-96be-4bd4-852c-be06b8a2a700" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995060749051" start="100650" length="4180">/Data/processed/4_training_set/dataset100/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset100/dataset100.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995060749051">/Data/processed/4_training_set/dataset100/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+    </DataSet>
+    <DataSet id="validation" targetSize="0.2" labels="Complete">
+      <Session name="dataset001" sessionId="79bf75cd-4803-42ce-b5fd-a261125a7339" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995041259534" start="0" length="570">/Data/processed/4_training_set/dataset001/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset001/dataset001.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995041259534">/Data/processed/4_training_set/dataset001/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset014" sessionId="76491fbf-4d91-4d9f-8f62-82e6a405f901" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995043055023" start="7540" length="570">/Data/processed/4_training_set/dataset014/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset014/dataset014.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995043055023">/Data/processed/4_training_set/dataset014/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset020" sessionId="6f3a5888-389b-4ddb-a801-033e0e9423c9" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995044127035" start="11020" length="570">/Data/processed/4_training_set/dataset020/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset020/dataset020.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995044127035">/Data/processed/4_training_set/dataset020/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset026" sessionId="08d69753-c238-4ad9-9841-29ae81b0e54b" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995045272419" start="0" length="270">/Data/processed/4_training_set/dataset026/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset026/dataset026.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995045272419">/Data/processed/4_training_set/dataset026/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset034" sessionId="184486f8-cc44-4832-96c9-ddcb1d9a64fe" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995046407929" start="2240" length="270">/Data/processed/4_training_set/dataset034/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset034/dataset034.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995046407929">/Data/processed/4_training_set/dataset034/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset035" sessionId="5227377f-e8ef-4db6-afba-c2b4469e9f6a" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995046538018" start="2520" length="270">/Data/processed/4_training_set/dataset035/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset035/dataset035.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995046538018">/Data/processed/4_training_set/dataset035/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset037" sessionId="76cfc02d-67f6-4ccb-b3d2-f7e622bc1150" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995046798110" start="3080" length="270">/Data/processed/4_training_set/dataset037/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset037/dataset037.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995046798110">/Data/processed/4_training_set/dataset037/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset038" sessionId="7eb961da-f1a1-4b21-b0a0-a926ea7a5727" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995046898074" start="3360" length="270">/Data/processed/4_training_set/dataset038/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset038/dataset038.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995046898074">/Data/processed/4_training_set/dataset038/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset047" sessionId="27ab2bff-9c4c-41ef-9d8b-a550377cf5d1" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995048045080" start="5880" length="270">/Data/processed/4_training_set/dataset047/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset047/dataset047.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995048045080">/Data/processed/4_training_set/dataset047/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset053" sessionId="2ebe1cd7-d66e-43ef-a884-fc15bbce0819" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995049040472" start="10760" length="5360">/Data/processed/4_training_set/dataset053/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset053/dataset053.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995049040472">/Data/processed/4_training_set/dataset053/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset058" sessionId="2ebddf06-9bf4-4af6-9e6d-4a0b943fdd80" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995050176098" start="37610" length="5360">/Data/processed/4_training_set/dataset058/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset058/dataset058.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995050176098">/Data/processed/4_training_set/dataset058/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset060" sessionId="94c59fae-ef44-446c-bee1-3ebe8e1f8bf7" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995050666088" start="48350" length="5360">/Data/processed/4_training_set/dataset060/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset060/dataset060.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995050666088">/Data/processed/4_training_set/dataset060/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset063" sessionId="d742f1e4-d2f5-4d0f-9dea-1c12f5ab2166" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995051281742" start="64460" length="5360">/Data/processed/4_training_set/dataset063/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset063/dataset063.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995051281742">/Data/processed/4_training_set/dataset063/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset067" sessionId="a10cd74d-8ffe-49f9-acb8-c03c2f0da4c8" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995052137091" start="85940" length="5360">/Data/processed/4_training_set/dataset067/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset067/dataset067.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995052137091">/Data/processed/4_training_set/dataset067/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset069" sessionId="98cceadc-b6bb-4acf-8df2-ba418bfc752b" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995052707042" start="96680" length="5360">/Data/processed/4_training_set/dataset069/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset069/dataset069.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995052707042">/Data/processed/4_training_set/dataset069/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset074" sessionId="f354f192-9c80-4db2-8bd4-5b7ea2986462" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995054078087" start="123530" length="5360">/Data/processed/4_training_set/dataset074/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset074/dataset074.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995054078087">/Data/processed/4_training_set/dataset074/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset076" sessionId="f34c5ac1-032f-4244-b80f-f4ddb8a0a11e" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995054740676" start="0" length="4190">/Data/processed/4_training_set/dataset076/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset076/dataset076.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995054740676">/Data/processed/4_training_set/dataset076/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset085" sessionId="625c35ca-bc9b-4608-9612-ad389223d8c2" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995056917480" start="37800" length="4180">/Data/processed/4_training_set/dataset085/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset085/dataset085.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995056917480">/Data/processed/4_training_set/dataset085/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset093" sessionId="8ef3458d-c126-435d-9a13-9efd3a315fca" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995059073658" start="71320" length="4180">/Data/processed/4_training_set/dataset093/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset093/dataset093.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995059073658">/Data/processed/4_training_set/dataset093/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+    </DataSet>
+    <DataSet id="test" targetSize="0.10293314955272422" labels="Complete">
+      <Session name="dataset003" sessionId="6d03ac6f-7d41-41a9-89c1-8f3f2746bcd9" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995041520063" start="1160" length="570">/Data/processed/4_training_set/dataset003/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset003/dataset003.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995041520063">/Data/processed/4_training_set/dataset003/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset008" sessionId="d2ec83d0-8d95-4421-9acf-0ab5bbb7d4c9" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995042181963" start="4060" length="570">/Data/processed/4_training_set/dataset008/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset008/dataset008.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995042181963">/Data/processed/4_training_set/dataset008/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset015" sessionId="5c10dd14-43c4-4df2-a4a1-e67dea893d23" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995043195023" start="8120" length="570">/Data/processed/4_training_set/dataset015/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset015/dataset015.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995043195023">/Data/processed/4_training_set/dataset015/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset031" sessionId="744cf984-be82-4d82-8d3f-a56c8293476d" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995045937991" start="1400" length="270">/Data/processed/4_training_set/dataset031/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset031/dataset031.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995045937991">/Data/processed/4_training_set/dataset031/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset032" sessionId="2c619da1-9311-4c58-bba2-e2f0d784eccc" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995046097871" start="1680" length="270">/Data/processed/4_training_set/dataset032/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset032/dataset032.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995046097871">/Data/processed/4_training_set/dataset032/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset044" sessionId="77c6d7ab-162b-487e-9126-e6c0b462160d" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995047669786" start="5040" length="270">/Data/processed/4_training_set/dataset044/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset044/dataset044.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995047669786">/Data/processed/4_training_set/dataset044/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset070" sessionId="0b20f7a9-b3fe-4836-a688-2717a8145d67" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995053022661" start="102050" length="5360">/Data/processed/4_training_set/dataset070/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset070/dataset070.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995053022661">/Data/processed/4_training_set/dataset070/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset072" sessionId="678916d3-ac65-4f10-85a7-0a756d3d6190" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995053582565" start="112790" length="5360">/Data/processed/4_training_set/dataset072/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset072/dataset072.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995053582565">/Data/processed/4_training_set/dataset072/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset086" sessionId="29b6f452-916e-4cd5-9f73-25aeb8f3ee3b" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995057232760" start="41990" length="4180">/Data/processed/4_training_set/dataset086/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset086/dataset086.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995057232760">/Data/processed/4_training_set/dataset086/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset088" sessionId="e0134a7c-ac3a-4432-9344-1355114ce08e" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995057722743" start="50370" length="4180">/Data/processed/4_training_set/dataset088/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset088/dataset088.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995057722743">/Data/processed/4_training_set/dataset088/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+      <Session name="dataset095" sessionId="e892aba5-ab2f-4492-9eb8-8944383aa01b" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[3]" samplerate="0" modified="5250844995059543636" start="79700" length="4180">/Data/processed/4_training_set/dataset095/data.csv</DataFile>
+        <SessionFile>/Data/processed/4_training_set/dataset095/dataset095.imsession</SessionFile>
+        <LabelFile labelshape="[1]" labelsamplerate="0" modified="5250844995059543636">/Data/processed/4_training_set/dataset095/label.csv</LabelFile>
+        <Labels />
+        <CustomColumnValues />
+      </Session>
+    </DataSet>
+  </Database>
+</ImagimobStudio>

@@ -32,7 +32,7 @@ by adding data recorded with that device. You can also use augmentation to mix d
 
 ## Deploying on AURIX TC345
 
-In our developer pages we have a complete guide, including a code example for deploying this starter project on the Infineon TC375 Lite Kit FreeRTOS + Audio Shield Board.
+In our developer pages we have a complete guide, including a code example for deploying this Accelerator project on the Infineon TC375 Lite Kit FreeRTOS + Audio Shield Board.
 Read more at https://developer.imagimob.com/getting-started/infineon-aurix-and-imagimob-studio.
 
 ## Deploying on PSOC and other MCU

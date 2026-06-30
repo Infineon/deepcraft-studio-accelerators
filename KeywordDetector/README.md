@@ -12,7 +12,7 @@ The original dataset can be downloaded from [here](http://download.tensorflow.or
 The dataset differs from the original dataset in that the single wave files are concatenated to longer time series by stitching them together with 0.1 seconds of silence in between 
 to prevent that multiple words are in one input time window of the model. For the transformation, you need to modify the paths in the Python script (locatied at Tools/prepare_dataset.py).
 
-You can add more data by recording with your preferred recorder app of the OS, Deepcraft Studio's [Graph UX](https://developer.imagimob.com/data-preparation/data-collection/collect-data-using-graph-ux) with either your Computer mic or an MCU with [Imagimob Streaming protocol](https://github.com/Infineon/mtb-example-imagimob-streaming-protocol).
+You can add more data by recording with your preferred recorder app of the OS, DEEPCRAFT™ Studio's [Graph UX](https://developer.imagimob.com/data-preparation/data-collection/collect-data-using-graph-ux) with either your Computer mic or an MCU with [Imagimob Streaming protocol](https://github.com/Infineon/mtb-example-imagimob-streaming-protocol).
 
 ## Taking this model to production
 
