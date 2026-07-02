@@ -10,13 +10,13 @@
         <PayloadFile>Live-Labeling.label</PayloadFile>
         <Shape />
       </Track>
-      <Track name="BFE_PreprocessorTrack" type="datacsv" timecoded="TimestampBeginDuration" isLabelTrack="False">
-        <PayloadFile>..\..\PreprocessorTrack\45lateral_1_1_high_3\DPS-Data_BFE_PreprocessorTrack.data</PayloadFile>
-        <Shape />
-      </Track>
       <Track name="dense-medium-accuracy-10" type="datacsv" timecoded="TimestampBeginDuration" isLabelTrack="False">
         <PayloadFile>..\..\Models\dense-medium-accuracy-1\Predictions\sessions\45lateral_1_1_high_3\dense-medium-accuracy-10.data</PayloadFile>
         <Offset unit="seconds">1.4843750000E+000</Offset>
+        <Shape />
+      </Track>
+      <Track name="Preprocessor" type="datacsv" timecoded="TimestampBeginDuration" isLabelTrack="False">
+        <PayloadFile>..\..\PreprocessorTrack\45lateral_1_1_high_3\DPS-Data_Preprocessor.data</PayloadFile>
         <Shape />
       </Track>
     </Tracks>
