@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ImagimobStudio version="0.9">
+  <Timeline id="22ecabb7-c6d2-42b8-9406-2934f4a66d14">
+    <Tracks>
+      <Track name="image" type="imagejpg">
+        <PayloadFile>if_0110.jpg</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="label" type="labelxml">
+        <PayloadFile>if_0110.labelxml</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="yolov5n-legacy-size256-batch16-epoch300_predictions" type="labelxml">
+        <PayloadFile>..\..\..\Models\yolov5n-legacy-size256-batch16-epoch300\Predictions\if_0110\yolov5n-legacy-size256-batch16-epoch300_predictions.labelxml</PayloadFile>
+        <Shape />
+      </Track>
+    </Tracks>
+  </Timeline>
+</ImagimobStudio>
