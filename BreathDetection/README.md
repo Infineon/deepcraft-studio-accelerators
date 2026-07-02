@@ -48,7 +48,6 @@ Do not blow forcefully.
 
 `Units` - Folder where custom layers and pre-processors can be added.
 
-`Units\BFE` - Folder containing a custom preprocessor block designed specifically for this application.
 
 ### Sensor settings specification
 
