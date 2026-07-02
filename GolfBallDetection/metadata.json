@@ -1,0 +1,19 @@
+{
+  "title": "Golf Balls Detection",
+  "description": "Detects golf balls in the image frame.",
+  "long_description": "Detect and count Golf Balls via RGB camera.",
+  "algorithm": "Object Detection",
+  "sensors": ["Camera"],
+  "domain": ["Vision"],
+  "application": ["Consumer Robots"],
+  "use_case": ["Golf Balls Detection", "Object Detection"],
+  "kit": ["PSoC-Edge Evaluation Kit"],
+  "device": ["PSoC-Edge"],
+  "type": ["Model Development"],
+  "workflow": ["ML Development"],
+  "thumbnail_image_id": "vision.png",
+  "main_image_id": "vision.png",
+  "brand_image_id": "deepcraft.webp",
+  "brand_url": "https://www.infineon.com/design-resources/embedded-software/deepcraft-edge-ai-solutions",
+  "links": [{"label": "Download", "url": "https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio", "heading": "Access Project via DEEPCRAFT\u2122 Studio", "sub-heading": "Download and install DEEPCRAFT\u2122 Studio to fully access this project and start developing your Edge AI product"}, {"label": "GitHub", "heading": "Project Repository", "sub-heading": "Get more details about this project", "url": "https://github.com/Infineon/deepcraft-studio-accelerators/tree/main/GolfBallDetectionDemo"}]
+}
