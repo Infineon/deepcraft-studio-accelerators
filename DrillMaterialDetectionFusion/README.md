@@ -1,13 +1,13 @@
-﻿# Drill Material Detection (Sensor Fusion) - DEEPCRAFT Studio Accelerator
+﻿# Drill Material Detection w/ Sensor Fusion
 
 This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
 
-## Use-case description
+## Overview
 
 This Studio Accelerator aims to provide general guidance on developing systems that detect machine operating conditions based on sound and vibration measurements via sensor fusion. 
 While this project monitors a simple hand drill, the same concepts and workflow can be easily applied to any other machine, industrial or consumer. Furthermore, similar techniques and models could be used in other use-cases such as monitoring the condition of an industrial environment based on the microphone and vibration outputs.
 
-This task is set up as a classification project: a type of supervised learning where the model learns to classify data into a discrete number of classes. This project uses three classes: the material the drill is drilling into—wood, plastic, or air (when the drill is idling). 
+This project sets up a classification project: a type of supervised learning where the model learns to classify data into a discrete number of classes. This project uses three classes: the material the drill is drilling into—wood, plastic, or air (when the drill is idling). 
 To build a robust classifier, you need to provide data on the drill drilling each of the three classes of materials.
 
 ### How can I know if this project fits my use case?
@@ -25,7 +25,7 @@ This project demonstrates how to approach classification-based sound and vibrati
 
 - A ready framework for performing sound and vibration classification
 - Preprocessor and data windowing are already set
-- Scripts for data correction
+- Scripts for data collection
 - Already generated model architectures for this task
 
 ## Contents
@@ -41,78 +41,16 @@ This project demonstrates how to approach classification-based sound and vibrati
 
 This Studio Accelerator requires the [PSOC™ Edge E84 AI Evaluation Kit](https://www.infineon.com/evaluation-board/kit-pse84-ai). This platform is equipped with PSOC™ Edge E84, MEMS Microphone and IMU sensors. The board is designed for easy prototyping and lets you collect real-life data to easily build a compelling ML product fast.
 
-The hand drill is optional; you may want to collect data directly from your machinery instead. However, if you want to replicate the project out-of-the-box with a hand drill, any inexpensive product similar to the one shown will be suitable:
+The hand drill is optional; you may want to collect data directly from your machinery instead. However, if you want to replicate the project out-of-the-box with a hand drill, any product similar to the one shown will be suitable. Mount the PSOC™ Edge AI Evaluation Kit equipped with MEMS Microphone and IMU sensors onto a hand drill, with the microphone's pickup section facing the drill bit - see image below.
 
 ![](Resources/imgs/HandDrill.png)
 
-Mount the PSOC™ Edge AI Evaluation Kit equipped with MEMS Microphone and IMU sensors onto a hand drill, with the microphone's pickup section facing the drill bit.
-
-A video of the demo application can be found [here](https://www.youtube.com/watch?v=tCRPoyPbcgA).
-
-## Collecting and expanding the dataset
-
-To add more data, you need to flash and configure the [PSOC™ Edge MCU: Machine Learning - DEEPCRAFT™ data collection (DEEPCRAFT™ streaming protocol v2) firmware](https://github.com/Infineon/mtb-example-psoc-edge-ml-deepcraft-data-collection/blob/master/README.md) on your AI Kit.
-Follow the instructions in the [README.md](https://github.com/Infineon/mtb-example-psoc-edge-ml-deepcraft-data-collection/blob/master/README.md) file of the ModusToolbox project to correctly configure and flash the board.
-
-After writing the firmware, verify that the “Firmware Debug Console” appears in the UART terminal. Then, connect the USB cable to a different connector than the one used when writing the firmware to the PSOC™ Edge AI Kit.
-
-![](Resources/imgs/COM_Console.png)
-
-![](Resources/imgs/ai_kit_usb.png)
-
-For starting data collection, navigate to the `Tools` folder and double-click the `Main.imunit` file. Follow the README there.
+## Collection of Data
+Details on Data Collection and Preprocessing Generation can be found in the README of Tools/DataCollection
 
 
-### Data format modification
-Data collected by GraphUX is saved in the format of “preprocessed data” that is input into the learning model.
-However, when collecting data from multiple sensors (Sensor Fusion), the saved data includes a “Length” column, which must be removed before inputting it into the learning model.
-To remove the “Length” column, use the Python script `RemoveLength.py` stored in the Tools folder.
-This script searches the directory specified by `<directory>`. 
-If it finds files matching `<filename_pattern>` that contain a “Length” column, it removes it and saves the file back with the original filename. 
 
-**Note**: Since files are overwritten, it is recommended to back them up before running the script.
-
-```shell-session
-$ RemoveLength.py <directory> <filename_pattern>
-```
-
-## Overview of Preprocessing and Learning model
-### Data Preprocessing Overview
-![](Resources/imgs/preprocessor_changes.png)
-
-This graph shows the preprocessing applied to MEMS microphone and IMU data during model training and inference, converting it into a format suitable for model input.
-
-MEMS Microphone data is sampled at 16 kHz. Preprocessing involves passing frequencies between 1 kHz and 8 kHz through a BPF in the Mel Spectrogram node, then converting the data into a 40-element first-order tensor using a Mel Filter Band, and finally scaling it by a factor of 20 in the Scale node.
-The BPF cuts frequencies below 1 kHz because the spectral differences between drilling into wood and plastic are most pronounced between 1 kHz and 8 kHz.
-
-![](Resources/imgs/wood_plastic_spectrum.png)
-
-IMU data is sampled at 100Hz. Preprocessing involves converting the data from a 2×3 second-order tensor to a first-order tensor with 6 elements using the Reshape node, followed by saturation processing between -40 and 40 using the Clip node. This is done to saturate data variations caused by movement, since the acceleration and angular velocity of the drill itself during movement are significantly larger than the vibrations of the drill during drilling. Next, the Add Constant node adds 40 to offset the data range between 0 and 80.
-
-The preprocessed MEMS microphone and IMU data are combined in the Concatenate node and stored in the output data track node.
-
-### Generation of Preprocessing Code for MEMS Microphones
-
-**1. Click the “Generate Source Code” button to the right of the “Start” button on the toolbar.**
-
-**2. The “Generate Source Code” dialog will appear. Configure it as follows.**
-
-![](Resources/imgs/PreprocessorMic.png)
-
-**3. Click “OK”.**
-
-### Generation of Preprocessing Code for IMU
-
-**1. Click the “Generate Source Code” button to the right of the “Start” button on the toolbar.**
-
-**2. The “Generate Source Code” dialog will appear. Configure it as follows.**
-
-![](Resources/imgs/PreprocessorIMU.png)
-
-**3. Click “OK”.**
-
-
-## Recommended path to production
+## Steps to Production
 
 To bring this project to a production-level system, follow these general steps:
 
