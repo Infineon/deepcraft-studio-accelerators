@@ -37,15 +37,15 @@
         <PackageNoData url="https://api.imagimob.com/v1/Data/Object/SirenDetection-08dad6c-5.12.5078.65534.no-data.zip" size="85488909"/>
       </Dialog>
     </Template>
-    <Template training="true">
+    <Template>
       <DisplayName>Fall Detection (Belt-mounted)</DisplayName>
       <Description>Detect if the user has fallen. It's intended to be placed on a belt or waist.</Description>
       <DisplayPath>/Studio Accelerators/Classification/IMU &amp; Vibration</DisplayPath>
       <LicenseTags/>
-      <Dialog view="/Modules/ProjectTemplatesModule/GenericProject/GenericProjectDialog">
+      <Dialog>
         <DefaultProjectName>FallDetection</DefaultProjectName>
-        <Package url="https://api.imagimob.com/v1/Data/Object/FallDetection-aac6f8c-5.12.5226.65534.zip" size="885427595"/>
-        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/FallDetection-aac6f8c-5.12.5226.65534.no-data.zip" size="14135245"/>
+        <Package url="https://api.imagimob.com/v1/Data/Object/FallDetection-cc1a46e-5.14.5736.65534.zip" size="885507895"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/FallDetection-cc1a46e-5.14.5736.65534.no-data.zip" size="15505378"/>
       </Dialog>
     </Template>
     <Template>
