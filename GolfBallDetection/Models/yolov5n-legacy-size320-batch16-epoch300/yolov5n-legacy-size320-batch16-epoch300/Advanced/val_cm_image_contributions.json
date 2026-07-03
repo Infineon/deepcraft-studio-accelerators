@@ -1,0 +1,2946 @@
+{
+  "task": "detect",
+  "num_classes": 1,
+  "contributions": {
+    "class_1_pred_vs_golfball_true": {
+      "predicted_class": 1,
+      "true_class": 0,
+      "predicted_class_name": "class_1",
+      "true_class_name": "golfball",
+      "count": 21,
+      "images": [
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/00114337b89792cc_jpg.rf.024db9207ee79ed27b7b8b0a9edb2102/00114337b89792cc_jpg.rf.024db9207ee79ed27b7b8b0a9edb2102.jpg",
+          "session_id": "ac62516b-de2f-4fad-8655-f1548cd70d8c",
+          "session_name": "00114337b89792cc_jpg.rf.024db9207ee79ed27b7b8b0a9edb2102",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_55_47_Pro-4-_jpg.rf.d96f4f05153ea29eeb2cf8dfccd6a65d/WIN_20220310_16_55_47_Pro-4-_jpg.rf.d96f4f05153ea29eeb2cf8dfccd6a65d.jpg",
+          "session_id": "cb987a6c-28f4-41fa-a82e-97301aabb6eb",
+          "session_name": "WIN_20220310_16_55_47_Pro-4-_jpg.rf.d96f4f05153ea29eeb2cf8dfccd6a65d",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_55_49_Pro-2-_jpg.rf.308dbf43206f3d1b4a70b5554538d2ec/WIN_20220310_16_55_49_Pro-2-_jpg.rf.308dbf43206f3d1b4a70b5554538d2ec.jpg",
+          "session_id": "61c7ff8b-d95c-4758-bebd-a7402f77531f",
+          "session_name": "WIN_20220310_16_55_49_Pro-2-_jpg.rf.308dbf43206f3d1b4a70b5554538d2ec",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_889_JPEG_jpg.rf.bba2508f33ca4a0c5f29fbde97e485e4/n03445777_889_JPEG_jpg.rf.bba2508f33ca4a0c5f29fbde97e485e4.jpg",
+          "session_id": "1898265e-810a-48cf-9b74-a323964b1deb",
+          "session_name": "n03445777_889_JPEG_jpg.rf.bba2508f33ca4a0c5f29fbde97e485e4",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/f2c103de09f9cdce_jpg.rf.f4fef1646f49b3a067c6a82d90c0317e/f2c103de09f9cdce_jpg.rf.f4fef1646f49b3a067c6a82d90c0317e.jpg",
+          "session_id": "af790c05-b066-4e10-a2ef-1a83d7cbb904",
+          "session_name": "f2c103de09f9cdce_jpg.rf.f4fef1646f49b3a067c6a82d90c0317e",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/f7315220d2903d21_jpg.rf.51eaf3184fea7897670d5fc374500edd/f7315220d2903d21_jpg.rf.51eaf3184fea7897670d5fc374500edd.jpg",
+          "session_id": "eb85f6d5-fe36-4804-b997-e3ad452ebd2d",
+          "session_name": "f7315220d2903d21_jpg.rf.51eaf3184fea7897670d5fc374500edd",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/20210921_141309_jpg.rf.9eb018fc4dc0329a89529285a3191fd0/20210921_141309_jpg.rf.9eb018fc4dc0329a89529285a3191fd0.jpg",
+          "session_id": "61d83b6b-407f-499e-a4e8-196c5356ad43",
+          "session_name": "20210921_141309_jpg.rf.9eb018fc4dc0329a89529285a3191fd0",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/20210921_141315_jpg.rf.2dbf1e7a61ca189bc081b4659ce665ce/20210921_141315_jpg.rf.2dbf1e7a61ca189bc081b4659ce665ce.jpg",
+          "session_id": "4550d737-1265-4794-8b43-0ff37e35d467",
+          "session_name": "20210921_141315_jpg.rf.2dbf1e7a61ca189bc081b4659ce665ce",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/2f147f1f7bc4f434_jpg.rf.20392a5d504e39b9e8f7ffd1d8b5c61b/2f147f1f7bc4f434_jpg.rf.20392a5d504e39b9e8f7ffd1d8b5c61b.jpg",
+          "session_id": "efa1da01-d53c-46a9-a2a0-8814c5c55c8c",
+          "session_name": "2f147f1f7bc4f434_jpg.rf.20392a5d504e39b9e8f7ffd1d8b5c61b",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/05ef5bd6ffb4c0c7_jpg.rf.384ca72155241c0902836db5fb1a448b/05ef5bd6ffb4c0c7_jpg.rf.384ca72155241c0902836db5fb1a448b.jpg",
+          "session_id": "15ee3bbb-c8be-4473-a195-22864292a16f",
+          "session_name": "05ef5bd6ffb4c0c7_jpg.rf.384ca72155241c0902836db5fb1a448b",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/05ef5bd6ffb4c0c7_jpg.rf.384ca72155241c0902836db5fb1a448b/05ef5bd6ffb4c0c7_jpg.rf.384ca72155241c0902836db5fb1a448b.jpg",
+          "session_id": "15ee3bbb-c8be-4473-a195-22864292a16f",
+          "session_name": "05ef5bd6ffb4c0c7_jpg.rf.384ca72155241c0902836db5fb1a448b",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/0e387d267834ec5e_jpg.rf.266cbd0baff9f7f90bb3b7abf9d84317/0e387d267834ec5e_jpg.rf.266cbd0baff9f7f90bb3b7abf9d84317.jpg",
+          "session_id": "d10192b2-a42b-486a-8314-c15e31ed5f10",
+          "session_name": "0e387d267834ec5e_jpg.rf.266cbd0baff9f7f90bb3b7abf9d84317",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/0feec1ab859dad0a_jpg.rf.6373749f7fafa9290fa57112c254e935/0feec1ab859dad0a_jpg.rf.6373749f7fafa9290fa57112c254e935.jpg",
+          "session_id": "1e8d1b57-83ab-4628-b3e0-d1b9c08a8c4a",
+          "session_name": "0feec1ab859dad0a_jpg.rf.6373749f7fafa9290fa57112c254e935",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/10ca92ce07a49d8e_jpg.rf.76e4b80bb31f5b4de9288a44775ecdfc/10ca92ce07a49d8e_jpg.rf.76e4b80bb31f5b4de9288a44775ecdfc.jpg",
+          "session_id": "d24af33f-c0f4-42d3-a83c-301c9e023740",
+          "session_name": "10ca92ce07a49d8e_jpg.rf.76e4b80bb31f5b4de9288a44775ecdfc",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/ILSVRC2012_val_00046468_JPEG_jpg.rf.b089da24b39a9e5d6c0fbdc3b9f1aa27/ILSVRC2012_val_00046468_JPEG_jpg.rf.b089da24b39a9e5d6c0fbdc3b9f1aa27.jpg",
+          "session_id": "16f077da-cbc6-4aea-ab4e-45df84540ee5",
+          "session_name": "ILSVRC2012_val_00046468_JPEG_jpg.rf.b089da24b39a9e5d6c0fbdc3b9f1aa27",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/B75_jpg.rf.b779a93e4ba3815582c529ece885a96a/B75_jpg.rf.b779a93e4ba3815582c529ece885a96a.jpg",
+          "session_id": "e557dcc6-d719-41fa-b56b-f96bb2450ff8",
+          "session_name": "B75_jpg.rf.b779a93e4ba3815582c529ece885a96a",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/B75_jpg.rf.b779a93e4ba3815582c529ece885a96a/B75_jpg.rf.b779a93e4ba3815582c529ece885a96a.jpg",
+          "session_id": "e557dcc6-d719-41fa-b56b-f96bb2450ff8",
+          "session_name": "B75_jpg.rf.b779a93e4ba3815582c529ece885a96a",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/B75_jpg.rf.b779a93e4ba3815582c529ece885a96a/B75_jpg.rf.b779a93e4ba3815582c529ece885a96a.jpg",
+          "session_id": "e557dcc6-d719-41fa-b56b-f96bb2450ff8",
+          "session_name": "B75_jpg.rf.b779a93e4ba3815582c529ece885a96a",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/5f05f789171b3688_jpg.rf.bc106ab7b6f8e43ee3f406a2bab27d0f/5f05f789171b3688_jpg.rf.bc106ab7b6f8e43ee3f406a2bab27d0f.jpg",
+          "session_id": "8368bd7d-0303-476d-945d-5bc9555810d7",
+          "session_name": "5f05f789171b3688_jpg.rf.bc106ab7b6f8e43ee3f406a2bab27d0f",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/9ec11fda9998c879_jpg.rf.3e2d4dc57671de412b52970d132e9f51/9ec11fda9998c879_jpg.rf.3e2d4dc57671de412b52970d132e9f51.jpg",
+          "session_id": "2fb83c01-ef83-4937-a33c-ea1cac6e3a2c",
+          "session_name": "9ec11fda9998c879_jpg.rf.3e2d4dc57671de412b52970d132e9f51",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/9ec11fda9998c879_jpg.rf.3e2d4dc57671de412b52970d132e9f51/9ec11fda9998c879_jpg.rf.3e2d4dc57671de412b52970d132e9f51.jpg",
+          "session_id": "2fb83c01-ef83-4937-a33c-ea1cac6e3a2c",
+          "session_name": "9ec11fda9998c879_jpg.rf.3e2d4dc57671de412b52970d132e9f51",
+          "dataset": "validation"
+        }
+      ],
+      "unique_image_count": 17
+    },
+    "golfball_pred_vs_golfball_true": {
+      "predicted_class": 0,
+      "true_class": 0,
+      "predicted_class_name": "golfball",
+      "true_class_name": "golfball",
+      "count": 354,
+      "images": [
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220322_09_26_17_Pro_jpg.rf.19bfb3c3132ab013aa781342a3d572e8/WIN_20220322_09_26_17_Pro_jpg.rf.19bfb3c3132ab013aa781342a3d572e8.jpg",
+          "session_id": "254cb290-ff56-4848-9f9f-a5a90a236516",
+          "session_name": "WIN_20220322_09_26_17_Pro_jpg.rf.19bfb3c3132ab013aa781342a3d572e8",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220322_09_26_23_Pro_jpg.rf.2111c6b151a244b988359ea3130c553a/WIN_20220322_09_26_23_Pro_jpg.rf.2111c6b151a244b988359ea3130c553a.jpg",
+          "session_id": "260ac0b4-b739-4e73-bbc8-adceb85e16f5",
+          "session_name": "WIN_20220322_09_26_23_Pro_jpg.rf.2111c6b151a244b988359ea3130c553a",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220322_09_26_31_Pro-2-_jpg.rf.dbb4dbbc3894dd932ee3823c447889f1/WIN_20220322_09_26_31_Pro-2-_jpg.rf.dbb4dbbc3894dd932ee3823c447889f1.jpg",
+          "session_id": "737804ca-2bbf-4fa2-870f-10845cab1650",
+          "session_name": "WIN_20220322_09_26_31_Pro-2-_jpg.rf.dbb4dbbc3894dd932ee3823c447889f1",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220322_09_26_48_Pro_jpg.rf.0cfc616bbe83573f0a56960cec0e30f0/WIN_20220322_09_26_48_Pro_jpg.rf.0cfc616bbe83573f0a56960cec0e30f0.jpg",
+          "session_id": "ec2c96ec-ed66-432c-a16b-a6f7bf18ae6e",
+          "session_name": "WIN_20220322_09_26_48_Pro_jpg.rf.0cfc616bbe83573f0a56960cec0e30f0",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220322_09_26_53_Pro_jpg.rf.527284cef767c650bb1cd902f0023fd6/WIN_20220322_09_26_53_Pro_jpg.rf.527284cef767c650bb1cd902f0023fd6.jpg",
+          "session_id": "b98be4a9-126d-4cf2-8363-1fdea126c14a",
+          "session_name": "WIN_20220322_09_26_53_Pro_jpg.rf.527284cef767c650bb1cd902f0023fd6",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220322_09_27_12_Pro_jpg.rf.47a7b1bc0387f805378d9d997bcbb85c/WIN_20220322_09_27_12_Pro_jpg.rf.47a7b1bc0387f805378d9d997bcbb85c.jpg",
+          "session_id": "71ba1257-633e-4f46-8b66-134f8fc61d8c",
+          "session_name": "WIN_20220322_09_27_12_Pro_jpg.rf.47a7b1bc0387f805378d9d997bcbb85c",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220322_09_27_19_Pro_jpg.rf.3d94b7cecc856defd404b8e1447bab79/WIN_20220322_09_27_19_Pro_jpg.rf.3d94b7cecc856defd404b8e1447bab79.jpg",
+          "session_id": "abc227e1-101f-4523-80be-d1e6a6883170",
+          "session_name": "WIN_20220322_09_27_19_Pro_jpg.rf.3d94b7cecc856defd404b8e1447bab79",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220322_09_27_20_Pro_jpg.rf.4eccb943002576b9a1623488a82269c9/WIN_20220322_09_27_20_Pro_jpg.rf.4eccb943002576b9a1623488a82269c9.jpg",
+          "session_id": "aff9df03-afc9-4b8d-8717-003f3a5a1949",
+          "session_name": "WIN_20220322_09_27_20_Pro_jpg.rf.4eccb943002576b9a1623488a82269c9",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220506_17_08_59_Pro_jpg.rf.9f77e6eb8f17e1a9d9458296e084399c/WIN_20220506_17_08_59_Pro_jpg.rf.9f77e6eb8f17e1a9d9458296e084399c.jpg",
+          "session_id": "6ed6b139-b0e1-4b68-adc3-41e26658cbb9",
+          "session_name": "WIN_20220506_17_08_59_Pro_jpg.rf.9f77e6eb8f17e1a9d9458296e084399c",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220506_17_09_00_Pro_jpg.rf.d94ffeed562b08d522480881099a193d/WIN_20220506_17_09_00_Pro_jpg.rf.d94ffeed562b08d522480881099a193d.jpg",
+          "session_id": "9d7c17b1-08ed-40a2-a4f3-0dc80c01c5e8",
+          "session_name": "WIN_20220506_17_09_00_Pro_jpg.rf.d94ffeed562b08d522480881099a193d",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220506_17_09_30_Pro_jpg.rf.cd9485465e04b4c716bcc129399cc720/WIN_20220506_17_09_30_Pro_jpg.rf.cd9485465e04b4c716bcc129399cc720.jpg",
+          "session_id": "40ad7196-5ed0-43de-aa9e-5bb31fae8993",
+          "session_name": "WIN_20220506_17_09_30_Pro_jpg.rf.cd9485465e04b4c716bcc129399cc720",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220506_17_09_34_Pro_jpg.rf.5bb377a19a612ec8715e4af9d1aa0de8/WIN_20220506_17_09_34_Pro_jpg.rf.5bb377a19a612ec8715e4af9d1aa0de8.jpg",
+          "session_id": "bc62aeb3-5bc6-487a-a7bb-57aaf8b8a476",
+          "session_name": "WIN_20220506_17_09_34_Pro_jpg.rf.5bb377a19a612ec8715e4af9d1aa0de8",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220506_17_09_36_Pro-2-_jpg.rf.813490df9f680548c489cbd2ecf13c0e/WIN_20220506_17_09_36_Pro-2-_jpg.rf.813490df9f680548c489cbd2ecf13c0e.jpg",
+          "session_id": "038177f3-5299-4877-837c-93c9d66e0044",
+          "session_name": "WIN_20220506_17_09_36_Pro-2-_jpg.rf.813490df9f680548c489cbd2ecf13c0e",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220506_17_09_57_Pro_jpg.rf.3ad840fdc34afcc102c0dd7acacce752/WIN_20220506_17_09_57_Pro_jpg.rf.3ad840fdc34afcc102c0dd7acacce752.jpg",
+          "session_id": "d57f311a-6489-4946-b553-1b121fdcad53",
+          "session_name": "WIN_20220506_17_09_57_Pro_jpg.rf.3ad840fdc34afcc102c0dd7acacce752",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220506_17_09_57_Pro_jpg.rf.3ad840fdc34afcc102c0dd7acacce752/WIN_20220506_17_09_57_Pro_jpg.rf.3ad840fdc34afcc102c0dd7acacce752.jpg",
+          "session_id": "d57f311a-6489-4946-b553-1b121fdcad53",
+          "session_name": "WIN_20220506_17_09_57_Pro_jpg.rf.3ad840fdc34afcc102c0dd7acacce752",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220506_17_10_02_Pro_jpg.rf.367b05e989225cbb7509147eef8f5279/WIN_20220506_17_10_02_Pro_jpg.rf.367b05e989225cbb7509147eef8f5279.jpg",
+          "session_id": "401c7b89-5a48-40e7-b319-2a73e954e98c",
+          "session_name": "WIN_20220506_17_10_02_Pro_jpg.rf.367b05e989225cbb7509147eef8f5279",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220506_17_10_02_Pro_jpg.rf.367b05e989225cbb7509147eef8f5279/WIN_20220506_17_10_02_Pro_jpg.rf.367b05e989225cbb7509147eef8f5279.jpg",
+          "session_id": "401c7b89-5a48-40e7-b319-2a73e954e98c",
+          "session_name": "WIN_20220506_17_10_02_Pro_jpg.rf.367b05e989225cbb7509147eef8f5279",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220506_17_10_43_Pro_jpg.rf.ce7426f9c86a803c3752a030f9fe0c74/WIN_20220506_17_10_43_Pro_jpg.rf.ce7426f9c86a803c3752a030f9fe0c74.jpg",
+          "session_id": "06ef1dc9-8b81-4b48-9692-8453816e9b89",
+          "session_name": "WIN_20220506_17_10_43_Pro_jpg.rf.ce7426f9c86a803c3752a030f9fe0c74",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220506_17_10_43_Pro_jpg.rf.ce7426f9c86a803c3752a030f9fe0c74/WIN_20220506_17_10_43_Pro_jpg.rf.ce7426f9c86a803c3752a030f9fe0c74.jpg",
+          "session_id": "06ef1dc9-8b81-4b48-9692-8453816e9b89",
+          "session_name": "WIN_20220506_17_10_43_Pro_jpg.rf.ce7426f9c86a803c3752a030f9fe0c74",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220506_17_11_01_Pro_jpg.rf.67dc2c8330647d07d267783d72e41de3/WIN_20220506_17_11_01_Pro_jpg.rf.67dc2c8330647d07d267783d72e41de3.jpg",
+          "session_id": "5ba4e3b4-208f-4031-825b-e97c59998685",
+          "session_name": "WIN_20220506_17_11_01_Pro_jpg.rf.67dc2c8330647d07d267783d72e41de3",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220506_17_11_01_Pro_jpg.rf.67dc2c8330647d07d267783d72e41de3/WIN_20220506_17_11_01_Pro_jpg.rf.67dc2c8330647d07d267783d72e41de3.jpg",
+          "session_id": "5ba4e3b4-208f-4031-825b-e97c59998685",
+          "session_name": "WIN_20220506_17_11_01_Pro_jpg.rf.67dc2c8330647d07d267783d72e41de3",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220506_17_11_11_Pro_jpg.rf.b02a65aa4307de1b30f70a8545a2eb25/WIN_20220506_17_11_11_Pro_jpg.rf.b02a65aa4307de1b30f70a8545a2eb25.jpg",
+          "session_id": "435d5102-a3f3-48f6-bc17-ccb6a43909ff",
+          "session_name": "WIN_20220506_17_11_11_Pro_jpg.rf.b02a65aa4307de1b30f70a8545a2eb25",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220506_17_11_11_Pro_jpg.rf.b02a65aa4307de1b30f70a8545a2eb25/WIN_20220506_17_11_11_Pro_jpg.rf.b02a65aa4307de1b30f70a8545a2eb25.jpg",
+          "session_id": "435d5102-a3f3-48f6-bc17-ccb6a43909ff",
+          "session_name": "WIN_20220506_17_11_11_Pro_jpg.rf.b02a65aa4307de1b30f70a8545a2eb25",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220506_17_11_16_Pro_jpg.rf.b70011cf9946c059c44f1a80baf07b68/WIN_20220506_17_11_16_Pro_jpg.rf.b70011cf9946c059c44f1a80baf07b68.jpg",
+          "session_id": "bfc477f1-a75b-4ee7-ac10-e6d4d6689550",
+          "session_name": "WIN_20220506_17_11_16_Pro_jpg.rf.b70011cf9946c059c44f1a80baf07b68",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220506_17_11_16_Pro_jpg.rf.b70011cf9946c059c44f1a80baf07b68/WIN_20220506_17_11_16_Pro_jpg.rf.b70011cf9946c059c44f1a80baf07b68.jpg",
+          "session_id": "bfc477f1-a75b-4ee7-ac10-e6d4d6689550",
+          "session_name": "WIN_20220506_17_11_16_Pro_jpg.rf.b70011cf9946c059c44f1a80baf07b68",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220506_17_11_22_Pro_jpg.rf.d81756af20b5f6e8fdf02b6294b93338/WIN_20220506_17_11_22_Pro_jpg.rf.d81756af20b5f6e8fdf02b6294b93338.jpg",
+          "session_id": "481453b1-481c-4908-872e-f42e7739e3db",
+          "session_name": "WIN_20220506_17_11_22_Pro_jpg.rf.d81756af20b5f6e8fdf02b6294b93338",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220506_17_11_22_Pro_jpg.rf.d81756af20b5f6e8fdf02b6294b93338/WIN_20220506_17_11_22_Pro_jpg.rf.d81756af20b5f6e8fdf02b6294b93338.jpg",
+          "session_id": "481453b1-481c-4908-872e-f42e7739e3db",
+          "session_name": "WIN_20220506_17_11_22_Pro_jpg.rf.d81756af20b5f6e8fdf02b6294b93338",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/a72cea078a19ad56_jpg.rf.571b22f71843b338d5c5bfe4c3b4d95c/a72cea078a19ad56_jpg.rf.571b22f71843b338d5c5bfe4c3b4d95c.jpg",
+          "session_id": "d05d3ad7-7c63-4f13-ba30-8f1ae127eafd",
+          "session_name": "a72cea078a19ad56_jpg.rf.571b22f71843b338d5c5bfe4c3b4d95c",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220322_09_25_58_Pro-2-_jpg.rf.3bf5b68862fda5b3a707926ff0fa573d/WIN_20220322_09_25_58_Pro-2-_jpg.rf.3bf5b68862fda5b3a707926ff0fa573d.jpg",
+          "session_id": "11582dae-18b8-41f9-9ce4-7be7e4adf81c",
+          "session_name": "WIN_20220322_09_25_58_Pro-2-_jpg.rf.3bf5b68862fda5b3a707926ff0fa573d",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220322_09_25_57_Pro_jpg.rf.33767893e802a64715425a88fbab3a85/WIN_20220322_09_25_57_Pro_jpg.rf.33767893e802a64715425a88fbab3a85.jpg",
+          "session_id": "99225a84-936f-4a99-8a8c-9c21044a51ee",
+          "session_name": "WIN_20220322_09_25_57_Pro_jpg.rf.33767893e802a64715425a88fbab3a85",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220322_09_25_55_Pro_jpg.rf.45e04248c6a34360c1c871bef8793c50/WIN_20220322_09_25_55_Pro_jpg.rf.45e04248c6a34360c1c871bef8793c50.jpg",
+          "session_id": "b2b4871f-fb77-4176-bcaf-bbace94b1de5",
+          "session_name": "WIN_20220322_09_25_55_Pro_jpg.rf.45e04248c6a34360c1c871bef8793c50",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220322_09_25_42_Pro_jpg.rf.027007a7d4df510055e33dc67b655e54/WIN_20220322_09_25_42_Pro_jpg.rf.027007a7d4df510055e33dc67b655e54.jpg",
+          "session_id": "f1b3e1ca-bf79-406e-aeb7-bddc432de243",
+          "session_name": "WIN_20220322_09_25_42_Pro_jpg.rf.027007a7d4df510055e33dc67b655e54",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_55_47_Pro-4-_jpg.rf.d96f4f05153ea29eeb2cf8dfccd6a65d/WIN_20220310_16_55_47_Pro-4-_jpg.rf.d96f4f05153ea29eeb2cf8dfccd6a65d.jpg",
+          "session_id": "cb987a6c-28f4-41fa-a82e-97301aabb6eb",
+          "session_name": "WIN_20220310_16_55_47_Pro-4-_jpg.rf.d96f4f05153ea29eeb2cf8dfccd6a65d",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_55_47_Pro-4-_jpg.rf.d96f4f05153ea29eeb2cf8dfccd6a65d/WIN_20220310_16_55_47_Pro-4-_jpg.rf.d96f4f05153ea29eeb2cf8dfccd6a65d.jpg",
+          "session_id": "cb987a6c-28f4-41fa-a82e-97301aabb6eb",
+          "session_name": "WIN_20220310_16_55_47_Pro-4-_jpg.rf.d96f4f05153ea29eeb2cf8dfccd6a65d",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_55_49_Pro-2-_jpg.rf.308dbf43206f3d1b4a70b5554538d2ec/WIN_20220310_16_55_49_Pro-2-_jpg.rf.308dbf43206f3d1b4a70b5554538d2ec.jpg",
+          "session_id": "61c7ff8b-d95c-4758-bebd-a7402f77531f",
+          "session_name": "WIN_20220310_16_55_49_Pro-2-_jpg.rf.308dbf43206f3d1b4a70b5554538d2ec",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_55_49_Pro-2-_jpg.rf.308dbf43206f3d1b4a70b5554538d2ec/WIN_20220310_16_55_49_Pro-2-_jpg.rf.308dbf43206f3d1b4a70b5554538d2ec.jpg",
+          "session_id": "61c7ff8b-d95c-4758-bebd-a7402f77531f",
+          "session_name": "WIN_20220310_16_55_49_Pro-2-_jpg.rf.308dbf43206f3d1b4a70b5554538d2ec",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_55_50_Pro_jpg.rf.0a3aa8f33b63a8d096852595bd32c2f0/WIN_20220310_16_55_50_Pro_jpg.rf.0a3aa8f33b63a8d096852595bd32c2f0.jpg",
+          "session_id": "8694c841-610c-4295-adca-be0e48b7b397",
+          "session_name": "WIN_20220310_16_55_50_Pro_jpg.rf.0a3aa8f33b63a8d096852595bd32c2f0",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_55_50_Pro_jpg.rf.0a3aa8f33b63a8d096852595bd32c2f0/WIN_20220310_16_55_50_Pro_jpg.rf.0a3aa8f33b63a8d096852595bd32c2f0.jpg",
+          "session_id": "8694c841-610c-4295-adca-be0e48b7b397",
+          "session_name": "WIN_20220310_16_55_50_Pro_jpg.rf.0a3aa8f33b63a8d096852595bd32c2f0",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_55_50_Pro_jpg.rf.0a3aa8f33b63a8d096852595bd32c2f0/WIN_20220310_16_55_50_Pro_jpg.rf.0a3aa8f33b63a8d096852595bd32c2f0.jpg",
+          "session_id": "8694c841-610c-4295-adca-be0e48b7b397",
+          "session_name": "WIN_20220310_16_55_50_Pro_jpg.rf.0a3aa8f33b63a8d096852595bd32c2f0",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_55_52_Pro-4-_jpg.rf.754d7c7479decc214192184144cf265c/WIN_20220310_16_55_52_Pro-4-_jpg.rf.754d7c7479decc214192184144cf265c.jpg",
+          "session_id": "1cde6caa-e94b-409b-a346-f33caff1d01a",
+          "session_name": "WIN_20220310_16_55_52_Pro-4-_jpg.rf.754d7c7479decc214192184144cf265c",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_55_52_Pro-4-_jpg.rf.754d7c7479decc214192184144cf265c/WIN_20220310_16_55_52_Pro-4-_jpg.rf.754d7c7479decc214192184144cf265c.jpg",
+          "session_id": "1cde6caa-e94b-409b-a346-f33caff1d01a",
+          "session_name": "WIN_20220310_16_55_52_Pro-4-_jpg.rf.754d7c7479decc214192184144cf265c",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_55_52_Pro-4-_jpg.rf.754d7c7479decc214192184144cf265c/WIN_20220310_16_55_52_Pro-4-_jpg.rf.754d7c7479decc214192184144cf265c.jpg",
+          "session_id": "1cde6caa-e94b-409b-a346-f33caff1d01a",
+          "session_name": "WIN_20220310_16_55_52_Pro-4-_jpg.rf.754d7c7479decc214192184144cf265c",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_55_53_Pro_jpg.rf.24ffa38bb676b80ed62da0f97e1f897f/WIN_20220310_16_55_53_Pro_jpg.rf.24ffa38bb676b80ed62da0f97e1f897f.jpg",
+          "session_id": "f8f28d03-2800-4221-a8f7-bdbe2a0e06e7",
+          "session_name": "WIN_20220310_16_55_53_Pro_jpg.rf.24ffa38bb676b80ed62da0f97e1f897f",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_55_53_Pro_jpg.rf.24ffa38bb676b80ed62da0f97e1f897f/WIN_20220310_16_55_53_Pro_jpg.rf.24ffa38bb676b80ed62da0f97e1f897f.jpg",
+          "session_id": "f8f28d03-2800-4221-a8f7-bdbe2a0e06e7",
+          "session_name": "WIN_20220310_16_55_53_Pro_jpg.rf.24ffa38bb676b80ed62da0f97e1f897f",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_55_53_Pro_jpg.rf.24ffa38bb676b80ed62da0f97e1f897f/WIN_20220310_16_55_53_Pro_jpg.rf.24ffa38bb676b80ed62da0f97e1f897f.jpg",
+          "session_id": "f8f28d03-2800-4221-a8f7-bdbe2a0e06e7",
+          "session_name": "WIN_20220310_16_55_53_Pro_jpg.rf.24ffa38bb676b80ed62da0f97e1f897f",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_55_55_Pro-3-_jpg.rf.6b215e3382d21f3cd4463ef4b7c75ac9/WIN_20220310_16_55_55_Pro-3-_jpg.rf.6b215e3382d21f3cd4463ef4b7c75ac9.jpg",
+          "session_id": "c1bc721b-3b36-40de-ab8e-c9a03ce2e4e3",
+          "session_name": "WIN_20220310_16_55_55_Pro-3-_jpg.rf.6b215e3382d21f3cd4463ef4b7c75ac9",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_55_55_Pro-3-_jpg.rf.6b215e3382d21f3cd4463ef4b7c75ac9/WIN_20220310_16_55_55_Pro-3-_jpg.rf.6b215e3382d21f3cd4463ef4b7c75ac9.jpg",
+          "session_id": "c1bc721b-3b36-40de-ab8e-c9a03ce2e4e3",
+          "session_name": "WIN_20220310_16_55_55_Pro-3-_jpg.rf.6b215e3382d21f3cd4463ef4b7c75ac9",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_55_55_Pro-3-_jpg.rf.6b215e3382d21f3cd4463ef4b7c75ac9/WIN_20220310_16_55_55_Pro-3-_jpg.rf.6b215e3382d21f3cd4463ef4b7c75ac9.jpg",
+          "session_id": "c1bc721b-3b36-40de-ab8e-c9a03ce2e4e3",
+          "session_name": "WIN_20220310_16_55_55_Pro-3-_jpg.rf.6b215e3382d21f3cd4463ef4b7c75ac9",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_56_12_Pro-2-_jpg.rf.c96c1b925007a061eb1e9a2f837a69e4/WIN_20220310_16_56_12_Pro-2-_jpg.rf.c96c1b925007a061eb1e9a2f837a69e4.jpg",
+          "session_id": "82f34475-0ec1-42d3-877e-ea7aaf24dbb1",
+          "session_name": "WIN_20220310_16_56_12_Pro-2-_jpg.rf.c96c1b925007a061eb1e9a2f837a69e4",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_56_12_Pro-2-_jpg.rf.c96c1b925007a061eb1e9a2f837a69e4/WIN_20220310_16_56_12_Pro-2-_jpg.rf.c96c1b925007a061eb1e9a2f837a69e4.jpg",
+          "session_id": "82f34475-0ec1-42d3-877e-ea7aaf24dbb1",
+          "session_name": "WIN_20220310_16_56_12_Pro-2-_jpg.rf.c96c1b925007a061eb1e9a2f837a69e4",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_56_12_Pro-2-_jpg.rf.c96c1b925007a061eb1e9a2f837a69e4/WIN_20220310_16_56_12_Pro-2-_jpg.rf.c96c1b925007a061eb1e9a2f837a69e4.jpg",
+          "session_id": "82f34475-0ec1-42d3-877e-ea7aaf24dbb1",
+          "session_name": "WIN_20220310_16_56_12_Pro-2-_jpg.rf.c96c1b925007a061eb1e9a2f837a69e4",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_56_18_Pro-2-_jpg.rf.dba808b880da8cdd24a8eb3c92b4ef0a/WIN_20220310_16_56_18_Pro-2-_jpg.rf.dba808b880da8cdd24a8eb3c92b4ef0a.jpg",
+          "session_id": "4594ef06-7c88-4e77-8b82-685f3a45abb8",
+          "session_name": "WIN_20220310_16_56_18_Pro-2-_jpg.rf.dba808b880da8cdd24a8eb3c92b4ef0a",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_56_18_Pro-2-_jpg.rf.dba808b880da8cdd24a8eb3c92b4ef0a/WIN_20220310_16_56_18_Pro-2-_jpg.rf.dba808b880da8cdd24a8eb3c92b4ef0a.jpg",
+          "session_id": "4594ef06-7c88-4e77-8b82-685f3a45abb8",
+          "session_name": "WIN_20220310_16_56_18_Pro-2-_jpg.rf.dba808b880da8cdd24a8eb3c92b4ef0a",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_56_18_Pro-2-_jpg.rf.dba808b880da8cdd24a8eb3c92b4ef0a/WIN_20220310_16_56_18_Pro-2-_jpg.rf.dba808b880da8cdd24a8eb3c92b4ef0a.jpg",
+          "session_id": "4594ef06-7c88-4e77-8b82-685f3a45abb8",
+          "session_name": "WIN_20220310_16_56_18_Pro-2-_jpg.rf.dba808b880da8cdd24a8eb3c92b4ef0a",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_56_18_Pro_jpg.rf.8cf7987f98686d4b3af367d252257645/WIN_20220310_16_56_18_Pro_jpg.rf.8cf7987f98686d4b3af367d252257645.jpg",
+          "session_id": "35574813-aecf-4119-90a6-cbf080b583eb",
+          "session_name": "WIN_20220310_16_56_18_Pro_jpg.rf.8cf7987f98686d4b3af367d252257645",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_56_18_Pro_jpg.rf.8cf7987f98686d4b3af367d252257645/WIN_20220310_16_56_18_Pro_jpg.rf.8cf7987f98686d4b3af367d252257645.jpg",
+          "session_id": "35574813-aecf-4119-90a6-cbf080b583eb",
+          "session_name": "WIN_20220310_16_56_18_Pro_jpg.rf.8cf7987f98686d4b3af367d252257645",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_56_18_Pro_jpg.rf.8cf7987f98686d4b3af367d252257645/WIN_20220310_16_56_18_Pro_jpg.rf.8cf7987f98686d4b3af367d252257645.jpg",
+          "session_id": "35574813-aecf-4119-90a6-cbf080b583eb",
+          "session_name": "WIN_20220310_16_56_18_Pro_jpg.rf.8cf7987f98686d4b3af367d252257645",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_56_19_Pro-3-_jpg.rf.64b2b221b65974e43cb2c1d743c1f901/WIN_20220310_16_56_19_Pro-3-_jpg.rf.64b2b221b65974e43cb2c1d743c1f901.jpg",
+          "session_id": "46896417-164a-4d23-a1dd-1848e6bb938a",
+          "session_name": "WIN_20220310_16_56_19_Pro-3-_jpg.rf.64b2b221b65974e43cb2c1d743c1f901",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_56_19_Pro-3-_jpg.rf.64b2b221b65974e43cb2c1d743c1f901/WIN_20220310_16_56_19_Pro-3-_jpg.rf.64b2b221b65974e43cb2c1d743c1f901.jpg",
+          "session_id": "46896417-164a-4d23-a1dd-1848e6bb938a",
+          "session_name": "WIN_20220310_16_56_19_Pro-3-_jpg.rf.64b2b221b65974e43cb2c1d743c1f901",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_56_19_Pro-3-_jpg.rf.64b2b221b65974e43cb2c1d743c1f901/WIN_20220310_16_56_19_Pro-3-_jpg.rf.64b2b221b65974e43cb2c1d743c1f901.jpg",
+          "session_id": "46896417-164a-4d23-a1dd-1848e6bb938a",
+          "session_name": "WIN_20220310_16_56_19_Pro-3-_jpg.rf.64b2b221b65974e43cb2c1d743c1f901",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/aaa347c2a1d5d296_jpg.rf.4e900c51e35ab3a2582677c40821e96f/aaa347c2a1d5d296_jpg.rf.4e900c51e35ab3a2582677c40821e96f.jpg",
+          "session_id": "fa616038-b69e-4537-ab10-a21fde931d45",
+          "session_name": "aaa347c2a1d5d296_jpg.rf.4e900c51e35ab3a2582677c40821e96f",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_56_21_Pro-2-_jpg.rf.568258b75de59f94bc3fba8667e97c53/WIN_20220310_16_56_21_Pro-2-_jpg.rf.568258b75de59f94bc3fba8667e97c53.jpg",
+          "session_id": "f1982ca2-c2bf-4bdb-ba43-855d5804ab68",
+          "session_name": "WIN_20220310_16_56_21_Pro-2-_jpg.rf.568258b75de59f94bc3fba8667e97c53",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_56_21_Pro-2-_jpg.rf.568258b75de59f94bc3fba8667e97c53/WIN_20220310_16_56_21_Pro-2-_jpg.rf.568258b75de59f94bc3fba8667e97c53.jpg",
+          "session_id": "f1982ca2-c2bf-4bdb-ba43-855d5804ab68",
+          "session_name": "WIN_20220310_16_56_21_Pro-2-_jpg.rf.568258b75de59f94bc3fba8667e97c53",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_56_21_Pro-2-_jpg.rf.568258b75de59f94bc3fba8667e97c53/WIN_20220310_16_56_21_Pro-2-_jpg.rf.568258b75de59f94bc3fba8667e97c53.jpg",
+          "session_id": "f1982ca2-c2bf-4bdb-ba43-855d5804ab68",
+          "session_name": "WIN_20220310_16_56_21_Pro-2-_jpg.rf.568258b75de59f94bc3fba8667e97c53",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220322_09_23_55_Pro-2-_jpg.rf.aeb2ebf23c9c57f8bcb8415cfcd377d6/WIN_20220322_09_23_55_Pro-2-_jpg.rf.aeb2ebf23c9c57f8bcb8415cfcd377d6.jpg",
+          "session_id": "6dc58530-9660-487c-b17e-f5332a55524c",
+          "session_name": "WIN_20220322_09_23_55_Pro-2-_jpg.rf.aeb2ebf23c9c57f8bcb8415cfcd377d6",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220322_09_24_15_Pro_jpg.rf.3b918f56d925fffae6f5ca7703c808a8/WIN_20220322_09_24_15_Pro_jpg.rf.3b918f56d925fffae6f5ca7703c808a8.jpg",
+          "session_id": "16d256a1-c5aa-4e7b-9095-2a12f9833114",
+          "session_name": "WIN_20220322_09_24_15_Pro_jpg.rf.3b918f56d925fffae6f5ca7703c808a8",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220322_09_24_16_Pro_jpg.rf.78e95704b45ca5759f653c4bfbe20fb7/WIN_20220322_09_24_16_Pro_jpg.rf.78e95704b45ca5759f653c4bfbe20fb7.jpg",
+          "session_id": "524f4057-f355-46ac-92d8-1f7331524d41",
+          "session_name": "WIN_20220322_09_24_16_Pro_jpg.rf.78e95704b45ca5759f653c4bfbe20fb7",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220322_09_24_18_Pro_jpg.rf.1f9d9809f7303e4018a047468c29a6f8/WIN_20220322_09_24_18_Pro_jpg.rf.1f9d9809f7303e4018a047468c29a6f8.jpg",
+          "session_id": "7587e071-b569-4fd8-9f49-7f6ba3a4f961",
+          "session_name": "WIN_20220322_09_24_18_Pro_jpg.rf.1f9d9809f7303e4018a047468c29a6f8",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220322_09_24_24_Pro_jpg.rf.96068369be271369422fa3aa263aa77e/WIN_20220322_09_24_24_Pro_jpg.rf.96068369be271369422fa3aa263aa77e.jpg",
+          "session_id": "a5de36a3-d73c-434c-b8b8-d4944e179500",
+          "session_name": "WIN_20220322_09_24_24_Pro_jpg.rf.96068369be271369422fa3aa263aa77e",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220322_09_24_37_Pro_jpg.rf.3f68bd0fb30755cc991c79f7b7942b82/WIN_20220322_09_24_37_Pro_jpg.rf.3f68bd0fb30755cc991c79f7b7942b82.jpg",
+          "session_id": "3c8912f9-c3f4-4f61-a3d2-6c8292c73945",
+          "session_name": "WIN_20220322_09_24_37_Pro_jpg.rf.3f68bd0fb30755cc991c79f7b7942b82",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220322_09_25_17_Pro_jpg.rf.06b97ac8365faca216faf903612b0c84/WIN_20220322_09_25_17_Pro_jpg.rf.06b97ac8365faca216faf903612b0c84.jpg",
+          "session_id": "01826df9-29a4-4990-8670-37c72893b8c7",
+          "session_name": "WIN_20220322_09_25_17_Pro_jpg.rf.06b97ac8365faca216faf903612b0c84",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220322_09_25_35_Pro_jpg.rf.73f2ccc3d5ed9109d666f2f937b38ad8/WIN_20220322_09_25_35_Pro_jpg.rf.73f2ccc3d5ed9109d666f2f937b38ad8.jpg",
+          "session_id": "1fa60508-f1ed-46b1-b3a3-7d52f0a1239c",
+          "session_name": "WIN_20220322_09_25_35_Pro_jpg.rf.73f2ccc3d5ed9109d666f2f937b38ad8",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220322_09_25_37_Pro_jpg.rf.8ace12dc9887808d80d41f207b3d0763/WIN_20220322_09_25_37_Pro_jpg.rf.8ace12dc9887808d80d41f207b3d0763.jpg",
+          "session_id": "bc421802-ec29-4ec0-a0f8-5fc1d1e03ddb",
+          "session_name": "WIN_20220322_09_25_37_Pro_jpg.rf.8ace12dc9887808d80d41f207b3d0763",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220322_09_25_41_Pro_jpg.rf.a2288ae000330761e2843ea4e762ffaa/WIN_20220322_09_25_41_Pro_jpg.rf.a2288ae000330761e2843ea4e762ffaa.jpg",
+          "session_id": "3b6e7d06-c390-4aa0-aec8-e326831e8ec3",
+          "session_name": "WIN_20220322_09_25_41_Pro_jpg.rf.a2288ae000330761e2843ea4e762ffaa",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_56_22_Pro-3-_jpg.rf.a50563ab125685c1e3d575264c166bba/WIN_20220310_16_56_22_Pro-3-_jpg.rf.a50563ab125685c1e3d575264c166bba.jpg",
+          "session_id": "dbfb1ac4-e905-4844-acd5-2bb68d52e68d",
+          "session_name": "WIN_20220310_16_56_22_Pro-3-_jpg.rf.a50563ab125685c1e3d575264c166bba",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_56_22_Pro-3-_jpg.rf.a50563ab125685c1e3d575264c166bba/WIN_20220310_16_56_22_Pro-3-_jpg.rf.a50563ab125685c1e3d575264c166bba.jpg",
+          "session_id": "dbfb1ac4-e905-4844-acd5-2bb68d52e68d",
+          "session_name": "WIN_20220310_16_56_22_Pro-3-_jpg.rf.a50563ab125685c1e3d575264c166bba",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_56_22_Pro-3-_jpg.rf.a50563ab125685c1e3d575264c166bba/WIN_20220310_16_56_22_Pro-3-_jpg.rf.a50563ab125685c1e3d575264c166bba.jpg",
+          "session_id": "dbfb1ac4-e905-4844-acd5-2bb68d52e68d",
+          "session_name": "WIN_20220310_16_56_22_Pro-3-_jpg.rf.a50563ab125685c1e3d575264c166bba",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_55_47_Pro-3-_jpg.rf.4ad31e916d6b2d2d5b3b2001abbec8bd/WIN_20220310_16_55_47_Pro-3-_jpg.rf.4ad31e916d6b2d2d5b3b2001abbec8bd.jpg",
+          "session_id": "ff1abf44-ac4a-4ee0-b26a-8bef58333d87",
+          "session_name": "WIN_20220310_16_55_47_Pro-3-_jpg.rf.4ad31e916d6b2d2d5b3b2001abbec8bd",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_55_47_Pro-3-_jpg.rf.4ad31e916d6b2d2d5b3b2001abbec8bd/WIN_20220310_16_55_47_Pro-3-_jpg.rf.4ad31e916d6b2d2d5b3b2001abbec8bd.jpg",
+          "session_id": "ff1abf44-ac4a-4ee0-b26a-8bef58333d87",
+          "session_name": "WIN_20220310_16_55_47_Pro-3-_jpg.rf.4ad31e916d6b2d2d5b3b2001abbec8bd",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_55_47_Pro-3-_jpg.rf.4ad31e916d6b2d2d5b3b2001abbec8bd/WIN_20220310_16_55_47_Pro-3-_jpg.rf.4ad31e916d6b2d2d5b3b2001abbec8bd.jpg",
+          "session_id": "ff1abf44-ac4a-4ee0-b26a-8bef58333d87",
+          "session_name": "WIN_20220310_16_55_47_Pro-3-_jpg.rf.4ad31e916d6b2d2d5b3b2001abbec8bd",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/bf570a360ca4cba4_jpg.rf.fec6c818c798168902090d62b0a134b5/bf570a360ca4cba4_jpg.rf.fec6c818c798168902090d62b0a134b5.jpg",
+          "session_id": "5ac1db99-953c-40b1-a753-4f6341da3680",
+          "session_name": "bf570a360ca4cba4_jpg.rf.fec6c818c798168902090d62b0a134b5",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/e791f2857779d3e1_jpg.rf.97a4f6bce55a0374b6b816bdeb659f55/e791f2857779d3e1_jpg.rf.97a4f6bce55a0374b6b816bdeb659f55.jpg",
+          "session_id": "0dcbd4e5-5874-4a46-8b56-efee06449cd8",
+          "session_name": "e791f2857779d3e1_jpg.rf.97a4f6bce55a0374b6b816bdeb659f55",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_11789_JPEG_jpg.rf.97a9508d9bd5b229a1b54bbdb348f35f/n03445777_11789_JPEG_jpg.rf.97a9508d9bd5b229a1b54bbdb348f35f.jpg",
+          "session_id": "f9d5f04c-5c83-41bd-be63-466c1e38f17a",
+          "session_name": "n03445777_11789_JPEG_jpg.rf.97a9508d9bd5b229a1b54bbdb348f35f",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_12489_JPEG_jpg.rf.bce2d77166f4a86698573fa77e43e49c/n03445777_12489_JPEG_jpg.rf.bce2d77166f4a86698573fa77e43e49c.jpg",
+          "session_id": "b08250e7-4cdf-44a7-b595-089826e2b5c2",
+          "session_name": "n03445777_12489_JPEG_jpg.rf.bce2d77166f4a86698573fa77e43e49c",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_12489_JPEG_jpg.rf.bce2d77166f4a86698573fa77e43e49c/n03445777_12489_JPEG_jpg.rf.bce2d77166f4a86698573fa77e43e49c.jpg",
+          "session_id": "b08250e7-4cdf-44a7-b595-089826e2b5c2",
+          "session_name": "n03445777_12489_JPEG_jpg.rf.bce2d77166f4a86698573fa77e43e49c",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_12489_JPEG_jpg.rf.bce2d77166f4a86698573fa77e43e49c/n03445777_12489_JPEG_jpg.rf.bce2d77166f4a86698573fa77e43e49c.jpg",
+          "session_id": "b08250e7-4cdf-44a7-b595-089826e2b5c2",
+          "session_name": "n03445777_12489_JPEG_jpg.rf.bce2d77166f4a86698573fa77e43e49c",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_13576_JPEG_jpg.rf.29fa7006dff2b775dacc8c5a86dde924/n03445777_13576_JPEG_jpg.rf.29fa7006dff2b775dacc8c5a86dde924.jpg",
+          "session_id": "4b165285-5a45-4bbd-b5fb-f16b2dc859e7",
+          "session_name": "n03445777_13576_JPEG_jpg.rf.29fa7006dff2b775dacc8c5a86dde924",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_14335_JPEG_jpg.rf.35975768cc5d6f9999fd280a65211ee1/n03445777_14335_JPEG_jpg.rf.35975768cc5d6f9999fd280a65211ee1.jpg",
+          "session_id": "5964736c-0612-4a2e-bd4e-915380cd8e44",
+          "session_name": "n03445777_14335_JPEG_jpg.rf.35975768cc5d6f9999fd280a65211ee1",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_14533_JPEG_jpg.rf.346406ae4c901c65179e06dec8ea3b48/n03445777_14533_JPEG_jpg.rf.346406ae4c901c65179e06dec8ea3b48.jpg",
+          "session_id": "ba065b7f-1f23-4e67-bf69-6e503c3a6c0a",
+          "session_name": "n03445777_14533_JPEG_jpg.rf.346406ae4c901c65179e06dec8ea3b48",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_1547_JPEG_jpg.rf.8376d0b6fb2b5f634b245df99f299fb1/n03445777_1547_JPEG_jpg.rf.8376d0b6fb2b5f634b245df99f299fb1.jpg",
+          "session_id": "efa1d8de-282b-4608-a639-353d8df9e0a7",
+          "session_name": "n03445777_1547_JPEG_jpg.rf.8376d0b6fb2b5f634b245df99f299fb1",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_1616_JPEG_jpg.rf.5f18b9a519798219238a8585db89d67b/n03445777_1616_JPEG_jpg.rf.5f18b9a519798219238a8585db89d67b.jpg",
+          "session_id": "74f0633f-ae29-4853-926b-81c1a00dbb53",
+          "session_name": "n03445777_1616_JPEG_jpg.rf.5f18b9a519798219238a8585db89d67b",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_1616_JPEG_jpg.rf.5f18b9a519798219238a8585db89d67b/n03445777_1616_JPEG_jpg.rf.5f18b9a519798219238a8585db89d67b.jpg",
+          "session_id": "74f0633f-ae29-4853-926b-81c1a00dbb53",
+          "session_name": "n03445777_1616_JPEG_jpg.rf.5f18b9a519798219238a8585db89d67b",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_1616_JPEG_jpg.rf.5f18b9a519798219238a8585db89d67b/n03445777_1616_JPEG_jpg.rf.5f18b9a519798219238a8585db89d67b.jpg",
+          "session_id": "74f0633f-ae29-4853-926b-81c1a00dbb53",
+          "session_name": "n03445777_1616_JPEG_jpg.rf.5f18b9a519798219238a8585db89d67b",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_1616_JPEG_jpg.rf.5f18b9a519798219238a8585db89d67b/n03445777_1616_JPEG_jpg.rf.5f18b9a519798219238a8585db89d67b.jpg",
+          "session_id": "74f0633f-ae29-4853-926b-81c1a00dbb53",
+          "session_name": "n03445777_1616_JPEG_jpg.rf.5f18b9a519798219238a8585db89d67b",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_1616_JPEG_jpg.rf.5f18b9a519798219238a8585db89d67b/n03445777_1616_JPEG_jpg.rf.5f18b9a519798219238a8585db89d67b.jpg",
+          "session_id": "74f0633f-ae29-4853-926b-81c1a00dbb53",
+          "session_name": "n03445777_1616_JPEG_jpg.rf.5f18b9a519798219238a8585db89d67b",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_1616_JPEG_jpg.rf.5f18b9a519798219238a8585db89d67b/n03445777_1616_JPEG_jpg.rf.5f18b9a519798219238a8585db89d67b.jpg",
+          "session_id": "74f0633f-ae29-4853-926b-81c1a00dbb53",
+          "session_name": "n03445777_1616_JPEG_jpg.rf.5f18b9a519798219238a8585db89d67b",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_1616_JPEG_jpg.rf.5f18b9a519798219238a8585db89d67b/n03445777_1616_JPEG_jpg.rf.5f18b9a519798219238a8585db89d67b.jpg",
+          "session_id": "74f0633f-ae29-4853-926b-81c1a00dbb53",
+          "session_name": "n03445777_1616_JPEG_jpg.rf.5f18b9a519798219238a8585db89d67b",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_1616_JPEG_jpg.rf.5f18b9a519798219238a8585db89d67b/n03445777_1616_JPEG_jpg.rf.5f18b9a519798219238a8585db89d67b.jpg",
+          "session_id": "74f0633f-ae29-4853-926b-81c1a00dbb53",
+          "session_name": "n03445777_1616_JPEG_jpg.rf.5f18b9a519798219238a8585db89d67b",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_1616_JPEG_jpg.rf.5f18b9a519798219238a8585db89d67b/n03445777_1616_JPEG_jpg.rf.5f18b9a519798219238a8585db89d67b.jpg",
+          "session_id": "74f0633f-ae29-4853-926b-81c1a00dbb53",
+          "session_name": "n03445777_1616_JPEG_jpg.rf.5f18b9a519798219238a8585db89d67b",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_1879_JPEG_jpg.rf.cdfc6b584b125c5cb3d0c0d2581b7e47/n03445777_1879_JPEG_jpg.rf.cdfc6b584b125c5cb3d0c0d2581b7e47.jpg",
+          "session_id": "eb609313-16c2-4333-b8fd-fcaa8008ccf7",
+          "session_name": "n03445777_1879_JPEG_jpg.rf.cdfc6b584b125c5cb3d0c0d2581b7e47",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_1879_JPEG_jpg.rf.cdfc6b584b125c5cb3d0c0d2581b7e47/n03445777_1879_JPEG_jpg.rf.cdfc6b584b125c5cb3d0c0d2581b7e47.jpg",
+          "session_id": "eb609313-16c2-4333-b8fd-fcaa8008ccf7",
+          "session_name": "n03445777_1879_JPEG_jpg.rf.cdfc6b584b125c5cb3d0c0d2581b7e47",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_1879_JPEG_jpg.rf.cdfc6b584b125c5cb3d0c0d2581b7e47/n03445777_1879_JPEG_jpg.rf.cdfc6b584b125c5cb3d0c0d2581b7e47.jpg",
+          "session_id": "eb609313-16c2-4333-b8fd-fcaa8008ccf7",
+          "session_name": "n03445777_1879_JPEG_jpg.rf.cdfc6b584b125c5cb3d0c0d2581b7e47",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_2597_JPEG_jpg.rf.cda47129824aefce7b0e0f5ed6003ffc/n03445777_2597_JPEG_jpg.rf.cda47129824aefce7b0e0f5ed6003ffc.jpg",
+          "session_id": "ccdd5ea0-fc95-455f-bee1-825df2acb05b",
+          "session_name": "n03445777_2597_JPEG_jpg.rf.cda47129824aefce7b0e0f5ed6003ffc",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_3829_JPEG_jpg.rf.6347baf7d95e602055ddb7c0a7af19a1/n03445777_3829_JPEG_jpg.rf.6347baf7d95e602055ddb7c0a7af19a1.jpg",
+          "session_id": "7d5a688b-10ef-4472-aab5-ca30384a749d",
+          "session_name": "n03445777_3829_JPEG_jpg.rf.6347baf7d95e602055ddb7c0a7af19a1",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_3996_JPEG_jpg.rf.931092ddfd99f2968c40d9acc331c514/n03445777_3996_JPEG_jpg.rf.931092ddfd99f2968c40d9acc331c514.jpg",
+          "session_id": "168933de-01f4-4adc-8c2e-3d964268154c",
+          "session_name": "n03445777_3996_JPEG_jpg.rf.931092ddfd99f2968c40d9acc331c514",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682/n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682.jpg",
+          "session_id": "5c3ea98b-ec37-431d-bcd7-37f9bd9ba3a6",
+          "session_name": "n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682/n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682.jpg",
+          "session_id": "5c3ea98b-ec37-431d-bcd7-37f9bd9ba3a6",
+          "session_name": "n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682/n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682.jpg",
+          "session_id": "5c3ea98b-ec37-431d-bcd7-37f9bd9ba3a6",
+          "session_name": "n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682/n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682.jpg",
+          "session_id": "5c3ea98b-ec37-431d-bcd7-37f9bd9ba3a6",
+          "session_name": "n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682/n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682.jpg",
+          "session_id": "5c3ea98b-ec37-431d-bcd7-37f9bd9ba3a6",
+          "session_name": "n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682/n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682.jpg",
+          "session_id": "5c3ea98b-ec37-431d-bcd7-37f9bd9ba3a6",
+          "session_name": "n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682/n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682.jpg",
+          "session_id": "5c3ea98b-ec37-431d-bcd7-37f9bd9ba3a6",
+          "session_name": "n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682/n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682.jpg",
+          "session_id": "5c3ea98b-ec37-431d-bcd7-37f9bd9ba3a6",
+          "session_name": "n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682/n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682.jpg",
+          "session_id": "5c3ea98b-ec37-431d-bcd7-37f9bd9ba3a6",
+          "session_name": "n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_5007_JPEG_jpg.rf.04d7ff2e1ba611eaa620221a1a3dbbe2/n03445777_5007_JPEG_jpg.rf.04d7ff2e1ba611eaa620221a1a3dbbe2.jpg",
+          "session_id": "ecf95c2d-cb1e-4f4d-91aa-441a5e487269",
+          "session_name": "n03445777_5007_JPEG_jpg.rf.04d7ff2e1ba611eaa620221a1a3dbbe2",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_5139_JPEG_jpg.rf.65fc239806af6259aabf0e76233966e1/n03445777_5139_JPEG_jpg.rf.65fc239806af6259aabf0e76233966e1.jpg",
+          "session_id": "876f340d-a12c-4ade-902b-8d242e807e40",
+          "session_name": "n03445777_5139_JPEG_jpg.rf.65fc239806af6259aabf0e76233966e1",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_5637_JPEG_jpg.rf.8b9aad8355c041ad7a1dcc2e45ce03a3/n03445777_5637_JPEG_jpg.rf.8b9aad8355c041ad7a1dcc2e45ce03a3.jpg",
+          "session_id": "ba96f22f-4820-4830-8d34-92c2cd910eff",
+          "session_name": "n03445777_5637_JPEG_jpg.rf.8b9aad8355c041ad7a1dcc2e45ce03a3",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_5816_JPEG_jpg.rf.724dd896ca5625bd98f7217fd486ae0d/n03445777_5816_JPEG_jpg.rf.724dd896ca5625bd98f7217fd486ae0d.jpg",
+          "session_id": "a11643ab-d0a1-4f37-9234-2301a0e63b89",
+          "session_name": "n03445777_5816_JPEG_jpg.rf.724dd896ca5625bd98f7217fd486ae0d",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_6_JPEG_jpg.rf.09d03512d23cc763b08aadb7df907b68/n03445777_6_JPEG_jpg.rf.09d03512d23cc763b08aadb7df907b68.jpg",
+          "session_id": "2f51a9d8-ea3c-4f2f-a18b-032e83c7f969",
+          "session_name": "n03445777_6_JPEG_jpg.rf.09d03512d23cc763b08aadb7df907b68",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_7146_JPEG_jpg.rf.8d9ada44f6ece19eee6f5dce6b291923/n03445777_7146_JPEG_jpg.rf.8d9ada44f6ece19eee6f5dce6b291923.jpg",
+          "session_id": "ad8cdfcd-9f44-41e1-a806-90c734dc902d",
+          "session_name": "n03445777_7146_JPEG_jpg.rf.8d9ada44f6ece19eee6f5dce6b291923",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_7283_JPEG_jpg.rf.5425f980d414d017c721559f26b539de/n03445777_7283_JPEG_jpg.rf.5425f980d414d017c721559f26b539de.jpg",
+          "session_id": "ffcbefeb-328e-4186-a794-a1b87e1e5443",
+          "session_name": "n03445777_7283_JPEG_jpg.rf.5425f980d414d017c721559f26b539de",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_8418_JPEG_jpg.rf.e5aa1cb908688dbeee242fdbed0a0b19/n03445777_8418_JPEG_jpg.rf.e5aa1cb908688dbeee242fdbed0a0b19.jpg",
+          "session_id": "2d39f446-8412-47a5-8f29-583367488d7e",
+          "session_name": "n03445777_8418_JPEG_jpg.rf.e5aa1cb908688dbeee242fdbed0a0b19",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_8418_JPEG_jpg.rf.e5aa1cb908688dbeee242fdbed0a0b19/n03445777_8418_JPEG_jpg.rf.e5aa1cb908688dbeee242fdbed0a0b19.jpg",
+          "session_id": "2d39f446-8412-47a5-8f29-583367488d7e",
+          "session_name": "n03445777_8418_JPEG_jpg.rf.e5aa1cb908688dbeee242fdbed0a0b19",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_8418_JPEG_jpg.rf.e5aa1cb908688dbeee242fdbed0a0b19/n03445777_8418_JPEG_jpg.rf.e5aa1cb908688dbeee242fdbed0a0b19.jpg",
+          "session_id": "2d39f446-8412-47a5-8f29-583367488d7e",
+          "session_name": "n03445777_8418_JPEG_jpg.rf.e5aa1cb908688dbeee242fdbed0a0b19",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/images-92-_png_jpg.rf.3c2d3919afecd612d0f800f7f2138e66/images-92-_png_jpg.rf.3c2d3919afecd612d0f800f7f2138e66.jpg",
+          "session_id": "b3eae35c-f8ef-426a-b510-67e613f0b981",
+          "session_name": "images-92-_png_jpg.rf.3c2d3919afecd612d0f800f7f2138e66",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/images-90-_png_jpg.rf.cc389dd98745f7d88a11517f669285d3/images-90-_png_jpg.rf.cc389dd98745f7d88a11517f669285d3.jpg",
+          "session_id": "512ca725-cf72-4314-a92e-ea3dafe59914",
+          "session_name": "images-90-_png_jpg.rf.cc389dd98745f7d88a11517f669285d3",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/images-85-_png_jpg.rf.f6f71ea5f19a027b624bf4b5a18f9159/images-85-_png_jpg.rf.f6f71ea5f19a027b624bf4b5a18f9159.jpg",
+          "session_id": "fed3d616-8894-4c8f-91a5-9431bc864b24",
+          "session_name": "images-85-_png_jpg.rf.f6f71ea5f19a027b624bf4b5a18f9159",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/images-81-_png_jpg.rf.e7a6bf6dea4425425ee4dfecb20f8c0d/images-81-_png_jpg.rf.e7a6bf6dea4425425ee4dfecb20f8c0d.jpg",
+          "session_id": "ceeb4e39-be98-4543-bd27-6a79b5d15d7a",
+          "session_name": "images-81-_png_jpg.rf.e7a6bf6dea4425425ee4dfecb20f8c0d",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/f60f1b7782e0e418_jpg.rf.a70dc731ed26b2ab48935505f3adb3a5/f60f1b7782e0e418_jpg.rf.a70dc731ed26b2ab48935505f3adb3a5.jpg",
+          "session_id": "e81c42f9-2c02-4c2e-9983-ccf7fdf12eed",
+          "session_name": "f60f1b7782e0e418_jpg.rf.a70dc731ed26b2ab48935505f3adb3a5",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/frame1250_jpg.rf.c5e301aa6008cf6c1d6f56c07e89db7e/frame1250_jpg.rf.c5e301aa6008cf6c1d6f56c07e89db7e.jpg",
+          "session_id": "4b33cb79-5686-4d72-aa41-fb7c06b9bd61",
+          "session_name": "frame1250_jpg.rf.c5e301aa6008cf6c1d6f56c07e89db7e",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/frame198381_jpg.rf.05ad689675c40f99443525e6aa964fd1/frame198381_jpg.rf.05ad689675c40f99443525e6aa964fd1.jpg",
+          "session_id": "c7fa8e5b-8eff-405f-acec-36b58f6b32b1",
+          "session_name": "frame198381_jpg.rf.05ad689675c40f99443525e6aa964fd1",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/frame537050_jpg.rf.57852947b59805407a8d2307fc2874ed/frame537050_jpg.rf.57852947b59805407a8d2307fc2874ed.jpg",
+          "session_id": "8e5cf6e5-c4a8-4261-8ebb-45047f1b5647",
+          "session_name": "frame537050_jpg.rf.57852947b59805407a8d2307fc2874ed",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/frame910_jpg.rf.eaf28fe7255880b6aa011f9215fa511a/frame910_jpg.rf.eaf28fe7255880b6aa011f9215fa511a.jpg",
+          "session_id": "77363809-fe2a-4a04-a275-396d54b49a4f",
+          "session_name": "frame910_jpg.rf.eaf28fe7255880b6aa011f9215fa511a",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/golf-ball-ROUGH2_jpg.rf.1a58123e8af7978cc57f21a43c39a5a6/golf-ball-ROUGH2_jpg.rf.1a58123e8af7978cc57f21a43c39a5a6.jpg",
+          "session_id": "fa0547cb-7921-4c66-9b6e-0162d5030a61",
+          "session_name": "golf-ball-ROUGH2_jpg.rf.1a58123e8af7978cc57f21a43c39a5a6",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/golf-ball-ROUGH6_jpg.rf.d605ba83c9360c43c6488baabd5e9cc9/golf-ball-ROUGH6_jpg.rf.d605ba83c9360c43c6488baabd5e9cc9.jpg",
+          "session_id": "078ca8ce-6e73-44f6-9c66-f231cf2e58d1",
+          "session_name": "golf-ball-ROUGH6_jpg.rf.d605ba83c9360c43c6488baabd5e9cc9",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/golf-ball-ROUGH7_jpg.rf.a3adcc32a7e668c7b16a24250b43229d/golf-ball-ROUGH7_jpg.rf.a3adcc32a7e668c7b16a24250b43229d.jpg",
+          "session_id": "1b37742b-9670-4e21-85b3-aefd64b0aa72",
+          "session_name": "golf-ball-ROUGH7_jpg.rf.a3adcc32a7e668c7b16a24250b43229d",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/e5e5715ad5a57fd2_jpg.rf.dfb359db8b5f9c7ed5e23a50644222c8/e5e5715ad5a57fd2_jpg.rf.dfb359db8b5f9c7ed5e23a50644222c8.jpg",
+          "session_id": "428a7b98-355d-46b7-b929-772c100e3362",
+          "session_name": "e5e5715ad5a57fd2_jpg.rf.dfb359db8b5f9c7ed5e23a50644222c8",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/golf-ball-in-rough11_jpg.rf.58cfe51ec35bc6094a6b08515bca4f8e/golf-ball-in-rough11_jpg.rf.58cfe51ec35bc6094a6b08515bca4f8e.jpg",
+          "session_id": "1abc7dee-d9cd-40f1-9b8e-60f6c6ecebfe",
+          "session_name": "golf-ball-in-rough11_jpg.rf.58cfe51ec35bc6094a6b08515bca4f8e",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/images-2022-02-18T094506_png_jpg.rf.ec80af9434eaa98f88e603db4e140726/images-2022-02-18T094506_png_jpg.rf.ec80af9434eaa98f88e603db4e140726.jpg",
+          "session_id": "9fcfb9b0-3181-475d-a826-07afc5e6fa9e",
+          "session_name": "images-2022-02-18T094506_png_jpg.rf.ec80af9434eaa98f88e603db4e140726",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/images-2022-02-18T094510_png_jpg.rf.576ffb0733889adf5abc780cef4dcd35/images-2022-02-18T094510_png_jpg.rf.576ffb0733889adf5abc780cef4dcd35.jpg",
+          "session_id": "8a5294eb-a4c7-4a23-b1d5-c423e3a0cf74",
+          "session_name": "images-2022-02-18T094510_png_jpg.rf.576ffb0733889adf5abc780cef4dcd35",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/images-2022-02-18T094522_png_jpg.rf.1b032efe39d83828b3243cdd18373391/images-2022-02-18T094522_png_jpg.rf.1b032efe39d83828b3243cdd18373391.jpg",
+          "session_id": "e118a700-3ed9-49e9-ab75-6b9b8b67dfd1",
+          "session_name": "images-2022-02-18T094522_png_jpg.rf.1b032efe39d83828b3243cdd18373391",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/images-2022-02-18T094549_png_jpg.rf.30824cf8bce83974e6b63b9885ef8ab6/images-2022-02-18T094549_png_jpg.rf.30824cf8bce83974e6b63b9885ef8ab6.jpg",
+          "session_id": "1dab225c-3e36-4f07-aeea-ff261a876739",
+          "session_name": "images-2022-02-18T094549_png_jpg.rf.30824cf8bce83974e6b63b9885ef8ab6",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/images-2022-02-18T094600_png_jpg.rf.a5093633b7f31b7eadbbb2d3490d8c99/images-2022-02-18T094600_png_jpg.rf.a5093633b7f31b7eadbbb2d3490d8c99.jpg",
+          "session_id": "e8a4d3b9-c7fb-4540-8ac5-894f82d63e05",
+          "session_name": "images-2022-02-18T094600_png_jpg.rf.a5093633b7f31b7eadbbb2d3490d8c99",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/images-31-_png_jpg.rf.0c60ac632b7e1df644914c81c58fc5a1/images-31-_png_jpg.rf.0c60ac632b7e1df644914c81c58fc5a1.jpg",
+          "session_id": "7094ebf0-7c37-4e1a-83b7-b3cd23f95a41",
+          "session_name": "images-31-_png_jpg.rf.0c60ac632b7e1df644914c81c58fc5a1",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/images-31-_png_jpg.rf.0c60ac632b7e1df644914c81c58fc5a1/images-31-_png_jpg.rf.0c60ac632b7e1df644914c81c58fc5a1.jpg",
+          "session_id": "7094ebf0-7c37-4e1a-83b7-b3cd23f95a41",
+          "session_name": "images-31-_png_jpg.rf.0c60ac632b7e1df644914c81c58fc5a1",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/images-40-_png_jpg.rf.06b0aa4b381759eb1a8c967772247f79/images-40-_png_jpg.rf.06b0aa4b381759eb1a8c967772247f79.jpg",
+          "session_id": "1279c909-af71-4e32-965f-7e0d657d7f4d",
+          "session_name": "images-40-_png_jpg.rf.06b0aa4b381759eb1a8c967772247f79",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/images-62-_png_jpg.rf.f26e7dab3d41b74f2ba3c75dd4a69540/images-62-_png_jpg.rf.f26e7dab3d41b74f2ba3c75dd4a69540.jpg",
+          "session_id": "4de8beda-b97e-4098-9355-071583c4b725",
+          "session_name": "images-62-_png_jpg.rf.f26e7dab3d41b74f2ba3c75dd4a69540",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/images-62-_png_jpg.rf.f26e7dab3d41b74f2ba3c75dd4a69540/images-62-_png_jpg.rf.f26e7dab3d41b74f2ba3c75dd4a69540.jpg",
+          "session_id": "4de8beda-b97e-4098-9355-071583c4b725",
+          "session_name": "images-62-_png_jpg.rf.f26e7dab3d41b74f2ba3c75dd4a69540",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/images-65-_png_jpg.rf.ec02576ccf2c35701b183ec80cbd6cf3/images-65-_png_jpg.rf.ec02576ccf2c35701b183ec80cbd6cf3.jpg",
+          "session_id": "b47e8067-fdd8-4e44-ab1f-1a45fce022e6",
+          "session_name": "images-65-_png_jpg.rf.ec02576ccf2c35701b183ec80cbd6cf3",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/images-77-_png_jpg.rf.4ab1f9f6e010fc4ec93f7b3f2d75bda3/images-77-_png_jpg.rf.4ab1f9f6e010fc4ec93f7b3f2d75bda3.jpg",
+          "session_id": "130e0ef3-1ceb-4f97-b3d6-22e62e340355",
+          "session_name": "images-77-_png_jpg.rf.4ab1f9f6e010fc4ec93f7b3f2d75bda3",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/golf-ball-in-rough15_jpg.rf.276c5ce266255ab1c95b5562fe6ac7f4/golf-ball-in-rough15_jpg.rf.276c5ce266255ab1c95b5562fe6ac7f4.jpg",
+          "session_id": "dea0b6e6-7019-448f-9d43-f42d8a33ee39",
+          "session_name": "golf-ball-in-rough15_jpg.rf.276c5ce266255ab1c95b5562fe6ac7f4",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_55_41_Pro-2-_jpg.rf.55d6f1dcdf658f846cc399dd5fffedc6/WIN_20220310_16_55_41_Pro-2-_jpg.rf.55d6f1dcdf658f846cc399dd5fffedc6.jpg",
+          "session_id": "ff162940-2c1b-4549-acb9-43ecc1da5d68",
+          "session_name": "WIN_20220310_16_55_41_Pro-2-_jpg.rf.55d6f1dcdf658f846cc399dd5fffedc6",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_55_41_Pro-2-_jpg.rf.55d6f1dcdf658f846cc399dd5fffedc6/WIN_20220310_16_55_41_Pro-2-_jpg.rf.55d6f1dcdf658f846cc399dd5fffedc6.jpg",
+          "session_id": "ff162940-2c1b-4549-acb9-43ecc1da5d68",
+          "session_name": "WIN_20220310_16_55_41_Pro-2-_jpg.rf.55d6f1dcdf658f846cc399dd5fffedc6",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_55_41_Pro-2-_jpg.rf.55d6f1dcdf658f846cc399dd5fffedc6/WIN_20220310_16_55_41_Pro-2-_jpg.rf.55d6f1dcdf658f846cc399dd5fffedc6.jpg",
+          "session_id": "ff162940-2c1b-4549-acb9-43ecc1da5d68",
+          "session_name": "WIN_20220310_16_55_41_Pro-2-_jpg.rf.55d6f1dcdf658f846cc399dd5fffedc6",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_55_40_Pro_jpg.rf.56999ddd63f6f737a2c54c685ad3c499/WIN_20220310_16_55_40_Pro_jpg.rf.56999ddd63f6f737a2c54c685ad3c499.jpg",
+          "session_id": "0a394b02-6511-4cdd-aafa-1d8525282657",
+          "session_name": "WIN_20220310_16_55_40_Pro_jpg.rf.56999ddd63f6f737a2c54c685ad3c499",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_55_40_Pro_jpg.rf.56999ddd63f6f737a2c54c685ad3c499/WIN_20220310_16_55_40_Pro_jpg.rf.56999ddd63f6f737a2c54c685ad3c499.jpg",
+          "session_id": "0a394b02-6511-4cdd-aafa-1d8525282657",
+          "session_name": "WIN_20220310_16_55_40_Pro_jpg.rf.56999ddd63f6f737a2c54c685ad3c499",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_55_40_Pro_jpg.rf.56999ddd63f6f737a2c54c685ad3c499/WIN_20220310_16_55_40_Pro_jpg.rf.56999ddd63f6f737a2c54c685ad3c499.jpg",
+          "session_id": "0a394b02-6511-4cdd-aafa-1d8525282657",
+          "session_name": "WIN_20220310_16_55_40_Pro_jpg.rf.56999ddd63f6f737a2c54c685ad3c499",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_55_27_Pro_jpg.rf.55e0666db03737292c39015f2b6e2706/WIN_20220310_16_55_27_Pro_jpg.rf.55e0666db03737292c39015f2b6e2706.jpg",
+          "session_id": "3fd1dd58-b9f9-45c2-996a-dad702a7a2aa",
+          "session_name": "WIN_20220310_16_55_27_Pro_jpg.rf.55e0666db03737292c39015f2b6e2706",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/15cdf32f0d81800e_jpg.rf.c243916b3ddc45cfb784372a0026da13/15cdf32f0d81800e_jpg.rf.c243916b3ddc45cfb784372a0026da13.jpg",
+          "session_id": "80b66325-a2ce-4519-b384-240d8810a681",
+          "session_name": "15cdf32f0d81800e_jpg.rf.c243916b3ddc45cfb784372a0026da13",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/180/180.jpg",
+          "session_id": "43f49ef7-154b-4df7-b09f-efb7ffa378a7",
+          "session_name": "180",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/180/180.jpg",
+          "session_id": "43f49ef7-154b-4df7-b09f-efb7ffa378a7",
+          "session_name": "180",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/180/180.jpg",
+          "session_id": "43f49ef7-154b-4df7-b09f-efb7ffa378a7",
+          "session_name": "180",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/180/180.jpg",
+          "session_id": "43f49ef7-154b-4df7-b09f-efb7ffa378a7",
+          "session_name": "180",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/1_jpg.rf.e7f78af3a33deec14797c2b148301bd5/1_jpg.rf.e7f78af3a33deec14797c2b148301bd5.jpg",
+          "session_id": "ced37599-f698-4246-af77-12910ad75e1a",
+          "session_name": "1_jpg.rf.e7f78af3a33deec14797c2b148301bd5",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/1ee6dd0f2fdfc1d7_jpg.rf.6b45f6006ea4ea8df5187b43843c94a3/1ee6dd0f2fdfc1d7_jpg.rf.6b45f6006ea4ea8df5187b43843c94a3.jpg",
+          "session_id": "7befcfeb-ddfc-492f-9580-7cf8c3b324e4",
+          "session_name": "1ee6dd0f2fdfc1d7_jpg.rf.6b45f6006ea4ea8df5187b43843c94a3",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/20210921_141309_jpg.rf.9eb018fc4dc0329a89529285a3191fd0/20210921_141309_jpg.rf.9eb018fc4dc0329a89529285a3191fd0.jpg",
+          "session_id": "61d83b6b-407f-499e-a4e8-196c5356ad43",
+          "session_name": "20210921_141309_jpg.rf.9eb018fc4dc0329a89529285a3191fd0",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/20210921_141309_jpg.rf.9eb018fc4dc0329a89529285a3191fd0/20210921_141309_jpg.rf.9eb018fc4dc0329a89529285a3191fd0.jpg",
+          "session_id": "61d83b6b-407f-499e-a4e8-196c5356ad43",
+          "session_name": "20210921_141309_jpg.rf.9eb018fc4dc0329a89529285a3191fd0",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/20210921_141431_039_saved_jpg.rf.620867a8062d9bfec28e44d8b5d8c166/20210921_141431_039_saved_jpg.rf.620867a8062d9bfec28e44d8b5d8c166.jpg",
+          "session_id": "e8ca7e9d-3390-4754-a062-8641eda0a71a",
+          "session_name": "20210921_141431_039_saved_jpg.rf.620867a8062d9bfec28e44d8b5d8c166",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/20210921_141431_055_saved_jpg.rf.bffb1c4cb2f97dabb42cb5e4725e1f77/20210921_141431_055_saved_jpg.rf.bffb1c4cb2f97dabb42cb5e4725e1f77.jpg",
+          "session_id": "554c9814-3986-4244-bba8-dacac49a5aa9",
+          "session_name": "20210921_141431_055_saved_jpg.rf.bffb1c4cb2f97dabb42cb5e4725e1f77",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/20210921_141431_055_saved_jpg.rf.bffb1c4cb2f97dabb42cb5e4725e1f77/20210921_141431_055_saved_jpg.rf.bffb1c4cb2f97dabb42cb5e4725e1f77.jpg",
+          "session_id": "554c9814-3986-4244-bba8-dacac49a5aa9",
+          "session_name": "20210921_141431_055_saved_jpg.rf.bffb1c4cb2f97dabb42cb5e4725e1f77",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/20210921_141431_055_saved_jpg.rf.bffb1c4cb2f97dabb42cb5e4725e1f77/20210921_141431_055_saved_jpg.rf.bffb1c4cb2f97dabb42cb5e4725e1f77.jpg",
+          "session_id": "554c9814-3986-4244-bba8-dacac49a5aa9",
+          "session_name": "20210921_141431_055_saved_jpg.rf.bffb1c4cb2f97dabb42cb5e4725e1f77",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/207/207.jpg",
+          "session_id": "1cbc8afe-897a-45af-9218-f387555a18b0",
+          "session_name": "207",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/207/207.jpg",
+          "session_id": "1cbc8afe-897a-45af-9218-f387555a18b0",
+          "session_name": "207",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/212/212.jpg",
+          "session_id": "da21393a-bf19-4053-9047-0e2bcc61017b",
+          "session_name": "212",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/212/212.jpg",
+          "session_id": "da21393a-bf19-4053-9047-0e2bcc61017b",
+          "session_name": "212",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/216/216.jpg",
+          "session_id": "7e6aa191-b87a-47a2-abfd-6f02574a59c7",
+          "session_name": "216",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/28_jpg.rf.7fdd9497f4bcac24cff5c69b24f74ce1/28_jpg.rf.7fdd9497f4bcac24cff5c69b24f74ce1.jpg",
+          "session_id": "fcb954c6-35cf-47ad-a29d-db2840e96737",
+          "session_name": "28_jpg.rf.7fdd9497f4bcac24cff5c69b24f74ce1",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/28a0f1f7d9e3553b_jpg.rf.a5748db7e8d8de4571d05afa37dc0907/28a0f1f7d9e3553b_jpg.rf.a5748db7e8d8de4571d05afa37dc0907.jpg",
+          "session_id": "52d10a55-723d-466d-9443-2115426b67d0",
+          "session_name": "28a0f1f7d9e3553b_jpg.rf.a5748db7e8d8de4571d05afa37dc0907",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/292aa8c57d0c6fa7_jpg.rf.b69b3add800e9a73473171c4e39e45a1/292aa8c57d0c6fa7_jpg.rf.b69b3add800e9a73473171c4e39e45a1.jpg",
+          "session_id": "6051229b-446f-4b89-9b1b-2ac9bb5a8e57",
+          "session_name": "292aa8c57d0c6fa7_jpg.rf.b69b3add800e9a73473171c4e39e45a1",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/2_jpg.rf.3e876591d1d27d0276eb6658bdd443d4/2_jpg.rf.3e876591d1d27d0276eb6658bdd443d4.jpg",
+          "session_id": "bc3aad19-d288-416e-927a-e895f2191f68",
+          "session_name": "2_jpg.rf.3e876591d1d27d0276eb6658bdd443d4",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/2b90095ad1cbbc60_jpg.rf.dbe5dadcaf7b2da60bcd9cb3caf9b552/2b90095ad1cbbc60_jpg.rf.dbe5dadcaf7b2da60bcd9cb3caf9b552.jpg",
+          "session_id": "c7d0029c-d77b-400a-b7fb-11aab3ec84a5",
+          "session_name": "2b90095ad1cbbc60_jpg.rf.dbe5dadcaf7b2da60bcd9cb3caf9b552",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/2d9a9d94e356c1cc_jpg.rf.70e56925cb5efb458187de1ad0ab4893/2d9a9d94e356c1cc_jpg.rf.70e56925cb5efb458187de1ad0ab4893.jpg",
+          "session_id": "ce9ca837-b8d5-4789-bb03-481d28384ede",
+          "session_name": "2d9a9d94e356c1cc_jpg.rf.70e56925cb5efb458187de1ad0ab4893",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/36557d9359eec1ea_jpg.rf.0e175a55fa9f62a80a55ed7ec2e504f1/36557d9359eec1ea_jpg.rf.0e175a55fa9f62a80a55ed7ec2e504f1.jpg",
+          "session_id": "cbdf3337-b22a-4a6f-a482-3c87e9cb3fb0",
+          "session_name": "36557d9359eec1ea_jpg.rf.0e175a55fa9f62a80a55ed7ec2e504f1",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/368470eb5bd1c3d5_jpg.rf.a3e221a950f34999538c975f4b3502da/368470eb5bd1c3d5_jpg.rf.a3e221a950f34999538c975f4b3502da.jpg",
+          "session_id": "24d28447-e1fb-4ad6-ba92-b1f259552b7d",
+          "session_name": "368470eb5bd1c3d5_jpg.rf.a3e221a950f34999538c975f4b3502da",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/36f1d6d43bb16761_jpg.rf.ca6589ed2555811242d26454facc892b/36f1d6d43bb16761_jpg.rf.ca6589ed2555811242d26454facc892b.jpg",
+          "session_id": "9231ed6c-f501-4d83-be6c-921463d3b75d",
+          "session_name": "36f1d6d43bb16761_jpg.rf.ca6589ed2555811242d26454facc892b",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/15_jpg.rf.6606c92dea1fa82da73df5d7ed2febcd/15_jpg.rf.6606c92dea1fa82da73df5d7ed2febcd.jpg",
+          "session_id": "bfcd2509-56bd-4adb-9d57-d1c5763aa8ef",
+          "session_name": "15_jpg.rf.6606c92dea1fa82da73df5d7ed2febcd",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/151/151.jpg",
+          "session_id": "a043c49d-ac91-4b65-bb95-80cdde86f988",
+          "session_name": "151",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/14_jpg.rf.d161f64c2193a0150ed4faac35cab5b8/14_jpg.rf.d161f64c2193a0150ed4faac35cab5b8.jpg",
+          "session_id": "bda12558-ea90-4142-b88d-b5861a66e5b7",
+          "session_name": "14_jpg.rf.d161f64c2193a0150ed4faac35cab5b8",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/12536087ce8d8275_jpg.rf.929b4927f24bf4bd965792a472907209/12536087ce8d8275_jpg.rf.929b4927f24bf4bd965792a472907209.jpg",
+          "session_id": "f4668cdd-c253-4cb6-9a57-ba8e09ad6833",
+          "session_name": "12536087ce8d8275_jpg.rf.929b4927f24bf4bd965792a472907209",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/008/008.jpg",
+          "session_id": "5696a6b0-f113-4b52-9dbe-ddfc334268fc",
+          "session_name": "008",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/010_jpg.rf.c8cd463c728d0ca78608b3911645f889/010_jpg.rf.c8cd463c728d0ca78608b3911645f889.jpg",
+          "session_id": "30724aea-5240-4806-b012-2587c3075fee",
+          "session_name": "010_jpg.rf.c8cd463c728d0ca78608b3911645f889",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/011_jpg.rf.8ba960a50b9a48d3d4710e9d3503ea7e/011_jpg.rf.8ba960a50b9a48d3d4710e9d3503ea7e.jpg",
+          "session_id": "bb5551f0-c0a3-467a-8c20-d7f60a8d4cfb",
+          "session_name": "011_jpg.rf.8ba960a50b9a48d3d4710e9d3503ea7e",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/012/012.jpg",
+          "session_id": "0f904e97-117c-4169-a715-2f50405ad144",
+          "session_name": "012",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/012/012.jpg",
+          "session_id": "0f904e97-117c-4169-a715-2f50405ad144",
+          "session_name": "012",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/012/012.jpg",
+          "session_id": "0f904e97-117c-4169-a715-2f50405ad144",
+          "session_name": "012",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/016/016.jpg",
+          "session_id": "75468074-f21a-4840-b8ad-4746dd81b318",
+          "session_name": "016",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/019_jpg.rf.3b74cb21416ae2fe47910b2e4e35b65d/019_jpg.rf.3b74cb21416ae2fe47910b2e4e35b65d.jpg",
+          "session_id": "65aa2869-9b1b-4845-8800-5e21e96933b8",
+          "session_name": "019_jpg.rf.3b74cb21416ae2fe47910b2e4e35b65d",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/019f4c72e136b61d_jpg.rf.8fddf78900d66dfbd5a148d88c6dc6ab/019f4c72e136b61d_jpg.rf.8fddf78900d66dfbd5a148d88c6dc6ab.jpg",
+          "session_id": "57a19f14-0deb-4541-8589-a252cdd95b3d",
+          "session_name": "019f4c72e136b61d_jpg.rf.8fddf78900d66dfbd5a148d88c6dc6ab",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/020/020.jpg",
+          "session_id": "b87eb85a-a075-4a52-83bd-dea2e5c7fccd",
+          "session_name": "020",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/020/020.jpg",
+          "session_id": "b87eb85a-a075-4a52-83bd-dea2e5c7fccd",
+          "session_name": "020",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/048/048.jpg",
+          "session_id": "db2282e2-a4ea-4edb-8524-f619ebcddc26",
+          "session_name": "048",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/048/048.jpg",
+          "session_id": "db2282e2-a4ea-4edb-8524-f619ebcddc26",
+          "session_name": "048",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/048/048.jpg",
+          "session_id": "db2282e2-a4ea-4edb-8524-f619ebcddc26",
+          "session_name": "048",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/3a661e15bd595480_jpg.rf.489cdad2a3e45db1a414dc5890fe2418/3a661e15bd595480_jpg.rf.489cdad2a3e45db1a414dc5890fe2418.jpg",
+          "session_id": "660dea28-2743-4121-b7b2-22fe923b4afb",
+          "session_name": "3a661e15bd595480_jpg.rf.489cdad2a3e45db1a414dc5890fe2418",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/075/075.jpg",
+          "session_id": "d2bb10a5-66e2-4dc3-913d-3bbc3692df03",
+          "session_name": "075",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/075/075.jpg",
+          "session_id": "d2bb10a5-66e2-4dc3-913d-3bbc3692df03",
+          "session_name": "075",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/075/075.jpg",
+          "session_id": "d2bb10a5-66e2-4dc3-913d-3bbc3692df03",
+          "session_name": "075",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/075/075.jpg",
+          "session_id": "d2bb10a5-66e2-4dc3-913d-3bbc3692df03",
+          "session_name": "075",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/075/075.jpg",
+          "session_id": "d2bb10a5-66e2-4dc3-913d-3bbc3692df03",
+          "session_name": "075",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/075/075.jpg",
+          "session_id": "d2bb10a5-66e2-4dc3-913d-3bbc3692df03",
+          "session_name": "075",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/08931a0376a01090_jpg.rf.b8d35f73decfdf0a32793659728fd542/08931a0376a01090_jpg.rf.b8d35f73decfdf0a32793659728fd542.jpg",
+          "session_id": "690ac8f0-798a-470e-bf86-df6b4bccd37f",
+          "session_name": "08931a0376a01090_jpg.rf.b8d35f73decfdf0a32793659728fd542",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/08931a0376a01090_jpg.rf.b8d35f73decfdf0a32793659728fd542/08931a0376a01090_jpg.rf.b8d35f73decfdf0a32793659728fd542.jpg",
+          "session_id": "690ac8f0-798a-470e-bf86-df6b4bccd37f",
+          "session_name": "08931a0376a01090_jpg.rf.b8d35f73decfdf0a32793659728fd542",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/08931a0376a01090_jpg.rf.b8d35f73decfdf0a32793659728fd542/08931a0376a01090_jpg.rf.b8d35f73decfdf0a32793659728fd542.jpg",
+          "session_id": "690ac8f0-798a-470e-bf86-df6b4bccd37f",
+          "session_name": "08931a0376a01090_jpg.rf.b8d35f73decfdf0a32793659728fd542",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/08f989b54838963c_jpg.rf.8a6292c119569d37cc678ff4bc2a5a73/08f989b54838963c_jpg.rf.8a6292c119569d37cc678ff4bc2a5a73.jpg",
+          "session_id": "a8417a11-ac14-4d8b-9beb-a35b13f2aee6",
+          "session_name": "08f989b54838963c_jpg.rf.8a6292c119569d37cc678ff4bc2a5a73",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/099/099.jpg",
+          "session_id": "578462df-28f2-4717-92d2-019dd04f61dd",
+          "session_name": "099",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/0c15bbf261c864b3_jpg.rf.e04e95aaa29c19a1fc4809bb864b93c8/0c15bbf261c864b3_jpg.rf.e04e95aaa29c19a1fc4809bb864b93c8.jpg",
+          "session_id": "a74241c1-7011-4e0a-9f4d-eb6be761c459",
+          "session_name": "0c15bbf261c864b3_jpg.rf.e04e95aaa29c19a1fc4809bb864b93c8",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/0ddfe40f536046f2_jpg.rf.78876a35e5744804ee3213310f686b52/0ddfe40f536046f2_jpg.rf.78876a35e5744804ee3213310f686b52.jpg",
+          "session_id": "b17b7142-5604-45db-9e43-fd67437edcad",
+          "session_name": "0ddfe40f536046f2_jpg.rf.78876a35e5744804ee3213310f686b52",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/0e3c00160655c260_jpg.rf.c7843b3f4bfab2dc0b7366b3c556f38c/0e3c00160655c260_jpg.rf.c7843b3f4bfab2dc0b7366b3c556f38c.jpg",
+          "session_id": "0815a390-ae31-45a2-8241-cf892a66d26d",
+          "session_name": "0e3c00160655c260_jpg.rf.c7843b3f4bfab2dc0b7366b3c556f38c",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/0e69c147628dde26_jpg.rf.93d054943c399d72b40e96d8e01b25c6/0e69c147628dde26_jpg.rf.93d054943c399d72b40e96d8e01b25c6.jpg",
+          "session_id": "c5c98310-2656-4652-8951-508def9b3f42",
+          "session_name": "0e69c147628dde26_jpg.rf.93d054943c399d72b40e96d8e01b25c6",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/079/079.jpg",
+          "session_id": "a7af66bf-d824-4137-9018-5bc484f5919f",
+          "session_name": "079",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/079/079.jpg",
+          "session_id": "a7af66bf-d824-4137-9018-5bc484f5919f",
+          "session_name": "079",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/079/079.jpg",
+          "session_id": "a7af66bf-d824-4137-9018-5bc484f5919f",
+          "session_name": "079",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/079/079.jpg",
+          "session_id": "a7af66bf-d824-4137-9018-5bc484f5919f",
+          "session_name": "079",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/079/079.jpg",
+          "session_id": "a7af66bf-d824-4137-9018-5bc484f5919f",
+          "session_name": "079",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/079/079.jpg",
+          "session_id": "a7af66bf-d824-4137-9018-5bc484f5919f",
+          "session_name": "079",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/40_jpg.rf.cdc338fd85fb29f5065613f8fc9533d0/40_jpg.rf.cdc338fd85fb29f5065613f8fc9533d0.jpg",
+          "session_id": "3ed9da01-9973-4c04-96c5-3487ad070d21",
+          "session_name": "40_jpg.rf.cdc338fd85fb29f5065613f8fc9533d0",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/40_jpg.rf.cdc338fd85fb29f5065613f8fc9533d0/40_jpg.rf.cdc338fd85fb29f5065613f8fc9533d0.jpg",
+          "session_id": "3ed9da01-9973-4c04-96c5-3487ad070d21",
+          "session_name": "40_jpg.rf.cdc338fd85fb29f5065613f8fc9533d0",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/40_jpg.rf.cdc338fd85fb29f5065613f8fc9533d0/40_jpg.rf.cdc338fd85fb29f5065613f8fc9533d0.jpg",
+          "session_id": "3ed9da01-9973-4c04-96c5-3487ad070d21",
+          "session_name": "40_jpg.rf.cdc338fd85fb29f5065613f8fc9533d0",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/40_jpg.rf.cdc338fd85fb29f5065613f8fc9533d0/40_jpg.rf.cdc338fd85fb29f5065613f8fc9533d0.jpg",
+          "session_id": "3ed9da01-9973-4c04-96c5-3487ad070d21",
+          "session_name": "40_jpg.rf.cdc338fd85fb29f5065613f8fc9533d0",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/40_jpg.rf.cdc338fd85fb29f5065613f8fc9533d0/40_jpg.rf.cdc338fd85fb29f5065613f8fc9533d0.jpg",
+          "session_id": "3ed9da01-9973-4c04-96c5-3487ad070d21",
+          "session_name": "40_jpg.rf.cdc338fd85fb29f5065613f8fc9533d0",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/40_jpg.rf.cdc338fd85fb29f5065613f8fc9533d0/40_jpg.rf.cdc338fd85fb29f5065613f8fc9533d0.jpg",
+          "session_id": "3ed9da01-9973-4c04-96c5-3487ad070d21",
+          "session_name": "40_jpg.rf.cdc338fd85fb29f5065613f8fc9533d0",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/41_jpg.rf.8fedfc62b5337cc626525f7d27a5ebfb/41_jpg.rf.8fedfc62b5337cc626525f7d27a5ebfb.jpg",
+          "session_id": "49255ae5-ad0e-4b3f-931c-2a83432040f3",
+          "session_name": "41_jpg.rf.8fedfc62b5337cc626525f7d27a5ebfb",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/41_jpg.rf.8fedfc62b5337cc626525f7d27a5ebfb/41_jpg.rf.8fedfc62b5337cc626525f7d27a5ebfb.jpg",
+          "session_id": "49255ae5-ad0e-4b3f-931c-2a83432040f3",
+          "session_name": "41_jpg.rf.8fedfc62b5337cc626525f7d27a5ebfb",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/41_jpg.rf.8fedfc62b5337cc626525f7d27a5ebfb/41_jpg.rf.8fedfc62b5337cc626525f7d27a5ebfb.jpg",
+          "session_id": "49255ae5-ad0e-4b3f-931c-2a83432040f3",
+          "session_name": "41_jpg.rf.8fedfc62b5337cc626525f7d27a5ebfb",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/41_jpg.rf.8fedfc62b5337cc626525f7d27a5ebfb/41_jpg.rf.8fedfc62b5337cc626525f7d27a5ebfb.jpg",
+          "session_id": "49255ae5-ad0e-4b3f-931c-2a83432040f3",
+          "session_name": "41_jpg.rf.8fedfc62b5337cc626525f7d27a5ebfb",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/41_jpg.rf.8fedfc62b5337cc626525f7d27a5ebfb/41_jpg.rf.8fedfc62b5337cc626525f7d27a5ebfb.jpg",
+          "session_id": "49255ae5-ad0e-4b3f-931c-2a83432040f3",
+          "session_name": "41_jpg.rf.8fedfc62b5337cc626525f7d27a5ebfb",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/41_jpg.rf.8fedfc62b5337cc626525f7d27a5ebfb/41_jpg.rf.8fedfc62b5337cc626525f7d27a5ebfb.jpg",
+          "session_id": "49255ae5-ad0e-4b3f-931c-2a83432040f3",
+          "session_name": "41_jpg.rf.8fedfc62b5337cc626525f7d27a5ebfb",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/43_jpg.rf.6485c2acebd23d2fce2acf72f1126a8a/43_jpg.rf.6485c2acebd23d2fce2acf72f1126a8a.jpg",
+          "session_id": "495058f2-3103-4caf-bf7e-027f8499e60e",
+          "session_name": "43_jpg.rf.6485c2acebd23d2fce2acf72f1126a8a",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/43_jpg.rf.6485c2acebd23d2fce2acf72f1126a8a/43_jpg.rf.6485c2acebd23d2fce2acf72f1126a8a.jpg",
+          "session_id": "495058f2-3103-4caf-bf7e-027f8499e60e",
+          "session_name": "43_jpg.rf.6485c2acebd23d2fce2acf72f1126a8a",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/43_jpg.rf.6485c2acebd23d2fce2acf72f1126a8a/43_jpg.rf.6485c2acebd23d2fce2acf72f1126a8a.jpg",
+          "session_id": "495058f2-3103-4caf-bf7e-027f8499e60e",
+          "session_name": "43_jpg.rf.6485c2acebd23d2fce2acf72f1126a8a",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/43_jpg.rf.6485c2acebd23d2fce2acf72f1126a8a/43_jpg.rf.6485c2acebd23d2fce2acf72f1126a8a.jpg",
+          "session_id": "495058f2-3103-4caf-bf7e-027f8499e60e",
+          "session_name": "43_jpg.rf.6485c2acebd23d2fce2acf72f1126a8a",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/B87_jpg.rf.ca60e015b7422fdd097ccd032b447a5e/B87_jpg.rf.ca60e015b7422fdd097ccd032b447a5e.jpg",
+          "session_id": "c07e52f1-bda7-4226-a3af-c717f0c1c52e",
+          "session_name": "B87_jpg.rf.ca60e015b7422fdd097ccd032b447a5e",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/B93_jpg.rf.1cf68a20bab6d08f77ea1daeb3017b15/B93_jpg.rf.1cf68a20bab6d08f77ea1daeb3017b15.jpg",
+          "session_id": "7ae2aade-c051-42d5-ad34-79bd882fd803",
+          "session_name": "B93_jpg.rf.1cf68a20bab6d08f77ea1daeb3017b15",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/B94_jpg.rf.3d7c3a4b4c5fac06f73bd0b6e25da25f/B94_jpg.rf.3d7c3a4b4c5fac06f73bd0b6e25da25f.jpg",
+          "session_id": "bc32e46d-10e2-4083-91e7-6203d86e177c",
+          "session_name": "B94_jpg.rf.3d7c3a4b4c5fac06f73bd0b6e25da25f",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/B9_jpg.rf.6c42e7e5d54e123f9d58d5712102a49e/B9_jpg.rf.6c42e7e5d54e123f9d58d5712102a49e.jpg",
+          "session_id": "6f7e331d-530a-4b82-9f94-23b68db0aa69",
+          "session_name": "B9_jpg.rf.6c42e7e5d54e123f9d58d5712102a49e",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/ILSVRC2012_val_00024405_JPEG_jpg.rf.c2ea6152d081448825cab429b4506768/ILSVRC2012_val_00024405_JPEG_jpg.rf.c2ea6152d081448825cab429b4506768.jpg",
+          "session_id": "ae5456f1-b7f4-4337-a319-d1f88bd8eb81",
+          "session_name": "ILSVRC2012_val_00024405_JPEG_jpg.rf.c2ea6152d081448825cab429b4506768",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/ILSVRC2012_val_00046468_JPEG_jpg.rf.b089da24b39a9e5d6c0fbdc3b9f1aa27/ILSVRC2012_val_00046468_JPEG_jpg.rf.b089da24b39a9e5d6c0fbdc3b9f1aa27.jpg",
+          "session_id": "16f077da-cbc6-4aea-ab4e-45df84540ee5",
+          "session_name": "ILSVRC2012_val_00046468_JPEG_jpg.rf.b089da24b39a9e5d6c0fbdc3b9f1aa27",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/IMG_0305/IMG_0305.jpg",
+          "session_id": "f3f8a13f-578e-40f5-bd8b-3be89b8ef45d",
+          "session_name": "IMG_0305",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/IMG_0305/IMG_0305.jpg",
+          "session_id": "f3f8a13f-578e-40f5-bd8b-3be89b8ef45d",
+          "session_name": "IMG_0305",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/IMG_0305/IMG_0305.jpg",
+          "session_id": "f3f8a13f-578e-40f5-bd8b-3be89b8ef45d",
+          "session_name": "IMG_0305",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/IMG_0305/IMG_0305.jpg",
+          "session_id": "f3f8a13f-578e-40f5-bd8b-3be89b8ef45d",
+          "session_name": "IMG_0305",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/IMG_0305/IMG_0305.jpg",
+          "session_id": "f3f8a13f-578e-40f5-bd8b-3be89b8ef45d",
+          "session_name": "IMG_0305",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/IMG_0311/IMG_0311.jpg",
+          "session_id": "ba98a40a-8777-45c0-bf3c-aa868d0ef272",
+          "session_name": "IMG_0311",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/IMG_0311/IMG_0311.jpg",
+          "session_id": "ba98a40a-8777-45c0-bf3c-aa868d0ef272",
+          "session_name": "IMG_0311",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/IMG_0311/IMG_0311.jpg",
+          "session_id": "ba98a40a-8777-45c0-bf3c-aa868d0ef272",
+          "session_name": "IMG_0311",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/IMG_0314/IMG_0314.jpg",
+          "session_id": "f584053f-7e6e-418a-812d-d0054b6d8e35",
+          "session_name": "IMG_0314",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/IMG_0314/IMG_0314.jpg",
+          "session_id": "f584053f-7e6e-418a-812d-d0054b6d8e35",
+          "session_name": "IMG_0314",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/IMG_0314/IMG_0314.jpg",
+          "session_id": "f584053f-7e6e-418a-812d-d0054b6d8e35",
+          "session_name": "IMG_0314",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/IMG_0314/IMG_0314.jpg",
+          "session_id": "f584053f-7e6e-418a-812d-d0054b6d8e35",
+          "session_name": "IMG_0314",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/IMG_0324/IMG_0324.jpg",
+          "session_id": "a4042c10-93b5-43b3-b061-d0bff78c442d",
+          "session_name": "IMG_0324",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/IMG_0324/IMG_0324.jpg",
+          "session_id": "a4042c10-93b5-43b3-b061-d0bff78c442d",
+          "session_name": "IMG_0324",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/IMG_0324/IMG_0324.jpg",
+          "session_id": "a4042c10-93b5-43b3-b061-d0bff78c442d",
+          "session_name": "IMG_0324",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/IMG_0324/IMG_0324.jpg",
+          "session_id": "a4042c10-93b5-43b3-b061-d0bff78c442d",
+          "session_name": "IMG_0324",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/IMG_0324/IMG_0324.jpg",
+          "session_id": "a4042c10-93b5-43b3-b061-d0bff78c442d",
+          "session_name": "IMG_0324",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/IMG_0324/IMG_0324.jpg",
+          "session_id": "a4042c10-93b5-43b3-b061-d0bff78c442d",
+          "session_name": "IMG_0324",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/B75_jpg.rf.b779a93e4ba3815582c529ece885a96a/B75_jpg.rf.b779a93e4ba3815582c529ece885a96a.jpg",
+          "session_id": "e557dcc6-d719-41fa-b56b-f96bb2450ff8",
+          "session_name": "B75_jpg.rf.b779a93e4ba3815582c529ece885a96a",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/B75_jpg.rf.b779a93e4ba3815582c529ece885a96a/B75_jpg.rf.b779a93e4ba3815582c529ece885a96a.jpg",
+          "session_id": "e557dcc6-d719-41fa-b56b-f96bb2450ff8",
+          "session_name": "B75_jpg.rf.b779a93e4ba3815582c529ece885a96a",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/IMG_0327/IMG_0327.jpg",
+          "session_id": "0bfa0d89-875b-486c-9329-23a733a55f5e",
+          "session_name": "IMG_0327",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/IMG_0327/IMG_0327.jpg",
+          "session_id": "0bfa0d89-875b-486c-9329-23a733a55f5e",
+          "session_name": "IMG_0327",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/IMG_0336/IMG_0336.jpg",
+          "session_id": "70d753df-4f07-4ace-9cf3-fc85d911e9e3",
+          "session_name": "IMG_0336",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/IMG_0354/IMG_0354.jpg",
+          "session_id": "8a7b0f72-bb22-48b6-9bb0-8aecff23748f",
+          "session_name": "IMG_0354",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/IMG_0356/IMG_0356.jpg",
+          "session_id": "14033169-ea5a-47b4-99fc-42a746b142b6",
+          "session_name": "IMG_0356",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/IMG_0359/IMG_0359.jpg",
+          "session_id": "0e920dd4-82b4-4e2c-9b65-7981669cad62",
+          "session_name": "IMG_0359",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/IMG_0367/IMG_0367.jpg",
+          "session_id": "91b02e1b-c61b-4f77-a1c8-32446e9a45db",
+          "session_name": "IMG_0367",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/IMG_0370/IMG_0370.jpg",
+          "session_id": "e33746d5-d9c8-42f0-a5fa-ea82a7906a1b",
+          "session_name": "IMG_0370",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/IMG_0370/IMG_0370.jpg",
+          "session_id": "e33746d5-d9c8-42f0-a5fa-ea82a7906a1b",
+          "session_name": "IMG_0370",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/IMG_0370/IMG_0370.jpg",
+          "session_id": "e33746d5-d9c8-42f0-a5fa-ea82a7906a1b",
+          "session_name": "IMG_0370",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/IMG_0370/IMG_0370.jpg",
+          "session_id": "e33746d5-d9c8-42f0-a5fa-ea82a7906a1b",
+          "session_name": "IMG_0370",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/IMG_0370/IMG_0370.jpg",
+          "session_id": "e33746d5-d9c8-42f0-a5fa-ea82a7906a1b",
+          "session_name": "IMG_0370",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/IMG_0370/IMG_0370.jpg",
+          "session_id": "e33746d5-d9c8-42f0-a5fa-ea82a7906a1b",
+          "session_name": "IMG_0370",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/IMG_0372/IMG_0372.jpg",
+          "session_id": "56d58774-ea04-41d0-b66c-34ad8ad35560",
+          "session_name": "IMG_0372",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/IMG_0372/IMG_0372.jpg",
+          "session_id": "56d58774-ea04-41d0-b66c-34ad8ad35560",
+          "session_name": "IMG_0372",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/IMG_0372/IMG_0372.jpg",
+          "session_id": "56d58774-ea04-41d0-b66c-34ad8ad35560",
+          "session_name": "IMG_0372",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/IMG_0372/IMG_0372.jpg",
+          "session_id": "56d58774-ea04-41d0-b66c-34ad8ad35560",
+          "session_name": "IMG_0372",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/IMG_0372/IMG_0372.jpg",
+          "session_id": "56d58774-ea04-41d0-b66c-34ad8ad35560",
+          "session_name": "IMG_0372",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/IMG_0372/IMG_0372.jpg",
+          "session_id": "56d58774-ea04-41d0-b66c-34ad8ad35560",
+          "session_name": "IMG_0372",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_55_14_Pro_jpg.rf.a8ba502974f1f0feedebb0e321ef2028/WIN_20220310_16_55_14_Pro_jpg.rf.a8ba502974f1f0feedebb0e321ef2028.jpg",
+          "session_id": "185f46c7-d8fb-40b1-823d-3d9ee52e20a4",
+          "session_name": "WIN_20220310_16_55_14_Pro_jpg.rf.a8ba502974f1f0feedebb0e321ef2028",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_55_21_Pro-2-_jpg.rf.31f4873a44e6676bb4520df4400bb0cb/WIN_20220310_16_55_21_Pro-2-_jpg.rf.31f4873a44e6676bb4520df4400bb0cb.jpg",
+          "session_id": "b7972b21-db97-49c4-ac31-a2f6115fc200",
+          "session_name": "WIN_20220310_16_55_21_Pro-2-_jpg.rf.31f4873a44e6676bb4520df4400bb0cb",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_55_24_Pro-2-_jpg.rf.8ea454c3cd26f1d6189c70000911c267/WIN_20220310_16_55_24_Pro-2-_jpg.rf.8ea454c3cd26f1d6189c70000911c267.jpg",
+          "session_id": "300df669-316c-452a-9451-4071403b8e49",
+          "session_name": "WIN_20220310_16_55_24_Pro-2-_jpg.rf.8ea454c3cd26f1d6189c70000911c267",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/IMG_0328/IMG_0328.jpg",
+          "session_id": "a9fd043a-8a4f-4e80-bcc9-348ff470bebc",
+          "session_name": "IMG_0328",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_8964_JPEG_jpg.rf.42db8caec2efea811abe0cb17ef27a3e/n03445777_8964_JPEG_jpg.rf.42db8caec2efea811abe0cb17ef27a3e.jpg",
+          "session_id": "13c4a03a-2447-40aa-99f8-cea428f7acae",
+          "session_name": "n03445777_8964_JPEG_jpg.rf.42db8caec2efea811abe0cb17ef27a3e",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/B5_jpg.rf.5cd80f5d1bd821893c37a12a7451faee/B5_jpg.rf.5cd80f5d1bd821893c37a12a7451faee.jpg",
+          "session_id": "6a651a2d-ea44-4b40-9a53-10548762d909",
+          "session_name": "B5_jpg.rf.5cd80f5d1bd821893c37a12a7451faee",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/B4_jpg.rf.6c243c950b4b43e6a4a24a546e99aa04/B4_jpg.rf.6c243c950b4b43e6a4a24a546e99aa04.jpg",
+          "session_id": "930bc562-f597-4cf9-a386-316b219e4491",
+          "session_name": "B4_jpg.rf.6c243c950b4b43e6a4a24a546e99aa04",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/B4_jpg.rf.6c243c950b4b43e6a4a24a546e99aa04/B4_jpg.rf.6c243c950b4b43e6a4a24a546e99aa04.jpg",
+          "session_id": "930bc562-f597-4cf9-a386-316b219e4491",
+          "session_name": "B4_jpg.rf.6c243c950b4b43e6a4a24a546e99aa04",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/4_jpg.rf.51b27f562c24c745b00421161c038037/4_jpg.rf.51b27f562c24c745b00421161c038037.jpg",
+          "session_id": "c3d95d89-4d92-499b-831b-38e2b0363862",
+          "session_name": "4_jpg.rf.51b27f562c24c745b00421161c038037",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/53748cc1b6026c79_jpg.rf.73b923b5976d2b53d99e93dab9430eb7/53748cc1b6026c79_jpg.rf.73b923b5976d2b53d99e93dab9430eb7.jpg",
+          "session_id": "94e12bb2-8e87-490b-a432-6a851bd96b1d",
+          "session_name": "53748cc1b6026c79_jpg.rf.73b923b5976d2b53d99e93dab9430eb7",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/5388e7cf0f4d7b8b_jpg.rf.5a45a017ca5ea84501cef30361859d55/5388e7cf0f4d7b8b_jpg.rf.5a45a017ca5ea84501cef30361859d55.jpg",
+          "session_id": "28bace25-1f00-457b-9e2a-0d23887e01c9",
+          "session_name": "5388e7cf0f4d7b8b_jpg.rf.5a45a017ca5ea84501cef30361859d55",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/59_jpg.rf.d3fe335f829bf9fee50ffde8e672e7d5/59_jpg.rf.d3fe335f829bf9fee50ffde8e672e7d5.jpg",
+          "session_id": "8cbabcc6-cfc2-4210-9732-04115a84bdb7",
+          "session_name": "59_jpg.rf.d3fe335f829bf9fee50ffde8e672e7d5",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/59_jpg.rf.d3fe335f829bf9fee50ffde8e672e7d5/59_jpg.rf.d3fe335f829bf9fee50ffde8e672e7d5.jpg",
+          "session_id": "8cbabcc6-cfc2-4210-9732-04115a84bdb7",
+          "session_name": "59_jpg.rf.d3fe335f829bf9fee50ffde8e672e7d5",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/59_jpg.rf.d3fe335f829bf9fee50ffde8e672e7d5/59_jpg.rf.d3fe335f829bf9fee50ffde8e672e7d5.jpg",
+          "session_id": "8cbabcc6-cfc2-4210-9732-04115a84bdb7",
+          "session_name": "59_jpg.rf.d3fe335f829bf9fee50ffde8e672e7d5",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/59_jpg.rf.d3fe335f829bf9fee50ffde8e672e7d5/59_jpg.rf.d3fe335f829bf9fee50ffde8e672e7d5.jpg",
+          "session_id": "8cbabcc6-cfc2-4210-9732-04115a84bdb7",
+          "session_name": "59_jpg.rf.d3fe335f829bf9fee50ffde8e672e7d5",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/59_jpg.rf.d3fe335f829bf9fee50ffde8e672e7d5/59_jpg.rf.d3fe335f829bf9fee50ffde8e672e7d5.jpg",
+          "session_id": "8cbabcc6-cfc2-4210-9732-04115a84bdb7",
+          "session_name": "59_jpg.rf.d3fe335f829bf9fee50ffde8e672e7d5",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/59_jpg.rf.d3fe335f829bf9fee50ffde8e672e7d5/59_jpg.rf.d3fe335f829bf9fee50ffde8e672e7d5.jpg",
+          "session_id": "8cbabcc6-cfc2-4210-9732-04115a84bdb7",
+          "session_name": "59_jpg.rf.d3fe335f829bf9fee50ffde8e672e7d5",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/59_jpg.rf.d3fe335f829bf9fee50ffde8e672e7d5/59_jpg.rf.d3fe335f829bf9fee50ffde8e672e7d5.jpg",
+          "session_id": "8cbabcc6-cfc2-4210-9732-04115a84bdb7",
+          "session_name": "59_jpg.rf.d3fe335f829bf9fee50ffde8e672e7d5",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/59_jpg.rf.d3fe335f829bf9fee50ffde8e672e7d5/59_jpg.rf.d3fe335f829bf9fee50ffde8e672e7d5.jpg",
+          "session_id": "8cbabcc6-cfc2-4210-9732-04115a84bdb7",
+          "session_name": "59_jpg.rf.d3fe335f829bf9fee50ffde8e672e7d5",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/59_jpg.rf.d3fe335f829bf9fee50ffde8e672e7d5/59_jpg.rf.d3fe335f829bf9fee50ffde8e672e7d5.jpg",
+          "session_id": "8cbabcc6-cfc2-4210-9732-04115a84bdb7",
+          "session_name": "59_jpg.rf.d3fe335f829bf9fee50ffde8e672e7d5",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/59_jpg.rf.d3fe335f829bf9fee50ffde8e672e7d5/59_jpg.rf.d3fe335f829bf9fee50ffde8e672e7d5.jpg",
+          "session_id": "8cbabcc6-cfc2-4210-9732-04115a84bdb7",
+          "session_name": "59_jpg.rf.d3fe335f829bf9fee50ffde8e672e7d5",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/59_jpg.rf.d3fe335f829bf9fee50ffde8e672e7d5/59_jpg.rf.d3fe335f829bf9fee50ffde8e672e7d5.jpg",
+          "session_id": "8cbabcc6-cfc2-4210-9732-04115a84bdb7",
+          "session_name": "59_jpg.rf.d3fe335f829bf9fee50ffde8e672e7d5",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/59_jpg.rf.d3fe335f829bf9fee50ffde8e672e7d5/59_jpg.rf.d3fe335f829bf9fee50ffde8e672e7d5.jpg",
+          "session_id": "8cbabcc6-cfc2-4210-9732-04115a84bdb7",
+          "session_name": "59_jpg.rf.d3fe335f829bf9fee50ffde8e672e7d5",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/5_jpg.rf.0e00b0041fd171c7c7b5c13a319f23bf/5_jpg.rf.0e00b0041fd171c7c7b5c13a319f23bf.jpg",
+          "session_id": "ca38b98a-e165-4217-912c-1c72587f9e53",
+          "session_name": "5_jpg.rf.0e00b0041fd171c7c7b5c13a319f23bf",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/5f2d1723f39e4574_jpg.rf.d4694002145330273e97a2e429c53503/5f2d1723f39e4574_jpg.rf.d4694002145330273e97a2e429c53503.jpg",
+          "session_id": "a6384f22-f45e-4985-a9b3-0e0c2a1e570b",
+          "session_name": "5f2d1723f39e4574_jpg.rf.d4694002145330273e97a2e429c53503",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031.jpg",
+          "session_id": "95d15f2e-00cc-445c-b294-6c85a157bab9",
+          "session_name": "63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/74_jpg.rf.2ea47640cbabc2810b06eb352ccd6251/74_jpg.rf.2ea47640cbabc2810b06eb352ccd6251.jpg",
+          "session_id": "fd847872-7d6e-4d56-9b67-7da9b95d1080",
+          "session_name": "74_jpg.rf.2ea47640cbabc2810b06eb352ccd6251",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/758ba93fed7fedd4_jpg.rf.b585a03eaf1184a3374d3257f1c8ce24/758ba93fed7fedd4_jpg.rf.b585a03eaf1184a3374d3257f1c8ce24.jpg",
+          "session_id": "88cbde7b-03e1-4f46-b06c-681ff36cd209",
+          "session_name": "758ba93fed7fedd4_jpg.rf.b585a03eaf1184a3374d3257f1c8ce24",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/B51_jpg.rf.22395b5de4462fe016879a37f32a878e/B51_jpg.rf.22395b5de4462fe016879a37f32a878e.jpg",
+          "session_id": "0a9cf9fe-3ae0-4cb4-9812-5ee5f789c342",
+          "session_name": "B51_jpg.rf.22395b5de4462fe016879a37f32a878e",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/7a35a7c9315ceccb_jpg.rf.1df728bcc11a38bedde24e994faf868a/7a35a7c9315ceccb_jpg.rf.1df728bcc11a38bedde24e994faf868a.jpg",
+          "session_id": "e2199ef9-a072-4145-8f45-830aa26093a4",
+          "session_name": "7a35a7c9315ceccb_jpg.rf.1df728bcc11a38bedde24e994faf868a",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/89_jpg.rf.195b00c9fd7035a2ccc5f57c7d02728c/89_jpg.rf.195b00c9fd7035a2ccc5f57c7d02728c.jpg",
+          "session_id": "cc14ca82-2ec8-4eb7-b79a-89aa5a92ba0a",
+          "session_name": "89_jpg.rf.195b00c9fd7035a2ccc5f57c7d02728c",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/89_jpg.rf.195b00c9fd7035a2ccc5f57c7d02728c/89_jpg.rf.195b00c9fd7035a2ccc5f57c7d02728c.jpg",
+          "session_id": "cc14ca82-2ec8-4eb7-b79a-89aa5a92ba0a",
+          "session_name": "89_jpg.rf.195b00c9fd7035a2ccc5f57c7d02728c",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/89_jpg.rf.195b00c9fd7035a2ccc5f57c7d02728c/89_jpg.rf.195b00c9fd7035a2ccc5f57c7d02728c.jpg",
+          "session_id": "cc14ca82-2ec8-4eb7-b79a-89aa5a92ba0a",
+          "session_name": "89_jpg.rf.195b00c9fd7035a2ccc5f57c7d02728c",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/89_jpg.rf.195b00c9fd7035a2ccc5f57c7d02728c/89_jpg.rf.195b00c9fd7035a2ccc5f57c7d02728c.jpg",
+          "session_id": "cc14ca82-2ec8-4eb7-b79a-89aa5a92ba0a",
+          "session_name": "89_jpg.rf.195b00c9fd7035a2ccc5f57c7d02728c",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/89_jpg.rf.195b00c9fd7035a2ccc5f57c7d02728c/89_jpg.rf.195b00c9fd7035a2ccc5f57c7d02728c.jpg",
+          "session_id": "cc14ca82-2ec8-4eb7-b79a-89aa5a92ba0a",
+          "session_name": "89_jpg.rf.195b00c9fd7035a2ccc5f57c7d02728c",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/89_jpg.rf.195b00c9fd7035a2ccc5f57c7d02728c/89_jpg.rf.195b00c9fd7035a2ccc5f57c7d02728c.jpg",
+          "session_id": "cc14ca82-2ec8-4eb7-b79a-89aa5a92ba0a",
+          "session_name": "89_jpg.rf.195b00c9fd7035a2ccc5f57c7d02728c",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/8c684d111f01f6db_jpg.rf.a7885625fdc752a1ffb175c0aa02eca8/8c684d111f01f6db_jpg.rf.a7885625fdc752a1ffb175c0aa02eca8.jpg",
+          "session_id": "c9ede1f0-8b19-4ec5-9e7a-896d38d0a91a",
+          "session_name": "8c684d111f01f6db_jpg.rf.a7885625fdc752a1ffb175c0aa02eca8",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/8c7e3638299f3b49_jpg.rf.787f3fc13e514ad9d4a3a439e7751eec/8c7e3638299f3b49_jpg.rf.787f3fc13e514ad9d4a3a439e7751eec.jpg",
+          "session_id": "c8c41aa8-7d83-4040-92ce-c30c4b2489ec",
+          "session_name": "8c7e3638299f3b49_jpg.rf.787f3fc13e514ad9d4a3a439e7751eec",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/944c8a91ed448c3c_jpg.rf.d5bc740f6e30866ce08c4f27b4b30ece/944c8a91ed448c3c_jpg.rf.d5bc740f6e30866ce08c4f27b4b30ece.jpg",
+          "session_id": "0958769e-764e-4566-8858-7cf3574cf03c",
+          "session_name": "944c8a91ed448c3c_jpg.rf.d5bc740f6e30866ce08c4f27b4b30ece",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/9ec11fda9998c879_jpg.rf.3e2d4dc57671de412b52970d132e9f51/9ec11fda9998c879_jpg.rf.3e2d4dc57671de412b52970d132e9f51.jpg",
+          "session_id": "2fb83c01-ef83-4937-a33c-ea1cac6e3a2c",
+          "session_name": "9ec11fda9998c879_jpg.rf.3e2d4dc57671de412b52970d132e9f51",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/9ec11fda9998c879_jpg.rf.3e2d4dc57671de412b52970d132e9f51/9ec11fda9998c879_jpg.rf.3e2d4dc57671de412b52970d132e9f51.jpg",
+          "session_id": "2fb83c01-ef83-4937-a33c-ea1cac6e3a2c",
+          "session_name": "9ec11fda9998c879_jpg.rf.3e2d4dc57671de412b52970d132e9f51",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/9ec11fda9998c879_jpg.rf.3e2d4dc57671de412b52970d132e9f51/9ec11fda9998c879_jpg.rf.3e2d4dc57671de412b52970d132e9f51.jpg",
+          "session_id": "2fb83c01-ef83-4937-a33c-ea1cac6e3a2c",
+          "session_name": "9ec11fda9998c879_jpg.rf.3e2d4dc57671de412b52970d132e9f51",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/9ec11fda9998c879_jpg.rf.3e2d4dc57671de412b52970d132e9f51/9ec11fda9998c879_jpg.rf.3e2d4dc57671de412b52970d132e9f51.jpg",
+          "session_id": "2fb83c01-ef83-4937-a33c-ea1cac6e3a2c",
+          "session_name": "9ec11fda9998c879_jpg.rf.3e2d4dc57671de412b52970d132e9f51",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/9ec11fda9998c879_jpg.rf.3e2d4dc57671de412b52970d132e9f51/9ec11fda9998c879_jpg.rf.3e2d4dc57671de412b52970d132e9f51.jpg",
+          "session_id": "2fb83c01-ef83-4937-a33c-ea1cac6e3a2c",
+          "session_name": "9ec11fda9998c879_jpg.rf.3e2d4dc57671de412b52970d132e9f51",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/9ec11fda9998c879_jpg.rf.3e2d4dc57671de412b52970d132e9f51/9ec11fda9998c879_jpg.rf.3e2d4dc57671de412b52970d132e9f51.jpg",
+          "session_id": "2fb83c01-ef83-4937-a33c-ea1cac6e3a2c",
+          "session_name": "9ec11fda9998c879_jpg.rf.3e2d4dc57671de412b52970d132e9f51",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/B10_jpg.rf.ffc91825a45ac594224102defbff6553/B10_jpg.rf.ffc91825a45ac594224102defbff6553.jpg",
+          "session_id": "833310a3-43be-4437-ae0d-f0f242228765",
+          "session_name": "B10_jpg.rf.ffc91825a45ac594224102defbff6553",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/B22_jpg.rf.5e9c2832f1ced1f7a88280324d5848fa/B22_jpg.rf.5e9c2832f1ced1f7a88280324d5848fa.jpg",
+          "session_id": "8d2760dd-b574-4534-a870-f63eacf692b9",
+          "session_name": "B22_jpg.rf.5e9c2832f1ced1f7a88280324d5848fa",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/B3_jpg.rf.6a85ef0f2466dade690670672c91934d/B3_jpg.rf.6a85ef0f2466dade690670672c91934d.jpg",
+          "session_id": "ff96d91e-377d-475f-aa8a-c1430a227276",
+          "session_name": "B3_jpg.rf.6a85ef0f2466dade690670672c91934d",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/B3_jpg.rf.6a85ef0f2466dade690670672c91934d/B3_jpg.rf.6a85ef0f2466dade690670672c91934d.jpg",
+          "session_id": "ff96d91e-377d-475f-aa8a-c1430a227276",
+          "session_name": "B3_jpg.rf.6a85ef0f2466dade690670672c91934d",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/B3_jpg.rf.6a85ef0f2466dade690670672c91934d/B3_jpg.rf.6a85ef0f2466dade690670672c91934d.jpg",
+          "session_id": "ff96d91e-377d-475f-aa8a-c1430a227276",
+          "session_name": "B3_jpg.rf.6a85ef0f2466dade690670672c91934d",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/B3_jpg.rf.6a85ef0f2466dade690670672c91934d/B3_jpg.rf.6a85ef0f2466dade690670672c91934d.jpg",
+          "session_id": "ff96d91e-377d-475f-aa8a-c1430a227276",
+          "session_name": "B3_jpg.rf.6a85ef0f2466dade690670672c91934d",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/B3_jpg.rf.6a85ef0f2466dade690670672c91934d/B3_jpg.rf.6a85ef0f2466dade690670672c91934d.jpg",
+          "session_id": "ff96d91e-377d-475f-aa8a-c1430a227276",
+          "session_name": "B3_jpg.rf.6a85ef0f2466dade690670672c91934d",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/B3_jpg.rf.6a85ef0f2466dade690670672c91934d/B3_jpg.rf.6a85ef0f2466dade690670672c91934d.jpg",
+          "session_id": "ff96d91e-377d-475f-aa8a-c1430a227276",
+          "session_name": "B3_jpg.rf.6a85ef0f2466dade690670672c91934d",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/B45_jpg.rf.4b68313171543629fe520baf9c6400e0/B45_jpg.rf.4b68313171543629fe520baf9c6400e0.jpg",
+          "session_id": "c065ab8a-876b-4994-bd43-38fda8d1721f",
+          "session_name": "B45_jpg.rf.4b68313171543629fe520baf9c6400e0",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/B45_jpg.rf.4b68313171543629fe520baf9c6400e0/B45_jpg.rf.4b68313171543629fe520baf9c6400e0.jpg",
+          "session_id": "c065ab8a-876b-4994-bd43-38fda8d1721f",
+          "session_name": "B45_jpg.rf.4b68313171543629fe520baf9c6400e0",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/B45_jpg.rf.4b68313171543629fe520baf9c6400e0/B45_jpg.rf.4b68313171543629fe520baf9c6400e0.jpg",
+          "session_id": "c065ab8a-876b-4994-bd43-38fda8d1721f",
+          "session_name": "B45_jpg.rf.4b68313171543629fe520baf9c6400e0",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/B45_jpg.rf.4b68313171543629fe520baf9c6400e0/B45_jpg.rf.4b68313171543629fe520baf9c6400e0.jpg",
+          "session_id": "c065ab8a-876b-4994-bd43-38fda8d1721f",
+          "session_name": "B45_jpg.rf.4b68313171543629fe520baf9c6400e0",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/B45_jpg.rf.4b68313171543629fe520baf9c6400e0/B45_jpg.rf.4b68313171543629fe520baf9c6400e0.jpg",
+          "session_id": "c065ab8a-876b-4994-bd43-38fda8d1721f",
+          "session_name": "B45_jpg.rf.4b68313171543629fe520baf9c6400e0",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/B45_jpg.rf.4b68313171543629fe520baf9c6400e0/B45_jpg.rf.4b68313171543629fe520baf9c6400e0.jpg",
+          "session_id": "c065ab8a-876b-4994-bd43-38fda8d1721f",
+          "session_name": "B45_jpg.rf.4b68313171543629fe520baf9c6400e0",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/B45_jpg.rf.4b68313171543629fe520baf9c6400e0/B45_jpg.rf.4b68313171543629fe520baf9c6400e0.jpg",
+          "session_id": "c065ab8a-876b-4994-bd43-38fda8d1721f",
+          "session_name": "B45_jpg.rf.4b68313171543629fe520baf9c6400e0",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/B45_jpg.rf.4b68313171543629fe520baf9c6400e0/B45_jpg.rf.4b68313171543629fe520baf9c6400e0.jpg",
+          "session_id": "c065ab8a-876b-4994-bd43-38fda8d1721f",
+          "session_name": "B45_jpg.rf.4b68313171543629fe520baf9c6400e0",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/B45_jpg.rf.4b68313171543629fe520baf9c6400e0/B45_jpg.rf.4b68313171543629fe520baf9c6400e0.jpg",
+          "session_id": "c065ab8a-876b-4994-bd43-38fda8d1721f",
+          "session_name": "B45_jpg.rf.4b68313171543629fe520baf9c6400e0",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/B45_jpg.rf.4b68313171543629fe520baf9c6400e0/B45_jpg.rf.4b68313171543629fe520baf9c6400e0.jpg",
+          "session_id": "c065ab8a-876b-4994-bd43-38fda8d1721f",
+          "session_name": "B45_jpg.rf.4b68313171543629fe520baf9c6400e0",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/B45_jpg.rf.4b68313171543629fe520baf9c6400e0/B45_jpg.rf.4b68313171543629fe520baf9c6400e0.jpg",
+          "session_id": "c065ab8a-876b-4994-bd43-38fda8d1721f",
+          "session_name": "B45_jpg.rf.4b68313171543629fe520baf9c6400e0",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/B49_jpg.rf.63c628860556ebc1f044dbaf0540e8f4/B49_jpg.rf.63c628860556ebc1f044dbaf0540e8f4.jpg",
+          "session_id": "f7e1096a-2355-48d3-89d6-f3e21f20b877",
+          "session_name": "B49_jpg.rf.63c628860556ebc1f044dbaf0540e8f4",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/B49_jpg.rf.63c628860556ebc1f044dbaf0540e8f4/B49_jpg.rf.63c628860556ebc1f044dbaf0540e8f4.jpg",
+          "session_id": "f7e1096a-2355-48d3-89d6-f3e21f20b877",
+          "session_name": "B49_jpg.rf.63c628860556ebc1f044dbaf0540e8f4",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/82_jpg.rf.3af6b6097f3bc121cb1bb0120771d3f7/82_jpg.rf.3af6b6097f3bc121cb1bb0120771d3f7.jpg",
+          "session_id": "6234de55-99a8-4f4d-bc24-84642c74bac1",
+          "session_name": "82_jpg.rf.3af6b6097f3bc121cb1bb0120771d3f7",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/telechargement-2-_png_jpg.rf.31c0d97ce518123ff78601e8040e9e45/telechargement-2-_png_jpg.rf.31c0d97ce518123ff78601e8040e9e45.jpg",
+          "session_id": "fc91122d-2938-4555-a80f-0d9edbaeb802",
+          "session_name": "telechargement-2-_png_jpg.rf.31c0d97ce518123ff78601e8040e9e45",
+          "dataset": "validation"
+        }
+      ],
+      "unique_image_count": 193
+    },
+    "golfball_pred_vs_background_true": {
+      "predicted_class": 0,
+      "true_class": 1,
+      "predicted_class_name": "golfball",
+      "true_class_name": "background",
+      "count": 110,
+      "images": [
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220322_09_26_53_Pro_jpg.rf.527284cef767c650bb1cd902f0023fd6/WIN_20220322_09_26_53_Pro_jpg.rf.527284cef767c650bb1cd902f0023fd6.jpg",
+          "session_id": "b98be4a9-126d-4cf2-8363-1fdea126c14a",
+          "session_name": "WIN_20220322_09_26_53_Pro_jpg.rf.527284cef767c650bb1cd902f0023fd6",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220506_17_10_02_Pro_jpg.rf.367b05e989225cbb7509147eef8f5279/WIN_20220506_17_10_02_Pro_jpg.rf.367b05e989225cbb7509147eef8f5279.jpg",
+          "session_id": "401c7b89-5a48-40e7-b319-2a73e954e98c",
+          "session_name": "WIN_20220506_17_10_02_Pro_jpg.rf.367b05e989225cbb7509147eef8f5279",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220506_17_10_43_Pro_jpg.rf.ce7426f9c86a803c3752a030f9fe0c74/WIN_20220506_17_10_43_Pro_jpg.rf.ce7426f9c86a803c3752a030f9fe0c74.jpg",
+          "session_id": "06ef1dc9-8b81-4b48-9692-8453816e9b89",
+          "session_name": "WIN_20220506_17_10_43_Pro_jpg.rf.ce7426f9c86a803c3752a030f9fe0c74",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220506_17_11_01_Pro_jpg.rf.67dc2c8330647d07d267783d72e41de3/WIN_20220506_17_11_01_Pro_jpg.rf.67dc2c8330647d07d267783d72e41de3.jpg",
+          "session_id": "5ba4e3b4-208f-4031-825b-e97c59998685",
+          "session_name": "WIN_20220506_17_11_01_Pro_jpg.rf.67dc2c8330647d07d267783d72e41de3",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_55_53_Pro_jpg.rf.24ffa38bb676b80ed62da0f97e1f897f/WIN_20220310_16_55_53_Pro_jpg.rf.24ffa38bb676b80ed62da0f97e1f897f.jpg",
+          "session_id": "f8f28d03-2800-4221-a8f7-bdbe2a0e06e7",
+          "session_name": "WIN_20220310_16_55_53_Pro_jpg.rf.24ffa38bb676b80ed62da0f97e1f897f",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_56_21_Pro-2-_jpg.rf.568258b75de59f94bc3fba8667e97c53/WIN_20220310_16_56_21_Pro-2-_jpg.rf.568258b75de59f94bc3fba8667e97c53.jpg",
+          "session_id": "f1982ca2-c2bf-4bdb-ba43-855d5804ab68",
+          "session_name": "WIN_20220310_16_56_21_Pro-2-_jpg.rf.568258b75de59f94bc3fba8667e97c53",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_56_21_Pro-2-_jpg.rf.568258b75de59f94bc3fba8667e97c53/WIN_20220310_16_56_21_Pro-2-_jpg.rf.568258b75de59f94bc3fba8667e97c53.jpg",
+          "session_id": "f1982ca2-c2bf-4bdb-ba43-855d5804ab68",
+          "session_name": "WIN_20220310_16_56_21_Pro-2-_jpg.rf.568258b75de59f94bc3fba8667e97c53",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/WIN_20220310_16_55_47_Pro-3-_jpg.rf.4ad31e916d6b2d2d5b3b2001abbec8bd/WIN_20220310_16_55_47_Pro-3-_jpg.rf.4ad31e916d6b2d2d5b3b2001abbec8bd.jpg",
+          "session_id": "ff1abf44-ac4a-4ee0-b26a-8bef58333d87",
+          "session_name": "WIN_20220310_16_55_47_Pro-3-_jpg.rf.4ad31e916d6b2d2d5b3b2001abbec8bd",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_13576_JPEG_jpg.rf.29fa7006dff2b775dacc8c5a86dde924/n03445777_13576_JPEG_jpg.rf.29fa7006dff2b775dacc8c5a86dde924.jpg",
+          "session_id": "4b165285-5a45-4bbd-b5fb-f16b2dc859e7",
+          "session_name": "n03445777_13576_JPEG_jpg.rf.29fa7006dff2b775dacc8c5a86dde924",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_14533_JPEG_jpg.rf.346406ae4c901c65179e06dec8ea3b48/n03445777_14533_JPEG_jpg.rf.346406ae4c901c65179e06dec8ea3b48.jpg",
+          "session_id": "ba065b7f-1f23-4e67-bf69-6e503c3a6c0a",
+          "session_name": "n03445777_14533_JPEG_jpg.rf.346406ae4c901c65179e06dec8ea3b48",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_14533_JPEG_jpg.rf.346406ae4c901c65179e06dec8ea3b48/n03445777_14533_JPEG_jpg.rf.346406ae4c901c65179e06dec8ea3b48.jpg",
+          "session_id": "ba065b7f-1f23-4e67-bf69-6e503c3a6c0a",
+          "session_name": "n03445777_14533_JPEG_jpg.rf.346406ae4c901c65179e06dec8ea3b48",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_14533_JPEG_jpg.rf.346406ae4c901c65179e06dec8ea3b48/n03445777_14533_JPEG_jpg.rf.346406ae4c901c65179e06dec8ea3b48.jpg",
+          "session_id": "ba065b7f-1f23-4e67-bf69-6e503c3a6c0a",
+          "session_name": "n03445777_14533_JPEG_jpg.rf.346406ae4c901c65179e06dec8ea3b48",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_14533_JPEG_jpg.rf.346406ae4c901c65179e06dec8ea3b48/n03445777_14533_JPEG_jpg.rf.346406ae4c901c65179e06dec8ea3b48.jpg",
+          "session_id": "ba065b7f-1f23-4e67-bf69-6e503c3a6c0a",
+          "session_name": "n03445777_14533_JPEG_jpg.rf.346406ae4c901c65179e06dec8ea3b48",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_1616_JPEG_jpg.rf.5f18b9a519798219238a8585db89d67b/n03445777_1616_JPEG_jpg.rf.5f18b9a519798219238a8585db89d67b.jpg",
+          "session_id": "74f0633f-ae29-4853-926b-81c1a00dbb53",
+          "session_name": "n03445777_1616_JPEG_jpg.rf.5f18b9a519798219238a8585db89d67b",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_1616_JPEG_jpg.rf.5f18b9a519798219238a8585db89d67b/n03445777_1616_JPEG_jpg.rf.5f18b9a519798219238a8585db89d67b.jpg",
+          "session_id": "74f0633f-ae29-4853-926b-81c1a00dbb53",
+          "session_name": "n03445777_1616_JPEG_jpg.rf.5f18b9a519798219238a8585db89d67b",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_1616_JPEG_jpg.rf.5f18b9a519798219238a8585db89d67b/n03445777_1616_JPEG_jpg.rf.5f18b9a519798219238a8585db89d67b.jpg",
+          "session_id": "74f0633f-ae29-4853-926b-81c1a00dbb53",
+          "session_name": "n03445777_1616_JPEG_jpg.rf.5f18b9a519798219238a8585db89d67b",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_1616_JPEG_jpg.rf.5f18b9a519798219238a8585db89d67b/n03445777_1616_JPEG_jpg.rf.5f18b9a519798219238a8585db89d67b.jpg",
+          "session_id": "74f0633f-ae29-4853-926b-81c1a00dbb53",
+          "session_name": "n03445777_1616_JPEG_jpg.rf.5f18b9a519798219238a8585db89d67b",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682/n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682.jpg",
+          "session_id": "5c3ea98b-ec37-431d-bcd7-37f9bd9ba3a6",
+          "session_name": "n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682/n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682.jpg",
+          "session_id": "5c3ea98b-ec37-431d-bcd7-37f9bd9ba3a6",
+          "session_name": "n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682/n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682.jpg",
+          "session_id": "5c3ea98b-ec37-431d-bcd7-37f9bd9ba3a6",
+          "session_name": "n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682/n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682.jpg",
+          "session_id": "5c3ea98b-ec37-431d-bcd7-37f9bd9ba3a6",
+          "session_name": "n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682/n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682.jpg",
+          "session_id": "5c3ea98b-ec37-431d-bcd7-37f9bd9ba3a6",
+          "session_name": "n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682/n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682.jpg",
+          "session_id": "5c3ea98b-ec37-431d-bcd7-37f9bd9ba3a6",
+          "session_name": "n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682/n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682.jpg",
+          "session_id": "5c3ea98b-ec37-431d-bcd7-37f9bd9ba3a6",
+          "session_name": "n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682/n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682.jpg",
+          "session_id": "5c3ea98b-ec37-431d-bcd7-37f9bd9ba3a6",
+          "session_name": "n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682/n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682.jpg",
+          "session_id": "5c3ea98b-ec37-431d-bcd7-37f9bd9ba3a6",
+          "session_name": "n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682/n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682.jpg",
+          "session_id": "5c3ea98b-ec37-431d-bcd7-37f9bd9ba3a6",
+          "session_name": "n03445777_4929_JPEG_jpg.rf.e79393b058bcc26d554629ab57c75682",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/golf-ball-ROUGH2_jpg.rf.1a58123e8af7978cc57f21a43c39a5a6/golf-ball-ROUGH2_jpg.rf.1a58123e8af7978cc57f21a43c39a5a6.jpg",
+          "session_id": "fa0547cb-7921-4c66-9b6e-0162d5030a61",
+          "session_name": "golf-ball-ROUGH2_jpg.rf.1a58123e8af7978cc57f21a43c39a5a6",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/golf-ball-in-rough15_jpg.rf.276c5ce266255ab1c95b5562fe6ac7f4/golf-ball-in-rough15_jpg.rf.276c5ce266255ab1c95b5562fe6ac7f4.jpg",
+          "session_id": "dea0b6e6-7019-448f-9d43-f42d8a33ee39",
+          "session_name": "golf-ball-in-rough15_jpg.rf.276c5ce266255ab1c95b5562fe6ac7f4",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/1ee6dd0f2fdfc1d7_jpg.rf.6b45f6006ea4ea8df5187b43843c94a3/1ee6dd0f2fdfc1d7_jpg.rf.6b45f6006ea4ea8df5187b43843c94a3.jpg",
+          "session_id": "7befcfeb-ddfc-492f-9580-7cf8c3b324e4",
+          "session_name": "1ee6dd0f2fdfc1d7_jpg.rf.6b45f6006ea4ea8df5187b43843c94a3",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/1ee6dd0f2fdfc1d7_jpg.rf.6b45f6006ea4ea8df5187b43843c94a3/1ee6dd0f2fdfc1d7_jpg.rf.6b45f6006ea4ea8df5187b43843c94a3.jpg",
+          "session_id": "7befcfeb-ddfc-492f-9580-7cf8c3b324e4",
+          "session_name": "1ee6dd0f2fdfc1d7_jpg.rf.6b45f6006ea4ea8df5187b43843c94a3",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/36f1d6d43bb16761_jpg.rf.ca6589ed2555811242d26454facc892b/36f1d6d43bb16761_jpg.rf.ca6589ed2555811242d26454facc892b.jpg",
+          "session_id": "9231ed6c-f501-4d83-be6c-921463d3b75d",
+          "session_name": "36f1d6d43bb16761_jpg.rf.ca6589ed2555811242d26454facc892b",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/36f1d6d43bb16761_jpg.rf.ca6589ed2555811242d26454facc892b/36f1d6d43bb16761_jpg.rf.ca6589ed2555811242d26454facc892b.jpg",
+          "session_id": "9231ed6c-f501-4d83-be6c-921463d3b75d",
+          "session_name": "36f1d6d43bb16761_jpg.rf.ca6589ed2555811242d26454facc892b",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/151/151.jpg",
+          "session_id": "a043c49d-ac91-4b65-bb95-80cdde86f988",
+          "session_name": "151",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/12536087ce8d8275_jpg.rf.929b4927f24bf4bd965792a472907209/12536087ce8d8275_jpg.rf.929b4927f24bf4bd965792a472907209.jpg",
+          "session_id": "f4668cdd-c253-4cb6-9a57-ba8e09ad6833",
+          "session_name": "12536087ce8d8275_jpg.rf.929b4927f24bf4bd965792a472907209",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/019f4c72e136b61d_jpg.rf.8fddf78900d66dfbd5a148d88c6dc6ab/019f4c72e136b61d_jpg.rf.8fddf78900d66dfbd5a148d88c6dc6ab.jpg",
+          "session_id": "57a19f14-0deb-4541-8589-a252cdd95b3d",
+          "session_name": "019f4c72e136b61d_jpg.rf.8fddf78900d66dfbd5a148d88c6dc6ab",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/019f4c72e136b61d_jpg.rf.8fddf78900d66dfbd5a148d88c6dc6ab/019f4c72e136b61d_jpg.rf.8fddf78900d66dfbd5a148d88c6dc6ab.jpg",
+          "session_id": "57a19f14-0deb-4541-8589-a252cdd95b3d",
+          "session_name": "019f4c72e136b61d_jpg.rf.8fddf78900d66dfbd5a148d88c6dc6ab",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/3a661e15bd595480_jpg.rf.489cdad2a3e45db1a414dc5890fe2418/3a661e15bd595480_jpg.rf.489cdad2a3e45db1a414dc5890fe2418.jpg",
+          "session_id": "660dea28-2743-4121-b7b2-22fe923b4afb",
+          "session_name": "3a661e15bd595480_jpg.rf.489cdad2a3e45db1a414dc5890fe2418",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/075/075.jpg",
+          "session_id": "d2bb10a5-66e2-4dc3-913d-3bbc3692df03",
+          "session_name": "075",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/075/075.jpg",
+          "session_id": "d2bb10a5-66e2-4dc3-913d-3bbc3692df03",
+          "session_name": "075",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/08f989b54838963c_jpg.rf.8a6292c119569d37cc678ff4bc2a5a73/08f989b54838963c_jpg.rf.8a6292c119569d37cc678ff4bc2a5a73.jpg",
+          "session_id": "a8417a11-ac14-4d8b-9beb-a35b13f2aee6",
+          "session_name": "08f989b54838963c_jpg.rf.8a6292c119569d37cc678ff4bc2a5a73",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/08f989b54838963c_jpg.rf.8a6292c119569d37cc678ff4bc2a5a73/08f989b54838963c_jpg.rf.8a6292c119569d37cc678ff4bc2a5a73.jpg",
+          "session_id": "a8417a11-ac14-4d8b-9beb-a35b13f2aee6",
+          "session_name": "08f989b54838963c_jpg.rf.8a6292c119569d37cc678ff4bc2a5a73",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/IMG_0314/IMG_0314.jpg",
+          "session_id": "f584053f-7e6e-418a-812d-d0054b6d8e35",
+          "session_name": "IMG_0314",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/B75_jpg.rf.b779a93e4ba3815582c529ece885a96a/B75_jpg.rf.b779a93e4ba3815582c529ece885a96a.jpg",
+          "session_id": "e557dcc6-d719-41fa-b56b-f96bb2450ff8",
+          "session_name": "B75_jpg.rf.b779a93e4ba3815582c529ece885a96a",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/B75_jpg.rf.b779a93e4ba3815582c529ece885a96a/B75_jpg.rf.b779a93e4ba3815582c529ece885a96a.jpg",
+          "session_id": "e557dcc6-d719-41fa-b56b-f96bb2450ff8",
+          "session_name": "B75_jpg.rf.b779a93e4ba3815582c529ece885a96a",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/B75_jpg.rf.b779a93e4ba3815582c529ece885a96a/B75_jpg.rf.b779a93e4ba3815582c529ece885a96a.jpg",
+          "session_id": "e557dcc6-d719-41fa-b56b-f96bb2450ff8",
+          "session_name": "B75_jpg.rf.b779a93e4ba3815582c529ece885a96a",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/IMG_0327/IMG_0327.jpg",
+          "session_id": "0bfa0d89-875b-486c-9329-23a733a55f5e",
+          "session_name": "IMG_0327",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/IMG_0327/IMG_0327.jpg",
+          "session_id": "0bfa0d89-875b-486c-9329-23a733a55f5e",
+          "session_name": "IMG_0327",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/IMG_0354/IMG_0354.jpg",
+          "session_id": "8a7b0f72-bb22-48b6-9bb0-8aecff23748f",
+          "session_name": "IMG_0354",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/IMG_0328/IMG_0328.jpg",
+          "session_id": "a9fd043a-8a4f-4e80-bcc9-348ff470bebc",
+          "session_name": "IMG_0328",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_8964_JPEG_jpg.rf.42db8caec2efea811abe0cb17ef27a3e/n03445777_8964_JPEG_jpg.rf.42db8caec2efea811abe0cb17ef27a3e.jpg",
+          "session_id": "13c4a03a-2447-40aa-99f8-cea428f7acae",
+          "session_name": "n03445777_8964_JPEG_jpg.rf.42db8caec2efea811abe0cb17ef27a3e",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_8964_JPEG_jpg.rf.42db8caec2efea811abe0cb17ef27a3e/n03445777_8964_JPEG_jpg.rf.42db8caec2efea811abe0cb17ef27a3e.jpg",
+          "session_id": "13c4a03a-2447-40aa-99f8-cea428f7acae",
+          "session_name": "n03445777_8964_JPEG_jpg.rf.42db8caec2efea811abe0cb17ef27a3e",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_8964_JPEG_jpg.rf.42db8caec2efea811abe0cb17ef27a3e/n03445777_8964_JPEG_jpg.rf.42db8caec2efea811abe0cb17ef27a3e.jpg",
+          "session_id": "13c4a03a-2447-40aa-99f8-cea428f7acae",
+          "session_name": "n03445777_8964_JPEG_jpg.rf.42db8caec2efea811abe0cb17ef27a3e",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_8964_JPEG_jpg.rf.42db8caec2efea811abe0cb17ef27a3e/n03445777_8964_JPEG_jpg.rf.42db8caec2efea811abe0cb17ef27a3e.jpg",
+          "session_id": "13c4a03a-2447-40aa-99f8-cea428f7acae",
+          "session_name": "n03445777_8964_JPEG_jpg.rf.42db8caec2efea811abe0cb17ef27a3e",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/n03445777_8964_JPEG_jpg.rf.42db8caec2efea811abe0cb17ef27a3e/n03445777_8964_JPEG_jpg.rf.42db8caec2efea811abe0cb17ef27a3e.jpg",
+          "session_id": "13c4a03a-2447-40aa-99f8-cea428f7acae",
+          "session_name": "n03445777_8964_JPEG_jpg.rf.42db8caec2efea811abe0cb17ef27a3e",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/4_jpg.rf.51b27f562c24c745b00421161c038037/4_jpg.rf.51b27f562c24c745b00421161c038037.jpg",
+          "session_id": "c3d95d89-4d92-499b-831b-38e2b0363862",
+          "session_name": "4_jpg.rf.51b27f562c24c745b00421161c038037",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/4_jpg.rf.51b27f562c24c745b00421161c038037/4_jpg.rf.51b27f562c24c745b00421161c038037.jpg",
+          "session_id": "c3d95d89-4d92-499b-831b-38e2b0363862",
+          "session_name": "4_jpg.rf.51b27f562c24c745b00421161c038037",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/4_jpg.rf.51b27f562c24c745b00421161c038037/4_jpg.rf.51b27f562c24c745b00421161c038037.jpg",
+          "session_id": "c3d95d89-4d92-499b-831b-38e2b0363862",
+          "session_name": "4_jpg.rf.51b27f562c24c745b00421161c038037",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/4_jpg.rf.51b27f562c24c745b00421161c038037/4_jpg.rf.51b27f562c24c745b00421161c038037.jpg",
+          "session_id": "c3d95d89-4d92-499b-831b-38e2b0363862",
+          "session_name": "4_jpg.rf.51b27f562c24c745b00421161c038037",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/4_jpg.rf.51b27f562c24c745b00421161c038037/4_jpg.rf.51b27f562c24c745b00421161c038037.jpg",
+          "session_id": "c3d95d89-4d92-499b-831b-38e2b0363862",
+          "session_name": "4_jpg.rf.51b27f562c24c745b00421161c038037",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/4_jpg.rf.51b27f562c24c745b00421161c038037/4_jpg.rf.51b27f562c24c745b00421161c038037.jpg",
+          "session_id": "c3d95d89-4d92-499b-831b-38e2b0363862",
+          "session_name": "4_jpg.rf.51b27f562c24c745b00421161c038037",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/4_jpg.rf.51b27f562c24c745b00421161c038037/4_jpg.rf.51b27f562c24c745b00421161c038037.jpg",
+          "session_id": "c3d95d89-4d92-499b-831b-38e2b0363862",
+          "session_name": "4_jpg.rf.51b27f562c24c745b00421161c038037",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/4_jpg.rf.51b27f562c24c745b00421161c038037/4_jpg.rf.51b27f562c24c745b00421161c038037.jpg",
+          "session_id": "c3d95d89-4d92-499b-831b-38e2b0363862",
+          "session_name": "4_jpg.rf.51b27f562c24c745b00421161c038037",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/4_jpg.rf.51b27f562c24c745b00421161c038037/4_jpg.rf.51b27f562c24c745b00421161c038037.jpg",
+          "session_id": "c3d95d89-4d92-499b-831b-38e2b0363862",
+          "session_name": "4_jpg.rf.51b27f562c24c745b00421161c038037",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/4_jpg.rf.51b27f562c24c745b00421161c038037/4_jpg.rf.51b27f562c24c745b00421161c038037.jpg",
+          "session_id": "c3d95d89-4d92-499b-831b-38e2b0363862",
+          "session_name": "4_jpg.rf.51b27f562c24c745b00421161c038037",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/4_jpg.rf.51b27f562c24c745b00421161c038037/4_jpg.rf.51b27f562c24c745b00421161c038037.jpg",
+          "session_id": "c3d95d89-4d92-499b-831b-38e2b0363862",
+          "session_name": "4_jpg.rf.51b27f562c24c745b00421161c038037",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/5388e7cf0f4d7b8b_jpg.rf.5a45a017ca5ea84501cef30361859d55/5388e7cf0f4d7b8b_jpg.rf.5a45a017ca5ea84501cef30361859d55.jpg",
+          "session_id": "28bace25-1f00-457b-9e2a-0d23887e01c9",
+          "session_name": "5388e7cf0f4d7b8b_jpg.rf.5a45a017ca5ea84501cef30361859d55",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/5f2d1723f39e4574_jpg.rf.d4694002145330273e97a2e429c53503/5f2d1723f39e4574_jpg.rf.d4694002145330273e97a2e429c53503.jpg",
+          "session_id": "a6384f22-f45e-4985-a9b3-0e0c2a1e570b",
+          "session_name": "5f2d1723f39e4574_jpg.rf.d4694002145330273e97a2e429c53503",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031.jpg",
+          "session_id": "95d15f2e-00cc-445c-b294-6c85a157bab9",
+          "session_name": "63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031.jpg",
+          "session_id": "95d15f2e-00cc-445c-b294-6c85a157bab9",
+          "session_name": "63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031.jpg",
+          "session_id": "95d15f2e-00cc-445c-b294-6c85a157bab9",
+          "session_name": "63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031.jpg",
+          "session_id": "95d15f2e-00cc-445c-b294-6c85a157bab9",
+          "session_name": "63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031.jpg",
+          "session_id": "95d15f2e-00cc-445c-b294-6c85a157bab9",
+          "session_name": "63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031.jpg",
+          "session_id": "95d15f2e-00cc-445c-b294-6c85a157bab9",
+          "session_name": "63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031.jpg",
+          "session_id": "95d15f2e-00cc-445c-b294-6c85a157bab9",
+          "session_name": "63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031.jpg",
+          "session_id": "95d15f2e-00cc-445c-b294-6c85a157bab9",
+          "session_name": "63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031.jpg",
+          "session_id": "95d15f2e-00cc-445c-b294-6c85a157bab9",
+          "session_name": "63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031.jpg",
+          "session_id": "95d15f2e-00cc-445c-b294-6c85a157bab9",
+          "session_name": "63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031.jpg",
+          "session_id": "95d15f2e-00cc-445c-b294-6c85a157bab9",
+          "session_name": "63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031.jpg",
+          "session_id": "95d15f2e-00cc-445c-b294-6c85a157bab9",
+          "session_name": "63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031.jpg",
+          "session_id": "95d15f2e-00cc-445c-b294-6c85a157bab9",
+          "session_name": "63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031.jpg",
+          "session_id": "95d15f2e-00cc-445c-b294-6c85a157bab9",
+          "session_name": "63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031.jpg",
+          "session_id": "95d15f2e-00cc-445c-b294-6c85a157bab9",
+          "session_name": "63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031.jpg",
+          "session_id": "95d15f2e-00cc-445c-b294-6c85a157bab9",
+          "session_name": "63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031.jpg",
+          "session_id": "95d15f2e-00cc-445c-b294-6c85a157bab9",
+          "session_name": "63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031.jpg",
+          "session_id": "95d15f2e-00cc-445c-b294-6c85a157bab9",
+          "session_name": "63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031.jpg",
+          "session_id": "95d15f2e-00cc-445c-b294-6c85a157bab9",
+          "session_name": "63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031.jpg",
+          "session_id": "95d15f2e-00cc-445c-b294-6c85a157bab9",
+          "session_name": "63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031.jpg",
+          "session_id": "95d15f2e-00cc-445c-b294-6c85a157bab9",
+          "session_name": "63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031.jpg",
+          "session_id": "95d15f2e-00cc-445c-b294-6c85a157bab9",
+          "session_name": "63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031.jpg",
+          "session_id": "95d15f2e-00cc-445c-b294-6c85a157bab9",
+          "session_name": "63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031.jpg",
+          "session_id": "95d15f2e-00cc-445c-b294-6c85a157bab9",
+          "session_name": "63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031.jpg",
+          "session_id": "95d15f2e-00cc-445c-b294-6c85a157bab9",
+          "session_name": "63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031.jpg",
+          "session_id": "95d15f2e-00cc-445c-b294-6c85a157bab9",
+          "session_name": "63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031.jpg",
+          "session_id": "95d15f2e-00cc-445c-b294-6c85a157bab9",
+          "session_name": "63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031.jpg",
+          "session_id": "95d15f2e-00cc-445c-b294-6c85a157bab9",
+          "session_name": "63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031.jpg",
+          "session_id": "95d15f2e-00cc-445c-b294-6c85a157bab9",
+          "session_name": "63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031/63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031.jpg",
+          "session_id": "95d15f2e-00cc-445c-b294-6c85a157bab9",
+          "session_name": "63d289026e8ad522_jpg.rf.9d587a7e04ab48c156ada716362a5031",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/74_jpg.rf.2ea47640cbabc2810b06eb352ccd6251/74_jpg.rf.2ea47640cbabc2810b06eb352ccd6251.jpg",
+          "session_id": "fd847872-7d6e-4d56-9b67-7da9b95d1080",
+          "session_name": "74_jpg.rf.2ea47640cbabc2810b06eb352ccd6251",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/89_jpg.rf.195b00c9fd7035a2ccc5f57c7d02728c/89_jpg.rf.195b00c9fd7035a2ccc5f57c7d02728c.jpg",
+          "session_id": "cc14ca82-2ec8-4eb7-b79a-89aa5a92ba0a",
+          "session_name": "89_jpg.rf.195b00c9fd7035a2ccc5f57c7d02728c",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/8c684d111f01f6db_jpg.rf.a7885625fdc752a1ffb175c0aa02eca8/8c684d111f01f6db_jpg.rf.a7885625fdc752a1ffb175c0aa02eca8.jpg",
+          "session_id": "c9ede1f0-8b19-4ec5-9e7a-896d38d0a91a",
+          "session_name": "8c684d111f01f6db_jpg.rf.a7885625fdc752a1ffb175c0aa02eca8",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/9ec11fda9998c879_jpg.rf.3e2d4dc57671de412b52970d132e9f51/9ec11fda9998c879_jpg.rf.3e2d4dc57671de412b52970d132e9f51.jpg",
+          "session_id": "2fb83c01-ef83-4937-a33c-ea1cac6e3a2c",
+          "session_name": "9ec11fda9998c879_jpg.rf.3e2d4dc57671de412b52970d132e9f51",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/9ec11fda9998c879_jpg.rf.3e2d4dc57671de412b52970d132e9f51/9ec11fda9998c879_jpg.rf.3e2d4dc57671de412b52970d132e9f51.jpg",
+          "session_id": "2fb83c01-ef83-4937-a33c-ea1cac6e3a2c",
+          "session_name": "9ec11fda9998c879_jpg.rf.3e2d4dc57671de412b52970d132e9f51",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/B45_jpg.rf.4b68313171543629fe520baf9c6400e0/B45_jpg.rf.4b68313171543629fe520baf9c6400e0.jpg",
+          "session_id": "c065ab8a-876b-4994-bd43-38fda8d1721f",
+          "session_name": "B45_jpg.rf.4b68313171543629fe520baf9c6400e0",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/B45_jpg.rf.4b68313171543629fe520baf9c6400e0/B45_jpg.rf.4b68313171543629fe520baf9c6400e0.jpg",
+          "session_id": "c065ab8a-876b-4994-bd43-38fda8d1721f",
+          "session_name": "B45_jpg.rf.4b68313171543629fe520baf9c6400e0",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/B45_jpg.rf.4b68313171543629fe520baf9c6400e0/B45_jpg.rf.4b68313171543629fe520baf9c6400e0.jpg",
+          "session_id": "c065ab8a-876b-4994-bd43-38fda8d1721f",
+          "session_name": "B45_jpg.rf.4b68313171543629fe520baf9c6400e0",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/B45_jpg.rf.4b68313171543629fe520baf9c6400e0/B45_jpg.rf.4b68313171543629fe520baf9c6400e0.jpg",
+          "session_id": "c065ab8a-876b-4994-bd43-38fda8d1721f",
+          "session_name": "B45_jpg.rf.4b68313171543629fe520baf9c6400e0",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/B45_jpg.rf.4b68313171543629fe520baf9c6400e0/B45_jpg.rf.4b68313171543629fe520baf9c6400e0.jpg",
+          "session_id": "c065ab8a-876b-4994-bd43-38fda8d1721f",
+          "session_name": "B45_jpg.rf.4b68313171543629fe520baf9c6400e0",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/82_jpg.rf.3af6b6097f3bc121cb1bb0120771d3f7/82_jpg.rf.3af6b6097f3bc121cb1bb0120771d3f7.jpg",
+          "session_id": "6234de55-99a8-4f4d-bc24-84642c74bac1",
+          "session_name": "82_jpg.rf.3af6b6097f3bc121cb1bb0120771d3f7",
+          "dataset": "validation"
+        },
+        {
+          "image_path": "/tmp/jobs/ccc541c8-76ea-11f1-9ea9-abb12c313261/database/sessions/82_jpg.rf.3af6b6097f3bc121cb1bb0120771d3f7/82_jpg.rf.3af6b6097f3bc121cb1bb0120771d3f7.jpg",
+          "session_id": "6234de55-99a8-4f4d-bc24-84642c74bac1",
+          "session_name": "82_jpg.rf.3af6b6097f3bc121cb1bb0120771d3f7",
+          "dataset": "validation"
+        }
+      ],
+      "unique_image_count": 37
+    }
+  }
+}
