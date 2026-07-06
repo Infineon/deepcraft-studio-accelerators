@@ -1,1 +1,19 @@
-{"title": "DrillMaterialDetectionFusion", "description": "A project that uses microphone and IMU sensor fusion to detect the material drilled", "algorithm": "Classification", "sensors": ["Other"]}
+{
+  "title": "DrillMaterialDetectionFusion",
+  "description": "A project that uses microphone and IMU sensor fusion to detect the material drilled",
+  "long_description": "This project allows you to develop a model that is capable of classifying the material a power drill is drilling into based on both audio and IMU (6-axis accelerometer and gyroscope) data (sensor fusion) and is imagined to be incorporated into smart power tools. The current project only differentiates between wood, plastic, and air but is easily scalable to include more labels.",
+  "algorithm": "Classification",
+  "sensors": ["Sensor Fusion"],
+  "domain": ["Audio", "Vibration", "Sensing"],
+  "application": ["Smart Home", "Smart Manufacturing", "Industrial IoT", "Appliances", "Safety Monitoring"],
+  "use_case": ["Material Detection", "Anomaly Detection"],
+  "kit": ["PSOC\u2122 Edge AI Kit"],
+  "device": ["PSOC\u2122 Edge"],
+  "type": ["Model Development"],
+  "workflow": ["ML Development"],
+  "thumbnail_image_id": "workshop.png",
+  "main_image_id": "workshop.png",
+  "brand_image_id": "deepcraft.webp",
+  "brand_url": "https://www.infineon.com/design-resources/embedded-software/deepcraft-edge-ai-solutions",
+  "links": [{"label": "Download", "url": "https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio", "heading": "Access Project via DEEPCRAFT\u2122 Studio", "sub-heading": "Download and install DEEPCRAFT\u2122 Studio to fully access this project and start developing your Edge AI product"}, {"label": "GitHub", "heading": "Project Repository", "sub-heading": "Get more details about this project", "url": "https://github.com/Infineon/deepcraft-studio-accelerators/tree/main/DrillMaterialDetectionFusion"}]
+}
