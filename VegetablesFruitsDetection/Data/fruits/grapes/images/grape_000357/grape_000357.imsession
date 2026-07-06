@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ImagimobStudio version="0.9">
+  <Timeline id="e6cbe734-7f83-4fb7-817b-2555e2ca56ef">
+    <Tracks>
+      <Track name="image" type="imagejpg">
+        <PayloadFile>grape_000357.jpg</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="label" type="labelxml">
+        <PayloadFile>grape_000357.labelxml</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="yolov8n-size320-batch16-epoch150_predictions_train" type="labelxml">
+        <PayloadFile>..\..\..\..\..\Model\yolov8n-size320-batch16-epoch150\Predictions\sessions\grape_000357\grape_000357_pred.labelxml</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="yolo26n-size320-batch16-epoch150_predictions_train" type="labelxml">
+        <PayloadFile>..\..\..\..\..\Model\yolo26n-size320-batch16-epoch150\Predictions\sessions\grape_000357\grape_000357_pred.labelxml</PayloadFile>
+        <Shape />
+      </Track>
+    </Tracks>
+  </Timeline>
+</ImagimobStudio>
