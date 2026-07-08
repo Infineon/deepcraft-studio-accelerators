@@ -37,15 +37,15 @@
         <PackageNoData url="https://api.imagimob.com/v1/Data/Object/SirenDetection-cc1a46e-5.14.5736.65534.no-data.zip" size="89200998"/>
       </Dialog>
     </Template>
-    <Template training="true">
+    <Template>
       <DisplayName>Fall Detection (Belt-mounted)</DisplayName>
       <Description>Detect if the user has fallen. It's intended to be placed on a belt or waist.</Description>
       <DisplayPath>/Studio Accelerators/Classification/IMU &amp; Vibration</DisplayPath>
       <LicenseTags/>
       <Dialog>
         <DefaultProjectName>FallDetection</DefaultProjectName>
-        <Package url="https://api.imagimob.com/v1/Data/Object/FallDetection-cc1a46e-5.14.5736.65534.zip" size="885507895"/>
-        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/FallDetection-cc1a46e-5.14.5736.65534.no-data.zip" size="15505378"/>
+        <Package url="https://api.imagimob.com/v1/Data/Object/FallDetection-3ea3a26-5.14.5759.65534.zip" size="885331671"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/FallDetection-3ea3a26-5.14.5759.65534.no-data.zip" size="15329158"/>
       </Dialog>
     </Template>
     <Template>
@@ -261,15 +261,15 @@
         <PackageNoData url="https://api.imagimob.com/v1/Data/Object/MovementTypeDetection-3ea3a26-5.14.5759.65534.no-data.zip" size="1177095"/>
       </Dialog>
     </Template>
-    <Template training="true">
+    <Template>
       <DisplayName>Vacuum Cleaner Surface Detection (MIC)</DisplayName>
       <Description>Microphone-based surface detection for vacuum cleaners (Floor/Carpet/Air)</Description>
       <DisplayPath>/Studio Accelerators/Classification/Microphone</DisplayPath>
       <LicenseTags/>
       <Dialog>
         <DefaultProjectName>SurfaceDetectionMicrophone</DefaultProjectName>
-        <Package url="https://api.imagimob.com/v1/Data/Object/SurfaceDetectionMicrophone-cc1a46e-5.14.5736.65534.zip" size="1001391980"/>
-        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/SurfaceDetectionMicrophone-cc1a46e-5.14.5736.65534.no-data.zip" size="103243554"/>
+        <Package url="https://api.imagimob.com/v1/Data/Object/SurfaceDetectionMicrophone-3ea3a26-5.14.5759.65534.zip" size="1001512656"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/SurfaceDetectionMicrophone-3ea3a26-5.14.5759.65534.no-data.zip" size="103364262"/>
       </Dialog>
     </Template>
     <Template>
