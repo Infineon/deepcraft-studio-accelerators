@@ -33,13 +33,6 @@ This project detects and classifies fruits and vegetables in camera images using
 4. Run the Graph UX project to evaluate model performance in real time using a selected camera or video file.
 5. Point the camera at fruits and vegetables and observe bounding-box detections from the live feed.
 
-## Sensor(s) & Data
-
-- **Sensor:** Camera (RGB images)
-- **Input size:** 320×320 pixels
-- **Classes (17):** apple, banana, grape, strawberry, kiwi, lemon, orange, peach, pineapple, watermelon, cucumber, green_vegetables, potato, tomato, bell_pepper, carrot, shiitake
-- **Data format:** Imagimob session format (`.imsession` + `.labelxml` per sample)
-- **Collection:** Images sourced from Roboflow exports and custom captures; includes mixed-fruit test scenes for generalization checks
 
 ## Adding More Data
 
@@ -50,26 +43,6 @@ This project detects and classifies fruits and vegetables in camera images using
 
 Note: This project contains RGB format images, so new data should be in RGB format.
 
-## Attribution & Citation
-
-This project contains data derived from the following Roboflow datasets. All listed sources are licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) unless noted otherwise. Verify commercial-use terms for each source before deployment.
-
-- [Apples](https://universe.roboflow.com/roboflow-100/apples-fvpl5) — RF100 benchmark; originally from [Apple Sorting](https://universe.roboflow.com/arfiani-nur-sayidah-9lizr/apple-sorting-2bfhk) by Arfiani Nur Sayidah
-- [Banana Detection](https://universe.roboflow.com/evgenii-zorin-cm5us/banana-detection-7jjzn)
-- [Fruit](https://universe.roboflow.com/object-detection-fruit/fruit-smrhb) — multi-class fruit detection dataset
-- [Fruits](https://universe.roboflow.com/kjrtest1/fruits-vtsmn) — mixed fruit scenes
-- [Lemon](https://universe.roboflow.com/project-1utmy/lemon-ahnya)
-- [Peach](https://universe.roboflow.com/curry/peach-4h6uv)
-- [YOLO v11-2](https://universe.roboflow.com/t-ar1fh/yolo-v11-2-d8v9v) — grape and green vegetable classes (spinach renamed to `green_vegetables`)
-- [Cucumber](https://universe.roboflow.com/object-detection/cucumber-dataset) — provided by Roboflow
-- [Green Vegetable](https://universe.roboflow.com/daaa-ubn0h/green-vegetable)
-- [Potato](https://universe.roboflow.com/vegetable/potato-uxgs4)
-- [Vegetable Detection](https://universe.roboflow.com/final-project-wzoba/vegetable-detection-i2deg) — bell pepper, carrot, tomato, and related classes
-- [Shiitake Mushroom](https://universe.roboflow.com/graduation-project-l20ra/shiitake-mushroom)
-
-Custom capture data in `imagimob_collected` was collected by Imagimob and is not derived from Roboflow. Licensed under [DEEPCRAFT™ Studio Terms and Conditions](https://developer.imagimob.com/legal/studio-terms-and-conditions)
-
-
 ## Steps to Production
 
 - **Increase data variability:** Add images from different lighting, backgrounds, angles, and camera devices, especially images of multiple different objects placed together. Use Studio augmentation (translate, scale, mosaic, HSV) to expand visual diversity.
@@ -77,3 +50,209 @@ Custom capture data in `imagimob_collected` was collected by Imagimob and is not
 - **Negative data:** Add non-produce scenes to reduce false positives on irrelevant objects.
 - **Threshold tuning:** Adjust confidence and IoU thresholds in advanced training settings to balance detection sensitivity and precision for your target hardware.
 - **Edge validation:** Export the int8 TFLite model and verify inference on the target Infineon PSOC™ Edge device.
+
+## Attribution & Citation
+
+This project contains data derived from the following datasets:
+
+[Apples](https://universe.roboflow.com/roboflow-100/apples-fvpl5) — RF100 benchmark; originally from [Apple Sorting](https://universe.roboflow.com/arfiani-nur-sayidah-9lizr/apple-sorting-2bfhk) by Arfiani Nur Sayidah, released under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+
+`@misc{
+apples-fvpl5_dataset,
+title = { apples Dataset },
+type = { Open Source Dataset },
+author = { Roboflow 100 },
+howpublished = { \url{ https://universe.roboflow.com/roboflow-100/apples-fvpl5 } },
+url = { https://universe.roboflow.com/roboflow-100/apples-fvpl5 },
+journal = { Roboflow Universe },
+publisher = { Roboflow },
+year = { 2023 },
+month = { may },
+note = { visited on 2026-07-08 },
+}`
+
+[Banana Detection](https://universe.roboflow.com/evgenii-zorin-cm5us/banana-detection-7jjzn) created by Evgenii Zorin, released under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+
+`@misc{
+banana-detection-7jjzn_dataset,
+title = { Banana detection Dataset },
+type = { Open Source Dataset },
+author = { Evgenii Zorin },
+howpublished = { \url{ https://universe.roboflow.com/evgenii-zorin-cm5us/banana-detection-7jjzn } },
+url = { https://universe.roboflow.com/evgenii-zorin-cm5us/banana-detection-7jjzn },
+journal = { Roboflow Universe },
+publisher = { Roboflow },
+year = { 2023 },
+month = { may },
+note = { visited on 2026-07-08 },
+}`
+
+[Fruit](https://universe.roboflow.com/object-detection-fruit/fruit-smrhb) — multi-class fruit detection dataset created by Object Detection Fruit, released under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+
+`@misc{
+fruit-smrhb_dataset,
+title = { Fruit Dataset },
+type = { Open Source Dataset },
+author = { Object Detection Fruit },
+howpublished = { \url{ https://universe.roboflow.com/object-detection-fruit/fruit-smrhb } },
+url = { https://universe.roboflow.com/object-detection-fruit/fruit-smrhb },
+journal = { Roboflow Universe },
+publisher = { Roboflow },
+year = { 2024 },
+month = { jan },
+note = { visited on 2026-07-08 },
+}`
+
+[Fruits](https://universe.roboflow.com/kjrtest1/fruits-vtsmn) — mixed fruit scenes created by KJRtest1, released under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+
+`@misc{
+fruits-vtsmn_dataset,
+title = { Fruits Dataset },
+type = { Open Source Dataset },
+author = { KJRtest1 },
+howpublished = { \url{ https://universe.roboflow.com/kjrtest1/fruits-vtsmn } },
+url = { https://universe.roboflow.com/kjrtest1/fruits-vtsmn },
+journal = { Roboflow Universe },
+publisher = { Roboflow },
+year = { 2023 },
+month = { mar },
+note = { visited on 2026-07-08 },
+}`
+
+[Lemon](https://universe.roboflow.com/project-1utmy/lemon-ahnya) created by project-1utmy, released under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+
+`@misc{
+lemon-ahnya_dataset,
+title = { lemon Dataset },
+type = { Open Source Dataset },
+author = { project-1utmy },
+howpublished = { \url{ https://universe.roboflow.com/project-1utmy/lemon-ahnya } },
+url = { https://universe.roboflow.com/project-1utmy/lemon-ahnya },
+journal = { Roboflow Universe },
+publisher = { Roboflow },
+year = { 2023 },
+month = { aug },
+note = { visited on 2026-07-08 },
+}`
+
+[Peach](https://universe.roboflow.com/curry/peach-4h6uv) created by curry, released under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+
+`@misc{
+peach-4h6uv_dataset,
+title = { peach Dataset },
+type = { Open Source Dataset },
+author = { curry },
+howpublished = { \url{ https://universe.roboflow.com/curry/peach-4h6uv } },
+url = { https://universe.roboflow.com/curry/peach-4h6uv },
+journal = { Roboflow Universe },
+publisher = { Roboflow },
+year = { 2023 },
+month = { jun },
+note = { visited on 2026-07-08 },
+}`
+
+[YOLO v11-2](https://universe.roboflow.com/t-ar1fh/yolo-v11-2-d8v9v) — grape and green vegetable classes (spinach renamed to `green_vegetables`) created by T, released under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+
+`@misc{
+yolo-v11-2-d8v9v_dataset,
+title = { yolo v11-2 Dataset },
+type = { Open Source Dataset },
+author = { T },
+howpublished = { \url{ https://universe.roboflow.com/t-ar1fh/yolo-v11-2-d8v9v } },
+url = { https://universe.roboflow.com/t-ar1fh/yolo-v11-2-d8v9v },
+journal = { Roboflow Universe },
+publisher = { Roboflow },
+year = { 2025 },
+month = { nov },
+note = { visited on 2026-07-08 },
+}`
+
+[Cucumber](https://universe.roboflow.com/object-detection/cucumber-dataset) — provided by Roboflow, released under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+
+`@misc{
+cucumber-dataset_dataset,
+title = { cucumber dataset Dataset },
+type = { Open Source Dataset },
+author = { new-workspace-c1vsu },
+howpublished = { \url{ https://universe.roboflow.com/new-workspace-c1vsu/cucumber-dataset } },
+url = { https://universe.roboflow.com/new-workspace-c1vsu/cucumber-dataset },
+journal = { Roboflow Universe },
+publisher = { Roboflow },
+year = { 2021 },
+month = { dec },
+note = { visited on 2026-07-08 },
+}`
+
+[Green Vegetable](https://universe.roboflow.com/daaa-ubn0h/green-vegetable) created by Daaa, released under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+
+`@misc{
+green-vegetable_dataset,
+title = { Green vegetable Dataset },
+type = { Open Source Dataset },
+author = { Daaa },
+howpublished = { \url{ https://universe.roboflow.com/daaa-ubn0h/green-vegetable } },
+url = { https://universe.roboflow.com/daaa-ubn0h/green-vegetable },
+journal = { Roboflow Universe },
+publisher = { Roboflow },
+year = { 2024 },
+month = { mar },
+note = { visited on 2026-07-08 },
+}`
+
+[Potato](https://universe.roboflow.com/vegetable/potato-uxgs4) created by Vegetable, released under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+
+`@misc{
+potato-uxgs4_dataset,
+title = { Potato Dataset },
+type = { Open Source Dataset },
+author = { Vegetable },
+howpublished = { \url{ https://universe.roboflow.com/vegetable/potato-uxgs4 } },
+url = { https://universe.roboflow.com/vegetable/potato-uxgs4 },
+journal = { Roboflow Universe },
+publisher = { Roboflow },
+year = { 2023 },
+month = { mar },
+note = { visited on 2026-07-08 },
+}`
+
+[Vegetable Detection](https://universe.roboflow.com/final-project-wzoba/vegetable-detection-i2deg) — bell pepper, carrot, tomato, and related classes created by final project, released under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+
+`@misc{
+vegetable-detection-i2deg_dataset,
+title = { Vegetable Detection Dataset },
+type = { Open Source Dataset },
+author = { final project },
+howpublished = { \url{ https://universe.roboflow.com/final-project-wzoba/vegetable-detection-i2deg } },
+url = { https://universe.roboflow.com/final-project-wzoba/vegetable-detection-i2deg },
+journal = { Roboflow Universe },
+publisher = { Roboflow },
+year = { 2025 },
+month = { nov },
+note = { visited on 2026-07-08 },
+}`
+
+[Shiitake Mushroom](https://universe.roboflow.com/graduation-project-l20ra/shiitake-mushroom) created by Graduation Project, released under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+
+`@misc{
+shiitake-mushroom_dataset,
+title = { Shiitake Mushroom Dataset },
+type = { Open Source Dataset },
+author = { Graduation Project },
+howpublished = { \url{ https://universe.roboflow.com/graduation-project-l20ra/shiitake-mushroom } },
+url = { https://universe.roboflow.com/graduation-project-l20ra/shiitake-mushroom },
+journal = { Roboflow Universe },
+publisher = { Roboflow },
+year = { 2023 },
+month = { jul },
+note = { visited on 2026-07-08 },
+}`
+
+Custom capture data in `imagimob_collected` was collected by Imagimob and is not derived from Roboflow. Licensed under [DEEPCRAFT™ Studio Terms and Conditions](https://developer.imagimob.com/legal/studio-terms-and-conditions).
+
+## Getting Started
+
+Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about Imagimob Studio and go through step-by-step tutorials to get you quickly started.
+
+## Help & Support
+
+If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum ](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) Imagimob Studio page.
