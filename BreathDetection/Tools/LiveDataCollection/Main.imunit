@@ -6,39 +6,39 @@
         <Label>cool_blow</Label>
         <Label>warm_breath</Label>
       </LabelListNode>
-      <DeviceNode id="node_4" x="151.5666666666666" y="502.44" enabled="true" profiling="false" name="DPS" board="290de5cb-460b-41bf-31cb-8c012f38aff5" boardName="PSoC 6 AI (CY8CKIT-06S2-AI)" device="3" />
       <UnitNode id="node_5" x="768.4933333333333" y="499.44" enabled="true" profiling="false" name="DPS Data" unit="ImagimobStudio.Modules.DataTrack" />
       <UnitNode id="node_6" x="464.2933333333333" y="87.29000000000005" enabled="true" profiling="false" unit="Imaginet.Units.Math.Select">
-        <Int32Argument param="count">1</Int32Argument>
         <Int32Argument param="index">0</Int32Argument>
+        <Int32Argument param="count">1</Int32Argument>
       </UnitNode>
       <UnitNode id="node_7" x="464.2933333333333" y="311.29" enabled="true" profiling="false" unit="Imaginet.Units.Math.Select">
-        <Int32Argument param="count">1</Int32Argument>
         <Int32Argument param="index">1</Int32Argument>
+        <Int32Argument param="count">1</Int32Argument>
       </UnitNode>
-      <UnitNode id="node_8" x="743.97" y="325.44000000000005" enabled="true" profiling="false" name="Select Data temp" unit="ImagimobStudio.Modules.DataTrack" />
-      <UnitNode id="node_9" x="762.52" y="112.44000000000003" enabled="true" profiling="false" name="Select Data" unit="ImagimobStudio.Modules.DataTrack" />
+      <UnitNode id="node_8" x="743.97" y="325.44000000000005" enabled="true" profiling="false" name="Temperature Data" unit="ImagimobStudio.Modules.DataTrack" />
+      <UnitNode id="node_9" x="762.52" y="112.44000000000003" enabled="true" profiling="false" name="Pressure Data" unit="ImagimobStudio.Modules.DataTrack" />
+      <DeviceNode id="node_11" x="183.7999999999999" y="507.6" enabled="true" profiling="false" name="DPS" board="290de5cb-460b-41bf-31cb-8c031931aff5" boardName="PSOC 6 AI (CY8CKIT-06S2-AI)" device="4" />
     </Nodes>
     <Connections>
-      <Connection>
-        <Source node="node_4" param="Data" />
-        <Target node="node_5" param="data" />
-      </Connection>
-      <Connection>
-        <Source node="node_4" param="Data" />
-        <Target node="node_7" param="input" />
-      </Connection>
       <Connection>
         <Source node="node_7" param="output" />
         <Target node="node_8" param="data" />
       </Connection>
       <Connection>
-        <Source node="node_4" param="Data" />
+        <Source node="node_6" param="output" />
+        <Target node="node_9" param="data" />
+      </Connection>
+      <Connection>
+        <Source node="node_11" param="Data" />
         <Target node="node_6" param="input" />
       </Connection>
       <Connection>
-        <Source node="node_6" param="output" />
-        <Target node="node_9" param="data" />
+        <Source node="node_11" param="Data" />
+        <Target node="node_7" param="input" />
+      </Connection>
+      <Connection>
+        <Source node="node_11" param="Data" />
+        <Target node="node_5" param="data" />
       </Connection>
     </Connections>
   </Compound>
