@@ -1,4 +1,3 @@
-﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <ImagimobStudio version="2.0.0.0">
   <Project id="eac357e2-530f-4094-a5e7-e18bef53443f">
     <Resources />
@@ -26,6 +25,17 @@
           <EthosUSystemConfig>Pse8xSOCMEM300MHz</EthosUSystemConfig>
           <EthosUTensorAllocator>HillClimb</EthosUTensorAllocator>
         </MlCoreToolsOptions>
+      </Unit>
+      <Unit id="d9650561-c6ff-4d6a-b719-4a37ed2e157b">
+        <Input>node_0</Input>
+        <Output>node_2</Output>
+        <Platform>GenericC99</Platform>
+        <OutputFileName>model</OutputFileName>
+        <OutputDirectory>Firmware</OutputDirectory>
+        <CPrefix>IMAI_</CPrefix>
+        <TimestampTracking>false</TimestampTracking>
+        <UseCmsis>true</UseCmsis>
+        <TensorFlowLiteMicroApi>ModusToolbox_ML_Middleware_V3</TensorFlowLiteMicroApi>
       </Unit>
     </CodeGenerationParams>
   </Project>

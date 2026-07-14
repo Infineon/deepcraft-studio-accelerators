@@ -1,1 +1,19 @@
-{"title": "Yolov5n 80 Classes Model Evaluation", "description": "Evaluate original Yolov5n model with 80 classes via camera.", "path": "/Templates/Object Detection/Yolo 80 Class Model"}
+{
+  "title": "Yolov5n 80 Classes Model Evaluation",
+  "description": "Evaluate the original Yolov5n model with 80 object classes via camera.",
+  "long_description": "Evaluate the original Yolo5n model with 80 object classes via camera.",
+  "algorithm": "Object Detection",
+  "sensors": ["Camera"],
+  "domain": ["Vision"],
+  "application": ["Embedded Systems"],
+  "use_case": ["Object Detection"],
+  "kit": ["PSOC\u2122 Edge AI Kit", "PSOC\u2122 Edge Eval Kit"],
+  "device": ["PSOC\u2122 Edge"],
+  "type": ["Model Deployment"],
+  "workflow": ["ML Deployment"],
+  "thumbnail_image_id": "automotive_in_cabin.png",
+  "main_image_id": "automotive_in_cabin.png",
+  "brand_image_id": "deepcraft.webp",
+  "brand_url": "https://www.infineon.com/design-resources/embedded-software/deepcraft-edge-ai-solutions",
+  "links": [{"label": "Download", "url": "https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio", "heading": "Access Project via DEEPCRAFT\u2122 Studio", "sub-heading": "Download and install DEEPCRAFT\u2122 Studio to fully access this project and start developing your Edge AI product"}, {"label": "GitHub", "heading": "Project Repository", "sub-heading": "Get more details about this project", "url": "https://github.com/Infineon/deepcraft-studio-accelerators/tree/main/Yolov5n80ClassesModelEvaluation"}]
+}
