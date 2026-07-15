@@ -4,21 +4,21 @@
     <Nodes>
       <UnitNode id="node_3" x="-819.4109933769021" y="515.7766109303153" enabled="true" profiling="false" name="Local Camera Video" unit="ImagimobStudio.Modules.LiveVideoTrack" />
       <UnitNode id="node_5" x="237.75587851954265" y="230.68002570895158" enabled="true" profiling="false" name="yolov5nLegacy_int8.imunit TFLite Model" unit="Imaginet.Units.TensorFlowLite.TfLiteModel">
-        <Int32Argument param="model_arena_size">10000</Int32Argument>
         <StringArgument param="file_path">Model/yolov5nLegacy_int8.tflite</StringArgument>
+        <Int32Argument param="model_arena_size">10000</Int32Argument>
       </UnitNode>
       <UnitNode id="node_7" x="-309.14703090205535" y="240.47167197047128" enabled="true" profiling="false" unit="Imaginet.Units.Math.Cast">
         <StringArgument param="output_type">int8</StringArgument>
       </UnitNode>
       <UnitNode id="node_0" x="-1803.576363647614" y="232.19733521309476" enabled="true" profiling="false" unit="Imaginet.Units.Io.Camera">
         <StringArgument param="output_type">uint8</StringArgument>
-        <StringArgument param="resolution">1280 720 30</StringArgument>
         <StringArgument param="source_id">Source#0@\\?\USB#VID_0408&amp;PID_545A&amp;MI_00#6&amp;2703a037&amp;0&amp;0000#{e5323777-f976-4f5b-9b55-b94699c46e44}\GLOBAL</StringArgument>
+        <StringArgument param="resolution">1280 720 30</StringArgument>
       </UnitNode>
       <UnitNode id="node_6" x="-1216.4984161873472" y="232.4131277115472" enabled="true" profiling="false" unit="Imaginet.Units.Math.Resizing">
         <Int32Argument param="target_height">256</Int32Argument>
-        <Int32Argument param="interpolation_mode">2</Int32Argument>
         <Int32Argument param="target_width">256</Int32Argument>
+        <Int32Argument param="interpolation_mode">2</Int32Argument>
       </UnitNode>
       <UnitNode id="node_10" x="1837.758383650426" y="213.4408897013776" enabled="true" profiling="false" name="Final Concatenate " unit="Imaginet.Units.Math.Concat">
         <Int32Argument param="axis">0</Int32Argument>
@@ -27,9 +27,9 @@
         <StringArgument param="output_type">int8</StringArgument>
       </UnitNode>
       <UnitNode id="node_12" x="1238.9649012832735" y="589.2213030701469" enabled="true" profiling="false" name="Car class" unit="Imaginet.Units.Math.Select">
+        <Int32Argument param="count">1</Int32Argument>
         <Int32Argument param="index">7</Int32Argument>
         <Int32Argument param="axis">0</Int32Argument>
-        <Int32Argument param="count">1</Int32Argument>
       </UnitNode>
       <UnitNode id="node_13" x="2198.829829409226" y="220.0615396077984" enabled="true" profiling="false" unit="Imaginet.Units.Signal.DetectionFilter">
         <DoubleArgument param="threshold">0.3</DoubleArgument>
@@ -38,24 +38,24 @@
         <StringArgument param="axis_labels">{,,,,},{x,y,w,h,person,car}</StringArgument>
       </UnitNode>
       <UnitNode id="node_15" x="1238.9649012832735" y="358.221303070147" enabled="true" profiling="false" name="Person class" unit="Imaginet.Units.Math.Select">
+        <Int32Argument param="count">1</Int32Argument>
         <Int32Argument param="index">5</Int32Argument>
         <Int32Argument param="axis">0</Int32Argument>
-        <Int32Argument param="count">1</Int32Argument>
       </UnitNode>
       <UnitNode id="node_16" x="3941.0510799035264" y="229.74831611020204" enabled="true" profiling="false" unit="ImagimobStudio.Modules.BoundingBoxTrack" />
       <UnitNode id="node_17" x="1545.2563666132692" y="466.54417451876543" enabled="true" profiling="false" unit="Imaginet.Units.Math.Concat">
         <Int32Argument param="axis">0</Int32Argument>
       </UnitNode>
       <UnitNode id="node_18" x="1235.6037348621721" y="146.29440939930146" enabled="true" profiling="false" name="Bbox Coordinates" unit="Imaginet.Units.Math.Select">
+        <Int32Argument param="count">5</Int32Argument>
         <Int32Argument param="index">0</Int32Argument>
         <Int32Argument param="axis">0</Int32Argument>
-        <Int32Argument param="count">5</Int32Argument>
       </UnitNode>
       <UnitNode id="node_19" x="2587.93138360274" y="217.7058427507294" enabled="true" profiling="false" name="final" unit="Imaginet.Units.Math.Cast" />
-      <CodeGenEntryNode id="node_20" x="-731.6798514675877" y="264.0020510699826" enabled="true" profiling="false" name="Input 1">
+      <CodeGenEntryNode id="node_20" x="-731.6798514675877" y="264.0020510699826" enabled="true" profiling="false" name="Code Gen Entry">
         <Argument name="datain" type="UInt8" shape="[256,256,3]" frequency="30" scale="1" offset="0" shift="0" description="Input features" />
       </CodeGenEntryNode>
-      <CodeGenExitNode id="node_21" x="3138.250908399788" y="257.8610576485587" enabled="true" profiling="false" name="Output 1">
+      <CodeGenExitNode id="node_21" x="3138.250908399788" y="257.8610576485587" enabled="true" profiling="false" name="Code Gen Exit">
         <Argument name="dataout" description="Output features" />
       </CodeGenExitNode>
     </Nodes>
