@@ -61,16 +61,6 @@ To record additional training data, follow the instructions in [Tools/LiveDataCo
 
 The `Data` folder contains a large number of pre-recorded samples, primarily grouped by day and location, as each group reflects slight differences in daily temperature and air pressure.
 
-Use the two main subfolders, `train` and `test`. After training over 200 AI models, we observed that keeping this train/test separation when training the AI model improves accuracy and performance significantly. By default, DEEPCRAFT™ Studio uses train and validation only, leaving the test set empty at the beginning.
-
-We recommend starting by strictly separating datasets by day. You can experiment with random mixing later if needed.
-
-The folder `additional data (not recommended)` contains many other samples. They may be useful for experimentation, but by default we do not recommend them—they did not yield good results in our tests.
-
-In addition to dataset selection, adjusting class weights is important. The best results were achieved with train/validation separated and the following weights:
-- warm_breath: 2
-- cool_blow: 5
-
 ### Sample naming
 
 Some samples are named after the recording date only. For more information about labels, open the `.imsession` or `.label` file. All other files follow this scheme: `LABEL_PROXIMITY_DURATION_WAIT_TIME_PRESSURE_NUMBER`, for example: `xxx(_xxx)_N_N_xxx_N`.
@@ -130,7 +120,6 @@ You may also leverage DEEPCRAFT™ Studio's Transfer Learning features for fine-
 ## Evaluating your final AI model using DEEPCRAFT™ Studio
 
 You can test your ML model as usual using the PSoC, or run it directly on your PC with DEEPCRAFT™ Studio. To improve this workflow, you will find a project for evaluating your AI model in the `Tools/LiveModelEvaluation` folder. Open it by double-clicking the `Main.imunit` file. You will be prompted with a GraphUX interface showing the data flow:
-
 
 ![](Resources/imgs/evaluation_gux.png)
 
