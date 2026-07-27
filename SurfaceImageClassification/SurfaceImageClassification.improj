@@ -1,8 +1,7 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <ImagimobStudio version="1.1.0">
-  <Job id="ecfa1b2b-5b3a-11f1-95c5-7778a8fb8788" />
+  <Job id="ecfa1b2b-5b3a-11f1-95c5-7778a8fb8788"/>
   <ProjectType>ImageClassification</ProjectType>
-  <ProjectId>8c30d234-e890-4395-b0f3-4643c09ae961</ProjectId>
   <ModelFactory>
     <Epochs>20</Epochs>
     <BatchSize>64</BatchSize>
@@ -28,8 +27,8 @@
       <WeightDecay>0.0001</WeightDecay>
     </Optimizer>
     <BuildSteps>
-      <Training />
-      <ConfusionMatrix />
+      <Training/>
+      <ConfusionMatrix/>
     </BuildSteps>
     <YoloVersion>yolov8n</YoloVersion>
     <ImageSize>160</ImageSize>
@@ -78,77 +77,77 @@
         <LearningRate>0.001</LearningRate>
         <WeightDecay>0.0001</WeightDecay>
       </Optimizer>
-      <Network inshape="[128,3]" intype="Float32" infreq="1" outshape="[10]" outtype="Float32" />
+      <Network inshape="[128,3]" intype="Float32" infreq="1" outshape="[10]" outtype="Float32"/>
       <BuildSteps>
-        <Training />
-        <ConfusionMatrix />
+        <Training/>
+        <ConfusionMatrix/>
       </BuildSteps>
       <SymbolWeights override="True">
-        <SymbolWeight symbol="dry_asphalt_severe" weight="1" />
-        <SymbolWeight symbol="dry_asphalt_slight" weight="1" />
-        <SymbolWeight symbol="dry_asphalt_smooth" weight="1" />
-        <SymbolWeight symbol="dry_concrete_severe" weight="1" />
-        <SymbolWeight symbol="dry_concrete_slight" weight="1" />
-        <SymbolWeight symbol="dry_concrete_smooth" weight="1" />
-        <SymbolWeight symbol="dry_gravel" weight="1" />
-        <SymbolWeight symbol="dry_mud" weight="1" />
-        <SymbolWeight symbol="fresh_snow" weight="1" />
-        <SymbolWeight symbol="ice" weight="1" />
-        <SymbolWeight symbol="melted_snow" weight="1" />
-        <SymbolWeight symbol="water_asphalt_severe" weight="1" />
-        <SymbolWeight symbol="water_asphalt_slight" weight="1" />
-        <SymbolWeight symbol="water_asphalt_smooth" weight="1" />
-        <SymbolWeight symbol="water_concrete_severe" weight="1" />
-        <SymbolWeight symbol="water_concrete_slight" weight="1" />
-        <SymbolWeight symbol="water_concrete_smooth" weight="1" />
-        <SymbolWeight symbol="water_gravel" weight="1" />
-        <SymbolWeight symbol="water_mud" weight="1" />
-        <SymbolWeight symbol="wet_asphalt_severe" weight="1" />
-        <SymbolWeight symbol="wet_asphalt_slight" weight="1" />
-        <SymbolWeight symbol="wet_asphalt_smooth" weight="1" />
-        <SymbolWeight symbol="wet_concrete_severe" weight="1" />
-        <SymbolWeight symbol="wet_concrete_slight" weight="1" />
-        <SymbolWeight symbol="wet_concrete_smooth" weight="1" />
-        <SymbolWeight symbol="wet_gravel" weight="1" />
-        <SymbolWeight symbol="wet_mud" weight="1" />
-        <SymbolWeight symbol="unlabeled" weight="1" />
+        <SymbolWeight symbol="dry_asphalt_severe" weight="1"/>
+        <SymbolWeight symbol="dry_asphalt_slight" weight="1"/>
+        <SymbolWeight symbol="dry_asphalt_smooth" weight="1"/>
+        <SymbolWeight symbol="dry_concrete_severe" weight="1"/>
+        <SymbolWeight symbol="dry_concrete_slight" weight="1"/>
+        <SymbolWeight symbol="dry_concrete_smooth" weight="1"/>
+        <SymbolWeight symbol="dry_gravel" weight="1"/>
+        <SymbolWeight symbol="dry_mud" weight="1"/>
+        <SymbolWeight symbol="fresh_snow" weight="1"/>
+        <SymbolWeight symbol="ice" weight="1"/>
+        <SymbolWeight symbol="melted_snow" weight="1"/>
+        <SymbolWeight symbol="water_asphalt_severe" weight="1"/>
+        <SymbolWeight symbol="water_asphalt_slight" weight="1"/>
+        <SymbolWeight symbol="water_asphalt_smooth" weight="1"/>
+        <SymbolWeight symbol="water_concrete_severe" weight="1"/>
+        <SymbolWeight symbol="water_concrete_slight" weight="1"/>
+        <SymbolWeight symbol="water_concrete_smooth" weight="1"/>
+        <SymbolWeight symbol="water_gravel" weight="1"/>
+        <SymbolWeight symbol="water_mud" weight="1"/>
+        <SymbolWeight symbol="wet_asphalt_severe" weight="1"/>
+        <SymbolWeight symbol="wet_asphalt_slight" weight="1"/>
+        <SymbolWeight symbol="wet_asphalt_smooth" weight="1"/>
+        <SymbolWeight symbol="wet_concrete_severe" weight="1"/>
+        <SymbolWeight symbol="wet_concrete_slight" weight="1"/>
+        <SymbolWeight symbol="wet_concrete_smooth" weight="1"/>
+        <SymbolWeight symbol="wet_gravel" weight="1"/>
+        <SymbolWeight symbol="wet_mud" weight="1"/>
+        <SymbolWeight symbol="unlabeled" weight="1"/>
       </SymbolWeights>
-      <Preprocessor override="False" inshape="[640,640,3]" intype="Float32" infreq="0" outshape="[640,640,3]" outtype="Float32" />
-      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
+      <Preprocessor override="False" inshape="[640,640,3]" intype="Float32" infreq="0" outshape="[640,640,3]" outtype="Float32"/>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32"/>
     </Model>
   </Models>
   <Database balance="LabelCount" redistributionScope="Everything">
     <SymbolMap>
-      <Symbol name="unlabeled" id="0" weight="1" />
-      <Symbol name="dry_asphalt_severe" id="1" weight="1" />
-      <Symbol name="dry_asphalt_slight" id="2" weight="1" />
-      <Symbol name="dry_asphalt_smooth" id="3" weight="1" />
-      <Symbol name="dry_concrete_severe" id="4" weight="1" />
-      <Symbol name="dry_concrete_slight" id="5" weight="1" />
-      <Symbol name="dry_concrete_smooth" id="6" weight="1" />
-      <Symbol name="dry_gravel" id="7" weight="1" />
-      <Symbol name="dry_mud" id="8" weight="1" />
-      <Symbol name="fresh_snow" id="9" weight="1" />
-      <Symbol name="ice" id="10" weight="1" />
-      <Symbol name="melted_snow" id="11" weight="1" />
-      <Symbol name="water_asphalt_severe" id="12" weight="1" />
-      <Symbol name="water_asphalt_slight" id="13" weight="1" />
-      <Symbol name="water_asphalt_smooth" id="14" weight="1" />
-      <Symbol name="water_concrete_severe" id="15" weight="1" />
-      <Symbol name="water_concrete_slight" id="16" weight="1" />
-      <Symbol name="water_concrete_smooth" id="17" weight="1" />
-      <Symbol name="water_gravel" id="18" weight="1" />
-      <Symbol name="water_mud" id="19" weight="1" />
-      <Symbol name="wet_asphalt_severe" id="20" weight="1" />
-      <Symbol name="wet_asphalt_slight" id="21" weight="1" />
-      <Symbol name="wet_asphalt_smooth" id="22" weight="1" />
-      <Symbol name="wet_concrete_severe" id="23" weight="1" />
-      <Symbol name="wet_concrete_slight" id="24" weight="1" />
-      <Symbol name="wet_concrete_smooth" id="25" weight="1" />
-      <Symbol name="wet_gravel" id="26" weight="1" />
-      <Symbol name="wet_mud" id="27" weight="1" />
+      <Symbol name="unlabeled" id="0" weight="1"/>
+      <Symbol name="dry_asphalt_severe" id="1" weight="1"/>
+      <Symbol name="dry_asphalt_slight" id="2" weight="1"/>
+      <Symbol name="dry_asphalt_smooth" id="3" weight="1"/>
+      <Symbol name="dry_concrete_severe" id="4" weight="1"/>
+      <Symbol name="dry_concrete_slight" id="5" weight="1"/>
+      <Symbol name="dry_concrete_smooth" id="6" weight="1"/>
+      <Symbol name="dry_gravel" id="7" weight="1"/>
+      <Symbol name="dry_mud" id="8" weight="1"/>
+      <Symbol name="fresh_snow" id="9" weight="1"/>
+      <Symbol name="ice" id="10" weight="1"/>
+      <Symbol name="melted_snow" id="11" weight="1"/>
+      <Symbol name="water_asphalt_severe" id="12" weight="1"/>
+      <Symbol name="water_asphalt_slight" id="13" weight="1"/>
+      <Symbol name="water_asphalt_smooth" id="14" weight="1"/>
+      <Symbol name="water_concrete_severe" id="15" weight="1"/>
+      <Symbol name="water_concrete_slight" id="16" weight="1"/>
+      <Symbol name="water_concrete_smooth" id="17" weight="1"/>
+      <Symbol name="water_gravel" id="18" weight="1"/>
+      <Symbol name="water_mud" id="19" weight="1"/>
+      <Symbol name="wet_asphalt_severe" id="20" weight="1"/>
+      <Symbol name="wet_asphalt_slight" id="21" weight="1"/>
+      <Symbol name="wet_asphalt_smooth" id="22" weight="1"/>
+      <Symbol name="wet_concrete_severe" id="23" weight="1"/>
+      <Symbol name="wet_concrete_slight" id="24" weight="1"/>
+      <Symbol name="wet_concrete_smooth" id="25" weight="1"/>
+      <Symbol name="wet_gravel" id="26" weight="1"/>
+      <Symbol name="wet_mud" id="27" weight="1"/>
     </SymbolMap>
-    <DataSet id="unassigned" targetSize="0" labels="Unassigned" />
+    <DataSet id="unassigned" targetSize="0" labels="Unassigned"/>
     <DataSet id="train" targetSize="0.7020063877279894" labels="Complete">
       <Session name="dry_asphalt_severe_0" sessionId="15a5a419-b152-4d33-9706-bd508de69cd2" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="image" tags="None">
         <DataFile shape="[640,640,3]" samplerate="0" modified="5250683591142565554">/Data/dry_asphalt_severe/dry_asphalt_severe_0/dry_asphalt_severe_0.jpg</DataFile>
@@ -81007,6 +81006,6 @@
     </DataSet>
   </Database>
   <CustomColumns>
-    <CustomColumn id="da880db6-367a-4d2a-bc33-6d6e6172e27f" name="Category 1" internalName="Category 1" />
+    <CustomColumn id="da880db6-367a-4d2a-bc33-6d6e6172e27f" name="Category 1" internalName="Category 1"/>
   </CustomColumns>
 </ImagimobStudio>
