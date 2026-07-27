@@ -1,98 +1,89 @@
-﻿# Golf Ball Detection - DEEPCRAFT™ Studio Accelerator project.
+﻿# Golf Ball Detection — DEEPCRAFT™ Studio Accelerator
 
-This project is designed to work exclusively with DEEPCRAFT™ Studio.
+This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio).
 
 ## Use-case description
 
-This Studio Accelerator aims to provide general guidance on how to develop a Computer Vision project for **golf ball detection** with RGB camera.
+This Studio Accelerator provides guidance on building a Computer Vision project for **golf ball detection** using an RGB camera.
 
-The task is framed as an **object detection project**: a type of Computer Vision task with the goal of classifying and locating different objects in the image frame. For this project, one class will be used: golfball.
+The task is framed as an **object detection** problem: a Computer Vision task that classifies objects and locates them within an image. This project uses a single class: `golfball`.
 
 ### How can I know if this project fits my use case?
 
-You can use this starter project if:
+You can use this project if:
 
-- You need to build a Computer Vision project for detecting or counting golf balls on grass fields;
-- You have the possibility of collecting additional data, either from real world or via simulated virtual environments.
+- You need to build a Computer Vision system for detecting or counting golf balls on grass fields.
+- You can collect additional data, either in the real world or in simulated virtual environments.
 
-If you don't have the possibility of collecting a sufficient amount of data, this project might not provide accurate results.
+If you cannot collect enough data, this project may not deliver accurate results.
 
 ### How can this project ease my go-to-production journey?
 
-This project demonstrates how to approach the task from a Computer Vision perspective. If you start from this project, you will have:
+This project demonstrates how to approach the task from a Computer Vision perspective. Starting from this Accelerator, you get:
 
-- A ready framework for performing Object Detection (YOLO-based)
-- Some data already collected and ready to be used.
-- Data augmentation and model training parameters already set.
-- An easy pipeline allowing you to collect or import more data as needed.
+- A ready-made framework for object detection (YOLO-based).
+- Sample data that is already collected and ready to use.
+- Preconfigured data augmentation and model training parameters.
+- A straightforward pipeline for collecting or importing more data as needed.
 
 ## Contents
 
-`Data` - Folder to put your data. `Data\golf-ball-public` contains public dataset. `Data\infineon-public` contains additional data collected by Infineon team. 
+- **`Data`** — Folder for your datasets. `Data\golf-ball-public` contains a public dataset; `Data\infineon-public` contains additional data collected by the Infineon team.
+- **`Models`** — Folder where trained models, their predictions, and generated edge code are stored.
+- **`Resources`** — Project resources, including images and documentation.
 
-`Models` - Folder where trained models, their predictions, and generated Edge code are saved.
+## Sensor(s) and Data
 
-`Units`    - Folder where custom layers and pre-processors can be added. Not used in this project.
-
-`Tools`    - Folder containing additional tools and project. Not used in this project.
-
-
-## Sensor settings specification
-
-This starter project requires the [PSOC™ EDGE Evaluation Kit](https://www.infineon.com/evaluation-board/kit-pse84-eval). This platform is equipped with PSOC™ Edge E84 MCU and a USB Camera Module. The board is designed for easy prototyping and lets you collect real-life data to easily build a compelling ML product fast.
-
-Having some golf balls available is optional; but you might need them to test the model and collect additional data. However, if you want to test the project out-of-the-box, you could also show the camera some pictures of golf balls on your laptop screen or your phone.
+This accelerator is based on RGB images of golf balls from two sources: a public dataset from Roboflow (`Data\golf-ball-public`) and a dataset collected at Infineon (`Data\infineon-public`).
 
 ![](Resources/imgs/golfballs-labels.png)
 
+## Adding More Data
 
-## Collecting and expanding the dataset
+You can add data in two ways:
 
-To add more data, you can either rely on Studio's live data collection from Computer Vision project: [Real-Time Image data collection and labeling using camera](https://developer.imagimob.com/deepcraft-studio/data-preparation/data-collection/collect-data-without-kit/collect-image-data-using-graph-ux), or you can add your dataset collected with other means.
-If you want to import data collected externally, for example with a mobile phone or with a camera on the field, please refer to (Bring your own data for object detection projects)[https://developer.imagimob.com/deepcraft-studio/data-preparation/bring-your-data/bring-your-own-data-object-detection]
+1. **Live collection in DEEPCRAFT™ Studio** — Use the built-in Computer Vision workflow: [Real-time image collection and labeling using a camera](https://developer.imagimob.com/deepcraft-studio/data-preparation/data-collection/collect-data-without-kit/collect-image-data-using-graph-ux).
+2. **External import** — Bring in images collected on the field with a mobile phone or any other camera. See [Bring your own data for object detection projects](https://developer.imagimob.com/deepcraft-studio/data-preparation/bring-your-data/bring-your-own-data-object-detection).
 
-**Hint**: if you collect data with a mobile phone or another camera, try to set the camera to provide squared images. This will be make easier to process image later and will avoid unwanted stretching.
+For data collection and model deployment, we recommend the [PSOC™ EDGE Evaluation Kit](https://www.infineon.com/evaluation-board/kit-pse84-eval). This platform includes a PSOC™ Edge E84 MCU and a USB camera module. It is designed for rapid prototyping and lets you collect real-world data to build an ML product quickly.
 
+Having physical golf balls on hand is optional, but you may need them to test the model and collect additional data. To try the project out of the box, you can also point the camera at pictures of golf balls on a laptop or phone screen.
 
-## Recommended path to production
+**Hint:** If you collect data with a mobile phone or another camera, configure it to capture square images. This makes later processing easier and helps avoid unwanted stretching.
+
+## Steps to Production
 
 To bring this project to a production-level system, follow these general steps:
 
-**1. Identify the environment or setting you want this model to operate**
-    Ensure to define the setting you want this system to operate. 
-    Will the camera be fixed? Will it be mounted on a robot? Will it have to monitor grass fields, sand fields, indoor environments?
-    Will the golf balls be all of the same kind, or will they have different colors/textures?
+**1. Identify the target environment**
 
-**2. Collect data for a prototype application**
-   
-  Collect a representative amount of data in a setting which is as close as possible to the final setup, to fine-tune the model to specific angles, light conditions and details of the setting.
-  If detection accuracy is low or the model is getting confused, try to add also negative examples to improve model performance when golf balls are not present.
+Define where and how the model will operate:
+
+- Will the camera be fixed, mounted on a robot, or moved manually?
+- Will it monitor grass fields, sand traps, or indoor environments?
+- Will the golf balls be uniform, or will they vary in color and texture?
+
+**2. Collect data for a prototype**
+
+Collect a representative dataset in conditions as close as possible to the final setup. This helps the model adapt to specific angles, lighting, and scene details.
+
+If detection accuracy is low or the model produces false positives, add **negative examples** (scenes without golf balls) to improve performance.
 
 **3. Import your data and train the prototype model**
 
-  Import the data you collected in DEEPCRAFT Studio.
-  You are now able to follow the standard DEEPCRAFT Studio steps for processing, training, and deploying your Computer Vision model.
+Import the data you collected into DEEPCRAFT Studio, then follow the standard workflow for processing, training, and deploying your Computer Vision model.
 
-  **4. Deploy and do a real-time test of your prototype model**
+**4. Deploy and test the prototype in real time**
 
-  Last thing to be done in prototyping phase is to deploy the model to the device by leveraging the template application already available in ModusToolbox:[MTB Example ML Imagimob MTBML Deploy](https://developer.imagimob.com/deepcraft-studio/deployment/deploy-models-supported-boards/deploy-vision-model-PSOC-Edge) and test the firmware on the machinery. The display will show you real-time detection bounding boxes.
+After training, deploy the model to your board using the ModusToolbox™ template application. Follow [Deploy Vision Model on PSOC™ Edge Boards](https://developer.imagimob.com/deepcraft-studio/deployment/deploy-models-supported-boards/deploy-vision-model-PSOC-Edge) for step-by-step instructions. Flash the firmware, then run a live test: the on-device display draws bounding boxes around detected golf balls so you can check accuracy, latency, and stability before moving to production hardware.
 
-  **5. Going to the production board system**
+**5. Move to the production hardware**
 
 Last step is to move to the actual final production setup. The production system will likely have the camera placed on a specific place on the final setup, not necessarly the same one of the prorotyping phase. If you can go as close as possible to production conditions during prototyping phase, you will be able to deliver the same model also on the production board with little-to-no additional training or data needed. If this is not the case, you might need to do a new data collection step to allow the model to learn the nuances of the final setup. Follow again steps 2, 3 and 4 also for the production setup to reach a functioning application.
 
-**Note:** All subsequent ML system lifetime monitoring procedures must be defined and implemented by you according to you needs, requirements and targets.
+**Note:** Monitoring and maintaining the ML system over its lifetime (drift detection, retraining, and so on) is your responsibility and should be defined according to your needs, requirements, and targets.
 
-## Dataset Attributions and Citations
+## Attributions and Citations
 
 @misc{ golfball-pedge-detector, title = { GolfBall Dataset }, type = { Open Source Dataset }, author = { lolepls }, howpublished = { \url{ https://app.roboflow.com/lolepls/golf-ball-raahi-k2ygw/2 } }, url = { https://app.roboflow.com/lolepls/golf-ball-raahi-k2ygw/2 }, journal = { Roboflow Universe }, publisher = { Roboflow }, year = { 2026 }, month = { jan }, note = { visited on 2026-02-09 }, }
 
-@misc{ infineon-public-golfball-dataset, title = { Infineon Public GolfBall Dataset }, type = { Open Source Dataset }, author = { Gioele Mombelli }, journal = { DEEPCRAFT Studio Accelerators }, publisher = { Infineon }, year = { 2026 }, month = { jan }, }
-
-## Getting Started
-
-Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about Imagimob Studio and go through step-by-step tutorials to get you quickly started.
-
-## Help & Support
-
-If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum ](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) Imagimob Studio page.
