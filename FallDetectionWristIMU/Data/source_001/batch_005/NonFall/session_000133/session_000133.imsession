@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ImagimobStudio version="0.9">
+  <Timeline id="9c7bf6c1-f96a-41e2-afbe-299f5762970d">
+    <Tracks>
+      <Track name="label" type="labelcsv">
+        <PayloadFile>label.label</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="acc" type="datacsv" isLabelTrack="False">
+        <PayloadFile>acc.csv</PayloadFile>
+        <Shape />
+      </Track>
+    </Tracks>
+  </Timeline>
+</ImagimobStudio>

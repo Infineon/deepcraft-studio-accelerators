@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<ImagimobStudio version="2.0.0.0">
+  <Project id="e84b7341-0050-4d36-9a62-d45c74c1f8db">
+    <Resources />
+    <Options>
+      <UseCMSIS>true</UseCMSIS>
+    </Options>
+    <CodeGenerationParams>
+      <Unit id="d419d86b-7b57-41d3-9a74-ab428f13a213">
+        <Input>node_41</Input>
+        <Output>node_188</Output>
+        <Platform>GenericC99</Platform>
+        <OutputFileName>Model</OutputFileName>
+        <OutputDirectory>../../../tmp</OutputDirectory>
+        <CPrefix>IMAI_</CPrefix>
+        <TimestampTracking>true</TimestampTracking>
+        <UseCmsis>true</UseCmsis>
+        <TensorFlowLiteMicroApi>ModusToolbox_ML_Middleware_V3</TensorFlowLiteMicroApi>
+        <PreferNonCallbackApi>false</PreferNonCallbackApi>
+        <MlCoreToolsOptions>
+          <RecursionLimit>1000</RecursionLimit>
+          <MaxBlockDependency>3</MaxBlockDependency>
+          <Sparsity>false</Sparsity>
+          <EthosUMemoryMode>SharedSram</EthosUMemoryMode>
+          <EthosUOptimize>Performance</EthosUOptimize>
+          <EthosUSystemConfig>Pse8xSOCMEM300MHz</EthosUSystemConfig>
+          <EthosUTensorAllocator>HillClimb</EthosUTensorAllocator>
+          <ArenaSizeStrategy>Max</ArenaSizeStrategy>
+          <ArenaCacheSize>2936012</ArenaCacheSize>
+          <ForcePythonBackend>false</ForcePythonBackend>
+        </MlCoreToolsOptions>
+      </Unit>
+    </CodeGenerationParams>
+  </Project>
+</ImagimobStudio>
