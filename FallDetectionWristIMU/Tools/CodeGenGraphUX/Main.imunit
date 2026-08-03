@@ -2,32 +2,32 @@
 <Imaginet version="2.0.0.0">
   <Compound unit="d419d86b-7b57-41d3-9a74-ab428f13a213">
     <Nodes>
-      <UnitNode id="node_33" x="1416.2016666666664" y="678.205" enabled="true" profiling="false" unit="Imaginet.Units.Signal.SlidingWindow">
-        <Int32Argument param="stride">10</Int32Argument>
+      <UnitNode id="node_33" x="1416.2016666666664" y="399.53999999999996" enabled="true" profiling="false" unit="Imaginet.Units.Signal.SlidingWindow">
         <ShapeArgument param="window_shape">[13,1]</ShapeArgument>
+        <Int32Argument param="stride">10</Int32Argument>
       </UnitNode>
-      <UnitNode id="node_41" x="578.105" y="481.685" enabled="true" profiling="false" unit="313fbf89-0de4-4f90-a42a-d0640590d15e">
+      <UnitNode id="node_41" x="578.105" y="378.02" enabled="true" profiling="false" unit="313fbf89-0de4-4f90-a42a-d0640590d15e">
         <Int32Argument param="samplerate">50</Int32Argument>
       </UnitNode>
-      <UnitNode id="node_177" x="1002.2566666666664" y="667.165" enabled="true" profiling="false" unit="Stillness Feature" />
-      <UnitNode id="node_180" x="1852.678333333333" y="481.6849999999999" enabled="true" profiling="false" unit="Gate Feature" />
-      <CodeGenEntryNode id="node_187" x="272.521666666667" y="501.3550000000001" enabled="true" profiling="false" name="Data Input">
+      <UnitNode id="node_177" x="1002.2566666666664" y="388.5" enabled="true" profiling="false" unit="Stillness Feature" />
+      <UnitNode id="node_180" x="1852.678333333333" y="203.01999999999992" enabled="true" profiling="false" unit="Gate Feature" />
+      <CodeGenEntryNode id="node_187" x="272.521666666667" y="397.68999999999994" enabled="true" profiling="false" name="Data Input">
         <Argument name="datain" type="Float32" shape="[3]" frequency="NaN" scale="1" offset="0" shift="0" description="Input features" />
       </CodeGenEntryNode>
-      <CodeGenExitNode id="node_188" x="2153.6449999999995" y="501.35499999999996" enabled="true" profiling="false" name="Model Output">
+      <CodeGenExitNode id="node_188" x="2153.6449999999995" y="222.68999999999994" enabled="true" profiling="false" name="Model Output">
         <Argument name="dataout" description="Output features" />
       </CodeGenExitNode>
-      <DotNetNode id="node_192" x="898.1116666666665" y="478.395" enabled="true" profiling="false" name="conv1d-medium-accuracy-0 preprocessor">
+      <DotNetNode id="node_189" x="898.1116666666665" y="199.73000000000002" enabled="true" profiling="false" name="conv1d-medium-accuracy-0 preprocessor">
         <Interop assembly="Imaginet.Units.KerasModel" class="Imaginet.Units.KerasModel.KerasModel" method="LoadPreprocessor" />
         <Input param="input" type="Tensor" />
         <Input param="File" type="FileReference">
-          <StringArgument>../../Model/conv1d-medium-accuracy-0.h5</StringArgument>
+          <StringArgument>../../Models/conv1d-medium-accuracy-0.h5</StringArgument>
         </Input>
         <Output param="output" type="Tensor" />
       </DotNetNode>
-      <UnitNode id="node_194" x="1375.3949999999998" y="467.91499999999996" enabled="true" profiling="false" name="conv1d-medium-accuracy-0" unit="Imaginet.Units.TensorFlowLite.TfLiteModel">
-        <StringArgument param="file_path">../../Model/conv1d-medium-accuracy-0.tflite</StringArgument>
+      <UnitNode id="node_191" x="1375.3949999999998" y="189.24999999999997" enabled="true" profiling="false" name="conv1d-medium-accuracy-0" unit="Imaginet.Units.TensorFlowLite.TfLiteModel">
         <Int32Argument param="model_arena_size">16384</Int32Argument>
+        <StringArgument param="file_path">../../Models/conv1d-medium-accuracy-0.tflite</StringArgument>
       </UnitNode>
     </Nodes>
     <Connections>
@@ -53,14 +53,14 @@
       </Connection>
       <Connection>
         <Source node="node_41" param="output" />
-        <Target node="node_192" param="input" />
+        <Target node="node_189" param="input" />
       </Connection>
       <Connection>
-        <Source node="node_192" param="output" />
-        <Target node="node_194" param="input" />
+        <Source node="node_189" param="output" />
+        <Target node="node_191" param="input" />
       </Connection>
       <Connection>
-        <Source node="node_194" param="output" />
+        <Source node="node_191" param="output" />
         <Target node="node_180" param="confidence" />
       </Connection>
     </Connections>
