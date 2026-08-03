@@ -10,7 +10,7 @@ Reliable wrist-worn fall detection is relevant to wearables, safety monitoring, 
 
 `Data` - Folder where data is located. Contains wrist-worn accelerometer recordings organized by anonymized source, batch, class (Fall / NonFall), and session.
 
-`Model` - Folder where trained models, their predictions and generated Edge code are saved.
+`Models` - Folder where trained models, their predictions and generated Edge code are saved.
 
 `Tools` - Folder containing the `CodeGenGraphUX` Graph UX project used for code generation, including feature extraction and the stillness-based post-processing gate. The custom units (`Tools/CodeGenGraphUX/Units`) live inside this Graph UX project rather than a top-level `Units` folder, since Graph UX resolves unit paths relative to its own project.
 
