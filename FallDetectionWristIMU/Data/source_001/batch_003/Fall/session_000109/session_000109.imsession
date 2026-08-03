@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ImagimobStudio version="0.9">
+  <Timeline id="cb4f34f6-8c3c-49b4-b30d-fb16327fa25d">
+    <Tracks>
+      <Track name="label" type="labelcsv">
+        <PayloadFile>label.label</PayloadFile>
+        <Shape>
+          <Axis name="Labels" size="1">
+            <Label index="0">Fall</Label>
+          </Axis>
+        </Shape>
+      </Track>
+      <Track name="acc" type="datacsv" isLabelTrack="False">
+        <PayloadFile>acc.csv</PayloadFile>
+        <Shape>
+          <Axis name="" size="3">
+            <Label index="0">X</Label>
+            <Label index="1">Y</Label>
+            <Label index="2">Z</Label>
+          </Axis>
+        </Shape>
+      </Track>
+    </Tracks>
+  </Timeline>
+</ImagimobStudio>

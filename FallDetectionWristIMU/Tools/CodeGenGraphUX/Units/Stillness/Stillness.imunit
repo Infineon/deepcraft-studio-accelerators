@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Imaginet>
+  <Unit name="Stillness Feature">
+    <DisplayName>Stillness</DisplayName>
+    <DisplayPath>/Custom/Features</DisplayPath>
+    <Description>This feature is added as postproessing to calculate a stillness feature.
+    </Description>
+    <Parameters>
+      <InputSocket name="input" pipe="data" />
+      <OutputSocket name="output" pipe="data" type="input.type" shape="System.Shape(1)" />
+    </Parameters>
+    <Implementations>
+      <Implementation language="C" fragment="stillness.h:stillness" call="stillness(input, output)">
+        <Conditional value="input.type == System.Float32" />
+        <Conditional value="output.type == System.Float32" />
+      </Implementation>
+    </Implementations>
+  </Unit>
+</Imaginet>

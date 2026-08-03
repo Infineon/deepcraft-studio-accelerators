@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Imaginet version="2.0.0.0">
+  <Compound unit="d419d86b-7b57-41d3-9a74-ab428f13a213">
+    <Nodes>
+      <UnitNode id="node_33" x="1416.2016666666664" y="678.205" enabled="true" profiling="false" unit="Imaginet.Units.Signal.SlidingWindow">
+        <Int32Argument param="stride">10</Int32Argument>
+        <ShapeArgument param="window_shape">[13,1]</ShapeArgument>
+      </UnitNode>
+      <UnitNode id="node_41" x="578.105" y="481.685" enabled="true" profiling="false" unit="313fbf89-0de4-4f90-a42a-d0640590d15e">
+        <Int32Argument param="samplerate">50</Int32Argument>
+      </UnitNode>
+      <UnitNode id="node_177" x="1002.2566666666664" y="667.165" enabled="true" profiling="false" unit="Stillness Feature" />
+      <UnitNode id="node_180" x="1852.678333333333" y="481.6849999999999" enabled="true" profiling="false" unit="Gate Feature" />
+      <CodeGenEntryNode id="node_187" x="272.521666666667" y="501.3550000000001" enabled="true" profiling="false" name="Data Input">
+        <Argument name="datain" type="Float32" shape="[3]" frequency="NaN" scale="1" offset="0" shift="0" description="Input features" />
+      </CodeGenEntryNode>
+      <CodeGenExitNode id="node_188" x="2153.6449999999995" y="501.35499999999996" enabled="true" profiling="false" name="Model Output">
+        <Argument name="dataout" description="Output features" />
+      </CodeGenExitNode>
+      <DotNetNode id="node_192" x="898.1116666666665" y="478.395" enabled="true" profiling="false" name="conv1d-medium-accuracy-0 preprocessor">
+        <Interop assembly="Imaginet.Units.KerasModel" class="Imaginet.Units.KerasModel.KerasModel" method="LoadPreprocessor" />
+        <Input param="input" type="Tensor" />
+        <Input param="File" type="FileReference">
+          <StringArgument>../../Model/conv1d-medium-accuracy-0.h5</StringArgument>
+        </Input>
+        <Output param="output" type="Tensor" />
+      </DotNetNode>
+      <UnitNode id="node_194" x="1375.3949999999998" y="467.91499999999996" enabled="true" profiling="false" name="conv1d-medium-accuracy-0" unit="Imaginet.Units.TensorFlowLite.TfLiteModel">
+        <StringArgument param="file_path">../../Model/conv1d-medium-accuracy-0.tflite</StringArgument>
+        <Int32Argument param="model_arena_size">16384</Int32Argument>
+      </UnitNode>
+    </Nodes>
+    <Connections>
+      <Connection>
+        <Source node="node_41" param="output" />
+        <Target node="node_177" param="input" />
+      </Connection>
+      <Connection>
+        <Source node="node_177" param="output" />
+        <Target node="node_33" param="input" />
+      </Connection>
+      <Connection>
+        <Source node="node_187" param="value" />
+        <Target node="node_41" param="input" />
+      </Connection>
+      <Connection>
+        <Source node="node_180" param="output" />
+        <Target node="node_188" param="value" />
+      </Connection>
+      <Connection>
+        <Source node="node_33" param="output" />
+        <Target node="node_180" param="input" />
+      </Connection>
+      <Connection>
+        <Source node="node_41" param="output" />
+        <Target node="node_192" param="input" />
+      </Connection>
+      <Connection>
+        <Source node="node_192" param="output" />
+        <Target node="node_194" param="input" />
+      </Connection>
+      <Connection>
+        <Source node="node_194" param="output" />
+        <Target node="node_180" param="confidence" />
+      </Connection>
+    </Connections>
+  </Compound>
+</Imaginet>
