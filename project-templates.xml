@@ -5,15 +5,15 @@
     <Commit>c88423ee11307f0a26aef50da308fa4b1fcb27fc</Commit>
   </Improjtool>
   <ProjectTemplates>
-    <Template training="true">
+    <Template>
       <DisplayName>Human Activity Detection</DisplayName>
       <Description>Detect whether a person is performing different activities e.g. walking</Description>
       <DisplayPath>/Studio Accelerators/Classification/IMU &amp; Vibration</DisplayPath>
       <LicenseTags/>
       <Dialog>
         <DefaultProjectName>HumanActivity</DefaultProjectName>
-        <Package url="https://api.imagimob.com/v1/Data/Object/HumanActivity-426a012-5.15.5893.65534.zip" size="1320177524"/>
-        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/HumanActivity-426a012-5.15.5893.65534.no-data.zip" size="1858344"/>
+        <Package url="https://api.imagimob.com/v1/Data/Object/HumanActivity-c76c77e-5.15.5898.65534.zip" size="1320129040"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/HumanActivity-c76c77e-5.15.5898.65534.no-data.zip" size="1809878"/>
       </Dialog>
     </Template>
     <Template>
@@ -486,15 +486,15 @@
         <PackageNoData url="https://api.imagimob.com/v1/Data/Object/BreathDetection-c76c77e-5.15.5898.65534.no-data.zip" size="8363475"/>
       </Dialog>
     </Template>
-    <Template training="true">
+    <Template>
       <DisplayName>Cat and Dog Detection</DisplayName>
       <Description>Detect cats and dogs in an image.</Description>
       <DisplayPath>/Studio Accelerators/Object Detection/Camera</DisplayPath>
       <LicenseTags/>
       <Dialog>
         <DefaultProjectName>CatDogDetection</DefaultProjectName>
-        <Package url="https://api.imagimob.com/v1/Data/Object/CatDogDetection-426a012-5.15.5893.65534.zip" size="94287989"/>
-        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/CatDogDetection-426a012-5.15.5893.65534.no-data.zip" size="12241034"/>
+        <Package url="https://api.imagimob.com/v1/Data/Object/CatDogDetection-c76c77e-5.15.5898.65534.zip" size="94287082"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/CatDogDetection-c76c77e-5.15.5898.65534.no-data.zip" size="12240127"/>
       </Dialog>
     </Template>
     <Template training="true">
