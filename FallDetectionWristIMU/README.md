@@ -34,3 +34,12 @@ To take this project to production you should do the following:
 - Add negative data of people going about their everyday lives (walking, running, sitting, sports, etc.) to increase model robustness and teach the model what is not a fall.
 - Make sure the Test set contains data not used in Train and Validation, so you can verify the model generalizes to different wearers and scenarios.
 - Validate sensor orientation against the coordinate system used during data collection; incorrect axis orientation can reduce model performance.
+ist.csv
+
+## Getting Started
+
+Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about Imagimob Studio and go through step-by-step tutorials to get you quickly started.
+
+## Help & Support
+
+If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum ](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) Imagimob Stu
