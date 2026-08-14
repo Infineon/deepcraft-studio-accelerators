@@ -5,15 +5,15 @@
     <Commit>94c36686766cadbdaa3fc01c82f953511fbc23a2</Commit>
   </Improjtool>
   <ProjectTemplates>
-    <Template training="true">
+    <Template>
       <DisplayName>Human Activity Detection</DisplayName>
       <Description>Detect whether a person is performing different activities e.g. walking</Description>
       <DisplayPath>/Studio Accelerators/Classification/IMU &amp; Vibration</DisplayPath>
       <LicenseTags/>
       <Dialog>
         <DefaultProjectName>HumanActivity</DefaultProjectName>
-        <Package url="https://api.imagimob.com/v1/Data/Object/HumanActivity-c76c77e-5.15.5898.65534.zip" size="1320129040"/>
-        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/HumanActivity-c76c77e-5.15.5898.65534.no-data.zip" size="1809878"/>
+        <Package url="https://api.imagimob.com/v1/Data/Object/HumanActivity-255f07e-5.15.5952.65534.zip" size="1320009593"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/HumanActivity-255f07e-5.15.5952.65534.no-data.zip" size="1690456"/>
       </Dialog>
     </Template>
     <Template>
@@ -228,15 +228,15 @@
         <Package url="https://api.imagimob.com/v1/Data/Object/ModelEvaluationObjectDetection-255f07e-5.15.5952.65534.zip" size="1891856"/>
       </Dialog>
     </Template>
-    <Template training="true">
+    <Template>
       <DisplayName>Termite Detection</DisplayName>
       <Description>Detect termites in an image</Description>
       <DisplayPath>/Studio Accelerators/Object Detection/Camera</DisplayPath>
       <LicenseTags/>
       <Dialog>
         <DefaultProjectName>TermiteDetection</DefaultProjectName>
-        <Package url="https://api.imagimob.com/v1/Data/Object/TermiteDetection-c76c77e-5.15.5898.65534.zip" size="142793780"/>
-        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/TermiteDetection-c76c77e-5.15.5898.65534.no-data.zip" size="11154258"/>
+        <Package url="https://api.imagimob.com/v1/Data/Object/TermiteDetection-255f07e-5.15.5952.65534.zip" size="142793645"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/TermiteDetection-255f07e-5.15.5952.65534.no-data.zip" size="11154123"/>
       </Dialog>
     </Template>
     <Template training="true">
@@ -327,15 +327,15 @@
         <PackageNoData url="https://api.imagimob.com/v1/Data/Object/RoadUsersDetection-c76c77e-5.15.5898.65534.no-data.zip" size="14976017"/>
       </Dialog>
     </Template>
-    <Template training="true">
+    <Template>
       <DisplayName>Ground Obstacle Detection (TOF)</DisplayName>
       <Description>Recognize if there are objects on the ground like toys, hedgehogs, balls, humans, and other obstacles in a gray scale TOF image.</Description>
       <DisplayPath>/Studio Accelerators/Object Detection/TOF Camera</DisplayPath>
       <LicenseTags/>
       <Dialog>
         <DefaultProjectName>GroundObstacleDetectionTOF</DefaultProjectName>
-        <Package url="https://api.imagimob.com/v1/Data/Object/GroundObstacleDetectionTOF-c76c77e-5.15.5898.65534.zip" size="154825860"/>
-        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/GroundObstacleDetectionTOF-c76c77e-5.15.5898.65534.no-data.zip" size="68068182"/>
+        <Package url="https://api.imagimob.com/v1/Data/Object/GroundObstacleDetectionTOF-255f07e-5.15.5952.65534.zip" size="154825224"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/GroundObstacleDetectionTOF-255f07e-5.15.5952.65534.no-data.zip" size="68067546"/>
       </Dialog>
     </Template>
     <Template training="true">
