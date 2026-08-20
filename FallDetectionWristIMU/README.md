@@ -27,6 +27,16 @@ An advanced preprocessing layer called **Master Feature** is available as an alt
 3. Click **+** (Add New Layer) to add custom layer, Master Feature.
 4. Click **-** (Delete Layer) to delete the Low Pass Filter layer.
 
+## CodeGenGraphUX
+
+The included Graph UX project contains a disabled placeholder model. To use your trained model, replace it by following these steps:
+
+1. Open `CodeGenGraphUX/Main.imunit` in **DEEPCRAFT™ Studio**.
+2. Drag your trained model (`.h5` file from `Models/`) into the Graph UX project.
+3. Delete the existing disabled model node.
+4. Connect the **Sample Rate** node output to the input of the new model's preprocessor.
+5. Connect the new model's output to the **Gate** node.
+
 ## Adding More Data
 
 To collect more data you can utilize the PSOC™ 6 AI Evaluation Kit and the [streaming protocol](https://developer.imagimob.com/data-preparation/data-collection/collect-data-using-graph-ux) to stream data directly into DEEPCRAFT™ Studio and add it to this project.
@@ -41,7 +51,6 @@ To take this project to production you should do the following:
 - Add negative data of people going about their everyday lives (walking, running, sitting, sports, etc.) to increase model robustness and teach the model what is not a fall.
 - Make sure the Test set contains data not used in Train and Validation, so you can verify the model generalizes to different wearers and scenarios.
 - Validate sensor orientation against the coordinate system used during data collection; incorrect axis orientation can reduce model performance.
-ist.csv
 
 ## Getting Started
 
@@ -49,4 +58,4 @@ Please visit [developer.imagimob.com](https://developer.imagimob.com), where you
 
 ## Help & Support
 
-If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum ](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) Imagimob Stu
+If you need support or want to know how to deploy the model onto your device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob).
