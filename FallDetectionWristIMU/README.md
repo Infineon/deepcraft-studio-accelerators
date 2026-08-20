@@ -20,6 +20,13 @@ The accelerometer needs to be set up to collect data at 50 Hz, using a +/- 8g sc
 
 The provided data consists of wrist-worn accelerometer recordings of simulated falls and everyday non-fall activities collected by Imagimob AB and project partners. Dataset identities and session identifiers have been anonymized. Data is licensed under the [DEEPCRAFT™ Studio Terms and Conditions](https://developer.imagimob.com/legal/studio-terms-and-conditions).
 
+An advanced preprocessing layer called **Master Feature** is available as an alternative to the default low pass filter. Using Master Feature can improve model performance. To switch to Master Feature:
+
+1. Double-click the project file (`.improj`). The project file opens in a new tab.
+2. Click **Preprocessor** tab on the left pane.
+3. Click **+** (Add New Layer) to add custom layer, Master Feature.
+4. Click **-** (Delete Layer) to delete the Low Pass Filter layer.
+
 ## Adding More Data
 
 To collect more data you can utilize the PSOC™ 6 AI Evaluation Kit and the [streaming protocol](https://developer.imagimob.com/data-preparation/data-collection/collect-data-using-graph-ux) to stream data directly into DEEPCRAFT™ Studio and add it to this project.
