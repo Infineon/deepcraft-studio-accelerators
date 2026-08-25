@@ -1,0 +1,649 @@
+<?xml version='1.0' encoding='ASCII'?>
+<ImagimobStudio>
+  <Improjtool>
+    <Version>5.15.5983.65534</Version>
+    <Commit>1aa7cca516d98e0ad1e49f7eaf404eebab7e6e41</Commit>
+  </Improjtool>
+  <ProjectTemplates>
+    <Template>
+      <DisplayName>Human Activity Detection</DisplayName>
+      <Description>Detect whether a person is performing different activities e.g. walking</Description>
+      <DisplayPath>/Studio Accelerators/Classification/IMU &amp; Vibration</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>HumanActivity</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/HumanActivity-d2c8b1b-5.15.5983.65534.zip" size="1320062814"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/HumanActivity-d2c8b1b-5.15.5983.65534.no-data.zip" size="1743675"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <DisplayName>Empty Classification Project</DisplayName>
+      <Description>Create a new classification project.</Description>
+      <DisplayPath>/Templates/Classification</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>EmptyClassificationProject</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/EmptyClassificationProject-d2c8b1b-5.15.5983.65534.zip" size="1115"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <DisplayName>Siren Detection (Studio Accelerator)</DisplayName>
+      <Description>Use a microphone to detect if you have an emergency vehicle siren in the vicinity</Description>
+      <DisplayPath>/Studio Accelerators/Classification/Microphone</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>SirenDetection</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/SirenDetection-d2c8b1b-5.15.5983.65534.zip" size="472851018"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/SirenDetection-d2c8b1b-5.15.5983.65534.no-data.zip" size="89176553"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <DisplayName>Fall Detection (Belt-mounted)</DisplayName>
+      <Description>Detect if the user has fallen. It's intended to be placed on a belt or waist.</Description>
+      <DisplayPath>/Studio Accelerators/Classification/IMU &amp; Vibration</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>FallDetection</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/FallDetection-d2c8b1b-5.15.5983.65534.zip" size="885324202"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/FallDetection-d2c8b1b-5.15.5983.65534.no-data.zip" size="15321690"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <DisplayName>Empty Regression Project</DisplayName>
+      <Description>Create a new regression project.</Description>
+      <DisplayPath>/Templates/Regression</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>EmptyRegressionProject</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/EmptyRegressionProject-d2c8b1b-5.15.5983.65534.zip" size="1105"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <DisplayName>Power Generation Prediction</DisplayName>
+      <Description>Predict generated power with wind turbine.</Description>
+      <DisplayPath>/Templates/Regression</DisplayPath>
+      <LicenseTags/>
+      <Dialog view="/Modules/ProjectTemplatesModule/GenericProject/GenericProjectDialog">
+        <DefaultProjectName>PowerGenerationPrediction</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/PowerGenerationPrediction-09ad883-v5.9.4284.65534.zip" size="7555668"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/PowerGenerationPrediction-09ad883-v5.9.4284.65534.no-data.zip" size="314230"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <DisplayName>Empty Object Detection Project</DisplayName>
+      <Description>Create a new object detection project.</Description>
+      <DisplayPath>/Templates/Object Detection</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>EmptyObjectDetectionProject</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/EmptyObjectDetectionProject-d2c8b1b-5.15.5983.65534.zip" size="1928"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <DisplayName>Empty Project</DisplayName>
+      <Description>Empty Graph UX project. Get started on an empty canvas.</Description>
+      <DisplayPath>/Templates/Graph UX/Generic</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>EmptyProject</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/EmptyProject-d2c8b1b-5.15.5983.65534.zip" size="1153"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <DisplayName>Live Model Evaluation</DisplayName>
+      <Description>This example shows you how to perform real time model evaluation of audio/acoustic models.</Description>
+      <DisplayPath>/Templates/Graph UX/Evaluation</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>ModelEvaluation</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/ModelEvaluation-d2c8b1b-5.15.5983.65534.zip" size="119781"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <DisplayName>Model Evaluation From File</DisplayName>
+      <Description>Evaluate models from previously collected data.</Description>
+      <DisplayPath>/Templates/Graph UX/Evaluation</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>ModelEvaluationFromFile</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/ModelEvaluationFromFile-d2c8b1b-5.15.5983.65534.zip" size="1757917"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <DisplayName>Live Data Collection</DisplayName>
+      <Description>Real time data collection using the built-in PC microphone or an external edge device.</Description>
+      <DisplayPath>/Templates/Graph UX/Data Collection</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>LiveDataCollection</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/LiveDataCollection-d2c8b1b-5.15.5983.65534.zip" size="2169"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <DisplayName>Touch Detection</DisplayName>
+      <Description>Capsense based touch detection</Description>
+      <DisplayPath>/Studio Accelerators/Classification/Capacitive &amp; Inductive Sensing</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>TouchDetection</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/TouchDetection-d2c8b1b-5.15.5983.65534.zip" size="3568366"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/TouchDetection-d2c8b1b-5.15.5983.65534.no-data.zip" size="1492633"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <DisplayName>Baby Cry Detection (Studio Accelerator)</DisplayName>
+      <Description>Use a microphone to detect if a baby is crying in the vicinity</Description>
+      <DisplayPath>/Studio Accelerators/Classification/Microphone</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>BabyCryDetection</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/BabyCryDetection-d2c8b1b-5.15.5983.65534.zip" size="308180649"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/BabyCryDetection-d2c8b1b-5.15.5983.65534.no-data.zip" size="82348471"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <DisplayName>Anomalous Vibration Detection</DisplayName>
+      <Description>Classification-based anomalous vibration detection project.</Description>
+      <DisplayPath>/Studio Accelerators/Classification/IMU &amp; Vibration</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>AnomalousVibrationDetection</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/AnomalousVibrationDetection-d2c8b1b-5.15.5983.65534.zip" size="5965989"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/AnomalousVibrationDetection-d2c8b1b-5.15.5983.65534.no-data.zip" size="4211829"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <DisplayName>Drill Material Detection Audio</DisplayName>
+      <Description>Use a microphone to detect the material being drilled into using audio signature.</Description>
+      <DisplayPath>/Studio Accelerators/Classification/Microphone</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>DrillMaterialDetectionMicrophone</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/DrillMaterialDetectionMicrophone-d2c8b1b-5.15.5983.65534.zip" size="110731391"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/DrillMaterialDetectionMicrophone-d2c8b1b-5.15.5983.65534.no-data.zip" size="43160563"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <DisplayName>Gunshot Detection</DisplayName>
+      <Description>Use a microphone to identify gunshots.</Description>
+      <DisplayPath>/Studio Accelerators/Classification/Microphone</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>GunshotDetection</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/GunshotDetection-d2c8b1b-5.15.5983.65534.zip" size="306075448"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/GunshotDetection-d2c8b1b-5.15.5983.65534.no-data.zip" size="70876061"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <DisplayName>Drill Material Detection IMU</DisplayName>
+      <Description>Classify what material a power drill is drilling into using IMU.</Description>
+      <DisplayPath>/Studio Accelerators/Classification/IMU &amp; Vibration</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>DrillMaterialDetectionIMU</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/DrillMaterialDetectionIMU-d2c8b1b-5.15.5983.65534.zip" size="68539849"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/DrillMaterialDetectionIMU-d2c8b1b-5.15.5983.65534.no-data.zip" size="973032"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <DisplayName>Keyword Detection</DisplayName>
+      <Description>Everything to get started with keyword detection</Description>
+      <DisplayPath>/Studio Accelerators/Classification/Microphone</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>KeywordDetector</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/KeywordDetector-d2c8b1b-5.15.5983.65534.zip" size="4173141365"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/KeywordDetector-d2c8b1b-5.15.5983.65534.no-data.zip" size="1776491035"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <DisplayName>Chainsaw Detection</DisplayName>
+      <Description>Use a microphone to identify if a chainsaw is actively cutting nearby.</Description>
+      <DisplayPath>/Studio Accelerators/Classification/Microphone</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>ChainsawDetection</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/ChainsawDetection-d2c8b1b-5.15.5983.65534.zip" size="2245506616"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/ChainsawDetection-d2c8b1b-5.15.5983.65534.no-data.zip" size="1206972269"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <DisplayName>Home Sounds Detection</DisplayName>
+      <Description>Use a microphone to detect sound signatures common to a home: baby cry, cough, water tap.</Description>
+      <DisplayPath>/Studio Accelerators/Classification/Microphone</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>HomeSoundsDetection</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/HomeSoundsDetection-d2c8b1b-5.15.5983.65534.zip" size="844001485"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/HomeSoundsDetection-d2c8b1b-5.15.5983.65534.no-data.zip" size="338003995"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <DisplayName>Model Evaluation for Object Detection</DisplayName>
+      <Description>Evaluate object detection model from previously collected data.</Description>
+      <DisplayPath>/Templates/Graph UX/Evaluation</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>ModelEvaluationObjectDetection</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/ModelEvaluationObjectDetection-d2c8b1b-5.15.5983.65534.zip" size="1891856"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <DisplayName>Termite Detection</DisplayName>
+      <Description>Detect termites in an image</Description>
+      <DisplayPath>/Studio Accelerators/Object Detection/Camera</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>TermiteDetection</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/TermiteDetection-d2c8b1b-5.15.5983.65534.zip" size="142790819"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/TermiteDetection-d2c8b1b-5.15.5983.65534.no-data.zip" size="11151297"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <DisplayName>Rock Paper Scissors Detection</DisplayName>
+      <Description>Recognize hand gestures (Rock, Paper or Scissors) in an image</Description>
+      <DisplayPath>/Studio Accelerators/Object Detection/Camera</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>RockPaperScissorsDetection</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/RockPaperScissorsDetection-d2c8b1b-5.15.5983.65534.zip" size="193335062"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/RockPaperScissorsDetection-d2c8b1b-5.15.5983.65534.no-data.zip" size="10706614"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <DisplayName>Movement Type Detection</DisplayName>
+      <Description>Classify the movement pattern of an IMU Sensor: Stationary, Shaking or Circle.</Description>
+      <DisplayPath>/Studio Accelerators/Classification/IMU &amp; Vibration</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>MovementTypeDetection</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/MovementTypeDetection-d2c8b1b-5.15.5983.65534.zip" size="7934610"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/MovementTypeDetection-d2c8b1b-5.15.5983.65534.no-data.zip" size="1659682"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <DisplayName>Vacuum Cleaner Surface Detection (MIC)</DisplayName>
+      <Description>Microphone-based surface detection for vacuum cleaners (Floor/Carpet/Air)</Description>
+      <DisplayPath>/Studio Accelerators/Classification/Microphone</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>SurfaceDetectionMicrophone</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/SurfaceDetectionMicrophone-d2c8b1b-5.15.5983.65534.zip" size="1001381160"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/SurfaceDetectionMicrophone-d2c8b1b-5.15.5983.65534.no-data.zip" size="103232699"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <DisplayName>Water Detection</DisplayName>
+      <Description>Use capacitive sensing data to build a model to detect water presence and finger touches</Description>
+      <DisplayPath>/Studio Accelerators/Classification/Capacitive &amp; Inductive Sensing</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>WaterDetection</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/WaterDetection-d2c8b1b-5.15.5983.65534.zip" size="2636757"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/WaterDetection-d2c8b1b-5.15.5983.65534.no-data.zip" size="1308527"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <DisplayName>Motor Load Imbalance Detection</DisplayName>
+      <Description>Detect if the load of an electric motor is balanced or not</Description>
+      <DisplayPath>/Studio Accelerators/Classification/Electrical Signals</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>MotorImbalanceDetection</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/MotorImbalanceDetection-d2c8b1b-5.15.5983.65534.zip" size="120644620"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/MotorImbalanceDetection-d2c8b1b-5.15.5983.65534.no-data.zip" size="56526540"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <DisplayName>Gestures Detection (CAPSENSE)</DisplayName>
+      <Description>CAPSENSE-based gestures detection model detects up, down, left and right gestures</Description>
+      <DisplayPath>/Studio Accelerators/Classification/Capacitive &amp; Inductive Sensing</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>GesturesDetectionCapsense</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/GesturesDetectionCapsense-d2c8b1b-5.15.5983.65534.zip" size="196167217"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/GesturesDetectionCapsense-d2c8b1b-5.15.5983.65534.no-data.zip" size="1586020"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <DisplayName>Presence Detection Vision</DisplayName>
+      <Description>Recognize if there are people in an image</Description>
+      <DisplayPath>/Studio Accelerators/Object Detection/Camera</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>PresenceDetectionVision</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/PresenceDetectionVision-d2c8b1b-5.15.5983.65534.zip" size="70605131"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/PresenceDetectionVision-d2c8b1b-5.15.5983.65534.no-data.zip" size="8911346"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <DisplayName>Road Users Detection</DisplayName>
+      <Description>Recognize if there are people, trains, cars, busses, bicycles, motorbikes in an image</Description>
+      <DisplayPath>/Studio Accelerators/Object Detection/Camera</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>RoadUsersDetection</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/RoadUsersDetection-d2c8b1b-5.15.5983.65534.zip" size="618211768"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/RoadUsersDetection-d2c8b1b-5.15.5983.65534.no-data.zip" size="14992012"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <DisplayName>Ground Obstacle Detection (TOF)</DisplayName>
+      <Description>Recognize if there are objects on the ground like toys, hedgehogs, balls, humans, and other obstacles in a gray scale TOF image.</Description>
+      <DisplayPath>/Studio Accelerators/Object Detection/TOF Camera</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>GroundObstacleDetectionTOF</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/GroundObstacleDetectionTOF-d2c8b1b-5.15.5983.65534.zip" size="154983325"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/GroundObstacleDetectionTOF-d2c8b1b-5.15.5983.65534.no-data.zip" size="68225647"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <DisplayName>Battery State of Charge Estimation</DisplayName>
+      <Description>In this project, we build a regression model to estimate Li-Ion battery state</Description>
+      <DisplayPath>/Studio Accelerators/Regression/Electrical Signals</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>BatteryStateOfChargeEstimation</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/BatteryStateOfChargeEstimation-d2c8b1b-5.15.5983.65534.zip" size="46800031"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/BatteryStateOfChargeEstimation-d2c8b1b-5.15.5983.65534.no-data.zip" size="9780252"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <DisplayName>Battery State of Health Estimation</DisplayName>
+      <Description>In this project, we build a regression model to estimate the remaining battery capacity as a key indicator of its state of health</Description>
+      <DisplayPath>/Studio Accelerators/Regression/Electrical Signals</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>BatteryStateOfHealthEstimation</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/BatteryStateOfHealthEstimation-d2c8b1b-5.15.5983.65534.zip" size="83762664"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/BatteryStateOfHealthEstimation-d2c8b1b-5.15.5983.65534.no-data.zip" size="1138473"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <DisplayName>Glass Break Detection</DisplayName>
+      <Description>This project uses a microphone to detect glass breaking sounds.</Description>
+      <DisplayPath>/Studio Accelerators/Classification/Microphone</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>GlassBreakDetection</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/GlassBreakDetection-d2c8b1b-5.15.5983.65534.zip" size="506901313"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/GlassBreakDetection-d2c8b1b-5.15.5983.65534.no-data.zip" size="187383344"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <DisplayName>Data Collection Object Detection</DisplayName>
+      <Description>Real time data collection using a camera.</Description>
+      <DisplayPath>/Templates/Graph UX/Data Collection</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>DataCollectionObjectDetection</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/DataCollectionObjectDetection-d2c8b1b-5.15.5983.65534.zip" size="1800"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <DisplayName>Yolo11n 80 Classes Model Evaluation</DisplayName>
+      <Description>Evaluate the original Yolo11n model with 80 object classes via camera.</Description>
+      <DisplayPath>/Studio Accelerators/Object Detection/Camera</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>Yolo11n80ClassesModelEvaluation</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/Yolo11n80ClassesModelEvaluation-d2c8b1b-5.15.5983.65534.zip" size="7345190"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <DisplayName>Yolo26n 80 Classes Model Evaluation</DisplayName>
+      <Description>Evaluate the original Yolo26n model with 80 object classes via camera.</Description>
+      <DisplayPath>/Studio Accelerators/Object Detection/Camera</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>Yolo26n80ClassesModelEvaluation</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/Yolo26n80ClassesModelEvaluation-d2c8b1b-5.15.5983.65534.zip" size="7128488"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <DisplayName>Yolov5n 80 Classes Model Evaluation</DisplayName>
+      <Description>Evaluate the original Yolov5n model with 80 object classes via camera.</Description>
+      <DisplayPath>/Studio Accelerators/Object Detection/Camera</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>Yolov5n80ClassesModelEvaluation</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/Yolov5n80ClassesModelEvaluation-d2c8b1b-5.15.5983.65534.zip" size="7341360"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <DisplayName>Yolo5n Legacy 80Classes Model Evaluation</DisplayName>
+      <Description>Evaluate the original Yolov5n Legacy model with 80 object classes via camera.</Description>
+      <DisplayPath>/Studio Accelerators/Object Detection/Camera</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>Yolov5nLegacy80ClassesModelEvaluation</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/Yolov5nLegacy80ClassesModelEvaluation-d2c8b1b-5.15.5983.65534.zip" size="5232013"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <DisplayName>Yolov8n 80 Classes Model Evaluation</DisplayName>
+      <Description>Evaluate the original Yolov8n model with 80 object classes via camera.</Description>
+      <DisplayPath>/Studio Accelerators/Object Detection/Camera</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>Yolov8n80ClassesModelEvaluation</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/Yolov8n80ClassesModelEvaluation-d2c8b1b-5.15.5983.65534.zip" size="8665220"/>
+      </Dialog>
+    </Template>
+    <Template training="true">
+      <DisplayName>Virtual Winding Temperature Sensing</DisplayName>
+      <Description>Estimate the temperature of an electric motor windings using a regression model</Description>
+      <DisplayPath>/Studio Accelerators/Regression/Electrical Signals</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>VirtualWindingTemperatureSensing</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/VirtualWindingTemperatureSensing-d2c8b1b-5.15.5983.65534.zip" size="62119567"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/VirtualWindingTemperatureSensing-d2c8b1b-5.15.5983.65534.no-data.zip" size="12555002"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <DisplayName>DrillMaterialDetectionFusion</DisplayName>
+      <Description>A project that uses microphone and IMU sensor fusion to detect the material drilled</Description>
+      <DisplayPath>/Studio Accelerators/Classification/Sensor Fusion</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>DrillMaterialDetectionFusion</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/DrillMaterialDetectionFusion-d2c8b1b-5.15.5983.65534.zip" size="477641185"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/DrillMaterialDetectionFusion-d2c8b1b-5.15.5983.65534.no-data.zip" size="13829816"/>
+      </Dialog>
+    </Template>
+    <!-- <Template> -->
+    <!-- <DisplayName>Vegetables Fruits Detection</DisplayName> -->
+    <!-- <Description>Detect 17 types of fruits and vegetables in camera images</Description> -->
+    <!-- <DisplayPath>/Studio Accelerators/Object Detection/Camera</DisplayPath> -->
+    <!-- <LicenseTags/> -->
+    <!-- <Dialog> -->
+    <!-- <DefaultProjectName>VegetablesFruitsDetection</DefaultProjectName> -->
+    <!-- <Package url="https://api.imagimob.com/v1/Data/Object/VegetablesFruitsDetection-d2c8b1b-5.15.5983.65534.zip" size="520565512"/> -->
+    <!-- <PackageNoData url="https://api.imagimob.com/v1/Data/Object/VegetablesFruitsDetection-d2c8b1b-5.15.5983.65534.no-data.zip" size="13608677"/> -->
+    <!-- </Dialog> -->
+    <!-- </Template> -->
+    <Template>
+      <DisplayName>Golf Balls Detection</DisplayName>
+      <Description>Detects golf balls in the image frame.</Description>
+      <DisplayPath>/Studio Accelerators/Object Detection/Camera</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>GolfBallDetection</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/GolfBallDetection-d2c8b1b-5.15.5983.65534.zip" size="79408199"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/GolfBallDetection-d2c8b1b-5.15.5983.65534.no-data.zip" size="9591577"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <DisplayName>Human Breath Detection (DPS)</DisplayName>
+      <Description>Classification-based project, which should recognize breathing vs gentle blowing.</Description>
+      <DisplayPath>/Studio Accelerators/Classification/DPS</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>BreathDetection</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/BreathDetection-d2c8b1b-5.15.5983.65534.zip" size="14892904"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/BreathDetection-d2c8b1b-5.15.5983.65534.no-data.zip" size="8333065"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <DisplayName>Cat and Dog Detection</DisplayName>
+      <Description>Detect cats and dogs in an image.</Description>
+      <DisplayPath>/Studio Accelerators/Object Detection/Camera</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>CatDogDetection</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/CatDogDetection-d2c8b1b-5.15.5983.65534.zip" size="94287955"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/CatDogDetection-d2c8b1b-5.15.5983.65534.no-data.zip" size="12241000"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <DisplayName>Emergency Vehicle Detection</DisplayName>
+      <Description>Detect ambulances, fire trucks, and police cars in an image.</Description>
+      <DisplayPath>/Studio Accelerators/Object Detection/Camera</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>EmergencyVehicleDetection</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/EmergencyVehicleDetection-d2c8b1b-5.15.5983.65534.zip" size="300161189"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/EmergencyVehicleDetection-d2c8b1b-5.15.5983.65534.no-data.zip" size="13023660"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <DisplayName>Safety Vest and Helmet Detection</DisplayName>
+      <Description>Detect safety vests and hard hats in an image.</Description>
+      <DisplayPath>/Studio Accelerators/Object Detection/Camera</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>SafetyVestHelmetDetection</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/SafetyVestHelmetDetection-d2c8b1b-5.15.5983.65534.zip" size="452291320"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/SafetyVestHelmetDetection-d2c8b1b-5.15.5983.65534.no-data.zip" size="17791708"/>
+      </Dialog>
+    </Template>
+  </ProjectTemplates>
+  <CandidateTemplates>
+    <Template>
+      <RequiresAuthentication>true</RequiresAuthentication>
+      <DisplayName>DEEPCRAFT&#8482; Ready Model for Baby Cry Detection</DisplayName>
+      <Description>The DEEPCRAFT&#8482; Ready Model for Baby Cry Detection is a production-ready Edge AI model that detects the sound of nearby children crying.</Description>
+      <DisplayPath>/Ready Models</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>babycry-rm-v2.0.0</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/ReadyModels/Object/rm-babycry__rm-babycry-studio-project-release-v2.0-full.zip" size="4313289789"/>
+        <PackageNoData url="https://api.imagimob.com/v1/ReadyModels/Object/rm-babycry__rm-babycry-studio-project-release-v2.0-nodata.zip" size="311490626"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <RequiresAuthentication>true</RequiresAuthentication>
+      <DisplayName>DEEPCRAFT&#8482; Ready Model for Cough Detection</DisplayName>
+      <Description>The DEEPCRAFT&#8482; Ready Model for Cough Detection is a production-ready Edge AI model that detects the sound of coughing in the vicinity of a microphone.</Description>
+      <DisplayPath>/Ready Models</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>cough-rm-v2.0.0</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/ReadyModels/Object/rm-cough__rm-cough-studio-project-release-v2.0-full.zip" size="5349777609"/>
+        <PackageNoData url="https://api.imagimob.com/v1/ReadyModels/Object/rm-cough__rm-cough-studio-project-release-v2.0-nodata.zip" size="355613525"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <RequiresAuthentication>true</RequiresAuthentication>
+      <DisplayName>DEEPCRAFT&#8482; Ready Model for Gesture Classification</DisplayName>
+      <Description>The DEEPCRAFT&#8482; Ready Model for Gesture Classification is a production-ready Edge AI model that classifies 5 hand gestures.</Description>
+      <DisplayPath>/Ready Models</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>gesture-rm-v2.0.0</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/ReadyModels/Object/rm-gesture__rm-gesture-studio-project-release-v2.0-full.zip" size="168512153"/>
+        <PackageNoData url="https://api.imagimob.com/v1/ReadyModels/Object/rm-gesture__rm-gesture-studio-project-release-v2.0-nodata.zip" size="5352656"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <RequiresAuthentication>true</RequiresAuthentication>
+      <DisplayName>DEEPCRAFT&#8482; Ready Model for Siren Detection</DisplayName>
+      <Description>The DEEPCRAFT&#8482; Ready Model for Siren Detection is a production-ready model that detects the sound of nearby emergency vehicles.</Description>
+      <DisplayPath>/Ready Models</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>siren-rm-v2.0.0</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/ReadyModels/Object/rm-siren__rm-siren-studio-project-release-v2.0-full.zip" size="2577297920"/>
+        <PackageNoData url="https://api.imagimob.com/v1/ReadyModels/Object/rm-siren__rm-siren-studio-project-release-v2.0-nodata.zip" size="207737258"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <RequiresAuthentication>true</RequiresAuthentication>
+      <DisplayName>DEEPCRAFT&#8482; Ready Model for Snore Detection</DisplayName>
+      <Description>The DEEPCRAFT&#8482; Ready Model for Snore Detection is a production-ready Edge AI model that detects the sound of nearby snoring individuals.</Description>
+      <DisplayPath>/Ready Models</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>snore-rm-v2.0.0</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/ReadyModels/Object/rm-snore__rm-snore-studio-project-release-v2.0-full.zip" size="2242577967"/>
+        <PackageNoData url="https://api.imagimob.com/v1/ReadyModels/Object/rm-snore__rm-snore-studio-project-release-v2.0-nodata.zip" size="8030985"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <DisplayName>Empty Image Classification Project</DisplayName>
+      <Description>Create a new image classification project.</Description>
+      <DisplayPath>/Templates/Image Classification</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>EmptyImageClassificationProject</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/EmptyImageClassificationProject-f052ba8-5.12.5078.65534.zip" size="2086"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <DisplayName>Surface Image Classification</DisplayName>
+      <Description>Project to build a model that classifies surfaces from images.</Description>
+      <DisplayPath>/Studio Accelerators/Image Classification/Camera</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>SurfaceImageClassification</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/SurfaceImageClassification-ace35ef-5.14.5736.65534.zip" size="364798190"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/SurfaceImageClassification-ace35ef-5.14.5736.65534.no-data.zip" size="23769666"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <DisplayName>Data Collection Image Classification</DisplayName>
+      <Description>Real time data collection using a camera.</Description>
+      <DisplayPath>/Templates/Graph UX/Data Collection</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>DataCollectionImageClassification</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/DataCollectionImageClassification-d62a8d9-5.10.4678.65534.zip" size="1775"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <DisplayName>PCB Defects Detection</DisplayName>
+      <Description>Detect PCB manufacturing defects in an image.</Description>
+      <DisplayPath>/Studio Accelerators/Object Detection/Camera</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>PCBDefectsDetection</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/PCBDefectsDetection-6754b33-5.14.5736.65534.zip" size="250534877"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/PCBDefectsDetection-6754b33-5.14.5736.65534.no-data.zip" size="38415356"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <DisplayName>DrillMaterialDetectionFusion</DisplayName>
+      <Description>A project that uses microphone and IMU sensor fusion to detect the material drilled</Description>
+      <DisplayPath>/Studio Accelerators/Classification/Sensor Fusion</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>DrillMaterialDetectionFusion</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/DrillMaterialDetectionFusion-ac23369-5.15.5898.65534.zip" size="477314297"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/DrillMaterialDetectionFusion-ac23369-5.15.5898.65534.no-data.zip" size="13503031"/>
+      </Dialog>
+    </Template>
+    <Template>
+      <DisplayName>Fall Detection (Wrist-worn)</DisplayName>
+      <Description>Detect falls in less active individuals, such as elderly people, using a wrist-worn accelerometer.</Description>
+      <DisplayPath>/Studio Accelerators/Classification/IMU &amp; Vibration</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>FallDetectionWristIMU</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/FallDetectionWristIMU-fff83bb-5.15.5898.65534.zip" size="188691342"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/FallDetectionWristIMU-fff83bb-5.15.5898.65534.no-data.zip" size="78169581"/>
+      </Dialog>
+    </Template>
+  </CandidateTemplates>
+</ImagimobStudio>
