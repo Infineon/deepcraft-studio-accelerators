@@ -7,82 +7,82 @@
 
 | Metric | Value |
 | --- | --- |
-| Accuracy | 0.8938 |
-| F1 Score | 0.8918 |
-| mAP@0.5 | 0.8749 |
-| mAP@0.5:0.95 | 0.6574 |
+| Accuracy | 0.8948 |
+| F1 Score | 0.8928 |
+| mAP@0.5 | 0.8783 |
+| mAP@0.5:0.95 | 0.6618 |
 
 ### Per-class mAP
 
 | Class | mAP@0.5 | mAP@0.5:0.95 |
 | --- | --- | --- |
-| safety_vest | 0.8681 | 0.6608 |
-| no_safety_vest | 0.8855 | 0.7106 |
-| helmet | 0.8770 | 0.6019 |
-| no_helmet | 0.8688 | 0.6564 |
+| safety_vest | 0.8759 | 0.6678 |
+| no_safety_vest | 0.8848 | 0.7100 |
+| helmet | 0.8742 | 0.6047 |
+| no_helmet | 0.8784 | 0.6649 |
 
 ### Confusion Matrix
 
 | True \ Pred | (none) | safety_vest | no_safety_vest | helmet | no_helmet |
 | --- | --- | --- | --- | --- | --- |
-| (none) | 0 | 513 | 597 | 607 | 306 |
-| safety_vest | 405 | 3141 | 6 | 2 | 0 |
-| no_safety_vest | 517 | 3 | 4433 | 4 | 0 |
-| helmet | 454 | 2 | 11 | 4010 | 3 |
-| no_helmet | 300 | 0 | 7 | 18 | 2373 |
+| (none) | 0 | 523 | 646 | 521 | 282 |
+| safety_vest | 400 | 3147 | 5 | 2 | 0 |
+| no_safety_vest | 490 | 2 | 4462 | 2 | 1 |
+| helmet | 460 | 1 | 2 | 4011 | 6 |
+| no_helmet | 298 | 0 | 2 | 11 | 2387 |
 
 ## Validation
 
 | Metric | Value |
 | --- | --- |
-| Accuracy | 0.8356 |
-| F1 Score | 0.8325 |
-| mAP@0.5 | 0.7930 |
-| mAP@0.5:0.95 | 0.5140 |
+| Accuracy | 0.8323 |
+| F1 Score | 0.8294 |
+| mAP@0.5 | 0.7879 |
+| mAP@0.5:0.95 | 0.5124 |
 
 ### Per-class mAP
 
 | Class | mAP@0.5 | mAP@0.5:0.95 |
 | --- | --- | --- |
-| safety_vest | 0.7893 | 0.5199 |
-| no_safety_vest | 0.7653 | 0.5220 |
-| helmet | 0.8178 | 0.4893 |
-| no_helmet | 0.7998 | 0.5248 |
+| safety_vest | 0.7896 | 0.5300 |
+| no_safety_vest | 0.7582 | 0.5210 |
+| helmet | 0.8137 | 0.4785 |
+| no_helmet | 0.7901 | 0.5200 |
 
 ### Confusion Matrix
 
 | True \ Pred | (none) | safety_vest | no_safety_vest | helmet | no_helmet |
 | --- | --- | --- | --- | --- | --- |
-| (none) | 0 | 241 | 273 | 235 | 97 |
-| safety_vest | 192 | 980 | 30 | 2 | 0 |
-| no_safety_vest | 319 | 19 | 1331 | 2 | 0 |
-| helmet | 219 | 1 | 3 | 1355 | 7 |
-| no_helmet | 141 | 0 | 1 | 8 | 718 |
+| (none) | 0 | 249 | 280 | 228 | 101 |
+| safety_vest | 184 | 987 | 30 | 3 | 0 |
+| no_safety_vest | 321 | 21 | 1326 | 2 | 1 |
+| helmet | 222 | 4 | 6 | 1340 | 13 |
+| no_helmet | 156 | 0 | 1 | 13 | 698 |
 
 ## Test
 
 | Metric | Value |
 | --- | --- |
-| Accuracy | 0.8407 |
-| F1 Score | 0.8365 |
-| mAP@0.5 | 0.7986 |
-| mAP@0.5:0.95 | 0.5187 |
+| Accuracy | 0.8355 |
+| F1 Score | 0.8326 |
+| mAP@0.5 | 0.7959 |
+| mAP@0.5:0.95 | 0.5178 |
 
 ### Per-class mAP
 
 | Class | mAP@0.5 | mAP@0.5:0.95 |
 | --- | --- | --- |
-| safety_vest | 0.7889 | 0.5140 |
-| no_safety_vest | 0.7719 | 0.5401 |
-| helmet | 0.8214 | 0.4831 |
-| no_helmet | 0.8123 | 0.5377 |
+| safety_vest | 0.7875 | 0.5139 |
+| no_safety_vest | 0.7720 | 0.5402 |
+| helmet | 0.8127 | 0.4776 |
+| no_helmet | 0.8115 | 0.5394 |
 
 ### Confusion Matrix
 
 | True \ Pred | (none) | safety_vest | no_safety_vest | helmet | no_helmet |
 | --- | --- | --- | --- | --- | --- |
-| (none) | 0 | 242 | 289 | 212 | 120 |
-| safety_vest | 195 | 1036 | 22 | 2 | 0 |
-| no_safety_vest | 306 | 13 | 1322 | 2 | 0 |
-| helmet | 225 | 0 | 1 | 1309 | 3 |
-| no_helmet | 141 | 0 | 0 | 11 | 765 |
+| (none) | 0 | 248 | 264 | 239 | 106 |
+| safety_vest | 201 | 1030 | 24 | 0 | 0 |
+| no_safety_vest | 309 | 14 | 1316 | 2 | 2 |
+| helmet | 236 | 1 | 2 | 1295 | 4 |
+| no_helmet | 143 | 0 | 1 | 15 | 758 |
