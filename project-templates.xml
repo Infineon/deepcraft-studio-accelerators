@@ -519,6 +519,17 @@
         <PackageNoData url="https://api.imagimob.com/v1/Data/Object/SafetyVestHelmetDetection-d2c8b1b-5.15.5983.65534.no-data.zip" size="17791708"/>
       </Dialog>
     </Template>
+    <Template>
+      <DisplayName>PCB Defects Detection</DisplayName>
+      <Description>Detect PCB manufacturing defects in an image.</Description>
+      <DisplayPath>/Studio Accelerators/Object Detection/Camera</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>PCBDefectsDetection</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/PCBDefectsDetection-a8a1825-5.15.5983.65534.zip" size="226848448"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/PCBDefectsDetection-a8a1825-5.15.5983.65534.no-data.zip" size="14728927"/>
+      </Dialog>
+    </Template>
   </ProjectTemplates>
   <CandidateTemplates>
     <Template>
