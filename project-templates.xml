@@ -519,6 +519,17 @@
         <PackageNoData url="https://api.imagimob.com/v1/Data/Object/SafetyVestHelmetDetection-d2c8b1b-5.15.5983.65534.no-data.zip" size="17791708"/>
       </Dialog>
     </Template>
+    <Template>
+      <DisplayName>Surface Image Classification</DisplayName>
+      <Description>Project to build a model that classifies surfaces from images.</Description>
+      <DisplayPath>/Studio Accelerators/Classification/Camera</DisplayPath>
+      <LicenseTags/>
+      <Dialog>
+        <DefaultProjectName>SurfaceImageClassification</DefaultProjectName>
+        <Package url="https://api.imagimob.com/v1/Data/Object/SurfaceImageClassification-f8d043d-5.15.5983.65534.zip" size="351971484"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/SurfaceImageClassification-f8d043d-5.15.5983.65534.no-data.zip" size="10942960"/>
+      </Dialog>
+    </Template>
   </ProjectTemplates>
   <CandidateTemplates>
     <Template>
