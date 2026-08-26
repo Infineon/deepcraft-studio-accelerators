@@ -1,0 +1,19 @@
+{
+  "title": "Arc Fault Detection",
+  "description": "This project leverages convolutional neural networks to detect arc faults",
+  "long_description": "This project uses data obtained from an oscilloscope that has been downscaled and transformed into csv files to train a CNN to detect arc faults. The data gathered included data from various household appliances as well as simulated conditions.",
+  "algorithm": "Classification",
+  "sensors": ["Current"],
+  "domain": ["Electronic Sensing"],
+  "application": ["Appliances", "Home Health Monitoring"],
+  "use_case": ["Arc Fault Detection"],
+  "kit": ["PSOC\u2122 6 AI Kit"],
+  "device": ["PSOC\u2122 6"],
+  "type": ["Model Development"],
+  "workflow": ["ML Development"],
+  "thumbnail_image_id": "electrical.png",
+  "main_image_id": "electrical.png",
+  "brand_image_id": "deepcraft.webp",
+  "brand_url": "https://www.infineon.com/design-resources/embedded-software/deepcraft-edge-ai-solutions",
+  "links": [{"label": "Download", "url": "https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio", "heading": "Access Project via DEEPCRAFT\u2122 Studio", "sub-heading": "Download and install DEEPCRAFT\u2122 Studio to fully access this project and start developing your Edge AI product"}, {"label": "GitHub", "heading": "Project Repository", "sub-heading": "Get more details about this project", "url": "https://github.com/Infineon/deepcraft-studio-accelerators/tree/main/ArcFaultDetection"}]
+}
