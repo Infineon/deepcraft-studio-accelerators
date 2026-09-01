@@ -1,27 +1,22 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ImagimobStudio version="1.1.0">
-  <Job id="c9ed8ec6-8bf8-11f1-b138-a12ae8949a6a" />
+  <Job id="aa4e5fbd-97d3-11f1-ac66-d1b28ae43e8f" />
   <ProjectType>Classification</ProjectType>
-  <ProjectId>93ae52f3-983d-426d-9564-f95bb0173370</ProjectId>
+  <ProjectId>1434cc47-b1a9-4fab-bf5c-723527f68b5e</ProjectId>
   <UnitLibrary>
     <Directory>Tools/CodeGenGraphUX/Units</Directory>
   </UnitLibrary>
-  <Preprocessor inshape="[3]" intype="Float32" infreq="49.95503211991435" outshape="[13,8]" outtype="Float32">
-    <Unit id="Master Feature">
+  <Preprocessor inshape="[3]" intype="Float32" infreq="49.95503211991435" outshape="[20,3]" outtype="Float32">
+    <Unit id="Imaginet.Units.Filter.LowPassFilter">
       <Argument param="input" type="String">data</Argument>
-      <Argument param="force" type="Boolean">True</Argument>
-      <Argument param="dim" type="Boolean">True</Argument>
-      <Argument param="rot" type="Boolean">True</Argument>
-      <Argument param="cross" type="Boolean">True</Argument>
-      <Argument param="chaos" type="Boolean">True</Argument>
-      <Argument param="sampling" type="Boolean">True</Argument>
       <Argument param="output" type="String">data</Argument>
+      <Argument param="cutoff_freq" type="Double">10</Argument>
     </Unit>
     <Unit id="Core.Queues.SlidingWindow">
       <Argument param="input" type="String">data</Argument>
       <Argument param="time_input" type="String">time</Argument>
-      <Argument param="window_shape" type="Shape">[13,8]</Argument>
-      <Argument param="stride" type="Int32">80</Argument>
+      <Argument param="window_shape" type="Shape">[20,3]</Argument>
+      <Argument param="stride" type="Int32">21</Argument>
       <Argument param="buffer_multiplier" type="Double">1</Argument>
       <Argument param="output" type="String">data</Argument>
       <Argument param="time_output" type="String">time</Argument>
@@ -32,7 +27,7 @@
     <BatchSize>32</BatchSize>
     <SplitCount>16</SplitCount>
     <Patience>20</Patience>
-    <AppendModels>True</AppendModels>
+    <AppendModels>False</AppendModels>
     <LossFunction>CategoricalCrossentropy</LossFunction>
     <HardwareType>Generic</HardwareType>
     <TrainingEnvironment>
@@ -45,7 +40,7 @@
     <Downscale>True</Downscale>
     <LearnRate>Mid</LearnRate>
     <RegularizationFactor>Low</RegularizationFactor>
-    <LastNetworkInputShape>[13,8]</LastNetworkInputShape>
+    <LastNetworkInputShape>[20,3]</LastNetworkInputShape>
     <LastClassCount>2</LastClassCount>
     <Optimizer>
       <LearningRate>0.001</LearningRate>
@@ -58,7 +53,7 @@
     <IsNasEnabled>False</IsNasEnabled>
   </ModelFactory>
   <Models>
-    <Model name="conv1d-medium-speed-0" id="221f2ecd-8e94-40be-ac16-bb04cd3807a6">
+    <Model name="conv1d-medium-accuracy-0" id="2d9c9372-576e-4e8b-be87-8c1a7172c42a">
       <LossFunction>CategoricalCrossentropy</LossFunction>
       <Epochs>150</Epochs>
       <BatchSize>32</BatchSize>
@@ -70,499 +65,7 @@
         <LearningRate>0.004</LearningRate>
         <WeightDecay>0.0001</WeightDecay>
       </Optimizer>
-      <Network inshape="[13,8]" intype="Float32" infreq="0" outshape="[2]" outtype="Float32">
-        <Unit id="Core.Layers.Convolution1D">
-          <Argument param="filters" type="Int32">13</Argument>
-          <Argument param="kernel_size" type="Int32">3</Argument>
-          <Argument param="strides" type="Int32">2</Argument>
-          <Argument param="padding" type="String">valid</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-          <Argument param="use_bias" type="Boolean">True</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Convolution1D">
-          <Argument param="filters" type="Int32">12</Argument>
-          <Argument param="kernel_size" type="Int32">3</Argument>
-          <Argument param="strides" type="Int32">2</Argument>
-          <Argument param="padding" type="String">same</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-          <Argument param="use_bias" type="Boolean">False</Argument>
-        </Unit>
-        <Unit id="Core.Layers.BatchNormalization">
-          <Argument param="epsilon" type="Double">0.001</Argument>
-          <Argument param="axis" type="Int32">-1</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Activation">
-          <Argument param="activation" type="String">relu</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Convolution1D">
-          <Argument param="filters" type="Int32">24</Argument>
-          <Argument param="kernel_size" type="Int32">3</Argument>
-          <Argument param="strides" type="Int32">1</Argument>
-          <Argument param="padding" type="String">same</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-          <Argument param="use_bias" type="Boolean">False</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Convolution1D">
-          <Argument param="filters" type="Int32">24</Argument>
-          <Argument param="kernel_size" type="Int32">3</Argument>
-          <Argument param="strides" type="Int32">1</Argument>
-          <Argument param="padding" type="String">same</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-          <Argument param="use_bias" type="Boolean">False</Argument>
-        </Unit>
-        <Unit id="Core.Layers.BatchNormalization">
-          <Argument param="epsilon" type="Double">0.001</Argument>
-          <Argument param="axis" type="Int32">-1</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Activation">
-          <Argument param="activation" type="String">relu</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Convolution1D">
-          <Argument param="filters" type="Int32">32</Argument>
-          <Argument param="kernel_size" type="Int32">3</Argument>
-          <Argument param="strides" type="Int32">1</Argument>
-          <Argument param="padding" type="String">same</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-          <Argument param="use_bias" type="Boolean">False</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Convolution1D">
-          <Argument param="filters" type="Int32">32</Argument>
-          <Argument param="kernel_size" type="Int32">3</Argument>
-          <Argument param="strides" type="Int32">1</Argument>
-          <Argument param="padding" type="String">same</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-          <Argument param="use_bias" type="Boolean">False</Argument>
-        </Unit>
-        <Unit id="Core.Layers.BatchNormalization">
-          <Argument param="epsilon" type="Double">0.001</Argument>
-          <Argument param="axis" type="Int32">-1</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Activation">
-          <Argument param="activation" type="String">relu</Argument>
-        </Unit>
-        <Unit id="Core.Layers.GlobalAveragePool1D" />
-        <Unit id="Core.Layers.Dense">
-          <Argument param="units" type="Int32">2</Argument>
-          <Argument param="use_bias" type="Boolean">True</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Activation">
-          <Argument param="activation" type="String">softmax</Argument>
-        </Unit>
-      </Network>
-      <BuildSteps>
-        <Training />
-        <ConfusionMatrix />
-      </BuildSteps>
-      <SymbolWeights override="False">
-        <SymbolWeight symbol="Fall" weight="20" />
-        <SymbolWeight symbol="unlabeled" weight="1" />
-      </SymbolWeights>
-      <Preprocessor override="False" inshape="[3]" intype="Float32" infreq="49.95503211991435" outshape="[13,8]" outtype="Float32">
-        <Unit id="Master Feature">
-          <Argument param="input" type="String">data</Argument>
-          <Argument param="force" type="Boolean">True</Argument>
-          <Argument param="dim" type="Boolean">True</Argument>
-          <Argument param="rot" type="Boolean">True</Argument>
-          <Argument param="cross" type="Boolean">True</Argument>
-          <Argument param="chaos" type="Boolean">True</Argument>
-          <Argument param="sampling" type="Boolean">True</Argument>
-          <Argument param="output" type="String">data</Argument>
-        </Unit>
-        <Unit id="Core.Queues.SlidingWindow">
-          <Argument param="input" type="String">data</Argument>
-          <Argument param="time_input" type="String">time</Argument>
-          <Argument param="window_shape" type="Shape">[13,8]</Argument>
-          <Argument param="stride" type="Int32">80</Argument>
-          <Argument param="buffer_multiplier" type="Double">1</Argument>
-          <Argument param="output" type="String">data</Argument>
-          <Argument param="time_output" type="String">time</Argument>
-        </Unit>
-      </Preprocessor>
-      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
-    </Model>
-    <Model name="conv1d-medium-speed-1" id="a4655e45-0396-4dbf-8d7a-048ac90462e1">
-      <LossFunction>CategoricalCrossentropy</LossFunction>
-      <Epochs>150</Epochs>
-      <BatchSize>32</BatchSize>
-      <SplitCount>16</SplitCount>
-      <Patience>20</Patience>
-      <TrainingEnvironment>
-      </TrainingEnvironment>
-      <Optimizer>
-        <LearningRate>0.004</LearningRate>
-        <WeightDecay>0.0001</WeightDecay>
-      </Optimizer>
-      <Network inshape="[13,8]" intype="Float32" infreq="0" outshape="[2]" outtype="Float32">
-        <Unit id="Core.Layers.Convolution1D">
-          <Argument param="filters" type="Int32">13</Argument>
-          <Argument param="kernel_size" type="Int32">3</Argument>
-          <Argument param="strides" type="Int32">2</Argument>
-          <Argument param="padding" type="String">valid</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-          <Argument param="use_bias" type="Boolean">True</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Convolution1D">
-          <Argument param="filters" type="Int32">16</Argument>
-          <Argument param="kernel_size" type="Int32">3</Argument>
-          <Argument param="strides" type="Int32">2</Argument>
-          <Argument param="padding" type="String">same</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-          <Argument param="use_bias" type="Boolean">False</Argument>
-        </Unit>
-        <Unit id="Core.Layers.BatchNormalization">
-          <Argument param="epsilon" type="Double">0.001</Argument>
-          <Argument param="axis" type="Int32">-1</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Activation">
-          <Argument param="activation" type="String">relu</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Convolution1D">
-          <Argument param="filters" type="Int32">16</Argument>
-          <Argument param="kernel_size" type="Int32">3</Argument>
-          <Argument param="strides" type="Int32">1</Argument>
-          <Argument param="padding" type="String">same</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-          <Argument param="use_bias" type="Boolean">False</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Convolution1D">
-          <Argument param="filters" type="Int32">16</Argument>
-          <Argument param="kernel_size" type="Int32">3</Argument>
-          <Argument param="strides" type="Int32">1</Argument>
-          <Argument param="padding" type="String">same</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-          <Argument param="use_bias" type="Boolean">False</Argument>
-        </Unit>
-        <Unit id="Core.Layers.BatchNormalization">
-          <Argument param="epsilon" type="Double">0.001</Argument>
-          <Argument param="axis" type="Int32">-1</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Activation">
-          <Argument param="activation" type="String">relu</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Convolution1D">
-          <Argument param="filters" type="Int32">32</Argument>
-          <Argument param="kernel_size" type="Int32">3</Argument>
-          <Argument param="strides" type="Int32">1</Argument>
-          <Argument param="padding" type="String">same</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-          <Argument param="use_bias" type="Boolean">False</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Convolution1D">
-          <Argument param="filters" type="Int32">32</Argument>
-          <Argument param="kernel_size" type="Int32">3</Argument>
-          <Argument param="strides" type="Int32">1</Argument>
-          <Argument param="padding" type="String">same</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-          <Argument param="use_bias" type="Boolean">False</Argument>
-        </Unit>
-        <Unit id="Core.Layers.BatchNormalization">
-          <Argument param="epsilon" type="Double">0.001</Argument>
-          <Argument param="axis" type="Int32">-1</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Activation">
-          <Argument param="activation" type="String">relu</Argument>
-        </Unit>
-        <Unit id="Core.Layers.GlobalAveragePool1D" />
-        <Unit id="Core.Layers.Dense">
-          <Argument param="units" type="Int32">2</Argument>
-          <Argument param="use_bias" type="Boolean">True</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Activation">
-          <Argument param="activation" type="String">softmax</Argument>
-        </Unit>
-      </Network>
-      <BuildSteps>
-        <Training />
-        <ConfusionMatrix />
-      </BuildSteps>
-      <SymbolWeights override="False">
-        <SymbolWeight symbol="Fall" weight="20" />
-        <SymbolWeight symbol="unlabeled" weight="1" />
-      </SymbolWeights>
-      <Preprocessor override="False" inshape="[3]" intype="Float32" infreq="49.95503211991435" outshape="[13,8]" outtype="Float32">
-        <Unit id="Master Feature">
-          <Argument param="input" type="String">data</Argument>
-          <Argument param="force" type="Boolean">True</Argument>
-          <Argument param="dim" type="Boolean">True</Argument>
-          <Argument param="rot" type="Boolean">True</Argument>
-          <Argument param="cross" type="Boolean">True</Argument>
-          <Argument param="chaos" type="Boolean">True</Argument>
-          <Argument param="sampling" type="Boolean">True</Argument>
-          <Argument param="output" type="String">data</Argument>
-        </Unit>
-        <Unit id="Core.Queues.SlidingWindow">
-          <Argument param="input" type="String">data</Argument>
-          <Argument param="time_input" type="String">time</Argument>
-          <Argument param="window_shape" type="Shape">[13,8]</Argument>
-          <Argument param="stride" type="Int32">80</Argument>
-          <Argument param="buffer_multiplier" type="Double">1</Argument>
-          <Argument param="output" type="String">data</Argument>
-          <Argument param="time_output" type="String">time</Argument>
-        </Unit>
-      </Preprocessor>
-      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
-    </Model>
-    <Model name="conv1d-medium-speed-2" id="c822e8f8-8cb7-4c03-ba0f-1b5fad7c92dc">
-      <LossFunction>CategoricalCrossentropy</LossFunction>
-      <Epochs>150</Epochs>
-      <BatchSize>32</BatchSize>
-      <SplitCount>16</SplitCount>
-      <Patience>20</Patience>
-      <TrainingEnvironment>
-      </TrainingEnvironment>
-      <Optimizer>
-        <LearningRate>0.004</LearningRate>
-        <WeightDecay>0.0001</WeightDecay>
-      </Optimizer>
-      <Network inshape="[13,8]" intype="Float32" infreq="0" outshape="[2]" outtype="Float32">
-        <Unit id="Core.Layers.Convolution1D">
-          <Argument param="filters" type="Int32">13</Argument>
-          <Argument param="kernel_size" type="Int32">3</Argument>
-          <Argument param="strides" type="Int32">2</Argument>
-          <Argument param="padding" type="String">valid</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-          <Argument param="use_bias" type="Boolean">True</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Convolution1D">
-          <Argument param="filters" type="Int32">16</Argument>
-          <Argument param="kernel_size" type="Int32">3</Argument>
-          <Argument param="strides" type="Int32">2</Argument>
-          <Argument param="padding" type="String">same</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-          <Argument param="use_bias" type="Boolean">False</Argument>
-        </Unit>
-        <Unit id="Core.Layers.BatchNormalization">
-          <Argument param="epsilon" type="Double">0.001</Argument>
-          <Argument param="axis" type="Int32">-1</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Activation">
-          <Argument param="activation" type="String">relu</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Convolution1D">
-          <Argument param="filters" type="Int32">32</Argument>
-          <Argument param="kernel_size" type="Int32">3</Argument>
-          <Argument param="strides" type="Int32">1</Argument>
-          <Argument param="padding" type="String">same</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-          <Argument param="use_bias" type="Boolean">False</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Convolution1D">
-          <Argument param="filters" type="Int32">32</Argument>
-          <Argument param="kernel_size" type="Int32">3</Argument>
-          <Argument param="strides" type="Int32">1</Argument>
-          <Argument param="padding" type="String">same</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-          <Argument param="use_bias" type="Boolean">False</Argument>
-        </Unit>
-        <Unit id="Core.Layers.BatchNormalization">
-          <Argument param="epsilon" type="Double">0.001</Argument>
-          <Argument param="axis" type="Int32">-1</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Activation">
-          <Argument param="activation" type="String">relu</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Convolution1D">
-          <Argument param="filters" type="Int32">32</Argument>
-          <Argument param="kernel_size" type="Int32">3</Argument>
-          <Argument param="strides" type="Int32">1</Argument>
-          <Argument param="padding" type="String">same</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-          <Argument param="use_bias" type="Boolean">False</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Convolution1D">
-          <Argument param="filters" type="Int32">32</Argument>
-          <Argument param="kernel_size" type="Int32">3</Argument>
-          <Argument param="strides" type="Int32">1</Argument>
-          <Argument param="padding" type="String">same</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-          <Argument param="use_bias" type="Boolean">False</Argument>
-        </Unit>
-        <Unit id="Core.Layers.BatchNormalization">
-          <Argument param="epsilon" type="Double">0.001</Argument>
-          <Argument param="axis" type="Int32">-1</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Activation">
-          <Argument param="activation" type="String">relu</Argument>
-        </Unit>
-        <Unit id="Core.Layers.GlobalAveragePool1D" />
-        <Unit id="Core.Layers.Dense">
-          <Argument param="units" type="Int32">2</Argument>
-          <Argument param="use_bias" type="Boolean">True</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Activation">
-          <Argument param="activation" type="String">softmax</Argument>
-        </Unit>
-      </Network>
-      <BuildSteps>
-        <Training />
-        <ConfusionMatrix />
-      </BuildSteps>
-      <SymbolWeights override="False">
-        <SymbolWeight symbol="Fall" weight="20" />
-        <SymbolWeight symbol="unlabeled" weight="1" />
-      </SymbolWeights>
-      <Preprocessor override="False" inshape="[3]" intype="Float32" infreq="49.95503211991435" outshape="[13,8]" outtype="Float32">
-        <Unit id="Master Feature">
-          <Argument param="input" type="String">data</Argument>
-          <Argument param="force" type="Boolean">True</Argument>
-          <Argument param="dim" type="Boolean">True</Argument>
-          <Argument param="rot" type="Boolean">True</Argument>
-          <Argument param="cross" type="Boolean">True</Argument>
-          <Argument param="chaos" type="Boolean">True</Argument>
-          <Argument param="sampling" type="Boolean">True</Argument>
-          <Argument param="output" type="String">data</Argument>
-        </Unit>
-        <Unit id="Core.Queues.SlidingWindow">
-          <Argument param="input" type="String">data</Argument>
-          <Argument param="time_input" type="String">time</Argument>
-          <Argument param="window_shape" type="Shape">[13,8]</Argument>
-          <Argument param="stride" type="Int32">80</Argument>
-          <Argument param="buffer_multiplier" type="Double">1</Argument>
-          <Argument param="output" type="String">data</Argument>
-          <Argument param="time_output" type="String">time</Argument>
-        </Unit>
-      </Preprocessor>
-      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
-    </Model>
-    <Model name="conv1d-medium-speed-3" id="82f4b7b4-9cb5-4bdb-bbd7-2e4f87265ac1">
-      <LossFunction>CategoricalCrossentropy</LossFunction>
-      <Epochs>150</Epochs>
-      <BatchSize>32</BatchSize>
-      <SplitCount>16</SplitCount>
-      <Patience>20</Patience>
-      <TrainingEnvironment>
-      </TrainingEnvironment>
-      <Optimizer>
-        <LearningRate>0.004</LearningRate>
-        <WeightDecay>0.0001</WeightDecay>
-      </Optimizer>
-      <Network inshape="[13,8]" intype="Float32" infreq="0" outshape="[2]" outtype="Float32">
-        <Unit id="Core.Layers.Convolution1D">
-          <Argument param="filters" type="Int32">13</Argument>
-          <Argument param="kernel_size" type="Int32">3</Argument>
-          <Argument param="strides" type="Int32">2</Argument>
-          <Argument param="padding" type="String">valid</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-          <Argument param="use_bias" type="Boolean">True</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Convolution1D">
-          <Argument param="filters" type="Int32">16</Argument>
-          <Argument param="kernel_size" type="Int32">3</Argument>
-          <Argument param="strides" type="Int32">2</Argument>
-          <Argument param="padding" type="String">same</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-          <Argument param="use_bias" type="Boolean">False</Argument>
-        </Unit>
-        <Unit id="Core.Layers.BatchNormalization">
-          <Argument param="epsilon" type="Double">0.001</Argument>
-          <Argument param="axis" type="Int32">-1</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Activation">
-          <Argument param="activation" type="String">relu</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Convolution1D">
-          <Argument param="filters" type="Int32">32</Argument>
-          <Argument param="kernel_size" type="Int32">3</Argument>
-          <Argument param="strides" type="Int32">1</Argument>
-          <Argument param="padding" type="String">same</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-          <Argument param="use_bias" type="Boolean">False</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Convolution1D">
-          <Argument param="filters" type="Int32">32</Argument>
-          <Argument param="kernel_size" type="Int32">3</Argument>
-          <Argument param="strides" type="Int32">1</Argument>
-          <Argument param="padding" type="String">same</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-          <Argument param="use_bias" type="Boolean">False</Argument>
-        </Unit>
-        <Unit id="Core.Layers.BatchNormalization">
-          <Argument param="epsilon" type="Double">0.001</Argument>
-          <Argument param="axis" type="Int32">-1</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Activation">
-          <Argument param="activation" type="String">relu</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Convolution1D">
-          <Argument param="filters" type="Int32">64</Argument>
-          <Argument param="kernel_size" type="Int32">3</Argument>
-          <Argument param="strides" type="Int32">1</Argument>
-          <Argument param="padding" type="String">same</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-          <Argument param="use_bias" type="Boolean">False</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Convolution1D">
-          <Argument param="filters" type="Int32">64</Argument>
-          <Argument param="kernel_size" type="Int32">3</Argument>
-          <Argument param="strides" type="Int32">1</Argument>
-          <Argument param="padding" type="String">same</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-          <Argument param="use_bias" type="Boolean">False</Argument>
-        </Unit>
-        <Unit id="Core.Layers.BatchNormalization">
-          <Argument param="epsilon" type="Double">0.001</Argument>
-          <Argument param="axis" type="Int32">-1</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Activation">
-          <Argument param="activation" type="String">relu</Argument>
-        </Unit>
-        <Unit id="Core.Layers.GlobalAveragePool1D" />
-        <Unit id="Core.Layers.Dense">
-          <Argument param="units" type="Int32">2</Argument>
-          <Argument param="use_bias" type="Boolean">True</Argument>
-          <Argument param="activation" type="String">linear</Argument>
-        </Unit>
-        <Unit id="Core.Layers.Activation">
-          <Argument param="activation" type="String">softmax</Argument>
-        </Unit>
-      </Network>
-      <BuildSteps>
-        <Training />
-        <ConfusionMatrix />
-      </BuildSteps>
-      <SymbolWeights override="False">
-        <SymbolWeight symbol="Fall" weight="20" />
-        <SymbolWeight symbol="unlabeled" weight="1" />
-      </SymbolWeights>
-      <Preprocessor override="False" inshape="[3]" intype="Float32" infreq="49.95503211991435" outshape="[13,8]" outtype="Float32">
-        <Unit id="Master Feature">
-          <Argument param="input" type="String">data</Argument>
-          <Argument param="force" type="Boolean">True</Argument>
-          <Argument param="dim" type="Boolean">True</Argument>
-          <Argument param="rot" type="Boolean">True</Argument>
-          <Argument param="cross" type="Boolean">True</Argument>
-          <Argument param="chaos" type="Boolean">True</Argument>
-          <Argument param="sampling" type="Boolean">True</Argument>
-          <Argument param="output" type="String">data</Argument>
-        </Unit>
-        <Unit id="Core.Queues.SlidingWindow">
-          <Argument param="input" type="String">data</Argument>
-          <Argument param="time_input" type="String">time</Argument>
-          <Argument param="window_shape" type="Shape">[13,8]</Argument>
-          <Argument param="stride" type="Int32">80</Argument>
-          <Argument param="buffer_multiplier" type="Double">1</Argument>
-          <Argument param="output" type="String">data</Argument>
-          <Argument param="time_output" type="String">time</Argument>
-        </Unit>
-      </Preprocessor>
-      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
-    </Model>
-    <Model name="conv1d-medium-accuracy-0" id="de2a68c9-7875-40f5-9daf-a484a143313a">
-      <LossFunction>CategoricalCrossentropy</LossFunction>
-      <Epochs>150</Epochs>
-      <BatchSize>32</BatchSize>
-      <SplitCount>16</SplitCount>
-      <Patience>20</Patience>
-      <TrainingEnvironment>
-      </TrainingEnvironment>
-      <Optimizer>
-        <LearningRate>0.004</LearningRate>
-        <WeightDecay>0.0001</WeightDecay>
-      </Optimizer>
-      <Network inshape="[13,8]" intype="Float32" infreq="0" outshape="[2]" outtype="Float32">
+      <Network inshape="[20,3]" intype="Float32" infreq="0" outshape="[2]" outtype="Float32">
         <Unit id="Core.Layers.Convolution1D">
           <Argument param="filters" type="Int32">13</Argument>
           <Argument param="kernel_size" type="Int32">3</Argument>
@@ -661,33 +164,28 @@
         <ConfusionMatrix />
       </BuildSteps>
       <SymbolWeights override="False">
-        <SymbolWeight symbol="Fall" weight="20" />
         <SymbolWeight symbol="unlabeled" weight="1" />
+        <SymbolWeight symbol="Fall" weight="20" />
       </SymbolWeights>
-      <Preprocessor override="False" inshape="[3]" intype="Float32" infreq="49.95503211991435" outshape="[13,8]" outtype="Float32">
-        <Unit id="Master Feature">
+      <Preprocessor override="False" inshape="[3]" intype="Float32" infreq="0" outshape="[20,3]" outtype="Float32">
+        <Unit id="Imaginet.Units.Filter.LowPassFilter">
           <Argument param="input" type="String">data</Argument>
-          <Argument param="force" type="Boolean">True</Argument>
-          <Argument param="dim" type="Boolean">True</Argument>
-          <Argument param="rot" type="Boolean">True</Argument>
-          <Argument param="cross" type="Boolean">True</Argument>
-          <Argument param="chaos" type="Boolean">True</Argument>
-          <Argument param="sampling" type="Boolean">True</Argument>
           <Argument param="output" type="String">data</Argument>
+          <Argument param="cutoff_freq" type="Double">10</Argument>
         </Unit>
         <Unit id="Core.Queues.SlidingWindow">
           <Argument param="input" type="String">data</Argument>
           <Argument param="time_input" type="String">time</Argument>
-          <Argument param="window_shape" type="Shape">[13,8]</Argument>
-          <Argument param="stride" type="Int32">80</Argument>
+          <Argument param="window_shape" type="Shape">[20,3]</Argument>
+          <Argument param="stride" type="Int32">21</Argument>
           <Argument param="buffer_multiplier" type="Double">1</Argument>
           <Argument param="output" type="String">data</Argument>
           <Argument param="time_output" type="String">time</Argument>
         </Unit>
       </Preprocessor>
-      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="0" outshape="[10]" outtype="Float32" />
     </Model>
-    <Model name="conv1d-medium-accuracy-1" id="368c7933-8e9b-411e-8756-3d6879b37a56">
+    <Model name="conv1d-medium-accuracy-1" id="0f8cbe05-db92-4684-abb0-5261a1fe7f39">
       <LossFunction>CategoricalCrossentropy</LossFunction>
       <Epochs>150</Epochs>
       <BatchSize>32</BatchSize>
@@ -699,7 +197,7 @@
         <LearningRate>0.004</LearningRate>
         <WeightDecay>0.0001</WeightDecay>
       </Optimizer>
-      <Network inshape="[13,8]" intype="Float32" infreq="0" outshape="[2]" outtype="Float32">
+      <Network inshape="[20,3]" intype="Float32" infreq="0" outshape="[2]" outtype="Float32">
         <Unit id="Core.Layers.Convolution1D">
           <Argument param="filters" type="Int32">13</Argument>
           <Argument param="kernel_size" type="Int32">3</Argument>
@@ -798,33 +296,28 @@
         <ConfusionMatrix />
       </BuildSteps>
       <SymbolWeights override="False">
-        <SymbolWeight symbol="Fall" weight="20" />
         <SymbolWeight symbol="unlabeled" weight="1" />
+        <SymbolWeight symbol="Fall" weight="20" />
       </SymbolWeights>
-      <Preprocessor override="False" inshape="[3]" intype="Float32" infreq="49.95503211991435" outshape="[13,8]" outtype="Float32">
-        <Unit id="Master Feature">
+      <Preprocessor override="False" inshape="[3]" intype="Float32" infreq="0" outshape="[20,3]" outtype="Float32">
+        <Unit id="Imaginet.Units.Filter.LowPassFilter">
           <Argument param="input" type="String">data</Argument>
-          <Argument param="force" type="Boolean">True</Argument>
-          <Argument param="dim" type="Boolean">True</Argument>
-          <Argument param="rot" type="Boolean">True</Argument>
-          <Argument param="cross" type="Boolean">True</Argument>
-          <Argument param="chaos" type="Boolean">True</Argument>
-          <Argument param="sampling" type="Boolean">True</Argument>
           <Argument param="output" type="String">data</Argument>
+          <Argument param="cutoff_freq" type="Double">10</Argument>
         </Unit>
         <Unit id="Core.Queues.SlidingWindow">
           <Argument param="input" type="String">data</Argument>
           <Argument param="time_input" type="String">time</Argument>
-          <Argument param="window_shape" type="Shape">[13,8]</Argument>
-          <Argument param="stride" type="Int32">80</Argument>
+          <Argument param="window_shape" type="Shape">[20,3]</Argument>
+          <Argument param="stride" type="Int32">21</Argument>
           <Argument param="buffer_multiplier" type="Double">1</Argument>
           <Argument param="output" type="String">data</Argument>
           <Argument param="time_output" type="String">time</Argument>
         </Unit>
       </Preprocessor>
-      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="0" outshape="[10]" outtype="Float32" />
     </Model>
-    <Model name="conv1d-medium-accuracy-2" id="8f1ab4a2-1c98-4c1c-99ba-31435ef5d20d">
+    <Model name="conv1d-medium-accuracy-2" id="068473ec-5e26-41b3-84a5-df72620d5645">
       <LossFunction>CategoricalCrossentropy</LossFunction>
       <Epochs>150</Epochs>
       <BatchSize>32</BatchSize>
@@ -836,7 +329,7 @@
         <LearningRate>0.004</LearningRate>
         <WeightDecay>0.0001</WeightDecay>
       </Optimizer>
-      <Network inshape="[13,8]" intype="Float32" infreq="0" outshape="[2]" outtype="Float32">
+      <Network inshape="[20,3]" intype="Float32" infreq="0" outshape="[2]" outtype="Float32">
         <Unit id="Core.Layers.Convolution1D">
           <Argument param="filters" type="Int32">13</Argument>
           <Argument param="kernel_size" type="Int32">3</Argument>
@@ -935,33 +428,28 @@
         <ConfusionMatrix />
       </BuildSteps>
       <SymbolWeights override="False">
-        <SymbolWeight symbol="Fall" weight="20" />
         <SymbolWeight symbol="unlabeled" weight="1" />
+        <SymbolWeight symbol="Fall" weight="20" />
       </SymbolWeights>
-      <Preprocessor override="False" inshape="[3]" intype="Float32" infreq="49.95503211991435" outshape="[13,8]" outtype="Float32">
-        <Unit id="Master Feature">
+      <Preprocessor override="False" inshape="[3]" intype="Float32" infreq="0" outshape="[20,3]" outtype="Float32">
+        <Unit id="Imaginet.Units.Filter.LowPassFilter">
           <Argument param="input" type="String">data</Argument>
-          <Argument param="force" type="Boolean">True</Argument>
-          <Argument param="dim" type="Boolean">True</Argument>
-          <Argument param="rot" type="Boolean">True</Argument>
-          <Argument param="cross" type="Boolean">True</Argument>
-          <Argument param="chaos" type="Boolean">True</Argument>
-          <Argument param="sampling" type="Boolean">True</Argument>
           <Argument param="output" type="String">data</Argument>
+          <Argument param="cutoff_freq" type="Double">10</Argument>
         </Unit>
         <Unit id="Core.Queues.SlidingWindow">
           <Argument param="input" type="String">data</Argument>
           <Argument param="time_input" type="String">time</Argument>
-          <Argument param="window_shape" type="Shape">[13,8]</Argument>
-          <Argument param="stride" type="Int32">80</Argument>
+          <Argument param="window_shape" type="Shape">[20,3]</Argument>
+          <Argument param="stride" type="Int32">21</Argument>
           <Argument param="buffer_multiplier" type="Double">1</Argument>
           <Argument param="output" type="String">data</Argument>
           <Argument param="time_output" type="String">time</Argument>
         </Unit>
       </Preprocessor>
-      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="0" outshape="[10]" outtype="Float32" />
     </Model>
-    <Model name="conv1d-medium-accuracy-3" id="d54d0a8a-a453-452a-bd6b-0225a79c6993">
+    <Model name="conv1d-medium-accuracy-3" id="911e8c64-4c6b-4e83-8532-f986425059e2">
       <LossFunction>CategoricalCrossentropy</LossFunction>
       <Epochs>150</Epochs>
       <BatchSize>32</BatchSize>
@@ -973,7 +461,7 @@
         <LearningRate>0.004</LearningRate>
         <WeightDecay>0.0001</WeightDecay>
       </Optimizer>
-      <Network inshape="[13,8]" intype="Float32" infreq="0" outshape="[2]" outtype="Float32">
+      <Network inshape="[20,3]" intype="Float32" infreq="0" outshape="[2]" outtype="Float32">
         <Unit id="Core.Layers.Convolution1D">
           <Argument param="filters" type="Int32">13</Argument>
           <Argument param="kernel_size" type="Int32">3</Argument>
@@ -1072,31 +560,26 @@
         <ConfusionMatrix />
       </BuildSteps>
       <SymbolWeights override="False">
-        <SymbolWeight symbol="Fall" weight="20" />
         <SymbolWeight symbol="unlabeled" weight="1" />
+        <SymbolWeight symbol="Fall" weight="20" />
       </SymbolWeights>
-      <Preprocessor override="False" inshape="[3]" intype="Float32" infreq="49.95503211991435" outshape="[13,8]" outtype="Float32">
-        <Unit id="Master Feature">
+      <Preprocessor override="False" inshape="[3]" intype="Float32" infreq="0" outshape="[20,3]" outtype="Float32">
+        <Unit id="Imaginet.Units.Filter.LowPassFilter">
           <Argument param="input" type="String">data</Argument>
-          <Argument param="force" type="Boolean">True</Argument>
-          <Argument param="dim" type="Boolean">True</Argument>
-          <Argument param="rot" type="Boolean">True</Argument>
-          <Argument param="cross" type="Boolean">True</Argument>
-          <Argument param="chaos" type="Boolean">True</Argument>
-          <Argument param="sampling" type="Boolean">True</Argument>
           <Argument param="output" type="String">data</Argument>
+          <Argument param="cutoff_freq" type="Double">10</Argument>
         </Unit>
         <Unit id="Core.Queues.SlidingWindow">
           <Argument param="input" type="String">data</Argument>
           <Argument param="time_input" type="String">time</Argument>
-          <Argument param="window_shape" type="Shape">[13,8]</Argument>
-          <Argument param="stride" type="Int32">80</Argument>
+          <Argument param="window_shape" type="Shape">[20,3]</Argument>
+          <Argument param="stride" type="Int32">21</Argument>
           <Argument param="buffer_multiplier" type="Double">1</Argument>
           <Argument param="output" type="String">data</Argument>
           <Argument param="time_output" type="String">time</Argument>
         </Unit>
       </Preprocessor>
-      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="0" outshape="[10]" outtype="Float32" />
     </Model>
   </Models>
   <Database balance="LabelCount" redistributionScope="OnlyUnassigned">
