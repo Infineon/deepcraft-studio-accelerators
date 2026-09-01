@@ -14,9 +14,22 @@ Reliable wrist-worn fall detection is relevant to wearables, safety monitoring, 
 
 `Tools` - Folder containing the `CodeGenGraphUX` Graph UX project used for code generation, including feature extraction and the stillness-based post-processing gate. The custom units (`Tools/CodeGenGraphUX/Units`) live inside this Graph UX project rather than a top-level `Units` folder, since Graph UX resolves unit paths relative to its own project.
 
-## Sensor(s) & Data
+## Sensor configuration
 
 The accelerometer needs to be set up to collect data at 50 Hz, using a +/- 8g scale with 12- or 16-bit resolution. Input values must be expressed in g.
+
+To correctly set up the IMU orientation, make sure that the accelerometer X, Y, Z axis and values are as shown in the figures below:
+- Figure 1: Y = 1, X, Z = 0 --- hand held up  
+
+![Figure 1](Resources/imgs/figure1.png "Figure 1")  
+- Figure 2: X = -1, Y, Z = 0 --- hand outstretched, palm facing front  
+
+![Figure 2](Resources/imgs/figure2.png "Figure 2")
+
+- Figure 3: Z = 1, X, Y = 0 --- hand outstretched, palm up  
+![Figure 3](Resources/imgs/figure3.png "Figure 3")
+
+## Data
 
 The provided data consists of wrist-worn accelerometer recordings of simulated falls and everyday non-fall activities collected by Imagimob AB and project partners. Dataset identities and session identifiers have been anonymized. Data is licensed under the [DEEPCRAFT™ Studio Terms and Conditions](https://developer.imagimob.com/legal/studio-terms-and-conditions).
 
