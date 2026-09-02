@@ -1,7 +1,7 @@
 {
   "title": "Fall Detection (Wrist-worn)",
   "description": "Detect falls in less active individuals, such as elderly people, using a wrist-worn accelerometer.",
-  "long_description": "This project provides a DEEPCRAFT\u2122 Ready Model that detects falls using a 3-axis accelerometer worn on the wrist. The model is paired with a stillness-based post-processing gate that confirms a fall after a period of inactivity, reducing false positives. Wearable testing measured 93.3% sensitivity with 1.8-2.25 false positives per user per week.",
+  "long_description": "This project allows you to build models to detect a fall using an IMU (Inertial Measurement Unit - accelerometer and gyroscope) mounted on the wrist.",
   "algorithm": "Classification",
   "sensors": ["IMU"],
   "domain": ["Vibration", "Sensing"],
