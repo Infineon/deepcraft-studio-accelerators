@@ -18,8 +18,8 @@
 |------|-------------|
 | `Model/yolov8n.pt` | Original PyTorch model (~6.2 MB) |
 | `Model/yolov8n_int8.tflite` | INT8 quantized TFLite model for edge deployment (~3.2 MB) |
-| `yolov8n_int8.improjv` | Imagimob Studio project file |
-| `yolov8n_int8.imunit` | Imagimob Studio processing graph for live camera evaluation |
+| `yolov8n_int8.improjv` | DEEPCRAFT™ Studio project file |
+| `yolov8n_int8.imunit` | DEEPCRAFT™ Studio processing graph for live camera evaluation |
 | `README.md` | This file |
 
 ## Processing Pipeline
@@ -84,9 +84,9 @@ The model output tensor contains **84 values per detection** (4 bounding box coo
 
 **Formula:** `output_index = 4 + COCO_class_id`
 
-### Steps in Imagimob Studio
+### Steps in DEEPCRAFT™ Studio
 
-1. **Open the `.imunit` graph** in Imagimob Studio.
+1. **Open the `.imunit` graph** in DEEPCRAFT™ Studio.
 
 2. **Add a new Select node** for the desired class(es):
    - Right-click on the graph canvas and add a new **Select** node (`Imaginet.Units.Math.Select`).

@@ -1,12 +1,19 @@
 {
   "title": "Project Title MAX 40 characters",
   "description": "Project description MAX 100 characters",
-  "algorithm": "Choose between Classification or Regression",
+  "long_description": "Detailed project description: use case, sensor setup, data collection guidelines, and recommended path to production.",
+  "algorithm": "Choose between Classification, Regression, or Object Detection",
   "sensors": ["Specify sensor(s) used in your project: Microphone, IMU, Camera, etc."],
   "domain": ["Specify domain(s) of your project: Audio, Voice, Vision, etc."],
-  "application": ["Specify application(s) of your project: Smart Home, Smart TV, Appliances, Wearables, Games, etc."],
-  "use_case": ["Specify use case(s) of your project: Object Detection, Voice Control, Speech Recognition, etc."],
-  "kit": ["Specify Infineon kit(s) your project is compatible with: PSoC-6 Pioneer Kit, PSoC-6 AI Kit, PSoC-Edge AI Kit, etc."],
-  "device": ["Specify device(s) your project is compatible with: PSoC-4, PSoC-6, PSoC-Edge, AURIX, etc."],
-  "workflow": ["Choose between ML Development and/or ML Deployment"]
+  "application": ["Specify application(s) of your project: Smart Home, Wearables, Appliances, etc."],
+  "use_case": ["Specify use case(s) of your project: Speech Recognition, Voice Control, Anomaly Detection, etc."],
+  "kit": ["Specify Infineon kit(s) your project is compatible with: PSOC\u2122 6 Pioneer Kit, PSOC\u2122 6 AI Kit, PSOC\u2122 Edge AI Kit, etc."],
+  "device": ["Specify device(s) your project is compatible with: PSOC\u2122 4, PSOC\u2122 6, PSOC\u2122 Edge, AURIX\u2122, etc."],
+  "type": ["Choose between Model Development and/or Model Deployment"],
+  "workflow": ["Derived from type: ML Development for Model Development, ML Deployment for Model Deployment"],
+  "thumbnail_image_id": "Image file name for the project thumbnail. Can be selected using the PR Tool.",
+  "main_image_id": "Image file name for the main project image — usually the same as thumbnail_image_id. Can be set up using the PR Tool.",
+  "brand_image_id": "Brand logo file name (e.g. deepcraft.webp for Infineon). Can be set up using the PR Tool.",
+  "brand_url": "Brand URL (e.g. https://www.infineon.com/design-resources/embedded-software/deepcraft-edge-ai-solutions for Infineon). Can be set up using the PR Tool.",
+  "links": ["Set up automatically by the PR Tool (Download and GitHub links for your project)"]
 }

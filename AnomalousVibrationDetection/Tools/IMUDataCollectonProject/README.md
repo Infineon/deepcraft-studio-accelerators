@@ -2,7 +2,7 @@
 
 ## Overview
 
-This starter project shows you how to collect and annotate IMU data live. This can be done directly from your PSOC 6 AI Kit attached over USB-serial. 
+This Studio project shows you how to collect and annotate IMU data live. This can be done directly from your PSOC 6 AI Kit attached over USB-serial. 
 
 
 The graph that you see in the Main.imunit contains input/data source nodes representing the device connected through the serial port.

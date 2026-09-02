@@ -18,8 +18,8 @@
 |------|-------------|
 | `Model/yolov5nLegacy.pt` | Original PyTorch model with anchor-based head (~3.9 MB) |
 | `Model/yolov5nLegacy-int8.tflite` | INT8 quantized TFLite model for edge deployment (~2.0 MB) |
-| `yolov5nLegacy-int8.improjv` | Imagimob Studio project file |
-| `yolov5nLegacy-int8.imunit` | Imagimob Studio processing graph for live camera evaluation |
+| `yolov5nLegacy-int8.improjv` | DEEPCRAFT™ Studio project file |
+| `yolov5nLegacy-int8.imunit` | DEEPCRAFT™ Studio processing graph for live camera evaluation |
 | `README.md` | This file |
 
 ## Processing Pipeline
@@ -89,9 +89,9 @@ The legacy YOLOv5 model uses a **transposed output layout** compared to newer YO
 
 > **Key differences from newer models:** The index offset is **5** (not 4) due to the extra objectness score at index 4, and all Select/Concat nodes must use **`axis: 0`** (not 1) because the output tensor is transposed.
 
-### Steps in Imagimob Studio
+### Steps in DEEPCRAFT™ Studio
 
-1. **Open the `.imunit` graph** in Imagimob Studio.
+1. **Open the `.imunit` graph** in DEEPCRAFT™ Studio.
 
 2. **Add a new Select node** for the desired class(es):
    - Right-click on the graph canvas and add a new **Select** node (`Imaginet.Units.Math.Select`).

@@ -1,0 +1,19 @@
+{
+  "title": "Golf Balls Detection",
+  "description": "Detects golf balls in the image frame.",
+  "long_description": "A computer vision accelerator designed to detect golf balls in real-world outdoor environments, optimized for deployment on Infineon PSOC EDGE for mobile robotic platforms. The primary use case is enabling autonomous robots to navigate golf courses and driving ranges, detecting and collecting golf balls after play sessions with real-time precision. Beyond ball retrieval, this accelerator can also support all use-cases where detection and counting of golf balls is needed. By building on this ready-to-use Accelerator, developers and robotics engineers can skip the complexity of building a detection system from scratch, and focus on higher-level application logic and data curation instead.",
+  "algorithm": "Object Detection",
+  "sensors": ["Camera"],
+  "domain": ["Vision"],
+  "application": ["Games"],
+  "use_case": ["Object Detection"],
+  "kit": ["PSOC\u2122 Edge Eval Kit"],
+  "device": ["PSOC\u2122 Edge"],
+  "type": ["Model Development"],
+  "workflow": ["ML Development"],
+  "thumbnail_image_id": "vision.webp",
+  "main_image_id": "vision.webp",
+  "brand_image_id": "deepcraft.webp",
+  "brand_url": "https://www.infineon.com/design-resources/embedded-software/deepcraft-edge-ai-solutions",
+  "links": [{"label": "Download", "url": "https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio", "heading": "Access Project via DEEPCRAFT\u2122 Studio", "sub-heading": "Download and install DEEPCRAFT\u2122 Studio to fully access this project and start developing your Edge AI product"}, {"label": "GitHub", "heading": "Project Repository", "sub-heading": "Get more details about this project", "url": "https://github.com/Infineon/deepcraft-studio-accelerators/tree/main/GolfBallDetection"}]
+}

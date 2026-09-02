@@ -33,11 +33,11 @@ Connect the TOF camera by USB(3.1 up) and also make sure you get the royale SDK 
 
 ## Steps to get started: Model Labeling and Training
 
-### Label the Data and Train a Model in Deepcraft Studio
+### Label the Data and Train a Model in DEEPCRAFT™ Studio
 
 Detailed in this file [YOLO_README.md](Resources/YOLO_README.md)
 
-### Label the Data in Roboflow and Train a Model in Deepcraft Studio
+### Label the Data in Roboflow and Train a Model in DEEPCRAFT™ Studio
 
 * Upload the folder of image to Roboflow [https://roboflow.com/](https://roboflow.com/)
 * Create a project and do annotation
@@ -99,13 +99,7 @@ To bring this project and its trained models to production, follow these main st
 
 ![Demo GIF](Resources/tof_gif.gif)
 
-## Getting Started
 
-Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about Imagimob Studio and go through step-by-step tutorials to get you quickly started.
-
-## Help & Support
-
-If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum ](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) Imagimob Studio page.
 ## Getting Started
 
 Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about Imagimob Studio and go through step-by-step tutorials to get you quickly started.

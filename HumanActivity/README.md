@@ -4,7 +4,7 @@ This project is designed to work exclusively with DEEPCRAFT™ Studio. Download 
 
 ## Overview
 
-This starter model allows you to build a human activity detector that can be used on any supported Infineon MCU (or other MCUs) with a BMI160 IMU or another IMU. You can use this project as a starting point to develop a production ready model intended for deployment in wristed wearables. 
+This Accelerator project allows you to build a human activity detector that can be used on any supported Infineon MCU (or other MCUs) with a BMI160 IMU or another IMU. You can use this project as a starting point to develop a production ready model intended for deployment in wristed wearables. 
 
 Below you can find code examples about how to deploy the output of this project to any supported Infineon MCU with a BMI160 IMU.
 
