@@ -519,15 +519,15 @@
         <PackageNoData url="https://api.imagimob.com/v1/Data/Object/SafetyVestHelmetDetection-aaaad98-5.15.6121.65534.no-data.zip" size="17782947"/>
       </Dialog>
     </Template>
-    <Template training="true">
+    <Template>
       <DisplayName>Car Detection</DisplayName>
       <Description>Detect cars in an image with a YOLO-based object detection model.</Description>
       <DisplayPath>/Studio Accelerators/Object Detection/Camera</DisplayPath>
       <LicenseTags/>
       <Dialog>
         <DefaultProjectName>CarDetection</DefaultProjectName>
-        <Package url="https://api.imagimob.com/v1/Data/Object/CarDetection-1b0edbb-5.15.5983.65534.zip" size="1176063466"/>
-        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/CarDetection-1b0edbb-5.15.5983.65534.no-data.zip" size="11384834"/>
+        <Package url="https://api.imagimob.com/v1/Data/Object/CarDetection-aaaad98-5.15.6121.65534.zip" size="1176844269"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/CarDetection-aaaad98-5.15.6121.65534.no-data.zip" size="12165637"/>
       </Dialog>
     </Template>
   </ProjectTemplates>
