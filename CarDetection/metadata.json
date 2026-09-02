@@ -1,0 +1,19 @@
+{
+  "title": "Car Detection",
+  "description": "Detect cars in an image with a YOLO-based object detection model.",
+  "long_description": "This Studio Accelerator provides general guidance on how to develop a Computer Vision project for car detection with an RGB camera. The included YOLO-based starter model uses a single class (car) and can be adapted to parking lots, roads, robots, or other camera setups by adding representative data.",
+  "algorithm": "Object Detection",
+  "sensors": ["Camera"],
+  "domain": ["Vision"],
+  "application": ["Vehicles"],
+  "use_case": ["Object Detection"],
+  "kit": ["PSOC\u2122 Edge AI Kit", "PSOC\u2122 Edge Eval Kit"],
+  "device": ["PSOC\u2122 Edge"],
+  "type": ["Model Development"],
+  "workflow": ["ML Development"],
+  "thumbnail_image_id": "city.webp",
+  "main_image_id": "city.webp",
+  "brand_image_id": "deepcraft.webp",
+  "brand_url": "https://www.infineon.com/design-resources/embedded-software/deepcraft-edge-ai-solutions",
+  "links": [{"label": "Download", "url": "https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio", "heading": "Access Project via DEEPCRAFT\u2122 Studio", "sub-heading": "Download and install DEEPCRAFT\u2122 Studio to fully access this project and start developing your Edge AI product"}, {"label": "GitHub", "heading": "Project Repository", "sub-heading": "Get more details about this project", "url": "https://github.com/Infineon/deepcraft-studio-accelerators/tree/main/CarDetection"}]
+}

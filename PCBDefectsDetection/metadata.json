@@ -1,0 +1,19 @@
+{
+  "title": "PCB Defects Detection",
+  "description": "Detect PCB manufacturing defects in an image.",
+  "long_description": "This project allows you to train a YOLO-based model to identify PCB manufacturing defects\u2014short, spur, missing hole, mouse bite, and open circuit\u2014from AOI inspection imagery. The starter dataset combines research-grade PCB defect benchmarks with in-domain defect-free negatives for robust automated visual inspection before assembly or shipment.",
+  "algorithm": "Object Detection",
+  "sensors": ["Camera"],
+  "domain": ["Vision"],
+  "application": ["Industrial Automation", "Smart Manufacturing"],
+  "use_case": ["Object Detection", "Defect Detection"],
+  "kit": ["PSOC\u2122 Edge AI Kit", "PSOC\u2122 Edge Eval Kit"],
+  "device": ["PSOC\u2122 Edge"],
+  "type": ["Model Development"],
+  "workflow": ["ML Development"],
+  "thumbnail_image_id": "electrical.webp",
+  "main_image_id": "electrical.webp",
+  "brand_image_id": "deepcraft.webp",
+  "brand_url": "https://www.infineon.com/design-resources/embedded-software/deepcraft-edge-ai-solutions",
+  "links": [{"label": "Download", "url": "https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio", "heading": "Access Project via DEEPCRAFT\u2122 Studio", "sub-heading": "Download and install DEEPCRAFT\u2122 Studio to fully access this project and start developing your Edge AI product"}, {"label": "GitHub", "heading": "Project Repository", "sub-heading": "Get more details about this project", "url": "https://github.com/Infineon/deepcraft-studio-accelerators/tree/main/PCBDefectsDetection"}]
+}
