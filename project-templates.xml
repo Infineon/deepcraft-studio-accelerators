@@ -316,15 +316,15 @@
         <PackageNoData url="https://api.imagimob.com/v1/Data/Object/PresenceDetectionVision-aaaad98-5.15.6121.65534.no-data.zip" size="8912356"/>
       </Dialog>
     </Template>
-    <Template training="true">
+    <Template>
       <DisplayName>Road Users Detection</DisplayName>
       <Description>Recognize if there are people, trains, cars, busses, bicycles, motorbikes in an image</Description>
       <DisplayPath>/Studio Accelerators/Object Detection/Camera</DisplayPath>
       <LicenseTags/>
       <Dialog>
         <DefaultProjectName>RoadUsersDetection</DefaultProjectName>
-        <Package url="https://api.imagimob.com/v1/Data/Object/RoadUsersDetection-d2c8b1b-5.15.5983.65534.zip" size="618211768"/>
-        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/RoadUsersDetection-d2c8b1b-5.15.5983.65534.no-data.zip" size="14992012"/>
+        <Package url="https://api.imagimob.com/v1/Data/Object/RoadUsersDetection-aaaad98-5.15.6121.65534.zip" size="618191232"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/RoadUsersDetection-aaaad98-5.15.6121.65534.no-data.zip" size="14971476"/>
       </Dialog>
     </Template>
     <Template>
@@ -508,26 +508,26 @@
         <PackageNoData url="https://api.imagimob.com/v1/Data/Object/EmergencyVehicleDetection-aaaad98-5.15.6121.65534.no-data.zip" size="13179194"/>
       </Dialog>
     </Template>
-    <Template training="true">
+    <Template>
       <DisplayName>Safety Vest and Helmet Detection</DisplayName>
       <Description>Detect safety vests and hard hats in an image.</Description>
       <DisplayPath>/Studio Accelerators/Object Detection/Camera</DisplayPath>
       <LicenseTags/>
       <Dialog>
         <DefaultProjectName>SafetyVestHelmetDetection</DefaultProjectName>
-        <Package url="https://api.imagimob.com/v1/Data/Object/SafetyVestHelmetDetection-d2c8b1b-5.15.5983.65534.zip" size="452291320"/>
-        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/SafetyVestHelmetDetection-d2c8b1b-5.15.5983.65534.no-data.zip" size="17791708"/>
+        <Package url="https://api.imagimob.com/v1/Data/Object/SafetyVestHelmetDetection-aaaad98-5.15.6121.65534.zip" size="452282559"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/SafetyVestHelmetDetection-aaaad98-5.15.6121.65534.no-data.zip" size="17782947"/>
       </Dialog>
     </Template>
-    <Template training="true">
+    <Template>
       <DisplayName>Car Detection</DisplayName>
       <Description>Detect cars in an image with a YOLO-based object detection model.</Description>
       <DisplayPath>/Studio Accelerators/Object Detection/Camera</DisplayPath>
       <LicenseTags/>
       <Dialog>
         <DefaultProjectName>CarDetection</DefaultProjectName>
-        <Package url="https://api.imagimob.com/v1/Data/Object/CarDetection-1b0edbb-5.15.5983.65534.zip" size="1176063466"/>
-        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/CarDetection-1b0edbb-5.15.5983.65534.no-data.zip" size="11384834"/>
+        <Package url="https://api.imagimob.com/v1/Data/Object/CarDetection-aaaad98-5.15.6121.65534.zip" size="1176844269"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/CarDetection-aaaad98-5.15.6121.65534.no-data.zip" size="12165637"/>
       </Dialog>
     </Template>
   </ProjectTemplates>
