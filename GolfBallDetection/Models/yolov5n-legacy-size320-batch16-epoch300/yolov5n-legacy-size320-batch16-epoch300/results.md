@@ -7,64 +7,64 @@
 
 | Metric | Value |
 | --- | --- |
-| Accuracy | 0.0578 |
-| F1 Score | 0.0409 |
-| mAP@0.5 | 0.0578 |
-| mAP@0.5:0.95 | 0.0164 |
+| Accuracy | 0.9355 |
+| F1 Score | 0.8868 |
+| mAP@0.5 | 0.9355 |
+| mAP@0.5:0.95 | 0.7170 |
 
 ### Per-class mAP
 
 | Class | mAP@0.5 | mAP@0.5:0.95 |
 | --- | --- | --- |
-| golfball | 0.0578 | 0.0164 |
+| golfball | 0.9355 | 0.7170 |
 
 ### Confusion Matrix
 
 | True \ Pred | (none) | golfball |
 | --- | --- | --- |
-| (none) | 0 | 223 |
-| golfball | 1666 | 52 |
+| (none) | 0 | 588 |
+| golfball | 103 | 1615 |
 
 ## Validation
 
 | Metric | Value |
 | --- | --- |
-| Accuracy | 0.0877 |
-| F1 Score | 0.0500 |
-| mAP@0.5 | 0.0877 |
-| mAP@0.5:0.95 | 0.0213 |
+| Accuracy | 0.9390 |
+| F1 Score | 0.8976 |
+| mAP@0.5 | 0.9390 |
+| mAP@0.5:0.95 | 0.7191 |
 
 ### Per-class mAP
 
 | Class | mAP@0.5 | mAP@0.5:0.95 |
 | --- | --- | --- |
-| golfball | 0.0877 | 0.0213 |
+| golfball | 0.9390 | 0.7191 |
 
 ### Confusion Matrix
 
 | True \ Pred | (none) | golfball |
 | --- | --- | --- |
-| (none) | 0 | 30 |
-| golfball | 361 | 14 |
+| (none) | 0 | 111 |
+| golfball | 20 | 355 |
 
 ## Test
 
 | Metric | Value |
 | --- | --- |
-| Accuracy | 0.1386 |
-| F1 Score | 0.0298 |
-| mAP@0.5 | 0.1386 |
-| mAP@0.5:0.95 | 0.0343 |
+| Accuracy | 0.9353 |
+| F1 Score | 0.8930 |
+| mAP@0.5 | 0.9353 |
+| mAP@0.5:0.95 | 0.7168 |
 
 ### Per-class mAP
 
 | Class | mAP@0.5 | mAP@0.5:0.95 |
 | --- | --- | --- |
-| golfball | 0.1386 | 0.0343 |
+| golfball | 0.9353 | 0.7168 |
 
 ### Confusion Matrix
 
 | True \ Pred | (none) | golfball |
 | --- | --- | --- |
-| (none) | 0 | 4 |
-| golfball | 374 | 6 |
+| (none) | 0 | 102 |
+| golfball | 26 | 354 |
