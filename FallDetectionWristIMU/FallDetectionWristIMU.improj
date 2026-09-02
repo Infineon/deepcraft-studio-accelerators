@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ImagimobStudio version="1.1.0">
-  <Job id="aa4e5fbd-97d3-11f1-ac66-d1b28ae43e8f" />
+  <Job id="78621955-a6ae-11f1-8d78-252efb1b3de9" />
   <ProjectType>Classification</ProjectType>
   <ProjectId>1434cc47-b1a9-4fab-bf5c-723527f68b5e</ProjectId>
   <UnitLibrary>
@@ -16,7 +16,7 @@
       <Argument param="input" type="String">data</Argument>
       <Argument param="time_input" type="String">time</Argument>
       <Argument param="window_shape" type="Shape">[20,3]</Argument>
-      <Argument param="stride" type="Int32">21</Argument>
+      <Argument param="stride" type="Int32">30</Argument>
       <Argument param="buffer_multiplier" type="Double">1</Argument>
       <Argument param="output" type="String">data</Argument>
       <Argument param="time_output" type="String">time</Argument>
@@ -167,7 +167,7 @@
         <SymbolWeight symbol="unlabeled" weight="1" />
         <SymbolWeight symbol="Fall" weight="20" />
       </SymbolWeights>
-      <Preprocessor override="False" inshape="[3]" intype="Float32" infreq="0" outshape="[20,3]" outtype="Float32">
+      <Preprocessor override="False" inshape="[3]" intype="Float32" infreq="49.95503211991435" outshape="[20,3]" outtype="Float32">
         <Unit id="Imaginet.Units.Filter.LowPassFilter">
           <Argument param="input" type="String">data</Argument>
           <Argument param="output" type="String">data</Argument>
@@ -177,13 +177,13 @@
           <Argument param="input" type="String">data</Argument>
           <Argument param="time_input" type="String">time</Argument>
           <Argument param="window_shape" type="Shape">[20,3]</Argument>
-          <Argument param="stride" type="Int32">21</Argument>
+          <Argument param="stride" type="Int32">30</Argument>
           <Argument param="buffer_multiplier" type="Double">1</Argument>
           <Argument param="output" type="String">data</Argument>
           <Argument param="time_output" type="String">time</Argument>
         </Unit>
       </Preprocessor>
-      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="0" outshape="[10]" outtype="Float32" />
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
     </Model>
     <Model name="conv1d-medium-accuracy-1" id="0f8cbe05-db92-4684-abb0-5261a1fe7f39">
       <LossFunction>CategoricalCrossentropy</LossFunction>
@@ -299,7 +299,7 @@
         <SymbolWeight symbol="unlabeled" weight="1" />
         <SymbolWeight symbol="Fall" weight="20" />
       </SymbolWeights>
-      <Preprocessor override="False" inshape="[3]" intype="Float32" infreq="0" outshape="[20,3]" outtype="Float32">
+      <Preprocessor override="False" inshape="[3]" intype="Float32" infreq="49.95503211991435" outshape="[20,3]" outtype="Float32">
         <Unit id="Imaginet.Units.Filter.LowPassFilter">
           <Argument param="input" type="String">data</Argument>
           <Argument param="output" type="String">data</Argument>
@@ -309,13 +309,13 @@
           <Argument param="input" type="String">data</Argument>
           <Argument param="time_input" type="String">time</Argument>
           <Argument param="window_shape" type="Shape">[20,3]</Argument>
-          <Argument param="stride" type="Int32">21</Argument>
+          <Argument param="stride" type="Int32">30</Argument>
           <Argument param="buffer_multiplier" type="Double">1</Argument>
           <Argument param="output" type="String">data</Argument>
           <Argument param="time_output" type="String">time</Argument>
         </Unit>
       </Preprocessor>
-      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="0" outshape="[10]" outtype="Float32" />
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
     </Model>
     <Model name="conv1d-medium-accuracy-2" id="068473ec-5e26-41b3-84a5-df72620d5645">
       <LossFunction>CategoricalCrossentropy</LossFunction>
@@ -431,7 +431,7 @@
         <SymbolWeight symbol="unlabeled" weight="1" />
         <SymbolWeight symbol="Fall" weight="20" />
       </SymbolWeights>
-      <Preprocessor override="False" inshape="[3]" intype="Float32" infreq="0" outshape="[20,3]" outtype="Float32">
+      <Preprocessor override="False" inshape="[3]" intype="Float32" infreq="49.95503211991435" outshape="[20,3]" outtype="Float32">
         <Unit id="Imaginet.Units.Filter.LowPassFilter">
           <Argument param="input" type="String">data</Argument>
           <Argument param="output" type="String">data</Argument>
@@ -441,13 +441,13 @@
           <Argument param="input" type="String">data</Argument>
           <Argument param="time_input" type="String">time</Argument>
           <Argument param="window_shape" type="Shape">[20,3]</Argument>
-          <Argument param="stride" type="Int32">21</Argument>
+          <Argument param="stride" type="Int32">30</Argument>
           <Argument param="buffer_multiplier" type="Double">1</Argument>
           <Argument param="output" type="String">data</Argument>
           <Argument param="time_output" type="String">time</Argument>
         </Unit>
       </Preprocessor>
-      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="0" outshape="[10]" outtype="Float32" />
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
     </Model>
     <Model name="conv1d-medium-accuracy-3" id="911e8c64-4c6b-4e83-8532-f986425059e2">
       <LossFunction>CategoricalCrossentropy</LossFunction>
@@ -563,7 +563,7 @@
         <SymbolWeight symbol="unlabeled" weight="1" />
         <SymbolWeight symbol="Fall" weight="20" />
       </SymbolWeights>
-      <Preprocessor override="False" inshape="[3]" intype="Float32" infreq="0" outshape="[20,3]" outtype="Float32">
+      <Preprocessor override="False" inshape="[3]" intype="Float32" infreq="49.95503211991435" outshape="[20,3]" outtype="Float32">
         <Unit id="Imaginet.Units.Filter.LowPassFilter">
           <Argument param="input" type="String">data</Argument>
           <Argument param="output" type="String">data</Argument>
@@ -573,13 +573,13 @@
           <Argument param="input" type="String">data</Argument>
           <Argument param="time_input" type="String">time</Argument>
           <Argument param="window_shape" type="Shape">[20,3]</Argument>
-          <Argument param="stride" type="Int32">21</Argument>
+          <Argument param="stride" type="Int32">30</Argument>
           <Argument param="buffer_multiplier" type="Double">1</Argument>
           <Argument param="output" type="String">data</Argument>
           <Argument param="time_output" type="String">time</Argument>
         </Unit>
       </Preprocessor>
-      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="0" outshape="[10]" outtype="Float32" />
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
     </Model>
   </Models>
   <Database balance="LabelCount" redistributionScope="OnlyUnassigned">
