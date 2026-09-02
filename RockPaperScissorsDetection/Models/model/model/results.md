@@ -7,76 +7,76 @@
 
 | Metric | Value |
 | --- | --- |
-| Accuracy | 0.9897 |
-| F1 Score | 0.9824 |
-| mAP@0.5 | 0.9897 |
-| mAP@0.5:0.95 | 0.7399 |
+| Accuracy | 0.4001 |
+| F1 Score | 0.4128 |
+| mAP@0.5 | 0.4001 |
+| mAP@0.5:0.95 | 0.1892 |
 
 ### Per-class mAP
 
 | Class | mAP@0.5 | mAP@0.5:0.95 |
 | --- | --- | --- |
-| Scissors | 0.9929 | 0.7510 |
-| Paper | 0.9889 | 0.7459 |
-| Rock | 0.9873 | 0.7227 |
+| Scissors | 0.4404 | 0.2181 |
+| Paper | 0.3727 | 0.1525 |
+| Rock | 0.3872 | 0.1971 |
 
 ### Confusion Matrix
 
 | True \ Pred | (none) | Scissors | Paper | Rock |
 | --- | --- | --- | --- | --- |
-| (none) | 0 | 17 | 31 | 13 |
-| Scissors | 2 | 953 | 1 | 0 |
-| Paper | 5 | 3 | 547 | 0 |
-| Rock | 0 | 1 | 0 | 578 |
+| (none) | 0 | 542 | 2830 | 156 |
+| Scissors | 201 | 337 | 416 | 2 |
+| Paper | 102 | 0 | 450 | 3 |
+| Rock | 239 | 3 | 165 | 172 |
 
 ## Validation
 
 | Metric | Value |
 | --- | --- |
-| Accuracy | 0.9699 |
-| F1 Score | 0.9512 |
-| mAP@0.5 | 0.9699 |
-| mAP@0.5:0.95 | 0.6639 |
+| Accuracy | 0.3528 |
+| F1 Score | 0.3997 |
+| mAP@0.5 | 0.3528 |
+| mAP@0.5:0.95 | 0.1703 |
 
 ### Per-class mAP
 
 | Class | mAP@0.5 | mAP@0.5:0.95 |
 | --- | --- | --- |
-| Scissors | 0.9773 | 0.6658 |
-| Paper | 0.9710 | 0.6549 |
-| Rock | 0.9615 | 0.6709 |
+| Scissors | 0.4031 | 0.1950 |
+| Paper | 0.2933 | 0.1232 |
+| Rock | 0.3619 | 0.1928 |
 
 ### Confusion Matrix
 
 | True \ Pred | (none) | Scissors | Paper | Rock |
 | --- | --- | --- | --- | --- |
-| (none) | 0 | 5 | 6 | 10 |
-| Scissors | 4 | 313 | 0 | 1 |
-| Paper | 7 | 2 | 175 | 1 |
-| Rock | 5 | 0 | 0 | 187 |
+| (none) | 0 | 183 | 966 | 68 |
+| Scissors | 89 | 92 | 134 | 3 |
+| Paper | 36 | 0 | 149 | 0 |
+| Rock | 78 | 0 | 52 | 62 |
 
 ## Test
 
 | Metric | Value |
 | --- | --- |
-| Accuracy | 0.9638 |
-| F1 Score | 0.9414 |
-| mAP@0.5 | 0.9638 |
-| mAP@0.5:0.95 | 0.6579 |
+| Accuracy | 0.3967 |
+| F1 Score | 0.4414 |
+| mAP@0.5 | 0.3967 |
+| mAP@0.5:0.95 | 0.1889 |
 
 ### Per-class mAP
 
 | Class | mAP@0.5 | mAP@0.5:0.95 |
 | --- | --- | --- |
-| Scissors | 0.9796 | 0.6665 |
-| Paper | 0.9469 | 0.6689 |
-| Rock | 0.9650 | 0.6382 |
+| Scissors | 0.4449 | 0.2341 |
+| Paper | 0.3692 | 0.1557 |
+| Rock | 0.3758 | 0.1768 |
 
 ### Confusion Matrix
 
 | True \ Pred | (none) | Scissors | Paper | Rock |
 | --- | --- | --- | --- | --- |
-| (none) | 0 | 11 | 10 | 5 |
-| Scissors | 5 | 312 | 1 | 1 |
-| Paper | 11 | 6 | 168 | 1 |
-| Rock | 7 | 4 | 2 | 179 |
+| (none) | 0 | 200 | 924 | 41 |
+| Scissors | 71 | 127 | 119 | 2 |
+| Paper | 31 | 0 | 154 | 1 |
+| Rock | 81 | 1 | 63 | 47 |
