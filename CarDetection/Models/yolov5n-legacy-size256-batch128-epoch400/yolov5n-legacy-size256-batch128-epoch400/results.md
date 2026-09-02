@@ -7,64 +7,64 @@
 
 | Metric | Value |
 | --- | --- |
-| Accuracy | 0.9251 |
-| F1 Score | 0.8865 |
-| mAP@0.5 | 0.9251 |
-| mAP@0.5:0.95 | 0.6865 |
+| Accuracy | 0.6916 |
+| F1 Score | 0.7522 |
+| mAP@0.5 | 0.6916 |
+| mAP@0.5:0.95 | 0.3683 |
 
 ### Per-class mAP
 
 | Class | mAP@0.5 | mAP@0.5:0.95 |
 | --- | --- | --- |
-| car | 0.9251 | 0.6865 |
+| car | 0.6916 | 0.3683 |
 
 ### Confusion Matrix
 
 | True \ Pred | (none) | car |
 | --- | --- | --- |
-| (none) | 0 | 1612 |
-| car | 1013 | 8285 |
+| (none) | 0 | 9075 |
+| car | 1171 | 8127 |
 
 ## Validation
 
 | Metric | Value |
 | --- | --- |
-| Accuracy | 0.8948 |
-| F1 Score | 0.8593 |
-| mAP@0.5 | 0.8948 |
-| mAP@0.5:0.95 | 0.6471 |
+| Accuracy | 0.6816 |
+| F1 Score | 0.7395 |
+| mAP@0.5 | 0.6816 |
+| mAP@0.5:0.95 | 0.3665 |
 
 ### Per-class mAP
 
 | Class | mAP@0.5 | mAP@0.5:0.95 |
 | --- | --- | --- |
-| car | 0.8948 | 0.6471 |
+| car | 0.6816 | 0.3665 |
 
 ### Confusion Matrix
 
 | True \ Pred | (none) | car |
 | --- | --- | --- |
-| (none) | 0 | 365 |
-| car | 320 | 1729 |
+| (none) | 0 | 1997 |
+| car | 290 | 1759 |
 
 ## Test
 
 | Metric | Value |
 | --- | --- |
-| Accuracy | 0.9140 |
-| F1 Score | 0.8842 |
-| mAP@0.5 | 0.9140 |
-| mAP@0.5:0.95 | 0.6557 |
+| Accuracy | 0.7263 |
+| F1 Score | 0.7726 |
+| mAP@0.5 | 0.7263 |
+| mAP@0.5:0.95 | 0.3855 |
 
 ### Per-class mAP
 
 | Class | mAP@0.5 | mAP@0.5:0.95 |
 | --- | --- | --- |
-| car | 0.9140 | 0.6557 |
+| car | 0.7263 | 0.3855 |
 
 ### Confusion Matrix
 
 | True \ Pred | (none) | car |
 | --- | --- | --- |
-| (none) | 0 | 378 |
-| car | 247 | 1771 |
+| (none) | 0 | 1877 |
+| car | 235 | 1783 |
