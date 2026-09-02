@@ -1,13 +1,13 @@
 Min max of model weights
 
-| Layer type         |        Min |         Max |
-|:-------------------|-----------:|------------:|
-| Conv1D             |   -3.3827  |     4.53017 |
-| BatchNormalization |  -26.0218  |  1300.71    |
-| Conv1D             |   -3.36878 |     3.6895  |
-| Conv1D             |   -6.14777 |     3.28371 |
-| BatchNormalization | -123.881   | 29278       |
-| Conv1D             |   -3.58346 |     4.52349 |
-| Conv1D             |   -7.20908 |     5.00028 |
-| BatchNormalization | -479.777   | 97283.9     |
-| Dense              |   -4.20782 |     1.6649  |
+| Layer type         |        Min |          Max |
+|:-------------------|-----------:|-------------:|
+| Conv1D             |   -5.36442 |      5.23934 |
+| BatchNormalization |  -32.8242  |   2934.84    |
+| Conv1D             |   -6.144   |      5.41785 |
+| Conv1D             |   -6.20904 |      5.54346 |
+| BatchNormalization | -327.175   |  55803.6     |
+| Conv1D             |   -5.7136  |      6.39498 |
+| Conv1D             |   -6.56868 |      7.99817 |
+| BatchNormalization | -568.231   | 226304       |
+| Dense              |   -8.69587 |      4.79521 |
