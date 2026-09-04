@@ -130,15 +130,15 @@
         <PackageNoData url="https://api.imagimob.com/v1/Data/Object/TouchDetection-c38e027-5.15.6134.65534.no-data.zip" size="1527663"/>
       </Dialog>
     </Template>
-    <Template training="true">
+    <Template>
       <DisplayName>Baby Cry Detection (Studio Accelerator)</DisplayName>
       <Description>Use a microphone to detect if a baby is crying in the vicinity</Description>
       <DisplayPath>/Studio Accelerators/Classification/Microphone</DisplayPath>
       <LicenseTags/>
       <Dialog>
         <DefaultProjectName>BabyCryDetection</DefaultProjectName>
-        <Package url="https://api.imagimob.com/v1/Data/Object/BabyCryDetection-d2c8b1b-5.15.5983.65534.zip" size="308180649"/>
-        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/BabyCryDetection-d2c8b1b-5.15.5983.65534.no-data.zip" size="82348471"/>
+        <Package url="https://api.imagimob.com/v1/Data/Object/BabyCryDetection-c38e027-5.15.6134.65534.zip" size="308383237"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/BabyCryDetection-c38e027-5.15.6134.65534.no-data.zip" size="82550928"/>
       </Dialog>
     </Template>
     <Template>
@@ -228,15 +228,15 @@
         <Package url="https://api.imagimob.com/v1/Data/Object/ModelEvaluationObjectDetection-c38e027-5.15.6134.65534.zip" size="1891856"/>
       </Dialog>
     </Template>
-    <Template training="true">
+    <Template>
       <DisplayName>Termite Detection</DisplayName>
       <Description>Detect termites in an image</Description>
       <DisplayPath>/Studio Accelerators/Object Detection/Camera</DisplayPath>
       <LicenseTags/>
       <Dialog>
         <DefaultProjectName>TermiteDetection</DefaultProjectName>
-        <Package url="https://api.imagimob.com/v1/Data/Object/TermiteDetection-d2c8b1b-5.15.5983.65534.zip" size="142790819"/>
-        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/TermiteDetection-d2c8b1b-5.15.5983.65534.no-data.zip" size="11151297"/>
+        <Package url="https://api.imagimob.com/v1/Data/Object/TermiteDetection-c38e027-5.15.6134.65534.zip" size="142794226"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/TermiteDetection-c38e027-5.15.6134.65534.no-data.zip" size="11154704"/>
       </Dialog>
     </Template>
     <Template training="true">
@@ -541,15 +541,15 @@
         <PackageNoData url="https://api.imagimob.com/v1/Data/Object/FallDetectionWristIMU-962895e-5.15.5983.65534.no-data.zip" size="74565246"/>
       </Dialog>
     </Template>
-    <Template training="true">
+    <Template>
       <DisplayName>Surface Image Classification</DisplayName>
-      <Description>Project to build a model that classifies surfaces from images.</Description>
-      <DisplayPath>/Studio Accelerators/Classification/Camera</DisplayPath>
+      <Description>Project to build a model that classifies road surfaces from images.</Description>
+      <DisplayPath>/Studio Accelerators/Image Classification/Camera</DisplayPath>
       <LicenseTags/>
       <Dialog>
         <DefaultProjectName>SurfaceImageClassification</DefaultProjectName>
-        <Package url="https://api.imagimob.com/v1/Data/Object/SurfaceImageClassification-79bd5ec-5.15.5983.65534.zip" size="351971388"/>
-        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/SurfaceImageClassification-79bd5ec-5.15.5983.65534.no-data.zip" size="10942864"/>
+        <Package url="https://api.imagimob.com/v1/Data/Object/SurfaceImageClassification-c38e027-5.15.6134.65534.zip" size="351971370"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/SurfaceImageClassification-c38e027-5.15.6134.65534.no-data.zip" size="10942846"/>
       </Dialog>
     </Template>
   </ProjectTemplates>
