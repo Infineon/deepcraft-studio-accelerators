@@ -1,0 +1,19 @@
+{
+  "title": "Arc Fault Detection",
+  "description": "Detect residential AC arc faults from electrical current using a CNN binary classifier.",
+  "long_description": "This project allows you to develop a model that is capable of classifying whether AC load current contains an arc fault, based on a single current waveform captured with a Hall-effect probe on an oscilloscope (supplied at 200 kHz), and is imagined to be incorporated into residential and appliance arc-fault monitoring. The current project only differentiates between arc and non-arc on simulated faults and many household appliances but is easily scalable to include more loads, sockets, and wiring types.",
+  "algorithm": "Classification",
+  "sensors": ["Current"],
+  "domain": ["Electronic Sensing"],
+  "application": ["Appliances", "Smart Home", "Safety Monitoring"],
+  "use_case": ["Arc Fault Detection"],
+  "kit": ["PSOC\u2122 6 AI Kit"],
+  "device": ["PSOC\u2122 6"],
+  "type": ["Model Development"],
+  "workflow": ["ML Development"],
+  "thumbnail_image_id": "electrical.png",
+  "main_image_id": "electrical.png",
+  "brand_image_id": "deepcraft.webp",
+  "brand_url": "https://www.infineon.com/design-resources/embedded-software/deepcraft-edge-ai-solutions",
+  "links": [{"label": "Download", "url": "https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio", "heading": "Access Project via DEEPCRAFT\u2122 Studio", "sub-heading": "Download and install DEEPCRAFT\u2122 Studio to fully access this project and start developing your Edge AI product"}, {"label": "GitHub", "heading": "Project Repository", "sub-heading": "Get more details about this project", "url": "https://github.com/Infineon/deepcraft-studio-accelerators/tree/main/ArcFaultDetection"}]
+}
