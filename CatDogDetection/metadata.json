@@ -1,0 +1,19 @@
+{
+  "title": "Cat and Dog Detection",
+  "description": "Detect cats and dogs in an image.",
+  "long_description": "This project allows you to train a YOLO-based model to identify the presence of cats and dogs in an image/video. This model is suitable for pet monitoring for smart home applications.",
+  "algorithm": "Object Detection",
+  "sensors": ["Camera"],
+  "domain": ["Vision"],
+  "application": ["Appliances", "Domestic Robot", "Smart Home", "Security Camera & Video Doorbell"],
+  "use_case": ["Object Detection", "Animal Detection"],
+  "kit": ["PSOC\u2122 Edge AI Kit", "PSOC\u2122 Edge Eval Kit"],
+  "device": ["PSOC\u2122 Edge"],
+  "type": ["Model Development"],
+  "workflow": ["ML Development"],
+  "thumbnail_image_id": "living_room.webp",
+  "main_image_id": "living_room.webp",
+  "brand_image_id": "deepcraft.webp",
+  "brand_url": "https://www.infineon.com/design-resources/embedded-software/deepcraft-edge-ai-solutions",
+  "links": [{"label": "Download", "url": "https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio", "heading": "Access Project via DEEPCRAFT\u2122 Studio", "sub-heading": "Download and install DEEPCRAFT\u2122 Studio to fully access this project and start developing your Edge AI product"}, {"label": "GitHub", "heading": "Project Repository", "sub-heading": "Get more details about this project", "url": "https://github.com/Infineon/deepcraft-studio-accelerators/tree/main/CatDogDetection"}]
+}

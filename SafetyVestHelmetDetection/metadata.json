@@ -1,0 +1,19 @@
+{
+  "title": "Safety Vest and Helmet Detection",
+  "description": "Detect safety vests and hard hats in an image.",
+  "long_description": "This project allows you to train a YOLO-based model to identify the presence of safety vests and hard hats, including workers without them, in an image/video. This variant re-sources its data from combined-PPE construction datasets where helmet and vest presence/absence are labeled together in the same frame, avoiding the missing-label conflict of merging single-purpose (vest-only / helmet-only) datasets. This model is suitable for construction site safety and workplace PPE compliance monitoring applications.",
+  "algorithm": "Object Detection",
+  "sensors": ["Camera"],
+  "domain": ["Vision"],
+  "application": ["Industrial Automation", "Security Camera & Video Doorbell"],
+  "use_case": ["Object Detection", "PPE Detection"],
+  "kit": ["PSOC\u2122 Edge AI Kit", "PSOC\u2122 Edge Eval Kit"],
+  "device": ["PSOC\u2122 Edge"],
+  "type": ["Model Development"],
+  "workflow": ["ML Development"],
+  "thumbnail_image_id": "industrial_setting_safety.webp",
+  "main_image_id": "industrial_setting_safety.webp",
+  "brand_image_id": "deepcraft.webp",
+  "brand_url": "https://www.infineon.com/design-resources/embedded-software/deepcraft-edge-ai-solutions",
+  "links": [{"label": "Download", "url": "https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio", "heading": "Access Project via DEEPCRAFT\u2122 Studio", "sub-heading": "Download and install DEEPCRAFT\u2122 Studio to fully access this project and start developing your Edge AI product"}, {"label": "GitHub", "heading": "Project Repository", "sub-heading": "Get more details about this project", "url": "https://github.com/Infineon/deepcraft-studio-accelerators/tree/main/SafetyVestHelmetDetection"}]
+}

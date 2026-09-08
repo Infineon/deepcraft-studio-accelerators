@@ -1,0 +1,19 @@
+{
+  "title": "Emergency Vehicle Detection",
+  "description": "Detect ambulances, fire trucks, and police cars in an image.",
+  "long_description": "This project allows you to train a YOLO-based model to identify the presence of ambulances, fire trucks, and police cars in an image/video. This model is suitable for autonomous driving and smart city traffic management applications.",
+  "algorithm": "Object Detection",
+  "sensors": ["Camera"],
+  "domain": ["Vision"],
+  "application": ["Automotive", "Vehicles"],
+  "use_case": ["Object Detection", "Vehicle Detection"],
+  "kit": ["PSOC\u2122 Edge AI Kit", "PSOC\u2122 Edge Eval Kit"],
+  "device": ["PSOC\u2122 Edge"],
+  "type": ["Model Development"],
+  "workflow": ["ML Development"],
+  "thumbnail_image_id": "automotive_environment.webp",
+  "main_image_id": "automotive_environment.webp",
+  "brand_image_id": "deepcraft.webp",
+  "brand_url": "https://www.infineon.com/design-resources/embedded-software/deepcraft-edge-ai-solutions",
+  "links": [{"label": "Download", "url": "https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio", "heading": "Access Project via DEEPCRAFT\u2122 Studio", "sub-heading": "Download and install DEEPCRAFT\u2122 Studio to fully access this project and start developing your Edge AI product"}, {"label": "GitHub", "heading": "Project Repository", "sub-heading": "Get more details about this project", "url": "https://github.com/Infineon/deepcraft-studio-accelerators/tree/main/EmergencyVehicleDetection"}]
+}
