@@ -4,7 +4,7 @@
   "long_description": "This project allows you to develop a regression model capable of estimating the temperature of the windings of an electric motor using the measured die temperature, direct and quadrature currents and motor speed (rpm). The model is suitable for real-time, low powered embedded applications like thermal management and motor control in automotive systems as well as in power tools and appliances.",
   "algorithm": "Regression",
   "sensors": ["Current", "Temperature", "Speed"],
-  "domain": ["Electronic Sensing"],
+  "domain": ["Electrical Signals", "Temperature"],
   "application": ["Automotive", "Appliances", "Industrial IoT", "Smart Manufacturing"],
   "use_case": ["Virtual Winding Temperature Estimation", "Anomaly Detection"],
   "kit": ["REF_WATERPUMP150W Evaluation Board"],
