@@ -4,7 +4,7 @@
   "long_description": "This project allows you to build a touch detection model that can be used on any supported Infineon MCU with a CAPSENSE\u2122 capacitive sensor. This model is suitable for smart home and appliances applications.",
   "algorithm": "Classification",
   "sensors": ["Capacitive Sensing","Inductive Sensing"],
-  "domain": ["Touch", "Sensing"],
+  "domain": ["Touch"],
   "application": ["Smart Home", "Appliances", "Smart Manufacturing", "Industrial IoT"],
   "use_case": ["Touch Detection", "Anomaly Detection"],
   "kit": ["PSOC\u2122 6 Pioneer Kit"],

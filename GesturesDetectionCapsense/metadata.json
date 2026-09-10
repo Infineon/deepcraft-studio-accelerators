@@ -4,7 +4,7 @@
   "long_description": "The project uses capacitive sensing (CAPSENSE\u2122) technology to interpret gesture patterns and improve user interface interactions. A supervised learning model is trained on touch-based sensor data to accurately classify the following swipes: up, down, left, right",
   "algorithm": "Classification",
   "sensors": ["Capacitive Sensing","Inductive Sensing"],
-  "domain": ["Touch", "Sensing"],
+  "domain": ["Touch"],
   "application": ["Smart Home", "Appliances", "Smart Manufacturing", "Industrial IoT"],
   "use_case": ["Gestures Detection"],
   "kit": ["PSOC\u2122 4100S Max Pioneer Kit"],

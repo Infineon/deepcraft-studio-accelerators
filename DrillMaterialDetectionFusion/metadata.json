@@ -4,7 +4,7 @@
   "long_description": "This project allows you to develop a model that is capable of classifying the material a power drill is drilling into based on both audio and IMU (6-axis accelerometer and gyroscope) data (sensor fusion) and is imagined to be incorporated into smart power tools. The current project only differentiates between wood, plastic, and air but is easily scalable to include more labels.",
   "algorithm": "Classification",
   "sensors": ["Sensor Fusion"],
-  "domain": ["Audio", "Vibration", "Sensing"],
+  "domain": ["Audio", "Vibration"],
   "application": ["Smart Home", "Smart Manufacturing", "Industrial IoT", "Appliances", "Safety Monitoring"],
   "use_case": ["Material Detection", "Anomaly Detection"],
   "kit": ["PSOC\u2122 Edge AI Kit"],

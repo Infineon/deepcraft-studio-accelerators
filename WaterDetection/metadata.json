@@ -4,7 +4,7 @@
 	"long_description": "This project allows you to build a model for detecting water presence and finger presses on surfaces using the capacitive sensing technology of Infineon CAPSENSE\u2122. This model is suitable for applications like water/rain detector for safety of electronic devices or equipments, touch button/control for use in wet environments, etc.",
 	"algorithm": "Classification",
 	"sensors": ["Capacitive Sensing","Inductive Sensing"],
-	"domain": ["Touch", "Sensing"],
+	"domain": ["Touch"],
 	"application": ["Smart Home", "Appliances", "Smart Manufacturing", "Industrial IoT"],
 	"use_case": ["Water Detection", "Touch Detection"],
 	"kit": ["PSOC\u2122 4100S Max Pioneer Kit", "PSOC\u2122 6 AI Kit"],

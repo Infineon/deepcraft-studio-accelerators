@@ -4,7 +4,7 @@
   "long_description": "This project allows you to build a human activity detector that can be used on any supported Infineon MCU (or other MCUs) with a BMI160 IMU or another IMU. You can use this project as a starting point to develop a production ready model intended for deployment in wristed wearables. The available model is capable of detecting the following human activities: running, standing, walking, sitting, jumping.",
   "algorithm": "Classification",
   "sensors": ["IMU"],
-  "domain": ["Vibration", "Sensing"],
+  "domain": ["Motion"],
   "application": ["Wearables", "Safety Monitoring", "Healthcare", "Games"],
   "kit": ["PSOC\u2122 6 Pioneer Kit", "PSOC\u2122 6 AI Kit", "PSOC\u2122 Edge AI Kit"],
   "device": ["PSOC\u2122 6", "PSOC\u2122 Edge"],
