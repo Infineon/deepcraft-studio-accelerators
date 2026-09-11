@@ -4,7 +4,7 @@
   "long_description": "This project contains everything to get started with keyword detection using a microphone. It uses the Google Speech commands dataset to build a model to identify 35 different words. This model is suitable for all applications where speech recognition and voice control is required.",
   "algorithm": "Classification",
   "sensors": ["Microphone"],
-  "domain": ["Audio", "Voice"],
+  "domain": ["Audio"],
   "application": ["Smart Home", "Appliances", "Wearables", "Healthcare", "Safety Monitoring", "Games"],
   "use_case": ["Speech Recognition", "Wake Word Detection"],
   "kit": ["PSOC\u2122 6 Pioneer Kit", "PSOC\u2122 6 AI Kit", "PSOC\u2122 Edge AI Kit"],

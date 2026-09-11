@@ -4,7 +4,7 @@
 	"long_description": "This project provides you general guidance on how to develop an anomaly detection system for detecting normal vs anomalous behavior in machinery based on vibration measurements. This project is based on monitoring a simple desktop fan, but the same concept and workflow can be easily ported to any other machinery, whether industrial or consumer.",
 	"algorithm": "Classification",
 	"sensors": ["IMU"],
-	"domain": ["Vibration"],
+	"domain": ["Motion and Vibration"],
 	"application": ["Smart Home", "Appliances", "Smart Manufacturing", "Industrial IoT"],
 	"use_case": ["Anomaly Detection"],
 	"kit": ["PSOC\u2122 6 Pioneer Kit", "PSOC\u2122 6 AI Kit", "PSOC\u2122 Edge AI Kit"],

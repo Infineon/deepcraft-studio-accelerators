@@ -4,7 +4,7 @@
   "long_description": "This project uses Infineon XENSIV Digital Barometric Pressure and Temperature sensor to distinguish between different types of human breath: fast, focused airflow and involuntary warm exhalation. This system could help in monitoring breathing presence for medical and personal assistance devices.",
   "algorithm": "Classification",
   "sensors": ["DPS"],
-  "domain": ["Temperature", "Pressure"],
+  "domain": ["Temperature and Humidity", "Pressure"],
   "application": ["Healthcare", "Wearables"],
   "use_case": ["Breath Detection", "Health Care"],
   "kit": ["PSOC\u2122 6 AI Kit", "PSOC\u2122 Edge AI Kit"],

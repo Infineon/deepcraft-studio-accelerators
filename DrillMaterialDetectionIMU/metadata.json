@@ -4,7 +4,7 @@
   "long_description": "This project allows you to develop a model that is capable of classifying the material a power drill is drilling into based on the IMU (6-axis accelerometer and gyroscope) signature and is imagined to be incorporated into smart power tools. The current project only differentiates between wood, plastic, and air but is easily scalable to include more labels.",
   "algorithm": "Classification",
   "sensors": ["IMU"],
-  "domain": ["Vibration"],
+  "domain": ["Motion and Vibration"],
   "application": ["Smart Home", "Smart Manufacturing", "Industrial IoT", "Appliances", "Safety Monitoring"],
   "use_case": ["Material Detection", "Anomaly Detection"],
   "kit": ["PSOC\u2122 6 Pioneer Kit", "PSOC\u2122 6 AI Kit", "PSOC\u2122 Edge AI Kit"],
