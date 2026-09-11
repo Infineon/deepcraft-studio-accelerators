@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Annotations>
+  <Annotation>
+    <Object>
+      <Name>black_rot</Name>
+      <Bndbox>
+        <X>0.12421875</X>
+        <Y>0.51015625</Y>
+        <Width>0.2390625</Width>
+        <Height>0.9828125</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>black_measles</Name>
+      <Bndbox>
+        <X>0.37421875</X>
+        <Y>0.51015625</Y>
+        <Width>0.2390625</Width>
+        <Height>0.9828125</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>healthy</Name>
+      <Bndbox>
+        <X>0.62421875</X>
+        <Y>0.5046875</Y>
+        <Width>0.2390625</Width>
+        <Height>0.99375</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>leaf_blight</Name>
+      <Bndbox>
+        <X>0.87734375</X>
+        <Y>0.5</Y>
+        <Width>0.2484375</Width>
+        <Height>0.9875</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+</Annotations>
