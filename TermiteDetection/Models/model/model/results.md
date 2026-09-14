@@ -7,64 +7,64 @@
 
 | Metric | Value |
 | --- | --- |
-| Accuracy | 0.7990 |
-| F1 Score | 0.7645 |
-| mAP@0.5 | 0.7990 |
-| mAP@0.5:0.95 | 0.5361 |
+| Accuracy | 0.7209 |
+| F1 Score | 0.6889 |
+| mAP@0.5 | 0.7209 |
+| mAP@0.5:0.95 | 0.4319 |
 
 ### Per-class mAP
 
 | Class | mAP@0.5 | mAP@0.5:0.95 |
 | --- | --- | --- |
-| termite | 0.7990 | 0.5361 |
+| termite | 0.7209 | 0.4319 |
 
 ### Confusion Matrix
 
 | True \ Pred | (none) | termite |
 | --- | --- | --- |
-| (none) | 0 | 1198 |
-| termite | 570 | 3349 |
+| (none) | 0 | 1540 |
+| termite | 862 | 3057 |
 
 ## Validation
 
 | Metric | Value |
 | --- | --- |
-| Accuracy | 0.6895 |
-| F1 Score | 0.6992 |
-| mAP@0.5 | 0.6895 |
-| mAP@0.5:0.95 | 0.4357 |
+| Accuracy | 0.6430 |
+| F1 Score | 0.6455 |
+| mAP@0.5 | 0.6430 |
+| mAP@0.5:0.95 | 0.3659 |
 
 ### Per-class mAP
 
 | Class | mAP@0.5 | mAP@0.5:0.95 |
 | --- | --- | --- |
-| termite | 0.6895 | 0.4357 |
+| termite | 0.6430 | 0.3659 |
 
 ### Confusion Matrix
 
 | True \ Pred | (none) | termite |
 | --- | --- | --- |
-| (none) | 0 | 388 |
-| termite | 267 | 1039 |
+| (none) | 0 | 515 |
+| termite | 363 | 943 |
 
 ## Test
 
 | Metric | Value |
 | --- | --- |
-| Accuracy | 0.6725 |
-| F1 Score | 0.6753 |
-| mAP@0.5 | 0.6725 |
-| mAP@0.5:0.95 | 0.4327 |
+| Accuracy | 0.6283 |
+| F1 Score | 0.6365 |
+| mAP@0.5 | 0.6283 |
+| mAP@0.5:0.95 | 0.3586 |
 
 ### Per-class mAP
 
 | Class | mAP@0.5 | mAP@0.5:0.95 |
 | --- | --- | --- |
-| termite | 0.6725 | 0.4327 |
+| termite | 0.6283 | 0.3586 |
 
 ### Confusion Matrix
 
 | True \ Pred | (none) | termite |
 | --- | --- | --- |
-| (none) | 0 | 397 |
-| termite | 286 | 1020 |
+| (none) | 0 | 564 |
+| termite | 385 | 921 |
