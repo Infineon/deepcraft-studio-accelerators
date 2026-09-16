@@ -203,6 +203,10 @@ To ensure robust model performance, collect data covering:
 - Define update strategy for model improvements
 ---
 
+## Attributions & Citations
+
+Unless noted otherwise, data included in this project was collected for this accelerator. Usage is subject to the [DEEPCRAFT™ Studio Terms and Conditions](https://developer.imagimob.com/legal/studio-terms-and-conditions).
+
 ## Getting Started
 
 Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about DEEPCRAFT™ Studio and go through step-by-step tutorials to get you quickly started.

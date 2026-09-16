@@ -2,27 +2,9 @@
 
 This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
 
-## Overview
+## Overview - Use-Case
 
 This machine learning project contains everything to get started with keyword detection. Bundled with the project is a trained model, the Google Speech commands dataset, and the guide how to download and prepare the dataset as well as some hints on how to take the model to production.
-
-## Data
-
-The original dataset can be downloaded from [here](http://download.tensorflow.org/data/speech_commands_v0.02.tar.gz) with info about licencing also covered [here](https://www.tensorflow.org/datasets/catalog/speech_commands).
-The dataset differs from the original dataset in that the single wave files are concatenated to longer time series by stitching them together with 0.1 seconds of silence in between 
-to prevent that multiple words are in one input time window of the model. For the transformation, you need to modify the paths in the Python script (locatied at Tools/prepare_dataset.py).
-
-You can add more data by recording with your preferred recorder app of the OS, DEEPCRAFT™ Studio's [Graph UX](https://developer.imagimob.com/data-preparation/data-collection/collect-data-using-graph-ux) with either your Computer mic or an MCU with [Imagimob Streaming protocol](https://github.com/Infineon/mtb-example-imagimob-streaming-protocol).
-
-## Taking this model to production
-
-This model has been fed with a lot of data to make it more comprehensive. To take this model to production we recommend the following:
-1. Shortlisting a group of desired keywords, the smaller the list the better so you can focus on ensuring that the selected list is production grade
-2. Change the other classes to negative data so that the model can focus on only learning the selected classes
-3. Utilise the augmentation functionality to make the model more robust. We recommend also experimenting with other kinds of augmentation other than what's available in Studio to really bring the performance up
-4. Collect more talking data to make the model more robust (negative data so all the words not in the selected keywords)
-5. Collect more data of the selected keywords from people of different ethnicities, ages and genders
-
 
 ## Contents
 
@@ -50,6 +32,26 @@ Open the "Training" Tab and generate a new model list. Use the GUI config for ne
 Click "Start new Training Job" and submit the Job, Log-in to Imagimob Account
 
 After Training is finished, download model(s)
+
+## Sensor(s) & Data
+
+The original dataset can be downloaded from [here](http://download.tensorflow.org/data/speech_commands_v0.02.tar.gz) with info about licencing also covered [here](https://www.tensorflow.org/datasets/catalog/speech_commands).
+The dataset differs from the original dataset in that the single wave files are concatenated to longer time series by stitching them together with 0.1 seconds of silence in between to prevent that multiple words are in one input time window of the model. For the transformation, you need to modify the paths in the Python script (locatied at Tools/prepare_dataset.py).
+
+## Adding More Data
+
+You can add more data by recording with your preferred recorder app of the OS, DEEPCRAFT™ Studio's [Graph UX](https://developer.imagimob.com/data-preparation/data-collection/collect-data-using-graph-ux) with either your Computer mic or an MCU with [Imagimob Streaming protocol](https://github.com/Infineon/mtb-example-imagimob-streaming-protocol).
+
+Record additional keyword and negative-speech audio with Graph UX, a computer microphone, or an MCU running the Imagimob streaming protocol. Import the files and label them in Studio.
+
+## Steps to Production
+
+This model has been fed with a lot of data to make it more comprehensive. To take this model to production we recommend the following:
+1. Shortlisting a group of desired keywords, the smaller the list the better so you can focus on ensuring that the selected list is production grade
+2. Change the other classes to negative data so that the model can focus on only learning the selected classes
+3. Utilise the augmentation functionality to make the model more robust. We recommend also experimenting with other kinds of augmentation other than what's available in Studio to really bring the performance up
+4. Collect more talking data to make the model more robust (negative data so all the words not in the selected keywords)
+5. Collect more data of the selected keywords from people of different ethnicities, ages and genders
 
 ## Attributions & Citations
 

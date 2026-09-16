@@ -2,7 +2,7 @@
 
 This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
 
-## Overview - Data & Use-Case
+## Overview - Use-Case
 
 This is an object detection project specifically tailored to identifying road users, leveraging the robust capabilities of the YOLO (You Only Look Once) algorithm. The model has been trained on a customized subset of the [PASCAL VOC 2012](https://docs.ultralytics.com/datasets/detect/voc/) dataset. 
 
@@ -16,21 +16,25 @@ The model is of a compact size and optimized architecture, making it highly suit
 
 `Data` 	- Contains the road users dataset derived from [PASCAL VOC 2012](https://docs.ultralytics.com/datasets/detect/voc/) object detection dataset, also available on [Kaggle](https://www.kaggle.com/datasets/gopalbhattrai/pascal-voc-2012-dataset). With 5074 RGB images covering the following categories: person, bicycle, bus, train, car and motorbike. Original & citation can be found [here](https://exposing.ai/voc/)
 
-`Models` - Contains the trained and quantized model in .tflite file, ready for deployement, together with its predictions.								  
+`Models` - Contains the trained and quantized model in .tflite file, ready for deployement, together with its predictions.
 
 ## Model Training and Evaluation
+
  
 1. Train YOLO model using the provided dataset.
 2. Download the `.tflite` model from the trained job. 
 3. Double click the `.tflite` file and it will create a Graph Ux project.
 4. Run the Graph UX project to evaluate model performance in real time using selected camera.
 
+## Sensor(s) & Data
 
-## Adding more data
+This project uses RGB images from a curated subset of PASCAL VOC 2012 focused on road users (person, bicycle, bus, train, car, motorbike). Additional images should be RGB and collected in traffic-like scenes.
+
+## Adding More Data
 
 You can add more data from other sources for road users, or bring your own collected data and label it. Added images should be in RGB format similar to the orignal source data. Your new images can also have new objects. Overall, it is a good practice to maintain a good balance between the different objects categories.
 
-## Steps to production
+## Steps to Production
 
 The recommended path to production for this road users detection project includes the following steps:  
 - Add more data for road users if the detection rate for specific classes (e.g., cars) is low.
@@ -41,7 +45,7 @@ The recommended path to production for this road users detection project include
 
 ## Attributions & Citations
 
-Dataset: Everingham, M., Van Gool, L., Williams, C. K. I., Winn, J., & Zisserman, A. (2010). The Pascal Visual Object Classes (VOC) Challenge. International Journal of Computer Vision, 88(2), 303–328. 
+Dataset: Everingham, M., Van Gool, L., Williams, C. K. I., Winn, J., & Zisserman, A. (2010). The Pascal Visual Object Classes (VOC) Challenge. International Journal of Computer Vision, 88(2), 303–328.
 
 ## Getting Started
 

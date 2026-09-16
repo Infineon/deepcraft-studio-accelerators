@@ -2,7 +2,7 @@
 
 This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
 
-## Overview
+## Overview - Use-Case
 
 The **Rock, Scissors, Paper Detection Project** is a real-time gesture recognition system powered by a YOLO-based backend for detecting and classifying hand gestures. The project aims to build a robust end-to-end system that identifies rock, scissors, and paper gestures from live video input.
 
@@ -26,14 +26,20 @@ Users can further expand this project by training their own models, importing ne
 - **`Models`**: Stores the trained YOLO-based model and its quantized versions, prepared for deployment.
 
 ## Steps to get started: Model Training and Evaluation
+
   
    1. Train the YOLO-based model using the provided dataset or custom data.
    2. Download the trained model `.tflite` file from trained job. 
    3. Double click the `.tflite` file and it will create a Graph Ux project.
    4. Run the Graph UX project to evaluate model performance in real time using selected camera.
    5. Perform the gestures and observe detection from live camera.
-   
-## Adding more data
+
+## Sensor(s) & Data
+
+This project uses RGB camera images (USB camera, phone, or similar). Import additional images as DEEPCRAFT™ Studio sessions and label them in Studio, or use the Object Detection / Image Classification Data Collection Graph UX template.
+
+## Adding More Data
+
 - You can collect more data to the project following the steps below to improve the existing gestures or to include new ones.
 	 1. Use `Object Detection Data Collection Graph UX` template to collect and label gesture data.
 	 2. Import data to your project and retrain to get an updated model.
@@ -42,12 +48,13 @@ Users can further expand this project by training their own models, importing ne
 	  
 	Note: This project contains rgb format images, so new data should have rgb format.
 
-## Steps to production
+## Steps to Production
+
 The recommended path to production for this project includes the following steps:
 - Add more data for gestures with low detection rate.
 - Add negative data to make  gesture detections robust against non relevant hand movements.
 - Try different augmentation settings to increase the variability of the dataset, such as increase 'flip left right' and 'flip up down' parameters to get mirrored images of gestures.
-- Try different advanced settings such as optimizer,  iou threshold or confidence threshold to make model more or less sensitive. 
+- Try different advanced settings such as optimizer,  iou threshold or confidence threshold to make model more or less sensitive.
 
 ## Attributions & Citations
 

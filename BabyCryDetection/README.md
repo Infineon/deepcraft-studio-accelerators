@@ -4,13 +4,31 @@ This project is designed to work exclusively with DEEPCRAFT™ Studio. Download 
 
 **NOTE:** This project is the Baby Cry Studio Accelerator and not the DEEPCRAFT™ Ready Model for Baby Cry Detection. The Ready Model is available at [Baby Cry Detection in Infineon Developer Center](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftreadymodelforbabycrydetection)
 
-## Overview
+## Overview - Use-Case
 
 This Accelerator project allows you to build a baby cry detector that can be used on any supported Infineon MCU with a microphone. Everything is included to allow you to expand on the project to bring it to production on your own. 
 
 Below you can find code examples about how to deploy the output of this project to any supported Infineon MCU with a microphone.
 
-## Data and Classes
+## Contents
+
+`Data` - Folder where data is located
+
+- train_set - folder with "baby cry" and other (unlabelled) data used in the Train set 
+- validation_set - folder with "baby cry" and other (unlabelled) data used in the Validation set 
+- test_set - folder with "baby cry" and other (unlabelled) data used in the Test set 
+
+The folders train_set, validation_set, and test_set contain:
+- baby_cry	- folder with data for "baby cry" audio
+- other	- folder that contain all data that's unlabelled. It's intended make the model more robust against random noises and thus lowering false positives
+
+`Units` - Folder where custom layers and pre-processors can be added
+
+`Models` - Folder where trained models, their predictions and generated Edge code are saved. The folder includes also GradCam results for each session, which provide visual explanations of the model's predictions. For more information about GradCam, you can refer to the following [link](https://keras.io/examples/vision/grad_cam/).
+
+`PreprocessorTrack` - Folder where preprocessed data is located
+
+## Sensor(s) & Data
 
 Data with "baby cry" sound events and other types of sounds is already added to the project to get you started. You can add more data in the same format to further improve the model. 
 
@@ -25,8 +43,11 @@ The project has the following classes:
 
 *Note:* If you are using your own data, record it as 16 kHz mono, or edit the project preprocessor to fit your data format.
 
+## Adding More Data
 
-## Taking the Project Further
+Add more 16 kHz mono audio of baby cry and home-environment background sounds. Record with a microphone or Graph UX, import the sessions, and label them in Studio (manual or model-assisted).
+
+## Steps to Production
 
 This project is only an Accelerator project and as such some work is needed to further develop this project. Such as including more data from home environments as well as some data You can take the project further in a number of different ways:
 
@@ -62,26 +83,8 @@ Additional info are available in the guide [Getting Started with MTBML and Imagi
 
 - [Imagimob Deploy](https://github.com/Infineon/mtb-example-ml-imagimob-deploy) > code example that shows how to deploy Imagimob-generated machine learning models on an Infineon PSoC™ Pioneer or Evaluation Kit (see [list of supported kits](https://github.com/Infineon/mtb-example-ml-imagimob-deploy/tree/master#supported-kits-make-variable-target)) with [ModusToolbox™](https://www.infineon.com/cms/en/design-support/tools/sdk/modustoolbox-software/)
 
+## Attributions & Citations
 
-## Contents
-
-`Data` - Folder where data is located
-
-- train_set - folder with "baby cry" and other (unlabelled) data used in the Train set 
-- validation_set - folder with "baby cry" and other (unlabelled) data used in the Validation set 
-- test_set - folder with "baby cry" and other (unlabelled) data used in the Test set 
-
-The folders train_set, validation_set, and test_set contain:
-- baby_cry	- folder with data for "baby cry" audio
-- other	- folder that contain all data that's unlabelled. It's intended make the model more robust against random noises and thus lowering false positives
-
-`Units` - Folder where custom layers and pre-processors can be added
-
-`Models` - Folder where trained models, their predictions and generated Edge code are saved. The folder includes also GradCam results for each session, which provide visual explanations of the model's predictions. For more information about GradCam, you can refer to the following [link](https://keras.io/examples/vision/grad_cam/).
-
-`PreprocessorTrack` - Folder where preprocessed data is located
-
-## Data Licence
 All included data, is based on data extracted from freesound.org using [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/deed.en) & [CC0](https://creativecommons.org/public-domain/cc0/), as subset of our total freesound set as you can see here: https://github.com/Infineon/deepcraft-studio-accelerators/blob/main/_AttributionLists/Freesound_Attribution_List.csv
 
 ## Getting Started

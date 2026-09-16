@@ -51,9 +51,15 @@ Some points to highlight:
 
 ## Attributions & Citations
 
-Credit every third-party dataset, recording, or other source used in this project. Include the license (and any commercial-use limits), a link to the original source, and enough detail that a reader can find the exact version you used. Repeat one citation block per source. If you collected the data yourself, state that here instead.
+Credit every third-party dataset, recording, or other source used in this project. Include the license (and any commercial-use limits), a link to the original source, and enough detail that a reader can find the exact version you used. Repeat one citation block per source.
 
-Use BibTeX when a formal citation is available; otherwise list author, title, URL, license, and access date in plain text.
+If the data was collected within Infineon / DEEPCRAFT™ (this accelerator, an evaluation kit, Graph UX, or another internal recording), say so in plain text: what was recorded, with which sensor or board, and that use is subject to the DEEPCRAFT™ Studio Terms and Conditions. Do not invent a BibTeX entry for that data.
+
+Example:
+
+Data in this project was collected for the accelerator using a [board or sensor] for [what was recorded]. Usage is subject to the [DEEPCRAFT™ Studio Terms and Conditions](https://developer.imagimob.com/legal/studio-terms-and-conditions).
+
+Use BibTeX when a formal citation is available for a third-party source; otherwise list author, title, URL, license, and access date in plain text.
 
 ```bibtex
 @misc{dataset_key,

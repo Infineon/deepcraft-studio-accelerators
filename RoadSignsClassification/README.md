@@ -1,4 +1,4 @@
-﻿# Road Sign Image Classification
+# Road Sign Image Classification
 
 This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
 
@@ -102,7 +102,7 @@ The recommended path to production for this project includes the following steps
 - **Add data from different lighting, weather, and driving conditions.** Collect new data from day, night, dawn, dusk, rain, and foggy conditions, and include various camera angles, motion blur, and partial occlusions to enhance classification accuracy in real driving scenarios.
 
 
-## Attribution & Citation
+## Attributions & Citations
 
 This project uses the **German Traffic Sign Recognition Benchmark (GTSRB)** dataset:
 

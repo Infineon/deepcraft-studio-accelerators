@@ -2,7 +2,7 @@
 
 This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
 
-## Overview
+## Overview - Use-Case
 
 The Surface Image Classification Project is a real-time road surface classification system powered by a deep learning backend for classifying different road surface conditions. The project aims to build a robust end-to-end system that identifies various asphalt and road surfaces including dry, rainy, muddy, snowy, and other surface conditions from live video input.
 
@@ -28,10 +28,9 @@ Users can further expand this project by training their own models, importing ne
 
 ## Contents
 
-•	Data: Contains data (7350 rgb images) derived from various road surface datasets for training and testing the model, including different asphalt types, road surfaces, and weather conditions (rainy, muddy, snowy, etc.).
+`Data` - Contains data (7350 rgb images) derived from various road surface datasets for training and testing the model, including different asphalt types, road surfaces, and weather conditions (rainy, muddy, snowy, etc.).
 
-•	Models: Stores the trained image classification model and its quantized versions, prepared for deployment.
-																												   
+`Models` - Stores the trained image classification model and its quantized versions, prepared for deployment.
 
 ## Steps to get started: Model Training and Evaluation
 
@@ -45,7 +44,11 @@ Users can further expand this project by training their own models, importing ne
 
 5.	Observe surface classification from live camera feed.
 
-## Adding more data
+## Sensor(s) & Data
+
+This project uses RGB camera images (USB camera, phone, or similar). Import additional images as DEEPCRAFT™ Studio sessions and label them in Studio, or use the Object Detection / Image Classification Data Collection Graph UX template.
+
+## Adding More Data
 
 •	You can collect more data to the project following the steps below to improve the existing surface classifications or to include new ones.
 
@@ -59,7 +62,7 @@ Users can further expand this project by training their own models, importing ne
 
 Note: This project contains rgb format images, so new data should have rgb format.
 
-## Steps to production
+## Steps to Production
 
 The recommended path to production for this project includes the following steps:
 

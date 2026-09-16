@@ -96,7 +96,7 @@ into the Graph UX window for visualization.
 
 ![](/Resources/image4.png)
 
-Now we can press the `Start` button in the top toolbar to open the live session and press record to see the live labeling by the model predictions. 
+Now we can press the `Start` button in the top toolbar to open the live session and press record to see the live labeling by the model predictions.
 
 
 ## Steps to Production
@@ -115,6 +115,9 @@ Collecting data from different CAPSENSE&trade; sensors is required to get a robu
 Keep in mind that it is important to test your model under the conditions relevant for your use-case as well as on additional ones to verify that it can generalize. Use data in the Test set to start 
 with but run live model's testing as well to check its performance in real life.
 
+## Attributions & Citations
+
+Unless noted otherwise, data included in this project was collected for this accelerator. Usage is subject to the [DEEPCRAFT™ Studio Terms and Conditions](https://developer.imagimob.com/legal/studio-terms-and-conditions).
 
 ## Getting Started
 

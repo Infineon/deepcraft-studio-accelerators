@@ -2,7 +2,7 @@
 
 This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
 
-## Overview
+## Overview - Use-Case
 
 This machine learning project focuses on developing a glass break detection model that can accurately identify glass break events by analyzing audio signals.
 Such models play a critical role in modern security infrastructures, where they enhance situational awareness and enable rapid response.
@@ -23,18 +23,21 @@ and supports intelligent safety and security management across multiple domains.
 
 `Models` - Folder where trained models, their predictions and generated Edge code are saved.
 
-## Collection of Data
+## Sensor(s) & Data
+
 The data for this project was primarily collected from the Freesound site, with careful verification of licensing to ensure proper eligibility for use in model training. Infineon also contributed the data providing samples that strengthen 
 the reliability and diversity of the training set. All audio recordings in the dataset have a sampling frequency of 48 kHz, ensuring consistency and high-resolution quality for signal analysis and model training.
 
 
 ## Adding More Data
+
 The project currently includes 369 audio WAV files, forming the foundation for model training. While this provides a solid starting point, additional recordings are needed to broaden coverage. 
 In particular, expanding the dataset with more diverse glass break samples as well as recordings captured under noisier conditions and varying distances will help improve the model’s robustness and generalization to real-world environments. 
 DEEPCRAFT™ Studio provides a streamlined environment for recording glass break audio samples and offers integrated tools for labeling and preprocessing, ensuring that data preparation is both efficient and consistent. While studio recordings offer clean baseline samples, they should be complemented with field recordings 
 or augmented with synthetic noise to ensure the model performs reliably in real-world scenarios.
 
 ## Steps to Production
+
 The recommended path to production for a glass break detection model begins with clearly defining the environments and glass types you want the 
 system to handle such as residential windows, retail storefronts, or automotive glass. Once the scope is set, data collection should be performed 
 across diverse scenarios ensuring coverage of different glass materials, break mechanisms, microphone placements, and acoustic conditions so the 
@@ -46,6 +49,10 @@ sounds, should be included to reduce false alarms and strengthen reliability. Af
 evaluated in real‑world conditions to identify weaknesses. If performance drops in specific environments, adding representative data from those 
 contexts is often the most effective way to improve robustness. This iterative cycle of data expansion, parameter tuning, and scenario testing 
 ensures the final model is production‑ready, delivering accurate detection and seamless integration into security systems.
+
+## Attributions & Citations
+
+Audio is primarily from Freesound with licenses verified for training use; Infineon also contributed samples. See Freesound licenses on each source page and the master list: https://github.com/Infineon/deepcraft-studio-accelerators/blob/main/_AttributionLists/Freesound_Attribution_List.csv
 
 ## Getting Started
 

@@ -4,13 +4,19 @@ This project is designed to work exclusively with DEEPCRAFT™ Studio. Download 
 
 **NOTE:** This project is the Siren Studio Accelerator and not the DEEPCRAFT™ Ready Model for Siren Detection. The Ready Model is available on the [Siren Detection in Infineon Developer Center](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftreadymodelforsirendetectionevaluation).
 
-## Overview 
+## Overview - Use-Case
 
 This machine learning project contains everything you need to develop and deploy your very own version of the siren detection model.
 Bundled with the project is an already trained model, and instructions for how to deploy it to the Infineon AURIX™ TC375 Lite Kit Board + 
-KITA2G Audio Shield Board, which is ideally suitable for automotive and industrial applications. 
+KITA2G Audio Shield Board, which is ideally suitable for automotive and industrial applications.
 
-## Data
+## Contents
+
+`Data` - Folder where project data is located.
+
+`Models` - Folder where trained models, their predictions and generated Edge code are saved.
+
+## Sensor(s) & Data
 
 The project data consists of 487 sessions of 16-bit PCM mono audio recordings, sampled at 16Khz.
 Each session is either containing siren sounds, non-siren sounds (conversation, dogs barking, etc) and/or background noise.
@@ -23,7 +29,11 @@ This project can be used as a starting point to create a siren detector for any 
 - In automotive, to alert the driver or the car itself that there are emergency vehicles in the vicinity, to increase awareness and safety.
 - In headphones and other hearables to make the wearer aware that there are emergency vehicles in the vicinity to pay attention to their surroundings.
 
-## Taking the project further
+## Adding More Data
+
+Add more 16 kHz siren and non-siren audio, ideally recorded with the target edge device. Use Studio data augmentation to mix sounds and simulate distance. Label new sessions in Studio.
+
+## Steps to Production
 
 To get this project to a production ready state you would need to add more siren and non-siren data. You might also improve it for your particular edge device
 by adding data recorded with that device. You can also use augmentation to mix different sounds together and simulate distances to make the model more robust to sound variation.
@@ -36,9 +46,11 @@ In our developer pages we have a complete guide, including a code example for de
 Read more at https://developer.imagimob.com/getting-started/infineon-aurix-and-imagimob-studio.
 
 ## Deploying on PSOC and other MCU
+
 For deploying this model on other MCUs you can follow the standard deployment process and use the code examples provided in our documentation. [PSOC 6 & PSOC Edge](https://developer.imagimob.com/deployment/deploy-models-supported-boards/deploy-siren-detection-model-PSoC-boards) and other [non-Infineon MCUs](https://developer.imagimob.com/deployment/deploy-models-other-boards)
 
-## Data Licence
+## Attributions & Citations
+
 All included data, is based on data extracted from freesound.org using [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/deed.en) & [CC0](https://creativecommons.org/public-domain/cc0/). You can see our master attribution list for more details; https://github.com/Infineon/deepcraft-studio-accelerators/blob/main/_AttributionLists/Freesound_Attribution_List.csv
 
 ## Getting Started

@@ -2,7 +2,7 @@
 
 This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
 
-## Use-case description
+## Overview - Use-Case
 
 This Accelerator project aims to provide general guidance on how to develop an **anomaly detection system** for detecting anomalous behavior in machinery based on vibration measurements.
 This project will monitor a simple desktop fan, but the same concept and workflow can be easily ported to any other machinery, whether industrial or consumer.
@@ -39,9 +39,9 @@ This project demonstrates how to approach classification-based vibration monitor
 
 `Tools/IMUDataCollectionProject` - Folder with the Data Collection GraphUX project you can use for collecting more data.
 
-## Sensor settings specification
+## Sensor(s) & Data
 
-This Accelerator project requires the [PSOC™ 6 AI Evaluation Kit](https://www.infineon.com/cms/en/product/evaluation-boards/cy8ckit-062s2-ai/). This platform is equipped with PSoC™ 6 MCU and IMU sensors. The board is designed for easy prototyping and lets you collect real-life data to easily build a compelling ML product fast.
+This Accelerator was built using data collected with the [PSOC™ 6 AI Evaluation Kit](https://www.infineon.com/cms/en/product/evaluation-boards/cy8ckit-062s2-ai/). This platform is equipped with PSoC™ 6 MCU and IMU sensors.
 
 The desktop fan is optional; you may want to collect data directly from your machinery instead. However, if you want to replicate the project out-of-the-box with a small desktop fan, any inexpensive product similar to the one shown will be suitable:
 
@@ -53,7 +53,7 @@ A video of the demo application can be found here:
 
 [![](Resources/imgs/video.png)](https://www.youtube.com/watch?v=tCRPoyPbcgA)
 
-## Collecting and expanding the dataset
+## Adding More Data
 
 To add more data, you need to flash and configure the [Imagimob Streaming Protocol Firmware](https://github.com/Infineon/mtb-example-imagimob-streaming-protocol/blob/master/README.md) on your AI Kit.
 Follow the instructions in the README.md file of the ModusToolbox project to correctly configure and flash the board.
@@ -100,7 +100,7 @@ Simply run the script in your terminal to automatically label all sessions with 
 **Note**: Make sure that the data you label with this system contains only anomalous data.
 The script cannot distinguish anomalies and will simply label the entire length of the sessions with the "anomaly" label.
 
-## Recommended path to production
+## Steps to Production
 
 To bring this project to a production-level system, follow these general steps:
 
@@ -141,6 +141,10 @@ Last step is to move to the actual final production setup. The production system
 You may also leverage DEEPCRAFT™ Studio's Transfer Learning features for fine-tuning the prototype model to production data. This could lead to better results and faster go-to-production times, but the usage of Transfer Learning is recommended only to experienced ML users.
 
 **Note:** All subsequent ML system lifetime monitoring procedures must be defined and implemented by you according to you needs, requirements and targets.
+
+## Attributions & Citations
+
+Vibration data in this project was collected for the accelerator using a PSOC™ 6 AI Evaluation Kit on a desktop fan. Usage is subject to the [DEEPCRAFT™ Studio Terms and Conditions](https://developer.imagimob.com/legal/studio-terms-and-conditions).
 
 ## Getting Started
 

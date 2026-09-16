@@ -2,11 +2,19 @@
 
 This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
 
-## Overview
-This is an Accelerator project that classifies if there is an actively cutting chainsaw in the vicinity; chainsaws that are stalling are defined as not cutting. 
-A fully developed model could be used to detect illegal logging or create automatic warning systems. 
+## Overview - Use-Case
 
-## Collection of Data
+This is an Accelerator project that classifies if there is an actively cutting chainsaw in the vicinity; chainsaws that are stalling are defined as not cutting. 
+A fully developed model could be used to detect illegal logging or create automatic warning systems.
+
+## Contents
+
+`Data` - Folder where project data is located.
+
+`Models` - Folder where trained models, their predictions and generated Edge code are saved.
+
+## Sensor(s) & Data
+
 The majority of data for this model was collected with various microphones and proximities by cutting and stalling chainsaws in a small forest. This data was supplemented by data from freesounds.org in order to add background noise and additional chainsaw sounds.
 Specifically, various forest background noises were added.
 There is limited variety in the types of wood cut due to the collection being in the same forest.
@@ -14,10 +22,12 @@ The data was collected at 16000Hz, and the project contains around 700 minutes o
 After a preliminary evaluation, the model performed very poorly on chainsaw audio played through a speaker, making it harder to demo. As such, additional data was collected by playing chainsaw audio through a variety of speakers to supplement the dataset, after which it significantly improved on sounds played through speakers.
 
 ## Adding More Data
+
 Adding more background noise data can be done online or by collecting microphone data of a suitable environment (i.e., forest, construction site, river). This can then be imported into the Studio project.
-Adding more chainsaw data ought to be done through a thorough collection. Adding variation of different types of chainsaws, different types of trees, and varying the distance from the microphone is strongly recommended, with the distances being most important. 
+Adding more chainsaw data ought to be done through a thorough collection. Adding variation of different types of chainsaws, different types of trees, and varying the distance from the microphone is strongly recommended, with the distances being most important.
 
 ## Steps to Production
+
 The first step is to identify the use-case, hardware and location of your desired chainsaw detection model and modifying the existing project to account for that. For example, if your microphone is to be encased to protect it from rain, applying data augmentation on the existing data is likely benefitial.
 Next, collect more data as outlined above with background noise tailored to your use case.
 It is recommended to apply some amount of post processing to reduce false positives. Since chainsaws involved in illegal logging are not active for just a short number of seconds, a models false positive rate can be reduced by for example temporal smoothing.

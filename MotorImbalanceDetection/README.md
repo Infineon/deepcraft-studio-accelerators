@@ -35,7 +35,7 @@ The model is suitable for real-time, low powered embedded applications such as:
 
 `PreprocessorTrack` - Folder containing preprocessed data tracks (i.e. the output of the preprocessor).
 
-## Sensors and Data
+## Sensor(s) & Data
 
 This project utilizes the PSOC C3 Motor Control Kit (KIT_PSC3M5_MC1) for data collection. The kit includes the following components: 
 - PSOC C3 Drive Card
@@ -114,6 +114,10 @@ Imbalance detection can be affected by whether the motor is mounted horizontally
 It is equally important to include negative samples in data from normal operation, startup transients(eg:sudden spikes or dips in current or voltage, rapid changes in vibration or torque etc) and other non-imbalance events to help the model distinguish true imbalance from unrelated noise. If the model is designed to detect imbalance specifically also gather data from other fault types such as misalignment or bearing wear to improve its precision.
 
 To ensure the model generalizes well test it under both typical operating conditions and edge cases (eg:extreme speeds or loads, sudden changes in directions etc). Begin with your test dataset but also run live sessions to evaluate how the model performs in real-world scenarios.
+
+## Attributions & Citations
+
+Unless noted otherwise, data included in this project was collected for this accelerator. Usage is subject to the [DEEPCRAFT™ Studio Terms and Conditions](https://developer.imagimob.com/legal/studio-terms-and-conditions).
 
 ## Getting Started
 

@@ -2,7 +2,8 @@
 
 This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
 
-## Overview
+## Overview - Use-Case
+
 A Battery Management System (BMS) is a crucial component in any xEV, responsible for monitoring, protecting, and optimizing battery performance.
 
 - **Battery State Estimation Algorithms** lie at the core of the BMS. These algorithms compute battery states, which are essential for monitoring and controlling the battery system, as well as providing feedback to the operator.
@@ -29,9 +30,18 @@ To prepare the data for model training, voltage–time profiles were extracted f
 
 `Models` - Folder where the trained model, its predictions and generated Edge code are saved.
 
-`Resources`	- This folder contains additional files. 
+`Resources`	- This folder contains additional files.
 
-## Taking the project further
+## Sensor(s) & Data
+
+The model uses voltage–time charging profiles from NMC-Graphite Sanyo/Panasonic UR18650E cells. See Contents for how the open-source cycling data was converted into training samples.
+
+## Adding More Data
+
+Expand with other manufacturers, operating conditions, and charging profiles. Optionally add current and temperature. Keep Train/Validation/Test disjoint.
+
+## Steps to Production
+
 Below are some points to expand and improve the topic further:
 - Expanding the dataset: include a wider range of manufacturers, operating conditions, and possibly chemistries. Additionaly, use data augmentation to increase the training data. Finally, incorporating different charging profiles is essential to replicate real world conditions.
 
@@ -39,7 +49,8 @@ Below are some points to expand and improve the topic further:
 
 - Investigate approaches such as residual learning to increase the robustness of the model against sensors inaccuracies in the deployment environment.
 
-## References
+## Attributions & Citations
+
 <a id="1">[1]</a>
 Li, W., Sengupta, N., Dechent, P., Howey, D., Annaswamy, A., & Sauer, D. U. (2021). Online capacity estimation of lithium-ion batteries with deep long short-term memory networks. Journal of power sources, 482, 228863.
 

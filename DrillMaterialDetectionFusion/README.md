@@ -2,7 +2,7 @@
 
 This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
 
-## Overview
+## Overview - Use-Case
 
 This Studio Accelerator aims to provide general guidance on developing systems that detect machine operating conditions based on sound and vibration measurements via sensor fusion. 
 While this project monitors a simple hand drill, the same concepts and workflow can be easily applied to any other machine, industrial or consumer. Furthermore, similar techniques and models could be used in other use-cases such as monitoring the condition of an industrial environment based on the microphone and vibration outputs.
@@ -36,19 +36,21 @@ This project demonstrates how to approach classification-based sound and vibrati
 
 `Tools`    - Folder with the Data Collection GraphUX project you can use for collecting more data and a ModusToolbox project for deploying the model.
 
+## Sensor(s) & Data
 
-## Sensor settings specification
-
-This Studio Accelerator requires the [PSOC™ Edge E84 AI Evaluation Kit](https://www.infineon.com/evaluation-board/kit-pse84-ai). This platform is equipped with PSOC™ Edge E84, MEMS Microphone and IMU sensors. The board is designed for easy prototyping and lets you collect real-life data to easily build a compelling ML product fast.
+This Accelerator was built using data collected with the [PSOC™ Edge E84 AI Evaluation Kit](https://www.infineon.com/evaluation-board/kit-pse84-ai). This platform is equipped with PSOC™ Edge E84, MEMS Microphone and IMU sensors.
 
 The hand drill is optional; you may want to collect data directly from your machinery instead. However, if you want to replicate the project out-of-the-box with a hand drill, any product similar to the one shown will be suitable. Mount the PSOC™ Edge AI Evaluation Kit equipped with MEMS Microphone and IMU sensors onto a hand drill, with the microphone's pickup section facing the drill bit - see image below.
 
 ![](Resources/imgs/HandDrill.png)
 
 ## Collection of Data
+
 Details on Data Collection and Preprocessing Generation can be found in the README of Tools/DataCollection
 
+## Adding More Data
 
+See `Tools/DataCollection` for data collection and preprocessor-generation steps. Import new sessions into the project and label wood, plastic, and air (idle) in Studio.
 
 ## Steps to Production
 
@@ -93,6 +95,10 @@ Last step is to move to the actual final production setup. The production system
 You may also leverage DEEPCRAFT™ Studio's Transfer Learning features for fine-tuning the prototype model to production data. This could lead to better results and faster go-to-production times, but the usage of Transfer Learning is recommended only to experienced ML users.
 
 **Note:** All subsequent ML system lifetime monitoring procedures must be defined and implemented by you according to you needs, requirements and targets.
+
+## Attributions & Citations
+
+Unless noted otherwise, data included in this project was collected for this accelerator. Usage is subject to the [DEEPCRAFT™ Studio Terms and Conditions](https://developer.imagimob.com/legal/studio-terms-and-conditions).
 
 ## Getting Started
 

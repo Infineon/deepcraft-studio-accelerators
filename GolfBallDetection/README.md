@@ -2,7 +2,7 @@
 
 This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
 
-## Use-case description
+## Overview - Use-Case
 
 This Studio Accelerator aims to provide general guidance on how to develop a Computer Vision project for **golf ball detection** with RGB camera.
 
@@ -37,16 +37,16 @@ This project demonstrates how to approach the task from a Computer Vision perspe
 `Tools`    - Folder containing additional tools and project. Not used in this project.
 
 
-## Sensor settings specification
+## Sensor(s) & Data
 
-This starter project requires the [PSOC™ EDGE Evaluation Kit](https://www.infineon.com/evaluation-board/kit-pse84-eval). This platform is equipped with PSOC™ Edge E84 MCU and a USB Camera Module. The board is designed for easy prototyping and lets you collect real-life data to easily build a compelling ML product fast.
+This Accelerator was built using data collected with the [PSOC™ EDGE Evaluation Kit](https://www.infineon.com/evaluation-board/kit-pse84-eval). This platform is equipped with PSOC™ Edge E84 MCU and a USB Camera Module.
 
 Having some golf balls available is optional; but you might need them to test the model and collect additional data. However, if you want to test the project out-of-the-box, you could also show the camera some pictures of golf balls on your laptop screen or your phone.
 
 ![](Resources/imgs/golfballs-labels.png)
 
 
-## Collecting and expanding the dataset
+## Adding More Data
 
 To add more data, you can either rely on Studio's live data collection from Computer Vision project: [Real-Time Image data collection and labeling using camera](https://developer.imagimob.com/deepcraft-studio/data-preparation/data-collection/collect-data-without-kit/collect-image-data-using-graph-ux), or you can add your dataset collected with other means.
 If you want to import data collected externally, for example with a mobile phone or with a camera on the field, please refer to (Bring your own data for object detection projects)[https://developer.imagimob.com/deepcraft-studio/data-preparation/bring-your-data/bring-your-own-data-object-detection]
@@ -54,7 +54,7 @@ If you want to import data collected externally, for example with a mobile phone
 **Hint**: if you collect data with a mobile phone or another camera, try to set the camera to provide squared images. This will be make easier to process image later and will avoid unwanted stretching.
 
 
-## Recommended path to production
+## Steps to Production
 
 To bring this project to a production-level system, follow these general steps:
 

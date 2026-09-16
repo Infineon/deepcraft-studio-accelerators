@@ -2,7 +2,7 @@
 
 This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
 
-## Overview
+## Overview - Use-Case
 
 The **Termite Detection Project** is an example project showing how to build a model that can detect termites. The project aims to build a robust end-to-end system that identifies termites from live video input.
 
@@ -12,7 +12,7 @@ The termite object detection model is YOLO-based and it can be used in applicati
 - **House/gardens maintenance**
 
 Users can further expand this project by training their own models, importing new data, and evaluating performance using the provided tools.
-			 
+
 ## Features
 
 1. **Real-Time Termite Detection**: The project uses a YOLO-based model to detect and classify termites accurately and in real-time.   
@@ -31,6 +31,7 @@ Users can further expand this project by training their own models, importing ne
 
 
 ## Steps to get started: Model Training and Evaluation
+
   
    1. Train the YOLO-based model using the provided dataset or custom data.
    2. Download the trained model `.tflite` file from trained job. 
@@ -38,13 +39,19 @@ Users can further expand this project by training their own models, importing ne
    4. Run the Graph UX project to evaluate model performance in real time using selected camera.
    5. Put infront of the camera pictures with termites or real termites and observe detection from live camera.
 
-## Adding more data
+## Sensor(s) & Data
+
+This project uses RGB camera images (USB camera, phone, or similar). Import additional images as DEEPCRAFT™ Studio sessions and label them in Studio, or use the Object Detection / Image Classification Data Collection Graph UX template.
+
+## Adding More Data
+
 You can add more data to the project following the steps below to improve the existing termite detection or to include new insects to be detected.
  1. Use `Object Detection Data Collection Graph UX` template to collect and label new data.
  2. Import data to your project and retrain to get an updated model.
 
 
-## Steps to production
+## Steps to Production
+
 The recommended path to production for this project includes the following steps:
 - Add more data for termite if detection rate is low.
 - Add more classes like other insects to be detected

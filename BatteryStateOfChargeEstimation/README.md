@@ -2,7 +2,7 @@
 
 This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
 
-## Overview
+## Overview - Use-Case
 
 A Battery Management System (BMS) is a crucial component in any xEV, responsible for monitoring, protecting, and optimizing battery performance.
 
@@ -18,14 +18,24 @@ About the Neural Network:
 
 `Data` 	- Folder where the data is.		 
 
-`Models` - Folder where the trained model, its predictions and generated edge code are saved.	   
+`Models` - Folder where the trained model, its predictions and generated edge code are saved.
 
-## Taking the project further
+## Sensor(s) & Data
+
+The model uses voltage, current, temperature, and short-term averages of voltage and current from Li-ion cell measurements (LG 18650HG2 open-source dataset cited below).
+
+## Adding More Data
+
+Expand the dataset with other manufacturers, chemistries, and charge/discharge profiles. Keep the same feature format (voltage, current, temperature, and averages) and split new sessions so the Test set stays unseen.
+
+## Steps to Production
+
 Below are some points to expand and improve the topic further:
 - Expanding the dataset: include a wider range of manufacturers, operating conditions, and possibly chemistries. Additionaly, use data augmentation to increase the training data. Finally, incorporating different charging/discharging profiles is essential to replicate real world conditions.
-- Experimenting with different length for the window used to calculate the average voltage, and the average current. Also, experimenting with adding multiple time windows instead of one, for example to capture short, and medium-term patterns separately. 
+- Experimenting with different length for the window used to calculate the average voltage, and the average current. Also, experimenting with adding multiple time windows instead of one, for example to capture short, and medium-term patterns separately.
 
-## References
+## Attributions & Citations
+
 <a id="1">[1]</a>
 Kollmeyer, Philip; Vidal, Carlos; Naguib, Mina; Skells, Michael  (2020), “LG 18650HG2 Li-ion Battery Data and Example Deep Neural Network xEV SOC Estimator Script”, Mendeley Data, V3, doi: 10.17632/cp3473x7xv.3
 

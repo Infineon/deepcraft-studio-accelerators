@@ -30,7 +30,7 @@ By replacing physical buttons with intuitive gesture-based controls, this approa
 
 `Tools`	- Folder containing a python script used for downsampling data.
 
-## Sensor & Data
+## Sensor(s) & Data
 
 This project uses data collected with a CAPSENSE-based custom board which consists of 5 slider segments connected to a PSOC4 board.
 The CAPSENSE sensor is designed using multiple capacitive electrodes arranged to detect directional gestures such as up-swipe, down-swipe, left-swipe and right-swipe. Each electrode senses changes in self-capacitance when a finger approaches or touches the overlay surface. The overlay, typically made of plastic or glass, acts as a dielectric layer and influences the sensor’s sensitivity based on its thickness and material properties. The capacitance is modeled using the parallel plate capacitor equation:
@@ -50,7 +50,6 @@ The image above shows the PCB layout of the custom capacitive sensor board desig
 row of six pins, labeled with signal identifiers such as GND and P1. Each pin on the left side of the PCB corresponds to a specific gesture zone. 
 When a finger touches or approaches the area above a pin’s associated electrode, the CAPSENSE system detects a change in capacitance and it is send to the model which then interprets it as a specific directional gesture. 
 These pins serve as connection points to the main controller or evaluation kit.
-
 
 
 | **Pin Label(P1)** | **Gesture Function**|
@@ -83,6 +82,7 @@ Shown below is the recording window, where each waveform color—violet, green, 
 
 
 ## Steps to Production
+
 To bring a gesture detection model to production involves collecting gesture samples from a wide range of users and environments. Diversity in data ensures that the model learns to generalize across real-world conditions and reduces the risk of overfitting to a narrow set of inputs. 
 
 Gesture recognition performance can be affected by whether the device is handheld or mounted, the material and shape of the surface, and the presence of external disturbances. Environmental influences such as humidity and long-term wear on the sensor can also alter signal characteristics. To build a robust and reliable model, it is essential to capture data across these diverse conditions and incorporate them into the training pipeline.
@@ -92,6 +92,10 @@ It is crucial to properly split the dataset into training, validation, and test 
 To further enhance model reliability, negative samples should be included in the dataset. These are examples where no gesture is present, or where random hand movements occur. Including such data helps the model learn to distinguish between intentional gestures and irrelevant signals, reducing false positives and improving robustness in noisy or unpredictable environments.
 
 The model should be tested in real-world conditions to identify edge cases (eg: using wet or gloved hands, gestures executed too quickly or too slowly), monitor performance and gather user feedback. A feedback loop could be established to collect new data post-deployment, enabling periodic retraining and updates. This continuous learning process ensures that the gesture detection model remains accurate, adaptive, and production-ready over time.
+
+## Attributions & Citations
+
+Unless noted otherwise, data included in this project was collected for this accelerator. Usage is subject to the [DEEPCRAFT™ Studio Terms and Conditions](https://developer.imagimob.com/legal/studio-terms-and-conditions).
 
 ## Getting Started
 

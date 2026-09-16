@@ -2,7 +2,7 @@
 
 This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
 
-## Overview
+## Overview - Use-Case
 
 The Hybrid TOF Camera Object Detection project utilizes YOLOv5n for real-time object classification, leveraging the pointcloud from a TOF (Time-of-Flight) camera to acquire spatial data, including xyz coordinates and object distance. With multi-class object detection implemented in `OZT378` hybrid TOF camera, both object detection results and their distances are displayed in real time.
 
@@ -44,7 +44,7 @@ Detailed in this file [YOLO_README.md](Resources/YOLO_README.md)
 * Upload the folder of image to Roboflow [https://roboflow.com/](https://roboflow.com/)
 * Create a project and do annotation
 * Download dataset as YOLO v5 PyTorch format
-* From [YOLO_README.md](Resources/YOLO_README.md), Choose `Yolo` in the `Select Label Format` window when adding data, and also add `data.yaml` into `Class Map File` under `Yolo` to map the numbers to the actual name of the label 
+* From [YOLO_README.md](Resources/YOLO_README.md), Choose `Yolo` in the `Select Label Format` window when adding data, and also add `data.yaml` into `Class Map File` under `Yolo` to map the numbers to the actual name of the label
 
 ## Model Evaluation (Graph UX live camera evaluation is not yet supported for TOF camera)
 
@@ -101,6 +101,9 @@ To bring this project and its trained models to production, follow these main st
 
 ![Demo GIF](Resources/tof_gif.gif)
 
+## Attributions & Citations
+
+Unless noted otherwise, data included in this project was collected for this accelerator. Usage is subject to the [DEEPCRAFT™ Studio Terms and Conditions](https://developer.imagimob.com/legal/studio-terms-and-conditions).
 
 ## Getting Started
 

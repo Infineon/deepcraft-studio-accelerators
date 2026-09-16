@@ -2,7 +2,7 @@
 
 This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
 
-## Use-case description
+## Overview - Use-Case
 
 This Accelerator demonstrates an AI model that classifies three states based solely on air-pressure and temperature dynamics at the sensor: cool_blow, warm_breath, and none. By learning the characteristic signatures of fast, focused airflow versus slow, warm exhalation, the model provides robust, on-device inference without external instrumentation, highlighting the precision and sensitivity of the XENSIV digital barometric pressure sensor (DPS) integrated with PSoC 6.
 
@@ -44,14 +44,11 @@ Do not blow forcefully.
 
 `Tools` — Folder containing GraphUX utility projects: `Tools/LiveDataCollection` for live data collection (see [README](Tools/LiveDataCollection/README.md)) and `Tools/LiveModelEvaluation` for model evaluation.
 
+## Sensor(s) & Data
 
-### Sensor settings specification
+This Accelerator was built using data collected with the [PSOC™ 6 AI Evaluation Kit](https://www.infineon.com/cms/en/product/evaluation-boards/cy8ckit-062s2-ai/). This platform is (among other things) equipped with the XENSIV™ digital barometric air pressure sensor.
 
-This Accelerator requires the [PSOC™ 6 AI Evaluation Kit](https://www.infineon.com/cms/en/product/evaluation-boards/cy8ckit-062s2-ai/). This platform is (among other things) equipped with the XENSIV™ digital barometric air pressure sensor. The board is designed for easy prototyping and lets you collect real-life data to build a compelling ML product quickly.
-Apart from the PSoC 6 AI Evaluation Kit, you do not need any additional hardware.
-
-
-## Collecting and expanding the dataset
+## Adding More Data
 
 ### Live data collection
 
@@ -79,7 +76,7 @@ Note that DEEPCRAFT™ Studio introduces an "Unlabelled data" class by default.
 **warm_breath**: Indicates a slower exhalation typical of open-mouth breathing; often characterized by a gentler pressure change and a temperature increase at the sensor.
 **Unlabelled**: Indicates no significant airflow or temperature change consistent with breath-related events.
 
-## Recommended path to production
+## Steps to Production
 
 To bring this Accelerator to a production-level system, follow these general steps:
 
@@ -130,6 +127,10 @@ Wait until you see data appearing in the `Preprocessed Data` track, and then per
 ![](Resources/imgs/real-time-prediction.png)
 
 ![](Resources/imgs/live-testing.gif)
+
+## Attributions & Citations
+
+Pressure and temperature recordings were collected for this accelerator with the XENSIV™ digital barometric air pressure sensor on the PSOC™ 6 AI Evaluation Kit. Usage is subject to the [DEEPCRAFT™ Studio Terms and Conditions](https://developer.imagimob.com/legal/studio-terms-and-conditions).
 
 ## Getting Started
 

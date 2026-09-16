@@ -2,13 +2,23 @@
 
 This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
 
-## Overview
+## Overview - Use-Case
 
 This Accelerator project allows you to build a human activity detector that can be used on any supported Infineon MCU (or other MCUs) with a BMI160 IMU or another IMU. You can use this project as a starting point to develop a production ready model intended for deployment in wristed wearables. 
 
 Below you can find code examples about how to deploy the output of this project to any supported Infineon MCU with a BMI160 IMU.
 
-## Data and Classes
+## Contents
+
+`Data`  - Folder where data is located.
+
+`Units`  - Folder where custom layers and pre-processors can be added.
+
+`Models` - Folder where trained models, their predictions and generated Edge code are saved.
+
+`Resources`  - Folder where additional files and tools can be added.
+
+## Sensor(s) & Data
 
 The IMU (Inertial Mesurement Unit - accelerometer and gyroscope) needs to be set up to collect data at 50 Hz using +/- 8g for the accelerometer scale and +/- 500 dps for the gyro scale.
 
@@ -58,8 +68,11 @@ The IMU axes of the CY8CKIT-028-SENSE need to be oriented as shown in the pictur
 
 ![orientation](Resources/IMU_orientation.jpg "IMU Orientation")
 
+## Adding More Data
 
-## Taking the Project Further
+Collect additional IMU recordings at 50 Hz (±8 g, ±500 dps) with a PSOC™ evaluation kit and Graph UX / streaming protocol. Label activities in Studio and include everyday non-target motion as negative data.
+
+## Steps to Production
 
 There are a number of ways to go forward once you have downloaded the project:
 
@@ -67,16 +80,9 @@ There are a number of ways to go forward once you have downloaded the project:
 
 2. You can take the model, deploy it on a device and get a feeling for how this model would work in real-life. Make note though that this model was only trained on 5 individuals so it might need a bit more data to be able to generalise.
 
-## Contents
+## Attributions & Citations
 
-`Data`  - Folder where data is located.
-
-`Units`  - Folder where custom layers and pre-processors can be added.
-
-`Models` - Folder where trained models, their predictions and generated Edge code are saved.
-
-`Resources`  - Folder where additional files and tools can be added.
-
+Unless noted otherwise, data included in this project was collected for this accelerator. Usage is subject to the [DEEPCRAFT™ Studio Terms and Conditions](https://developer.imagimob.com/legal/studio-terms-and-conditions).
 
 ## Getting Started
 

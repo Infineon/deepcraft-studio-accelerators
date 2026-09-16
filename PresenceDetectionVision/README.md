@@ -20,10 +20,11 @@ Users can further expand this project by training their own models, importing ne
 
 **`Data`** 	- Contains data taken from Roboflow with human class images: [Human datasets](https://universe.roboflow.com/leo-ueno/people-detection-o4rdr/dataset/1). This dataset used images and/or annotations from Universe projects with CC BY 4.0 license.
 
-**`Models`** - Folder where trained trained yolo5n, model predictions and generated Edge code are saved. 
+**`Models`** - Folder where trained trained yolo5n, model predictions and generated Edge code are saved.
 
 
 ## Steps to get started: Model Training and Evaluation
+
   
    1. Train the YOLO-based model using the provided dataset or custom data.
    2. Download the trained model `.tflite` file from trained job. 
@@ -31,13 +32,16 @@ Users can further expand this project by training their own models, importing ne
    4. Run the Graph UX project to evaluate model performance in real time using selected camera.
    5. Make sure to have human presence in front of the camera and observe detection from live camera.
 
+## Sensor(s) & Data
+
+The primary sensor is a standard RGB camera (USB, MIPI-CSI, smartphone, or industrial). Image data is stored as DEEPCRAFT™ Studio object-detection sessions with person bounding boxes.
+
 ## Adding More Data
 
 You can add more data to the project to improve the existing human presence detection. For the new data you are going to add, you can choose to add existed dataset or collect your own data using Studio. 
 Steps for adding own collected data: 
  1. Use `Object Detection Data Collection Graph UX` template to collect and label new data.
  2. Import data to your project and retrain to get an updated model.
- 
 
 ## Steps to Production
 
