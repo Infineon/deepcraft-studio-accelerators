@@ -21,7 +21,7 @@ Users can further expand this project by training their own models, importing ne
 ## Features
 
 1. **Real-Time Image Classification**: The project uses a deep learning model to classify traffic signs accurately and in real-time.
-2. **Custom Data Integration**: Users can add new data through the data import or using `Image Classification Data Collection Graph UX` template and label their own data for model training.
+2. **Custom Data Integration**: Users can add new data through data import or by using the `Image Classification Data Collection Graph UX` template and label their own data for model training.
 3. **Model Evaluation**: Evaluate trained models by double-clicking the `.tflite` file; it will generate a Graph UX project to run.
 
 ## Contents
@@ -38,7 +38,7 @@ Users can further expand this project by training their own models, importing ne
 2. Download the trained model `.tflite` file from the trained job.
 3. Double-click the `.tflite` file and it will create a Graph UX project.
 4. Run the Graph UX project to evaluate model performance in real time using the selected camera.
-5. Put in front of the camera pictures of traffic signs (or capture live roadside views) and observe classification from live camera.
+5. Place pictures of traffic signs in front of the camera (or capture live roadside views) and observe classification from the live camera.
 
 ## Sensor(s) & Data
 

@@ -9,7 +9,7 @@ The CY8CKIT-062S2-AI board in combination with the latest generation of the CAPS
 
 The model built with this project can be used in applications like
 
-- water/rain detector for safety of electronic devices or equipments
+- water/rain detector for safety of electronic devices or equipment
 - touch button/control for outdoor use
 
 
@@ -26,18 +26,18 @@ The model built with this project can be used in applications like
 
 ## Sensor(s) & Data
 
-### What CAPSENSE&trade; is doing
+### What CAPSENSE&trade; does
 
-With CAPSENSE&trade; we use a capacitive sensing to sense small changes of the self-capacitance of the sensor pad. These changes are caused by the dielectric constant of different materials.
-In this setup we can assume a simple parallel plate condensator and therefore use the following equation C = ( epsilon_0 * epsilon_r * A) / d.
+With CAPSENSE&trade; we use capacitive sensing to detect small changes of the self-capacitance of the sensor pad. These changes are caused by the dielectric constant of different materials.
+In this setup we can assume a simple parallel plate capacitor and therefore use the following equation C = ( epsilon_0 * epsilon_r * A) / d.
 
-Since water has a higher dielectric constant than air, the capacity is increased. These changes are used to determine the different labels for this project.
-To differentiate between finger touches and water on the surface, we use different sensing frequencies (100 kHz and 5.75 MHz). Water isn't affecting the self-capacitance in higher frequency ranges, 
+Since water has a higher dielectric constant than air, the capacitance is increased. These changes are used to determine the different labels for this project.
+To differentiate between finger touches and water on the surface, we use different sensing frequencies (100 kHz and 5.75 MHz). Water doesn't affect the self-capacitance in higher frequency ranges, 
 which is due to its decreasing dielectric constant for higher frequencies. In contrast, a finger press can be detected at both frequencies, while water is only detectable at the low frequency.
 
 ### Hardware needed for this project
 
-To obtain the capacity changes a capacitive sensor is needed. In this project we use the CAPSENSE&trade; enabled microcontroller PSOC4100T with the latest generation of the CAPSENSE&trade; sensing 
+To obtain the capacitance changes a capacitive sensor is needed. In this project we use the CAPSENSE&trade; enabled microcontroller PSOC4100T with the latest generation of the CAPSENSE&trade; sensing 
 technology. We attached a simple PCB containing three buttons surrounded by a guard ring and used all four sensing pads as one sensor (ganged). With this we can increase the sensing range of the sensor.
 
 We used 2 ganged sensors: one ganged setup for high-frequency data with clock divider and sub-conversions equal to 8 and 512, respectively. The other ganged setup for low-frequency data with clock divider 
@@ -73,7 +73,7 @@ We recorded noise to make the model more robust. A recording session for the Noi
 ## Adding More Data
 
 In this project, we collect the data by using the Graph UX interface to create a simple data collection pipeline. The Graph UX file is located in the `Tools` folder. 
-Connect the CY8CKIT-062S2-AI board or any other board with CAPSENSE&trade;, running the Streaming Protocol V2 firmware, to your PC and dragg it into the Graph UX window from the Node Explorer.
+Connect the CY8CKIT-062S2-AI board or any other board with CAPSENSE&trade;, running the Streaming Protocol V2 firmware, to your PC and drag it into the Graph UX window from the Node Explorer.
 
 After that we insert our predefined labels over the Node explorer and name them Touch, Wet, Dry
 and insert a Data Track to the Graph UX window to be able to record, label and store the data from the sensor.
@@ -125,4 +125,4 @@ Please visit [developer.imagimob.com](https://developer.imagimob.com), where you
 
 ## Help & Support
 
-If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.
+If you need support or if you want to know how to deploy the model onto the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.

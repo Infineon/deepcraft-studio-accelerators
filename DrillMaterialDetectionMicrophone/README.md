@@ -25,7 +25,7 @@ There are additional labels for the moment of removing the drill from the materi
 
 ## Adding More Data
 
-In order to add more data-be it similar, from another type of drill, or another material entirely-you simply need to attach an AI-eval kit (purchasable here: https://www.infineon.com/cms/en/product/evaluation-boards/cy8ckit-062s2-ai/) to a drill and stream the audio data of drilling into DEEPCRAFT™ Studio and then label it appropriately. 
+In order to add more data—whether similar, from another type of drill, or another material entirely—you simply need to attach an AI-eval kit (purchasable here: https://www.infineon.com/cms/en/product/evaluation-boards/cy8ckit-062s2-ai/) to a drill and stream the audio data of drilling into DEEPCRAFT™ Studio and then label it appropriately. 
 It is recommended to have a minimum of 100 seconds of data per label, preferably more.
 
 ## Steps to Production
@@ -47,4 +47,4 @@ Please visit [developer.imagimob.com](https://developer.imagimob.com), where you
 
 ## Help & Support
 
-If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.
+If you need support or if you want to know how to deploy the model onto the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.

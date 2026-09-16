@@ -48,7 +48,7 @@ epsilon_r is the dielectric constant of the overlay,
 
 The image above shows the PCB layout of the custom capacitive sensor board designed for the project. The P4_iMob_FabFiles located in the Resources folder contain all necessary fabrication assets and can be provided to a PCB manufacturer to build the custom board. On the left side of the board, there is a vertical
 row of six pins, labeled with signal identifiers such as GND and P1. Each pin on the left side of the PCB corresponds to a specific gesture zone. 
-When a finger touches or approaches the area above a pin’s associated electrode, the CAPSENSE system detects a change in capacitance and it is send to the model which then interprets it as a specific directional gesture. 
+When a finger touches or approaches the area above a pin’s associated electrode, the CAPSENSE system detects a change in capacitance and it is sent to the model, which then interprets it as a specific directional gesture. 
 These pins serve as connection points to the main controller or evaluation kit.
 
 
@@ -70,7 +70,7 @@ To collect more data ensure that boards are connected as shown in the image belo
 
 ![Connection Diagram 2](./Resources/Images/capsenseboard.PNG)
 
-To start the project, create an example CAPSENSE project by selecting the peripherals as ¨UART Transmit and Receive¨ in ModusToolbox IDE. Set up data transmission over UART to a PC running the Imagimob Capture Server software.
+To start the project, create an example CAPSENSE project by selecting the peripherals as "UART Transmit and Receive" in ModusToolbox IDE. Set up data transmission over UART to a PC running the Imagimob Capture Server software.
 Configure the UART, RX, and TX by referring to the code snippet located at Resources > uart_configuration_code_snippet and collect data using the [Capture Server](https://bitbucket.org/imagimob/captureserver/src/master/).
 The collected data in this project has been downsampled using the provided script to optimize model efficiency and reduce computational overhead.
 
@@ -103,4 +103,4 @@ Please visit [developer.imagimob.com](https://developer.imagimob.com), where you
 
 ## Help & Support
 
-If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.
+If you need support or if you want to know how to deploy the model onto the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.

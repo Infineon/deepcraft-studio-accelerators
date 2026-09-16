@@ -49,7 +49,7 @@ Having some golf balls available is optional; but you might need them to test th
 ## Adding More Data
 
 To add more data, you can either rely on Studio's live data collection from Computer Vision project: [Real-Time Image data collection and labeling using camera](https://developer.imagimob.com/deepcraft-studio/data-preparation/data-collection/collect-data-without-kit/collect-image-data-using-graph-ux), or you can add your dataset collected with other means.
-If you want to import data collected externally, for example with a mobile phone or with a camera on the field, please refer to (Bring your own data for object detection projects)[https://developer.imagimob.com/deepcraft-studio/data-preparation/bring-your-data/bring-your-own-data-object-detection]
+If you want to import data collected externally, for example with a mobile phone or with a camera on the field, please refer to [Bring your own data for object detection projects](https://developer.imagimob.com/deepcraft-studio/data-preparation/bring-your-data/bring-your-own-data-object-detection)
 
 **Hint**: if you collect data with a mobile phone or another camera, try to set the camera to provide squared images. This will be make easier to process image later and will avoid unwanted stretching.
 
@@ -75,13 +75,13 @@ To bring this project to a production-level system, follow these general steps:
 
   **4. Deploy and do a real-time test of your prototype model**
 
-  Last thing to be done in prototyping phase is to deploy the model to the device by leveraging the template application already available in ModusToolbox:[MTB Example ML Imagimob MTBML Deploy](https://developer.imagimob.com/deepcraft-studio/deployment/deploy-models-supported-boards/deploy-vision-model-PSOC-Edge) and test the firmware on the machinery. The display will show you real-time detection bounding boxes.
+  The last step in the prototyping phase is to deploy the model to the device by leveraging the template application already available in ModusToolbox: [MTB Example ML Imagimob MTBML Deploy](https://developer.imagimob.com/deepcraft-studio/deployment/deploy-models-supported-boards/deploy-vision-model-PSOC-Edge) and test the firmware on the machinery. The display will show you real-time detection bounding boxes.
 
   **5. Going to the production board system**
 
-Last step is to move to the actual final production setup. The production system will likely have the camera placed on a specific place on the final setup, not necessarly the same one of the prorotyping phase. If you can go as close as possible to production conditions during prototyping phase, you will be able to deliver the same model also on the production board with little-to-no additional training or data needed. If this is not the case, you might need to do a new data collection step to allow the model to learn the nuances of the final setup. Follow again steps 2, 3 and 4 also for the production setup to reach a functioning application.
+The last step is to move to the actual final production setup. The production system will likely have the camera placed in a specific place on the final setup, not necessarily the same as in the prototyping phase. If you can go as close as possible to production conditions during prototyping phase, you will be able to deliver the same model also on the production board with little-to-no additional training or data needed. If this is not the case, you might need to do a new data collection step to allow the model to learn the nuances of the final setup. Follow again steps 2, 3 and 4 also for the production setup to reach a functioning application.
 
-**Note:** All subsequent ML system lifetime monitoring procedures must be defined and implemented by you according to you needs, requirements and targets.
+**Note:** All subsequent ML system lifetime monitoring procedures must be defined and implemented by you according to your needs, requirements and targets.
 
 ## Attributions & Citations
 
@@ -118,4 +118,4 @@ Please visit [developer.imagimob.com](https://developer.imagimob.com), where you
 
 ## Help & Support
 
-If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.
+If you need support or if you want to know how to deploy the model onto the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.

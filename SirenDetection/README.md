@@ -18,8 +18,8 @@ KITA2G Audio Shield Board, which is ideally suitable for automotive and industri
 
 ## Sensor(s) & Data
 
-The project data consists of 487 sessions of 16-bit PCM mono audio recordings, sampled at 16Khz.
-Each session is either containing siren sounds, non-siren sounds (conversation, dogs barking, etc) and/or background noise.
+The project data consists of 487 sessions of 16-bit PCM mono audio recordings, sampled at 16 kHz.
+Each session contains siren sounds, non-siren sounds (conversation, dogs barking, and similar), and/or background noise.
 
 The data is already distributed into the training and validation set, so the project is ready to be trained.
 
@@ -27,7 +27,7 @@ The data is already distributed into the training and validation set, so the pro
 
 This project can be used as a starting point to create a siren detector for any relevant use case, for example:
 - In automotive, to alert the driver or the car itself that there are emergency vehicles in the vicinity, to increase awareness and safety.
-- In headphones and other hearables to make the wearer aware that there are emergency vehicles in the vicinity to pay attention to their surroundings.
+- In headphones and other hearables, to make the wearer aware of emergency vehicles nearby so they can pay attention to their surroundings.
 
 ## Adding More Data
 
@@ -35,7 +35,7 @@ Add more 16 kHz siren and non-siren audio, ideally recorded with the target edge
 
 ## Steps to Production
 
-To get this project to a production ready state you would need to add more siren and non-siren data. You might also improve it for your particular edge device
+To get this project to a production-ready state you would need to add more siren and non-siren data. You might also improve it for your particular edge device.
 by adding data recorded with that device. You can also use augmentation to mix different sounds together and simulate distances to make the model more robust to sound variation.
 
 **If you are interested in deploying an already production ready model into your product, Imagimob also offers a Siren Detection Ready Model. Find out more at www.imagimob.com/products.**
@@ -59,4 +59,4 @@ Please visit [developer.imagimob.com](https://developer.imagimob.com), where you
 
 ## Help & Support
 
-If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.
+If you need support or if you want to know how to deploy the model onto the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.

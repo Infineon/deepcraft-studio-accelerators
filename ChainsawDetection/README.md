@@ -28,7 +28,7 @@ Adding more chainsaw data ought to be done through a thorough collection. Adding
 
 ## Steps to Production
 
-The first step is to identify the use-case, hardware and location of your desired chainsaw detection model and modifying the existing project to account for that. For example, if your microphone is to be encased to protect it from rain, applying data augmentation on the existing data is likely benefitial.
+The first step is to identify the use-case, hardware, and location of your desired chainsaw detection model, then modify the existing project to account for that. For example, if your microphone is to be encased to protect it from rain, applying data augmentation on the existing data is likely beneficial.
 Next, collect more data as outlined above with background noise tailored to your use case.
 It is recommended to apply some amount of post processing to reduce false positives. Since chainsaws involved in illegal logging are not active for just a short number of seconds, a models false positive rate can be reduced by for example temporal smoothing.
 
@@ -53,4 +53,4 @@ Please visit [developer.imagimob.com](https://developer.imagimob.com), where you
 
 ## Help & Support
 
-If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.
+If you need support or if you want to know how to deploy the model onto the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.

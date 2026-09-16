@@ -43,11 +43,9 @@ Expand with other manufacturers, operating conditions, and charging profiles. Op
 ## Steps to Production
 
 Below are some points to expand and improve the topic further:
-- Expanding the dataset: include a wider range of manufacturers, operating conditions, and possibly chemistries. Additionaly, use data augmentation to increase the training data. Finally, incorporating different charging profiles is essential to replicate real world conditions.
-
-- Incorporating more sensors data: such as current and temperature to provide the model with richer information for more robust and accurate state-of-health estimation. 
-
-- Investigate approaches such as residual learning to increase the robustness of the model against sensors inaccuracies in the deployment environment.
+- Expanding the dataset: include a wider range of manufacturers, operating conditions, and possibly chemistries. Additionally, use data augmentation to increase the training data. Incorporating different charging profiles is essential to replicate real-world conditions.
+- Incorporating more sensor data, such as current and temperature, to provide richer information for more robust and accurate state-of-health estimation.
+- Investigating residual learning to make the model more robust to sensor inaccuracies in the deployment environment.
 
 ## Attributions & Citations
 
@@ -60,4 +58,4 @@ Please visit [developer.imagimob.com](https://developer.imagimob.com), where you
 
 ## Help & Support
 
-If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.
+If you need support or if you want to know how to deploy the model onto the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.

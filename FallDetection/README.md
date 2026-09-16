@@ -4,8 +4,8 @@ This project is designed to work exclusively with DEEPCRAFT™ Studio. Download 
 
 ## Overview - Use-Case
 
-This Accelerator project allows you to build models to detect a fall using an IMU (Interial Mesurement Unit - accelerometer and gyroscope) mounted on the buckle of a belt.
-For that, this Accelerator project uses data collected from 2 different IMU: a Bosh IMU and an ST-Microelectronics IMU. Both IMU sensors are set up to collect data at 50 Hz using a +- 8g for the accelerometer scale and +- 500 dps for the gyro scale. 
+This Accelerator project allows you to build models to detect a fall using an IMU (Inertial Measurement Unit - accelerometer and gyroscope) mounted on the buckle of a belt.
+For that, this Accelerator project uses data collected from two different IMUs: a Bosch IMU and an STMicroelectronics IMU. Both IMU sensors are set up to collect data at 50 Hz using a ±8 g accelerometer scale and ±500 dps gyro scale. 
 
 This project gives you the infrastructure to allow you to expand on the project by adding other events to detect or adding more data and make the model production ready.
 
@@ -47,4 +47,4 @@ Please visit [developer.imagimob.com](https://developer.imagimob.com), where you
 
 ## Help & Support
 
-If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.
+If you need support or if you want to know how to deploy the model onto the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.

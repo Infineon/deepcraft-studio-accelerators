@@ -4,7 +4,7 @@ This project is designed to work exclusively with DEEPCRAFT™ Studio. Download 
 
 ## Overview - Use-Case
 
-This Accelerator project allows you to build a human activity detector that can be used on any supported Infineon MCU (or other MCUs) with a BMI160 IMU or another IMU. You can use this project as a starting point to develop a production ready model intended for deployment in wristed wearables. 
+This Accelerator project allows you to build a human activity detector that can be used on any supported Infineon MCU (or other MCUs) with a BMI160 IMU or another IMU. You can use this project as a starting point to develop a production-ready model intended for deployment in wrist wearables. 
 
 Below you can find code examples about how to deploy the output of this project to any supported Infineon MCU with a BMI160 IMU.
 
@@ -20,7 +20,7 @@ Below you can find code examples about how to deploy the output of this project 
 
 ## Sensor(s) & Data
 
-The IMU (Inertial Mesurement Unit - accelerometer and gyroscope) needs to be set up to collect data at 50 Hz using +/- 8g for the accelerometer scale and +/- 500 dps for the gyro scale.
+The IMU (Inertial Measurement Unit - accelerometer and gyroscope) needs to be set up to collect data at 50 Hz using +/- 8g for the accelerometer scale and +/- 500 dps for the gyro scale.
 
 The provided data consists of 99 recordings from 5 individuals.
 
@@ -36,7 +36,7 @@ The human activities (classes) to be detected are:
 
 You can find below guided code examples on how to use Imagimob AI together with Infineon hardware and software to collect data and deploy your models.
 
-Additional info are available in the guide [Getting Started with MTBML and Imagimob Studio](https://www.infineon.com/dgdl/Infineon-Machine_learning_using_ModusToolbox_Imagimob_Studio-ApplicationNotes-v01_00-EN.pdf?fileId=8ac78c8c8a8d344a018aa850bb2d21b5).
+Additional information is available in the guide [Getting Started with MTBML and Imagimob Studio](https://www.infineon.com/dgdl/Infineon-Machine_learning_using_ModusToolbox_Imagimob_Studio-ApplicationNotes-v01_00-EN.pdf?fileId=8ac78c8c8a8d344a018aa850bb2d21b5).
 
 ### Required Hardware and Software
 
@@ -60,7 +60,7 @@ Additional info are available in the guide [Getting Started with MTBML and Imagi
 
 ### Data Collection Setup Note
 
-When using the [Infineon IoT Sense Expansion Kit](https://www.infineon.com/cms/en/product/evaluation-boards/cy8ckit-028-sense/) with IMU, to have the right orientation of the IMU axes, the board needs to be hold like in the pictures below for standing (left) and sitting (right).   
+When using the [Infineon IoT Sense Expansion Kit](https://www.infineon.com/cms/en/product/evaluation-boards/cy8ckit-028-sense/) with IMU, to have the right orientation of the IMU axes, the board needs to be held like in the pictures below for standing (left) and sitting (right).   
 
 ![standing](Resources/standing_orientation.jpg "IMU Orientation Standing") ![sitting](Resources/sitting_orientation.jpg "IMU Orientation Sitting")
 
@@ -90,4 +90,4 @@ Please visit [developer.imagimob.com](https://developer.imagimob.com), where you
 
 ## Help & Support
 
-If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.
+If you need support or if you want to know how to deploy the model onto the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.

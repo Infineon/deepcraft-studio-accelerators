@@ -23,26 +23,24 @@ This machine learning project contains everything to get started with keyword de
 
 ## How to train models
 
-Install Imagimob Studio
+Install DEEPCRAFT™ Studio
 
 Open KeywordDetector.improj with Studio
 
 Open the "Training" Tab and generate a new model list. Use the GUI config for network size, etc.
 
-Click "Start new Training Job" and submit the Job, Log-in to Imagimob Account
+Click "Start new Training Job" and submit the Job, log in to your DEEPCRAFT™ account
 
 After Training is finished, download model(s)
 
 ## Sensor(s) & Data
 
-The original dataset can be downloaded from [here](http://download.tensorflow.org/data/speech_commands_v0.02.tar.gz) with info about licencing also covered [here](https://www.tensorflow.org/datasets/catalog/speech_commands).
-The dataset differs from the original dataset in that the single wave files are concatenated to longer time series by stitching them together with 0.1 seconds of silence in between to prevent that multiple words are in one input time window of the model. For the transformation, you need to modify the paths in the Python script (locatied at Tools/prepare_dataset.py).
+The original dataset can be downloaded from [here](http://download.tensorflow.org/data/speech_commands_v0.02.tar.gz) with info about licensing also covered [here](https://www.tensorflow.org/datasets/catalog/speech_commands).
+The dataset differs from the original dataset in that the single wave files are concatenated to longer time series by stitching them together with 0.1 seconds of silence in between to prevent multiple words from appearing in one input time window of the model. For the transformation, you need to modify the paths in the Python script (located at Tools/prepare_dataset.py).
 
 ## Adding More Data
 
-You can add more data by recording with your preferred recorder app of the OS, DEEPCRAFT™ Studio's [Graph UX](https://developer.imagimob.com/data-preparation/data-collection/collect-data-using-graph-ux) with either your Computer mic or an MCU with [Imagimob Streaming protocol](https://github.com/Infineon/mtb-example-imagimob-streaming-protocol).
-
-Record additional keyword and negative-speech audio with Graph UX, a computer microphone, or an MCU running the Imagimob streaming protocol. Import the files and label them in Studio.
+You can add more data by recording with your preferred recorder app, DEEPCRAFT™ Studio's [Graph UX](https://developer.imagimob.com/data-preparation/data-collection/collect-data-using-graph-ux) with either your computer microphone, or an MCU with the [Imagimob Streaming protocol](https://github.com/Infineon/mtb-example-imagimob-streaming-protocol).
 
 ## Steps to Production
 
@@ -76,4 +74,4 @@ Please visit [developer.imagimob.com](https://developer.imagimob.com), where you
 
 ## Help & Support
 
-If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.
+If you need support or if you want to know how to deploy the model onto the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.

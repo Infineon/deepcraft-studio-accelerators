@@ -47,8 +47,8 @@ An advanced preprocessing layer called **Master Feature** is available as an alt
 Using Master Feature can improve model performance. To switch to Master Feature layer:
 
 1. Double-click the project file (`.improj`). The project file opens in a new tab.
-2. Click **Preprocessor** tab on the left pane.
-3. Click **+** (Add New Layer) to add custom layer, Master Feature.
+2. Click the **Preprocessor** tab on the left pane.
+3. Click **+** (Add New Layer) to add the custom layer, Master Feature.
 4. Click **-** (Delete Layer) to delete the Low Pass Filter layer.
 
 ## CodeGenGraphUX
@@ -86,4 +86,4 @@ Please visit [developer.imagimob.com](https://developer.imagimob.com), where you
 
 ## Help & Support
 
-If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.
+If you need support or if you want to know how to deploy the model onto the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.

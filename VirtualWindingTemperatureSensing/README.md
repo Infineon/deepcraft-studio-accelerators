@@ -34,7 +34,7 @@ This machine learning project enables estimation of the temperature of motor win
 
 - **Target Motor:** [Pierburg CWA150](https://www.tecomotive.com/en/products/CWA150.html) water pump motor
 - **Power Supply:** 12V
-- **Motor Controller:** [REF_WATERPUMP150W](https://www.infineon.com/evaluation-board/REF-WATERPUMP150W) evaluation board with TLE995x. The firmware could be requested via Infineon Developer Center
+- **Motor Controller:** [REF_WATERPUMP150W](https://www.infineon.com/evaluation-board/REF-WATERPUMP150W) evaluation board with TLE995x. The firmware can be requested via Infineon Developer Center
 - **Temperature Sensors:**
   - Die temperature sensor (embedded in TLE995x) - Input feature
   - Coil temperature sensor - Any K-type thermocouple to measure the target motor winding temperature (ground truth), for example RS219/1016
@@ -213,4 +213,4 @@ Please visit [developer.imagimob.com](https://developer.imagimob.com), where you
 
 ## Help & Support
 
-If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.
+If you need support or if you want to know how to deploy the model onto the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.

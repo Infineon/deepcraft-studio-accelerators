@@ -22,7 +22,7 @@ Users can further expand this project by training their own models, importing ne
 
 1.	Real-Time Surface Classification: The project uses a deep learning model to classify road surface conditions accurately and in real-time.
 
-2.	Custom Data Integration: Users can add new data through the data import or using Image Classification Data Collection Graph UX template and label their own data for model training.
+2.	Custom Data Integration: Users can add new data through data import or by using the Image Classification Data Collection Graph UX template and label their own data for model training.
 
 3.	Model Evaluation: Evaluate trained models by providing .tflite file and when you double click, it will automatically generate a graph UX project for real time evaluation.
 
@@ -36,11 +36,11 @@ Users can further expand this project by training their own models, importing ne
 
 1.	Train the image classification model using the provided dataset or custom data.
 
-2.	Download the trained model .tflite file from trained job.
+2.	Download the trained model .tflite file from the trained job.
 
-3.	Double click the downloaded model and it will create a Graph UX project to evaluate model.
+3.	Double-click the downloaded model and it will create a Graph UX project to evaluate the model.
 
-4.	Run the Graph UX project to evaluate model performance in real time using selected camera.
+4.	Run the Graph UX project to evaluate model performance in real time using the selected camera.
 
 5.	Observe surface classification from live camera feed.
 
@@ -106,4 +106,4 @@ Please visit [developer.imagimob.com](https://developer.imagimob.com), where you
 
 ## Help & Support
 
-If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.
+If you need support or if you want to know how to deploy the model onto the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.

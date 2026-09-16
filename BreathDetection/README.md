@@ -19,7 +19,7 @@ Important note: This is not a medical device and is not intended for diagnosis o
 ### Operating instructions and tips
 
 Orientation: Ensure the sensor port is unobstructed and facing the user; avoid covering it with (warm) fingers.
-Environment: Minimize background airflow (fans, HVAC vents, outdoor wind) and strictly avoid direct exposure to sunlight (it will heat up the sensor, causing wrong results).
+Environment: Minimize background airflow (fans, HVAC vents, outdoor wind) and strictly avoid direct exposure to sunlight (it will heat up the sensor, causing incorrect results).
 Ensure sufficient cooling! The sensor heats up after prolonged use; cool it regularly, e.g. with a paper fan.
 
 ### How to perform cool_blow (pursed lips)
@@ -138,4 +138,4 @@ Please visit [developer.imagimob.com](https://developer.imagimob.com), where you
 
 ## Help & Support
 
-If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.
+If you need support or if you want to know how to deploy the model onto the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.

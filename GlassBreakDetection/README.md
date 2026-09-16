@@ -25,7 +25,7 @@ and supports intelligent safety and security management across multiple domains.
 
 ## Sensor(s) & Data
 
-The data for this project was primarily collected from the Freesound site, with careful verification of licensing to ensure proper eligibility for use in model training. Infineon also contributed the data providing samples that strengthen 
+The data for this project was primarily collected from the Freesound site, with careful verification of licensing to ensure proper eligibility for use in model training. Infineon also contributed data, providing samples that strengthen 
 the reliability and diversity of the training set. All audio recordings in the dataset have a sampling frequency of 48 kHz, ensuring consistency and high-resolution quality for signal analysis and model training.
 
 
@@ -39,8 +39,8 @@ or augmented with synthetic noise to ensure the model performs reliably in real-
 ## Steps to Production
 
 The recommended path to production for a glass break detection model begins with clearly defining the environments and glass types you want the 
-system to handle such as residential windows, retail storefronts, or automotive glass. Once the scope is set, data collection should be performed 
-across diverse scenarios ensuring coverage of different glass materials, break mechanisms, microphone placements, and acoustic conditions so the 
+system to handle, such as residential windows, retail storefronts, or automotive glass. Once the scope is set, data collection should be performed 
+across diverse scenarios, ensuring coverage of different glass materials, break mechanisms, microphone placements, and acoustic conditions so the 
 model learns to remain robust under varying circumstances. To further increase variability, data augmentation techniques such as adding background 
 noise, pitch shifting or time stretching can be applied. All recordings should be standardized to a consistent sampling frequency such as 48 kHz and 
 preprocessed to remove noise and extract meaningful features. It is also essential to maintain a strict separation between Train, Validation, 
@@ -60,4 +60,4 @@ Please visit [developer.imagimob.com](https://developer.imagimob.com), where you
 
 ## Help & Support
 
-If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.
+If you need support or if you want to know how to deploy the model onto the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.

@@ -80,4 +80,4 @@ For object-detection data formats, see [Bring your own data for object detection
 
 ## Help & Support
 
-If you need support or if you want to know how to deploy the model on the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.
+If you need support or if you want to know how to deploy the model onto the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.

@@ -13,7 +13,7 @@ The task is framed as a **classification project**: a type of Supervised Learnin
 
 You can use this Accelerator project if:
 
-- You need to monitor a machinery whose behavior can be inferred by its vibration;
+- You need to monitor machinery whose behavior can be inferred from its vibration;
 - You have the possibility of collecting both normal functioning data and anomalous functioning data, either from an already faulty machine or by artificially inducing anomalies on a functioning machine.
 
 If you don't have the possibility of collecting a sufficient amount of anomalous data from your machine, this approach might not provide accurate results.
@@ -106,7 +106,7 @@ To bring this project to a production-level system, follow these general steps:
 
 ![](Resources/imgs/productionpath.png)
 
-The prototyping part is fundamental since it will allow you to state the feasibility of your task in a cheap and fast way. If you can get to a model able to reach satisfactory performance with a simple prototype (an example could be the PSOC 6 6 AI Kit simply taped to the machine you want to monitor, using it for collecting a small dataset), then you can be pretty confident that you'll be able to get a good result in production.
+Prototyping is essential because it lets you check feasibility quickly and cheaply. If a simple prototype already reaches acceptable performance (for example, a PSOC™ 6 AI Kit taped to the machine while you collect a small dataset), you can be reasonably confident about a production result.
 
 More in detail, the steps to be followed could look like this:
 
@@ -128,19 +128,19 @@ More in detail, the steps to be followed could look like this:
 
   Import the data you collected in the "Data" tab of the .improj file in DEEPCRAFT™ Studio.
   You are now able to follow the standard DEEPCRAFT™ Studio steps for processing, training, and deploying your Anomaly Detection model.
-  The preprocessor is already set, and some models are already defined for you, which performance is guaranteed to be in real-time on the PSOC6 AI Kit.
+  The preprocessor is already set, and some models are already defined for you; their performance is guaranteed to be real-time on the PSOC™ 6 AI Kit.
 
   **4. Deploy and do a real-time test of your prototype model**
 
-  Last thing to be done in prototyping phase is to deploy the firmware to the device by leveraging the template application already available in ModusToolbox:[MTB Example ML Imagimob MTBML Deploy](https://github.com/Infineon/mtb-example-ml-imagimob-mtbml-deploy) and test the firmware on the machinery. The UART terminal will show you real-time predictions on machine behavior.
+  The last prototyping step is to deploy firmware with the template application in ModusToolbox ([MTB Example ML Imagimob MTBML Deploy](https://github.com/Infineon/mtb-example-ml-imagimob-mtbml-deploy)) and test it on the machinery. The UART terminal shows real-time predictions of machine behavior.
 
   **5. Going to the production board system**
 
-Last step is to move to the actual final production setup. The production system will likely have the MCU placed on a board inside the machine and the IMU sensor in a specific position, not necessarly the same one of the prorotyping phase. If you can go as close as possible to production conditions during prototyping phase, you will be able to deliver the same model also on the production board with little-to-no additional training or data needed. If this is not the case, you might need to do a new data collection step to allow the model to learn the nuances of the final setup. Follow again steps 2, 3 and 4 also for the production setup to reach a functioning application.
+The last step is to move to the final production setup. The production system will likely have the MCU on a board inside the machine and the IMU in a specific position, not necessarily the same as in prototyping. The closer prototyping is to production conditions, the more likely the same model will work on the production board with little or no extra training. Otherwise, collect new data so the model can learn the final setup, and repeat steps 2, 3, and 4.
 
 You may also leverage DEEPCRAFT™ Studio's Transfer Learning features for fine-tuning the prototype model to production data. This could lead to better results and faster go-to-production times, but the usage of Transfer Learning is recommended only to experienced ML users.
 
-**Note:** All subsequent ML system lifetime monitoring procedures must be defined and implemented by you according to you needs, requirements and targets.
+**Note:** All subsequent ML system lifetime monitoring procedures must be defined and implemented by you according to your needs, requirements and targets.
 
 ## Attributions & Citations
 
@@ -152,4 +152,4 @@ Please visit [developer.imagimob.com](https://developer.imagimob.com), where you
 
 ## Help & Support
 
-If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.
+If you need support or if you want to know how to deploy the model onto the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.

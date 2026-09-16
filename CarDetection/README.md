@@ -41,8 +41,8 @@ This project demonstrates how to approach the task from a Computer Vision perspe
 ## Features
 
 1. **Real-Time Detection**: The project uses a YOLO-based model to detect cars accurately and in real-time.
-2. **Custom Data Integration**: Users can add new data through the data import or using `Object Detection Data Collection Graph UX` template and label their own data for model training.
-3. **Model Evaluation**: Evaluate trained models by double click `.tflite` file, and it will generate a Graph UX project to run.
+2. **Custom Data Integration**: Users can add new data through data import or by using the `Object Detection Data Collection Graph UX` template and label their own data for model training.
+3. **Model Evaluation**: Evaluate trained models by double-clicking the `.tflite` file, and it will generate a Graph UX project to run.
 
 ## Contents
 

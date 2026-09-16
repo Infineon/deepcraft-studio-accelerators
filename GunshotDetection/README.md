@@ -17,7 +17,7 @@ It is presented here with the purpose of being supplemented with a significant a
 
 ## Sensor(s) & Data
 
-The data was collected by downloading Creative Commons licensed audio files from freesounds.org.
+The data was collected by downloading Creative Commons licensed audio files from freesound.org.
 
 ## Adding More Data
 
@@ -86,4 +86,4 @@ Please visit [developer.imagimob.com](https://developer.imagimob.com), where you
 
 ## Help & Support
 
-If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.
+If you need support or if you want to know how to deploy the model onto the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.

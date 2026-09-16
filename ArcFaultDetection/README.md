@@ -11,7 +11,7 @@ This project trains a model to detect arc faults from appliance current waveform
 - **Problem:** Real-time detection of series and related arc faults in AC loads from a current waveform
 - **Machine learning method:** CNN binary classification (arc vs. no arc)
 - **Sensor and data:** Oscilloscope with a Hall-effect current probe (rated bandwidth DC–100 kHz); original sampling rate 50 MHz, downsampled to 200 kHz
-- **Relevance:** Rapid CNN-based detection for in-built arc-fault monitoring in residential and appliance electrical products, helping reduce fire risk that conventional over-current protection may miss
+- **Relevance:** Rapid CNN-based detection for built-in arc-fault monitoring in residential and appliance electrical products, helping reduce fire risk that conventional over-current protection may miss
 
 ## Contents
 

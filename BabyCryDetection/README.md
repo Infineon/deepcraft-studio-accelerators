@@ -20,7 +20,7 @@ Below you can find code examples about how to deploy the output of this project 
 
 The folders train_set, validation_set, and test_set contain:
 - baby_cry	- folder with data for "baby cry" audio
-- other	- folder that contain all data that's unlabelled. It's intended make the model more robust against random noises and thus lowering false positives
+- other	- folder that contains all unlabelled data. It is intended to make the model more robust against random noises and thus lower false positives
 
 `Units` - Folder where custom layers and pre-processors can be added
 
@@ -49,7 +49,7 @@ Add more 16 kHz mono audio of baby cry and home-environment background sounds. R
 
 ## Steps to Production
 
-This project is only an Accelerator project and as such some work is needed to further develop this project. Such as including more data from home environments as well as some data You can take the project further in a number of different ways:
+This is an Accelerator, so more work is needed before production. In particular, add more data from home environments. You can take the project further in a number of ways:
 
 1. You can add additional classes to the existing ones by adding the relevant data, for example, children talking, children playing, different ages etc.
 2. Add your own recorded data to the dataset and see if you can improve the performance of the provided model.
@@ -62,7 +62,7 @@ This project is only an Accelerator project and as such some work is needed to f
 
 You can find below guided code examples on how to use Imagimob AI together with Infineon hardware and software to collect data and deploy your models.
 
-Additional info are available in the guide [Getting Started with MTBML and Imagimob Studio](https://www.infineon.com/dgdl/Infineon-Machine_learning_using_ModusToolbox_Imagimob_Studio-ApplicationNotes-v01_00-EN.pdf?fileId=8ac78c8c8a8d344a018aa850bb2d21b5).
+Additional information is available in the guide [Getting Started with MTBML and Imagimob Studio](https://www.infineon.com/dgdl/Infineon-Machine_learning_using_ModusToolbox_Imagimob_Studio-ApplicationNotes-v01_00-EN.pdf?fileId=8ac78c8c8a8d344a018aa850bb2d21b5).
 
 ### Required Hardware and Software
 
@@ -85,7 +85,7 @@ Additional info are available in the guide [Getting Started with MTBML and Imagi
 
 ## Attributions & Citations
 
-All included data, is based on data extracted from freesound.org using [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/deed.en) & [CC0](https://creativecommons.org/public-domain/cc0/), as subset of our total freesound set as you can see here: https://github.com/Infineon/deepcraft-studio-accelerators/blob/main/_AttributionLists/Freesound_Attribution_List.csv
+All included data is based on recordings from freesound.org under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/deed.en) and [CC0](https://creativecommons.org/public-domain/cc0/), as a subset of our master Freesound set: https://github.com/Infineon/deepcraft-studio-accelerators/blob/main/_AttributionLists/Freesound_Attribution_List.csv
 
 ## Getting Started
 
@@ -93,4 +93,4 @@ Please visit [developer.imagimob.com](https://developer.imagimob.com), where you
 
 ## Help & Support
 
-If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.
+If you need support or if you want to know how to deploy the model onto the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.

@@ -16,8 +16,8 @@ Users can further expand this project by training their own models, importing ne
 ## Features
 
 1. **Real-Time Gesture Detection**: The project uses a YOLO-based model to detect and classify gestures accurately and in real-time.   
-2. **Custom Data Integration**: Users can add new data through the data import or using `Object Detection Data Collection Graph UX` template and label their own data for model training.
-3. **Model Evaluation**: Evaluate trained models by double click `.tflite` file, and it will generate a Graph Ux project to run.
+2. **Custom Data Integration**: Users can add new data through data import or by using the `Object Detection Data Collection Graph UX` template and label their own data for model training.
+3. **Model Evaluation**: Evaluate trained models by double-clicking the `.tflite` file, and it will generate a Graph UX project to run.
 
 ## Contents
 
@@ -29,10 +29,10 @@ Users can further expand this project by training their own models, importing ne
 
   
    1. Train the YOLO-based model using the provided dataset or custom data.
-   2. Download the trained model `.tflite` file from trained job. 
-   3. Double click the `.tflite` file and it will create a Graph Ux project.
-   4. Run the Graph UX project to evaluate model performance in real time using selected camera.
-   5. Perform the gestures and observe detection from live camera.
+   2. Download the trained model `.tflite` file from the trained job. 
+   3. Double-click the `.tflite` file and it will create a Graph UX project.
+   4. Run the Graph UX project to evaluate model performance in real time using the selected camera.
+   5. Perform the gestures and observe detection from the live camera.
 
 ## Sensor(s) & Data
 
@@ -97,4 +97,4 @@ Please visit [developer.imagimob.com](https://developer.imagimob.com), where you
 
 ## Help & Support
 
-If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.
+If you need support or if you want to know how to deploy the model onto the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.

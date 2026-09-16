@@ -16,7 +16,7 @@ The Accelerator project contains 550 minutes of data, most of it being unlabelle
 
 ## Sensor(s) & Data
 
-The data was collected by downloading Creative Commons licensed audio files from freesounds.org.
+The data was collected by downloading Creative Commons licensed audio files from freesound.org.
 
 ## Adding More Data
 
@@ -25,11 +25,11 @@ Regardless of how the data is obtained, it can be labelled in DEEPCRAFT™ Studi
 
 ## Steps to Production
 
-The first step toward production is identifying which home sounds you want your model to detect. If you wish to focus on human sounds, for example, 'water tap' might be removed. Another thing that is strongly recommended is to use the augmentation functionality to improve model performance. This model originally had augmented data but it was removed to make the download smaller, you can perform this through the data tab of the project file (.improj)
+The first step toward production is identifying which home sounds you want your model to detect. If you wish to focus on human sounds, for example, 'water tap' might be removed. Another thing that is strongly recommended is to use the augmentation functionality to improve model performance. This model originally had augmented data but it was removed to make the download smaller. You can perform this through the Data tab of the project file (.improj).
 It is worth noting that selecting a large number of sounds to detect will make the problem more difficult and introduce confusion between similar labels.
 Next, you should collect data for the selected use cases, as outlined above.
 Furthermore, background data needs to be collected depending on the location the end product is intended to be placed. If you have offices in mind, you will need to supplement the dataset with unlabelled office sounds, for example. 
-The existing preprocessor and model architecture are unlikely to suffice, and you will need to fine-tune or overhaul these. In this it is important to keep in mind the capacity and memory limits of the deployment location.
+The existing preprocessor and model architecture are unlikely to suffice, and you will need to fine-tune or overhaul these. In doing so, it is important to keep in mind the capacity and memory limits of the deployment location.
 Finally, you should evaluate the model in a realistic setting. 
 In the case that false positives are a problem, you could apply post-processing techniques such as temporal smoothing.
 
@@ -43,4 +43,4 @@ Please visit [developer.imagimob.com](https://developer.imagimob.com), where you
 
 ## Help & Support
 
-If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.
+If you need support or if you want to know how to deploy the model onto the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.
