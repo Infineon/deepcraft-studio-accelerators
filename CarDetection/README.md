@@ -1,6 +1,6 @@
-﻿# Car Detection
+# Car Detection
 
-This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio).
+This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
 
 ## Overview - Use-Case
 
@@ -153,9 +153,9 @@ Some points to highlight:
 - **Add negative data:** Include images without the target objects and common look-alikes to improve robustness against false positives.
 
 
-## Attribution & Citation
+## Attributions & Citations
 
-
+```bibtex
 @misc{car-detection-model-bwjpb-92kbi,
   title = {Car Detection Model Dataset},
   type = {Open Source Dataset},
@@ -168,7 +168,9 @@ Some points to highlight:
   month = {jul},
   note = {visited on 2026-07-21; used for img* sessions},
 }
+```
 
+```bibtex
 @misc{car-detection-5fc7i-vtlqe,
   title = {Car Detection Dataset},
   type = {Open Source Dataset},
@@ -181,14 +183,14 @@ Some points to highlight:
   month = {jul},
   note = {visited on 2026-07-21; used for pc* sessions},
 }
-
+```
 
 ## Getting Started
 
-Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about Imagimob Studio and go through step-by-step tutorials to get started quickly.
+Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about DEEPCRAFT™ Studio and go through step-by-step tutorials to get started quickly.
 
 For object-detection data formats, see [Bring your own data for object detection projects](https://developer.imagimob.com/deepcraft-studio/data-preparation/bring-your-data/bring-your-own-data-object-detection).
 
 ## Help & Support
 
-If you need support or if you want to know how to deploy the model on the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) Imagimob Studio page.
+If you need support or if you want to know how to deploy the model on the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.

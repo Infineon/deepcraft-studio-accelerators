@@ -1,6 +1,6 @@
 # Arc Fault Detection
 
-This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio).
+This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
 
 ## Overview - Use-Case
 
@@ -191,7 +191,7 @@ Bring this classifier from a lab accelerator to a product by reducing missed arc
 
 ---
 
-## Attribution & Citation
+## Attributions & Citations
 
 <a name="citations"></a>
 
@@ -204,9 +204,6 @@ Bring this classifier from a lab accelerator to a product by reducing missed arc
 ## Getting Started
 
 Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about DEEPCRAFT™ Studio and go through step-by-step tutorials to get you quickly started.
-
-For object-detection data formats, see [Bring your own data for object detection projects](https://developer.imagimob.com/deepcraft-studio/data-preparation/bring-your-data/bring-your-own-data-object-detection).
-
 
 ## Help & Support
 

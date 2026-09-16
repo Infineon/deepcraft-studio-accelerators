@@ -1,4 +1,4 @@
-﻿# Surface Image Classification
+# Surface Image Classification
 
 This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
 
@@ -76,30 +76,31 @@ The recommended path to production for this project includes the following steps
 •	Include data from various camera angles and perspectives to enhance classification accuracy.
 
 
-## Attribution & Citation
+## Attributions & Citations
 
 This dataset in turn contains data derived from multiple projects:
 
 Road Surface Classification Dataset created by Team Roboflow and licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 
-@misc{
-road-surface-types-qmeud_dataset,
-title = { road surface types Dataset },
-type = { Open Source Dataset },
-author = { issues },
-howpublished = { \url{ https://universe.roboflow.com/issues/road-surface-types-qmeud } },
-url = { https://universe.roboflow.com/issues/road-surface-types-qmeud },
-journal = { Roboflow Universe },
-publisher = { Roboflow },
-year = { 2025 },
-month = { feb },
-note = { visited on 2025-11-28 },
+```bibtex
+@misc{road-surface-types-qmeud_dataset,
+  title = { road surface types Dataset },
+  type = { Open Source Dataset },
+  author = { issues },
+  howpublished = { \url{ https://universe.roboflow.com/issues/road-surface-types-qmeud } },
+  url = { https://universe.roboflow.com/issues/road-surface-types-qmeud },
+  journal = { Roboflow Universe },
+  publisher = { Roboflow },
+  year = { 2025 },
+  month = { feb },
+  note = { visited on 2025-11-28 },
 }
+```
 
 ## Getting Started
 
-Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about Imagimob Studio and go through step-by-step tutorials to get you quickly started.
+Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about DEEPCRAFT™ Studio and go through step-by-step tutorials to get you quickly started.
 
 ## Help & Support
 
-If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum ](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) Imagimob Studio page.
+If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.

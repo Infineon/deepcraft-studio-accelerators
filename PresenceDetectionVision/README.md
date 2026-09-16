@@ -1,4 +1,4 @@
-﻿# Presence Detection Project
+# Presence Detection Project
 
 This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
 
@@ -47,17 +47,27 @@ The recommended path to production for this project includes the following steps
 - Try different augmentation settings to increase the variability of the dataset.
 - Try different advanced settings such as optimizer,  iou threshold or confidence threshold to make model more or less sensitive.
 
-## Attribution & Citation
-@misc{
-people-detection-o4rdr_dataset,
-title = { People Detection Dataset },
-type = { Open Source Dataset },
-author = { Leo Ueno },
-howpublished = { \url{ https://universe.roboflow.com/leo-ueno/people-detection-o4rdr } },
-url = { https://universe.roboflow.com/leo-ueno/people-detection-o4rdr },
-journal = { Roboflow Universe },
-publisher = { Roboflow },
-year = { 2025 },
-month = { oct },
-note = { visited on 2025-10-09 },
+## Attributions & Citations
+
+```bibtex
+@misc{people-detection-o4rdr_dataset,
+  title = { People Detection Dataset },
+  type = { Open Source Dataset },
+  author = { Leo Ueno },
+  howpublished = { \url{ https://universe.roboflow.com/leo-ueno/people-detection-o4rdr } },
+  url = { https://universe.roboflow.com/leo-ueno/people-detection-o4rdr },
+  journal = { Roboflow Universe },
+  publisher = { Roboflow },
+  year = { 2025 },
+  month = { oct },
+  note = { visited on 2025-10-09 },
 }
+```
+
+## Getting Started
+
+Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about DEEPCRAFT™ Studio and go through step-by-step tutorials to get you quickly started.
+
+## Help & Support
+
+If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.

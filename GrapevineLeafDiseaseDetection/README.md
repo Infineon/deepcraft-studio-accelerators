@@ -90,71 +90,67 @@ Some points to highlight:
 - **Keep test data independent:** Make sure the test set is not used in train or validation and reflects scenarios where the model must generalize.
 - **Add negative data:** Include images without the target objects and common look-alikes to improve robustness against false positives.
 
-## Attribution & Citation
+## Attributions & Citations
 
 Please cite the datasets used in this project.
 
 ```bibtex
-@misc{
-grapevine-leaves_dataset,
-title = { Grapevine Leaves Dataset },
-type = { Open Source Dataset },
-author = { Grape },
-howpublished = { \url{ https://universe.roboflow.com/grape-rpakq/grapevine-leaves } },
-url = { https://universe.roboflow.com/grape-rpakq/grapevine-leaves },
-journal = { Roboflow Universe },
-publisher = { Roboflow },
-year = { 2024 },
-month = { aug },
-note = { visited on 2026-09-08 },
+@misc{grapevine-leaves_dataset,
+  title = { Grapevine Leaves Dataset },
+  type = { Open Source Dataset },
+  author = { Grape },
+  howpublished = { \url{ https://universe.roboflow.com/grape-rpakq/grapevine-leaves } },
+  url = { https://universe.roboflow.com/grape-rpakq/grapevine-leaves },
+  journal = { Roboflow Universe },
+  publisher = { Roboflow },
+  year = { 2024 },
+  month = { aug },
+  note = { visited on 2026-09-08 },
 }
 ```
 
 ```bibtex
-@misc{
-grape-leaf-disease-detection-gzafz_dataset,
-title = { Grape Leaf Disease Detection Dataset },
-type = { Open Source Dataset },
-author = { laluna },
-howpublished = { \url{ https://universe.roboflow.com/laluna/grape-leaf-disease-detection-gzafz } },
-url = { https://universe.roboflow.com/laluna/grape-leaf-disease-detection-gzafz },
-journal = { Roboflow Universe },
-publisher = { Roboflow },
-year = { 2026 },
-month = { may },
-note = { visited on 2026-09-08 },
+@misc{grape-leaf-disease-detection-gzafz_dataset,
+  title = { Grape Leaf Disease Detection Dataset },
+  type = { Open Source Dataset },
+  author = { laluna },
+  howpublished = { \url{ https://universe.roboflow.com/laluna/grape-leaf-disease-detection-gzafz } },
+  url = { https://universe.roboflow.com/laluna/grape-leaf-disease-detection-gzafz },
+  journal = { Roboflow Universe },
+  publisher = { Roboflow },
+  year = { 2026 },
+  month = { may },
+  note = { visited on 2026-09-08 },
 }
 ```
 
 ```bibtex
-@misc{
-grape-leaf-diseases-tln5a_dataset,
-title = { Grape Leaf Diseases Dataset },
-type = { Open Source Dataset },
-author = { skimok77 },
-howpublished = { \url{ https://universe.roboflow.com/skimok77/grape-leaf-diseases-tln5a } },
-url = { https://universe.roboflow.com/skimok77/grape-leaf-diseases-tln5a },
-journal = { Roboflow Universe },
-publisher = { Roboflow },
-year = { 2025 },
-month = { jul },
-note = { visited on 2026-09-08 },
+@misc{grape-leaf-diseases-tln5a_dataset,
+  title = { Grape Leaf Diseases Dataset },
+  type = { Open Source Dataset },
+  author = { skimok77 },
+  howpublished = { \url{ https://universe.roboflow.com/skimok77/grape-leaf-diseases-tln5a } },
+  url = { https://universe.roboflow.com/skimok77/grape-leaf-diseases-tln5a },
+  journal = { Roboflow Universe },
+  publisher = { Roboflow },
+  year = { 2025 },
+  month = { jul },
+  note = { visited on 2026-09-08 },
 }
 ```
 
 ```bibtex
-@misc{
-grape-leaf-diseases-hqlrl_dataset,
-title = { grape-leaf-diseases Dataset },
-type = { Open Source Dataset },
-author = { trial1 },
-howpublished = { \url{ https://universe.roboflow.com/trial1-53ber/grape-leaf-diseases-hqlrl } },
-url = { https://universe.roboflow.com/trial1-53ber/grape-leaf-diseases-hqlrl },
-journal = { Roboflow Universe },
-publisher = { Roboflow },
-year = { 2025 },
-month = { may },
-note = { visited on 2026-09-08 },
+@misc{grape-leaf-diseases-hqlrl_dataset,
+  title = { grape-leaf-diseases Dataset },
+  type = { Open Source Dataset },
+  author = { trial1 },
+  howpublished = { \url{ https://universe.roboflow.com/trial1-53ber/grape-leaf-diseases-hqlrl } },
+  url = { https://universe.roboflow.com/trial1-53ber/grape-leaf-diseases-hqlrl },
+  journal = { Roboflow Universe },
+  publisher = { Roboflow },
+  year = { 2025 },
+  month = { may },
+  note = { visited on 2026-09-08 },
 }
 ```
 
@@ -163,5 +159,7 @@ note = { visited on 2026-09-08 },
 Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about DEEPCRAFT™ Studio and go through step-by-step tutorials to get you quickly started.
 
 For object-detection data formats, see [Bring your own data for object detection projects](https://developer.imagimob.com/deepcraft-studio/data-preparation/bring-your-data/bring-your-own-data-object-detection).
+
+## Help & Support
 
 If you need support or if you want to know how to deploy the model onto the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.

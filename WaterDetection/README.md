@@ -87,8 +87,6 @@ make it easier to distribute the recordings into the different sets (training, v
 split.
 
 
-
-
 ## Model evaluation using live-data
 
 To test the model in the DEEPCRAFT&trade; Studio we open the data collection project and drag the trained TensorFlow model file into the Graph UX window. We also drag a Label Track and Data Track 
@@ -118,11 +116,10 @@ Keep in mind that it is important to test your model under the conditions releva
 with but run live model's testing as well to check its performance in real life.
 
 
-
 ## Getting Started
 
-Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about Imagimob Studio and go through step-by-step tutorials to get you quickly started.
+Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about DEEPCRAFT™ Studio and go through step-by-step tutorials to get you quickly started.
 
 ## Help & Support
 
-If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum ](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) Imagimob Studio page.
+If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.

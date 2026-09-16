@@ -1,4 +1,4 @@
-﻿# Chainsaw Detection
+# Chainsaw Detection
 
 This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
 
@@ -22,7 +22,8 @@ The first step is to identify the use-case, hardware and location of your desire
 Next, collect more data as outlined above with background noise tailored to your use case.
 It is recommended to apply some amount of post processing to reduce false positives. Since chainsaws involved in illegal logging are not active for just a short number of seconds, a models false positive rate can be reduced by for example temporal smoothing.
 
-## Attributions
+## Attributions & Citations
+
 Chainsaw Start Attempts.wav by lonemonk -- https://freesound.org/s/185580/ -- License: Attribution 3.0
 Construction, Jackhammer Excavator, A.wav by InspectorJ -- https://freesound.org/s/400991/ -- License: Attribution 4.0
 atmosphere tokyo construction.wav by IsraGallo -- https://freesound.org/s/513672/ -- License: Attribution 4.0
@@ -38,8 +39,8 @@ Other sounds may also be used as you can see in our master attribution list: htt
 
 ## Getting Started
 
-Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about Imagimob Studio and go through step-by-step tutorials to get you quickly started.
+Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about DEEPCRAFT™ Studio and go through step-by-step tutorials to get you quickly started.
 
 ## Help & Support
 
-If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum ](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) Imagimob Studio page.
+If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.

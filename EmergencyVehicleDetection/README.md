@@ -96,177 +96,179 @@ Some points to highlight:
 - **Keep test data independent:** Make sure the test set is not used in train or validation and reflects scenarios where the model must generalize.
 - **Add negative data:** Include images without the target objects and common look-alikes to improve robustness against false positives.
 
-## Attribution & Citation
+## Attributions & Citations
 
-@misc{
-ambulances-23fqp_dataset,
-title = { Ambulances Dataset },
-type = { Open Source Dataset },
-author = { FYP Traffic Management System },
-howpublished = { \url{ https://universe.roboflow.com/fyp-traffic-management-system/ambulances-23fqp } },
-url = { https://universe.roboflow.com/fyp-traffic-management-system/ambulances-23fqp },
-journal = { Roboflow Universe },
-publisher = { Roboflow },
-year = { 2024 },
-month = { jan },
-note = { visited on 2026-07-14 },
+```bibtex
+@misc{ambulances-23fqp_dataset,
+  title = { Ambulances Dataset },
+  type = { Open Source Dataset },
+  author = { FYP Traffic Management System },
+  howpublished = { \url{ https://universe.roboflow.com/fyp-traffic-management-system/ambulances-23fqp } },
+  url = { https://universe.roboflow.com/fyp-traffic-management-system/ambulances-23fqp },
+  journal = { Roboflow Universe },
+  publisher = { Roboflow },
+  year = { 2024 },
+  month = { jan },
+  note = { visited on 2026-07-14 },
 }
+```
 
-
-@misc{
-cameramodel_dataset,
-title = { cameramodel Dataset },
-type = { Open Source Dataset },
-author = { Gezamelijke Brandweer },
-howpublished = { \url{ https://universe.roboflow.com/gezamelijke-brandweer/cameramodel } },
-url = { https://universe.roboflow.com/gezamelijke-brandweer/cameramodel },
-journal = { Roboflow Universe },
-publisher = { Roboflow },
-year = { 2024 },
-month = { jan },
-note = { visited on 2026-07-14 },
+```bibtex
+@misc{cameramodel_dataset,
+  title = { cameramodel Dataset },
+  type = { Open Source Dataset },
+  author = { Gezamelijke Brandweer },
+  howpublished = { \url{ https://universe.roboflow.com/gezamelijke-brandweer/cameramodel } },
+  url = { https://universe.roboflow.com/gezamelijke-brandweer/cameramodel },
+  journal = { Roboflow Universe },
+  publisher = { Roboflow },
+  year = { 2024 },
+  month = { jan },
+  note = { visited on 2026-07-14 },
 }
+```
 
-
-@misc{
-emergency-vehicles-detection-xockh-af7sr-kvfuf_dataset,
-title = { Emergency Vehicles Detection Dataset },
-type = { Open Source Dataset },
-author = { yolov8 },
-howpublished = { \url{ https://universe.roboflow.com/yolov8-etfar/emergency-vehicles-detection-xockh-af7sr-kvfuf } },
-url = { https://universe.roboflow.com/yolov8-etfar/emergency-vehicles-detection-xockh-af7sr-kvfuf },
-journal = { Roboflow Universe },
-publisher = { Roboflow },
-year = { 2024 },
-month = { jan },
-note = { visited on 2026-07-14 },
+```bibtex
+@misc{emergency-vehicles-detection-xockh-af7sr-kvfuf_dataset,
+  title = { Emergency Vehicles Detection Dataset },
+  type = { Open Source Dataset },
+  author = { yolov8 },
+  howpublished = { \url{ https://universe.roboflow.com/yolov8-etfar/emergency-vehicles-detection-xockh-af7sr-kvfuf } },
+  url = { https://universe.roboflow.com/yolov8-etfar/emergency-vehicles-detection-xockh-af7sr-kvfuf },
+  journal = { Roboflow Universe },
+  publisher = { Roboflow },
+  year = { 2024 },
+  month = { jan },
+  note = { visited on 2026-07-14 },
 }
+```
 
-
-@misc{
-nn-ln8ka_dataset,
-title = { nn Dataset },
-type = { Open Source Dataset },
-author = { national school of applied science },
-howpublished = { \url{ https://universe.roboflow.com/national-school-of-applied-science-zh1i1/nn-ln8ka } },
-url = { https://universe.roboflow.com/national-school-of-applied-science-zh1i1/nn-ln8ka },
-journal = { Roboflow Universe },
-publisher = { Roboflow },
-year = { 2023 },
-month = { sep },
-note = { visited on 2026-07-14 },
+```bibtex
+@misc{nn-ln8ka_dataset,
+  title = { nn Dataset },
+  type = { Open Source Dataset },
+  author = { national school of applied science },
+  howpublished = { \url{ https://universe.roboflow.com/national-school-of-applied-science-zh1i1/nn-ln8ka } },
+  url = { https://universe.roboflow.com/national-school-of-applied-science-zh1i1/nn-ln8ka },
+  journal = { Roboflow Universe },
+  publisher = { Roboflow },
+  year = { 2023 },
+  month = { sep },
+  note = { visited on 2026-07-14 },
 }
+```
 
-
-@misc{
-police-cars-romania_dataset,
-title = { police-cars-romania Dataset },
-type = { Open Source Dataset },
-author = { Bogdan Andrei },
-howpublished = { \url{ https://universe.roboflow.com/bogdan-andrei-470kt/police-cars-romania } },
-url = { https://universe.roboflow.com/bogdan-andrei-470kt/police-cars-romania },
-journal = { Roboflow Universe },
-publisher = { Roboflow },
-year = { 2023 },
-month = { oct },
-note = { visited on 2026-07-14 },
+```bibtex
+@misc{police-cars-romania_dataset,
+  title = { police-cars-romania Dataset },
+  type = { Open Source Dataset },
+  author = { Bogdan Andrei },
+  howpublished = { \url{ https://universe.roboflow.com/bogdan-andrei-470kt/police-cars-romania } },
+  url = { https://universe.roboflow.com/bogdan-andrei-470kt/police-cars-romania },
+  journal = { Roboflow Universe },
+  publisher = { Roboflow },
+  year = { 2023 },
+  month = { oct },
+  note = { visited on 2026-07-14 },
 }
+```
 
-
-@misc{
-police-cars-sumfm_dataset,
-title = { Police Cars Dataset },
-type = { Open Source Dataset },
-author = { FYP TC },
-howpublished = { \url{ https://universe.roboflow.com/fyp-tc-idn2o/police-cars-sumfm } },
-url = { https://universe.roboflow.com/fyp-tc-idn2o/police-cars-sumfm },
-journal = { Roboflow Universe },
-publisher = { Roboflow },
-year = { 2022 },
-month = { jan },
-note = { visited on 2026-07-14 },
+```bibtex
+@misc{police-cars-sumfm_dataset,
+  title = { Police Cars Dataset },
+  type = { Open Source Dataset },
+  author = { FYP TC },
+  howpublished = { \url{ https://universe.roboflow.com/fyp-tc-idn2o/police-cars-sumfm } },
+  url = { https://universe.roboflow.com/fyp-tc-idn2o/police-cars-sumfm },
+  journal = { Roboflow Universe },
+  publisher = { Roboflow },
+  year = { 2022 },
+  month = { jan },
+  note = { visited on 2026-07-14 },
 }
+```
 
-
-@misc{
-police-cars-romania_dataset,
-title = { police-cars-romania Dataset },
-type = { Open Source Dataset },
-author = { Bogdan Andrei },
-howpublished = { \url{ https://universe.roboflow.com/bogdan-andrei-470kt/police-cars-romania } },
-url = { https://universe.roboflow.com/bogdan-andrei-470kt/police-cars-romania },
-journal = { Roboflow Universe },
-publisher = { Roboflow },
-year = { 2023 },
-month = { oct },
-note = { visited on 2026-07-14 },
+```bibtex
+@misc{police-cars-romania_dataset,
+  title = { police-cars-romania Dataset },
+  type = { Open Source Dataset },
+  author = { Bogdan Andrei },
+  howpublished = { \url{ https://universe.roboflow.com/bogdan-andrei-470kt/police-cars-romania } },
+  url = { https://universe.roboflow.com/bogdan-andrei-470kt/police-cars-romania },
+  journal = { Roboflow Universe },
+  publisher = { Roboflow },
+  year = { 2023 },
+  month = { oct },
+  note = { visited on 2026-07-14 },
 }
+```
 
-
-@misc{
-veicoliemergenza_dataset,
-title = { VeicoliEmergenza Dataset },
-type = { Open Source Dataset },
-author = { smartire },
-howpublished = { \url{ https://universe.roboflow.com/smartire/veicoliemergenza } },
-url = { https://universe.roboflow.com/smartire/veicoliemergenza },
-journal = { Roboflow Universe },
-publisher = { Roboflow },
-year = { 2026 },
-month = { may },
-note = { visited on 2026-07-14 },
+```bibtex
+@misc{veicoliemergenza_dataset,
+  title = { VeicoliEmergenza Dataset },
+  type = { Open Source Dataset },
+  author = { smartire },
+  howpublished = { \url{ https://universe.roboflow.com/smartire/veicoliemergenza } },
+  url = { https://universe.roboflow.com/smartire/veicoliemergenza },
+  journal = { Roboflow Universe },
+  publisher = { Roboflow },
+  year = { 2026 },
+  month = { may },
+  note = { visited on 2026-07-14 },
 }
+```
 
-
-@misc{
-polizei-bkn68_dataset,
-title = { polizei Dataset },
-type = { Open Source Dataset },
-author = { erknnung },
-howpublished = { \url{ https://universe.roboflow.com/erknnung/polizei-bkn68 } },
-url = { https://universe.roboflow.com/erknnung/polizei-bkn68 },
-journal = { Roboflow Universe },
-publisher = { Roboflow },
-year = { 2025 },
-month = { aug },
-note = { visited on 2026-07-14 },
+```bibtex
+@misc{polizei-bkn68_dataset,
+  title = { polizei Dataset },
+  type = { Open Source Dataset },
+  author = { erknnung },
+  howpublished = { \url{ https://universe.roboflow.com/erknnung/polizei-bkn68 } },
+  url = { https://universe.roboflow.com/erknnung/polizei-bkn68 },
+  journal = { Roboflow Universe },
+  publisher = { Roboflow },
+  year = { 2025 },
+  month = { aug },
+  note = { visited on 2026-07-14 },
 }
+```
 
-
-@misc{
-emergencyvehicledetection-wuasv_dataset,
-title = { EmergencyVehicleDetection Dataset },
-type = { Open Source Dataset },
-author = { smartire },
-howpublished = { \url{ https://universe.roboflow.com/smartire/emergencyvehicledetection-wuasv } },
-url = { https://universe.roboflow.com/smartire/emergencyvehicledetection-wuasv },
-journal = { Roboflow Universe },
-publisher = { Roboflow },
-year = { 2026 },
-month = { apr },
-note = { visited on 2026-07-14 },
+```bibtex
+@misc{emergencyvehicledetection-wuasv_dataset,
+  title = { EmergencyVehicleDetection Dataset },
+  type = { Open Source Dataset },
+  author = { smartire },
+  howpublished = { \url{ https://universe.roboflow.com/smartire/emergencyvehicledetection-wuasv } },
+  url = { https://universe.roboflow.com/smartire/emergencyvehicledetection-wuasv },
+  journal = { Roboflow Universe },
+  publisher = { Roboflow },
+  year = { 2026 },
+  month = { apr },
+  note = { visited on 2026-07-14 },
 }
+```
 
-
-@misc{
-firetruck2_dataset,
-title = { firetruck2 Dataset },
-type = { Open Source Dataset },
-author = { central university },
-howpublished = { \url{ https://universe.roboflow.com/central-university/firetruck2 } },
-url = { https://universe.roboflow.com/central-university/firetruck2 },
-journal = { Roboflow Universe },
-publisher = { Roboflow },
-year = { 2024 },
-month = { may },
-note = { visited on 2026-07-14 },
+```bibtex
+@misc{firetruck2_dataset,
+  title = { firetruck2 Dataset },
+  type = { Open Source Dataset },
+  author = { central university },
+  howpublished = { \url{ https://universe.roboflow.com/central-university/firetruck2 } },
+  url = { https://universe.roboflow.com/central-university/firetruck2 },
+  journal = { Roboflow Universe },
+  publisher = { Roboflow },
+  year = { 2024 },
+  month = { may },
+  note = { visited on 2026-07-14 },
 }
-
+```
 
 ## Getting Started
 
-Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about Imagimob Studio and go through step-by-step tutorials to get you quickly started.
+Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about DEEPCRAFT™ Studio and go through step-by-step tutorials to get you quickly started.
 
 For object-detection data formats, see [Bring your own data for object detection projects](https://developer.imagimob.com/deepcraft-studio/data-preparation/bring-your-data/bring-your-own-data-object-detection).
 
-If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) Imagimob Studio page.
+## Help & Support
+
+If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.

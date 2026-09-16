@@ -94,72 +94,74 @@ Some points to highlight:
 - **Keep test data independent:** Make sure the test set is not used in train or validation and reflects scenarios where the model must generalize.
 - **Add negative data:** Include images without the target objects and common look-alikes to improve robustness against false positives.
 
-## Attribution & Citation
+## Attributions & Citations
 
-@misc{
-pcb-dataset-defect-fa2h3_dataset,
-title = { PCB Dataset Defect Dataset },
-type = { Open Source Dataset },
-author = { NITW },
-howpublished = { \url{ https://universe.roboflow.com/nitw-tfufy/pcb-dataset-defect-fa2h3 } },
-url = { https://universe.roboflow.com/nitw-tfufy/pcb-dataset-defect-fa2h3 },
-journal = { Roboflow Universe },
-publisher = { Roboflow },
-year = { 2026 },
-month = { feb },
-note = { visited on 2026-07-09 },
+```bibtex
+@misc{pcb-dataset-defect-fa2h3_dataset,
+  title = { PCB Dataset Defect Dataset },
+  type = { Open Source Dataset },
+  author = { NITW },
+  howpublished = { \url{ https://universe.roboflow.com/nitw-tfufy/pcb-dataset-defect-fa2h3 } },
+  url = { https://universe.roboflow.com/nitw-tfufy/pcb-dataset-defect-fa2h3 },
+  journal = { Roboflow Universe },
+  publisher = { Roboflow },
+  year = { 2026 },
+  month = { feb },
+  note = { visited on 2026-07-09 },
 }
+```
 
-
-@misc{
-deeppcb-4dhir-ic1ay_dataset,
-title = { DeepPCB Dataset },
-type = { Open Source Dataset },
-author = { dataset },
-howpublished = { \url{ https://universe.roboflow.com/dataset-7wlmu/deeppcb-4dhir-ic1ay } },
-url = { https://universe.roboflow.com/dataset-7wlmu/deeppcb-4dhir-ic1ay },
-journal = { Roboflow Universe },
-publisher = { Roboflow },
-year = { 2025 },
-month = { jan },
-note = { visited on 2026-07-09 },
+```bibtex
+@misc{deeppcb-4dhir-ic1ay_dataset,
+  title = { DeepPCB Dataset },
+  type = { Open Source Dataset },
+  author = { dataset },
+  howpublished = { \url{ https://universe.roboflow.com/dataset-7wlmu/deeppcb-4dhir-ic1ay } },
+  url = { https://universe.roboflow.com/dataset-7wlmu/deeppcb-4dhir-ic1ay },
+  journal = { Roboflow Universe },
+  publisher = { Roboflow },
+  year = { 2025 },
+  month = { jan },
+  note = { visited on 2026-07-09 },
 }
+```
 
-
-@misc{
-hripcb_dataset,
-title = { HRIPCB Dataset },
-type = { Open Source Dataset },
-author = { MA007 },
-howpublished = { \url{ https://universe.roboflow.com/ma007/hripcb } },
-url = { https://universe.roboflow.com/ma007/hripcb },
-journal = { Roboflow Universe },
-publisher = { Roboflow },
-year = { 2023 },
-month = { apr },
-note = { visited on 2026-07-09 },
+```bibtex
+@misc{hripcb_dataset,
+  title = { HRIPCB Dataset },
+  type = { Open Source Dataset },
+  author = { MA007 },
+  howpublished = { \url{ https://universe.roboflow.com/ma007/hripcb } },
+  url = { https://universe.roboflow.com/ma007/hripcb },
+  journal = { Roboflow Universe },
+  publisher = { Roboflow },
+  year = { 2023 },
+  month = { apr },
+  note = { visited on 2026-07-09 },
 }
+```
 
-
-@misc{
-pcb-defect-detection-fyopy_dataset,
-title = { PCB Defect detection Dataset },
-type = { Open Source Dataset },
-author = { PCB },
-howpublished = { \url{ https://universe.roboflow.com/pcb-rfgn5/pcb-defect-detection-fyopy } },
-url = { https://universe.roboflow.com/pcb-rfgn5/pcb-defect-detection-fyopy },
-journal = { Roboflow Universe },
-publisher = { Roboflow },
-year = { 2024 },
-month = { apr },
-note = { visited on 2026-07-09 },
+```bibtex
+@misc{pcb-defect-detection-fyopy_dataset,
+  title = { PCB Defect detection Dataset },
+  type = { Open Source Dataset },
+  author = { PCB },
+  howpublished = { \url{ https://universe.roboflow.com/pcb-rfgn5/pcb-defect-detection-fyopy } },
+  url = { https://universe.roboflow.com/pcb-rfgn5/pcb-defect-detection-fyopy },
+  journal = { Roboflow Universe },
+  publisher = { Roboflow },
+  year = { 2024 },
+  month = { apr },
+  note = { visited on 2026-07-09 },
 }
-
+```
 
 ## Getting Started
 
-Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about Imagimob Studio and go through step-by-step tutorials to get you quickly started.
+Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about DEEPCRAFT™ Studio and go through step-by-step tutorials to get you quickly started.
 
 For object-detection data formats, see [Bring your own data for object detection projects](https://developer.imagimob.com/deepcraft-studio/data-preparation/bring-your-data/bring-your-own-data-object-detection).
 
-If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) Imagimob Studio page.
+## Help & Support
+
+If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.

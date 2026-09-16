@@ -1,4 +1,4 @@
-﻿# Glass Break Detection
+# Glass Break Detection
 
 This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
 
@@ -46,3 +46,11 @@ sounds, should be included to reduce false alarms and strengthen reliability. Af
 evaluated in real‑world conditions to identify weaknesses. If performance drops in specific environments, adding representative data from those 
 contexts is often the most effective way to improve robustness. This iterative cycle of data expansion, parameter tuning, and scenario testing 
 ensures the final model is production‑ready, delivering accurate detection and seamless integration into security systems.
+
+## Getting Started
+
+Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about DEEPCRAFT™ Studio and go through step-by-step tutorials to get you quickly started.
+
+## Help & Support
+
+If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.

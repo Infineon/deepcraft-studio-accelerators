@@ -1,4 +1,6 @@
-﻿# Project Title
+# Project Title
+
+This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
 
 ## Overview - Use-Case
 
@@ -45,3 +47,31 @@ Some points to highlight:
 - increase data variability: data from different environments, devices, conditions, use cases, people, patterns. Mention in case how to use Data Augmentation functionality for audio data
 - make sure Test set contains data that is not used in Train and Validation sets and that allows you to verify that model generalizes to different scenarios
 - make sure to add negative data to increase model robustness
+
+
+## Attributions & Citations
+
+Credit every third-party dataset, recording, or other source used in this project. Include the license (and any commercial-use limits), a link to the original source, and enough detail that a reader can find the exact version you used. Repeat one citation block per source. If you collected the data yourself, state that here instead.
+
+Use BibTeX when a formal citation is available; otherwise list author, title, URL, license, and access date in plain text.
+
+```bibtex
+@misc{dataset_key,
+  title = {Dataset Title},
+  author = {Author or Organization},
+  year = {YYYY},
+  howpublished = {\url{https://example.com/path/to/dataset}},
+  note = {License: CC BY 4.0 (replace with the actual license). Accessed YYYY-MM-DD.},
+}
+```
+
+
+## Getting Started
+
+Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about DEEPCRAFT™ Studio and go through step-by-step tutorials to get started quickly.
+
+For object-detection data formats, see [Bring your own data for object detection projects](https://developer.imagimob.com/deepcraft-studio/data-preparation/bring-your-data/bring-your-own-data-object-detection).
+
+## Help & Support
+
+If you need support or if you want to know how to deploy the model on the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.

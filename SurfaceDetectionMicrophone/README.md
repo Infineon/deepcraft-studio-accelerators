@@ -1,4 +1,4 @@
-﻿# Surface Detection for Vacuum Cleaners - Studio Accelerator Project
+# Surface Detection for Vacuum Cleaners
 
 This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
 
@@ -112,12 +112,10 @@ Prefer collecting multiple shorter samples (60 - 240 seconds) across diverse con
 Consider an iterative development approach where you first train on a basic dataset, identify failure cases through testing, then collect additional data specifically targeting those edge cases to improve model performance.
 
 
-
-
 ## Getting Started
 
-Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about Imagimob Studio and go through step-by-step tutorials to get you quickly started.
+Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about DEEPCRAFT™ Studio and go through step-by-step tutorials to get you quickly started.
 
 ## Help & Support
 
-If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum ](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) Imagimob Studio page.
+If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.

@@ -52,54 +52,57 @@ The recommended path to production for this project includes the following steps
 - Try different augmentation settings to increase the variability of the dataset, such as increase 'flip left right' and 'flip up down' parameters to get mirrored images of termites.
 - Try different advanced settings such as optimizer,  iou threshold or confidence threshold to make model more or less sensitive.
 
-## Attribution & Citation
-@misc{
-termite1_dataset,
-title = { termite1 Dataset },
-type = { Open Source Dataset },
-author = { Song },
-howpublished = { \url{ https://universe.roboflow.com/song-zcqwx/termite1 } },
-url = { https://universe.roboflow.com/song-zcqwx/termite1 },
-journal = { Roboflow Universe },
-publisher = { Roboflow },
-year = { 2024 },
-month = { mar },
-note = { visited on 2025-10-09 },
-}
+## Attributions & Citations
 
-@misc{
-termite-rtlzw_dataset,
-title = { termite Dataset },
-type = { Open Source Dataset },
-author = { termite },
-howpublished = { \url{ https://universe.roboflow.com/termite/termite-rtlzw } },
-url = { https://universe.roboflow.com/termite/termite-rtlzw },
-journal = { Roboflow Universe },
-publisher = { Roboflow },
-year = { 2024 },
-month = { may },
-note = { visited on 2025-10-09 },
+```bibtex
+@misc{termite1_dataset,
+  title = { termite1 Dataset },
+  type = { Open Source Dataset },
+  author = { Song },
+  howpublished = { \url{ https://universe.roboflow.com/song-zcqwx/termite1 } },
+  url = { https://universe.roboflow.com/song-zcqwx/termite1 },
+  journal = { Roboflow Universe },
+  publisher = { Roboflow },
+  year = { 2024 },
+  month = { mar },
+  note = { visited on 2025-10-09 },
 }
+```
 
-@misc{
-termite2_dataset,
-title = { termite2 Dataset },
-type = { Open Source Dataset },
-author = { song },
-howpublished = { \url{ https://universe.roboflow.com/song-3auy6/termite2 } },
-url = { https://universe.roboflow.com/song-3auy6/termite2 },
-journal = { Roboflow Universe },
-publisher = { Roboflow },
-year = { 2024 },
-month = { may },
-note = { visited on 2025-10-09 },
+```bibtex
+@misc{termite-rtlzw_dataset,
+  title = { termite Dataset },
+  type = { Open Source Dataset },
+  author = { termite },
+  howpublished = { \url{ https://universe.roboflow.com/termite/termite-rtlzw } },
+  url = { https://universe.roboflow.com/termite/termite-rtlzw },
+  journal = { Roboflow Universe },
+  publisher = { Roboflow },
+  year = { 2024 },
+  month = { may },
+  note = { visited on 2025-10-09 },
 }
+```
 
+```bibtex
+@misc{termite2_dataset,
+  title = { termite2 Dataset },
+  type = { Open Source Dataset },
+  author = { song },
+  howpublished = { \url{ https://universe.roboflow.com/song-3auy6/termite2 } },
+  url = { https://universe.roboflow.com/song-3auy6/termite2 },
+  journal = { Roboflow Universe },
+  publisher = { Roboflow },
+  year = { 2024 },
+  month = { may },
+  note = { visited on 2025-10-09 },
+}
+```
 
 ## Getting Started
 
-Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about Imagimob Studio and go through step-by-step tutorials to get you quickly started.
+Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about DEEPCRAFT™ Studio and go through step-by-step tutorials to get you quickly started.
 
 ## Help & Support
 
-If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum ](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) Imagimob Studio page.
+If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.

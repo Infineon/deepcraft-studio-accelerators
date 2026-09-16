@@ -82,72 +82,74 @@ Some points to highlight:
 - **Keep test data independent:** Make sure the test set is not used in train or validation and reflects scenarios where the model must generalize.
 - **Add negative data:** Include images without the target objects and common look-alikes to improve robustness against false positives.
 
-## Attribution & Citation
+## Attributions & Citations
 
-@misc{
-object-detection-cat-and-dogs_dataset,
-title = { Object Detection Cat and Dogs Dataset },
-type = { Open Source Dataset },
-author = { Cats and Dogs Detection },
-howpublished = { \url{ https://universe.roboflow.com/cats-and-dogs-detection/object-detection-cat-and-dogs } },
-url = { https://universe.roboflow.com/cats-and-dogs-detection/object-detection-cat-and-dogs },
-journal = { Roboflow Universe },
-publisher = { Roboflow },
-year = { 2023 },
-month = { sep },
-note = { visited on 2026-07-07 },
+```bibtex
+@misc{object-detection-cat-and-dogs_dataset,
+  title = { Object Detection Cat and Dogs Dataset },
+  type = { Open Source Dataset },
+  author = { Cats and Dogs Detection },
+  howpublished = { \url{ https://universe.roboflow.com/cats-and-dogs-detection/object-detection-cat-and-dogs } },
+  url = { https://universe.roboflow.com/cats-and-dogs-detection/object-detection-cat-and-dogs },
+  journal = { Roboflow Universe },
+  publisher = { Roboflow },
+  year = { 2023 },
+  month = { sep },
+  note = { visited on 2026-07-07 },
 }
+```
 
-
-@misc{
-230518_catdog-d8fif_dataset,
-title = { 230518_catdog Dataset },
-type = { Open Source Dataset },
-author = { BORAM },
-howpublished = { \url{ https://universe.roboflow.com/boram-prebk/230518_catdog-d8fif } },
-url = { https://universe.roboflow.com/boram-prebk/230518_catdog-d8fif },
-journal = { Roboflow Universe },
-publisher = { Roboflow },
-year = { 2023 },
-month = { may },
-note = { visited on 2026-07-07 },
+```bibtex
+@misc{230518_catdog-d8fif_dataset,
+  title = { 230518_catdog Dataset },
+  type = { Open Source Dataset },
+  author = { BORAM },
+  howpublished = { \url{ https://universe.roboflow.com/boram-prebk/230518_catdog-d8fif } },
+  url = { https://universe.roboflow.com/boram-prebk/230518_catdog-d8fif },
+  journal = { Roboflow Universe },
+  publisher = { Roboflow },
+  year = { 2023 },
+  month = { may },
+  note = { visited on 2026-07-07 },
 }
+```
 
-
-@misc{
-dogs-vs-cats_dataset,
-title = { Dogs vs Cats Dataset },
-type = { Open Source Dataset },
-author = { personal },
-howpublished = { \url{ https://universe.roboflow.com/personal-buhbs/dogs-vs-cats } },
-url = { https://universe.roboflow.com/personal-buhbs/dogs-vs-cats },
-journal = { Roboflow Universe },
-publisher = { Roboflow },
-year = { 2022 },
-month = { aug },
-note = { visited on 2026-07-07 },
+```bibtex
+@misc{dogs-vs-cats_dataset,
+  title = { Dogs vs Cats Dataset },
+  type = { Open Source Dataset },
+  author = { personal },
+  howpublished = { \url{ https://universe.roboflow.com/personal-buhbs/dogs-vs-cats } },
+  url = { https://universe.roboflow.com/personal-buhbs/dogs-vs-cats },
+  journal = { Roboflow Universe },
+  publisher = { Roboflow },
+  year = { 2022 },
+  month = { aug },
+  note = { visited on 2026-07-07 },
 }
+```
 
-
-@misc{
-cats-n9b87_dataset,
-title = { Cats Dataset },
-type = { Open Source Dataset },
-author = { Mohamed Traore },
-howpublished = { \url{ https://universe.roboflow.com/mohamed-traore-2ekkp/cats-n9b87 } },
-url = { https://universe.roboflow.com/mohamed-traore-2ekkp/cats-n9b87 },
-journal = { Roboflow Universe },
-publisher = { Roboflow },
-year = { 2022 },
-month = { nov },
-note = { visited on 2026-07-07 },
+```bibtex
+@misc{cats-n9b87_dataset,
+  title = { Cats Dataset },
+  type = { Open Source Dataset },
+  author = { Mohamed Traore },
+  howpublished = { \url{ https://universe.roboflow.com/mohamed-traore-2ekkp/cats-n9b87 } },
+  url = { https://universe.roboflow.com/mohamed-traore-2ekkp/cats-n9b87 },
+  journal = { Roboflow Universe },
+  publisher = { Roboflow },
+  year = { 2022 },
+  month = { nov },
+  note = { visited on 2026-07-07 },
 }
-
+```
 
 ## Getting Started
 
-Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about Imagimob Studio and go through step-by-step tutorials to get you quickly started.
+Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about DEEPCRAFT™ Studio and go through step-by-step tutorials to get you quickly started.
 
 For object-detection data formats, see [Bring your own data for object detection projects](https://developer.imagimob.com/deepcraft-studio/data-preparation/bring-your-data/bring-your-own-data-object-detection).
 
-If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) Imagimob Studio page.
+## Help & Support
+
+If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.

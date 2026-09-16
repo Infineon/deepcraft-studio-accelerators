@@ -1,4 +1,4 @@
-﻿# Gunshot Detection
+# Gunshot Detection
 
 This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
 
@@ -30,7 +30,8 @@ possibly remove far away gunshots:
 might trim out automatic fire from:
 402791__acidsnowflake__ak47
 
-## Data Attributions
+## Attributions & Citations
+
 forest car people NL Roond 01 200619_0186.wav by klankbeeld -- https://freesound.org/s/623090/ -- License: Attribution 4.0
 forest summer Roond 005 200619_0186.wav by klankbeeld -- https://freesound.org/s/524238/ -- License: Attribution 4.0
 
@@ -69,8 +70,8 @@ Other sounds may also be used as can be seen from our master attribution list he
 
 ## Getting Started
 
-Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about Imagimob Studio and go through step-by-step tutorials to get you quickly started.
+Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about DEEPCRAFT™ Studio and go through step-by-step tutorials to get you quickly started.
 
 ## Help & Support
 
-If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum ](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) Imagimob Studio page.
+If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.

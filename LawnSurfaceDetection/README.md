@@ -103,165 +103,164 @@ Some points to highlight:
 - **Keep test data independent:** Make sure the test set is not used in train or validation and reflects scenarios where the model must generalize.
 - **Add negative data:** Include images without the target objects and common look-alikes to improve robustness against false positives.
 
-## Attribution & Citation
+## Attributions & Citations
 
-@misc{
-grass-o0vum_dataset,
-title = { Grass Dataset },
-type = { Open Source Dataset },
-author = { Iowa State University },
-howpublished = { \url{ https://universe.roboflow.com/iowa-state-university-krhld/grass-o0vum } },
-url = { https://universe.roboflow.com/iowa-state-university-krhld/grass-o0vum },
-journal = { Roboflow Universe },
-publisher = { Roboflow },
-year = { 2024 },
-month = { jul },
-note = { visited on 2026-08-31 },
+```bibtex
+@misc{grass-o0vum_dataset,
+  title = { Grass Dataset },
+  type = { Open Source Dataset },
+  author = { Iowa State University },
+  howpublished = { \url{ https://universe.roboflow.com/iowa-state-university-krhld/grass-o0vum } },
+  url = { https://universe.roboflow.com/iowa-state-university-krhld/grass-o0vum },
+  journal = { Roboflow Universe },
+  publisher = { Roboflow },
+  year = { 2024 },
+  month = { jul },
+  note = { visited on 2026-08-31 },
 }
+```
 
-
-@misc{
-lawn-k1yxg_dataset,
-title = { lawn Dataset },
-type = { Open Source Dataset },
-author = { michael ringer },
-howpublished = { \url{ https://universe.roboflow.com/michael-ringer/lawn-k1yxg } },
-url = { https://universe.roboflow.com/michael-ringer/lawn-k1yxg },
-journal = { Roboflow Universe },
-publisher = { Roboflow },
-year = { 2023 },
-month = { aug },
-note = { visited on 2026-08-31 },
+```bibtex
+@misc{lawn-k1yxg_dataset,
+  title = { lawn Dataset },
+  type = { Open Source Dataset },
+  author = { michael ringer },
+  howpublished = { \url{ https://universe.roboflow.com/michael-ringer/lawn-k1yxg } },
+  url = { https://universe.roboflow.com/michael-ringer/lawn-k1yxg },
+  journal = { Roboflow Universe },
+  publisher = { Roboflow },
+  year = { 2023 },
+  month = { aug },
+  note = { visited on 2026-08-31 },
 }
+```
 
-
-@misc{
-lawn-mower-mtphj_dataset,
-title = { lawn mower Dataset },
-type = { Open Source Dataset },
-author = { Politeknik Negeri Madiun },
-howpublished = { \url{ https://universe.roboflow.com/politeknik-negeri-madiun-cxqum/lawn-mower-mtphj } },
-url = { https://universe.roboflow.com/politeknik-negeri-madiun-cxqum/lawn-mower-mtphj },
-journal = { Roboflow Universe },
-publisher = { Roboflow },
-year = { 2024 },
-month = { may },
-note = { visited on 2026-08-31 },
+```bibtex
+@misc{lawn-mower-mtphj_dataset,
+  title = { lawn mower Dataset },
+  type = { Open Source Dataset },
+  author = { Politeknik Negeri Madiun },
+  howpublished = { \url{ https://universe.roboflow.com/politeknik-negeri-madiun-cxqum/lawn-mower-mtphj } },
+  url = { https://universe.roboflow.com/politeknik-negeri-madiun-cxqum/lawn-mower-mtphj },
+  journal = { Roboflow Universe },
+  publisher = { Roboflow },
+  year = { 2024 },
+  month = { may },
+  note = { visited on 2026-08-31 },
 }
+```
 
-
-@misc{
-soil-classification-udzoa_dataset,
-title = { Soil Classification Dataset },
-type = { Open Source Dataset },
-author = { forgotten-shore },
-howpublished = { \url{ https://universe.roboflow.com/forgotten-shore/soil-classification-udzoa } },
-url = { https://universe.roboflow.com/forgotten-shore/soil-classification-udzoa },
-journal = { Roboflow Universe },
-publisher = { Roboflow },
-year = { 2024 },
-month = { sep },
-note = { visited on 2026-08-31 },
+```bibtex
+@misc{soil-classification-udzoa_dataset,
+  title = { Soil Classification Dataset },
+  type = { Open Source Dataset },
+  author = { forgotten-shore },
+  howpublished = { \url{ https://universe.roboflow.com/forgotten-shore/soil-classification-udzoa } },
+  url = { https://universe.roboflow.com/forgotten-shore/soil-classification-udzoa },
+  journal = { Roboflow Universe },
+  publisher = { Roboflow },
+  year = { 2024 },
+  month = { sep },
+  note = { visited on 2026-08-31 },
 }
+```
 
-
-@misc{
-soil-aoweg_dataset,
-title = { Soil Dataset },
-type = { Open Source Dataset },
-author = { Md Sohag },
-howpublished = { \url{ https://universe.roboflow.com/md-sohag-w9lng/soil-aoweg } },
-url = { https://universe.roboflow.com/md-sohag-w9lng/soil-aoweg },
-journal = { Roboflow Universe },
-publisher = { Roboflow },
-year = { 2025 },
-month = { nov },
-note = { visited on 2026-08-31 },
+```bibtex
+@misc{soil-aoweg_dataset,
+  title = { Soil Dataset },
+  type = { Open Source Dataset },
+  author = { Md Sohag },
+  howpublished = { \url{ https://universe.roboflow.com/md-sohag-w9lng/soil-aoweg } },
+  url = { https://universe.roboflow.com/md-sohag-w9lng/soil-aoweg },
+  journal = { Roboflow Universe },
+  publisher = { Roboflow },
+  year = { 2025 },
+  month = { nov },
+  note = { visited on 2026-08-31 },
 }
+```
 
-
-@misc{
-soil-detection-xl5ol_dataset,
-title = { Soil Detection Dataset },
-type = { Open Source Dataset },
-author = { rudra1103 },
-howpublished = { \url{ https://universe.roboflow.com/rudra1103/soil-detection-xl5ol } },
-url = { https://universe.roboflow.com/rudra1103/soil-detection-xl5ol },
-journal = { Roboflow Universe },
-publisher = { Roboflow },
-year = { 2024 },
-month = { sep },
-note = { visited on 2026-08-31 },
+```bibtex
+@misc{soil-detection-xl5ol_dataset,
+  title = { Soil Detection Dataset },
+  type = { Open Source Dataset },
+  author = { rudra1103 },
+  howpublished = { \url{ https://universe.roboflow.com/rudra1103/soil-detection-xl5ol } },
+  url = { https://universe.roboflow.com/rudra1103/soil-detection-xl5ol },
+  journal = { Roboflow Universe },
+  publisher = { Roboflow },
+  year = { 2024 },
+  month = { sep },
+  note = { visited on 2026-08-31 },
 }
+```
 
-
-@misc{
-road-surface-type-syn0z_dataset,
-title = { road surface type Dataset },
-type = { Open Source Dataset },
-author = { issues2 },
-howpublished = { \url{ https://universe.roboflow.com/issues2/road-surface-type-syn0z } },
-url = { https://universe.roboflow.com/issues2/road-surface-type-syn0z },
-journal = { Roboflow Universe },
-publisher = { Roboflow },
-year = { 2025 },
-month = { feb },
-note = { visited on 2026-08-31 },
+```bibtex
+@misc{road-surface-type-syn0z_dataset,
+  title = { road surface type Dataset },
+  type = { Open Source Dataset },
+  author = { issues2 },
+  howpublished = { \url{ https://universe.roboflow.com/issues2/road-surface-type-syn0z } },
+  url = { https://universe.roboflow.com/issues2/road-surface-type-syn0z },
+  journal = { Roboflow Universe },
+  publisher = { Roboflow },
+  year = { 2025 },
+  month = { feb },
+  note = { visited on 2026-08-31 },
 }
+```
 
-
-@misc{
-flower-46h98_dataset,
-title = { Flower Dataset },
-type = { Open Source Dataset },
-author = { My Datasets },
-howpublished = { \url{ https://universe.roboflow.com/my-datasets-0aq8j/flower-46h98 } },
-url = { https://universe.roboflow.com/my-datasets-0aq8j/flower-46h98 },
-journal = { Roboflow Universe },
-publisher = { Roboflow },
-year = { 2022 },
-month = { jun },
-note = { visited on 2026-08-31 },
+```bibtex
+@misc{flower-46h98_dataset,
+  title = { Flower Dataset },
+  type = { Open Source Dataset },
+  author = { My Datasets },
+  howpublished = { \url{ https://universe.roboflow.com/my-datasets-0aq8j/flower-46h98 } },
+  url = { https://universe.roboflow.com/my-datasets-0aq8j/flower-46h98 },
+  journal = { Roboflow Universe },
+  publisher = { Roboflow },
+  year = { 2022 },
+  month = { jun },
+  note = { visited on 2026-08-31 },
 }
+```
 
-
-@misc{
-flowers_classification_dataset,
-title = { Flowers Classification Dataset },
-type = { Open Source Dataset },
-author = { Alexander Mamaev },
-howpublished = { \url{ https://universe.roboflow.com/jacob-solawetz/flowers_classification } },
-url = { https://universe.roboflow.com/jacob-solawetz/flowers_classification },
-journal = { Roboflow Universe },
-publisher = { Roboflow },
-year = { 2020 },
-month = { apr },
-note = { visited on 2026-08-31 },
+```bibtex
+@misc{flowers_classification_dataset,
+  title = { Flowers Classification Dataset },
+  type = { Open Source Dataset },
+  author = { Alexander Mamaev },
+  howpublished = { \url{ https://universe.roboflow.com/jacob-solawetz/flowers_classification } },
+  url = { https://universe.roboflow.com/jacob-solawetz/flowers_classification },
+  journal = { Roboflow Universe },
+  publisher = { Roboflow },
+  year = { 2020 },
+  month = { apr },
+  note = { visited on 2026-08-31 },
 }
+```
 
-
-@misc{
-plant-identification-hxspu_dataset,
-title = { Plant Identification Dataset },
-type = { Open Source Dataset },
-author = { Edible Plant },
-howpublished = { \url{ https://universe.roboflow.com/edible-plant/plant-identification-hxspu } },
-url = { https://universe.roboflow.com/edible-plant/plant-identification-hxspu },
-journal = { Roboflow Universe },
-publisher = { Roboflow },
-year = { 2024 },
-month = { oct },
-note = { visited on 2026-08-31 },
+```bibtex
+@misc{plant-identification-hxspu_dataset,
+  title = { Plant Identification Dataset },
+  type = { Open Source Dataset },
+  author = { Edible Plant },
+  howpublished = { \url{ https://universe.roboflow.com/edible-plant/plant-identification-hxspu } },
+  url = { https://universe.roboflow.com/edible-plant/plant-identification-hxspu },
+  journal = { Roboflow Universe },
+  publisher = { Roboflow },
+  year = { 2024 },
+  month = { oct },
+  note = { visited on 2026-08-31 },
 }
-
+```
 
 ## Getting Started
 
-Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about Imagimob Studio and go through step-by-step tutorials to get you quickly started.
+Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about DEEPCRAFT™ Studio and go through step-by-step tutorials to get you quickly started.
 
 For object-detection data formats, see [Bring your own data for object detection projects](https://developer.imagimob.com/deepcraft-studio/data-preparation/bring-your-data/bring-your-own-data-object-detection).
 
-
 ## Help & Support
 
-If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) Imagimob Studio page.
+If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.

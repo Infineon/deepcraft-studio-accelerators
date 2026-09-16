@@ -51,25 +51,27 @@ Click "Start new Training Job" and submit the Job, Log-in to Imagimob Account
 
 After Training is finished, download model(s)
 
-## Attribution & Citation
+## Attributions & Citations
 
+```bibtex
 @article{speechcommandsv2,
-   author = { {Warden}, P.},
-    title = "{Speech Commands: A Dataset for Limited-Vocabulary Speech Recognition}",
+  author = { {Warden}, P.},
+  title = "{Speech Commands: A Dataset for Limited-Vocabulary Speech Recognition}",
   journal = {ArXiv e-prints},
   archivePrefix = "arXiv",
   eprint = {1804.03209},
   primaryClass = "cs.CL",
   keywords = {Computer Science - Computation and Language, Computer Science - Human-Computer Interaction},
-    year = 2018,
-    month = apr,
-    url = {https://arxiv.org/abs/1804.03209},
+  year = 2018,
+  month = apr,
+  url = {https://arxiv.org/abs/1804.03209},
 }
+```
 
 ## Getting Started
 
-Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about Imagimob Studio and go through step-by-step tutorials to get you quickly started.
+Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about DEEPCRAFT™ Studio and go through step-by-step tutorials to get you quickly started.
 
 ## Help & Support
 
-If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum ](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) Imagimob Studio page.
+If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.

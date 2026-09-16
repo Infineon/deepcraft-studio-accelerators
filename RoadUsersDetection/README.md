@@ -39,13 +39,14 @@ The recommended path to production for this road users detection project include
 - Experiment with different data augmentation settings to increase dataset variability, such as enabling more frequent 'flip left-right' or 'flip up-down' transformations to generate mirrored images of road users.
 - Optimize advanced settings, such as the optimizer, Intersection over Union (IoU) threshold, or confidence threshold, to fine-tune the model's sensitivity and performance for specific use cases.
 
-## Attribution & Citation
+## Attributions & Citations
+
 Dataset: Everingham, M., Van Gool, L., Williams, C. K. I., Winn, J., & Zisserman, A. (2010). The Pascal Visual Object Classes (VOC) Challenge. International Journal of Computer Vision, 88(2), 303–328. 
 
 ## Getting Started
 
-Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about Imagimob Studio and go through step-by-step tutorials to get you quickly started.
+Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about DEEPCRAFT™ Studio and go through step-by-step tutorials to get you quickly started.
 
 ## Help & Support
 
-If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum ](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) Imagimob Studio page.
+If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.

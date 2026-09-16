@@ -1,4 +1,4 @@
-﻿# Rock Scissors Paper Detection Project
+# Rock Scissors Paper Detection Project
 
 This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
 
@@ -49,42 +49,45 @@ The recommended path to production for this project includes the following steps
 - Try different augmentation settings to increase the variability of the dataset, such as increase 'flip left right' and 'flip up down' parameters to get mirrored images of gestures.
 - Try different advanced settings such as optimizer,  iou threshold or confidence threshold to make model more or less sensitive. 
 
-## Attribution & Citation
+## Attributions & Citations
 
 This dataset in turn contains data derived from four projects:
 [Egohands](https://universe.roboflow.com/brad-dwyer/egohands-public/) created by Sven Bambach and Stefan Lee and David Crandall and Chen Yu and released under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 
-`@inproceedings{egohands2015iccv,
-    title = {Lending A Hand: Detecting Hands and Recognizing Activities in Complex Egocentric Interactions},
-    author = {Sven Bambach and Stefan Lee and David Crandall and Chen Yu},
-    booktitle = {IEEE International Conference on Computer Vision (ICCV)},
-    year = {2015}
-}`
+```bibtex
+@inproceedings{egohands2015iccv,
+  title = {Lending A Hand: Detecting Hands and Recognizing Activities in Complex Egocentric Interactions},
+  author = {Sven Bambach and Stefan Lee and David Crandall and Chen Yu},
+  booktitle = {IEEE International Conference on Computer Vision (ICCV)},
+  year = {2015},
+}
+```
 
 [Rock Paper Scissors Presentation Dataset](https://universe.roboflow.com/presentations/rock-paper-scissors-presentation/) created by [Presentations](https://universe.roboflow.com/presentations) and licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). 
 
 [Rock Paper Scissors Dataset](https://universe.roboflow.com/team-roboflow/rock-paper-scissors-detection) created by [Team Roboflow](https://universe.roboflow.com/team-roboflow). 
 
-`@misc{
-rock-paper-scissors-detection_dataset,
-title = { Rock Paper Scissors Dataset },
-type = { Open Source Dataset },
-author = { Team Roboflow },
-howpublished = { \url{ https://universe.roboflow.com/team-roboflow/rock-paper-scissors-detection } },
-url = { https://universe.roboflow.com/team-roboflow/rock-paper-scissors-detection },
-journal = { Roboflow Universe },
-publisher = { Roboflow },
-year = { 2023 },
-month = { jan },
-note = { visited on 2025-10-09 },
-}`
+```bibtex
+@misc{rock-paper-scissors-detection_dataset,
+  title = { Rock Paper Scissors Dataset },
+  type = { Open Source Dataset },
+  author = { Team Roboflow },
+  howpublished = { \url{ https://universe.roboflow.com/team-roboflow/rock-paper-scissors-detection } },
+  url = { https://universe.roboflow.com/team-roboflow/rock-paper-scissors-detection },
+  journal = { Roboflow Universe },
+  publisher = { Roboflow },
+  year = { 2023 },
+  month = { jan },
+  note = { visited on 2025-10-09 },
+}
+```
 
 [MIT Indoor Scene Recognition Dataset](universe.roboflow.com/popular-benchmarks/mit-indoor-scene-recognition/) created by [Popular Benchmarks](https://universe.roboflow.com/popular-benchmarks) and licensed under [MIT](https://choosealicense.com/licenses/mit/).
 
 ## Getting Started
 
-Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about Imagimob Studio and go through step-by-step tutorials to get you quickly started.
+Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about DEEPCRAFT™ Studio and go through step-by-step tutorials to get you quickly started.
 
 ## Help & Support
 
-If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum ](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) Imagimob Studio page.
+If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.

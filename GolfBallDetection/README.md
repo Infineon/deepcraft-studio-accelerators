@@ -1,6 +1,6 @@
-﻿# Golf Ball Detection - DEEPCRAFT™ Studio Accelerator project.
+# Golf Ball Detection - DEEPCRAFT™ Studio Accelerator project.
 
-This project is designed to work exclusively with DEEPCRAFT™ Studio.
+This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
 
 ## Use-case description
 
@@ -83,16 +83,39 @@ Last step is to move to the actual final production setup. The production system
 
 **Note:** All subsequent ML system lifetime monitoring procedures must be defined and implemented by you according to you needs, requirements and targets.
 
-## Dataset Attributions and Citations
+## Attributions & Citations
 
-@misc{ golfball-pedge-detector, title = { GolfBall Dataset }, type = { Open Source Dataset }, author = { lolepls }, howpublished = { \url{ https://app.roboflow.com/lolepls/golf-ball-raahi-k2ygw/2 } }, url = { https://app.roboflow.com/lolepls/golf-ball-raahi-k2ygw/2 }, journal = { Roboflow Universe }, publisher = { Roboflow }, year = { 2026 }, month = { jan }, note = { visited on 2026-02-09 }, }
+```bibtex
+@misc{golfball-pedge-detector,
+  title = { GolfBall Dataset },
+  type = { Open Source Dataset },
+  author = { lolepls },
+  howpublished = { \url{ https://app.roboflow.com/lolepls/golf-ball-raahi-k2ygw/2 } },
+  url = { https://app.roboflow.com/lolepls/golf-ball-raahi-k2ygw/2 },
+  journal = { Roboflow Universe },
+  publisher = { Roboflow },
+  year = { 2026 },
+  month = { jan },
+  note = { visited on 2026-02-09 },
+}
+```
 
-@misc{ infineon-public-golfball-dataset, title = { Infineon Public GolfBall Dataset }, type = { Open Source Dataset }, author = { Gioele Mombelli }, journal = { DEEPCRAFT Studio Accelerators }, publisher = { Infineon }, year = { 2026 }, month = { jan }, }
+```bibtex
+@misc{infineon-public-golfball-dataset,
+  title = { Infineon Public GolfBall Dataset },
+  type = { Open Source Dataset },
+  author = { Gioele Mombelli },
+  journal = { DEEPCRAFT Studio Accelerators },
+  publisher = { Infineon },
+  year = { 2026 },
+  month = { jan },
+}
+```
 
 ## Getting Started
 
-Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about Imagimob Studio and go through step-by-step tutorials to get you quickly started.
+Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about DEEPCRAFT™ Studio and go through step-by-step tutorials to get you quickly started.
 
 ## Help & Support
 
-If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum ](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) Imagimob Studio page.
+If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.

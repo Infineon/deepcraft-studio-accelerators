@@ -1,4 +1,4 @@
-﻿# Capsense Gesture Detection
+# Capsense Gesture Detection
 
 This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
 
@@ -92,3 +92,11 @@ It is crucial to properly split the dataset into training, validation, and test 
 To further enhance model reliability, negative samples should be included in the dataset. These are examples where no gesture is present, or where random hand movements occur. Including such data helps the model learn to distinguish between intentional gestures and irrelevant signals, reducing false positives and improving robustness in noisy or unpredictable environments.
 
 The model should be tested in real-world conditions to identify edge cases (eg: using wet or gloved hands, gestures executed too quickly or too slowly), monitor performance and gather user feedback. A feedback loop could be established to collect new data post-deployment, enabling periodic retraining and updates. This continuous learning process ensures that the gesture detection model remains accurate, adaptive, and production-ready over time.
+
+## Getting Started
+
+Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about DEEPCRAFT™ Studio and go through step-by-step tutorials to get you quickly started.
+
+## Help & Support
+
+If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.

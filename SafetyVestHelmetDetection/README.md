@@ -80,87 +80,89 @@ Some points to highlight:
 - **Keep test data independent:** Make sure the test set is not used in train or validation and reflects scenarios where the model must generalize.
 - **Add negative data:** Include images without the target objects and common look-alikes to improve robustness against false positives.
 
-## Attribution & Citation
+## Attributions & Citations
 
-@misc{
-construction-site-safety_dataset,
-title = { Construction Site Safety Dataset },
-type = { Open Source Dataset },
-author = { Roboflow Universe Projects },
-howpublished = { \url{ https://universe.roboflow.com/roboflow-universe-projects/construction-site-safety } },
-url = { https://universe.roboflow.com/roboflow-universe-projects/construction-site-safety },
-journal = { Roboflow Universe },
-publisher = { Roboflow },
-year = { 2022 },
-month = { dec },
-note = { visited on 2026-07-15 },
+```bibtex
+@misc{construction-site-safety_dataset,
+  title = { Construction Site Safety Dataset },
+  type = { Open Source Dataset },
+  author = { Roboflow Universe Projects },
+  howpublished = { \url{ https://universe.roboflow.com/roboflow-universe-projects/construction-site-safety } },
+  url = { https://universe.roboflow.com/roboflow-universe-projects/construction-site-safety },
+  journal = { Roboflow Universe },
+  publisher = { Roboflow },
+  year = { 2022 },
+  month = { dec },
+  note = { visited on 2026-07-15 },
 }
+```
 
-
-@misc{
-constuction-safety_dataset,
-title = { constuction-safety Dataset },
-type = { Open Source Dataset },
-author = { HSSEdemo },
-howpublished = { \url{ https://universe.roboflow.com/hssedemo/constuction-safety } },
-url = { https://universe.roboflow.com/hssedemo/constuction-safety },
-journal = { Roboflow Universe },
-publisher = { Roboflow },
-year = { 2024 },
-month = { jul },
-note = { visited on 2026-07-15 },
+```bibtex
+@misc{constuction-safety_dataset,
+  title = { constuction-safety Dataset },
+  type = { Open Source Dataset },
+  author = { HSSEdemo },
+  howpublished = { \url{ https://universe.roboflow.com/hssedemo/constuction-safety } },
+  url = { https://universe.roboflow.com/hssedemo/constuction-safety },
+  journal = { Roboflow Universe },
+  publisher = { Roboflow },
+  year = { 2024 },
+  month = { jul },
+  note = { visited on 2026-07-15 },
 }
+```
 
-
-@misc{
-construction-safety-gears-vcbdq_dataset,
-title = { construction safety gears Dataset },
-type = { Open Source Dataset },
-author = { construction PPE dataset },
-howpublished = { \url{ https://universe.roboflow.com/construction-ppe-dataset/construction-safety-gears-vcbdq } },
-url = { https://universe.roboflow.com/construction-ppe-dataset/construction-safety-gears-vcbdq },
-journal = { Roboflow Universe },
-publisher = { Roboflow },
-year = { 2023 },
-month = { jun },
-note = { visited on 2026-07-15 },
+```bibtex
+@misc{construction-safety-gears-vcbdq_dataset,
+  title = { construction safety gears Dataset },
+  type = { Open Source Dataset },
+  author = { construction PPE dataset },
+  howpublished = { \url{ https://universe.roboflow.com/construction-ppe-dataset/construction-safety-gears-vcbdq } },
+  url = { https://universe.roboflow.com/construction-ppe-dataset/construction-safety-gears-vcbdq },
+  journal = { Roboflow Universe },
+  publisher = { Roboflow },
+  year = { 2023 },
+  month = { jun },
+  note = { visited on 2026-07-15 },
 }
+```
 
-
-@misc{
-construction-site-safety-ccp7o_dataset,
-title = { Construction Site Safety Dataset },
-type = { Open Source Dataset },
-author = { Safety Object Detection App },
-howpublished = { \url{ https://universe.roboflow.com/safety-object-detection-app/construction-site-safety-ccp7o } },
-url = { https://universe.roboflow.com/safety-object-detection-app/construction-site-safety-ccp7o },
-journal = { Roboflow Universe },
-publisher = { Roboflow },
-year = { 2023 },
-month = { apr },
-note = { visited on 2026-07-15 },
+```bibtex
+@misc{construction-site-safety-ccp7o_dataset,
+  title = { Construction Site Safety Dataset },
+  type = { Open Source Dataset },
+  author = { Safety Object Detection App },
+  howpublished = { \url{ https://universe.roboflow.com/safety-object-detection-app/construction-site-safety-ccp7o } },
+  url = { https://universe.roboflow.com/safety-object-detection-app/construction-site-safety-ccp7o },
+  journal = { Roboflow Universe },
+  publisher = { Roboflow },
+  year = { 2023 },
+  month = { apr },
+  note = { visited on 2026-07-15 },
 }
+```
 
-
-@misc{
-construction-site-safety-v5wfl_dataset,
-title = { Construction Site Safety Dataset },
-type = { Open Source Dataset },
-author = { Fahim Shahriar },
-howpublished = { \url{ https://universe.roboflow.com/fahim-shahriar-2frao/construction-site-safety-v5wfl } },
-url = { https://universe.roboflow.com/fahim-shahriar-2frao/construction-site-safety-v5wfl },
-journal = { Roboflow Universe },
-publisher = { Roboflow },
-year = { 2023 },
-month = { nov },
-note = { visited on 2026-07-15 },
+```bibtex
+@misc{construction-site-safety-v5wfl_dataset,
+  title = { Construction Site Safety Dataset },
+  type = { Open Source Dataset },
+  author = { Fahim Shahriar },
+  howpublished = { \url{ https://universe.roboflow.com/fahim-shahriar-2frao/construction-site-safety-v5wfl } },
+  url = { https://universe.roboflow.com/fahim-shahriar-2frao/construction-site-safety-v5wfl },
+  journal = { Roboflow Universe },
+  publisher = { Roboflow },
+  year = { 2023 },
+  month = { nov },
+  note = { visited on 2026-07-15 },
 }
-
+```
 
 ## Getting Started
 
-Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about Imagimob Studio and go through step-by-step tutorials to get you quickly started.
+Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about DEEPCRAFT™ Studio and go through step-by-step tutorials to get you quickly started.
 
 For object-detection data formats, see [Bring your own data for object detection projects](https://developer.imagimob.com/deepcraft-studio/data-preparation/bring-your-data/bring-your-own-data-object-detection).
 
-If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) Imagimob Studio page.
+## Help & Support
+
+If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.

@@ -1,4 +1,4 @@
-﻿# Human Activity
+# Human Activity
 
 This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
 
@@ -48,8 +48,6 @@ Additional info are available in the guide [Getting Started with MTBML and Imagi
 - [Imagimob Deploy](https://github.com/Infineon/mtb-example-ml-imagimob-deploy) > code example that shows how to deploy Imagimob-generated machine learning models on an Infineon PSoC™ Pioneer or Evaluation Kit (see [list of supported kits](https://github.com/Infineon/mtb-example-ml-imagimob-deploy/tree/master#supported-kits-make-variable-target)) with [ModusToolbox™](https://www.infineon.com/cms/en/design-support/tools/sdk/modustoolbox-software/)
 
 
-
-
 ### Data Collection Setup Note
 
 When using the [Infineon IoT Sense Expansion Kit](https://www.infineon.com/cms/en/product/evaluation-boards/cy8ckit-028-sense/) with IMU, to have the right orientation of the IMU axes, the board needs to be hold like in the pictures below for standing (left) and sitting (right).   
@@ -59,7 +57,6 @@ When using the [Infineon IoT Sense Expansion Kit](https://www.infineon.com/cms/e
 The IMU axes of the CY8CKIT-028-SENSE need to be oriented as shown in the picture below.
 
 ![orientation](Resources/IMU_orientation.jpg "IMU Orientation")
-
 
 
 ## Taking the Project Further
@@ -83,8 +80,8 @@ There are a number of ways to go forward once you have downloaded the project:
 
 ## Getting Started
 
-Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about Imagimob Studio and go through step-by-step tutorials to get you quickly started.
+Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about DEEPCRAFT™ Studio and go through step-by-step tutorials to get you quickly started.
 
 ## Help & Support
 
-If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum ](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) Imagimob Studio page.
+If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.

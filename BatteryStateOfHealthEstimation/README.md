@@ -1,4 +1,4 @@
-﻿# Overview - Battery State of Health Estimation
+# Overview - Battery State of Health Estimation
 
 This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
 
@@ -42,3 +42,11 @@ Below are some points to expand and improve the topic further:
 ## References
 <a id="1">[1]</a>
 Li, W., Sengupta, N., Dechent, P., Howey, D., Annaswamy, A., & Sauer, D. U. (2021). Online capacity estimation of lithium-ion batteries with deep long short-term memory networks. Journal of power sources, 482, 228863.
+
+## Getting Started
+
+Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about DEEPCRAFT™ Studio and go through step-by-step tutorials to get you quickly started.
+
+## Help & Support
+
+If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.

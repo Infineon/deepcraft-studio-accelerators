@@ -1,4 +1,4 @@
-﻿# Drill Material Detection w/ IMU
+# Drill Material Detection w/ IMU
 
 This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
 
@@ -27,10 +27,11 @@ After obtaining the appropriate machines and materials, you should perform data 
 For example, if you want a model that classifies when a drill is entering a new material, you will want to collect data on many different material combinations, using many different types of drills, held by many different people, in many different settings. 
 When all the data collection is done, the preprocessing and model parameters should be optimized and refined to your use case, with size considerations based on your final deployment location.
 After evaluating the model, you might realize that your model performs poorly in certain situations; there are no set solutions for this, but adding representative data could help.
+
 ## Getting Started
 
-Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about Imagimob Studio and go through step-by-step tutorials to get you quickly started.
+Please visit [developer.imagimob.com](https://developer.imagimob.com), where you can read about DEEPCRAFT™ Studio and go through step-by-step tutorials to get you quickly started.
 
 ## Help & Support
 
-If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum ](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) Imagimob Studio page.
+If you need support or if you want to know how to deploy the model on to the device, please submit a ticket on the Infineon [community forum](https://community.infineon.com/t5/Imagimob/bd-p/Imagimob/page/1) DEEPCRAFT™ Studio page.
