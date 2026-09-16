@@ -14,9 +14,9 @@ Below you can find code examples about how to deploy the output of this project 
 
 ## Contents
 
-`Data` 	- Folder to put your data.
+**`Data`** 	- Folder to put your data.
 
-`Models` - Folder where trained models, their predictions and generated Edge code are saved.
+**`Models`** - Folder where trained models, their predictions and generated Edge code are saved.
 
 ## Sensor(s) & Data
 

@@ -12,9 +12,9 @@ KITA2G Audio Shield Board, which is ideally suitable for automotive and industri
 
 ## Contents
 
-`Data` - Folder where project data is located.
+**`Data`** - Folder where project data is located.
 
-`Models` - Folder where trained models, their predictions and generated Edge code are saved.
+**`Models`** - Folder where trained models, their predictions and generated Edge code are saved.
 
 ## Sensor(s) & Data
 
@@ -45,9 +45,9 @@ by adding data recorded with that device. You can also use augmentation to mix d
 In our developer pages we have a complete guide, including a code example for deploying this Accelerator project on the Infineon TC375 Lite Kit FreeRTOS + Audio Shield Board.
 Read more at https://developer.imagimob.com/getting-started/infineon-aurix-and-imagimob-studio.
 
-## Deploying on PSOC and other MCU
+## Deploying on PSOC™ and other MCU
 
-For deploying this model on other MCUs you can follow the standard deployment process and use the code examples provided in our documentation. [PSOC 6 & PSOC Edge](https://developer.imagimob.com/deployment/deploy-models-supported-boards/deploy-siren-detection-model-PSoC-boards) and other [non-Infineon MCUs](https://developer.imagimob.com/deployment/deploy-models-other-boards)
+For deploying this model on other MCUs you can follow the standard deployment process and use the code examples provided in our documentation. [PSOC™ 6 & PSOC™ Edge](https://developer.imagimob.com/deployment/deploy-models-supported-boards/deploy-siren-detection-model-PSoC-boards) and other [non-Infineon MCUs](https://developer.imagimob.com/deployment/deploy-models-other-boards)
 
 ## Attributions & Citations
 

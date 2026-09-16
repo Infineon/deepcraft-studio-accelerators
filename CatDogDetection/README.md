@@ -13,7 +13,7 @@ The object detection model is YOLO-based and it can be used in applications for
 
 Users can further expand this project by training their own models, importing new data, and evaluating performance using the provided tools.
 
-- **Machine learning method:** YOLO-based object detection trained in DEEPCRAFT Studio
+- **Machine learning method:** YOLO-based object detection trained in DEEPCRAFT™ Studio
 - **Sensor and data type:** RGB camera or live video input (image data)
 - **Why it matters:** Enables pet monitoring and smart-home automation from live camera feeds.
 
@@ -64,7 +64,7 @@ You can add more data to the project following the steps below to improve detect
 1. Use `Object Detection Data Collection Graph UX` template to collect and label new data.
 2. Import data to your project and retrain to get an updated model.
 
-You can also import data from any other source (for example, your own images or another dataset) as long as it follows the DEEPCRAFT Studio object-detection format: images with matching `LabelXml` annotations using normalized center coordinates (`X`, `Y`, `Width`, `Height`). See [Bring your own data for object detection projects](https://developer.imagimob.com/deepcraft-studio/data-preparation/bring-your-data/bring-your-own-data-object-detection).
+You can also import data from any other source (for example, your own images or another dataset) as long as it follows the DEEPCRAFT™ Studio object-detection format: images with matching `LabelXml` annotations using normalized center coordinates (`X`, `Y`, `Width`, `Height`). See [Bring your own data for object detection projects](https://developer.imagimob.com/deepcraft-studio/data-preparation/bring-your-data/bring-your-own-data-object-detection).
 
 ## Steps to Production
 
@@ -78,7 +78,7 @@ The recommended path to production for this project includes the following steps
 
 Some points to highlight:
 
-- **Increase data variability:** Collect data from different environments, cameras, lighting conditions, distances, and backgrounds. Use DEEPCRAFT Studio augmentation settings (flip, scale, brightness, exposure) to increase image variability for vision models.
+- **Increase data variability:** Collect data from different environments, cameras, lighting conditions, distances, and backgrounds. Use DEEPCRAFT™ Studio augmentation settings (flip, scale, brightness, exposure) to increase image variability for vision models.
 - **Keep test data independent:** Make sure the test set is not used in train or validation and reflects scenarios where the model must generalize.
 - **Add negative data:** Include images without the target objects and common look-alikes to improve robustness against false positives.
 

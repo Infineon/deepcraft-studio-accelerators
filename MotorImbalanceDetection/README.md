@@ -25,20 +25,20 @@ The model is suitable for real-time, low-power embedded applications such as:
 
 ## Contents
 
-`Data` 	- Folder to store the current and speed signals of the motor.
+**`Data`** 	- Folder to store the current and speed signals of the motor.
 
-`Models` - Folder where trained models, their predictions and generated Edge code are saved. 
+**`Models`** - Folder where trained models, their predictions and generated Edge code are saved. 
 
-`Resources` - Folder where all extra resources/files can be found.
+**`Resources`** - Folder where all extra resources/files can be found.
 
-`Tools`	- Folder containing the GraphUX unit to collect data and evaluate the model in Studio, along with the corresponding .hex file.
+**`Tools`**	- Folder containing the GraphUX unit to collect data and evaluate the model in Studio, along with the corresponding .hex file.
 
-`PreprocessorTrack` - Folder containing preprocessed data tracks (i.e. the output of the preprocessor).
+**`PreprocessorTrack`** - Folder containing preprocessed data tracks (i.e. the output of the preprocessor).
 
 ## Sensor(s) & Data
 
-This project utilizes the PSOC C3 Motor Control Kit (KIT_PSC3M5_MC1) for data collection. The kit includes the following components: 
-- PSOC C3 Drive Card
+This project utilizes the PSOC™ C3 Motor Control Kit (KIT_PSC3M5_MC1) for data collection. The kit includes the following components: 
+- PSOC™ C3 Drive Card
 - Nanotec DB42M03 electric Motor
 
 To complete the setup, the following additional hardware is required (not included in the Motor Control Kit):
@@ -60,9 +60,9 @@ oscillations in motor speed.
 
 ## Adding More Data
 
-To prepare the PSOC C3 Motor Control Kit (KIT_PSC3M5_MC1) for data collection:
+To prepare the PSOC™ C3 Motor Control Kit (KIT_PSC3M5_MC1) for data collection:
 - Ensure the motor is properly connected to the power board.
-- Connect the PSOC C3 drive card to the adapter board, the power board, and the CP2102 USB-UART converter as illustrated in the image below.
+- Connect the PSOC™ C3 drive card to the adapter board, the power board, and the CP2102 USB-UART converter as illustrated in the image below.
 
 
 ![Connection Diagram 1](./Resources/image1.png)
@@ -80,7 +80,7 @@ connected to B19 of the J11 pin group. The connections are shown in the figure b
 ![Connection Diagram 3](./Resources/image3.png)
 
 
-Flash the code using the ModusToolbox Programmer onto the PSOC C3 drive card. The .hex file can be accessed by navigating to 
+Flash the code using the ModusToolbox Programmer onto the PSOC™ C3 drive card. The .hex file can be accessed by navigating to 
 Tools > Data Collection. The main steps for flashing the .hex file are similar to those described at this link
 https://developer.imagimob.com/getting-started/infineon-ai-evaluation-kit#streaming-firmware-for-psoc-6-ai-evaluation-kit
 

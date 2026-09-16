@@ -14,9 +14,9 @@ The model is of a compact size and optimized architecture, making it highly suit
 
 ## Contents
 
-`Data` 	- Contains the road users dataset derived from the [PASCAL VOC 2012](https://docs.ultralytics.com/datasets/detect/voc/) object detection dataset, also available on [Kaggle](https://www.kaggle.com/datasets/gopalbhattrai/pascal-voc-2012-dataset). It includes 5074 RGB images covering person, bicycle, bus, train, car, and motorbike. The original dataset and citation can be found [here](https://exposing.ai/voc/)
+**`Data`** 	- Contains the road users dataset derived from the [PASCAL VOC 2012](https://docs.ultralytics.com/datasets/detect/voc/) object detection dataset, also available on [Kaggle](https://www.kaggle.com/datasets/gopalbhattrai/pascal-voc-2012-dataset). It includes 5074 RGB images covering person, bicycle, bus, train, car, and motorbike. The original dataset and citation can be found [here](https://exposing.ai/voc/)
 
-`Models` - Contains the trained and quantized model in .tflite file, ready for deployment, together with its predictions.
+**`Models`** - Contains the trained and quantized model in .tflite file, ready for deployment, together with its predictions.
 
 ## Model Training and Evaluation
 

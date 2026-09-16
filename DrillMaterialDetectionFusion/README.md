@@ -30,11 +30,11 @@ This project demonstrates how to approach classification-based sound and vibrati
 
 ## Contents
 
-`Data` - Folder to put your data.
+**`Data`** - Folder to put your data.
  
-`Models` - Folder where trained models, their predictions, and generated Edge code are saved.
+**`Models`** - Folder where trained models, their predictions, and generated Edge code are saved.
 
-`Tools`    - Folder with the Data Collection GraphUX project you can use for collecting more data and a ModusToolbox project for deploying the model.
+**`Tools`**    - Folder with the Data Collection GraphUX project you can use for collecting more data and a ModusToolbox project for deploying the model.
 
 ## Sensor(s) & Data
 

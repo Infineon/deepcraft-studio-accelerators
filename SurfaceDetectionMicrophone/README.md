@@ -31,23 +31,21 @@ This Accelerator project provides a streamlined approach to build a surface dete
 
 ## Contents
 
-`Data` - Folder for storing your audio dataset.
+**`Data`** - Folder for storing your audio dataset.
 
-`Models` - Folder for saving trained models, predictions, and edge-deployable code.
+**`Models`** - Folder for saving trained models, predictions, and edge-deployable code.
 
-`PreprocessorTrack` - Folder containing preprocessed data tracks (i.e. the output of the preprocessor).
+**`PreprocessorTrack`** - Folder containing preprocessed data tracks (i.e. the output of the preprocessor).
 
-`Resources` - Images and collaterals used in this README file. Not relevant for the ML part.
+**`Resources`** - Images and collaterals used in this README file. Not relevant for the ML part.
 
-`Units` - Folder for adding custom layers or preprocessors (not used in this project).
-
-`Tools/DataCollectionGraphUX` - Includes a data collection project using GraphUX, enabling efficient data acquisition.
+**`Tools/DataCollectionGraphUX`** - Includes a data collection project using GraphUX, enabling efficient data acquisition.
 
 ## Sensor(s) & Data
 
 This Accelerator was built using data collected with the [PSOC™ 6 AI Evaluation Kit](https://www.infineon.com/cms/en/product/evaluation-boards/cy8ckit-062s2-ai/), which includes a PSoC™ 6 MCU and Infineon digital microphones.
 
-For this specific example, the PSOC 6 AI Kit board was simply taped to a cheap vacuum cleaner, on the front side.
+For this specific example, the PSOC™ 6 AI Kit board was simply taped to a cheap vacuum cleaner, on the front side.
 
 ![](Resources/imgs/vacuum_psoc6_placement.png)
 

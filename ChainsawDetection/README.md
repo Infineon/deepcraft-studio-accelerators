@@ -9,9 +9,9 @@ A fully developed model could be used to detect illegal logging or create automa
 
 ## Contents
 
-`Data` - Folder where project data is located.
+**`Data`** - Folder where project data is located.
 
-`Models` - Folder where trained models, their predictions and generated Edge code are saved.
+**`Models`** - Folder where trained models, their predictions and generated Edge code are saved.
 
 ## Sensor(s) & Data
 

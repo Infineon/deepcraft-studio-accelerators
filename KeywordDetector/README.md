@@ -8,17 +8,17 @@ This machine learning project contains everything to get started with keyword de
 
 ## Contents
 
-`Data`	- Folder where data is located
+**`Data`**	- Folder where data is located
 
 - Each track has its own folder. A track is a 15-20 minutes long audio stream.
 
 - Each folder should contain the raw audio file "data.wav" and the label file "label.label". Both are created by the script "prepare_dataset.py"
 
-`Units` 	- Folder where custom layers and pre-processors can be added
+**`Units`** 	- Folder where custom layers and pre-processors can be added
 
-`Models` - Folder where trained models, their predictions and generated Edge code are saved.
+**`Models`** - Folder where trained models, their predictions and generated Edge code are saved.
 
-`Tools`  - Folder where additional files and tools can be added.
+**`Tools`**  - Folder where additional files and tools can be added.
 
 
 ## How to train models

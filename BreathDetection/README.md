@@ -4,14 +4,14 @@ This project is designed to work exclusively with DEEPCRAFT™ Studio. Download 
 
 ## Overview - Use-Case
 
-This Accelerator demonstrates an AI model that classifies three states based solely on air-pressure and temperature dynamics at the sensor: cool_blow, warm_breath, and none. By learning the characteristic signatures of fast, focused airflow versus slow, warm exhalation, the model provides robust, on-device inference without external instrumentation, highlighting the precision and sensitivity of the XENSIV digital barometric pressure sensor (DPS) integrated with PSoC 6.
+This Accelerator demonstrates an AI model that classifies three states based solely on air-pressure and temperature dynamics at the sensor: cool_blow, warm_breath, and none. By learning the characteristic signatures of fast, focused airflow versus slow, warm exhalation, the model provides robust, on-device inference without external instrumentation, highlighting the precision and sensitivity of the XENSIV™ digital barometric pressure sensor (DPS) integrated with PSoC™ 6.
 
 This Accelerator uses a XENSIV™ digital barometric air pressure sensor for breath-type differentiation. The goal is twofold: showcase the sensor’s capability to separate subtle human airflow modalities using only pressure and temperature, and inspire customers to envision practical applications where low-power, embedded ML can add real-time context awareness to compact devices.
 
 
 ### Value and potential applications
 
-Demonstration of sensor fidelity: This model underscores how the XENSIV DPS can resolve small, transient pressure deltas along with subtle temperature changes, enabling reliable classification of human airflow type on a resource-constrained microcontroller.
+Demonstration of sensor fidelity: This model underscores how the XENSIV™ DPS can resolve small, transient pressure deltas along with subtle temperature changes, enabling reliable classification of human airflow type on a resource-constrained microcontroller.
 Human–device interaction: Natural, contactless triggers (e.g., blowing versus breathing) can augment user interfaces for toys, educational devices, or accessibility aids.
 Situational awareness: In concept, multiple nodes could monitor breathing presence or type in constrained scenarios. For example, in mass-casualty incidents with limited personnel, an adapted version of this model could assist responders by flagging patients who appear to be exhaling versus showing no breath signal, helping prioritize attention.
 Important note: This is not a medical device and is not intended for diagnosis or life-critical monitoring. Any emergency-use concept requires rigorous validation, certification, and safeguards before deployment.
@@ -38,11 +38,11 @@ Do not blow forcefully.
 
 ## Contents
 
-`Data` — Folder to put your data.
+**`Data`** — Folder to put your data.
 
-`Models` — Folder where trained models, their predictions, and generated Edge code are saved.
+**`Models`** — Folder where trained models, their predictions, and generated Edge code are saved.
 
-`Tools` — Folder containing GraphUX utility projects: `Tools/LiveDataCollection` for live data collection (see [README](Tools/LiveDataCollection/README.md)) and `Tools/LiveModelEvaluation` for model evaluation.
+**`Tools`** — Folder containing GraphUX utility projects: `Tools/LiveDataCollection` for live data collection (see [README](Tools/LiveDataCollection/README.md)) and `Tools/LiveModelEvaluation` for model evaluation.
 
 ## Sensor(s) & Data
 
@@ -98,7 +98,7 @@ Ensure all three classes are covered with enough variation (different users, mul
 
 Import the data you collected in the "Data" tab of the .improj file in DEEPCRAFT™ Studio.
 You can then follow the standard DEEPCRAFT™ Studio steps for processing, training, and deploying your model.
-The preprocessor is already set, and some models are already defined for you, whose performance is guaranteed to be in real time on the PSoC 6 AI Kit.
+The preprocessor is already set, and some models are already defined for you, whose performance is guaranteed to be in real time on the PSOC™ 6 AI Kit.
 
 4. Deploy and do a real-time test of your prototype model
 
@@ -116,7 +116,7 @@ You may also leverage DEEPCRAFT™ Studio's Transfer Learning features for fine-
 
 ## Evaluating your final AI model using DEEPCRAFT™ Studio
 
-You can test your ML model as usual using the PSoC, or run it directly on your PC with DEEPCRAFT™ Studio. To improve this workflow, you will find a project for evaluating your AI model in the `Tools/LiveModelEvaluation` folder. Open it by double-clicking the `Main.imunit` file. You will be prompted with a GraphUX interface showing the data flow:
+You can test your ML model as usual using the PSOC™, or run it directly on your PC with DEEPCRAFT™ Studio. To improve this workflow, you will find a project for evaluating your AI model in the `Tools/LiveModelEvaluation` folder. Open it by double-clicking the `Main.imunit` file. You will be prompted with a GraphUX interface showing the data flow:
 
 ![](Resources/imgs/evaluation_gux.png)
 

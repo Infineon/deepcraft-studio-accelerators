@@ -1,5 +1,5 @@
 # Deployment Firmware
-The Deployment Firmware is a ModusToolbox project for PSOC Edge E84 AI Evaluation Kit. It is a slightly modified version of the PSOC Edge E84 DEEPCRAFT Deploy Audio Code Example to allow for multi-sensor initialization and preprocessing.
+The Deployment Firmware is a ModusToolbox project for PSOC™ Edge E84 AI Evaluation Kit. It is a slightly modified version of the PSOC™ Edge E84 DEEPCRAFT™ Deploy Audio Code Example to allow for multi-sensor initialization and preprocessing.
 
 ## Use-case description
 This project is intended to be used to deploy sensor-fusion models, particularly the Drill Material Sensor Fusion Studio Accelerator. It can also be modified to deploy other sensor-fusion models.

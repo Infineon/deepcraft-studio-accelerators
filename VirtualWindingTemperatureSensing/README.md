@@ -17,16 +17,16 @@ This machine learning project enables estimation of the temperature of motor win
 
 ## Contents
 
-`Data` - Contains raw MATLAB measurement files (.mat) and all processed data outputs
-- `measurement_data/` - Raw .mat files from TLE995x motor controller experiments
-- `processed/` - Pipeline outputs including CSVs, downsampled/normalized data, and training datasets
+**`Data`** - Contains raw MATLAB measurement files (.mat) and all processed data outputs
+- **`measurement_data/`** - Raw .mat files from TLE995x motor controller experiments
+- **`processed/`** - Pipeline outputs including CSVs, downsampled/normalized data, and training datasets
 
-`Models` - Folder where trained DEEPCRAFT models, predictions, and generated Edge code are saved
+**`Models`** - Folder where trained DEEPCRAFT™ models, predictions, and generated Edge code are saved
 
-`Resources` - Contains project resources including connection diagrams and documentation
+**`Resources`** - Contains project resources including connection diagrams and documentation
 
-`Tools` - Contains data processing scripts and virtual environment
-- `scripts/` - Complete data processing pipeline (MATLAB conversion, downsampling, normalization, splitting)
+**`Tools`** - Contains data processing scripts and virtual environment
+- **`scripts/`** - Complete data processing pipeline (MATLAB conversion, downsampling, normalization, splitting)
 
 ## Sensor(s) & Data
 

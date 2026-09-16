@@ -15,13 +15,13 @@ In this project, we use the grayscale image from the camera to do object detecti
 
 ## Contents
 
-`Data` 	- Folder containing the TOF camera images used in this project
+**`Data`** 	- Folder containing the TOF camera images used in this project
 
-`Models` - Folder where trained models, their predictions and generated Edge code are saved.
+**`Models`** - Folder where trained models, their predictions and generated Edge code are saved.
 
-`Resources` - Folder where all extra resources/files can be found (including scripts for data collection and the SDK for TOF camera)
+**`Resources`** - Folder where all extra resources/files can be found (including scripts for data collection and the SDK for TOF camera)
 
-`Tools`	- Folder containing the GraphUX unit to collect data and evaluate the model in Studio (at the moment, TOF camera is not supported)
+**`Tools`**	- Folder containing the GraphUX unit to collect data and evaluate the model in Studio (at the moment, TOF camera is not supported)
 
 ## Sensor(s) & Data
 

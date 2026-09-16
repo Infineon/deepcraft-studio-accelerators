@@ -10,9 +10,9 @@ The Accelerator project contains 550 minutes of data, most of it being unlabelle
 
 ## Contents
 
-`Data` - Folder where project data is located.
+**`Data`** - Folder where project data is located.
 
-`Models` - Folder where trained models, their predictions and generated Edge code are saved.
+**`Models`** - Folder where trained models, their predictions and generated Edge code are saved.
 
 ## Sensor(s) & Data
 

@@ -10,13 +10,13 @@ Below you can find code examples about how to deploy the output of this project 
 
 ## Contents
 
-`Data`  - Folder where data is located.
+**`Data`**  - Folder where data is located.
 
-`Units`  - Folder where custom layers and pre-processors can be added.
+**`Units`**  - Folder where custom layers and pre-processors can be added.
 
-`Models` - Folder where trained models, their predictions and generated Edge code are saved.
+**`Models`** - Folder where trained models, their predictions and generated Edge code are saved.
 
-`Resources`  - Folder where additional files and tools can be added.
+**`Resources`**  - Folder where additional files and tools can be added.
 
 ## Sensor(s) & Data
 

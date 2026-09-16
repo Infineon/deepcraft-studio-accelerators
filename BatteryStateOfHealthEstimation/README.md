@@ -24,13 +24,13 @@ The illustration below shows how the voltage profile within the input window evo
 
 ## Contents
 
-`Data` 	- This folder contains the dataset we used for training, which was generated from the original open source cycling data, available at: https://git.rwth-aachen.de/isea/battery-degradation-trajectory-prediction
+**`Data`** 	- This folder contains the dataset we used for training, which was generated from the original open source cycling data, available at: https://git.rwth-aachen.de/isea/battery-degradation-trajectory-prediction
 
 To prepare the data for model training, voltage–time profiles were extracted from each battery cycle. First, the raw measurements were filtered to include only valid charging segments within a specified voltage range. These segments were then aligned in time, resampled to a fixed number of points, concatenated with the total time and paired with the corresponding battery capacity values to form the training samples. Each sample, a.k.a data-label files, represents one cycle’s charging curve along with its measured state of health (SoH), making it suitable for direct use in our model.
 
-`Models` - Folder where the trained model, its predictions and generated Edge code are saved.
+**`Models`** - Folder where the trained model, its predictions and generated Edge code are saved.
 
-`Resources`	- This folder contains additional files.
+**`Resources`**	- This folder contains additional files.
 
 ## Sensor(s) & Data
 

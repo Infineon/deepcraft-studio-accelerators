@@ -1,11 +1,11 @@
-# CAPSENSE&trade; Water Detection Project using DEEPCRAFT&trade; Studio
+# CAPSENSE™ Water Detection Project using DEEPCRAFT™ Studio
 
 This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
 
 ## Overview - Use-Case
 
-This project allows you to build a model for detecting water and finger presses on surfaces using the capacitive sensing technology CAPSENSE&trade; in combination with machine learning.
-The CY8CKIT-062S2-AI board in combination with the latest generation of the CAPSENSE&trade; has been used to stream data to DEEPCRAFT&trade; Studio using Streaming Protocol V2, enabling real-time data collection and evaluation of trained models.
+This project allows you to build a model for detecting water and finger presses on surfaces using the capacitive sensing technology CAPSENSE™ in combination with machine learning.
+The CY8CKIT-062S2-AI board in combination with the latest generation of the CAPSENSE™ has been used to stream data to DEEPCRAFT™ Studio using Streaming Protocol V2, enabling real-time data collection and evaluation of trained models.
 
 The model built with this project can be used in applications like
 
@@ -15,20 +15,20 @@ The model built with this project can be used in applications like
 
 ## Contents
 
-`Data` - Folder containing the CAPSENSE&trade; data used in this project
+**`Data`** - Folder containing the CAPSENSE™ data used in this project
 
-`Models` - Folder where trained models, their predictions and generated Edge code are saved
+**`Models`** - Folder where trained models, their predictions and generated Edge code are saved
 
-`Resources` - Folder where all extra resources/files can be found
+**`Resources`** - Folder where all extra resources/files can be found
 
-`Tools` - Folder containing the GraphUX unit to collect data and evaluate the model in Studio
+**`Tools`** - Folder containing the GraphUX unit to collect data and evaluate the model in Studio
 
 
 ## Sensor(s) & Data
 
-### What CAPSENSE&trade; does
+### What CAPSENSE™ does
 
-With CAPSENSE&trade; we use capacitive sensing to detect small changes of the self-capacitance of the sensor pad. These changes are caused by the dielectric constant of different materials.
+With CAPSENSE™ we use capacitive sensing to detect small changes of the self-capacitance of the sensor pad. These changes are caused by the dielectric constant of different materials.
 In this setup we can assume a simple parallel plate capacitor and therefore use the following equation C = ( epsilon_0 * epsilon_r * A) / d.
 
 Since water has a higher dielectric constant than air, the capacitance is increased. These changes are used to determine the different labels for this project.
@@ -37,18 +37,18 @@ which is due to its decreasing dielectric constant for higher frequencies. In co
 
 ### Hardware needed for this project
 
-To obtain the capacitance changes a capacitive sensor is needed. In this project we use the CAPSENSE&trade; enabled microcontroller PSOC4100T with the latest generation of the CAPSENSE&trade; sensing 
+To obtain the capacitance changes a capacitive sensor is needed. In this project we use the CAPSENSE™ enabled microcontroller PSOC™4100T with the latest generation of the CAPSENSE™ sensing 
 technology. We attached a simple PCB containing three buttons surrounded by a guard ring and used all four sensing pads as one sensor (ganged). With this we can increase the sensing range of the sensor.
 
 We used 2 ganged sensors: one ganged setup for high-frequency data with clock divider and sub-conversions equal to 8 and 512, respectively. The other ganged setup for low-frequency data with clock divider 
 and sub-conversions equal to 460 and 256, respectively.
 
 The sensor readings for the low-frequency and the high-frequency measurements are stored into a buffer that can be read over I2C by the CY8CKIT-062S2-AI board.
-The latter is running the Streaming Protocol V2 and reads the buffer of the CAPSENSE&trade; over I2C and then streams the sensor data into DEEPCRAFT&trade; Studio.
+The latter is running the Streaming Protocol V2 and reads the buffer of the CAPSENSE™ over I2C and then streams the sensor data into DEEPCRAFT™ Studio.
 
-Similar data and results can be obtained using a PSoC&trade; 4100S Max pioneer kit, tuned in such a way that capacitive data is similar to the one of this project. More info about CAPSENSE&trade; tuning 
-available at [CAPSENSE&trade; Tuner Guide](https://www.infineon.com/row/public/documents/30/96/infineon-modustoolbox-capsense-tuner-guide-software-en-09018a9080890355.pdf). To start using this kit for 
-your project, select the big sensor pad as a button element in the CAPSENSE configurator and use it with CSD configuration (no CSX). Then use the tuner to identify the signals and make them similar to 
+Similar data and results can be obtained using a PSoC™ 4100S Max pioneer kit, tuned in such a way that capacitive data is similar to the one of this project. More info about CAPSENSE™ tuning 
+available at [CAPSENSE™ Tuner Guide](https://www.infineon.com/row/public/documents/30/96/infineon-modustoolbox-capsense-tuner-guide-software-en-09018a9080890355.pdf). To start using this kit for 
+your project, select the big sensor pad as a button element in the CAPSENSE™ configurator and use it with CSD configuration (no CSX). Then use the tuner to identify the signals and make them similar to 
 the ones used in this project.
 
 ![](/Resources/image1.png)
@@ -73,7 +73,7 @@ We recorded noise to make the model more robust. A recording session for the Noi
 ## Adding More Data
 
 In this project, we collect the data by using the Graph UX interface to create a simple data collection pipeline. The Graph UX file is located in the `Tools` folder. 
-Connect the CY8CKIT-062S2-AI board or any other board with CAPSENSE&trade;, running the Streaming Protocol V2 firmware, to your PC and drag it into the Graph UX window from the Node Explorer.
+Connect the CY8CKIT-062S2-AI board or any other board with CAPSENSE™, running the Streaming Protocol V2 firmware, to your PC and drag it into the Graph UX window from the Node Explorer.
 
 After that we insert our predefined labels over the Node explorer and name them Touch, Wet, Dry
 and insert a Data Track to the Graph UX window to be able to record, label and store the data from the sensor.
@@ -89,10 +89,10 @@ split.
 
 ## Model evaluation using live-data
 
-To test the model in the DEEPCRAFT&trade; Studio we open the data collection project and drag the trained TensorFlow model file into the Graph UX window. We also drag a Label Track and Data Track 
+To test the model in the DEEPCRAFT™ Studio we open the data collection project and drag the trained TensorFlow model file into the Graph UX window. We also drag a Label Track and Data Track 
 into the Graph UX window for visualization.
 
-`NOTE: Since the CAPSENSE data is an integer ADC count, we used a custom data convert unit from Int16 to Float32 to make the data compatible with the Studio model's training pipeline which requires float data type. The unit is located in the Tools folder.`
+`NOTE: Since the CAPSENSE™ data is an integer ADC count, we used a custom data convert unit from Int16 to Float32 to make the data compatible with the Studio model's training pipeline which requires float data type. The unit is located in the Tools folder.`
 
 ![](/Resources/image4.png)
 
@@ -110,7 +110,7 @@ which can be indoor or outdoor with different water/humidity conditions. Collect
 Make also sure that you add more negative data like finger swipes, hand hovering, etc. Also if the model is expected to detect only water, record capacitive data using other liquids that can be 
 present in the environment where the device will work and use those recordings to improve your model.
 
-Collecting data from different CAPSENSE&trade; sensors is required to get a robust model that is able to detect water/touch despite the differences in the hardware and its tuning/calibration.
+Collecting data from different CAPSENSE™ sensors is required to get a robust model that is able to detect water/touch despite the differences in the hardware and its tuning/calibration.
 
 Keep in mind that it is important to test your model under the conditions relevant for your use-case as well as on additional ones to verify that it can generalize. Use data in the Test set to start 
 with but run live model's testing as well to check its performance in real life.

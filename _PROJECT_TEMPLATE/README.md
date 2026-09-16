@@ -13,17 +13,17 @@ Describe here your project mentioning
 
 ## Contents
 
-`Data` 	- Folder to put your data. Add a short description
+**`Data`** 	- Folder to put your data. Add a short description
 
-`Models` - Folder where trained models, their predictions and generated Edge code are saved. Add a short description
+**`Models`** - Folder where trained models, their predictions and generated Edge code are saved. Add a short description
 
-`PreprocessorTrack`	- Folder where pre-processed data is stored. Add a short description
+**`PreprocessorTrack`**	- Folder where pre-processed data is stored. Add a short description
 
-`Resources`	- Folder where all extra resources/files should be placed. Add a short description
+**`Resources`**	- Folder where all extra resources/files should be placed. Add a short description
 
-`Tools`	- Folder where all extra tools and scripts belonging to the project should be placed. Add a short description
+**`Tools`**	- Folder where all extra tools and scripts belonging to the project should be placed. Add a short description
 
-`Units`	- Folder where custom layers and pre-processors can be added. Add a short description
+**`Units`**	- Folder where custom layers and pre-processors can be added. Add a short description
 
 ## Sensor(s) & Data
 

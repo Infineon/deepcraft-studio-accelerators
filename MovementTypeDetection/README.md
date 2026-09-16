@@ -8,11 +8,11 @@ This is a simple Accelerator project capable of differentiating between 3 differ
 
 ## Contents
 
-`Data` - Folder where project data is located.
+**`Data`** - Folder where project data is located.
 
-`Models` - Folder where trained models, their predictions and generated Edge code are saved.
+**`Models`** - Folder where trained models, their predictions and generated Edge code are saved.
 
-`Resources` - Folder where extra resources and files are placed.
+**`Resources`** - Folder where extra resources and files are placed.
 
 ## Sensor(s) & Data
 

@@ -19,9 +19,9 @@ By combining audio signal processing with machine learning the model provides ac
 and supports intelligent safety and security management across multiple domains. This model enhances the reliability of traditional alarm systems while also serving as a foundation for advanced IoT‑based security solutions that intelligently adapt to different environments and conditions.
 ## Contents
 
-`Data`   - Folder containing the glass break audio wav files used in this project.
+**`Data`**   - Folder containing the glass break audio wav files used in this project.
 
-`Models` - Folder where trained models, their predictions and generated Edge code are saved.
+**`Models`** - Folder where trained models, their predictions and generated Edge code are saved.
 
 ## Sensor(s) & Data
 

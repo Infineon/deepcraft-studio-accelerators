@@ -28,13 +28,9 @@ This project demonstrates how to approach the task from a Computer Vision perspe
 
 ## Contents
 
-`Data` - Folder to put your data. `Data\golf-ball-public` contains public dataset. `Data\infineon-public` contains additional data collected by Infineon team. 
+**`Data`** - Folder to put your data. `Data\golf-ball-public` contains public dataset. `Data\infineon-public` contains additional data collected by Infineon team. 
 
-`Models` - Folder where trained models, their predictions, and generated Edge code are saved.
-
-`Units`    - Folder where custom layers and pre-processors can be added. Not used in this project.
-
-`Tools`    - Folder containing additional tools and project. Not used in this project.
+**`Models`** - Folder where trained models, their predictions, and generated Edge code are saved.
 
 
 ## Sensor(s) & Data
@@ -70,8 +66,8 @@ To bring this project to a production-level system, follow these general steps:
 
 **3. Import your data and train the prototype model**
 
-  Import the data you collected in DEEPCRAFT Studio.
-  You are now able to follow the standard DEEPCRAFT Studio steps for processing, training, and deploying your Computer Vision model.
+  Import the data you collected in DEEPCRAFT™ Studio.
+  You are now able to follow the standard DEEPCRAFT™ Studio steps for processing, training, and deploying your Computer Vision model.
 
   **4. Deploy and do a real-time test of your prototype model**
 
@@ -105,7 +101,7 @@ The last step is to move to the actual final production setup. The production sy
   title = { Infineon Public GolfBall Dataset },
   type = { Open Source Dataset },
   author = { Gioele Mombelli },
-  journal = { DEEPCRAFT Studio Accelerators },
+  journal = { DEEPCRAFT™ Studio Accelerators },
   publisher = { Infineon },
   year = { 2026 },
   month = { jan },

@@ -11,11 +11,11 @@ This project gives you the infrastructure to allow you to expand on the project 
 
 ## Contents
 
-`Data`  - Folder where data is located.
+**`Data`**  - Folder where data is located.
 
-`Units`  - Folder where custom layers and pre-processors can be added.
+**`Units`**  - Folder where custom layers and pre-processors can be added.
 
-`Models` - Folder where trained models, their predictions and generated Edge code are saved.
+**`Models`** - Folder where trained models, their predictions and generated Edge code are saved.
 
 ## Sensor(s) & Data
 
@@ -23,7 +23,7 @@ This project uses IMU data (accelerometer and gyroscope) collected at 50 Hz with
 
 ## Adding More Data
 
-To collect more data you can utilise the PSOC 6 AI Evaluation Kit (https://www.infineon.com/cms/en/product/evaluation-boards/cy8ckit-062s2-ai/) and utilise the streaming protocol (https://developer.imagimob.com/data-preparation/data-collection/collect-data-using-graph-ux) in order to get data streaming directly into the platform and can add it to your project to make it production ready.
+To collect more data you can utilise the PSOC™ 6 AI Evaluation Kit (https://www.infineon.com/cms/en/product/evaluation-boards/cy8ckit-062s2-ai/) and utilise the streaming protocol (https://developer.imagimob.com/data-preparation/data-collection/collect-data-using-graph-ux) in order to get data streaming directly into the platform and can add it to your project to make it production ready.
 
 ## How to deploy the model
 

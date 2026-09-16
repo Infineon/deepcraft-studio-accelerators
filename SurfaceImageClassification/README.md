@@ -28,9 +28,9 @@ Users can further expand this project by training their own models, importing ne
 
 ## Contents
 
-`Data` - Contains data (7350 rgb images) derived from various road surface datasets for training and testing the model, including different asphalt types, road surfaces, and weather conditions (rainy, muddy, snowy, etc.).
+**`Data`** - Contains data (7350 rgb images) derived from various road surface datasets for training and testing the model, including different asphalt types, road surfaces, and weather conditions (rainy, muddy, snowy, etc.).
 
-`Models` - Stores the trained image classification model and its quantized versions, prepared for deployment.
+**`Models`** - Stores the trained image classification model and its quantized versions, prepared for deployment.
 
 ## Steps to get started: Model Training and Evaluation
 

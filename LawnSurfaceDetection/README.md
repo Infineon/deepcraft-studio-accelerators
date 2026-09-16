@@ -14,7 +14,7 @@ The object detection model is YOLO-based and it can be used in applications for
 
 Users can further expand this project by training their own models, importing new data, and evaluating performance using the provided tools.
 
-- **Machine learning method:** YOLO-based object detection trained in DEEPCRAFT Studio
+- **Machine learning method:** YOLO-based object detection trained in DEEPCRAFT™ Studio
 - **Sensor and data type:** RGB camera or live video input (image data); production deployments expect a ground-level automower camera POV
 - **Why it matters:** Enables automowers to distinguish mowable lawn surfaces from soil, hardscape, and flower beds in real time—provided the model is trained on data that matches the on-robot camera.
 
@@ -46,7 +46,7 @@ Image data is stored as DEEPCRAFT™ Studio object-detection sessions under `Dat
 
 **Important:** This starter dataset teaches surface *classes* but does **not** match an automower's on-board camera (height, angle, motion blur, and garden layout). Soil and road images are mostly texture close-ups; flower images mix outdoor plants and classification crops; grass images are turf close-ups and mixed lawn viewpoints, not robot-mounted camera footage. **For production on a real automower, collecting and labeling data from your robot's camera along its actual mowing route is crucial**—expect to add hundreds to thousands of mower POV sessions before the model generalizes reliably in the field.
 
-**Training augmentation:** DEEPCRAFT Studio Augmentation Settings in this project's `.improj` were changed to better mimic the field of view of a mower running outdoors. Rotation (`degrees` 20), translation (`translate` 0.3), shear (`shear` 20), and perspective (`perspective` 0.001) approximate camera tilt and motion; HSV hue is lowered (`hsv_h` 0.005) and brightness is raised (`hsv_v` 0.6) for outdoor lighting. Parameter names follow [YOLO data augmentation](https://docs.ultralytics.com/guides/yolo-data-augmentation).
+**Training augmentation:** DEEPCRAFT™ Studio Augmentation Settings in this project's `.improj` were changed to better mimic the field of view of a mower running outdoors. Rotation (`degrees` 20), translation (`translate` 0.3), shear (`shear` 20), and perspective (`perspective` 0.001) approximate camera tilt and motion; HSV hue is lowered (`hsv_h` 0.005) and brightness is raised (`hsv_v` 0.6) for outdoor lighting. Parameter names follow [YOLO data augmentation](https://docs.ultralytics.com/guides/yolo-data-augmentation).
 
 Data sources and commercial-use conditions:
 
@@ -84,7 +84,7 @@ You can add more data to the project following the steps below to improve detect
 
 **Priority for production:** Record sessions from the **automower's own camera** at mowing height, covering every surface class on your property—grass lawns, soil patches, paths/driveways (`road`), and flower beds—in the seasons and lighting conditions the robot will see. Match the robot's resolution and field of view where possible. The starter Roboflow data is useful for initial training and class balance, but field performance depends heavily on this mower POV data.
 
-You can also import data from any other source (for example, your own images or another dataset) as long as it follows the DEEPCRAFT Studio object-detection format: images with matching `LabelXml` annotations using normalized center coordinates (`X`, `Y`, `Width`, `Height`). See [Bring your own data for object detection projects](https://developer.imagimob.com/deepcraft-studio/data-preparation/bring-your-data/bring-your-own-data-object-detection).
+You can also import data from any other source (for example, your own images or another dataset) as long as it follows the DEEPCRAFT™ Studio object-detection format: images with matching `LabelXml` annotations using normalized center coordinates (`X`, `Y`, `Width`, `Height`). See [Bring your own data for object detection projects](https://developer.imagimob.com/deepcraft-studio/data-preparation/bring-your-data/bring-your-own-data-object-detection).
 
 ## Steps to Production
 
@@ -99,7 +99,7 @@ The recommended path to production for this project includes the following steps
 
 Some points to highlight:
 
-- **Increase data variability:** Collect data from different environments, cameras, lighting conditions, distances, and backgrounds. Use DEEPCRAFT Studio augmentation settings (flip, scale, brightness, exposure) to increase image variability for vision models.
+- **Increase data variability:** Collect data from different environments, cameras, lighting conditions, distances, and backgrounds. Use DEEPCRAFT™ Studio augmentation settings (flip, scale, brightness, exposure) to increase image variability for vision models.
 - **Keep test data independent:** Make sure the test set is not used in train or validation and reflects scenarios where the model must generalize.
 - **Add negative data:** Include images without the target objects and common look-alikes to improve robustness against false positives.
 

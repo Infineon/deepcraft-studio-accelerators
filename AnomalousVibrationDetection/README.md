@@ -29,15 +29,15 @@ This project demonstrates how to approach classification-based vibration monitor
 
 ## Contents
 
-`Data` - Folder to put your data.
+**`Data`** - Folder to put your data.
 
-`Models` - Folder where trained models, their predictions, and generated Edge code are saved.
+**`Models`** - Folder where trained models, their predictions, and generated Edge code are saved.
 
-`Units`    - Folder where custom layers and pre-processors can be added. Not used in this project.
+**`Units`**    - Folder where custom layers and pre-processors can be added. Not used in this project.
 
-`Tools`    - Folder containing an auto-labeler script for easy labeling of data and the GraphUX Data Collection project.
+**`Tools`**    - Folder containing an auto-labeler script for easy labeling of data and the GraphUX Data Collection project.
 
-`Tools/IMUDataCollectionProject` - Folder with the Data Collection GraphUX project you can use for collecting more data.
+**`Tools/IMUDataCollectionProject`** - Folder with the Data Collection GraphUX project you can use for collecting more data.
 
 ## Sensor(s) & Data
 
@@ -47,7 +47,7 @@ The desktop fan is optional; you may want to collect data directly from your mac
 
 ![](Resources/imgs/desktopfan.png)
 
-The PSOC 6 board, equipped with the vibration sensor, was simply taped to the center of the small desktop fan.
+The PSOC™ 6 board, equipped with the vibration sensor, was simply taped to the center of the small desktop fan.
 
 A video of the demo application can be found here:
 
@@ -59,7 +59,7 @@ To add more data, you need to flash and configure the [Imagimob Streaming Protoc
 Follow the instructions in the README.md file of the ModusToolbox project to correctly configure and flash the board.
 
 For starting data collection, navigate to the `Tools/IMUDataCollectionProject` folder and double-click the `Main.imunit` file.
-Make sure you have correctly connected the PSOC6 AI Kit to your machine via the USB connector.
+Make sure you have correctly connected the PSOC™ 6 AI Kit to your machine via the USB connector.
 
 In the GraphUX, set the input parameters for the "Serial Capture" block to collect data via the IMU with the following settings:
 

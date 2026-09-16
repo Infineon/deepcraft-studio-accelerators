@@ -12,7 +12,7 @@ Below you can find code examples about how to deploy the output of this project 
 
 ## Contents
 
-`Data` - Folder where data is located
+**`Data`** - Folder where data is located
 
 - train_set - folder with "baby cry" and other (unlabelled) data used in the Train set 
 - validation_set - folder with "baby cry" and other (unlabelled) data used in the Validation set 
@@ -22,11 +22,11 @@ The folders train_set, validation_set, and test_set contain:
 - baby_cry	- folder with data for "baby cry" audio
 - other	- folder that contains all unlabelled data. It is intended to make the model more robust against random noises and thus lower false positives
 
-`Units` - Folder where custom layers and pre-processors can be added
+**`Units`** - Folder where custom layers and pre-processors can be added
 
-`Models` - Folder where trained models, their predictions and generated Edge code are saved. The folder includes also GradCam results for each session, which provide visual explanations of the model's predictions. For more information about GradCam, you can refer to the following [link](https://keras.io/examples/vision/grad_cam/).
+**`Models`** - Folder where trained models, their predictions and generated Edge code are saved. The folder includes also GradCam results for each session, which provide visual explanations of the model's predictions. For more information about GradCam, you can refer to the following [link](https://keras.io/examples/vision/grad_cam/).
 
-`PreprocessorTrack` - Folder where preprocessed data is located
+**`PreprocessorTrack`** - Folder where preprocessed data is located
 
 ## Sensor(s) & Data
 

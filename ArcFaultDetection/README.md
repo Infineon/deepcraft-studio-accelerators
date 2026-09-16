@@ -15,11 +15,11 @@ This project trains a model to detect arc faults from appliance current waveform
 
 ## Contents
 
-`Data` — Downsampled 200 kHz current recordings and labels, grouped by class (`arc_fault` and `no_arc_fault`)
+**`Data`** — Downsampled 200 kHz current recordings and labels, grouped by class (`arc_fault` and `no_arc_fault`)
 
-`Models` — Folder where the trained DEEPCRAFT model, predictions, and generated Edge code are saved
+**`Models`** — Folder where the trained DEEPCRAFT™ model, predictions, and generated Edge code are saved
 
-`Resources` — [`original_names.csv`](Resources/original_names.csv) and [`new_names.csv`](Resources/new_names.csv) for arc-test name mapping, plus photographs of the arcing setup and load simulator in `Resources/Images/`
+**`Resources`** — [`original_names.csv`](Resources/original_names.csv) and [`new_names.csv`](Resources/new_names.csv) for arc-test name mapping, plus photographs of the arcing setup and load simulator in `Resources/Images/`
 
 ## Sensor(s) & Data
 

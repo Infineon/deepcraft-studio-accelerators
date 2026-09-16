@@ -9,11 +9,11 @@ It is presented here with the purpose of being supplemented with a significant a
 
 ## Contents
 
-`Data` - Folder where project data is located.
+**`Data`** - Folder where project data is located.
 
-`Models` - Folder where trained models, their predictions and generated Edge code are saved.
+**`Models`** - Folder where trained models, their predictions and generated Edge code are saved.
 
-`Units` - Folder where custom layers and pre-processors can be added.
+**`Units`** - Folder where custom layers and pre-processors can be added.
 
 ## Sensor(s) & Data
 

@@ -16,9 +16,9 @@ About the Neural Network:
 
 ## Contents
 
-`Data` 	- Folder where the data is.		 
+**`Data`** 	- Folder where the data is.		 
 
-`Models` - Folder where the trained model, its predictions and generated edge code are saved.
+**`Models`** - Folder where the trained model, its predictions and generated edge code are saved.
 
 ## Sensor(s) & Data
 

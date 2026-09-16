@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project shows you how to collect and annotate IMU+Microphone sensor fusion data live. This can be done directly from your PSOC™ Edge E84 AI Evaluation Kit attached over USB-serial. It requires running the 'PSOC Edge DEEPCRAFT Machine Learning Data Collection' firmware on your device, found in ModusToolbox and the [documentation](https://developer.imagimob.com/deepcraft-studio/getting-started/infineon-boards/psoc-edge-e84-eval-kit).
+This project shows you how to collect and annotate IMU+Microphone sensor fusion data live. This can be done directly from your PSOC™ Edge E84 AI Evaluation Kit attached over USB-serial. It requires running the 'PSOC™ Edge DEEPCRAFT™ Machine Learning Data Collection' firmware on your device, found in ModusToolbox and the [documentation](https://developer.imagimob.com/deepcraft-studio/getting-started/infineon-boards/psoc-edge-e84-eval-kit).
 
 
 The graph that you see in the Main.imunit contains input/data source nodes representing the device connected through the serial port.

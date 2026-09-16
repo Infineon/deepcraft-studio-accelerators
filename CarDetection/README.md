@@ -47,9 +47,9 @@ This project demonstrates how to approach the task from a Computer Vision perspe
 ## Contents
 
 - **`Data`**: Folder for your data. This project contains **3,274** annotated object-detection sessions (JPG + `LabelXml`), using a single target class (`car`):
-	- `img*` — 1,400 images from Roboflow ([Car Detection Model](https://app.roboflow.com/lolepls/car-detection-model-bwjpb-92kbi/train))
-	- `pc*` — 1,771 images from Roboflow ([Car Detection](https://app.roboflow.com/lolepls/car-detection-5fc7i-vtlqe/train))
-	- `20260218_*` — 103 images collected by Infineon on a small toy-car demo setup
+	- **`img*`** — 1,400 images from Roboflow ([Car Detection Model](https://app.roboflow.com/lolepls/car-detection-model-bwjpb-92kbi/train))
+	- **`pc*`** — 1,771 images from Roboflow ([Car Detection](https://app.roboflow.com/lolepls/car-detection-5fc7i-vtlqe/train))
+	- **`20260218_*`** — 103 images collected by Infineon on a small toy-car demo setup
 - **`Models`**: Folder where trained models, their predictions, quantized versions, and generated Edge code are saved.
 - **`Tools`**: Folder containing additional tools. `Tools/rename_dataset.py` shortens image file names in a Roboflow/COCO export before you import the data into Studio (see [Renaming a COCO export](#renaming-a-coco-export)).
 
