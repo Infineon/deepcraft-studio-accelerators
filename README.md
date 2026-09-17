@@ -25,6 +25,20 @@ When bringing your project into DEEPCRAFT™ Studio, consider the following:
    - Classification and Regression — [more info](https://developer.imagimob.com/deepcraft-studio/deployment/supported-layers)
    - Object Detection — [more info](https://developer.imagimob.com/deepcraft-studio/model-training/training-object-detection)
 
+### Clone a single project
+
+To clone a single project, use a **sparse checkout** with a **shallow clone** to download just that project folder from the latest commit on `main` — no full repository history. This repository can be large because it contains many Accelerator projects with data, models, and other assets.
+
+Replace `<ProjectName>` with the folder name of the Accelerator you want (for example `BabyCryDetection`, `SirenDetection`, or `KeywordDetector`):
+
+```bash
+git clone --depth 1 --filter=blob:none --sparse --branch main https://github.com/Infineon/deepcraft-studio-accelerators.git
+cd deepcraft-studio-accelerators
+git sparse-checkout set <ProjectName>
+```
+
+Open the project in DEEPCRAFT™ Studio from the cloned `<ProjectName>` folder. For the best experience, you can also access Accelerators directly through [DEEPCRAFT™ Studio](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio) without cloning.
+
 ## 🤝 Contribution
 
 All users are welcome to submit new models/projects, subject to the Infineon DEEPCRAFT™ Studio Accelerators review process.
