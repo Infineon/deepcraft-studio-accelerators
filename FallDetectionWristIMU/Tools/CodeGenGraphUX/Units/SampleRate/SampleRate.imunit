@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Imaginet version="2.0.0.0">
+  <Unit name="313fbf89-0de4-4f90-a42a-d0640590d15e">
+    <DisplayName>SampleRate</DisplayName>
+    <DisplayPath>/My Units</DisplayPath>
+    <Description>This is a template unit that you can modify to suit your needs.
+For more information on how to create custom layers or functions,
+please refer to the following link: https://developer.imagimob.com/edge-optimization/imaginet#creating-custom-layers-or-functions</Description>
+    <Parameters>
+      <InputSocket name="input" pipe="data" />
+	  <Int32Option name="samplerate" text="Sample Rate" description="Sample Rate" default="30"/>
+      <OutputSocket name="output" pipe="data" type="input.type" shape="input.shape" rate="samplerate" />
+      <Expression name="count" value="input.shape.flat" description="Number of elements in input" />
+    </Parameters>
+    <Implementations>
+      <Implementation language="C" fragment="samplerate.h:new_unit_f32" call="new_unit_f32(input, output, count)">
+        <Conditional value="input.type == System.Float32" />
+      </Implementation>
+    </Implementations>
+  </Unit>
+</Imaginet>

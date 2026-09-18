@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Imaginet>
+  <Unit name="Gate Feature">
+    <DisplayName>Gate</DisplayName>
+    <DisplayPath>/Custom/Features</DisplayPath>
+    <Description>This feature is added as postproessing to check the confidence of the model and the stillness.
+    </Description>
+    <Parameters>
+      <InputSocket name="input" pipe="data" />
+      <InputSocket name="confidence" pipe="data"/>
+      <Expression name="window_size" value="input.shape.flat" description="Number of movement samples in the input window" />
+      <OutputSocket name="output" pipe="data" type="confidence.type" shape="confidence.shape" />
+    </Parameters>
+    <Implementations>
+      <Implementation language="C" fragment="gate.h:gate" call="gate(input, confidence, window_size, output)">
+        <Conditional value="input.type == System.Float32" />
+        <Conditional value="output.type == System.Float32" />
+        <Conditional value="confidence.type == System.Float32" />
+      </Implementation>
+    </Implementations>
+  </Unit>
+</Imaginet>
