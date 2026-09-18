@@ -8,7 +8,7 @@
 | Metric | Value |
 | --- | --- |
 | Accuracy | 1.0000 |
-| F1 Score | 0.0000 |
+| F1 Score | 1.0000 |
 
 ### Confusion Matrix
 
@@ -64,7 +64,7 @@
 | Metric | Value |
 | --- | --- |
 | Accuracy | 0.9900 |
-| F1 Score | 0.0000 |
+| F1 Score | 0.9819 |
 
 ### Confusion Matrix
 
@@ -120,7 +120,7 @@
 | Metric | Value |
 | --- | --- |
 | Accuracy | 0.9890 |
-| F1 Score | 0.0000 |
+| F1 Score | 0.9816 |
 
 ### Confusion Matrix
 
