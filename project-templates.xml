@@ -607,15 +607,15 @@
         <PackageNoData url="https://api.imagimob.com/v1/Data/Object/RoadSignsClassification-22af8f6-5.15.6284.65534.no-data.zip" size="59778938"/>
       </Dialog>
     </Template>
-    <Template training="true">
+    <Template>
       <DisplayName>Motor Degradation Estimation</DisplayName>
       <Description>Estimate induction-motor degradation from three-phase currents and voltages, with no extra sensors.</Description>
       <DisplayPath>/Studio Accelerators/Regression/Electrical Signals</DisplayPath>
       <LicenseTags/>
       <Dialog>
         <DefaultProjectName>MotorDegradationEstimation</DefaultProjectName>
-        <Package url="https://api.imagimob.com/v1/Data/Object/MotorDegradationEstimation-6fbc282-5.15.5983.65534.zip" size="540301702"/>
-        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/MotorDegradationEstimation-6fbc282-5.15.5983.65534.no-data.zip" size="9331581"/>
+        <Package url="https://api.imagimob.com/v1/Data/Object/MotorDegradationEstimation-22af8f6-5.15.6284.65534.zip" size="540390981"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/MotorDegradationEstimation-22af8f6-5.15.6284.65534.no-data.zip" size="9420865"/>
       </Dialog>
     </Template>
   </ProjectTemplates>
