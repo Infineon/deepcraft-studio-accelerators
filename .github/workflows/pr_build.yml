@@ -42,8 +42,18 @@ jobs:
 
       - name: Install Pipeline Package
         shell: pwsh
+        env:
+          STARTER_PROJECTS_PIPELINE_DEPLOY_KEY: ${{ secrets.STARTER_PROJECTS_PIPELINE_DEPLOY_KEY }}
         run: |
-          git clone https://x-token-auth:${{ secrets.STARTER_PROJECTS_PIPELINE_TOKEN }}@bitbucket.org/imagimob/starter-projects-pipeline.git
+          $keyPath = Join-Path $env:RUNNER_TEMP 'starter-projects-pipeline-deploy'
+          $keyText = $env:STARTER_PROJECTS_PIPELINE_DEPLOY_KEY.Replace('\n', "`n").Replace("`r`n", "`n").Replace("`r", "`n")
+          if (-not $keyText.EndsWith("`n")) { $keyText += "`n" }
+          [System.IO.File]::WriteAllText($keyPath, $keyText)
+          icacls $keyPath /inheritance:r | Out-Null
+          icacls $keyPath /grant:r "${env:USERNAME}:(R)" | Out-Null
+          $env:GIT_SSH_COMMAND = "ssh -i `"$keyPath`" -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new"
+          "GIT_SSH_COMMAND=$($env:GIT_SSH_COMMAND)" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8NoBOM
+          git clone git@github.com:Infineon/starter-projects-pipeline.git
           pip install -e starter-projects-pipeline
 
       - name: Build changed projects
@@ -51,7 +61,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SENSOR_MAP: ${{ vars.SENSOR_MAP }}
-          STARTER_PROJECTS_PIPELINE_TOKEN: ${{ secrets.STARTER_PROJECTS_PIPELINE_TOKEN }}
+          STARTER_PROJECTS_PIPELINE_DEPLOY_KEY: ${{ secrets.STARTER_PROJECTS_PIPELINE_DEPLOY_KEY }}
         run: |
           if ("${{ github.event_name }}" -eq "workflow_dispatch") {
             dcp update-changes --pr-number ${{ github.event.inputs.pr_number }}
