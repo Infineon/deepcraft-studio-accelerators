@@ -7,88 +7,88 @@
 
 | Metric | Value |
 | --- | --- |
-| Accuracy | 0.8932 |
-| F1 Score | 0.8894 |
-| mAP@0.5 | 0.9158 |
-| mAP@0.5:0.95 | 0.7055 |
+| Accuracy | 0.9017 |
+| F1 Score | 0.8988 |
+| mAP@0.5 | 0.8612 |
+| mAP@0.5:0.95 | 0.5987 |
 
 ### Per-class mAP
 
 | Class | mAP@0.5 | mAP@0.5:0.95 |
 | --- | --- | --- |
-| short | 0.9311 | 0.6979 |
-| spur | 0.8905 | 0.6772 |
-| missing_hole | 0.9371 | 0.7721 |
-| mouse_bite | 0.9043 | 0.6890 |
-| open_circuit | 0.9157 | 0.6914 |
+| short | 0.8808 | 0.6011 |
+| spur | 0.8109 | 0.5450 |
+| missing_hole | 0.8916 | 0.6774 |
+| mouse_bite | 0.8516 | 0.5841 |
+| open_circuit | 0.8710 | 0.5861 |
 
 ### Confusion Matrix
 
 | True \ Pred | (none) | short | spur | missing_hole | mouse_bite | open_circuit |
 | --- | --- | --- | --- | --- | --- | --- |
-| (none) | 0 | 72 | 117 | 103 | 105 | 92 |
-| short | 181 | 1375 | 3 | 1 | 1 | 1 |
-| spur | 280 | 11 | 1217 | 0 | 7 | 0 |
-| missing_hole | 160 | 1 | 0 | 1398 | 1 | 0 |
-| mouse_bite | 276 | 0 | 6 | 5 | 1531 | 40 |
-| open_circuit | 238 | 1 | 1 | 0 | 26 | 1511 |
+| (none) | 0 | 140 | 117 | 76 | 119 | 127 |
+| short | 170 | 1390 | 2 | 0 | 0 | 0 |
+| spur | 254 | 16 | 1237 | 0 | 6 | 2 |
+| missing_hole | 153 | 1 | 0 | 1406 | 0 | 0 |
+| mouse_bite | 244 | 1 | 4 | 2 | 1563 | 44 |
+| open_circuit | 206 | 2 | 0 | 0 | 22 | 1547 |
 
 ## Validation
 
 | Metric | Value |
 | --- | --- |
-| Accuracy | 0.8384 |
-| F1 Score | 0.8345 |
-| mAP@0.5 | 0.8685 |
-| mAP@0.5:0.95 | 0.6158 |
+| Accuracy | 0.8543 |
+| F1 Score | 0.8499 |
+| mAP@0.5 | 0.7988 |
+| mAP@0.5:0.95 | 0.5221 |
 
 ### Per-class mAP
 
 | Class | mAP@0.5 | mAP@0.5:0.95 |
 | --- | --- | --- |
-| short | 0.8724 | 0.5743 |
-| spur | 0.8248 | 0.5621 |
-| missing_hole | 0.9247 | 0.7386 |
-| mouse_bite | 0.8440 | 0.6086 |
-| open_circuit | 0.8765 | 0.5953 |
+| short | 0.7885 | 0.4697 |
+| spur | 0.7317 | 0.4569 |
+| missing_hole | 0.8910 | 0.6682 |
+| mouse_bite | 0.7747 | 0.5067 |
+| open_circuit | 0.8079 | 0.5091 |
 
 ### Confusion Matrix
 
 | True \ Pred | (none) | short | spur | missing_hole | mouse_bite | open_circuit |
 | --- | --- | --- | --- | --- | --- | --- |
-| (none) | 0 | 47 | 75 | 32 | 56 | 32 |
-| short | 101 | 419 | 4 | 0 | 0 | 2 |
-| spur | 126 | 9 | 394 | 0 | 8 | 1 |
-| missing_hole | 62 | 1 | 0 | 450 | 3 | 0 |
-| mouse_bite | 125 | 0 | 5 | 4 | 457 | 24 |
-| open_circuit | 100 | 1 | 1 | 1 | 18 | 482 |
+| (none) | 0 | 60 | 57 | 34 | 61 | 43 |
+| short | 91 | 433 | 1 | 0 | 0 | 1 |
+| spur | 118 | 13 | 401 | 0 | 4 | 2 |
+| missing_hole | 48 | 0 | 0 | 467 | 1 | 0 |
+| mouse_bite | 111 | 2 | 5 | 3 | 476 | 18 |
+| open_circuit | 90 | 4 | 1 | 0 | 16 | 492 |
 
 ## Test
 
 | Metric | Value |
 | --- | --- |
-| Accuracy | 0.8240 |
-| F1 Score | 0.8188 |
-| mAP@0.5 | 0.8565 |
-| mAP@0.5:0.95 | 0.6096 |
+| Accuracy | 0.8426 |
+| F1 Score | 0.8379 |
+| mAP@0.5 | 0.7845 |
+| mAP@0.5:0.95 | 0.5132 |
 
 ### Per-class mAP
 
 | Class | mAP@0.5 | mAP@0.5:0.95 |
 | --- | --- | --- |
-| short | 0.8530 | 0.5428 |
-| spur | 0.8292 | 0.5901 |
-| missing_hole | 0.9008 | 0.7077 |
-| mouse_bite | 0.8344 | 0.6138 |
-| open_circuit | 0.8654 | 0.5935 |
+| short | 0.7744 | 0.4688 |
+| spur | 0.7423 | 0.4692 |
+| missing_hole | 0.8452 | 0.6278 |
+| mouse_bite | 0.7565 | 0.4931 |
+| open_circuit | 0.8041 | 0.5069 |
 
 ### Confusion Matrix
 
 | True \ Pred | (none) | short | spur | missing_hole | mouse_bite | open_circuit |
 | --- | --- | --- | --- | --- | --- | --- |
-| (none) | 0 | 50 | 52 | 28 | 57 | 56 |
-| short | 113 | 449 | 1 | 0 | 3 | 3 |
-| spur | 123 | 10 | 371 | 0 | 10 | 6 |
-| missing_hole | 90 | 0 | 0 | 479 | 1 | 0 |
-| mouse_bite | 131 | 2 | 8 | 4 | 457 | 21 |
-| open_circuit | 102 | 1 | 1 | 0 | 35 | 480 |
+| (none) | 0 | 79 | 53 | 35 | 53 | 69 |
+| short | 106 | 460 | 0 | 0 | 3 | 0 |
+| spur | 106 | 11 | 393 | 0 | 4 | 6 |
+| missing_hole | 80 | 1 | 1 | 488 | 0 | 0 |
+| mouse_bite | 119 | 3 | 6 | 3 | 473 | 19 |
+| open_circuit | 97 | 4 | 2 | 0 | 18 | 498 |
