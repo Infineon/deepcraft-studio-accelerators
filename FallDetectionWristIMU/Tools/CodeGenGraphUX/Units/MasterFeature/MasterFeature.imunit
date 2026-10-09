@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Imaginet>
+    <Function unit="Master Feature">
+        <DisplayName>Master Feature</DisplayName>
+        <DisplayPath>/Custom</DisplayPath>
+        <Description> This function calls all the features in the subfolder /Fall.
+        </Description>
+        <Parameters>
+            <InputSocket name="input" pipe="data" description="Data to be enqueue to buffer."/>
+
+            <BoolOption name="force" default="True" text="Force feature">
+                <Description>
+					When True (default), generates a force feature out of the raw accelerometer data.
+					When False, the feature is off.
+				</Description>
+            </BoolOption>
+            <BoolOption name="dim" default="True" text="Dimension feature">
+                <Description>
+					When True (default), generates a dimension feature out of the raw accelerometer data.
+					When False, the feature is off.
+				</Description>
+            </BoolOption>
+            <BoolOption name="rot" default="True" text="Rotation feature">
+                <Description>
+					When True (default), generates a rotation feature out of the raw accelerometer data.
+					When False, the feature is off.
+				</Description>
+            </BoolOption>
+            <BoolOption name="cross" default="True" text="Crossing feature">
+                <Description>
+					When True (default), generates a crossing feature out of the raw accelerometer data.
+					When False, the feature is off.
+				</Description>
+            </BoolOption>
+            <BoolOption name="chaos" default="True" text="Chaos feature">
+                <Description>
+					When True (default), generates a chaos feature out of the raw accelerometer data.
+					When False, the feature is off.
+				</Description>
+            </BoolOption>
+            <BoolOption name="sampling" default="True" text="Sampling feature">
+                <Description>
+					When True (default), generates a sampling feature out of the raw accelerometer data.
+					When False, the feature is off.
+				</Description>
+            </BoolOption>
+
+            <Expression name="output_shape" value="(force ? 1 : 0) + (dim ? 1 : 0) + (rot ? 1 : 0) + (cross ? 1 : 0) + (chaos ? 1 : 0) + (sampling ? 3 : 0)" description="Size of the output"/>
+            <OutputSocket name="output" shape="System.Shape(output_shape)" type="input.type" pipe="data"/>
+        </Parameters>
+        <Implementations>
+            <Implementation language="C" fragment="MasterFeature.h:master" call="update_features(input, force, dim, rot, cross, chaos, sampling, output)">
+                <Conditional value="input.type == System.Float32" />
+                <Conditional value="output.type == System.Float32" />
+            </Implementation>
+        </Implementations>
+    </Function>
+
+</Imaginet>
