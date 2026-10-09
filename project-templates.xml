@@ -65,15 +65,15 @@
         <PackageNoData url="https://api.imagimob.com/v1/ReadyModels/Object/rm-snore__rm-snore-studio-project-release-v2.0-nodata.zip" size="8030985"/>
       </Dialog>
     </Template>
-    <Template training="true">
+    <Template>
       <DisplayName>Human Activity Detection</DisplayName>
       <Description>Detect whether a person is performing different activities e.g. walking</Description>
       <DisplayPath>/Studio Accelerators/Classification/IMU &amp; Vibration</DisplayPath>
       <LicenseTags/>
       <Dialog>
         <DefaultProjectName>HumanActivity</DefaultProjectName>
-        <Package url="https://api.imagimob.com/v1/Data/Object/HumanActivity-b9cf1d3-5.15.6367.65534.zip" size="1320181035"/>
-        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/HumanActivity-b9cf1d3-5.15.6367.65534.no-data.zip" size="1861860"/>
+        <Package url="https://api.imagimob.com/v1/Data/Object/HumanActivity-3598b8c-5.16.6508.65534.zip" size="1320188386"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/HumanActivity-3598b8c-5.16.6508.65534.no-data.zip" size="1869209"/>
       </Dialog>
     </Template>
     <Template>
@@ -86,15 +86,15 @@
         <Package url="https://api.imagimob.com/v1/Data/Object/EmptyClassificationProject-3598b8c-5.16.6508.65534.zip" size="1115"/>
       </Dialog>
     </Template>
-    <Template training="true">
+    <Template>
       <DisplayName>Fall Detection (Belt-mounted)</DisplayName>
       <Description>Detect if the user has fallen. It's intended to be placed on a belt or waist.</Description>
       <DisplayPath>/Studio Accelerators/Classification/IMU &amp; Vibration</DisplayPath>
       <LicenseTags/>
       <Dialog>
         <DefaultProjectName>FallDetection</DefaultProjectName>
-        <Package url="https://api.imagimob.com/v1/Data/Object/FallDetection-b9cf1d3-5.15.6367.65534.zip" size="885510796"/>
-        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/FallDetection-b9cf1d3-5.15.6367.65534.no-data.zip" size="1854224"/>
+        <Package url="https://api.imagimob.com/v1/Data/Object/FallDetection-3598b8c-5.16.6508.65534.zip" size="885240789"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/FallDetection-3598b8c-5.16.6508.65534.no-data.zip" size="1584213"/>
       </Dialog>
     </Template>
     <Template>
@@ -277,15 +277,15 @@
         <PackageNoData url="https://api.imagimob.com/v1/Data/Object/TermiteDetection-3598b8c-5.16.6508.65534.no-data.zip" size="11154339"/>
       </Dialog>
     </Template>
-    <Template training="true">
+    <Template>
       <DisplayName>Rock Paper Scissors Detection</DisplayName>
       <Description>Recognize hand gestures (Rock, Paper or Scissors) in an image</Description>
       <DisplayPath>/Studio Accelerators/Object Detection/Camera</DisplayPath>
       <LicenseTags/>
       <Dialog>
         <DefaultProjectName>RockPaperScissorsDetection</DefaultProjectName>
-        <Package url="https://api.imagimob.com/v1/Data/Object/RockPaperScissorsDetection-b9cf1d3-5.15.6367.65534.zip" size="193395163"/>
-        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/RockPaperScissorsDetection-b9cf1d3-5.15.6367.65534.no-data.zip" size="10766715"/>
+        <Package url="https://api.imagimob.com/v1/Data/Object/RockPaperScissorsDetection-3598b8c-5.16.6508.65534.zip" size="193335563"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/RockPaperScissorsDetection-3598b8c-5.16.6508.65534.no-data.zip" size="10707115"/>
       </Dialog>
     </Template>
     <Template>
@@ -299,15 +299,15 @@
         <PackageNoData url="https://api.imagimob.com/v1/Data/Object/MovementTypeDetection-3598b8c-5.16.6508.65534.no-data.zip" size="1188286"/>
       </Dialog>
     </Template>
-    <Template training="true">
+    <Template>
       <DisplayName>Vacuum Cleaner Surface Detection (MIC)</DisplayName>
       <Description>Microphone-based surface detection for vacuum cleaners (Floor/Carpet/Air)</Description>
       <DisplayPath>/Studio Accelerators/Classification/Microphone</DisplayPath>
       <LicenseTags/>
       <Dialog>
         <DefaultProjectName>SurfaceDetectionMicrophone</DefaultProjectName>
-        <Package url="https://api.imagimob.com/v1/Data/Object/SurfaceDetectionMicrophone-b9cf1d3-5.15.6367.65534.zip" size="1001425643"/>
-        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/SurfaceDetectionMicrophone-b9cf1d3-5.15.6367.65534.no-data.zip" size="2678885"/>
+        <Package url="https://api.imagimob.com/v1/Data/Object/SurfaceDetectionMicrophone-3598b8c-5.16.6508.65534.zip" size="1001437539"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/SurfaceDetectionMicrophone-3598b8c-5.16.6508.65534.no-data.zip" size="2690716"/>
       </Dialog>
     </Template>
     <Template>
@@ -546,15 +546,15 @@
         <PackageNoData url="https://api.imagimob.com/v1/Data/Object/EmergencyVehicleDetection-3598b8c-5.16.6508.65534.no-data.zip" size="13179270"/>
       </Dialog>
     </Template>
-    <Template training="true">
+    <Template>
       <DisplayName>Safety Vest and Helmet Detection</DisplayName>
       <Description>Detect safety vests and hard hats in an image.</Description>
       <DisplayPath>/Studio Accelerators/Object Detection/Camera</DisplayPath>
       <LicenseTags/>
       <Dialog>
         <DefaultProjectName>SafetyVestHelmetDetection</DefaultProjectName>
-        <Package url="https://api.imagimob.com/v1/Data/Object/SafetyVestHelmetDetection-b9cf1d3-5.15.6367.65534.zip" size="452290848"/>
-        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/SafetyVestHelmetDetection-b9cf1d3-5.15.6367.65534.no-data.zip" size="17791236"/>
+        <Package url="https://api.imagimob.com/v1/Data/Object/SafetyVestHelmetDetection-3598b8c-5.16.6508.65534.zip" size="452282080"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/SafetyVestHelmetDetection-3598b8c-5.16.6508.65534.no-data.zip" size="17782468"/>
       </Dialog>
     </Template>
     <Template training="true">
@@ -623,15 +623,15 @@
         <PackageNoData url="https://api.imagimob.com/v1/Data/Object/CowSheepGoatDetection-b9cf1d3-5.15.6367.65534.no-data.zip" size="17637276"/>
       </Dialog>
     </Template>
-    <Template training="true">
+    <Template>
       <DisplayName>Grapevine Leaf Disease Detection</DisplayName>
       <Description>Detect black measles, black rot, leaf blight, and healthy grapevine leaves in an image.</Description>
       <DisplayPath>/Studio Accelerators/Object Detection/Camera</DisplayPath>
       <LicenseTags/>
       <Dialog>
         <DefaultProjectName>GrapevineLeafDiseaseDetection</DefaultProjectName>
-        <Package url="https://api.imagimob.com/v1/Data/Object/GrapevineLeafDiseaseDetection-b9cf1d3-5.15.6367.65534.zip" size="366105702"/>
-        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/GrapevineLeafDiseaseDetection-b9cf1d3-5.15.6367.65534.no-data.zip" size="13166961"/>
+        <Package url="https://api.imagimob.com/v1/Data/Object/GrapevineLeafDiseaseDetection-3598b8c-5.16.6508.65534.zip" size="366105725"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/GrapevineLeafDiseaseDetection-3598b8c-5.16.6508.65534.no-data.zip" size="13166984"/>
       </Dialog>
     </Template>
     <Template>
@@ -667,15 +667,15 @@
         <PackageNoData url="https://api.imagimob.com/v1/Data/Object/BirdDroneDetection-b9cf1d3-5.15.6367.65534.no-data.zip" size="14860584"/>
       </Dialog>
     </Template>
-    <Template training="true">
+    <Template>
       <DisplayName>PCB Defects Detection</DisplayName>
       <Description>Detect PCB manufacturing defects in an image.</Description>
       <DisplayPath>/Studio Accelerators/Object Detection/Camera</DisplayPath>
       <LicenseTags/>
       <Dialog>
         <DefaultProjectName>PCBDefectsDetection</DefaultProjectName>
-        <Package url="https://api.imagimob.com/v1/Data/Object/PCBDefectsDetection-6754b33-5.14.5736.65534.zip" size="250534877"/>
-        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/PCBDefectsDetection-6754b33-5.14.5736.65534.no-data.zip" size="38415356"/>
+        <Package url="https://api.imagimob.com/v1/Data/Object/PCBDefectsDetection-3598b8c-5.16.6508.65534.zip" size="226866640"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/PCBDefectsDetection-3598b8c-5.16.6508.65534.no-data.zip" size="14747119"/>
       </Dialog>
     </Template>
     <Template>
