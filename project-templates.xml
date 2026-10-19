@@ -65,15 +65,15 @@
         <PackageNoData url="https://api.imagimob.com/v1/ReadyModels/Object/rm-snore__rm-snore-studio-project-release-v2.0-nodata.zip" size="8030985"/>
       </Dialog>
     </Template>
-    <Template training="true">
+    <Template>
       <DisplayName>Human Activity Detection</DisplayName>
       <Description>Detect whether a person is performing different activities e.g. walking</Description>
       <DisplayPath>/Studio Accelerators/Classification/IMU &amp; Vibration</DisplayPath>
       <LicenseTags/>
       <Dialog>
         <DefaultProjectName>HumanActivity</DefaultProjectName>
-        <Package url="https://api.imagimob.com/v1/Data/Object/HumanActivity-3598b8c-5.16.6508.65534.zip" size="1320188386"/>
-        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/HumanActivity-3598b8c-5.16.6508.65534.no-data.zip" size="1869209"/>
+        <Package url="https://api.imagimob.com/v1/Data/Object/HumanActivity-ca22b5f-5.16.6598.65534.zip" size="1320110852"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/HumanActivity-ca22b5f-5.16.6598.65534.no-data.zip" size="1791675"/>
       </Dialog>
     </Template>
     <Template>
@@ -245,15 +245,15 @@
         <PackageNoData url="https://api.imagimob.com/v1/Data/Object/ChainsawDetection-3598b8c-5.16.6508.65534.no-data.zip" size="15967875"/>
       </Dialog>
     </Template>
-    <Template training="true">
+    <Template>
       <DisplayName>Home Sounds Detection</DisplayName>
       <Description>Use a microphone to detect sound signatures common to a home: baby cry, cough, water tap.</Description>
       <DisplayPath>/Studio Accelerators/Classification/Microphone</DisplayPath>
       <LicenseTags/>
       <Dialog>
         <DefaultProjectName>HomeSoundsDetection</DefaultProjectName>
-        <Package url="https://api.imagimob.com/v1/Data/Object/HomeSoundsDetection-3598b8c-5.16.6508.65534.zip" size="844447495"/>
-        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/HomeSoundsDetection-3598b8c-5.16.6508.65534.no-data.zip" size="19660621"/>
+        <Package url="https://api.imagimob.com/v1/Data/Object/HomeSoundsDetection-ca22b5f-5.16.6598.65534.zip" size="843714372"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/HomeSoundsDetection-ca22b5f-5.16.6598.65534.no-data.zip" size="18927502"/>
       </Dialog>
     </Template>
     <Template>
@@ -299,15 +299,15 @@
         <PackageNoData url="https://api.imagimob.com/v1/Data/Object/MovementTypeDetection-ca22b5f-5.16.6598.65534.no-data.zip" size="1657466"/>
       </Dialog>
     </Template>
-    <Template training="true">
+    <Template>
       <DisplayName>Vacuum Cleaner Surface Detection (MIC)</DisplayName>
       <Description>Microphone-based surface detection for vacuum cleaners (Floor/Carpet/Air)</Description>
       <DisplayPath>/Studio Accelerators/Classification/Microphone</DisplayPath>
       <LicenseTags/>
       <Dialog>
         <DefaultProjectName>SurfaceDetectionMicrophone</DefaultProjectName>
-        <Package url="https://api.imagimob.com/v1/Data/Object/SurfaceDetectionMicrophone-3598b8c-5.16.6508.65534.zip" size="1001437539"/>
-        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/SurfaceDetectionMicrophone-3598b8c-5.16.6508.65534.no-data.zip" size="2690716"/>
+        <Package url="https://api.imagimob.com/v1/Data/Object/SurfaceDetectionMicrophone-ca22b5f-5.16.6598.65534.zip" size="1001341505"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/SurfaceDetectionMicrophone-ca22b5f-5.16.6598.65534.no-data.zip" size="2594747"/>
       </Dialog>
     </Template>
     <Template>
@@ -546,15 +546,15 @@
         <PackageNoData url="https://api.imagimob.com/v1/Data/Object/EmergencyVehicleDetection-ca22b5f-5.16.6598.65534.no-data.zip" size="13179971"/>
       </Dialog>
     </Template>
-    <Template training="true">
+    <Template>
       <DisplayName>Safety Vest and Helmet Detection</DisplayName>
       <Description>Detect safety vests and hard hats in an image.</Description>
       <DisplayPath>/Studio Accelerators/Object Detection/Camera</DisplayPath>
       <LicenseTags/>
       <Dialog>
         <DefaultProjectName>SafetyVestHelmetDetection</DefaultProjectName>
-        <Package url="https://api.imagimob.com/v1/Data/Object/SafetyVestHelmetDetection-3598b8c-5.16.6508.65534.zip" size="452282080"/>
-        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/SafetyVestHelmetDetection-3598b8c-5.16.6508.65534.no-data.zip" size="17782468"/>
+        <Package url="https://api.imagimob.com/v1/Data/Object/SafetyVestHelmetDetection-ca22b5f-5.16.6598.65534.zip" size="452282164"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/SafetyVestHelmetDetection-ca22b5f-5.16.6598.65534.no-data.zip" size="17782552"/>
       </Dialog>
     </Template>
     <Template training="true">
@@ -656,15 +656,15 @@
         <PackageNoData url="https://api.imagimob.com/v1/Data/Object/MotorDegradationEstimation-3598b8c-5.16.6508.65534.no-data.zip" size="9305817"/>
       </Dialog>
     </Template>
-    <Template training="true">
+    <Template>
       <DisplayName>Bird and Drone Detection</DisplayName>
       <Description>Detect birds and drones in an image.</Description>
       <DisplayPath>/Studio Accelerators/Object Detection/Camera</DisplayPath>
       <LicenseTags/>
       <Dialog>
         <DefaultProjectName>BirdDroneDetection</DefaultProjectName>
-        <Package url="https://api.imagimob.com/v1/Data/Object/BirdDroneDetection-3598b8c-5.16.6508.65534.zip" size="716259854"/>
-        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/BirdDroneDetection-3598b8c-5.16.6508.65534.no-data.zip" size="14860584"/>
+        <Package url="https://api.imagimob.com/v1/Data/Object/BirdDroneDetection-ca22b5f-5.16.6598.65534.zip" size="716259797"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/BirdDroneDetection-ca22b5f-5.16.6598.65534.no-data.zip" size="14860527"/>
       </Dialog>
     </Template>
     <Template>
