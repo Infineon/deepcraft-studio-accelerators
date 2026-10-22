@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ImagimobStudio version="0.9">
+  <Timeline id="5c4250ca-d420-495f-83bd-5b9e488c91ab">
+    <Tracks>
+      <Track name="ECG Data" type="datacsv" isLabelTrack="False">
+        <PayloadFile>ECG.data</PayloadFile>
+        <Shape>
+          <Axis name="Channel" size="1">
+            <Label index="0">ECG</Label>
+          </Axis>
+        </Shape>
+      </Track>
+      <Track name="label" type="labelcsv">
+        <PayloadFile>label.label</PayloadFile>
+        <Shape>
+          <Axis name="Labels" size="0" />
+        </Shape>
+      </Track>
+      <Track name="conv1d-medium-balanced-10" type="datacsv" timecoded="TimestampBeginDuration" isLabelTrack="False">
+        <PayloadFile>..\..\..\..\Models\conv1d-medium-balanced-1\predictions\sessions\chf08_normal_unlabeled_017\predictions_conv1d-medium-balanced-1\conv1d-medium-balanced-10.data</PayloadFile>
+        <Offset unit="seconds">5.5599990000E-001</Offset>
+        <Shape />
+      </Track>
+    </Tracks>
+  </Timeline>
+</ImagimobStudio>
