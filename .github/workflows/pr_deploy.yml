@@ -30,12 +30,14 @@ jobs:
           icacls $keyPath /grant:r "${env:USERNAME}:(R)" | Out-Null
           $env:GIT_SSH_COMMAND = "ssh -i `"$keyPath`" -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new"
           "GIT_SSH_COMMAND=$($env:GIT_SSH_COMMAND)" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8NoBOM
-          git clone git@github.com:Infineon/starter-projects-pipeline.git
+          # SD-6203 dry run. This branch clones the unmerged pipeline fix. Do not merge it.
+          git clone --branch bugfix/SD-6203-pr-deploy-new-projects --single-branch git@github.com:Infineon/starter-projects-pipeline.git
           pip install -e starter-projects-pipeline
 
       - name: Deploy changed projects
         shell: pwsh
         env:
+          DEBUG: '1'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SENSOR_MAP: ${{ vars.SENSOR_MAP }}
           STARTER_PROJECTS_PIPELINE_DEPLOY_KEY: ${{ secrets.STARTER_PROJECTS_PIPELINE_DEPLOY_KEY }}
