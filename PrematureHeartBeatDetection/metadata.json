@@ -1,0 +1,19 @@
+{
+  "title": "Premature Heartbeat Detection",
+  "description": "Screen a single-lead ECG beat as normal or premature beat with a CNN binary classifier.",
+  "long_description": "Train a model in DEEPCRAFT\u2122 Studio to screen single-lead ECG beats as normal or premature (PVC, R-on-T PVC, or supraventricular). It uses 140-sample beats from 15 PhysioNet BIDMC heart-failure recordings with automated labels. This is a screening demonstration, not a diagnostic device.",
+  "algorithm": "Classification",
+  "sensors": ["Voltage"],
+  "domain": ["Electrical Signals"],
+  "application": ["Healthcare", "Wearables"],
+  "use_case": ["Premature Heartbeat Detection", "ECG Screening"],
+  "kit": ["PSOC\u2122 6 AI Kit", "PSOC\u2122 Edge AI Kit"],
+  "device": ["PSOC\u2122 6", "PSOC\u2122 Edge"],
+  "type": ["Model Development"],
+  "workflow": ["ML Development"],
+  "thumbnail_image_id": "health.webp",
+  "main_image_id": "health.webp",
+  "brand_image_id": "deepcraft.webp",
+  "brand_url": "https://www.infineon.com/design-resources/embedded-software/deepcraft-edge-ai-solutions",
+  "links": [{"label": "Download", "url": "https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio", "heading": "Access Project via DEEPCRAFT\u2122 Studio", "sub-heading": "Download and install DEEPCRAFT\u2122 Studio to fully access this project and start developing your Edge AI product"}, {"label": "GitHub", "url": "https://github.com/Infineon/deepcraft-studio-accelerators/tree/main/PrematureHeartBeatDetection", "heading": "Project Repository", "sub-heading": "Get more details about this project"}]
+}
