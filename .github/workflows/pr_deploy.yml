@@ -22,15 +22,23 @@ jobs:
         env:
           STARTER_PROJECTS_PIPELINE_DEPLOY_KEY: ${{ secrets.STARTER_PROJECTS_PIPELINE_DEPLOY_KEY }}
         run: |
+          if ([string]::IsNullOrWhiteSpace($env:STARTER_PROJECTS_PIPELINE_DEPLOY_KEY)) {
+            throw 'STARTER_PROJECTS_PIPELINE_DEPLOY_KEY is empty or not available to this workflow'
+          }
           $keyPath = Join-Path $env:RUNNER_TEMP 'starter-projects-pipeline-deploy'
-          $keyText = $env:STARTER_PROJECTS_PIPELINE_DEPLOY_KEY.Replace('\n', "`n").Replace("`r`n", "`n").Replace("`r", "`n")
-          if (-not $keyText.EndsWith("`n")) { $keyText += "`n" }
+          $keyText = $env:STARTER_PROJECTS_PIPELINE_DEPLOY_KEY.Replace('\n', "`n").Replace("`r`n", "`n").Replace("`r", "`n").Trim() + "`n"
+          if ($keyText -notmatch '\A-----BEGIN [A-Z ]*PRIVATE KEY-----\n[\s\S]+\n-----END [A-Z ]*PRIVATE KEY-----\n\z') {
+            throw "STARTER_PROJECTS_PIPELINE_DEPLOY_KEY is not a multi-line PEM/OpenSSH private key ($(($keyText -split "`n").Count - 1) lines)"
+          }
           [System.IO.File]::WriteAllText($keyPath, $keyText)
           icacls $keyPath /inheritance:r | Out-Null
           icacls $keyPath /grant:r "${env:USERNAME}:(R)" | Out-Null
+          ssh-keygen -y -P '' -f $keyPath | Out-Null
+          if ($LASTEXITCODE) { throw 'Deploy key could not be loaded by ssh-keygen (corrupted or passphrase-protected)' }
           $env:GIT_SSH_COMMAND = "ssh -i `"$keyPath`" -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new"
           "GIT_SSH_COMMAND=$($env:GIT_SSH_COMMAND)" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8NoBOM
           git clone git@github.com:Infineon/starter-projects-pipeline.git
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
           pip install -e starter-projects-pipeline
 
       - name: Deploy changed projects
