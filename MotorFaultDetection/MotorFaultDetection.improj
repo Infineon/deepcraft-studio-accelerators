@@ -1,0 +1,1941 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ImagimobStudio version="1.1.0">
+  <Job id="1aa5d573-d2eb-11f1-9e5f-7f32aedbec6e" />
+  <ProjectType>Classification</ProjectType>
+  <ProjectId>211a5afd-37e8-4189-8b62-a19e451a5c41</ProjectId>
+  <Preprocessor inshape="[8]" intype="Float32" infreq="1280" outshape="[640,10]" outtype="Float32">
+    <Unit id="Core.Queues.SlidingWindow">
+      <Argument param="input" type="String">data</Argument>
+      <Argument param="time_input" type="String">time</Argument>
+      <Argument param="window_shape" type="Shape">[640,8]</Argument>
+      <Argument param="stride" type="Int32">5120</Argument>
+      <Argument param="buffer_multiplier" type="Double">1</Argument>
+      <Argument param="output" type="String">data</Argument>
+      <Argument param="time_output" type="String">time</Argument>
+    </Unit>
+    <Unit id="Core.Math.Fft.RealFft">
+      <Argument param="input" type="String">data</Argument>
+      <Argument param="axis" type="Int32">0</Argument>
+      <Argument param="output" type="String">data</Argument>
+    </Unit>
+    <Unit id="Core.Math.Reshape">
+      <Argument param="input" type="String">data</Argument>
+      <Argument param="shape" type="Shape">[640,10]</Argument>
+    </Unit>
+  </Preprocessor>
+  <ModelFactory>
+    <Epochs>100</Epochs>
+    <BatchSize>16</BatchSize>
+    <SplitCount>16</SplitCount>
+    <Patience>20</Patience>
+    <AppendModels>True</AppendModels>
+    <LossFunction>CategoricalCrossentropy</LossFunction>
+    <HardwareType>Infineon</HardwareType>
+    <TrainingEnvironment>
+    </TrainingEnvironment>
+    <ModelFamily>Conv2D</ModelFamily>
+    <ModelFlavor>SmallKern</ModelFlavor>
+    <ClassifierType>Hybrid</ClassifierType>
+    <Optimization>Balanced</Optimization>
+    <Pooling>True</Pooling>
+    <Downscale>False</Downscale>
+    <LearnRate>Mid</LearnRate>
+    <RegularizationFactor>Low</RegularizationFactor>
+    <LastNetworkInputShape>[640,10]</LastNetworkInputShape>
+    <LastClassCount>12</LastClassCount>
+    <Optimizer>
+      <LearningRate>0.001</LearningRate>
+      <WeightDecay>0.0001</WeightDecay>
+    </Optimizer>
+    <BuildSteps>
+      <Training />
+      <ConfusionMatrix />
+    </BuildSteps>
+    <IsNasEnabled>False</IsNasEnabled>
+  </ModelFactory>
+  <Models>
+    <Model name="conv2d-small-balanced-0" id="f5b1e045-1bc6-4f7d-a1d6-6b42a8cf38e6">
+      <LossFunction>CategoricalCrossentropy</LossFunction>
+      <Epochs>100</Epochs>
+      <BatchSize>16</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.004</LearningRate>
+        <WeightDecay>0.0001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[640,10]" intype="Float32" infreq="0" outshape="[25]" outtype="Float32">
+        <Unit id="Core.Layers.Reshape">
+          <Argument param="shape" type="Shape">[640,10,1]</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution2D">
+          <Argument param="filters" type="Int32">12</Argument>
+          <Argument param="kernel_size" type="Shape">[3,3]</Argument>
+          <Argument param="strides" type="Shape">[2,2]</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution2D">
+          <Argument param="filters" type="Int32">24</Argument>
+          <Argument param="kernel_size" type="Shape">[3,3]</Argument>
+          <Argument param="strides" type="Shape">[1,1]</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution2D">
+          <Argument param="filters" type="Int32">24</Argument>
+          <Argument param="kernel_size" type="Shape">[3,3]</Argument>
+          <Argument param="strides" type="Shape">[1,1]</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.GlobalAveragePool2D" />
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">120</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dropout">
+          <Argument param="rate" type="Double">0.1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="units" type="Int32">25</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="trainable" type="Boolean">True</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">softmax</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <Training />
+        <ConfusionMatrix />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="unlabeled" weight="1" />
+        <SymbolWeight symbol="bearing_ball_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="bearing_ball_L_torque_circulation" weight="1" />
+        <SymbolWeight symbol="bearing_inner_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="bearing_inner_L_torque_circulation" weight="1" />
+        <SymbolWeight symbol="bearing_outer_H_and_inner_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="bearing_outer_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="bearing_outer_L_torque_circulation" weight="1" />
+        <SymbolWeight symbol="bend_torque_circulation" weight="1" />
+        <SymbolWeight symbol="broken_bar_and_bearing_inner_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="broken_bar_and_bearing_outer_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="broken_bar_torque_circulation" weight="1" />
+        <SymbolWeight symbol="dynamic_eccentricity_and_bearing_inner_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="dynamic_eccentricity_and_bearing_outer_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="dynamic_eccentricity_torque_circulation" weight="1" />
+        <SymbolWeight symbol="health_torque_circulation" weight="1" />
+        <SymbolWeight symbol="static_eccentricity_H_and_bearing_inner_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="static_eccentricity_H_and_bearing_outer_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="static_eccentricity_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="static_eccentricity_L_torque_circulation" weight="1" />
+        <SymbolWeight symbol="voltage_unbalance_L_torque_circulation" weight="1" />
+        <SymbolWeight symbol="winding_H_and_bearing_inner_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="winding_H_and_bearing_outer_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="winding_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="winding_L_torque_circulation" weight="1" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[8]" intype="Float32" infreq="1280" outshape="[640,10]" outtype="Float32">
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[640,8]</Argument>
+          <Argument param="stride" type="Int32">5120</Argument>
+          <Argument param="buffer_multiplier" type="Double">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+        <Unit id="Core.Math.Fft.RealFft">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="axis" type="Int32">0</Argument>
+          <Argument param="output" type="String">data</Argument>
+        </Unit>
+        <Unit id="Core.Math.Reshape">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="shape" type="Shape">[640,10]</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
+    </Model>
+    <Model name="conv2d-small-balanced-1" id="b10da456-039d-4224-90f2-4048948e2758">
+      <LossFunction>CategoricalCrossentropy</LossFunction>
+      <Epochs>100</Epochs>
+      <BatchSize>16</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.004</LearningRate>
+        <WeightDecay>0.0001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[640,10]" intype="Float32" infreq="0" outshape="[25]" outtype="Float32">
+        <Unit id="Core.Layers.Reshape">
+          <Argument param="shape" type="Shape">[640,10,1]</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution2D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Shape">[3,3]</Argument>
+          <Argument param="strides" type="Shape">[2,2]</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution2D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Shape">[3,3]</Argument>
+          <Argument param="strides" type="Shape">[1,1]</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution2D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Shape">[3,3]</Argument>
+          <Argument param="strides" type="Shape">[1,1]</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.GlobalAveragePool2D" />
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">120</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dropout">
+          <Argument param="rate" type="Double">0.1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="units" type="Int32">25</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="trainable" type="Boolean">True</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">softmax</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <Training />
+        <ConfusionMatrix />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="unlabeled" weight="1" />
+        <SymbolWeight symbol="bearing_ball_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="bearing_ball_L_torque_circulation" weight="1" />
+        <SymbolWeight symbol="bearing_inner_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="bearing_inner_L_torque_circulation" weight="1" />
+        <SymbolWeight symbol="bearing_outer_H_and_inner_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="bearing_outer_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="bearing_outer_L_torque_circulation" weight="1" />
+        <SymbolWeight symbol="bend_torque_circulation" weight="1" />
+        <SymbolWeight symbol="broken_bar_and_bearing_inner_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="broken_bar_and_bearing_outer_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="broken_bar_torque_circulation" weight="1" />
+        <SymbolWeight symbol="dynamic_eccentricity_and_bearing_inner_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="dynamic_eccentricity_and_bearing_outer_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="dynamic_eccentricity_torque_circulation" weight="1" />
+        <SymbolWeight symbol="health_torque_circulation" weight="1" />
+        <SymbolWeight symbol="static_eccentricity_H_and_bearing_inner_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="static_eccentricity_H_and_bearing_outer_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="static_eccentricity_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="static_eccentricity_L_torque_circulation" weight="1" />
+        <SymbolWeight symbol="voltage_unbalance_L_torque_circulation" weight="1" />
+        <SymbolWeight symbol="winding_H_and_bearing_inner_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="winding_H_and_bearing_outer_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="winding_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="winding_L_torque_circulation" weight="1" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[8]" intype="Float32" infreq="1280" outshape="[640,10]" outtype="Float32">
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[640,8]</Argument>
+          <Argument param="stride" type="Int32">5120</Argument>
+          <Argument param="buffer_multiplier" type="Double">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+        <Unit id="Core.Math.Fft.RealFft">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="axis" type="Int32">0</Argument>
+          <Argument param="output" type="String">data</Argument>
+        </Unit>
+        <Unit id="Core.Math.Reshape">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="shape" type="Shape">[640,10]</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
+    </Model>
+    <Model name="conv2d-small-balanced-2" id="bcd7fda0-cea0-44a1-b8fc-2c37ee6a23a8">
+      <LossFunction>CategoricalCrossentropy</LossFunction>
+      <Epochs>100</Epochs>
+      <BatchSize>16</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.004</LearningRate>
+        <WeightDecay>0.0001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[640,10]" intype="Float32" infreq="0" outshape="[25]" outtype="Float32">
+        <Unit id="Core.Layers.Reshape">
+          <Argument param="shape" type="Shape">[640,10,1]</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution2D">
+          <Argument param="filters" type="Int32">16</Argument>
+          <Argument param="kernel_size" type="Shape">[3,3]</Argument>
+          <Argument param="strides" type="Shape">[2,2]</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution2D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Shape">[3,3]</Argument>
+          <Argument param="strides" type="Shape">[1,1]</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution2D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Shape">[3,3]</Argument>
+          <Argument param="strides" type="Shape">[1,1]</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.GlobalAveragePool2D" />
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">120</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dropout">
+          <Argument param="rate" type="Double">0.1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="units" type="Int32">25</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="trainable" type="Boolean">True</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">softmax</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <Training />
+        <ConfusionMatrix />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="unlabeled" weight="1" />
+        <SymbolWeight symbol="bearing_ball_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="bearing_ball_L_torque_circulation" weight="1" />
+        <SymbolWeight symbol="bearing_inner_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="bearing_inner_L_torque_circulation" weight="1" />
+        <SymbolWeight symbol="bearing_outer_H_and_inner_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="bearing_outer_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="bearing_outer_L_torque_circulation" weight="1" />
+        <SymbolWeight symbol="bend_torque_circulation" weight="1" />
+        <SymbolWeight symbol="broken_bar_and_bearing_inner_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="broken_bar_and_bearing_outer_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="broken_bar_torque_circulation" weight="1" />
+        <SymbolWeight symbol="dynamic_eccentricity_and_bearing_inner_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="dynamic_eccentricity_and_bearing_outer_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="dynamic_eccentricity_torque_circulation" weight="1" />
+        <SymbolWeight symbol="health_torque_circulation" weight="1" />
+        <SymbolWeight symbol="static_eccentricity_H_and_bearing_inner_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="static_eccentricity_H_and_bearing_outer_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="static_eccentricity_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="static_eccentricity_L_torque_circulation" weight="1" />
+        <SymbolWeight symbol="voltage_unbalance_L_torque_circulation" weight="1" />
+        <SymbolWeight symbol="winding_H_and_bearing_inner_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="winding_H_and_bearing_outer_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="winding_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="winding_L_torque_circulation" weight="1" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[8]" intype="Float32" infreq="1280" outshape="[640,10]" outtype="Float32">
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[640,8]</Argument>
+          <Argument param="stride" type="Int32">5120</Argument>
+          <Argument param="buffer_multiplier" type="Double">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+        <Unit id="Core.Math.Fft.RealFft">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="axis" type="Int32">0</Argument>
+          <Argument param="output" type="String">data</Argument>
+        </Unit>
+        <Unit id="Core.Math.Reshape">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="shape" type="Shape">[640,10]</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
+    </Model>
+    <Model name="conv2d-small-balanced-3" id="7345ac60-725a-4e56-a4dd-16f0e29015e3">
+      <LossFunction>CategoricalCrossentropy</LossFunction>
+      <Epochs>100</Epochs>
+      <BatchSize>16</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>20</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.004</LearningRate>
+        <WeightDecay>0.0001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[640,10]" intype="Float32" infreq="0" outshape="[25]" outtype="Float32">
+        <Unit id="Core.Layers.Reshape">
+          <Argument param="shape" type="Shape">[640,10,1]</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution2D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Shape">[3,3]</Argument>
+          <Argument param="strides" type="Shape">[2,2]</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution2D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Shape">[3,3]</Argument>
+          <Argument param="strides" type="Shape">[1,1]</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Convolution2D">
+          <Argument param="filters" type="Int32">32</Argument>
+          <Argument param="kernel_size" type="Shape">[3,3]</Argument>
+          <Argument param="strides" type="Shape">[1,1]</Argument>
+          <Argument param="padding" type="String">same</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.GlobalAveragePool2D" />
+        <Unit id="Core.Layers.Dense">
+          <Argument param="units" type="Int32">120</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+        </Unit>
+        <Unit id="Core.Layers.BatchNormalization">
+          <Argument param="epsilon" type="Double">0.001</Argument>
+          <Argument param="axis" type="Int32">-1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">relu</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dropout">
+          <Argument param="rate" type="Double">0.1</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Dense">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="units" type="Int32">25</Argument>
+          <Argument param="use_bias" type="Boolean">False</Argument>
+          <Argument param="activation" type="String">linear</Argument>
+          <Argument param="trainable" type="Boolean">True</Argument>
+        </Unit>
+        <Unit id="Core.Layers.Activation">
+          <Argument param="activation" type="String">softmax</Argument>
+        </Unit>
+      </Network>
+      <BuildSteps>
+        <Training />
+        <ConfusionMatrix />
+      </BuildSteps>
+      <SymbolWeights override="False">
+        <SymbolWeight symbol="unlabeled" weight="1" />
+        <SymbolWeight symbol="bearing_ball_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="bearing_ball_L_torque_circulation" weight="1" />
+        <SymbolWeight symbol="bearing_inner_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="bearing_inner_L_torque_circulation" weight="1" />
+        <SymbolWeight symbol="bearing_outer_H_and_inner_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="bearing_outer_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="bearing_outer_L_torque_circulation" weight="1" />
+        <SymbolWeight symbol="bend_torque_circulation" weight="1" />
+        <SymbolWeight symbol="broken_bar_and_bearing_inner_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="broken_bar_and_bearing_outer_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="broken_bar_torque_circulation" weight="1" />
+        <SymbolWeight symbol="dynamic_eccentricity_and_bearing_inner_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="dynamic_eccentricity_and_bearing_outer_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="dynamic_eccentricity_torque_circulation" weight="1" />
+        <SymbolWeight symbol="health_torque_circulation" weight="1" />
+        <SymbolWeight symbol="static_eccentricity_H_and_bearing_inner_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="static_eccentricity_H_and_bearing_outer_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="static_eccentricity_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="static_eccentricity_L_torque_circulation" weight="1" />
+        <SymbolWeight symbol="voltage_unbalance_L_torque_circulation" weight="1" />
+        <SymbolWeight symbol="winding_H_and_bearing_inner_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="winding_H_and_bearing_outer_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="winding_H_torque_circulation" weight="1" />
+        <SymbolWeight symbol="winding_L_torque_circulation" weight="1" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[8]" intype="Float32" infreq="1280" outshape="[640,10]" outtype="Float32">
+        <Unit id="Core.Queues.SlidingWindow">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="time_input" type="String">time</Argument>
+          <Argument param="window_shape" type="Shape">[640,8]</Argument>
+          <Argument param="stride" type="Int32">5120</Argument>
+          <Argument param="buffer_multiplier" type="Double">1</Argument>
+          <Argument param="output" type="String">data</Argument>
+          <Argument param="time_output" type="String">time</Argument>
+        </Unit>
+        <Unit id="Core.Math.Fft.RealFft">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="axis" type="Int32">0</Argument>
+          <Argument param="output" type="String">data</Argument>
+        </Unit>
+        <Unit id="Core.Math.Reshape">
+          <Argument param="input" type="String">data</Argument>
+          <Argument param="shape" type="Shape">[640,10]</Argument>
+        </Unit>
+      </Preprocessor>
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
+    </Model>
+  </Models>
+  <Database balance="AnnotatedLength" redistributionScope="Everything">
+    <SymbolMap>
+      <Symbol name="unlabeled" id="0" weight="1" />
+      <Symbol name="bearing_ball_H_torque_circulation" id="1" weight="1" />
+      <Symbol name="bearing_ball_L_torque_circulation" id="2" weight="1" />
+      <Symbol name="bearing_inner_H_torque_circulation" id="3" weight="1" />
+      <Symbol name="bearing_inner_L_torque_circulation" id="4" weight="1" />
+      <Symbol name="bearing_outer_H_and_inner_H_torque_circulation" id="5" weight="1" />
+      <Symbol name="bearing_outer_H_torque_circulation" id="6" weight="1" />
+      <Symbol name="bearing_outer_L_torque_circulation" id="7" weight="1" />
+      <Symbol name="bend_torque_circulation" id="8" weight="1" />
+      <Symbol name="broken_bar_and_bearing_inner_H_torque_circulation" id="9" weight="1" />
+      <Symbol name="broken_bar_and_bearing_outer_H_torque_circulation" id="10" weight="1" />
+      <Symbol name="broken_bar_torque_circulation" id="11" weight="1" />
+      <Symbol name="dynamic_eccentricity_and_bearing_inner_H_torque_circulation" id="12" weight="1" />
+      <Symbol name="dynamic_eccentricity_and_bearing_outer_H_torque_circulation" id="13" weight="1" />
+      <Symbol name="dynamic_eccentricity_torque_circulation" id="14" weight="1" />
+      <Symbol name="health_torque_circulation" id="15" weight="1" />
+      <Symbol name="static_eccentricity_H_and_bearing_inner_H_torque_circulation" id="16" weight="1" />
+      <Symbol name="static_eccentricity_H_and_bearing_outer_H_torque_circulation" id="17" weight="1" />
+      <Symbol name="static_eccentricity_H_torque_circulation" id="18" weight="1" />
+      <Symbol name="static_eccentricity_L_torque_circulation" id="19" weight="1" />
+      <Symbol name="voltage_unbalance_L_torque_circulation" id="20" weight="1" />
+      <Symbol name="winding_H_and_bearing_inner_H_torque_circulation" id="21" weight="1" />
+      <Symbol name="winding_H_and_bearing_outer_H_torque_circulation" id="22" weight="1" />
+      <Symbol name="winding_H_torque_circulation" id="23" weight="1" />
+      <Symbol name="winding_L_torque_circulation" id="24" weight="1" />
+    </SymbolMap>
+    <DataSet id="unassigned" targetSize="0" labels="Unassigned" />
+    <DataSet id="train" targetSize="0.6" labels="Complete">
+      <Session name="bearing_ball_H_torque_circulation_20Nm_3000rpm_250707140229d" sessionId="4db1c88f-4b9d-4b5f-8750-58c40d1c9a82" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945421438532382" start="0" length="89.99921875">/Data_old/bearing_ball_H_torque_circulation_20Nm_3000rpm_250707140229d/data.data</DataFile>
+        <SessionFile>/Data_old/bearing_ball_H_torque_circulation_20Nm_3000rpm_250707140229d/bearing_ball_H_torque_circulation_20Nm_3000rpm_250707140229d.imsession</SessionFile>
+        <LabelFile modified="5250945421431727175">/Data_old/bearing_ball_H_torque_circulation_20Nm_3000rpm_250707140229d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">bearing_ball_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="bearing_ball_H_torque_circulation_40Nm_1000rpm_250707140440d" sessionId="02a48ccf-291e-40d6-9412-024532afc9d8" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945421454056336" start="0" length="89.99921875">/Data_old/bearing_ball_H_torque_circulation_40Nm_1000rpm_250707140440d/data.data</DataFile>
+        <SessionFile>/Data_old/bearing_ball_H_torque_circulation_40Nm_1000rpm_250707140440d/bearing_ball_H_torque_circulation_40Nm_1000rpm_250707140440d.imsession</SessionFile>
+        <LabelFile modified="5250945421447329699">/Data_old/bearing_ball_H_torque_circulation_40Nm_1000rpm_250707140440d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">bearing_ball_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="bearing_ball_H_torque_circulation_40Nm_2000rpm_250707142821d" sessionId="69078725-a889-4bbe-87e0-7e24f1bafea0" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945421470036024" start="0" length="89.99921875">/Data_old/bearing_ball_H_torque_circulation_40Nm_2000rpm_250707142821d/data.data</DataFile>
+        <SessionFile>/Data_old/bearing_ball_H_torque_circulation_40Nm_2000rpm_250707142821d/bearing_ball_H_torque_circulation_40Nm_2000rpm_250707142821d.imsession</SessionFile>
+        <LabelFile modified="5250945421463515043">/Data_old/bearing_ball_H_torque_circulation_40Nm_2000rpm_250707142821d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">bearing_ball_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="bearing_ball_H_torque_circulation_40Nm_3000rpm_250707143025d" sessionId="1f22b2da-b757-4f5f-9d06-eb92a07b1736" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945421485911890" start="0" length="89.99921875">/Data_old/bearing_ball_H_torque_circulation_40Nm_3000rpm_250707143025d/data.data</DataFile>
+        <SessionFile>/Data_old/bearing_ball_H_torque_circulation_40Nm_3000rpm_250707143025d/bearing_ball_H_torque_circulation_40Nm_3000rpm_250707143025d.imsession</SessionFile>
+        <LabelFile modified="5250945421479417255">/Data_old/bearing_ball_H_torque_circulation_40Nm_3000rpm_250707143025d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">bearing_ball_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="bearing_ball_L_torque_circulation_20Nm_1000rpm_250707153516d" sessionId="513df523-a93e-40c1-abad-2a67617c0480" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945421501545177" start="0" length="89.99921875">/Data_old/bearing_ball_L_torque_circulation_20Nm_1000rpm_250707153516d/data.data</DataFile>
+        <SessionFile>/Data_old/bearing_ball_L_torque_circulation_20Nm_1000rpm_250707153516d/bearing_ball_L_torque_circulation_20Nm_1000rpm_250707153516d.imsession</SessionFile>
+        <LabelFile modified="5250945421495093643">/Data_old/bearing_ball_L_torque_circulation_20Nm_1000rpm_250707153516d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">bearing_ball_L_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="bearing_ball_L_torque_circulation_20Nm_3000rpm_250707153938d" sessionId="f0ba1c8e-2c98-4ad7-b9ef-78b2a06e66a0" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945421534668932" start="0" length="89.99921875">/Data_old/bearing_ball_L_torque_circulation_20Nm_3000rpm_250707153938d/data.data</DataFile>
+        <SessionFile>/Data_old/bearing_ball_L_torque_circulation_20Nm_3000rpm_250707153938d/bearing_ball_L_torque_circulation_20Nm_3000rpm_250707153938d.imsession</SessionFile>
+        <LabelFile modified="5250945421526350693">/Data_old/bearing_ball_L_torque_circulation_20Nm_3000rpm_250707153938d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">bearing_ball_L_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="bearing_ball_L_torque_circulation_40Nm_2000rpm_250707154410d" sessionId="b68d3b20-604b-44a3-9dde-f8e58ff15714" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945421575849860" start="0" length="89.99921875">/Data_old/bearing_ball_L_torque_circulation_40Nm_2000rpm_250707154410d/data.data</DataFile>
+        <SessionFile>/Data_old/bearing_ball_L_torque_circulation_40Nm_2000rpm_250707154410d/bearing_ball_L_torque_circulation_40Nm_2000rpm_250707154410d.imsession</SessionFile>
+        <LabelFile modified="5250945421567042789">/Data_old/bearing_ball_L_torque_circulation_40Nm_2000rpm_250707154410d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">bearing_ball_L_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="bearing_ball_L_torque_circulation_40Nm_3000rpm_250707154630d" sessionId="47b6220a-c501-4488-8e97-accc84959553" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945421596247534" start="0" length="89.99921875">/Data_old/bearing_ball_L_torque_circulation_40Nm_3000rpm_250707154630d/data.data</DataFile>
+        <SessionFile>/Data_old/bearing_ball_L_torque_circulation_40Nm_3000rpm_250707154630d/bearing_ball_L_torque_circulation_40Nm_3000rpm_250707154630d.imsession</SessionFile>
+        <LabelFile modified="5250945421587805489">/Data_old/bearing_ball_L_torque_circulation_40Nm_3000rpm_250707154630d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">bearing_ball_L_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="bearing_inner_H_torque_circulation_20Nm_1000rpm_250704084736d" sessionId="28861cc6-5ba9-4617-80f0-48e872ff441f" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945421615781193" start="0" length="89.99921875">/Data_old/bearing_inner_H_torque_circulation_20Nm_1000rpm_250704084736d/data.data</DataFile>
+        <SessionFile>/Data_old/bearing_inner_H_torque_circulation_20Nm_1000rpm_250704084736d/bearing_inner_H_torque_circulation_20Nm_1000rpm_250704084736d.imsession</SessionFile>
+        <LabelFile modified="5250945421606394727">/Data_old/bearing_inner_H_torque_circulation_20Nm_1000rpm_250704084736d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">bearing_inner_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="bearing_inner_H_torque_circulation_20Nm_2000rpm_250704084956d" sessionId="467d2e29-2cf4-44f2-b187-b29b9ed550f9" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945421632640868" start="0" length="89.99921875">/Data_old/bearing_inner_H_torque_circulation_20Nm_2000rpm_250704084956d/data.data</DataFile>
+        <SessionFile>/Data_old/bearing_inner_H_torque_circulation_20Nm_2000rpm_250704084956d/bearing_inner_H_torque_circulation_20Nm_2000rpm_250704084956d.imsession</SessionFile>
+        <LabelFile modified="5250945421625787443">/Data_old/bearing_inner_H_torque_circulation_20Nm_2000rpm_250704084956d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">bearing_inner_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="bearing_inner_H_torque_circulation_20Nm_3000rpm_250704085209d" sessionId="4573d570-335b-4503-af18-b9f8449ebe88" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945421649814473" start="0" length="89.99921875">/Data_old/bearing_inner_H_torque_circulation_20Nm_3000rpm_250704085209d/data.data</DataFile>
+        <SessionFile>/Data_old/bearing_inner_H_torque_circulation_20Nm_3000rpm_250704085209d/bearing_inner_H_torque_circulation_20Nm_3000rpm_250704085209d.imsession</SessionFile>
+        <LabelFile modified="5250945421642627893">/Data_old/bearing_inner_H_torque_circulation_20Nm_3000rpm_250704085209d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">bearing_inner_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="bearing_inner_H_torque_circulation_40Nm_3000rpm_250704085907d" sessionId="f1409cc4-22db-4dea-9c89-b8b7759a2530" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945421706095383" start="0" length="89.99921875">/Data_old/bearing_inner_H_torque_circulation_40Nm_3000rpm_250704085907d/data.data</DataFile>
+        <SessionFile>/Data_old/bearing_inner_H_torque_circulation_40Nm_3000rpm_250704085907d/bearing_inner_H_torque_circulation_40Nm_3000rpm_250704085907d.imsession</SessionFile>
+        <LabelFile modified="5250945421698610074">/Data_old/bearing_inner_H_torque_circulation_40Nm_3000rpm_250704085907d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">bearing_inner_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="bearing_inner_L_torque_circulation_20Nm_1000rpm_250707112415d" sessionId="4176a462-aae5-4869-bc9c-890f76ad567a" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945421723214903" start="0" length="89.99921875">/Data_old/bearing_inner_L_torque_circulation_20Nm_1000rpm_250707112415d/data.data</DataFile>
+        <SessionFile>/Data_old/bearing_inner_L_torque_circulation_20Nm_1000rpm_250707112415d/bearing_inner_L_torque_circulation_20Nm_1000rpm_250707112415d.imsession</SessionFile>
+        <LabelFile modified="5250945421716337486">/Data_old/bearing_inner_L_torque_circulation_20Nm_1000rpm_250707112415d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">bearing_inner_L_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="bearing_inner_L_torque_circulation_20Nm_2000rpm_250707112622d" sessionId="779b6c0c-ee1b-4d4c-8aa9-bc8f46d88e0d" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945421742712996" start="0" length="89.99921875">/Data_old/bearing_inner_L_torque_circulation_20Nm_2000rpm_250707112622d/data.data</DataFile>
+        <SessionFile>/Data_old/bearing_inner_L_torque_circulation_20Nm_2000rpm_250707112622d/bearing_inner_L_torque_circulation_20Nm_2000rpm_250707112622d.imsession</SessionFile>
+        <LabelFile modified="5250945421733470336">/Data_old/bearing_inner_L_torque_circulation_20Nm_2000rpm_250707112622d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">bearing_inner_L_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="bearing_inner_L_torque_circulation_20Nm_3000rpm_250707112823d" sessionId="9ad6a825-5fc3-4c8c-b193-b638ff5e295f" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945421760034458" start="0" length="89.99921875">/Data_old/bearing_inner_L_torque_circulation_20Nm_3000rpm_250707112823d/data.data</DataFile>
+        <SessionFile>/Data_old/bearing_inner_L_torque_circulation_20Nm_3000rpm_250707112823d/bearing_inner_L_torque_circulation_20Nm_3000rpm_250707112823d.imsession</SessionFile>
+        <LabelFile modified="5250945421753708882">/Data_old/bearing_inner_L_torque_circulation_20Nm_3000rpm_250707112823d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">bearing_inner_L_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="bearing_inner_L_torque_circulation_40Nm_1000rpm_250707113035d" sessionId="ae6cee4b-ebe3-422e-b0f2-618d3d7d062a" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945421775465599" start="0" length="89.99921875">/Data_old/bearing_inner_L_torque_circulation_40Nm_1000rpm_250707113035d/data.data</DataFile>
+        <SessionFile>/Data_old/bearing_inner_L_torque_circulation_40Nm_1000rpm_250707113035d/bearing_inner_L_torque_circulation_40Nm_1000rpm_250707113035d.imsession</SessionFile>
+        <LabelFile modified="5250945421769267213">/Data_old/bearing_inner_L_torque_circulation_40Nm_1000rpm_250707113035d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">bearing_inner_L_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="bearing_outer_H_and_inner_H_torque_circulation_20Nm_2000rpm_250702143340d" sessionId="f06ab9ee-ba1a-4316-8712-e6aa7224c964" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945421845246180" start="0" length="89.99921875">/Data_old/bearing_outer_H_and_inner_H_torque_circulation_20Nm_2000rpm_250702143340d/data.data</DataFile>
+        <SessionFile>/Data_old/bearing_outer_H_and_inner_H_torque_circulation_20Nm_2000rpm_250702143340d/bearing_outer_H_and_inner_H_torque_circulation_20Nm_2000rpm_250702143340d.imsession</SessionFile>
+        <LabelFile modified="5250945421838976326">/Data_old/bearing_outer_H_and_inner_H_torque_circulation_20Nm_2000rpm_250702143340d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">bearing_outer_H_and_inner_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="bearing_outer_H_and_inner_H_torque_circulation_20Nm_3000rpm_250702143700d" sessionId="ae46767b-a54e-41b0-a139-fcedd1803e06" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945421862522557" start="0" length="89.99921875">/Data_old/bearing_outer_H_and_inner_H_torque_circulation_20Nm_3000rpm_250702143700d/data.data</DataFile>
+        <SessionFile>/Data_old/bearing_outer_H_and_inner_H_torque_circulation_20Nm_3000rpm_250702143700d/bearing_outer_H_and_inner_H_torque_circulation_20Nm_3000rpm_250702143700d.imsession</SessionFile>
+        <LabelFile modified="5250945421854689050">/Data_old/bearing_outer_H_and_inner_H_torque_circulation_20Nm_3000rpm_250702143700d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">bearing_outer_H_and_inner_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="bearing_outer_H_and_inner_H_torque_circulation_40Nm_1000rpm_250702144057d" sessionId="1a79b1d2-0254-4dfc-ba50-e30aae37094b" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945421879380557" start="0" length="89.99921875">/Data_old/bearing_outer_H_and_inner_H_torque_circulation_40Nm_1000rpm_250702144057d/data.data</DataFile>
+        <SessionFile>/Data_old/bearing_outer_H_and_inner_H_torque_circulation_40Nm_1000rpm_250702144057d/bearing_outer_H_and_inner_H_torque_circulation_40Nm_1000rpm_250702144057d.imsession</SessionFile>
+        <LabelFile modified="5250945421872356431">/Data_old/bearing_outer_H_and_inner_H_torque_circulation_40Nm_1000rpm_250702144057d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">bearing_outer_H_and_inner_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="bearing_outer_H_and_inner_H_torque_circulation_40Nm_3000rpm_250702144702d" sessionId="9b327f41-2bda-474a-b28b-d7ba66c7ed6a" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945421915696291" start="0" length="89.99921875">/Data_old/bearing_outer_H_and_inner_H_torque_circulation_40Nm_3000rpm_250702144702d/data.data</DataFile>
+        <SessionFile>/Data_old/bearing_outer_H_and_inner_H_torque_circulation_40Nm_3000rpm_250702144702d/bearing_outer_H_and_inner_H_torque_circulation_40Nm_3000rpm_250702144702d.imsession</SessionFile>
+        <LabelFile modified="5250945421908176543">/Data_old/bearing_outer_H_and_inner_H_torque_circulation_40Nm_3000rpm_250702144702d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">bearing_outer_H_and_inner_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="bearing_outer_H_torque_circulation_20Nm_1000rpm_250707103949d" sessionId="b7e8653c-184c-4e34-8dde-52c1e6f09e38" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945421933543583" start="0" length="89.99921875">/Data_old/bearing_outer_H_torque_circulation_20Nm_1000rpm_250707103949d/data.data</DataFile>
+        <SessionFile>/Data_old/bearing_outer_H_torque_circulation_20Nm_1000rpm_250707103949d/bearing_outer_H_torque_circulation_20Nm_1000rpm_250707103949d.imsession</SessionFile>
+        <LabelFile modified="5250945421926430965">/Data_old/bearing_outer_H_torque_circulation_20Nm_1000rpm_250707103949d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">bearing_outer_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="bearing_outer_H_torque_circulation_20Nm_2000rpm_250707103802d" sessionId="4bf382a8-5a20-4cc3-bc38-de5c9939be22" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945421950911352" start="0" length="89.99921875">/Data_old/bearing_outer_H_torque_circulation_20Nm_2000rpm_250707103802d/data.data</DataFile>
+        <SessionFile>/Data_old/bearing_outer_H_torque_circulation_20Nm_2000rpm_250707103802d/bearing_outer_H_torque_circulation_20Nm_2000rpm_250707103802d.imsession</SessionFile>
+        <LabelFile modified="5250945421944788824">/Data_old/bearing_outer_H_torque_circulation_20Nm_2000rpm_250707103802d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">bearing_outer_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="bearing_outer_H_torque_circulation_40Nm_1000rpm_250707104154d" sessionId="29c1e590-0a1a-4af9-ab48-51f1cb5d9ab0" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945421987833709" start="0" length="89.99921875">/Data_old/bearing_outer_H_torque_circulation_40Nm_1000rpm_250707104154d/data.data</DataFile>
+        <SessionFile>/Data_old/bearing_outer_H_torque_circulation_40Nm_1000rpm_250707104154d/bearing_outer_H_torque_circulation_40Nm_1000rpm_250707104154d.imsession</SessionFile>
+        <LabelFile modified="5250945421980210476">/Data_old/bearing_outer_H_torque_circulation_40Nm_1000rpm_250707104154d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">bearing_outer_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="bearing_outer_H_torque_circulation_40Nm_2000rpm_250707104408d" sessionId="51dea78d-9443-4e11-96b5-146e661483d3" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422004970673" start="0" length="89.99921875">/Data_old/bearing_outer_H_torque_circulation_40Nm_2000rpm_250707104408d/data.data</DataFile>
+        <SessionFile>/Data_old/bearing_outer_H_torque_circulation_40Nm_2000rpm_250707104408d/bearing_outer_H_torque_circulation_40Nm_2000rpm_250707104408d.imsession</SessionFile>
+        <LabelFile modified="5250945421998557435">/Data_old/bearing_outer_H_torque_circulation_40Nm_2000rpm_250707104408d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">bearing_outer_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="bearing_outer_L_torque_circulation_20Nm_1000rpm_250708093600d" sessionId="19de6179-c754-4228-afe8-0cdae6ae3d43" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422039201451" start="0" length="89.99921875">/Data_old/bearing_outer_L_torque_circulation_20Nm_1000rpm_250708093600d/data.data</DataFile>
+        <SessionFile>/Data_old/bearing_outer_L_torque_circulation_20Nm_1000rpm_250708093600d/bearing_outer_L_torque_circulation_20Nm_1000rpm_250708093600d.imsession</SessionFile>
+        <LabelFile modified="5250945422032163069">/Data_old/bearing_outer_L_torque_circulation_20Nm_1000rpm_250708093600d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">bearing_outer_L_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="bearing_outer_L_torque_circulation_20Nm_3000rpm_250708094011d" sessionId="fc8e0593-e9a5-4aab-a7c1-ee4117b1f298" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422073925556" start="0" length="89.99921875">/Data_old/bearing_outer_L_torque_circulation_20Nm_3000rpm_250708094011d/data.data</DataFile>
+        <SessionFile>/Data_old/bearing_outer_L_torque_circulation_20Nm_3000rpm_250708094011d/bearing_outer_L_torque_circulation_20Nm_3000rpm_250708094011d.imsession</SessionFile>
+        <LabelFile modified="5250945422065879231">/Data_old/bearing_outer_L_torque_circulation_20Nm_3000rpm_250708094011d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">bearing_outer_L_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="bearing_outer_L_torque_circulation_40Nm_2000rpm_250708094403d" sessionId="f8ddb777-ffa8-4e66-b11f-483039fb8aa2" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422110584345" start="0" length="89.99921875">/Data_old/bearing_outer_L_torque_circulation_40Nm_2000rpm_250708094403d/data.data</DataFile>
+        <SessionFile>/Data_old/bearing_outer_L_torque_circulation_40Nm_2000rpm_250708094403d/bearing_outer_L_torque_circulation_40Nm_2000rpm_250708094403d.imsession</SessionFile>
+        <LabelFile modified="5250945422103817010">/Data_old/bearing_outer_L_torque_circulation_40Nm_2000rpm_250708094403d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">bearing_outer_L_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="bearing_outer_L_torque_circulation_40Nm_3000rpm_250708094556d" sessionId="b7073b21-2403-421a-acb1-2c6e1ddcabc1" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422125236295" start="0" length="89.99921875">/Data_old/bearing_outer_L_torque_circulation_40Nm_3000rpm_250708094556d/data.data</DataFile>
+        <SessionFile>/Data_old/bearing_outer_L_torque_circulation_40Nm_3000rpm_250708094556d/bearing_outer_L_torque_circulation_40Nm_3000rpm_250708094556d.imsession</SessionFile>
+        <LabelFile modified="5250945422118944332">/Data_old/bearing_outer_L_torque_circulation_40Nm_3000rpm_250708094556d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">bearing_outer_L_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="bend_torque_circulation_20Nm_1000rpm_250702191500d" sessionId="a0071290-31f6-4106-9372-2d5aa185f315" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422142656801" start="0" length="89.99921875">/Data_old/bend_torque_circulation_20Nm_1000rpm_250702191500d/data.data</DataFile>
+        <SessionFile>/Data_old/bend_torque_circulation_20Nm_1000rpm_250702191500d/bend_torque_circulation_20Nm_1000rpm_250702191500d.imsession</SessionFile>
+        <LabelFile modified="5250945422134900292">/Data_old/bend_torque_circulation_20Nm_1000rpm_250702191500d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">bend_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="bend_torque_circulation_20Nm_2000rpm_250702191813d" sessionId="1c67faa4-93e3-4269-8814-c9f6f831a622" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422161665920" start="0" length="89.99921875">/Data_old/bend_torque_circulation_20Nm_2000rpm_250702191813d/data.data</DataFile>
+        <SessionFile>/Data_old/bend_torque_circulation_20Nm_2000rpm_250702191813d/bend_torque_circulation_20Nm_2000rpm_250702191813d.imsession</SessionFile>
+        <LabelFile modified="5250945422153955360">/Data_old/bend_torque_circulation_20Nm_2000rpm_250702191813d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">bend_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="bend_torque_circulation_40Nm_1000rpm_250702194020d" sessionId="fd3830da-6fb1-47c7-8a03-135557e92933" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422199510152" start="0" length="89.99921875">/Data_old/bend_torque_circulation_40Nm_1000rpm_250702194020d/data.data</DataFile>
+        <SessionFile>/Data_old/bend_torque_circulation_40Nm_1000rpm_250702194020d/bend_torque_circulation_40Nm_1000rpm_250702194020d.imsession</SessionFile>
+        <LabelFile modified="5250945422193033666">/Data_old/bend_torque_circulation_40Nm_1000rpm_250702194020d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">bend_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="bend_torque_circulation_40Nm_3000rpm_250821094657" sessionId="6ea7c42b-3115-4cee-919b-7222a587184b" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422234371785" start="0" length="89.99921875">/Data_old/bend_torque_circulation_40Nm_3000rpm_250821094657/data.data</DataFile>
+        <SessionFile>/Data_old/bend_torque_circulation_40Nm_3000rpm_250821094657/bend_torque_circulation_40Nm_3000rpm_250821094657.imsession</SessionFile>
+        <LabelFile modified="5250945422224179630">/Data_old/bend_torque_circulation_40Nm_3000rpm_250821094657/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">bend_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="broken_bar_and_bearing_inner_H_torque_circulation_20Nm_2000rpm_250705114622d" sessionId="828da8a6-b5aa-4188-b10b-83990ff98b22" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422275830921" start="0" length="89.99921875">/Data_old/broken_bar_and_bearing_inner_H_torque_circulation_20Nm_2000rpm_250705114622d/data.data</DataFile>
+        <SessionFile>/Data_old/broken_bar_and_bearing_inner_H_torque_circulation_20Nm_2000rpm_250705114622d/broken_bar_and_bearing_inner_H_torque_circulation_20Nm_2000rpm_250705114622d.imsession</SessionFile>
+        <LabelFile modified="5250945422266684652">/Data_old/broken_bar_and_bearing_inner_H_torque_circulation_20Nm_2000rpm_250705114622d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">broken_bar_and_bearing_inner_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="broken_bar_and_bearing_inner_H_torque_circulation_20Nm_3000rpm_250705114846d" sessionId="7d8c714b-e25c-4afc-a617-fccafbd97111" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422290798871" start="0" length="89.99921875">/Data_old/broken_bar_and_bearing_inner_H_torque_circulation_20Nm_3000rpm_250705114846d/data.data</DataFile>
+        <SessionFile>/Data_old/broken_bar_and_bearing_inner_H_torque_circulation_20Nm_3000rpm_250705114846d/broken_bar_and_bearing_inner_H_torque_circulation_20Nm_3000rpm_250705114846d.imsession</SessionFile>
+        <LabelFile modified="5250945422284098730">/Data_old/broken_bar_and_bearing_inner_H_torque_circulation_20Nm_3000rpm_250705114846d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">broken_bar_and_bearing_inner_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="broken_bar_and_bearing_inner_H_torque_circulation_40Nm_1000rpm_250705115053d" sessionId="91e104b5-bd5b-4dc8-bff5-2ccfe2f0193f" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422306675172" start="0" length="89.99921875">/Data_old/broken_bar_and_bearing_inner_H_torque_circulation_40Nm_1000rpm_250705115053d/data.data</DataFile>
+        <SessionFile>/Data_old/broken_bar_and_bearing_inner_H_torque_circulation_40Nm_1000rpm_250705115053d/broken_bar_and_bearing_inner_H_torque_circulation_40Nm_1000rpm_250705115053d.imsession</SessionFile>
+        <LabelFile modified="5250945422299879866">/Data_old/broken_bar_and_bearing_inner_H_torque_circulation_40Nm_1000rpm_250705115053d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">broken_bar_and_bearing_inner_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="broken_bar_and_bearing_inner_H_torque_circulation_40Nm_3000rpm_250705115517d" sessionId="3c3de1cf-11ae-484d-ae68-2f0338e7d429" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422337763747" start="0" length="89.99921875">/Data_old/broken_bar_and_bearing_inner_H_torque_circulation_40Nm_3000rpm_250705115517d/data.data</DataFile>
+        <SessionFile>/Data_old/broken_bar_and_bearing_inner_H_torque_circulation_40Nm_3000rpm_250705115517d/broken_bar_and_bearing_inner_H_torque_circulation_40Nm_3000rpm_250705115517d.imsession</SessionFile>
+        <LabelFile modified="5250945422331755470">/Data_old/broken_bar_and_bearing_inner_H_torque_circulation_40Nm_3000rpm_250705115517d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">broken_bar_and_bearing_inner_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="broken_bar_and_bearing_outer_H_torque_circulation_20Nm_1000rpm_250705203013d" sessionId="09bcd3ff-ff42-4b0b-bfc9-a920e83d7757" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422354466668" start="0" length="89.99921875">/Data_old/broken_bar_and_bearing_outer_H_torque_circulation_20Nm_1000rpm_250705203013d/data.data</DataFile>
+        <SessionFile>/Data_old/broken_bar_and_bearing_outer_H_torque_circulation_20Nm_1000rpm_250705203013d/broken_bar_and_bearing_outer_H_torque_circulation_20Nm_1000rpm_250705203013d.imsession</SessionFile>
+        <LabelFile modified="5250945422347862898">/Data_old/broken_bar_and_bearing_outer_H_torque_circulation_20Nm_1000rpm_250705203013d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">broken_bar_and_bearing_outer_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="broken_bar_and_bearing_outer_H_torque_circulation_20Nm_3000rpm_250705203410d" sessionId="e514a4bd-32fd-4cd8-a735-639e9543fd46" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422389436118" start="0" length="89.99921875">/Data_old/broken_bar_and_bearing_outer_H_torque_circulation_20Nm_3000rpm_250705203410d/data.data</DataFile>
+        <SessionFile>/Data_old/broken_bar_and_bearing_outer_H_torque_circulation_20Nm_3000rpm_250705203410d/broken_bar_and_bearing_outer_H_torque_circulation_20Nm_3000rpm_250705203410d.imsession</SessionFile>
+        <LabelFile modified="5250945422382447731">/Data_old/broken_bar_and_bearing_outer_H_torque_circulation_20Nm_3000rpm_250705203410d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">broken_bar_and_bearing_outer_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="broken_bar_and_bearing_outer_H_torque_circulation_40Nm_2000rpm_250705203815d" sessionId="a2a21517-4534-4488-8535-55877e9e46eb" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422425442561" start="0" length="89.99921875">/Data_old/broken_bar_and_bearing_outer_H_torque_circulation_40Nm_2000rpm_250705203815d/data.data</DataFile>
+        <SessionFile>/Data_old/broken_bar_and_bearing_outer_H_torque_circulation_40Nm_2000rpm_250705203815d/broken_bar_and_bearing_outer_H_torque_circulation_40Nm_2000rpm_250705203815d.imsession</SessionFile>
+        <LabelFile modified="5250945422417070755">/Data_old/broken_bar_and_bearing_outer_H_torque_circulation_40Nm_2000rpm_250705203815d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">broken_bar_and_bearing_outer_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="broken_bar_and_bearing_outer_H_torque_circulation_40Nm_3000rpm_250705204012d" sessionId="70d13d5b-2c54-417d-9742-96cbd0dd1d2c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422442906769" start="0" length="89.99921875">/Data_old/broken_bar_and_bearing_outer_H_torque_circulation_40Nm_3000rpm_250705204012d/data.data</DataFile>
+        <SessionFile>/Data_old/broken_bar_and_bearing_outer_H_torque_circulation_40Nm_3000rpm_250705204012d/broken_bar_and_bearing_outer_H_torque_circulation_40Nm_3000rpm_250705204012d.imsession</SessionFile>
+        <LabelFile modified="5250945422435257506">/Data_old/broken_bar_and_bearing_outer_H_torque_circulation_40Nm_3000rpm_250705204012d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">broken_bar_and_bearing_outer_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="broken_bar_torque_circulation_20Nm_1000rpm_250703083538d" sessionId="4d3e5463-fdd8-48e1-89ac-02271397b4ef" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422460253443" start="0" length="89.99921875">/Data_old/broken_bar_torque_circulation_20Nm_1000rpm_250703083538d/data.data</DataFile>
+        <SessionFile>/Data_old/broken_bar_torque_circulation_20Nm_1000rpm_250703083538d/broken_bar_torque_circulation_20Nm_1000rpm_250703083538d.imsession</SessionFile>
+        <LabelFile modified="5250945422452443255">/Data_old/broken_bar_torque_circulation_20Nm_1000rpm_250703083538d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">broken_bar_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="broken_bar_torque_circulation_20Nm_2000rpm_250703083743d" sessionId="ecaca760-5d0b-4019-996f-e702afa23af2" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422479624712" start="0" length="89.99921875">/Data_old/broken_bar_torque_circulation_20Nm_2000rpm_250703083743d/data.data</DataFile>
+        <SessionFile>/Data_old/broken_bar_torque_circulation_20Nm_2000rpm_250703083743d/broken_bar_torque_circulation_20Nm_2000rpm_250703083743d.imsession</SessionFile>
+        <LabelFile modified="5250945422470920504">/Data_old/broken_bar_torque_circulation_20Nm_2000rpm_250703083743d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">broken_bar_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="broken_bar_torque_circulation_20Nm_3000rpm_250703084001d" sessionId="e0290a85-837e-4876-9257-f2e7d1b9f322" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422499670090" start="0" length="89.99921875">/Data_old/broken_bar_torque_circulation_20Nm_3000rpm_250703084001d/data.data</DataFile>
+        <SessionFile>/Data_old/broken_bar_torque_circulation_20Nm_3000rpm_250703084001d/broken_bar_torque_circulation_20Nm_3000rpm_250703084001d.imsession</SessionFile>
+        <LabelFile modified="5250945422491586425">/Data_old/broken_bar_torque_circulation_20Nm_3000rpm_250703084001d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">broken_bar_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="broken_bar_torque_circulation_40Nm_3000rpm_250703084659d" sessionId="44ff19c1-56eb-47d4-8647-68187cb6a47c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422553351770" start="0" length="89.99921875">/Data_old/broken_bar_torque_circulation_40Nm_3000rpm_250703084659d/data.data</DataFile>
+        <SessionFile>/Data_old/broken_bar_torque_circulation_40Nm_3000rpm_250703084659d/broken_bar_torque_circulation_40Nm_3000rpm_250703084659d.imsession</SessionFile>
+        <LabelFile modified="5250945422547220734">/Data_old/broken_bar_torque_circulation_40Nm_3000rpm_250703084659d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">broken_bar_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="dynamic_eccentricity_and_bearing_inner_H_torque_circulation_20Nm_1000rpm_250705095902d" sessionId="44c23346-2dfa-4554-b26f-21e89f4eea1a" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422570905228" start="0" length="89.99921875">/Data_old/dynamic_eccentricity_and_bearing_inner_H_torque_circulation_20Nm_1000rpm_250705095902d/data.data</DataFile>
+        <SessionFile>/Data_old/dynamic_eccentricity_and_bearing_inner_H_torque_circulation_20Nm_1000rpm_250705095902d/dynamic_eccentricity_and_bearing_inner_H_torque_circulation_20Nm_1000rpm_250705095902d.imsession</SessionFile>
+        <LabelFile modified="5250945422564249937">/Data_old/dynamic_eccentricity_and_bearing_inner_H_torque_circulation_20Nm_1000rpm_250705095902d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">dynamic_eccentricity_and_bearing_inner_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="dynamic_eccentricity_and_bearing_inner_H_torque_circulation_20Nm_2000rpm_250705100115d" sessionId="8f8536de-c466-4493-af88-f9b9fa03be6e" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422588756099" start="0" length="89.99921875">/Data_old/dynamic_eccentricity_and_bearing_inner_H_torque_circulation_20Nm_2000rpm_250705100115d/data.data</DataFile>
+        <SessionFile>/Data_old/dynamic_eccentricity_and_bearing_inner_H_torque_circulation_20Nm_2000rpm_250705100115d/dynamic_eccentricity_and_bearing_inner_H_torque_circulation_20Nm_2000rpm_250705100115d.imsession</SessionFile>
+        <LabelFile modified="5250945422581539909">/Data_old/dynamic_eccentricity_and_bearing_inner_H_torque_circulation_20Nm_2000rpm_250705100115d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">dynamic_eccentricity_and_bearing_inner_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="dynamic_eccentricity_and_bearing_inner_H_torque_circulation_40Nm_1000rpm_250705100532d" sessionId="1cddc6e6-c5db-446b-b37b-70f1eb8eafdb" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422628050682" start="0" length="89.99921875">/Data_old/dynamic_eccentricity_and_bearing_inner_H_torque_circulation_40Nm_1000rpm_250705100532d/data.data</DataFile>
+        <SessionFile>/Data_old/dynamic_eccentricity_and_bearing_inner_H_torque_circulation_40Nm_1000rpm_250705100532d/dynamic_eccentricity_and_bearing_inner_H_torque_circulation_40Nm_1000rpm_250705100532d.imsession</SessionFile>
+        <LabelFile modified="5250945422619741643">/Data_old/dynamic_eccentricity_and_bearing_inner_H_torque_circulation_40Nm_1000rpm_250705100532d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">dynamic_eccentricity_and_bearing_inner_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="dynamic_eccentricity_and_bearing_inner_H_torque_circulation_40Nm_2000rpm_250705100747d" sessionId="36108aa6-065a-4dbe-8834-0ee131d32695" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422648040117" start="0" length="89.99921875">/Data_old/dynamic_eccentricity_and_bearing_inner_H_torque_circulation_40Nm_2000rpm_250705100747d/data.data</DataFile>
+        <SessionFile>/Data_old/dynamic_eccentricity_and_bearing_inner_H_torque_circulation_40Nm_2000rpm_250705100747d/dynamic_eccentricity_and_bearing_inner_H_torque_circulation_40Nm_2000rpm_250705100747d.imsession</SessionFile>
+        <LabelFile modified="5250945422639833962">/Data_old/dynamic_eccentricity_and_bearing_inner_H_torque_circulation_40Nm_2000rpm_250705100747d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">dynamic_eccentricity_and_bearing_inner_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="dynamic_eccentricity_and_bearing_outer_H_torque_circulation_20Nm_1000rpm_250703192113d" sessionId="f2dd80bd-d02c-495a-a16c-3ec6b2f350b2" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422698094402" start="0" length="89.99921875">/Data_old/dynamic_eccentricity_and_bearing_outer_H_torque_circulation_20Nm_1000rpm_250703192113d/data.data</DataFile>
+        <SessionFile>/Data_old/dynamic_eccentricity_and_bearing_outer_H_torque_circulation_20Nm_1000rpm_250703192113d/dynamic_eccentricity_and_bearing_outer_H_torque_circulation_20Nm_1000rpm_250703192113d.imsession</SessionFile>
+        <LabelFile modified="5250945422687315344">/Data_old/dynamic_eccentricity_and_bearing_outer_H_torque_circulation_20Nm_1000rpm_250703192113d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">dynamic_eccentricity_and_bearing_outer_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="dynamic_eccentricity_and_bearing_outer_H_torque_circulation_20Nm_2000rpm_250703192336d" sessionId="37285a7e-79f4-4279-bb70-ccbfd0526649" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422720079928" start="0" length="89.99921875">/Data_old/dynamic_eccentricity_and_bearing_outer_H_torque_circulation_20Nm_2000rpm_250703192336d/data.data</DataFile>
+        <SessionFile>/Data_old/dynamic_eccentricity_and_bearing_outer_H_torque_circulation_20Nm_2000rpm_250703192336d/dynamic_eccentricity_and_bearing_outer_H_torque_circulation_20Nm_2000rpm_250703192336d.imsession</SessionFile>
+        <LabelFile modified="5250945422709148553">/Data_old/dynamic_eccentricity_and_bearing_outer_H_torque_circulation_20Nm_2000rpm_250703192336d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">dynamic_eccentricity_and_bearing_outer_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="dynamic_eccentricity_and_bearing_outer_H_torque_circulation_20Nm_3000rpm_250703192600d" sessionId="b9a37ca6-0d22-4c10-ae6d-0116c2093609" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422743688358" start="0" length="89.99921875">/Data_old/dynamic_eccentricity_and_bearing_outer_H_torque_circulation_20Nm_3000rpm_250703192600d/data.data</DataFile>
+        <SessionFile>/Data_old/dynamic_eccentricity_and_bearing_outer_H_torque_circulation_20Nm_3000rpm_250703192600d/dynamic_eccentricity_and_bearing_outer_H_torque_circulation_20Nm_3000rpm_250703192600d.imsession</SessionFile>
+        <LabelFile modified="5250945422734826031">/Data_old/dynamic_eccentricity_and_bearing_outer_H_torque_circulation_20Nm_3000rpm_250703192600d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">dynamic_eccentricity_and_bearing_outer_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="dynamic_eccentricity_and_bearing_outer_H_torque_circulation_40Nm_3000rpm_250703193320d" sessionId="aaf96f71-6686-4984-adf9-02886a22104c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422809395539" start="0" length="89.99921875">/Data_old/dynamic_eccentricity_and_bearing_outer_H_torque_circulation_40Nm_3000rpm_250703193320d/data.data</DataFile>
+        <SessionFile>/Data_old/dynamic_eccentricity_and_bearing_outer_H_torque_circulation_40Nm_3000rpm_250703193320d/dynamic_eccentricity_and_bearing_outer_H_torque_circulation_40Nm_3000rpm_250703193320d.imsession</SessionFile>
+        <LabelFile modified="5250945422796962888">/Data_old/dynamic_eccentricity_and_bearing_outer_H_torque_circulation_40Nm_3000rpm_250703193320d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">dynamic_eccentricity_and_bearing_outer_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="dynamic_eccentricity_torque_circulation_20Nm_1000rpm_250702171601d" sessionId="2883090f-d6a3-49d7-8052-f1aa4b7ef173" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422836534282" start="0" length="89.99921875">/Data_old/dynamic_eccentricity_torque_circulation_20Nm_1000rpm_250702171601d/data.data</DataFile>
+        <SessionFile>/Data_old/dynamic_eccentricity_torque_circulation_20Nm_1000rpm_250702171601d/dynamic_eccentricity_torque_circulation_20Nm_1000rpm_250702171601d.imsession</SessionFile>
+        <LabelFile modified="5250945422823838430">/Data_old/dynamic_eccentricity_torque_circulation_20Nm_1000rpm_250702171601d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">dynamic_eccentricity_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="dynamic_eccentricity_torque_circulation_20Nm_2000rpm_250702171840d" sessionId="b211e5bb-3532-4aea-bc38-3fc4c7fb599a" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422861227752" start="0" length="89.99921875">/Data_old/dynamic_eccentricity_torque_circulation_20Nm_2000rpm_250702171840d/data.data</DataFile>
+        <SessionFile>/Data_old/dynamic_eccentricity_torque_circulation_20Nm_2000rpm_250702171840d/dynamic_eccentricity_torque_circulation_20Nm_2000rpm_250702171840d.imsession</SessionFile>
+        <LabelFile modified="5250945422850011966">/Data_old/dynamic_eccentricity_torque_circulation_20Nm_2000rpm_250702171840d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">dynamic_eccentricity_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="dynamic_eccentricity_torque_circulation_20Nm_3000rpm_250702172126d" sessionId="ed047443-294f-471c-a25f-c6d6c13832dd" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422879278390" start="0" length="89.99921875">/Data_old/dynamic_eccentricity_torque_circulation_20Nm_3000rpm_250702172126d/data.data</DataFile>
+        <SessionFile>/Data_old/dynamic_eccentricity_torque_circulation_20Nm_3000rpm_250702172126d/dynamic_eccentricity_torque_circulation_20Nm_3000rpm_250702172126d.imsession</SessionFile>
+        <LabelFile modified="5250945422872450128">/Data_old/dynamic_eccentricity_torque_circulation_20Nm_3000rpm_250702172126d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">dynamic_eccentricity_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="dynamic_eccentricity_torque_circulation_40Nm_1000rpm_250702172352d" sessionId="9b639b80-f515-4a31-a935-df801c2f49d5" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422895269897" start="0" length="89.99921875">/Data_old/dynamic_eccentricity_torque_circulation_40Nm_1000rpm_250702172352d/data.data</DataFile>
+        <SessionFile>/Data_old/dynamic_eccentricity_torque_circulation_40Nm_1000rpm_250702172352d/dynamic_eccentricity_torque_circulation_40Nm_1000rpm_250702172352d.imsession</SessionFile>
+        <LabelFile modified="5250945422889194336">/Data_old/dynamic_eccentricity_torque_circulation_40Nm_1000rpm_250702172352d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">dynamic_eccentricity_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="health_torque_circulation_20Nm_2000rpm_250702155521d" sessionId="767466f4-7d84-4420-b2bb-2877eb912035" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422959821871" start="0" length="89.99921875">/Data_old/health_torque_circulation_20Nm_2000rpm_250702155521d/data.data</DataFile>
+        <SessionFile>/Data_old/health_torque_circulation_20Nm_2000rpm_250702155521d/health_torque_circulation_20Nm_2000rpm_250702155521d.imsession</SessionFile>
+        <LabelFile modified="5250945422953048462">/Data_old/health_torque_circulation_20Nm_2000rpm_250702155521d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">health_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="health_torque_circulation_20Nm_3000rpm_250702155743d" sessionId="bfe03e01-b295-4a9c-adda-c1343878c160" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422979651477" start="0" length="89.99921875">/Data_old/health_torque_circulation_20Nm_3000rpm_250702155743d/data.data</DataFile>
+        <SessionFile>/Data_old/health_torque_circulation_20Nm_3000rpm_250702155743d/health_torque_circulation_20Nm_3000rpm_250702155743d.imsession</SessionFile>
+        <LabelFile modified="5250945422970409484">/Data_old/health_torque_circulation_20Nm_3000rpm_250702155743d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">health_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="health_torque_circulation_40Nm_2000rpm_250702161114d" sessionId="70d9097d-9357-4c34-a365-ed490d26826c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423015651421" start="0" length="89.99921875">/Data_old/health_torque_circulation_40Nm_2000rpm_250702161114d/data.data</DataFile>
+        <SessionFile>/Data_old/health_torque_circulation_40Nm_2000rpm_250702161114d/health_torque_circulation_40Nm_2000rpm_250702161114d.imsession</SessionFile>
+        <LabelFile modified="5250945423007306648">/Data_old/health_torque_circulation_40Nm_2000rpm_250702161114d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">health_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="health_torque_circulation_40Nm_3000rpm_250702160849d" sessionId="5a156098-52d7-4955-83ad-e58594c160ac" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423032527248" start="0" length="89.99921875">/Data_old/health_torque_circulation_40Nm_3000rpm_250702160849d/data.data</DataFile>
+        <SessionFile>/Data_old/health_torque_circulation_40Nm_3000rpm_250702160849d/health_torque_circulation_40Nm_3000rpm_250702160849d.imsession</SessionFile>
+        <LabelFile modified="5250945423025416125">/Data_old/health_torque_circulation_40Nm_3000rpm_250702160849d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">health_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="static_eccentricity_H_and_bearing_inner_H_torque_circulation_20Nm_1000rpm_250704101105d" sessionId="4b3b89d8-e8ab-4140-b065-d6cdfc0d425e" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423050598887" start="0" length="89.99921875">/Data_old/static_eccentricity_H_and_bearing_inner_H_torque_circulation_20Nm_1000rpm_250704101105d/data.data</DataFile>
+        <SessionFile>/Data_old/static_eccentricity_H_and_bearing_inner_H_torque_circulation_20Nm_1000rpm_250704101105d/static_eccentricity_H_and_bearing_inner_H_torque_circulation_20Nm_1000rpm_250704101105d.imsession</SessionFile>
+        <LabelFile modified="5250945423042653768">/Data_old/static_eccentricity_H_and_bearing_inner_H_torque_circulation_20Nm_1000rpm_250704101105d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">static_eccentricity_H_and_bearing_inner_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="static_eccentricity_H_and_bearing_inner_H_torque_circulation_20Nm_3000rpm_250704101604d" sessionId="0ceeb17c-2a61-4d8f-a972-31f9a74545ce" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423086209620" start="0" length="89.99921875">/Data_old/static_eccentricity_H_and_bearing_inner_H_torque_circulation_20Nm_3000rpm_250704101604d/data.data</DataFile>
+        <SessionFile>/Data_old/static_eccentricity_H_and_bearing_inner_H_torque_circulation_20Nm_3000rpm_250704101604d/static_eccentricity_H_and_bearing_inner_H_torque_circulation_20Nm_3000rpm_250704101604d.imsession</SessionFile>
+        <LabelFile modified="5250945423079612957">/Data_old/static_eccentricity_H_and_bearing_inner_H_torque_circulation_20Nm_3000rpm_250704101604d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">static_eccentricity_H_and_bearing_inner_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="static_eccentricity_H_and_bearing_inner_H_torque_circulation_40Nm_2000rpm_250704102041d" sessionId="2187c2a5-6a6a-46be-94b6-6efb823d9eb2" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423121498461" start="0" length="89.99921875">/Data_old/static_eccentricity_H_and_bearing_inner_H_torque_circulation_40Nm_2000rpm_250704102041d/data.data</DataFile>
+        <SessionFile>/Data_old/static_eccentricity_H_and_bearing_inner_H_torque_circulation_40Nm_2000rpm_250704102041d/static_eccentricity_H_and_bearing_inner_H_torque_circulation_40Nm_2000rpm_250704102041d.imsession</SessionFile>
+        <LabelFile modified="5250945423114198863">/Data_old/static_eccentricity_H_and_bearing_inner_H_torque_circulation_40Nm_2000rpm_250704102041d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">static_eccentricity_H_and_bearing_inner_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="static_eccentricity_H_and_bearing_inner_H_torque_circulation_40Nm_3000rpm_250704102319d" sessionId="558dba1a-7825-4b25-ade4-5f4af83676ed" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423139563601" start="0" length="89.99921875">/Data_old/static_eccentricity_H_and_bearing_inner_H_torque_circulation_40Nm_3000rpm_250704102319d/data.data</DataFile>
+        <SessionFile>/Data_old/static_eccentricity_H_and_bearing_inner_H_torque_circulation_40Nm_3000rpm_250704102319d/static_eccentricity_H_and_bearing_inner_H_torque_circulation_40Nm_3000rpm_250704102319d.imsession</SessionFile>
+        <LabelFile modified="5250945423132099260">/Data_old/static_eccentricity_H_and_bearing_inner_H_torque_circulation_40Nm_3000rpm_250704102319d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">static_eccentricity_H_and_bearing_inner_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="static_eccentricity_H_and_bearing_outer_H_torque_circulation_20Nm_1000rpm_250705085702d" sessionId="bb6d0cb2-4787-4c0b-ade1-81352fbc6180" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423157702163" start="0" length="89.99921875">/Data_old/static_eccentricity_H_and_bearing_outer_H_torque_circulation_20Nm_1000rpm_250705085702d/data.data</DataFile>
+        <SessionFile>/Data_old/static_eccentricity_H_and_bearing_outer_H_torque_circulation_20Nm_1000rpm_250705085702d/static_eccentricity_H_and_bearing_outer_H_torque_circulation_20Nm_1000rpm_250705085702d.imsession</SessionFile>
+        <LabelFile modified="5250945423149970476">/Data_old/static_eccentricity_H_and_bearing_outer_H_torque_circulation_20Nm_1000rpm_250705085702d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">static_eccentricity_H_and_bearing_outer_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="static_eccentricity_H_and_bearing_outer_H_torque_circulation_40Nm_1000rpm_250705091221d" sessionId="cf56db54-10fe-4a05-9bdf-6d4cafadc294" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423210125054" start="0" length="89.99921875">/Data_old/static_eccentricity_H_and_bearing_outer_H_torque_circulation_40Nm_1000rpm_250705091221d/data.data</DataFile>
+        <SessionFile>/Data_old/static_eccentricity_H_and_bearing_outer_H_torque_circulation_40Nm_1000rpm_250705091221d/static_eccentricity_H_and_bearing_outer_H_torque_circulation_40Nm_1000rpm_250705091221d.imsession</SessionFile>
+        <LabelFile modified="5250945423203623891">/Data_old/static_eccentricity_H_and_bearing_outer_H_torque_circulation_40Nm_1000rpm_250705091221d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">static_eccentricity_H_and_bearing_outer_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="static_eccentricity_H_and_bearing_outer_H_torque_circulation_40Nm_2000rpm_250705091511d" sessionId="c4cbe9d4-8835-434c-aef9-b6d935be7184" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423226602338" start="0" length="89.99921875">/Data_old/static_eccentricity_H_and_bearing_outer_H_torque_circulation_40Nm_2000rpm_250705091511d/data.data</DataFile>
+        <SessionFile>/Data_old/static_eccentricity_H_and_bearing_outer_H_torque_circulation_40Nm_2000rpm_250705091511d/static_eccentricity_H_and_bearing_outer_H_torque_circulation_40Nm_2000rpm_250705091511d.imsession</SessionFile>
+        <LabelFile modified="5250945423220126564">/Data_old/static_eccentricity_H_and_bearing_outer_H_torque_circulation_40Nm_2000rpm_250705091511d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">static_eccentricity_H_and_bearing_outer_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="static_eccentricity_H_and_bearing_outer_H_torque_circulation_40Nm_3000rpm_250705091722d" sessionId="22bd7169-f51e-4bbc-9507-2bf37b03a724" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423243908656" start="0" length="89.99921875">/Data_old/static_eccentricity_H_and_bearing_outer_H_torque_circulation_40Nm_3000rpm_250705091722d/data.data</DataFile>
+        <SessionFile>/Data_old/static_eccentricity_H_and_bearing_outer_H_torque_circulation_40Nm_3000rpm_250705091722d/static_eccentricity_H_and_bearing_outer_H_torque_circulation_40Nm_3000rpm_250705091722d.imsession</SessionFile>
+        <LabelFile modified="5250945423237662027">/Data_old/static_eccentricity_H_and_bearing_outer_H_torque_circulation_40Nm_3000rpm_250705091722d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">static_eccentricity_H_and_bearing_outer_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="static_eccentricity_H_torque_circulation_20Nm_2000rpm_250703164146d" sessionId="4271e1ec-ef04-4260-8f89-3a350f0e5d97" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423276487994" start="0" length="89.99921875">/Data_old/static_eccentricity_H_torque_circulation_20Nm_2000rpm_250703164146d/data.data</DataFile>
+        <SessionFile>/Data_old/static_eccentricity_H_torque_circulation_20Nm_2000rpm_250703164146d/static_eccentricity_H_torque_circulation_20Nm_2000rpm_250703164146d.imsession</SessionFile>
+        <LabelFile modified="5250945423270209172">/Data_old/static_eccentricity_H_torque_circulation_20Nm_2000rpm_250703164146d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">static_eccentricity_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="static_eccentricity_H_torque_circulation_40Nm_1000rpm_250703164651d" sessionId="3a52832a-d38e-4c3a-95f2-7f1e1ccb2a35" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423307279948" start="0" length="89.99921875">/Data_old/static_eccentricity_H_torque_circulation_40Nm_1000rpm_250703164651d/data.data</DataFile>
+        <SessionFile>/Data_old/static_eccentricity_H_torque_circulation_40Nm_1000rpm_250703164651d/static_eccentricity_H_torque_circulation_40Nm_1000rpm_250703164651d.imsession</SessionFile>
+        <LabelFile modified="5250945423300965545">/Data_old/static_eccentricity_H_torque_circulation_40Nm_1000rpm_250703164651d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">static_eccentricity_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="static_eccentricity_H_torque_circulation_40Nm_2000rpm_250703164920d" sessionId="f6306c55-bd73-4882-97cc-c9d69fa90044" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423323992843" start="0" length="89.99921875">/Data_old/static_eccentricity_H_torque_circulation_40Nm_2000rpm_250703164920d/data.data</DataFile>
+        <SessionFile>/Data_old/static_eccentricity_H_torque_circulation_40Nm_2000rpm_250703164920d/static_eccentricity_H_torque_circulation_40Nm_2000rpm_250703164920d.imsession</SessionFile>
+        <LabelFile modified="5250945423317339101">/Data_old/static_eccentricity_H_torque_circulation_40Nm_2000rpm_250703164920d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">static_eccentricity_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="static_eccentricity_H_torque_circulation_40Nm_3000rpm_250703165153d" sessionId="90725cae-f814-499b-8557-385cac3a4e08" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423339490408" start="0" length="89.99921875">/Data_old/static_eccentricity_H_torque_circulation_40Nm_3000rpm_250703165153d/data.data</DataFile>
+        <SessionFile>/Data_old/static_eccentricity_H_torque_circulation_40Nm_3000rpm_250703165153d/static_eccentricity_H_torque_circulation_40Nm_3000rpm_250703165153d.imsession</SessionFile>
+        <LabelFile modified="5250945423333289852">/Data_old/static_eccentricity_H_torque_circulation_40Nm_3000rpm_250703165153d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">static_eccentricity_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="static_eccentricity_L_torque_circulation_20Nm_3000rpm_250703154615d" sessionId="3fc882dd-858e-42ab-acba-817aa8eeae80" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423390849069" start="0" length="89.99921875">/Data_old/static_eccentricity_L_torque_circulation_20Nm_3000rpm_250703154615d/data.data</DataFile>
+        <SessionFile>/Data_old/static_eccentricity_L_torque_circulation_20Nm_3000rpm_250703154615d/static_eccentricity_L_torque_circulation_20Nm_3000rpm_250703154615d.imsession</SessionFile>
+        <LabelFile modified="5250945423383018418">/Data_old/static_eccentricity_L_torque_circulation_20Nm_3000rpm_250703154615d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">static_eccentricity_L_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="static_eccentricity_L_torque_circulation_40Nm_1000rpm_250703154942d" sessionId="68a453f2-e63f-479d-af0d-078a8db4815a" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423407338754" start="0" length="89.99921875">/Data_old/static_eccentricity_L_torque_circulation_40Nm_1000rpm_250703154942d/data.data</DataFile>
+        <SessionFile>/Data_old/static_eccentricity_L_torque_circulation_40Nm_1000rpm_250703154942d/static_eccentricity_L_torque_circulation_40Nm_1000rpm_250703154942d.imsession</SessionFile>
+        <LabelFile modified="5250945423400955549">/Data_old/static_eccentricity_L_torque_circulation_40Nm_1000rpm_250703154942d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">static_eccentricity_L_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="static_eccentricity_L_torque_circulation_40Nm_2000rpm_250703155156d" sessionId="7cf35acd-b758-4891-9202-fe1d26bc10e7" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423426535827" start="0" length="89.99921875">/Data_old/static_eccentricity_L_torque_circulation_40Nm_2000rpm_250703155156d/data.data</DataFile>
+        <SessionFile>/Data_old/static_eccentricity_L_torque_circulation_40Nm_2000rpm_250703155156d/static_eccentricity_L_torque_circulation_40Nm_2000rpm_250703155156d.imsession</SessionFile>
+        <LabelFile modified="5250945423417931541">/Data_old/static_eccentricity_L_torque_circulation_40Nm_2000rpm_250703155156d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">static_eccentricity_L_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="static_eccentricity_L_torque_circulation_40Nm_3000rpm_250703155408d" sessionId="b674ab2f-268c-4868-b823-c0d4391499d5" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423444235721" start="0" length="89.99921875">/Data_old/static_eccentricity_L_torque_circulation_40Nm_3000rpm_250703155408d/data.data</DataFile>
+        <SessionFile>/Data_old/static_eccentricity_L_torque_circulation_40Nm_3000rpm_250703155408d/static_eccentricity_L_torque_circulation_40Nm_3000rpm_250703155408d.imsession</SessionFile>
+        <LabelFile modified="5250945423437022774">/Data_old/static_eccentricity_L_torque_circulation_40Nm_3000rpm_250703155408d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">static_eccentricity_L_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="voltage_unbalance_L_torque_circulation_20Nm_3000rpm_250703134630d" sessionId="d42922d8-d67c-44db-8f4e-9fdeee7d6a3d" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423494284903" start="0" length="89.99921875">/Data_old/voltage_unbalance_L_torque_circulation_20Nm_3000rpm_250703134630d/data.data</DataFile>
+        <SessionFile>/Data_old/voltage_unbalance_L_torque_circulation_20Nm_3000rpm_250703134630d/voltage_unbalance_L_torque_circulation_20Nm_3000rpm_250703134630d.imsession</SessionFile>
+        <LabelFile modified="5250945423488015720">/Data_old/voltage_unbalance_L_torque_circulation_20Nm_3000rpm_250703134630d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">voltage_unbalance_L_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="voltage_unbalance_L_torque_circulation_40Nm_1000rpm_250703134903d" sessionId="62328354-2cd4-4288-93af-5e21d401a773" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423511187899" start="0" length="89.99921875">/Data_old/voltage_unbalance_L_torque_circulation_40Nm_1000rpm_250703134903d/data.data</DataFile>
+        <SessionFile>/Data_old/voltage_unbalance_L_torque_circulation_40Nm_1000rpm_250703134903d/voltage_unbalance_L_torque_circulation_40Nm_1000rpm_250703134903d.imsession</SessionFile>
+        <LabelFile modified="5250945423504037847">/Data_old/voltage_unbalance_L_torque_circulation_40Nm_1000rpm_250703134903d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">voltage_unbalance_L_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="voltage_unbalance_L_torque_circulation_40Nm_2000rpm_250703135219d" sessionId="46843cb4-61a1-43be-914a-e26225796df1" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423528375212" start="0" length="89.99921875">/Data_old/voltage_unbalance_L_torque_circulation_40Nm_2000rpm_250703135219d/data.data</DataFile>
+        <SessionFile>/Data_old/voltage_unbalance_L_torque_circulation_40Nm_2000rpm_250703135219d/voltage_unbalance_L_torque_circulation_40Nm_2000rpm_250703135219d.imsession</SessionFile>
+        <LabelFile modified="5250945423520727648">/Data_old/voltage_unbalance_L_torque_circulation_40Nm_2000rpm_250703135219d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">voltage_unbalance_L_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="voltage_unbalance_L_torque_circulation_40Nm_3000rpm_250703135733d" sessionId="8fd2027c-5706-482c-8ef8-52183a89e132" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423544964759" start="0" length="89.99921875">/Data_old/voltage_unbalance_L_torque_circulation_40Nm_3000rpm_250703135733d/data.data</DataFile>
+        <SessionFile>/Data_old/voltage_unbalance_L_torque_circulation_40Nm_3000rpm_250703135733d/voltage_unbalance_L_torque_circulation_40Nm_3000rpm_250703135733d.imsession</SessionFile>
+        <LabelFile modified="5250945423538019907">/Data_old/voltage_unbalance_L_torque_circulation_40Nm_3000rpm_250703135733d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">voltage_unbalance_L_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="winding_H_and_bearing_inner_H_torque_circulation_20Nm_1000rpm_250705185836d" sessionId="6fe828d6-81da-4cfa-8d72-c4cb3c2384c4" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423560955820" start="0" length="89.99921875">/Data_old/winding_H_and_bearing_inner_H_torque_circulation_20Nm_1000rpm_250705185836d/data.data</DataFile>
+        <SessionFile>/Data_old/winding_H_and_bearing_inner_H_torque_circulation_20Nm_1000rpm_250705185836d/winding_H_and_bearing_inner_H_torque_circulation_20Nm_1000rpm_250705185836d.imsession</SessionFile>
+        <LabelFile modified="5250945423554517164">/Data_old/winding_H_and_bearing_inner_H_torque_circulation_20Nm_1000rpm_250705185836d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">winding_H_and_bearing_inner_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="winding_H_and_bearing_inner_H_torque_circulation_20Nm_3000rpm_250705190252d" sessionId="acb54dae-ce23-4c4e-bcd8-431801b1bb7a" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423593438841" start="0" length="89.99921875">/Data_old/winding_H_and_bearing_inner_H_torque_circulation_20Nm_3000rpm_250705190252d/data.data</DataFile>
+        <SessionFile>/Data_old/winding_H_and_bearing_inner_H_torque_circulation_20Nm_3000rpm_250705190252d/winding_H_and_bearing_inner_H_torque_circulation_20Nm_3000rpm_250705190252d.imsession</SessionFile>
+        <LabelFile modified="5250945423586582901">/Data_old/winding_H_and_bearing_inner_H_torque_circulation_20Nm_3000rpm_250705190252d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">winding_H_and_bearing_inner_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="winding_H_and_bearing_inner_H_torque_circulation_40Nm_1000rpm_250705190503d" sessionId="bce25ffe-f15b-4078-8eb0-78c212bb8c46" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423612386897" start="0" length="89.99921875">/Data_old/winding_H_and_bearing_inner_H_torque_circulation_40Nm_1000rpm_250705190503d/data.data</DataFile>
+        <SessionFile>/Data_old/winding_H_and_bearing_inner_H_torque_circulation_40Nm_1000rpm_250705190503d/winding_H_and_bearing_inner_H_torque_circulation_40Nm_1000rpm_250705190503d.imsession</SessionFile>
+        <LabelFile modified="5250945423605703105">/Data_old/winding_H_and_bearing_inner_H_torque_circulation_40Nm_1000rpm_250705190503d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">winding_H_and_bearing_inner_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="winding_H_and_bearing_inner_H_torque_circulation_40Nm_3000rpm_250705190921d" sessionId="e1604292-81f3-4d57-9bf5-4e13233abdeb" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423648119239" start="0" length="89.99921875">/Data_old/winding_H_and_bearing_inner_H_torque_circulation_40Nm_3000rpm_250705190921d/data.data</DataFile>
+        <SessionFile>/Data_old/winding_H_and_bearing_inner_H_torque_circulation_40Nm_3000rpm_250705190921d/winding_H_and_bearing_inner_H_torque_circulation_40Nm_3000rpm_250705190921d.imsession</SessionFile>
+        <LabelFile modified="5250945423641178984">/Data_old/winding_H_and_bearing_inner_H_torque_circulation_40Nm_3000rpm_250705190921d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">winding_H_and_bearing_inner_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="winding_H_and_bearing_outer_H_torque_circulation_20Nm_2000rpm_250705110203d" sessionId="20180fb0-d6f1-41b5-acf4-60b7d2f87dd1" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423679257516" start="0" length="89.99921875">/Data_old/winding_H_and_bearing_outer_H_torque_circulation_20Nm_2000rpm_250705110203d/data.data</DataFile>
+        <SessionFile>/Data_old/winding_H_and_bearing_outer_H_torque_circulation_20Nm_2000rpm_250705110203d/winding_H_and_bearing_outer_H_torque_circulation_20Nm_2000rpm_250705110203d.imsession</SessionFile>
+        <LabelFile modified="5250945423673070963">/Data_old/winding_H_and_bearing_outer_H_torque_circulation_20Nm_2000rpm_250705110203d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">winding_H_and_bearing_outer_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="winding_H_and_bearing_outer_H_torque_circulation_20Nm_3000rpm_250705110537d" sessionId="456d9ae3-83d4-4004-8164-91d22a56bbaa" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423695037957" start="0" length="89.99921875">/Data_old/winding_H_and_bearing_outer_H_torque_circulation_20Nm_3000rpm_250705110537d/data.data</DataFile>
+        <SessionFile>/Data_old/winding_H_and_bearing_outer_H_torque_circulation_20Nm_3000rpm_250705110537d/winding_H_and_bearing_outer_H_torque_circulation_20Nm_3000rpm_250705110537d.imsession</SessionFile>
+        <LabelFile modified="5250945423688839385">/Data_old/winding_H_and_bearing_outer_H_torque_circulation_20Nm_3000rpm_250705110537d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">winding_H_and_bearing_outer_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="winding_H_and_bearing_outer_H_torque_circulation_40Nm_1000rpm_250705110745d" sessionId="d3cc2013-b1e7-4090-aaa9-b735e7b5ea85" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423711759740" start="0" length="89.99921875">/Data_old/winding_H_and_bearing_outer_H_torque_circulation_40Nm_1000rpm_250705110745d/data.data</DataFile>
+        <SessionFile>/Data_old/winding_H_and_bearing_outer_H_torque_circulation_40Nm_1000rpm_250705110745d/winding_H_and_bearing_outer_H_torque_circulation_40Nm_1000rpm_250705110745d.imsession</SessionFile>
+        <LabelFile modified="5250945423705143443">/Data_old/winding_H_and_bearing_outer_H_torque_circulation_40Nm_1000rpm_250705110745d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">winding_H_and_bearing_outer_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="winding_H_and_bearing_outer_H_torque_circulation_40Nm_3000rpm_250705111351d" sessionId="19afd2c1-ed3a-4693-9276-8a6f6a781653" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423745863973" start="0" length="89.99921875">/Data_old/winding_H_and_bearing_outer_H_torque_circulation_40Nm_3000rpm_250705111351d/data.data</DataFile>
+        <SessionFile>/Data_old/winding_H_and_bearing_outer_H_torque_circulation_40Nm_3000rpm_250705111351d/winding_H_and_bearing_outer_H_torque_circulation_40Nm_3000rpm_250705111351d.imsession</SessionFile>
+        <LabelFile modified="5250945423738751649">/Data_old/winding_H_and_bearing_outer_H_torque_circulation_40Nm_3000rpm_250705111351d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">winding_H_and_bearing_outer_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="winding_H_torque_circulation_20Nm_1000rpm_250703105212d" sessionId="8c929f65-56ac-45c8-aa75-df4cea736917" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423761576627" start="0" length="89.99921875">/Data_old/winding_H_torque_circulation_20Nm_1000rpm_250703105212d/data.data</DataFile>
+        <SessionFile>/Data_old/winding_H_torque_circulation_20Nm_1000rpm_250703105212d/winding_H_torque_circulation_20Nm_1000rpm_250703105212d.imsession</SessionFile>
+        <LabelFile modified="5250945423755171352">/Data_old/winding_H_torque_circulation_20Nm_1000rpm_250703105212d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">winding_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="winding_H_torque_circulation_20Nm_2000rpm_250703105522d" sessionId="908af29c-ec31-4e48-9949-f0bd444d9f89" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423778069938" start="0" length="89.99921875">/Data_old/winding_H_torque_circulation_20Nm_2000rpm_250703105522d/data.data</DataFile>
+        <SessionFile>/Data_old/winding_H_torque_circulation_20Nm_2000rpm_250703105522d/winding_H_torque_circulation_20Nm_2000rpm_250703105522d.imsession</SessionFile>
+        <LabelFile modified="5250945423770302432">/Data_old/winding_H_torque_circulation_20Nm_2000rpm_250703105522d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">winding_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="winding_H_torque_circulation_40Nm_2000rpm_250703110249d" sessionId="b36a7c7f-a97c-460d-b6b6-30ab967b7332" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423832916014" start="0" length="89.99921875">/Data_old/winding_H_torque_circulation_40Nm_2000rpm_250703110249d/data.data</DataFile>
+        <SessionFile>/Data_old/winding_H_torque_circulation_40Nm_2000rpm_250703110249d/winding_H_torque_circulation_40Nm_2000rpm_250703110249d.imsession</SessionFile>
+        <LabelFile modified="5250945423825427220">/Data_old/winding_H_torque_circulation_40Nm_2000rpm_250703110249d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">winding_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="winding_H_torque_circulation_40Nm_3000rpm_250703110555d" sessionId="c2f2207b-715a-4814-afe2-7c1e5243894c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423848804357" start="0" length="89.99921875">/Data_old/winding_H_torque_circulation_40Nm_3000rpm_250703110555d/data.data</DataFile>
+        <SessionFile>/Data_old/winding_H_torque_circulation_40Nm_3000rpm_250703110555d/winding_H_torque_circulation_40Nm_3000rpm_250703110555d.imsession</SessionFile>
+        <LabelFile modified="5250945423841756500">/Data_old/winding_H_torque_circulation_40Nm_3000rpm_250703110555d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">winding_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="winding_L_torque_circulation_20Nm_2000rpm_250703101713d" sessionId="a98a489e-f1e7-4fe3-a643-6f6652552092" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423884017310" start="0" length="89.99921875">/Data_old/winding_L_torque_circulation_20Nm_2000rpm_250703101713d/data.data</DataFile>
+        <SessionFile>/Data_old/winding_L_torque_circulation_20Nm_2000rpm_250703101713d/winding_L_torque_circulation_20Nm_2000rpm_250703101713d.imsession</SessionFile>
+        <LabelFile modified="5250945423876698960">/Data_old/winding_L_torque_circulation_20Nm_2000rpm_250703101713d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">winding_L_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="winding_L_torque_circulation_20Nm_3000rpm_250703102025d" sessionId="8b73b12b-7bc9-4c16-92f4-7979e14b4148" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423901287358" start="0" length="89.99921875">/Data_old/winding_L_torque_circulation_20Nm_3000rpm_250703102025d/data.data</DataFile>
+        <SessionFile>/Data_old/winding_L_torque_circulation_20Nm_3000rpm_250703102025d/winding_L_torque_circulation_20Nm_3000rpm_250703102025d.imsession</SessionFile>
+        <LabelFile modified="5250945423894104070">/Data_old/winding_L_torque_circulation_20Nm_3000rpm_250703102025d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">winding_L_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="winding_L_torque_circulation_40Nm_1000rpm_250703102319d" sessionId="8dac5160-20e7-4891-93eb-5ed898483942" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423919438532" start="0" length="89.99921875">/Data_old/winding_L_torque_circulation_40Nm_1000rpm_250703102319d/data.data</DataFile>
+        <SessionFile>/Data_old/winding_L_torque_circulation_40Nm_1000rpm_250703102319d/winding_L_torque_circulation_40Nm_1000rpm_250703102319d.imsession</SessionFile>
+        <LabelFile modified="5250945423912168326">/Data_old/winding_L_torque_circulation_40Nm_1000rpm_250703102319d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">winding_L_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="winding_L_torque_circulation_40Nm_2000rpm_250703102544d" sessionId="03317a76-b583-4618-bd11-1e13fae97246" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423937588132" start="0" length="89.99921875">/Data_old/winding_L_torque_circulation_40Nm_2000rpm_250703102544d/data.data</DataFile>
+        <SessionFile>/Data_old/winding_L_torque_circulation_40Nm_2000rpm_250703102544d/winding_L_torque_circulation_40Nm_2000rpm_250703102544d.imsession</SessionFile>
+        <LabelFile modified="5250945423929750636">/Data_old/winding_L_torque_circulation_40Nm_2000rpm_250703102544d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">winding_L_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+    </DataSet>
+    <DataSet id="validation" targetSize="0.2" labels="Complete">
+      <Session name="bearing_ball_H_torque_circulation_20Nm_2000rpm_250707140027d" sessionId="ea948dec-7d18-4b5e-ae93-9217fe35d206" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945421422311094" start="0" length="89.99921875">/Data_old/bearing_ball_H_torque_circulation_20Nm_2000rpm_250707140027d/data.data</DataFile>
+        <SessionFile>/Data_old/bearing_ball_H_torque_circulation_20Nm_2000rpm_250707140027d/bearing_ball_H_torque_circulation_20Nm_2000rpm_250707140027d.imsession</SessionFile>
+        <LabelFile modified="5250945421415633492">/Data_old/bearing_ball_H_torque_circulation_20Nm_2000rpm_250707140027d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">bearing_ball_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="bearing_ball_L_torque_circulation_40Nm_1000rpm_250707154144d" sessionId="031a7884-ee3d-45fa-9f59-8ff8af912f0b" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945421556260489" start="0" length="89.99921875">/Data_old/bearing_ball_L_torque_circulation_40Nm_1000rpm_250707154144d/data.data</DataFile>
+        <SessionFile>/Data_old/bearing_ball_L_torque_circulation_40Nm_1000rpm_250707154144d/bearing_ball_L_torque_circulation_40Nm_1000rpm_250707154144d.imsession</SessionFile>
+        <LabelFile modified="5250945421546886818">/Data_old/bearing_ball_L_torque_circulation_40Nm_1000rpm_250707154144d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">bearing_ball_L_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="bearing_inner_H_torque_circulation_40Nm_2000rpm_250704085637d" sessionId="e7a0d3c9-ae8b-4e31-a867-d444eece38e4" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945421688056678" start="0" length="89.99921875">/Data_old/bearing_inner_H_torque_circulation_40Nm_2000rpm_250704085637d/data.data</DataFile>
+        <SessionFile>/Data_old/bearing_inner_H_torque_circulation_40Nm_2000rpm_250704085637d/bearing_inner_H_torque_circulation_40Nm_2000rpm_250704085637d.imsession</SessionFile>
+        <LabelFile modified="5250945421679920230">/Data_old/bearing_inner_H_torque_circulation_40Nm_2000rpm_250704085637d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">bearing_inner_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="bearing_inner_L_torque_circulation_40Nm_3000rpm_250707113444d" sessionId="8c34cc05-d4f9-4869-8a37-c1f7ccf91cb9" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945421811515476" start="0" length="89.99921875">/Data_old/bearing_inner_L_torque_circulation_40Nm_3000rpm_250707113444d/data.data</DataFile>
+        <SessionFile>/Data_old/bearing_inner_L_torque_circulation_40Nm_3000rpm_250707113444d/bearing_inner_L_torque_circulation_40Nm_3000rpm_250707113444d.imsession</SessionFile>
+        <LabelFile modified="5250945421804436982">/Data_old/bearing_inner_L_torque_circulation_40Nm_3000rpm_250707113444d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">bearing_inner_L_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="bearing_outer_H_and_inner_H_torque_circulation_20Nm_1000rpm_250702143147d" sessionId="27b49106-1b08-4665-8b5e-85f6241a4f65" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945421829697726" start="0" length="89.99921875">/Data_old/bearing_outer_H_and_inner_H_torque_circulation_20Nm_1000rpm_250702143147d/data.data</DataFile>
+        <SessionFile>/Data_old/bearing_outer_H_and_inner_H_torque_circulation_20Nm_1000rpm_250702143147d/bearing_outer_H_and_inner_H_torque_circulation_20Nm_1000rpm_250702143147d.imsession</SessionFile>
+        <LabelFile modified="5250945421822769412">/Data_old/bearing_outer_H_and_inner_H_torque_circulation_20Nm_1000rpm_250702143147d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">bearing_outer_H_and_inner_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="bearing_outer_H_torque_circulation_20Nm_3000rpm_250821175544" sessionId="9ec03114-3933-46d1-8d59-fb67ec4f2656" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945421968870330" start="0" length="89.99921875">/Data_old/bearing_outer_H_torque_circulation_20Nm_3000rpm_250821175544/data.data</DataFile>
+        <SessionFile>/Data_old/bearing_outer_H_torque_circulation_20Nm_3000rpm_250821175544/bearing_outer_H_torque_circulation_20Nm_3000rpm_250821175544.imsession</SessionFile>
+        <LabelFile modified="5250945421961215458">/Data_old/bearing_outer_H_torque_circulation_20Nm_3000rpm_250821175544/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">bearing_outer_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="bearing_outer_L_torque_circulation_40Nm_1000rpm_250708094205d" sessionId="c7508465-d780-42ab-819e-b1b3e302428a" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422093457156" start="0" length="89.99921875">/Data_old/bearing_outer_L_torque_circulation_40Nm_1000rpm_250708094205d/data.data</DataFile>
+        <SessionFile>/Data_old/bearing_outer_L_torque_circulation_40Nm_1000rpm_250708094205d/bearing_outer_L_torque_circulation_40Nm_1000rpm_250708094205d.imsession</SessionFile>
+        <LabelFile modified="5250945422085054284">/Data_old/bearing_outer_L_torque_circulation_40Nm_1000rpm_250708094205d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">bearing_outer_L_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="bend_torque_circulation_20Nm_3000rpm_250702192548d" sessionId="e0502e13-c6d5-4f98-910c-0bf35fd58fbd" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422181795406" start="0" length="89.99921875">/Data_old/bend_torque_circulation_20Nm_3000rpm_250702192548d/data.data</DataFile>
+        <SessionFile>/Data_old/bend_torque_circulation_20Nm_3000rpm_250702192548d/bend_torque_circulation_20Nm_3000rpm_250702192548d.imsession</SessionFile>
+        <LabelFile modified="5250945422173775911">/Data_old/bend_torque_circulation_20Nm_3000rpm_250702192548d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">bend_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="broken_bar_and_bearing_inner_H_torque_circulation_20Nm_1000rpm_250705114401d" sessionId="30f3f6a2-f9db-4269-aa88-502fb980ec75" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422254464468" start="0" length="89.99921875">/Data_old/broken_bar_and_bearing_inner_H_torque_circulation_20Nm_1000rpm_250705114401d/data.data</DataFile>
+        <SessionFile>/Data_old/broken_bar_and_bearing_inner_H_torque_circulation_20Nm_1000rpm_250705114401d/broken_bar_and_bearing_inner_H_torque_circulation_20Nm_1000rpm_250705114401d.imsession</SessionFile>
+        <LabelFile modified="5250945422246439663">/Data_old/broken_bar_and_bearing_inner_H_torque_circulation_20Nm_1000rpm_250705114401d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">broken_bar_and_bearing_inner_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="broken_bar_and_bearing_outer_H_torque_circulation_40Nm_1000rpm_250705203618d" sessionId="2779b683-ba8e-42c0-93f2-94218f4ffdf9" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422406851579" start="0" length="89.99921875">/Data_old/broken_bar_and_bearing_outer_H_torque_circulation_40Nm_1000rpm_250705203618d/data.data</DataFile>
+        <SessionFile>/Data_old/broken_bar_and_bearing_outer_H_torque_circulation_40Nm_1000rpm_250705203618d/broken_bar_and_bearing_outer_H_torque_circulation_40Nm_1000rpm_250705203618d.imsession</SessionFile>
+        <LabelFile modified="5250945422400520333">/Data_old/broken_bar_and_bearing_outer_H_torque_circulation_40Nm_1000rpm_250705203618d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">broken_bar_and_bearing_outer_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="broken_bar_torque_circulation_40Nm_2000rpm_250703084446d" sessionId="12d0a5bb-2f71-4704-8843-d7d1161333db" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422536580030" start="0" length="89.99921875">/Data_old/broken_bar_torque_circulation_40Nm_2000rpm_250703084446d/data.data</DataFile>
+        <SessionFile>/Data_old/broken_bar_torque_circulation_40Nm_2000rpm_250703084446d/broken_bar_torque_circulation_40Nm_2000rpm_250703084446d.imsession</SessionFile>
+        <LabelFile modified="5250945422529970833">/Data_old/broken_bar_torque_circulation_40Nm_2000rpm_250703084446d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">broken_bar_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="dynamic_eccentricity_and_bearing_inner_H_torque_circulation_40Nm_3000rpm_250705101113d" sessionId="0c5b4f73-8bfd-46e3-84e6-e5339420d263" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422674406038" start="0" length="89.99921875">/Data_old/dynamic_eccentricity_and_bearing_inner_H_torque_circulation_40Nm_3000rpm_250705101113d/data.data</DataFile>
+        <SessionFile>/Data_old/dynamic_eccentricity_and_bearing_inner_H_torque_circulation_40Nm_3000rpm_250705101113d/dynamic_eccentricity_and_bearing_inner_H_torque_circulation_40Nm_3000rpm_250705101113d.imsession</SessionFile>
+        <LabelFile modified="5250945422661266198">/Data_old/dynamic_eccentricity_and_bearing_inner_H_torque_circulation_40Nm_3000rpm_250705101113d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">dynamic_eccentricity_and_bearing_inner_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="dynamic_eccentricity_and_bearing_outer_H_torque_circulation_40Nm_2000rpm_250703193011d" sessionId="005c2449-b7f9-46e0-8fba-911544e4611c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422784204457" start="0" length="89.99921875">/Data_old/dynamic_eccentricity_and_bearing_outer_H_torque_circulation_40Nm_2000rpm_250703193011d/data.data</DataFile>
+        <SessionFile>/Data_old/dynamic_eccentricity_and_bearing_outer_H_torque_circulation_40Nm_2000rpm_250703193011d/dynamic_eccentricity_and_bearing_outer_H_torque_circulation_40Nm_2000rpm_250703193011d.imsession</SessionFile>
+        <LabelFile modified="5250945422773843544">/Data_old/dynamic_eccentricity_and_bearing_outer_H_torque_circulation_40Nm_2000rpm_250703193011d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">dynamic_eccentricity_and_bearing_outer_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="dynamic_eccentricity_torque_circulation_40Nm_3000rpm_250702172855d" sessionId="3c924084-0e12-4ea9-9959-b2731de0917e" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422926518525" start="0" length="89.99921875">/Data_old/dynamic_eccentricity_torque_circulation_40Nm_3000rpm_250702172855d/data.data</DataFile>
+        <SessionFile>/Data_old/dynamic_eccentricity_torque_circulation_40Nm_3000rpm_250702172855d/dynamic_eccentricity_torque_circulation_40Nm_3000rpm_250702172855d.imsession</SessionFile>
+        <LabelFile modified="5250945422919562876">/Data_old/dynamic_eccentricity_torque_circulation_40Nm_3000rpm_250702172855d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">dynamic_eccentricity_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="health_torque_circulation_20Nm_1000rpm_250702154813d" sessionId="a018f93b-04e4-4d9c-8cc4-54d4f0bf743c" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422942560225" start="0" length="89.99921875">/Data_old/health_torque_circulation_20Nm_1000rpm_250702154813d/data.data</DataFile>
+        <SessionFile>/Data_old/health_torque_circulation_20Nm_1000rpm_250702154813d/health_torque_circulation_20Nm_1000rpm_250702154813d.imsession</SessionFile>
+        <LabelFile modified="5250945422936038859">/Data_old/health_torque_circulation_20Nm_1000rpm_250702154813d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">health_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="static_eccentricity_H_and_bearing_inner_H_torque_circulation_20Nm_2000rpm_250704101357d" sessionId="8476be34-2890-4e32-9c09-41f518942a6d" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423068851614" start="0" length="89.99921875">/Data_old/static_eccentricity_H_and_bearing_inner_H_torque_circulation_20Nm_2000rpm_250704101357d/data.data</DataFile>
+        <SessionFile>/Data_old/static_eccentricity_H_and_bearing_inner_H_torque_circulation_20Nm_2000rpm_250704101357d/static_eccentricity_H_and_bearing_inner_H_torque_circulation_20Nm_2000rpm_250704101357d.imsession</SessionFile>
+        <LabelFile modified="5250945423061623842">/Data_old/static_eccentricity_H_and_bearing_inner_H_torque_circulation_20Nm_2000rpm_250704101357d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">static_eccentricity_H_and_bearing_inner_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="static_eccentricity_H_and_bearing_outer_H_torque_circulation_20Nm_3000rpm_250705090120d" sessionId="f08f3833-cdcf-433d-b7af-61532516c358" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423193437450" start="0" length="89.99921875">/Data_old/static_eccentricity_H_and_bearing_outer_H_torque_circulation_20Nm_3000rpm_250705090120d/data.data</DataFile>
+        <SessionFile>/Data_old/static_eccentricity_H_and_bearing_outer_H_torque_circulation_20Nm_3000rpm_250705090120d/static_eccentricity_H_and_bearing_outer_H_torque_circulation_20Nm_3000rpm_250705090120d.imsession</SessionFile>
+        <LabelFile modified="5250945423186188141">/Data_old/static_eccentricity_H_and_bearing_outer_H_torque_circulation_20Nm_3000rpm_250705090120d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">static_eccentricity_H_and_bearing_outer_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="static_eccentricity_H_torque_circulation_20Nm_3000rpm_250703164427d" sessionId="870b2cb7-6f31-4166-acd8-a80bb78d4f77" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423291730519" start="0" length="89.99921875">/Data_old/static_eccentricity_H_torque_circulation_20Nm_3000rpm_250703164427d/data.data</DataFile>
+        <SessionFile>/Data_old/static_eccentricity_H_torque_circulation_20Nm_3000rpm_250703164427d/static_eccentricity_H_torque_circulation_20Nm_3000rpm_250703164427d.imsession</SessionFile>
+        <LabelFile modified="5250945423285517239">/Data_old/static_eccentricity_H_torque_circulation_20Nm_3000rpm_250703164427d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">static_eccentricity_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="static_eccentricity_L_torque_circulation_20Nm_2000rpm_250703154300d" sessionId="4464ee75-6e22-4225-b85f-976d019eeba9" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423373455062" start="0" length="89.99921875">/Data_old/static_eccentricity_L_torque_circulation_20Nm_2000rpm_250703154300d/data.data</DataFile>
+        <SessionFile>/Data_old/static_eccentricity_L_torque_circulation_20Nm_2000rpm_250703154300d/static_eccentricity_L_torque_circulation_20Nm_2000rpm_250703154300d.imsession</SessionFile>
+        <LabelFile modified="5250945423365679585">/Data_old/static_eccentricity_L_torque_circulation_20Nm_2000rpm_250703154300d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">static_eccentricity_L_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="voltage_unbalance_L_torque_circulation_20Nm_1000rpm_250703134035d" sessionId="0491cb29-14d5-415e-a79a-688ad8a35107" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423462543621" start="0" length="89.99921875">/Data_old/voltage_unbalance_L_torque_circulation_20Nm_1000rpm_250703134035d/data.data</DataFile>
+        <SessionFile>/Data_old/voltage_unbalance_L_torque_circulation_20Nm_1000rpm_250703134035d/voltage_unbalance_L_torque_circulation_20Nm_1000rpm_250703134035d.imsession</SessionFile>
+        <LabelFile modified="5250945423456050905">/Data_old/voltage_unbalance_L_torque_circulation_20Nm_1000rpm_250703134035d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">voltage_unbalance_L_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="winding_H_and_bearing_inner_H_torque_circulation_40Nm_2000rpm_250705190713d" sessionId="c0bf2f83-ab01-40fc-a1af-7ef4653fd2cb" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423630458895" start="0" length="89.99921875">/Data_old/winding_H_and_bearing_inner_H_torque_circulation_40Nm_2000rpm_250705190713d/data.data</DataFile>
+        <SessionFile>/Data_old/winding_H_and_bearing_inner_H_torque_circulation_40Nm_2000rpm_250705190713d/winding_H_and_bearing_inner_H_torque_circulation_40Nm_2000rpm_250705190713d.imsession</SessionFile>
+        <LabelFile modified="5250945423623323992">/Data_old/winding_H_and_bearing_inner_H_torque_circulation_40Nm_2000rpm_250705190713d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">winding_H_and_bearing_inner_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="winding_H_and_bearing_outer_H_torque_circulation_20Nm_1000rpm_250705105952d" sessionId="9478d152-47cf-47e8-aa73-8458e53cd7d1" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423662549939" start="0" length="89.99921875">/Data_old/winding_H_and_bearing_outer_H_torque_circulation_20Nm_1000rpm_250705105952d/data.data</DataFile>
+        <SessionFile>/Data_old/winding_H_and_bearing_outer_H_torque_circulation_20Nm_1000rpm_250705105952d/winding_H_and_bearing_outer_H_torque_circulation_20Nm_1000rpm_250705105952d.imsession</SessionFile>
+        <LabelFile modified="5250945423656237161">/Data_old/winding_H_and_bearing_outer_H_torque_circulation_20Nm_1000rpm_250705105952d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">winding_H_and_bearing_outer_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="winding_H_torque_circulation_40Nm_1000rpm_250703110024d" sessionId="b9202750-6ebb-4a23-8dc0-207ca1411723" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423815896651" start="0" length="89.99921875">/Data_old/winding_H_torque_circulation_40Nm_1000rpm_250703110024d/data.data</DataFile>
+        <SessionFile>/Data_old/winding_H_torque_circulation_40Nm_1000rpm_250703110024d/winding_H_torque_circulation_40Nm_1000rpm_250703110024d.imsession</SessionFile>
+        <LabelFile modified="5250945423807685137">/Data_old/winding_H_torque_circulation_40Nm_1000rpm_250703110024d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">winding_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="winding_L_torque_circulation_40Nm_3000rpm_250703102900d" sessionId="e7fbad00-15cc-42a8-9859-915398a884c5" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423954040196" start="0" length="89.99921875">/Data_old/winding_L_torque_circulation_40Nm_3000rpm_250703102900d/data.data</DataFile>
+        <SessionFile>/Data_old/winding_L_torque_circulation_40Nm_3000rpm_250703102900d/winding_L_torque_circulation_40Nm_3000rpm_250703102900d.imsession</SessionFile>
+        <LabelFile modified="5250945423947622538">/Data_old/winding_L_torque_circulation_40Nm_3000rpm_250703102900d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">winding_L_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+    </DataSet>
+    <DataSet id="test" targetSize="0.2" labels="Complete">
+      <Session name="bearing_ball_H_torque_circulation_20Nm_1000rpm_250707135802d" sessionId="718dd5c0-04d5-4e72-a5ed-241bc3106a08" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945421406065939" start="0" length="89.99921875">/Data_old/bearing_ball_H_torque_circulation_20Nm_1000rpm_250707135802d/data.data</DataFile>
+        <SessionFile>/Data_old/bearing_ball_H_torque_circulation_20Nm_1000rpm_250707135802d/bearing_ball_H_torque_circulation_20Nm_1000rpm_250707135802d.imsession</SessionFile>
+        <LabelFile modified="5250945421399077543">/Data_old/bearing_ball_H_torque_circulation_20Nm_1000rpm_250707135802d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">bearing_ball_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="bearing_ball_L_torque_circulation_20Nm_2000rpm_250707153733d" sessionId="0a699ffb-bae3-46f6-b472-ff6e2c657864" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945421516837887" start="0" length="89.99921875">/Data_old/bearing_ball_L_torque_circulation_20Nm_2000rpm_250707153733d/data.data</DataFile>
+        <SessionFile>/Data_old/bearing_ball_L_torque_circulation_20Nm_2000rpm_250707153733d/bearing_ball_L_torque_circulation_20Nm_2000rpm_250707153733d.imsession</SessionFile>
+        <LabelFile modified="5250945421510985700">/Data_old/bearing_ball_L_torque_circulation_20Nm_2000rpm_250707153733d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">bearing_ball_L_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="bearing_inner_H_torque_circulation_40Nm_1000rpm_250704085422d" sessionId="7cffeee5-ae06-40f3-bb00-193b975441e6" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945421669082797" start="0" length="89.99921875">/Data_old/bearing_inner_H_torque_circulation_40Nm_1000rpm_250704085422d/data.data</DataFile>
+        <SessionFile>/Data_old/bearing_inner_H_torque_circulation_40Nm_1000rpm_250704085422d/bearing_inner_H_torque_circulation_40Nm_1000rpm_250704085422d.imsession</SessionFile>
+        <LabelFile modified="5250945421660192271">/Data_old/bearing_inner_H_torque_circulation_40Nm_1000rpm_250704085422d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">bearing_inner_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="bearing_inner_L_torque_circulation_40Nm_2000rpm_250707113243d" sessionId="67540efa-fb3c-44d3-88df-e7a701627aaf" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945421793500626" start="0" length="89.99921875">/Data_old/bearing_inner_L_torque_circulation_40Nm_2000rpm_250707113243d/data.data</DataFile>
+        <SessionFile>/Data_old/bearing_inner_L_torque_circulation_40Nm_2000rpm_250707113243d/bearing_inner_L_torque_circulation_40Nm_2000rpm_250707113243d.imsession</SessionFile>
+        <LabelFile modified="5250945421786389859">/Data_old/bearing_inner_L_torque_circulation_40Nm_2000rpm_250707113243d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">bearing_inner_L_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="bearing_outer_H_and_inner_H_torque_circulation_40Nm_2000rpm_250702144421d" sessionId="21e37d40-debe-4ba3-bf23-aad4513ccfd1" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945421895682696" start="0" length="89.99921875">/Data_old/bearing_outer_H_and_inner_H_torque_circulation_40Nm_2000rpm_250702144421d/data.data</DataFile>
+        <SessionFile>/Data_old/bearing_outer_H_and_inner_H_torque_circulation_40Nm_2000rpm_250702144421d/bearing_outer_H_and_inner_H_torque_circulation_40Nm_2000rpm_250702144421d.imsession</SessionFile>
+        <LabelFile modified="5250945421889562676">/Data_old/bearing_outer_H_and_inner_H_torque_circulation_40Nm_2000rpm_250702144421d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">bearing_outer_H_and_inner_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="bearing_outer_H_torque_circulation_40Nm_3000rpm_250707104611d" sessionId="888f3976-2b04-4677-9252-b6387942bfdd" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422022093907" start="0" length="89.99921875">/Data_old/bearing_outer_H_torque_circulation_40Nm_3000rpm_250707104611d/data.data</DataFile>
+        <SessionFile>/Data_old/bearing_outer_H_torque_circulation_40Nm_3000rpm_250707104611d/bearing_outer_H_torque_circulation_40Nm_3000rpm_250707104611d.imsession</SessionFile>
+        <LabelFile modified="5250945422014975095">/Data_old/bearing_outer_H_torque_circulation_40Nm_3000rpm_250707104611d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">bearing_outer_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="bearing_outer_L_torque_circulation_20Nm_2000rpm_250708093806d" sessionId="77114ee6-276f-42ca-b7c2-c65ac0071fd1" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422056710910" start="0" length="89.99921875">/Data_old/bearing_outer_L_torque_circulation_20Nm_2000rpm_250708093806d/data.data</DataFile>
+        <SessionFile>/Data_old/bearing_outer_L_torque_circulation_20Nm_2000rpm_250708093806d/bearing_outer_L_torque_circulation_20Nm_2000rpm_250708093806d.imsession</SessionFile>
+        <LabelFile modified="5250945422049804384">/Data_old/bearing_outer_L_torque_circulation_20Nm_2000rpm_250708093806d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">bearing_outer_L_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="bend_torque_circulation_40Nm_2000rpm_250702193812d" sessionId="e71a24fd-c4b6-456e-83f2-d45c649e7281" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422215088383" start="0" length="89.99921875">/Data_old/bend_torque_circulation_40Nm_2000rpm_250702193812d/data.data</DataFile>
+        <SessionFile>/Data_old/bend_torque_circulation_40Nm_2000rpm_250702193812d/bend_torque_circulation_40Nm_2000rpm_250702193812d.imsession</SessionFile>
+        <LabelFile modified="5250945422208882954">/Data_old/bend_torque_circulation_40Nm_2000rpm_250702193812d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">bend_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="broken_bar_and_bearing_inner_H_torque_circulation_40Nm_2000rpm_250705115303d" sessionId="89dd5c4c-6d4c-4841-b70f-ef2009739c6b" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422322544834" start="0" length="89.99921875">/Data_old/broken_bar_and_bearing_inner_H_torque_circulation_40Nm_2000rpm_250705115303d/data.data</DataFile>
+        <SessionFile>/Data_old/broken_bar_and_bearing_inner_H_torque_circulation_40Nm_2000rpm_250705115303d/broken_bar_and_bearing_inner_H_torque_circulation_40Nm_2000rpm_250705115303d.imsession</SessionFile>
+        <LabelFile modified="5250945422316109492">/Data_old/broken_bar_and_bearing_inner_H_torque_circulation_40Nm_2000rpm_250705115303d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">broken_bar_and_bearing_inner_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="broken_bar_and_bearing_outer_H_torque_circulation_20Nm_2000rpm_250705203208d" sessionId="6296f5d2-725b-427b-9d65-a2615975aa13" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422372622802" start="0" length="89.99921875">/Data_old/broken_bar_and_bearing_outer_H_torque_circulation_20Nm_2000rpm_250705203208d/data.data</DataFile>
+        <SessionFile>/Data_old/broken_bar_and_bearing_outer_H_torque_circulation_20Nm_2000rpm_250705203208d/broken_bar_and_bearing_outer_H_torque_circulation_20Nm_2000rpm_250705203208d.imsession</SessionFile>
+        <LabelFile modified="5250945422364852161">/Data_old/broken_bar_and_bearing_outer_H_torque_circulation_20Nm_2000rpm_250705203208d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">broken_bar_and_bearing_outer_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="broken_bar_torque_circulation_40Nm_1000rpm_250703084212d" sessionId="258c24a9-6e15-41ac-83a0-cfe13d821943" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422519526518" start="0" length="89.99921875">/Data_old/broken_bar_torque_circulation_40Nm_1000rpm_250703084212d/data.data</DataFile>
+        <SessionFile>/Data_old/broken_bar_torque_circulation_40Nm_1000rpm_250703084212d/broken_bar_torque_circulation_40Nm_1000rpm_250703084212d.imsession</SessionFile>
+        <LabelFile modified="5250945422511790377">/Data_old/broken_bar_torque_circulation_40Nm_1000rpm_250703084212d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">broken_bar_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="dynamic_eccentricity_and_bearing_inner_H_torque_circulation_20Nm_3000rpm_250705100328d" sessionId="d5e2f480-09f4-4dd2-a5a8-fe1a3d5fa094" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422607665660" start="0" length="89.99921875">/Data_old/dynamic_eccentricity_and_bearing_inner_H_torque_circulation_20Nm_3000rpm_250705100328d/data.data</DataFile>
+        <SessionFile>/Data_old/dynamic_eccentricity_and_bearing_inner_H_torque_circulation_20Nm_3000rpm_250705100328d/dynamic_eccentricity_and_bearing_inner_H_torque_circulation_20Nm_3000rpm_250705100328d.imsession</SessionFile>
+        <LabelFile modified="5250945422599237038">/Data_old/dynamic_eccentricity_and_bearing_inner_H_torque_circulation_20Nm_3000rpm_250705100328d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">dynamic_eccentricity_and_bearing_inner_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="dynamic_eccentricity_and_bearing_outer_H_torque_circulation_40Nm_1000rpm_250703192816d" sessionId="4ff3ce25-ae7b-4e45-87e2-592390f5b1a7" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422761992593" start="0" length="89.99921875">/Data_old/dynamic_eccentricity_and_bearing_outer_H_torque_circulation_40Nm_1000rpm_250703192816d/data.data</DataFile>
+        <SessionFile>/Data_old/dynamic_eccentricity_and_bearing_outer_H_torque_circulation_40Nm_1000rpm_250703192816d/dynamic_eccentricity_and_bearing_outer_H_torque_circulation_40Nm_1000rpm_250703192816d.imsession</SessionFile>
+        <LabelFile modified="5250945422754364945">/Data_old/dynamic_eccentricity_and_bearing_outer_H_torque_circulation_40Nm_1000rpm_250703192816d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">dynamic_eccentricity_and_bearing_outer_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="dynamic_eccentricity_torque_circulation_40Nm_2000rpm_250702172630d" sessionId="72462271-5255-4554-8f9c-bc279f5c977d" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422910848157" start="0" length="89.99921875">/Data_old/dynamic_eccentricity_torque_circulation_40Nm_2000rpm_250702172630d/data.data</DataFile>
+        <SessionFile>/Data_old/dynamic_eccentricity_torque_circulation_40Nm_2000rpm_250702172630d/dynamic_eccentricity_torque_circulation_40Nm_2000rpm_250702172630d.imsession</SessionFile>
+        <LabelFile modified="5250945422904402209">/Data_old/dynamic_eccentricity_torque_circulation_40Nm_2000rpm_250702172630d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">dynamic_eccentricity_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="health_torque_circulation_40Nm_1000rpm_250702161315d" sessionId="5d0e2e43-d8ef-4f35-ad04-2a1f774443ef" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945422996773186" start="0" length="89.99921875">/Data_old/health_torque_circulation_40Nm_1000rpm_250702161315d/data.data</DataFile>
+        <SessionFile>/Data_old/health_torque_circulation_40Nm_1000rpm_250702161315d/health_torque_circulation_40Nm_1000rpm_250702161315d.imsession</SessionFile>
+        <LabelFile modified="5250945422990139355">/Data_old/health_torque_circulation_40Nm_1000rpm_250702161315d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">health_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="static_eccentricity_H_and_bearing_inner_H_torque_circulation_40Nm_1000rpm_250704101831d" sessionId="b3031afa-617a-4c2d-aa1a-19ed0b7cd080" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423103227699" start="0" length="89.99921875">/Data_old/static_eccentricity_H_and_bearing_inner_H_torque_circulation_40Nm_1000rpm_250704101831d/data.data</DataFile>
+        <SessionFile>/Data_old/static_eccentricity_H_and_bearing_inner_H_torque_circulation_40Nm_1000rpm_250704101831d/static_eccentricity_H_and_bearing_inner_H_torque_circulation_40Nm_1000rpm_250704101831d.imsession</SessionFile>
+        <LabelFile modified="5250945423096666822">/Data_old/static_eccentricity_H_and_bearing_inner_H_torque_circulation_40Nm_1000rpm_250704101831d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">static_eccentricity_H_and_bearing_inner_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="static_eccentricity_H_and_bearing_outer_H_torque_circulation_20Nm_2000rpm_250705085905d" sessionId="1d8ac1b6-b7d0-42ba-97dc-40763d3856ad" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423174857330" start="0" length="89.99921875">/Data_old/static_eccentricity_H_and_bearing_outer_H_torque_circulation_20Nm_2000rpm_250705085905d/data.data</DataFile>
+        <SessionFile>/Data_old/static_eccentricity_H_and_bearing_outer_H_torque_circulation_20Nm_2000rpm_250705085905d/static_eccentricity_H_and_bearing_outer_H_torque_circulation_20Nm_2000rpm_250705085905d.imsession</SessionFile>
+        <LabelFile modified="5250945423168062374">/Data_old/static_eccentricity_H_and_bearing_outer_H_torque_circulation_20Nm_2000rpm_250705085905d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">static_eccentricity_H_and_bearing_outer_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="static_eccentricity_H_torque_circulation_20Nm_1000rpm_250703163850d" sessionId="810a0321-5c30-4781-acb8-990639b24dea" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423260412776" start="0" length="89.99921875">/Data_old/static_eccentricity_H_torque_circulation_20Nm_1000rpm_250703163850d/data.data</DataFile>
+        <SessionFile>/Data_old/static_eccentricity_H_torque_circulation_20Nm_1000rpm_250703163850d/static_eccentricity_H_torque_circulation_20Nm_1000rpm_250703163850d.imsession</SessionFile>
+        <LabelFile modified="5250945423253578110">/Data_old/static_eccentricity_H_torque_circulation_20Nm_1000rpm_250703163850d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">static_eccentricity_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="static_eccentricity_L_torque_circulation_20Nm_1000rpm_250703154032d" sessionId="e004c763-a448-444a-8821-e1d7eb6cd502" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423355133347" start="0" length="89.99921875">/Data_old/static_eccentricity_L_torque_circulation_20Nm_1000rpm_250703154032d/data.data</DataFile>
+        <SessionFile>/Data_old/static_eccentricity_L_torque_circulation_20Nm_1000rpm_250703154032d/static_eccentricity_L_torque_circulation_20Nm_1000rpm_250703154032d.imsession</SessionFile>
+        <LabelFile modified="5250945423349076793">/Data_old/static_eccentricity_L_torque_circulation_20Nm_1000rpm_250703154032d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">static_eccentricity_L_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="voltage_unbalance_L_torque_circulation_20Nm_2000rpm_250703134356d" sessionId="7a2411d2-78ec-4f87-a764-de02b71ee9f3" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423479212907" start="0" length="89.99921875">/Data_old/voltage_unbalance_L_torque_circulation_20Nm_2000rpm_250703134356d/data.data</DataFile>
+        <SessionFile>/Data_old/voltage_unbalance_L_torque_circulation_20Nm_2000rpm_250703134356d/voltage_unbalance_L_torque_circulation_20Nm_2000rpm_250703134356d.imsession</SessionFile>
+        <LabelFile modified="5250945423472894292">/Data_old/voltage_unbalance_L_torque_circulation_20Nm_2000rpm_250703134356d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">voltage_unbalance_L_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="winding_H_and_bearing_inner_H_torque_circulation_20Nm_2000rpm_250705190045d" sessionId="b959091a-c8a6-44e9-8f2d-4a6e8eb95d30" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423576401482" start="0" length="89.99921875">/Data_old/winding_H_and_bearing_inner_H_torque_circulation_20Nm_2000rpm_250705190045d/data.data</DataFile>
+        <SessionFile>/Data_old/winding_H_and_bearing_inner_H_torque_circulation_20Nm_2000rpm_250705190045d/winding_H_and_bearing_inner_H_torque_circulation_20Nm_2000rpm_250705190045d.imsession</SessionFile>
+        <LabelFile modified="5250945423569996836">/Data_old/winding_H_and_bearing_inner_H_torque_circulation_20Nm_2000rpm_250705190045d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">winding_H_and_bearing_inner_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="winding_H_and_bearing_outer_H_torque_circulation_40Nm_2000rpm_250705111001d" sessionId="83ea7994-c16c-460b-bdbf-b366b847b390" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423728422281" start="0" length="89.99921875">/Data_old/winding_H_and_bearing_outer_H_torque_circulation_40Nm_2000rpm_250705111001d/data.data</DataFile>
+        <SessionFile>/Data_old/winding_H_and_bearing_outer_H_torque_circulation_40Nm_2000rpm_250705111001d/winding_H_and_bearing_outer_H_torque_circulation_40Nm_2000rpm_250705111001d.imsession</SessionFile>
+        <LabelFile modified="5250945423721975727">/Data_old/winding_H_and_bearing_outer_H_torque_circulation_40Nm_2000rpm_250705111001d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">winding_H_and_bearing_outer_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="winding_H_torque_circulation_20Nm_3000rpm_250703105805d" sessionId="b49e090e-72df-48d8-a758-41d7c6b64775" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423795730900" start="0" length="89.99921875">/Data_old/winding_H_torque_circulation_20Nm_3000rpm_250703105805d/data.data</DataFile>
+        <SessionFile>/Data_old/winding_H_torque_circulation_20Nm_3000rpm_250703105805d/winding_H_torque_circulation_20Nm_3000rpm_250703105805d.imsession</SessionFile>
+        <LabelFile modified="5250945423787797126">/Data_old/winding_H_torque_circulation_20Nm_3000rpm_250703105805d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">winding_H_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+      <Session name="winding_L_torque_circulation_20Nm_1000rpm_250703100823d" sessionId="0c94d1b5-9366-4f22-9b3d-81ec2f909ec8" originalSessionId="00000000-0000-0000-0000-000000000000" ownerLocked="False" labelTrack="label" dataTrack="data" tags="None">
+        <DataFile shape="[8]" samplerate="1280" modified="5250945423866534541" start="0" length="89.99921875">/Data_old/winding_L_torque_circulation_20Nm_1000rpm_250703100823d/data.data</DataFile>
+        <SessionFile>/Data_old/winding_L_torque_circulation_20Nm_1000rpm_250703100823d/winding_L_torque_circulation_20Nm_1000rpm_250703100823d.imsession</SessionFile>
+        <LabelFile modified="5250945423859162126">/Data_old/winding_L_torque_circulation_20Nm_1000rpm_250703100823d/label.label</LabelFile>
+        <Labels>
+          <Label count="1" length="89.9992187">winding_L_torque_circulation</Label>
+        </Labels>
+        <CustomColumnValues />
+      </Session>
+    </DataSet>
+  </Database>
+  <CustomColumns>
+    <CustomColumn id="389783a2-1075-4782-a323-11ab55f88619" name="Category 1" internalName="Category 1" />
+  </CustomColumns>
+</ImagimobStudio>
