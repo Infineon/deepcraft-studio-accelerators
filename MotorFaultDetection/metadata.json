@@ -1,0 +1,19 @@
+{
+  "title": "Motor Fault Detection",
+  "description": "Use a convolutional neural network to diagnose motor faults in real time",
+  "long_description": "Employing a convolutional neural network to diagnose 12 separate motor faults including multi-modal faults.",
+  "algorithm": "Classification",
+  "sensors": ["Vibration", "Current", "Torque", "Speed"],
+  "domain": ["Electrical Signals", "Motion and Vibration"],
+  "application": ["Automotive"],
+  "use_case": ["Fault Detection"],
+  "kit": ["PSOC\u2122 Edge AI Kit"],
+  "device": ["PSOC\u2122 Edge"],
+  "type": ["Model Development"],
+  "workflow": ["ML Development"],
+  "thumbnail_image_id": "automotive_machine_maintenance.webp",
+  "main_image_id": "automotive_machine_maintenance.webp",
+  "brand_image_id": "deepcraft.webp",
+  "brand_url": "https://www.infineon.com/design-resources/embedded-software/deepcraft-edge-ai-solutions",
+  "links": [{"label": "Download", "url": "https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio", "heading": "Access Project via DEEPCRAFT\u2122 Studio", "sub-heading": "Download and install DEEPCRAFT\u2122 Studio to fully access this project and start developing your Edge AI product"}, {"label": "GitHub", "heading": "Project Repository", "sub-heading": "Get more details about this project", "url": "https://github.com/Infineon/deepcraft-studio-accelerators/tree/main/MotorFaultDetection"}]
+}
