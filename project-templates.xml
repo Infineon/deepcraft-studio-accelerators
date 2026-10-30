@@ -365,15 +365,15 @@
         <PackageNoData url="https://api.imagimob.com/v1/Data/Object/RoadUsersDetection-8768a66-5.16.6759.65534.no-data.zip" size="14976365"/>
       </Dialog>
     </Template>
-    <Template training="true">
+    <Template>
       <DisplayName>Ground Obstacle Detection (TOF)</DisplayName>
       <Description>Recognize if there are objects on the ground like toys, hedgehogs, balls, humans, and other obstacles in a gray scale TOF image.</Description>
       <DisplayPath>/Studio Accelerators/Object Detection/TOF Camera</DisplayPath>
       <LicenseTags/>
       <Dialog>
         <DefaultProjectName>GroundObstacleDetectionTOF</DefaultProjectName>
-        <Package url="https://api.imagimob.com/v1/Data/Object/GroundObstacleDetectionTOF-8768a66-5.16.6759.65534.zip" size="154826010"/>
-        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/GroundObstacleDetectionTOF-8768a66-5.16.6759.65534.no-data.zip" size="68068332"/>
+        <Package url="https://api.imagimob.com/v1/Data/Object/GroundObstacleDetectionTOF-e4e8d66-5.16.6822.65534.zip" size="154825568"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/GroundObstacleDetectionTOF-e4e8d66-5.16.6822.65534.no-data.zip" size="62251638"/>
       </Dialog>
     </Template>
     <Template training="true">
