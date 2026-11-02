@@ -7,8 +7,8 @@
 
 | Metric | Value |
 | --- | --- |
-| Accuracy | 1.0000 |
-| F1 Score | 1.0000 |
+| Accuracy | 0.9995 |
+| F1 Score | 0.9993 |
 
 ### Confusion Matrix
 
@@ -17,36 +17,36 @@
 | (none) | 0 | 0 | 0 | 0 |
 | Benign | 0 | 283 | 0 | 0 |
 | Normal_Skin | 0 | 0 | 300 | 0 |
-| Suspicious | 0 | 0 | 0 | 1433 |
+| Suspicious | 0 | 1 | 0 | 1432 |
 
 ## Validation
 
 | Metric | Value |
 | --- | --- |
-| Accuracy | 0.9295 |
-| F1 Score | 0.9176 |
+| Accuracy | 0.9314 |
+| F1 Score | 0.9190 |
 
 ### Confusion Matrix
 
 | True \ Pred | (none) | Benign | Normal_Skin | Suspicious |
 | --- | --- | --- | --- | --- |
 | (none) | 0 | 0 | 0 | 0 |
-| Benign | 0 | 81 | 0 | 21 |
-| Normal_Skin | 0 | 0 | 66 | 2 |
-| Suspicious | 0 | 13 | 1 | 341 |
+| Benign | 0 | 82 | 0 | 20 |
+| Normal_Skin | 0 | 1 | 65 | 2 |
+| Suspicious | 0 | 13 | 0 | 342 |
 
 ## Test
 
 | Metric | Value |
 | --- | --- |
-| Accuracy | 0.9310 |
-| F1 Score | 0.9129 |
+| Accuracy | 0.9176 |
+| F1 Score | 0.8952 |
 
 ### Confusion Matrix
 
 | True \ Pred | (none) | Benign | Normal_Skin | Suspicious |
 | --- | --- | --- | --- | --- |
 | (none) | 0 | 0 | 0 | 0 |
-| Benign | 0 | 73 | 1 | 20 |
-| Normal_Skin | 0 | 0 | 75 | 3 |
-| Suspicious | 0 | 11 | 1 | 338 |
+| Benign | 0 | 67 | 1 | 26 |
+| Normal_Skin | 0 | 0 | 76 | 2 |
+| Suspicious | 0 | 13 | 1 | 336 |
