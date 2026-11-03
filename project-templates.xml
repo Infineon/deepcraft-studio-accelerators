@@ -201,15 +201,15 @@
         <PackageNoData url="https://api.imagimob.com/v1/Data/Object/DrillMaterialDetectionMicrophone-408d039-5.16.7121.65534.no-data.zip" size="690396"/>
       </Dialog>
     </Template>
-    <Template training="true">
+    <Template>
       <DisplayName>Gunshot Detection</DisplayName>
       <Description>Use a microphone to identify gunshots.</Description>
       <DisplayPath>/Studio Accelerators/Classification/Microphone</DisplayPath>
       <LicenseTags/>
       <Dialog>
         <DefaultProjectName>GunshotDetection</DefaultProjectName>
-        <Package url="https://api.imagimob.com/v1/Data/Object/GunshotDetection-e4e8d66-5.16.6822.65534.zip" size="305910975"/>
-        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/GunshotDetection-e4e8d66-5.16.6822.65534.no-data.zip" size="4429009"/>
+        <Package url="https://api.imagimob.com/v1/Data/Object/GunshotDetection-408d039-5.16.7121.65534.zip" size="305878790"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/GunshotDetection-408d039-5.16.7121.65534.no-data.zip" size="4420676"/>
       </Dialog>
     </Template>
     <Template>
@@ -601,15 +601,15 @@
         <PackageNoData url="https://api.imagimob.com/v1/Data/Object/LawnSurfaceDetection-e4e8d66-5.16.6822.65534.no-data.zip" size="8347706"/>
       </Dialog>
     </Template>
-    <Template training="true">
+    <Template>
       <DisplayName>Arc Fault Detection</DisplayName>
       <Description>Detect residential AC arc faults from electrical current using a CNN binary classifier.</Description>
       <DisplayPath>/Studio Accelerators/Classification/Electrical Signals</DisplayPath>
       <LicenseTags/>
       <Dialog>
         <DefaultProjectName>ArcFaultDetection</DefaultProjectName>
-        <Package url="https://api.imagimob.com/v1/Data/Object/ArcFaultDetection-e4e8d66-5.16.6822.65534.zip" size="78229265"/>
-        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/ArcFaultDetection-e4e8d66-5.16.6822.65534.no-data.zip" size="1178562"/>
+        <Package url="https://api.imagimob.com/v1/Data/Object/ArcFaultDetection-408d039-5.16.7121.65534.zip" size="78276325"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/ArcFaultDetection-408d039-5.16.7121.65534.no-data.zip" size="1218554"/>
       </Dialog>
     </Template>
     <Template training="true">
