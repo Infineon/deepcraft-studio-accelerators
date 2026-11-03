@@ -201,15 +201,15 @@
         <PackageNoData url="https://api.imagimob.com/v1/Data/Object/DrillMaterialDetectionMicrophone-408d039-5.16.7121.65534.no-data.zip" size="690396"/>
       </Dialog>
     </Template>
-    <Template training="true">
+    <Template>
       <DisplayName>Gunshot Detection</DisplayName>
       <Description>Use a microphone to identify gunshots.</Description>
       <DisplayPath>/Studio Accelerators/Classification/Microphone</DisplayPath>
       <LicenseTags/>
       <Dialog>
         <DefaultProjectName>GunshotDetection</DefaultProjectName>
-        <Package url="https://api.imagimob.com/v1/Data/Object/GunshotDetection-e4e8d66-5.16.6822.65534.zip" size="305910975"/>
-        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/GunshotDetection-e4e8d66-5.16.6822.65534.no-data.zip" size="4429009"/>
+        <Package url="https://api.imagimob.com/v1/Data/Object/GunshotDetection-408d039-5.16.7121.65534.zip" size="305878790"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/GunshotDetection-408d039-5.16.7121.65534.no-data.zip" size="4420676"/>
       </Dialog>
     </Template>
     <Template>
@@ -365,15 +365,15 @@
         <PackageNoData url="https://api.imagimob.com/v1/Data/Object/RoadUsersDetection-e4e8d66-5.16.6822.65534.no-data.zip" size="8025169"/>
       </Dialog>
     </Template>
-    <Template training="true">
+    <Template>
       <DisplayName>Ground Obstacle Detection (TOF)</DisplayName>
       <Description>Recognize if there are objects on the ground like toys, hedgehogs, balls, humans, and other obstacles in a gray scale TOF image.</Description>
       <DisplayPath>/Studio Accelerators/Object Detection/TOF Camera</DisplayPath>
       <LicenseTags/>
       <Dialog>
         <DefaultProjectName>GroundObstacleDetectionTOF</DefaultProjectName>
-        <Package url="https://api.imagimob.com/v1/Data/Object/GroundObstacleDetectionTOF-e4e8d66-5.16.6822.65534.zip" size="154825568"/>
-        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/GroundObstacleDetectionTOF-e4e8d66-5.16.6822.65534.no-data.zip" size="62251638"/>
+        <Package url="https://api.imagimob.com/v1/Data/Object/GroundObstacleDetectionTOF-408d039-5.16.7121.65534.zip" size="154825715"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/GroundObstacleDetectionTOF-408d039-5.16.7121.65534.no-data.zip" size="62251720"/>
       </Dialog>
     </Template>
     <Template training="true">
@@ -502,15 +502,15 @@
     <!-- <PackageNoData url="https://api.imagimob.com/v1/Data/Object/VegetablesFruitsDetection-d2c8b1b-5.15.5983.65534.no-data.zip" size="13608677"/> -->
     <!-- </Dialog> -->
     <!-- </Template> -->
-    <Template training="true">
+    <Template>
       <DisplayName>Golf Balls Detection</DisplayName>
       <Description>Detects golf balls in the image frame.</Description>
       <DisplayPath>/Studio Accelerators/Object Detection/Camera</DisplayPath>
       <LicenseTags/>
       <Dialog>
         <DefaultProjectName>GolfBallDetection</DefaultProjectName>
-        <Package url="https://api.imagimob.com/v1/Data/Object/GolfBallDetection-e4e8d66-5.16.6822.65534.zip" size="79951252"/>
-        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/GolfBallDetection-e4e8d66-5.16.6822.65534.no-data.zip" size="6677284"/>
+        <Package url="https://api.imagimob.com/v1/Data/Object/GolfBallDetection-408d039-5.16.7121.65534.zip" size="79951238"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/GolfBallDetection-408d039-5.16.7121.65534.no-data.zip" size="6677254"/>
       </Dialog>
     </Template>
     <Template>
@@ -601,15 +601,15 @@
         <PackageNoData url="https://api.imagimob.com/v1/Data/Object/LawnSurfaceDetection-e4e8d66-5.16.6822.65534.no-data.zip" size="8347706"/>
       </Dialog>
     </Template>
-    <Template training="true">
+    <Template>
       <DisplayName>Arc Fault Detection</DisplayName>
       <Description>Detect residential AC arc faults from electrical current using a CNN binary classifier.</Description>
       <DisplayPath>/Studio Accelerators/Classification/Electrical Signals</DisplayPath>
       <LicenseTags/>
       <Dialog>
         <DefaultProjectName>ArcFaultDetection</DefaultProjectName>
-        <Package url="https://api.imagimob.com/v1/Data/Object/ArcFaultDetection-e4e8d66-5.16.6822.65534.zip" size="78229265"/>
-        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/ArcFaultDetection-e4e8d66-5.16.6822.65534.no-data.zip" size="1178562"/>
+        <Package url="https://api.imagimob.com/v1/Data/Object/ArcFaultDetection-408d039-5.16.7121.65534.zip" size="78276325"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/ArcFaultDetection-408d039-5.16.7121.65534.no-data.zip" size="1218554"/>
       </Dialog>
     </Template>
     <Template training="true">
