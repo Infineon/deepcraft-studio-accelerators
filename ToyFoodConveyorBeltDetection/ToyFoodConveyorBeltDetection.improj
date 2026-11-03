@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ImagimobStudio version="1.1.0">
-  <Job id="57e28823-c8a7-11f1-a571-b7c2fc55fc89" />
+  <Job id="f7bc5597-d6c2-11f1-b17b-39c1b84dd863" />
   <ProjectType>ObjectDetection</ProjectType>
   <ProjectId>96e135c4-907e-493a-b100-b819b3e9f475</ProjectId>
   <ModelFactory>
@@ -65,6 +65,47 @@
     </AdvancedOptions>
     <IsNasEnabled>False</IsNasEnabled>
   </ModelFactory>
+  <Models>
+    <Model name="yolo26n-size320-batch16-epoch1000" id="9ce179db-b9dc-4022-8e01-e2b2511e9a30">
+      <LossFunction>CategoricalCrossentropy</LossFunction>
+      <Epochs>1000</Epochs>
+      <BatchSize>16</BatchSize>
+      <SplitCount>16</SplitCount>
+      <Patience>40</Patience>
+      <TrainingEnvironment>
+      </TrainingEnvironment>
+      <Optimizer>
+        <LearningRate>0.001</LearningRate>
+        <WeightDecay>0.0001</WeightDecay>
+      </Optimizer>
+      <Network inshape="[320,240,3]" intype="Float32" infreq="1" outshape="[17]" outtype="Float32" />
+      <BuildSteps>
+        <Training />
+        <ConfusionMatrix />
+      </BuildSteps>
+      <SymbolWeights override="True">
+        <SymbolWeight symbol="unlabeled" weight="1" />
+        <SymbolWeight symbol="Takeaway Box" weight="1" />
+        <SymbolWeight symbol="Popcorn" weight="1" />
+        <SymbolWeight symbol="Coffee" weight="1" />
+        <SymbolWeight symbol="Ice cream cone" weight="1" />
+        <SymbolWeight symbol="Dumplings" weight="1" />
+        <SymbolWeight symbol="Fries" weight="1" />
+        <SymbolWeight symbol="Oreos" weight="1" />
+        <SymbolWeight symbol="Bananas" weight="1" />
+        <SymbolWeight symbol="Candy" weight="1" />
+        <SymbolWeight symbol="Drink" weight="1" />
+        <SymbolWeight symbol="Lollipop" weight="1" />
+        <SymbolWeight symbol="Popsicle" weight="1" />
+        <SymbolWeight symbol="Croissant" weight="1" />
+        <SymbolWeight symbol="Rice" weight="1" />
+        <SymbolWeight symbol="Milk" weight="1" />
+        <SymbolWeight symbol="Edge AI Kit" weight="1" />
+      </SymbolWeights>
+      <Preprocessor override="False" inshape="[320,240,3]" intype="Float32" infreq="0" outshape="[320,240,3]" outtype="Float32" />
+      <Postprocessor override="False" inshape="[128,3]" intype="Float32" infreq="1" outshape="[128,3]" outtype="Float32" />
+    </Model>
+  </Models>
   <Database balance="LabelCount" redistributionScope="OnlyUnassigned">
     <SymbolMap>
       <Symbol name="unlabeled" id="0" weight="1" />
