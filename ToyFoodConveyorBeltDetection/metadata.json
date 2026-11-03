@@ -1,0 +1,19 @@
+{
+  "title": "ToyFoodConveyorBeltDetection",
+  "description": "Object detection is used on 16 types of toy food travelling along a conveyor belt.",
+  "long_description": "This project was built for a demo in order to showcase multiple complex objects being detected at the same time, while in motion on a conveyor belt. It was developed in around 20 hours and is part of a larger application for detecting toy foods.",
+  "algorithm": "Object Detection",
+  "sensors": ["Camera"],
+  "domain": ["Vision"],
+  "application": ["Industrial IoT", "Smart Manufacturing"],
+  "use_case": ["Anomaly Detection", "Entrance Counting", "Entry and Exit Detection", "Object Detection"],
+  "kit": ["PSOC\u2122 Edge AI Kit", "PSOC\u2122 Edge Eval Kit"],
+  "device": ["PSOC\u2122 Edge"],
+  "type": ["Model Development"],
+  "workflow": ["ML Development"],
+  "thumbnail_image_id": "industrial_assembly_line_hmi.webp",
+  "main_image_id": "industrial_assembly_line_hmi.webp",
+  "brand_image_id": "deepcraft.webp",
+  "brand_url": "https://www.infineon.com/design-resources/embedded-software/deepcraft-edge-ai-solutions",
+  "links": [{"label": "Download", "url": "https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio", "heading": "Access Project via DEEPCRAFT\u2122 Studio", "sub-heading": "Download and install DEEPCRAFT\u2122 Studio to fully access this project and start developing your Edge AI product"}, {"label": "GitHub", "heading": "Project Repository", "sub-heading": "Get more details about this project", "url": "https://github.com/Infineon/deepcraft-studio-accelerators/tree/main/ToyFoodConveyorBeltDetection"}]
+}
