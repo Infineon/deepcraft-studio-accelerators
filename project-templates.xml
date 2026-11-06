@@ -365,15 +365,15 @@
         <PackageNoData url="https://api.imagimob.com/v1/Data/Object/RoadUsersDetection-1379e8f-5.16.7192.0-dev.no-data.zip" size="8025287"/>
       </Dialog>
     </Template>
-    <Template training="true">
+    <Template>
       <DisplayName>Ground Obstacle Detection (TOF)</DisplayName>
       <Description>Recognize if there are objects on the ground like toys, hedgehogs, balls, humans, and other obstacles in a gray scale TOF image.</Description>
       <DisplayPath>/Studio Accelerators/Object Detection/TOF Camera</DisplayPath>
       <LicenseTags/>
       <Dialog>
         <DefaultProjectName>GroundObstacleDetectionTOF</DefaultProjectName>
-        <Package url="https://api.imagimob.com/v1/Data/Object/GroundObstacleDetectionTOF-1379e8f-5.16.7192.0-dev.zip" size="155371096"/>
-        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/GroundObstacleDetectionTOF-1379e8f-5.16.7192.0-dev.no-data.zip" size="62628877"/>
+        <Package url="https://api.imagimob.com/v1/Data/Object/GroundObstacleDetectionTOF-c203c96-5.16.7204.0-dev.zip" size="154825999"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/GroundObstacleDetectionTOF-c203c96-5.16.7204.0-dev.no-data.zip" size="62252004"/>
       </Dialog>
     </Template>
     <Template training="true">
@@ -601,15 +601,15 @@
         <PackageNoData url="https://api.imagimob.com/v1/Data/Object/LawnSurfaceDetection-1379e8f-5.16.7192.0-dev.no-data.zip" size="8315176"/>
       </Dialog>
     </Template>
-    <Template training="true">
+    <Template>
       <DisplayName>Arc Fault Detection</DisplayName>
       <Description>Detect residential AC arc faults from electrical current using a CNN binary classifier.</Description>
       <DisplayPath>/Studio Accelerators/Classification/Electrical Signals</DisplayPath>
       <LicenseTags/>
       <Dialog>
         <DefaultProjectName>ArcFaultDetection</DefaultProjectName>
-        <Package url="https://api.imagimob.com/v1/Data/Object/ArcFaultDetection-1379e8f-5.16.7192.0-dev.zip" size="78310073"/>
-        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/ArcFaultDetection-1379e8f-5.16.7192.0-dev.no-data.zip" size="1234182"/>
+        <Package url="https://api.imagimob.com/v1/Data/Object/ArcFaultDetection-c203c96-5.16.7204.0-dev.zip" size="78242601"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/ArcFaultDetection-c203c96-5.16.7204.0-dev.no-data.zip" size="1197138"/>
       </Dialog>
     </Template>
     <Template training="true">
