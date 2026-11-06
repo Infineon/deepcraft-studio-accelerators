@@ -7,76 +7,76 @@
 
 | Metric | Value |
 | --- | --- |
-| Accuracy | 0.9034 |
-| F1 Score | 0.8518 |
-| mAP@0.5 | 0.9034 |
-| mAP@0.5:0.95 | 0.6496 |
+| Accuracy | 0.9346 |
+| F1 Score | 0.8889 |
+| mAP@0.5 | 0.9346 |
+| mAP@0.5:0.95 | 0.7140 |
 
 ### Per-class mAP
 
 | Class | mAP@0.5 | mAP@0.5:0.95 |
 | --- | --- | --- |
-| ambulance | 0.9230 | 0.7026 |
-| fire_truck | 0.8842 | 0.6105 |
-| police_car | 0.9030 | 0.6356 |
+| ambulance | 0.9456 | 0.7625 |
+| fire_truck | 0.9204 | 0.6787 |
+| police_car | 0.9377 | 0.7007 |
 
 ### Confusion Matrix
 
 | True \ Pred | (none) | ambulance | fire_truck | police_car |
 | --- | --- | --- | --- | --- |
-| (none) | 0 | 615 | 344 | 334 |
-| ambulance | 45 | 904 | 11 | 8 |
-| fire_truck | 58 | 6 | 587 | 3 |
-| police_car | 92 | 17 | 2 | 931 |
+| (none) | 0 | 275 | 161 | 197 |
+| ambulance | 48 | 909 | 7 | 4 |
+| fire_truck | 56 | 9 | 589 | 0 |
+| police_car | 75 | 8 | 4 | 955 |
 
 ## Validation
 
 | Metric | Value |
 | --- | --- |
-| Accuracy | 0.8616 |
-| F1 Score | 0.8110 |
-| mAP@0.5 | 0.8616 |
-| mAP@0.5:0.95 | 0.6019 |
+| Accuracy | 0.8900 |
+| F1 Score | 0.8362 |
+| mAP@0.5 | 0.8900 |
+| mAP@0.5:0.95 | 0.6718 |
 
 ### Per-class mAP
 
 | Class | mAP@0.5 | mAP@0.5:0.95 |
 | --- | --- | --- |
-| ambulance | 0.8897 | 0.6736 |
-| fire_truck | 0.8212 | 0.5414 |
-| police_car | 0.8739 | 0.5907 |
+| ambulance | 0.8871 | 0.7057 |
+| fire_truck | 0.8758 | 0.6501 |
+| police_car | 0.9072 | 0.6596 |
 
 ### Confusion Matrix
 
 | True \ Pred | (none) | ambulance | fire_truck | police_car |
 | --- | --- | --- | --- | --- |
-| (none) | 0 | 167 | 142 | 113 |
-| ambulance | 20 | 288 | 16 | 4 |
-| fire_truck | 21 | 3 | 193 | 2 |
-| police_car | 32 | 9 | 0 | 314 |
+| (none) | 0 | 83 | 58 | 84 |
+| ambulance | 35 | 282 | 5 | 6 |
+| fire_truck | 28 | 4 | 187 | 0 |
+| police_car | 35 | 7 | 0 | 313 |
 
 ## Test
 
 | Metric | Value |
 | --- | --- |
-| Accuracy | 0.8795 |
-| F1 Score | 0.8316 |
-| mAP@0.5 | 0.8795 |
-| mAP@0.5:0.95 | 0.6216 |
+| Accuracy | 0.9090 |
+| F1 Score | 0.8651 |
+| mAP@0.5 | 0.9090 |
+| mAP@0.5:0.95 | 0.6835 |
 
 ### Per-class mAP
 
 | Class | mAP@0.5 | mAP@0.5:0.95 |
 | --- | --- | --- |
-| ambulance | 0.8809 | 0.6623 |
-| fire_truck | 0.8784 | 0.5967 |
-| police_car | 0.8792 | 0.6059 |
+| ambulance | 0.8905 | 0.7081 |
+| fire_truck | 0.9203 | 0.6795 |
+| police_car | 0.9163 | 0.6627 |
 
 ### Confusion Matrix
 
 | True \ Pred | (none) | ambulance | fire_truck | police_car |
 | --- | --- | --- | --- | --- |
-| (none) | 0 | 137 | 123 | 105 |
-| ambulance | 37 | 295 | 8 | 6 |
-| fire_truck | 20 | 5 | 195 | 1 |
-| police_car | 43 | 11 | 0 | 303 |
+| (none) | 0 | 89 | 64 | 67 |
+| ambulance | 40 | 296 | 6 | 4 |
+| fire_truck | 18 | 6 | 197 | 0 |
+| police_car | 31 | 7 | 0 | 319 |
