@@ -2,17 +2,17 @@ Min max of model weights
 
 | Layer type         |         Min |            Max |
 |:-------------------|------------:|---------------:|
-| Conv1D             |    -9.20085 |    7.07074     |
-| BatchNormalization | -2034.13    |    1.39764e+06 |
-| Conv1D             |    -6.64671 |    5.25717     |
-| BatchNormalization |   -23.9602  |  694.896       |
-| Conv1D             |    -6.47111 |    5.21225     |
-| BatchNormalization |   -35.1874  | 1209.91        |
-| Conv1D             |    -6.30553 |    6.65071     |
-| BatchNormalization |   -17.6194  |  557.304       |
-| Conv1D             |    -4.89533 |    9.75847     |
-| BatchNormalization |    -8.14413 |  400.251       |
-| LSTM               |    -9.24769 |    9.63033     |
-| Dense              |    -8.29432 |   11.3735      |
-| BatchNormalization |    -7.03409 |  165.971       |
-| Dense              |   -10.2901  |    0.541744    |
+| Conv1D             |   -12.7824  |    7.12856     |
+| BatchNormalization | -2910.67    |    3.20207e+06 |
+| Conv1D             |    -4.83083 |    6.32352     |
+| BatchNormalization |   -21.7505  |  355.669       |
+| Conv1D             |    -6.30684 |    7.0482      |
+| BatchNormalization |   -26.8203  | 1471.71        |
+| Conv1D             |    -7.02904 |    5.17031     |
+| BatchNormalization |   -27.317   |  717.845       |
+| Conv1D             |    -4.84671 |    6.87136     |
+| BatchNormalization |   -14.7264  |  942.286       |
+| LSTM               |    -8.87386 |    9.7593      |
+| Dense              |   -11.1822  |    8.84233     |
+| BatchNormalization |    -6.19245 |  186.155       |
+| Dense              |   -11.6859  |    1.38187     |
