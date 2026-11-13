@@ -7,88 +7,88 @@
 
 | Metric | Value |
 | --- | --- |
-| Accuracy | 0.9852 |
-| F1 Score | 0.9664 |
-| mAP@0.5 | 0.9852 |
-| mAP@0.5:0.95 | 0.7742 |
+| Accuracy | 0.9645 |
+| F1 Score | 0.9267 |
+| mAP@0.5 | 0.9645 |
+| mAP@0.5:0.95 | 0.7528 |
 
 ### Per-class mAP
 
 | Class | mAP@0.5 | mAP@0.5:0.95 |
 | --- | --- | --- |
-| obstacle | 0.9737 | 0.7548 |
-| toy | 0.9899 | 0.8048 |
-| ball | 0.9882 | 0.7716 |
-| human | 0.9826 | 0.7171 |
-| hedgehog | 0.9917 | 0.8226 |
+| obstacle | 0.9436 | 0.7110 |
+| toy | 0.9620 | 0.7568 |
+| ball | 0.9698 | 0.7834 |
+| human | 0.9752 | 0.7216 |
+| hedgehog | 0.9719 | 0.7914 |
 
 ### Confusion Matrix
 
 | True \ Pred | (none) | obstacle | toy | ball | human | hedgehog |
 | --- | --- | --- | --- | --- | --- | --- |
-| (none) | 0 | 404 | 74 | 183 | 28 | 47 |
-| obstacle | 31 | 2104 | 0 | 0 | 3 | 0 |
-| toy | 20 | 1 | 1443 | 1 | 0 | 3 |
-| ball | 3 | 0 | 0 | 858 | 0 | 5 |
-| human | 3 | 0 | 1 | 0 | 176 | 0 |
-| hedgehog | 6 | 0 | 1 | 3 | 0 | 988 |
+| (none) | 0 | 542 | 117 | 168 | 13 | 169 |
+| obstacle | 82 | 2053 | 0 | 0 | 3 | 0 |
+| toy | 23 | 8 | 1315 | 4 | 0 | 118 |
+| ball | 19 | 0 | 0 | 820 | 0 | 27 |
+| human | 5 | 5 | 0 | 0 | 170 | 0 |
+| hedgehog | 2 | 0 | 0 | 1 | 0 | 995 |
 
 ## Validation
 
 | Metric | Value |
 | --- | --- |
-| Accuracy | 0.9770 |
-| F1 Score | 0.9520 |
-| mAP@0.5 | 0.9770 |
-| mAP@0.5:0.95 | 0.7703 |
+| Accuracy | 0.9568 |
+| F1 Score | 0.9240 |
+| mAP@0.5 | 0.9568 |
+| mAP@0.5:0.95 | 0.7466 |
 
 ### Per-class mAP
 
 | Class | mAP@0.5 | mAP@0.5:0.95 |
 | --- | --- | --- |
-| obstacle | 0.9592 | 0.7265 |
-| toy | 0.9892 | 0.8127 |
-| ball | 0.9819 | 0.8019 |
-| human | 0.9646 | 0.7096 |
-| hedgehog | 0.9899 | 0.8010 |
+| obstacle | 0.9478 | 0.7063 |
+| toy | 0.9705 | 0.7852 |
+| ball | 0.9655 | 0.8148 |
+| human | 0.9444 | 0.6680 |
+| hedgehog | 0.9559 | 0.7589 |
 
 ### Confusion Matrix
 
 | True \ Pred | (none) | obstacle | toy | ball | human | hedgehog |
 | --- | --- | --- | --- | --- | --- | --- |
-| (none) | 0 | 41 | 9 | 16 | 3 | 8 |
-| obstacle | 2 | 173 | 0 | 0 | 0 | 0 |
-| toy | 3 | 0 | 165 | 0 | 0 | 0 |
-| ball | 0 | 0 | 0 | 92 | 0 | 1 |
-| human | 1 | 0 | 0 | 0 | 17 | 0 |
-| hedgehog | 1 | 0 | 1 | 0 | 0 | 115 |
+| (none) | 0 | 52 | 15 | 12 | 0 | 30 |
+| obstacle | 6 | 169 | 0 | 0 | 0 | 0 |
+| toy | 1 | 1 | 154 | 0 | 0 | 12 |
+| ball | 2 | 0 | 0 | 89 | 0 | 2 |
+| human | 1 | 1 | 0 | 0 | 16 | 0 |
+| hedgehog | 2 | 0 | 0 | 0 | 0 | 115 |
 
 ## Test
 
 | Metric | Value |
 | --- | --- |
-| Accuracy | 0.9661 |
-| F1 Score | 0.9361 |
-| mAP@0.5 | 0.9661 |
-| mAP@0.5:0.95 | 0.7665 |
+| Accuracy | 0.9567 |
+| F1 Score | 0.9287 |
+| mAP@0.5 | 0.9567 |
+| mAP@0.5:0.95 | 0.7791 |
 
 ### Per-class mAP
 
 | Class | mAP@0.5 | mAP@0.5:0.95 |
 | --- | --- | --- |
-| obstacle | 0.9276 | 0.7180 |
-| toy | 0.9808 | 0.8284 |
-| ball | 0.9681 | 0.7733 |
-| human | 0.9750 | 0.7062 |
-| hedgehog | 0.9788 | 0.8066 |
+| obstacle | 0.9658 | 0.7399 |
+| toy | 0.9535 | 0.7984 |
+| ball | 0.9595 | 0.7994 |
+| human | 0.9444 | 0.7782 |
+| hedgehog | 0.9600 | 0.7796 |
 
 ### Confusion Matrix
 
 | True \ Pred | (none) | obstacle | toy | ball | human | hedgehog |
 | --- | --- | --- | --- | --- | --- | --- |
-| (none) | 0 | 25 | 9 | 7 | 4 | 6 |
-| obstacle | 1 | 102 | 0 | 0 | 0 | 0 |
-| toy | 1 | 0 | 69 | 1 | 0 | 0 |
-| ball | 1 | 0 | 0 | 44 | 0 | 1 |
-| human | 0 | 0 | 0 | 0 | 9 | 0 |
-| hedgehog | 2 | 0 | 0 | 1 | 0 | 54 |
+| (none) | 0 | 35 | 7 | 6 | 0 | 15 |
+| obstacle | 4 | 99 | 0 | 0 | 0 | 0 |
+| toy | 0 | 0 | 63 | 1 | 0 | 7 |
+| ball | 3 | 0 | 0 | 42 | 0 | 1 |
+| human | 1 | 0 | 0 | 0 | 8 | 0 |
+| hedgehog | 2 | 0 | 0 | 0 | 0 | 55 |
