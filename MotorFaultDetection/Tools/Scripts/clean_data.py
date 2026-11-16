@@ -1,10 +1,10 @@
-from pathlib import Path
-import shutil
+import argparse
 import re
 import csv
 import pandas as pd
 
 
+from pathlib import Path
 
 current_frequency = 12800
 target_frequency = 640
@@ -12,15 +12,33 @@ target_frequency = 640
 frequency_divisor = current_frequency // target_frequency
 
 
+
+
+
+
+parser = argparse.ArgumentParser()
+
+parser.add_argument("-i", "--input_directory", required=True, help="Directory of original dataset")
+parser.add_argument("-o", "--output_directory", required=True, help="Output directory of transformed dataset")
+parser.add_argument("-m", "--mapping_file_output", default=None, help="Optional directory to output mapping file. If empty no mapping file is generated")
+
+args = parser.parse_args()
+
+
+
+
+
 # Output location of the transformed dataset
-dataset_dir = Path([PATH])
+dataset_dir = Path(args.output_directory)
 
 # Location of the original dataset
-orig_dataset_dir = Path([PATH])
+orig_dataset_dir = Path(args.input_directory)
 
-mapping_location = Path([PATH])
 
 data_files = list(orig_dataset_dir.rglob("*.csv"))
+
+if args.mapping_file_output:
+    mapping_location = Path(args.mapping_file_output)
 
 
 label_mapping = dict.fromkeys(
@@ -66,7 +84,12 @@ mappings = []
 
 
 # Failsafe for when input files DO NOT contain a code
-failsafe = 0
+
+labels = ['bearing', 'bend', 'broken_bar', 'broken_bar_and_bearing', 'dynamic_eccentricity', 'dynamic_eccentricity_and_bearing', 'health', 'static_eccentricity', 'static_eccentricity_and_bearing', 'voltage_unbalance_L', 'winding', 'winding_and_bearing']
+failsafe = dict.fromkeys(labels, 0)
+
+processed_file_codes = []
+
 
 for data_file in data_files:
     label, circulation_type = re.findall(
@@ -82,11 +105,12 @@ for data_file in data_files:
 
     code = re.findall(r"_(\d*d?)$", full_name)
     # Check if the file does not have a code or if the code provided is already in use from another file
-    if not code or dataset_dir.joinpath(label).joinpath(code[0]).exists():
-        code = f"{label}_{failsafe}"
-        failsafe += 1
+    if not code or code in processed_file_codes:
+        code = f"{label}_{failsafe[label]}"
+        failsafe[label] += 1
     else:
         code = code[0]
+    processed_file_codes.append(code)
 
     data_destination = dataset_dir.joinpath(label).joinpath(code)
     data_destination.mkdir(parents=True, exist_ok=True)
@@ -94,9 +118,8 @@ for data_file in data_files:
     mappings.append([full_name, code])
 
     final_time = 0
-    labels = ["time", "speed","torque","motor_vibration_X","motor_vibration_Y","motor_vibration_Z","motor_current_A","motor_current_B","motor_current_C"]
-    df = pd.read_csv(data_file, names=labels, index_col=False)
-    # print(df)
+    motor_labels = ["time", "speed","torque","motor_vibration_X","motor_vibration_Y","motor_vibration_Z","motor_current_A","motor_current_B","motor_current_C"]
+    df = pd.read_csv(data_file, names=motor_labels, index_col=False)
 
     df = df.iloc[::frequency_divisor]
     final_time = df['time'].iloc[-1]
@@ -118,12 +141,12 @@ for data_file in data_files:
         if label != "health":
             writer.writerow([0, final_time, label, 1.0, ""])
 
-
-with open(mapping_location.joinpath("file_mappings.csv"), "w", newline="") as data_csv:
-    writer = csv.writer(data_csv, delimiter=",")
-    writer.writerow([
-        "Original",
-        "New"
-        ])
-    for mapping in mappings:
-        writer.writerow(mapping)
+if args.mapping_file_output:
+    with open(mapping_location.joinpath("file_mappings.csv"), "w", newline="") as data_csv:
+        writer = csv.writer(data_csv, delimiter=",")
+        writer.writerow([
+            "Original",
+            "New"
+            ])
+        for mapping in mappings:
+            writer.writerow(mapping)
