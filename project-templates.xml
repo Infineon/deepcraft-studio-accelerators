@@ -65,15 +65,15 @@
         <PackageNoData url="https://api.imagimob.com/v1/ReadyModels/Object/rm-snore__rm-snore-studio-project-release-v2.0-nodata.zip" size="8030985"/>
       </Dialog>
     </Template>
-    <Template training="true">
+    <Template>
       <DisplayName>Human Activity Detection</DisplayName>
       <Description>Detect whether a person is performing different activities e.g. walking</Description>
       <DisplayPath>/Studio Accelerators/Classification/IMU &amp; Vibration</DisplayPath>
       <LicenseTags/>
       <Dialog>
         <DefaultProjectName>HumanActivity</DefaultProjectName>
-        <Package url="https://api.imagimob.com/v1/Data/Object/HumanActivity-c203c96-5.16.7204.0-dev.zip" size="1320136549"/>
-        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/HumanActivity-c203c96-5.16.7204.0-dev.no-data.zip" size="734434"/>
+        <Package url="https://api.imagimob.com/v1/Data/Object/HumanActivity-2674aa8-5.16.7318.0-dev.zip" size="1319919819"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/HumanActivity-2674aa8-5.16.7318.0-dev.no-data.zip" size="537664"/>
       </Dialog>
     </Template>
     <Template>
@@ -86,15 +86,15 @@
         <Package url="https://api.imagimob.com/v1/Data/Object/EmptyClassificationProject-2674aa8-5.16.7318.0-dev.zip" size="1115"/>
       </Dialog>
     </Template>
-    <Template training="true">
+    <Template>
       <DisplayName>Fall Detection (Belt-mounted)</DisplayName>
       <Description>Detect if the user has fallen. It's intended to be placed on a belt or waist.</Description>
       <DisplayPath>/Studio Accelerators/Classification/IMU &amp; Vibration</DisplayPath>
       <LicenseTags/>
       <Dialog>
         <DefaultProjectName>FallDetection</DefaultProjectName>
-        <Package url="https://api.imagimob.com/v1/Data/Object/FallDetection-c203c96-5.16.7204.0-dev.zip" size="885666584"/>
-        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/FallDetection-c203c96-5.16.7204.0-dev.no-data.zip" size="497959"/>
+        <Package url="https://api.imagimob.com/v1/Data/Object/FallDetection-2674aa8-5.16.7318.0-dev.zip" size="885932163"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/FallDetection-2674aa8-5.16.7318.0-dev.no-data.zip" size="705063"/>
       </Dialog>
     </Template>
     <Template>
@@ -299,15 +299,15 @@
         <PackageNoData url="https://api.imagimob.com/v1/Data/Object/MovementTypeDetection-2674aa8-5.16.7318.0-dev.no-data.zip" size="836056"/>
       </Dialog>
     </Template>
-    <Template training="true">
+    <Template>
       <DisplayName>Vacuum Cleaner Surface Detection (MIC)</DisplayName>
       <Description>Microphone-based surface detection for vacuum cleaners (Floor/Carpet/Air)</Description>
       <DisplayPath>/Studio Accelerators/Classification/Microphone</DisplayPath>
       <LicenseTags/>
       <Dialog>
         <DefaultProjectName>SurfaceDetectionMicrophone</DefaultProjectName>
-        <Package url="https://api.imagimob.com/v1/Data/Object/SurfaceDetectionMicrophone-c203c96-5.16.7204.0-dev.zip" size="1001423648"/>
-        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/SurfaceDetectionMicrophone-c203c96-5.16.7204.0-dev.no-data.zip" size="1136741"/>
+        <Package url="https://api.imagimob.com/v1/Data/Object/SurfaceDetectionMicrophone-2674aa8-5.16.7318.0-dev.zip" size="1001457698"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/SurfaceDetectionMicrophone-2674aa8-5.16.7318.0-dev.no-data.zip" size="1138084"/>
       </Dialog>
     </Template>
     <Template>
@@ -546,15 +546,15 @@
         <PackageNoData url="https://api.imagimob.com/v1/Data/Object/EmergencyVehicleDetection-2674aa8-5.16.7318.0-dev.no-data.zip" size="7382710"/>
       </Dialog>
     </Template>
-    <Template training="true">
+    <Template>
       <DisplayName>Safety Vest and Helmet Detection</DisplayName>
       <Description>Detect safety vests and hard hats in an image.</Description>
       <DisplayPath>/Studio Accelerators/Object Detection/Camera</DisplayPath>
       <LicenseTags/>
       <Dialog>
         <DefaultProjectName>SafetyVestHelmetDetection</DefaultProjectName>
-        <Package url="https://api.imagimob.com/v1/Data/Object/SafetyVestHelmetDetection-c203c96-5.16.7204.0-dev.zip" size="452282153"/>
-        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/SafetyVestHelmetDetection-c203c96-5.16.7204.0-dev.no-data.zip" size="9730848"/>
+        <Package url="https://api.imagimob.com/v1/Data/Object/SafetyVestHelmetDetection-2674aa8-5.16.7318.0-dev.zip" size="452282067"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/SafetyVestHelmetDetection-2674aa8-5.16.7318.0-dev.no-data.zip" size="9730762"/>
       </Dialog>
     </Template>
     <Template training="true">
@@ -667,15 +667,15 @@
         <PackageNoData url="https://api.imagimob.com/v1/Data/Object/BirdDroneDetection-c203c96-5.16.7204.0-dev.no-data.zip" size="7615884"/>
       </Dialog>
     </Template>
-    <Template training="true">
+    <Template>
       <DisplayName>PCB Defects Detection</DisplayName>
       <Description>Detect PCB manufacturing defects in an image.</Description>
       <DisplayPath>/Studio Accelerators/Object Detection/Camera</DisplayPath>
       <LicenseTags/>
       <Dialog>
         <DefaultProjectName>PCBDefectsDetection</DefaultProjectName>
-        <Package url="https://api.imagimob.com/v1/Data/Object/PCBDefectsDetection-c203c96-5.16.7204.0-dev.zip" size="226866625"/>
-        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/PCBDefectsDetection-c203c96-5.16.7204.0-dev.no-data.zip" size="9325175"/>
+        <Package url="https://api.imagimob.com/v1/Data/Object/PCBDefectsDetection-2674aa8-5.16.7318.0-dev.zip" size="226866544"/>
+        <PackageNoData url="https://api.imagimob.com/v1/Data/Object/PCBDefectsDetection-2674aa8-5.16.7318.0-dev.no-data.zip" size="9325094"/>
       </Dialog>
     </Template>
     <Template>
