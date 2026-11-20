@@ -16,7 +16,7 @@ As with all DEEPCRAFT™ Studio Accelerators, this project can be modified to yo
 
 This project is intended as a demonstration rather than a direct production deployment, as the specific toy objects were chosen for showcase purposes. However, developers can replace the dataset with their own target objects travelling on a conveyor belt, utilizing the methods outlined below to build a proof-of-concept or production model.
 
-![Toy food objects on a tray with detection boxes](Resources/imgs/Example2.png)
+![Toy food objects on a tray with detection boxes](Resources/imgs/Example.png)
 
 ## Contents
 
@@ -42,7 +42,7 @@ This project is intended as a demonstration rather than a direct production depl
 | Takeaway Box | 1098 | 1099 |
 | unlabeled | 257 | 257 |
 
-- **`Models`**: Stores the trained YOLO26n model prepared for deployment on PSOC™ Edge E84. The same model can be used to generate code for either hardware target. Predictions for the trained job are stored beside it.
+- **`Models`**: Stores the trained YOLO26n model prepared for deployment on PSOC™ Edge E84 or PSOC™ Edge E86. The same model can be used to generate code for either hardware target. Predictions for the trained job are stored beside it.
 
 - **`Resources`**: Contains a handful of images shown in the README.
 
@@ -57,7 +57,7 @@ This project is intended as a demonstration rather than a direct production depl
 
 1. From the Graph UX above, click on 'Generate Source Code'.
 2. Select the hardware. This model will not work with anything less powerful than a PSOC™ Edge E84.
-3. Use ModusToolbox™ to deploy the model using the DEEPCRAFT Deploy Vision Code Example for PSOC™ Edge E84, following the instructions in that example.
+3. Use ModusToolbox™ to deploy the model using the DEEPCRAFT Deploy Vision Code Example for PSOC™ Edge E84/E86, following the instructions in that example.
 4. Place the objects on a surface to verify model performance with a camera and screen attached to your kit.
 
 In the demonstration setup, the model files were integrated into application code for a conveyor belt system, combining object detection with tracking and optical character recognition (OCR), which are outside the scope of this model but achievable on PSOC™ Edge. The diagram below illustrates the machine vision processing flow.
@@ -66,7 +66,7 @@ In the demonstration setup, the model files were integrated into application cod
 
 ## Sensor(s) & Data
 
-Image data is stored as DEEPCRAFT™ Studio object-detection sessions under `Data/`. Each session contains one JPG or PNG image and `LabelXml` annotations with normalized center bounding boxes (`X`, `Y`, `Width`, `Height`). The model input is 320×240×3. `ImageSize` in `ToyFoodConveyorBeltDetection.improj` is 320, so the long side of each 4:3 image becomes 320 pixels and the short side becomes 240. That is the largest input used for this PSOC™ Edge E84 model, and it matches the E86 demo poster.
+Image data is stored as DEEPCRAFT™ Studio object-detection sessions under `Data/`. Each session contains one JPG or PNG image and `LabelXml` annotations with normalized center bounding boxes (`X`, `Y`, `Width`, `Height`). The model input is 320×240×3. `ImageSize` in `ToyFoodConveyorBeltDetection.improj` is 320, so the long side of each 4:3 image becomes 320 pixels and the short side becomes 240.
 
 The camera used for the 2592×1944 images was an IMX335, selected for optimal performance at the range of around 32cm, which was the distance considered optimal by the demo designers. The IMX335 was attached via USB. The 320×240 PNG frames were collected over CSI-2.
 
@@ -103,7 +103,7 @@ Since DEEPCRAFT™ Studio uses the YOLO retraining, it also has access to utiliz
 
 For selecting data augmentations it is important to understand your dataset and the demo environment setup in order to motivate solid choices.
 
-YOLO26n and a 320-pixel image size (model input 320×240×3) were selected since it was the largest resolution deployable on PSOC™ Edge E84 and the newest version of YOLO. Most comparisons have given quite negligible differences in quality between the different YOLO versions and since YOLO26n performed well the others were not explored in this project.
+YOLO26n and a 320-pixel image size (model input 320×240×3) were selected since it was the largest resolution deployable on PSOC™ Edge and the newest version of YOLO. Most comparisons have given quite negligible differences in quality between the different YOLO versions and since YOLO26n performed well the others were not explored in this project.
 
 ### Summary of key takeaways
 
