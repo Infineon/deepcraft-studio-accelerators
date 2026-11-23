@@ -6,7 +6,7 @@ This project is designed to work exclusively with DEEPCRAFT™ Studio. Download 
 
 The **Motor Fault Detection** Accelerator trains a classifier on one 2.2 kW three-phase induction motor. It separates a healthy motor from 11 fault classes. Some classes are two faults at once, such as a winding fault together with a bearing defect.
 
-Healthy recordings use Studio's `unlabeled` class. In this project, `unlabeled` means a healthy motor.
+Healthy recordings use Studio's `unlabeled` class. In this project, `unlabeled` indicates a healthy motor.
 
 - **Problem:** Real-time detection of various different types of motor faults.
 - **Machine learning method:** CNN classification
@@ -29,12 +29,12 @@ The merge and the conversion to Studio sessions are done by [`Resources/Scripts/
 
 The sessions are prepared from the [MCC5-THU motor fault dataset](https://data.mendeley.com/datasets/6s3dggj9mw/1) (DOI [10.17632/6s3dggj9mw.1](https://doi.org/10.17632/6s3dggj9mw.1)), described by Chen, Liu, Li, Zou, He, and Zhou [[1]](#citations).
 
-Each source recording is one 90 s run on a single 2.2 kW three-phase induction motor, with up to two faults present at once. Eight signals were sampled together at 12.8 kHz: a key-phase pulse, shaft torque, vibration on three axes at the drive end, and current on the three motor phases. This project keeps every 20th sample, so the files in `Data/` are 640 Hz, 57,600 rows, and end at 89.9984375 s. No low-pass filter was applied before keeping those samples. Aliasing means that anything in those signals faster than 320 Hz (half of 640 Hz) is folded into the slower recording and can no longer be separated from a real slow change. The paper recorded at 12.8 kHz so those faster fault frequencies would still be in the source files.
+Each source recording is one 90 s run on a single 2.2 kW three-phase induction motor, with up to two faults present at once. Eight signals were sampled together at 12.8 kHz: a key-phase pulse, shaft torque, vibration on three axes at the drive end, and current on the three motor phases. This project keeps every 20th sample, so the files in `Data/` are 640 Hz, 57,600 rows, and end at 89.9984375 s. No low-pass filter was applied before keeping those samples. Aliasing means that anything in those 12.8kHz signals faster than 320 Hz (half of 640 Hz) is folded into the slower recording and can no longer be separated from a real slow change.
 
 The source uses two operating modes. Both the torque level and the speed number appear in every filename. The word `speed_circulation` or `torque_circulation` says which quantity moves during the run. The speeds below were measured from the key-phase pulse spacing, counted as one pulse per revolution, on the committed files.
 
-- **`speed_circulation`.** Shaft speed changes during the 90 s. Torque stays in a narrow band. On a file named `20Nm_1000rpm`, the pulse rate moved between about 480 and 985 rpm while the torque column stayed near 0.20. On a file named `20Nm_3000rpm`, the pulse rate moved between about 2560 and 2954 rpm while torque stayed near −0.25.
-- **`torque_circulation`.** Shaft speed stays near the named rpm and the torque column moves. On a file named `20Nm_1000rpm`, the pulse rate stayed near 985 rpm. On a file named `40Nm_3000rpm`, it stayed near 2954 rpm while torque moved.
+- **`speed_circulation`.** Shaft speed changes during the 90 s and the torque stays in a narrow band. 
+- **`torque_circulation`.** Shaft speed stays near the named rpm and the torque column moves. 
 
 A full source label has 12 runs: six `speed_circulation` and six `torque_circulation`. A few labels are short of that or have one extra run, and that is why the class sizes below are uneven. `voltage_unbalance_L` has only the six `torque_circulation` runs, so that class has no variable-speed recordings. `bearing_inner_H` has no `speed_circulation` run at 20 Nm and 3000 rpm (11 runs). `bearing_outer_H` has two recordings of `speed_circulation` at 20 Nm and 3000 rpm, `250707105700` and `250821110519` (13 runs). Those gaps and the extra run are why `bearing` has 84 sessions and `voltage_unbalance_L` has 6.
 
@@ -97,7 +97,7 @@ Healthy sessions live in `Data/health`. Their label file is the header only, so 
 
 ### What each fault is
 
-A healthy motor is the `unlabeled` class. The other eleven names are faults that were built into this one machine. The faults were physically introduced, for example by precision machining or laser etching, so each fault condition is controllable and repeatable ([MCC5-THU Motor Benchmark Datasets](https://github.com/liuzy0708/MCC5-THU-Motor-Benchmark-Datasets)). Several names are two faults at once. Current carries the electromagnetic faults and vibration carries the mechanical ones. Torque and the key-phase pulse are the operating context for every class.
+A healthy motor is the `unlabeled` class. The other eleven names are faults that were built into this one machine. The faults were physically introduced by, amongst other methods; precision machining or laser etching, so each fault condition is controllable and repeatable ([MCC5-THU Motor Benchmark Datasets](https://github.com/liuzy0708/MCC5-THU-Motor-Benchmark-Datasets)). Several labels are two faults. Current carries the electromagnetic faults and vibration carries the mechanical ones. Torque and the key-phase pulse are the operating context for every class.
 
 | Class | Physical type | What it means |
 | --- | --- | --- |
@@ -134,7 +134,7 @@ The collection procedure for a new rig is the one in the source paper [[1]](#cit
 
 The data comes from a 2.2 kW three-phase induction motor driving a two-stage parallel gearbox and a magnetic powder brake. This setup is typical of general industrial equipment rather than a passenger vehicle traction drive:
 
-- **Industrial sites (Smart Manufacturing and Industrial IoT):** Three-phase induction motors are workhorses in factory floors, processing plants, pumping stations, ventilation fans, compressors, and material handling systems. The faults studied here are standard failure modes in industrial machinery.
+- **Industrial sites (Smart Manufacturing and Industrial IoT):** Three-phase induction motors are workhorses in factory floors, processing plants, pumping stations, ventilation fans, compressors, and material handling systems. The faults studied here are standard modes of failure in industrial machinery.
 - **Automotive and electric mobility:** While electric vehicles and industrial drives share fault mechanisms (such as bearing wear and winding insulation breakdown), automotive traction drives typically use permanent-magnet synchronous motors (PMSM) or interior PMSM with high-voltage inverters, different switching frequencies, and dynamic driving cycles. The machine learning methodology transfers, but the trained model cannot be directly deployed in an automotive drive without retraining on vehicle-specific motor data.
 - **Deployment considerations:** Deployed industrial motors rarely feature dedicated torque sensors or key-phase pulse sensors on the shaft. Real-world condition monitoring systems predominantly rely on motor current signature analysis (MCSA) and vibration accelerometers. Adapting this Accelerator to a plant usually involves training a model on the subset of available sensors (e.g., three-phase current and vibration).
 
