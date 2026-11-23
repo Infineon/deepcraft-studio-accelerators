@@ -103,13 +103,12 @@ for data_file in data_files:
 
     full_name = data_file.stem
 
-    code = re.findall(r"_(\d*d?)$", full_name)
+    found = re.findall(r"_(\d*d?)$", full_name)
+    code = found[0] if found else ""
     # Check if the file does not have a code or if the code provided is already in use from another file
     if not code or code in processed_file_codes:
         code = f"{label}_{failsafe[label]}"
         failsafe[label] += 1
-    else:
-        code = code[0]
     processed_file_codes.append(code)
 
     data_destination = dataset_dir.joinpath(label).joinpath(code)
