@@ -25,11 +25,13 @@ The merge and the conversion to Studio sessions are done by [`Resources/Scripts/
 
 **`Resources`** — [`file_mappings.csv`](Resources/file_mappings.csv) maps each source CSV to its session folder. [`Scripts/clean_data.py`](Resources/Scripts/clean_data.py) converts the source CSVs into Studio sessions. `Images/image.png` is the motor test-rig photograph from the source paper.
 
+**`Tools`** — [`Scripts/clean_data.py`](Tools/Scripts/clean_data.py) prepares the MCC5-THU source CSVs for import into DEEPCRAFT™ Studio. [`Scripts/README.md`](Tools/Scripts/README.md) describes how to run it.
+
 ## Sensor(s) & Data
 
 The sessions are prepared from the [MCC5-THU motor fault dataset](https://data.mendeley.com/datasets/6s3dggj9mw/1) (DOI [10.17632/6s3dggj9mw.1](https://doi.org/10.17632/6s3dggj9mw.1)), described by Chen, Liu, Li, Zou, He, and Zhou [[1]](#citations).
 
-Each source recording is one 90 s run on a single 2.2 kW three-phase induction motor, with up to two faults present at once. Eight signals were sampled together at 12.8 kHz: a key-phase pulse, shaft torque, vibration on three axes at the drive end, and current on the three motor phases. This project keeps every 20th sample, so the files in `Data/` are 640 Hz, 57,600 rows, and end at 89.9984375 s. No low-pass filter was applied before keeping those samples. Aliasing means that anything in those 12.8kHz signals faster than 320 Hz (half of 640 Hz) is folded into the slower recording and can no longer be separated from a real slow change.
+Each source recording is one 90 second run on a single 2.2 kW three-phase induction motor, with up to two faults present at once. Eight signals were sampled together at 12.8 kHz: a key-phase pulse, shaft torque, vibration on three axes at the drive end, and current on the three motor phases. This project keeps every 20th sample, so the files in `Data/` are 640 Hz, 57,600 rows, and end at 89.9984375s. No low-pass filter was applied before keeping those samples. Aliasing means that anything in those 12.8kHz signals faster than 320 Hz (half of 640 Hz) is folded into the slower recording and can no longer be separated from a real slow change.
 
 The source uses two operating modes. Both the torque level and the speed number appear in every filename. The word `speed_circulation` or `torque_circulation` says which quantity moves during the run. The speeds below were measured from the key-phase pulse spacing, counted as one pulse per revolution, on the committed files.
 
