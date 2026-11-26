@@ -35,9 +35,8 @@ Each source recording is one 90 second run on a single 2.2 kW three-phase induct
 
 The source uses two operating modes. Both the torque level and the speed number appear in every filename. The word `speed_circulation` or `torque_circulation` says which quantity moves during the run. The speeds below were measured from the key-phase pulse spacing, counted as one pulse per revolution, on the committed files.
 
-- **`speed_circulation`.** Shaft speed changes during the 90 s and the torque stays in a narrow band. 
-- **`torque_circulation`.** Shaft speed stays near the named rpm and the torque column moves. 
-
+- **`speed_circulation`.** Shaft speed changes during the 90 s and the torque stays in a narrow band between 0.088 and 0.135 on average and with the pulse rate shifting between 230rpm and 4005rpm on average. 
+- **`torque_circulation`.** Shaft speed stays near the named rpm the with the pulse rate shifting between 1504rpm and 3664rpm on average and the torque column moves between 0.087 and 0.239 on average.
 A full source label has 12 runs: six `speed_circulation` and six `torque_circulation`. A few labels are short of that or have one extra run, and that is why the class sizes below are uneven. `voltage_unbalance_L` has only the six `torque_circulation` runs, so that class has no variable-speed recordings. `bearing_inner_H` has no `speed_circulation` run at 20 Nm and 3000 rpm (11 runs). `bearing_outer_H` has two recordings of `speed_circulation` at 20 Nm and 3000 rpm, `250707105700` and `250821110519` (13 runs). Those gaps and the extra run are why `bearing` has 84 sessions and `voltage_unbalance_L` has 6.
 
 **Setup**
