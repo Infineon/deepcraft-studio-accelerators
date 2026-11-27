@@ -1,4 +1,4 @@
-﻿# Motor Fault Detection
+# Motor Fault Detection
 
 This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio).
 
@@ -17,15 +17,15 @@ Healthy recordings use Studio's `unlabeled` class. In this project, `unlabeled` 
 
 **`Data`** — 282 sessions at 640 Hz. Each fault session has one label covering the whole recording. A recording with two faults keeps a joined name, so static eccentricity together with a bearing defect is `static_eccentricity_and_bearing`. The source collection has 24 labels. This project keeps 12 classes by merging labels that differ only by severity or by which bearing surface is damaged. For example, `bearing_inner_L` and `bearing_outer_H` both become `bearing`. Healthy recordings stay in `Data/health` and use `unlabeled`.
 
-The merge and the conversion to Studio sessions are done by [`Resources/Scripts/clean_data.py`](Resources/Scripts/clean_data.py). Original filenames are listed in [`Resources/file_mappings.csv`](Resources/file_mappings.csv).
+The labels are merged, and the source CSVs are prepared for import, by [`Tools/Scripts/clean_data.py`](Tools/Scripts/clean_data.py). Original filenames are listed in [`Resources/file_mappings.csv`](Resources/file_mappings.csv).
 
 **`Models`** — Folder where the trained DEEPCRAFT model and its predictions are saved
 
 **`PreprocessorTrack`** — Folder where preprocessed data is saved.
 
-**`Resources`** — [`file_mappings.csv`](Resources/file_mappings.csv) maps each source CSV to its session folder. [`Scripts/clean_data.py`](Resources/Scripts/clean_data.py) converts the source CSVs into Studio sessions. `Images/image.png` is the motor test-rig photograph from the source paper.
+**`Resources`** — [`file_mappings.csv`](Resources/file_mappings.csv) maps each source CSV to its session folder. `Images/image.png` is the motor test-rig photograph from the source paper.
 
-**`Tools`** — [`Scripts/clean_data.py`](Tools/Scripts/clean_data.py) prepares the MCC5-THU source CSVs for import into DEEPCRAFT™ Studio. [`Scripts/README.md`](Tools/Scripts/README.md) describes how to run it.
+**`Tools`** — [`Scripts/clean_data.py`](Tools/Scripts/clean_data.py) prepares the MCC5-THU source CSVs for import into DEEPCRAFT™ Studio. [`Scripts/Readme.md`](Tools/Scripts/Readme.md) describes how to run it.
 
 ## Sensor(s) & Data
 
@@ -37,6 +37,7 @@ The source uses two operating modes. Both the torque level and the speed number 
 
 - **`speed_circulation`.** Shaft speed changes during the 90 s and the torque stays in a narrow band between 0.088 and 0.135 on average and with the pulse rate shifting between 230rpm and 4005rpm on average. 
 - **`torque_circulation`.** Shaft speed stays near the named rpm the with the pulse rate shifting between 1504rpm and 3664rpm on average and the torque column moves between 0.087 and 0.239 on average.
+
 A full source label has 12 runs: six `speed_circulation` and six `torque_circulation`. A few labels are short of that or have one extra run, and that is why the class sizes below are uneven. `voltage_unbalance_L` has only the six `torque_circulation` runs, so that class has no variable-speed recordings. `bearing_inner_H` has no `speed_circulation` run at 20 Nm and 3000 rpm (11 runs). `bearing_outer_H` has two recordings of `speed_circulation` at 20 Nm and 3000 rpm, `250707105700` and `250821110519` (13 runs). Those gaps and the extra run are why `bearing` has 84 sessions and `voltage_unbalance_L` has 6.
 
 **Setup**
@@ -98,7 +99,7 @@ Healthy sessions live in `Data/health`. Their label file is the header only, so 
 
 ### What each fault is
 
-A healthy motor is the `unlabeled` class. The other eleven names are faults that were built into this one machine. The faults were physically introduced by, amongst other methods; precision machining or laser etching, so each fault condition is controllable and repeatable ([MCC5-THU Motor Benchmark Datasets](https://github.com/liuzy0708/MCC5-THU-Motor-Benchmark-Datasets)). Several labels are two faults. Current carries the electromagnetic faults and vibration carries the mechanical ones. Torque and the key-phase pulse are the operating context for every class.
+A healthy motor is the `unlabeled` class. The other eleven names are faults that were built into this one machine. The faults were physically introduced, for example by precision machining or laser etching, so each fault condition is controllable and repeatable ([MCC5-THU Motor Benchmark Datasets](https://github.com/liuzy0708/MCC5-THU-Motor-Benchmark-Datasets)). Several names are two faults at once. Current carries the electromagnetic faults and vibration carries the mechanical ones. Torque and the key-phase pulse are the operating context for every class.
 
 | Class | Physical type | What it means |
 | --- | --- | --- |
