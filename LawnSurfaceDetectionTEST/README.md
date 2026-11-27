@@ -1,4 +1,4 @@
-# Lawn Surface Detection
+# Lawn Surface Detection TESTTTTTTTT
 
 This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
 
@@ -6,7 +6,7 @@ This project is designed to work exclusively with DEEPCRAFT™ Studio. Download 
 
 The **Lawn Surface Detection** project builds an end-to-end system that classifies ground surfaces for automower applications: mowable **grass**, non-mowable **soil** and **road**, and ornamental **flowers** that must be avoided.
 
-The object detection model is YOLO-based and it can be used in applications for
+The object detection model is YOLO-based and it can be used in applications for TEST TEST TEST
 
 - **Autonomous lawn mower navigation:** Detect mowable grass vs soil, road, and flowers so the robot stays on lawn and treats other surfaces as out of bounds
 - **Blade protection:** Confirm grass coverage before cutting; pause or reroute when soil, road, or flowers are in view
