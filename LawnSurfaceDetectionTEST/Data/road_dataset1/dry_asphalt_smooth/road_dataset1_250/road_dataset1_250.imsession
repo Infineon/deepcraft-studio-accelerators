@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ImagimobStudio version="0.9">
+  <Timeline id="df17ad3b-30ed-4f91-a8fb-1147d1cbd24e">
+    <Tracks>
+      <Track name="image" type="imagejpg">
+        <PayloadFile>road_dataset1_250.jpg</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="label" type="labelxml">
+        <PayloadFile>road_dataset1_250.labelxml</PayloadFile>
+        <Shape />
+      </Track>
+    </Tracks>
+  </Timeline>
+</ImagimobStudio>
